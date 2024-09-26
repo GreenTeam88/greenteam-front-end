@@ -9,6 +9,12 @@ module.exports = {
     './src/**/*.{js,ts,jsx,tsx,mdx}',
   ],
   theme: {
+    colors: {
+      primaryDefault: '#217946',
+      primaryGreenD1: '#091F12',
+      secondaryDefault: '#F56900',
+      secondaryLight: '#F8EFE4',
+    },
     extend: {},
   },
   plugins: [],
