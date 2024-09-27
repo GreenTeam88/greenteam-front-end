@@ -66,8 +66,10 @@ const RatingCard: React.FC<RatingInfo> = ({ stars, birthDate, description, image
 
 export const RatingSection = () => {
   return (
-    <div className="w-full bg-lightOrange flex items-center py-[122px] justify-center">
-      <div className="flex flex-col max-w-[1440px] gap-[44px] ">
+    <div className="w-full bg-lightOrange gap-[60px] max-w-full flex items-center py-[122px] justify-center">
+      <img src="/icons/arrowLeft.svg" />
+
+      <div className="flex flex-col max-w-[1440px] gap-[44px] items-center justify-center">
         <div className="flex items-center relative justify-between w-full ">
           <H2 className="text-primaryDefault">Wat vinden onze klanten?</H2>
           <img src="/home/googleRating.png" className="absolute top-1/2 -translate-y-1/2 right-0" />
@@ -78,6 +80,7 @@ export const RatingSection = () => {
           ))}
         </div>
       </div>
+      <img src="/icons/arrowLeft.svg" className="rotate-180" />
     </div>
   );
 };
