@@ -18,6 +18,7 @@ module.exports = {
       black20: '#1C1C1C',
       secondaryDefault: '#F56900',
       secondaryLight: '#F8EFE4',
+      lightOrange: '#F8EFE4',
       ...colors,
     },
     extend: {},

@@ -1,4 +1,5 @@
 import { Hero } from './_components/hero';
+import { RatingSection } from './_components/ratingSection';
 import { HomeSecondSection } from './_components/secondSection';
 
 export default function Home() {
@@ -6,6 +7,7 @@ export default function Home() {
     <div className="flex flex-col w-full">
       <Hero />
       <HomeSecondSection />
+      <RatingSection />
     </div>
   );
 }
