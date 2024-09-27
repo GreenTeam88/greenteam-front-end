@@ -1,6 +1,7 @@
 import { Hero } from './_components/hero';
 import { RatingSection } from './_components/ratingSection';
 import { HomeSecondSection } from './_components/secondSection';
+import { ServicesSection } from './_components/services';
 
 export default function Home() {
   return (
@@ -8,6 +9,7 @@ export default function Home() {
       <Hero />
       <HomeSecondSection />
       <RatingSection />
+      <ServicesSection />
     </div>
   );
 }
