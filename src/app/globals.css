@@ -3,5 +3,5 @@
 @tailwind utilities;
 
 .secondaryBtn {
-  @apply bg-secondaryDefault py-[12px] px-[20px] rounded-sm font-bold;
+  @apply text-[#fff] bg-secondaryDefault py-[12px] px-[20px] rounded-sm font-bold;
 }
