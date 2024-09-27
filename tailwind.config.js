@@ -1,3 +1,5 @@
+const colors = require('tailwindcss/colors');
+
 /** @type {import('tailwindcss').Config} */
 module.exports = {
   content: [
@@ -16,6 +18,7 @@ module.exports = {
       black20: '#1C1C1C',
       secondaryDefault: '#F56900',
       secondaryLight: '#F8EFE4',
+      ...colors,
     },
     extend: {},
   },

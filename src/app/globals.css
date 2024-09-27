@@ -21,3 +21,19 @@
 .headlineSemibold {
   @apply text-[16px] font-bold leading-5 tracking-[-2%];
 }
+
+.detailsTypography {
+  @apply text-[13px] leading-[14px] tracking-[-2%];
+}
+
+.H2 {
+  @apply font-bold text-[30px] leading-[37px] tracking-[-2%];
+}
+
+.bodyTextSemibold {
+  @apply text-[13px] font-semibold leading-[20px] tracking-[-2%];
+}
+
+.bodyText {
+  @apply text-[13px]  leading-[20px] tracking-[-2%];
+}
