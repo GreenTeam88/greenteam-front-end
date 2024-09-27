@@ -1,3 +1,9 @@
+import { Hero } from './_components/hero';
+
 export default function Home() {
-  return <h1 className=""></h1>;
+  return (
+    <div>
+      <Hero />
+    </div>
+  );
 }

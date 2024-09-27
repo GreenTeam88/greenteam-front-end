@@ -2,6 +2,22 @@
 @tailwind components;
 @tailwind utilities;
 
+/* theme buttons styles */
+
 .secondaryBtn {
-  @apply text-[#fff] bg-secondaryDefault py-[12px] px-[20px] rounded-sm font-bold;
+  @apply text-[#fff] bg-secondaryDefault py-[10.69px] px-[17.81px] rounded-sm font-bold  text-[14px];
+}
+
+.secondaryOutlinedBtn {
+  @apply text-secondaryDefault border border-secondaryDefault rounded-sm font-bold text-[13px] px-[17.81px] py-[10.69px];
+}
+
+.primaryBtn {
+  @apply bg-primaryDefault text-[#fff] font-bold  py-[10.69px] px-[17.81px] text-[13px];
+}
+
+/* theme typography styles */
+
+.headlineSemibold {
+  @apply text-[16px] font-bold leading-5 tracking-[-2%];
 }
