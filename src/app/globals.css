@@ -16,6 +16,10 @@
   @apply bg-primaryDefault text-[#fff] font-bold  py-[10.69px] px-[17.81px] text-[13px];
 }
 
+.primaryOutlinedBtn {
+  @apply py-[10.69px] px-[17.81px] rounded-sm bg-white text-primaryDefault text-[13px] font-bold;
+}
+
 /* theme typography styles */
 
 .headlineSemibold {
