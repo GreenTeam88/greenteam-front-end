@@ -9,7 +9,7 @@ export const FloorAndStairs = () => {
       <H2 className="text-primaryDefault">Je vloer of trap ook laten renoveren?</H2>
       <div className="flex gap-[22px]">
         {floorStairsImages.map((img) => (
-          <img src={img} className="w-[385px]" />
+          <img src={img} key={img} className="w-[385px]" />
         ))}
       </div>
       <PrimaryBtn>Offerte aanvragen</PrimaryBtn>

@@ -44,8 +44,8 @@ const RatingCard: React.FC<RatingInfo> = ({ stars, birthDate, description, image
     <div className="flex flex-col gap-[22px] bg-white  p-[22px] w-[387px] ">
       <div className="flex w-full  justify-between">
         <div className="flex ">
-          {Array.from({ length: stars }).map(() => (
-            <img src="/icons/star.svg" />
+          {Array.from({ length: stars }).map((item, index) => (
+            <img src="/icons/star.svg" key={index} />
           ))}
         </div>
         <img src="/icons/google.svg" />
@@ -53,7 +53,7 @@ const RatingCard: React.FC<RatingInfo> = ({ stars, birthDate, description, image
       <p>{description}</p>
       <div className="flex gap-[11px]">
         {images.map((imgSrc) => (
-          <img src={imgSrc} className="w-[43px] h-[43px] rounded-[4px]" />
+          <img src={imgSrc} key={imgSrc} className="w-[43px] h-[43px] rounded-[4px]" />
         ))}
       </div>
       <div className="flex flex-col">
@@ -76,7 +76,7 @@ export const RatingSection = () => {
         </div>
         <div className="flex gap-[20px]">
           {ratings.map((rating) => (
-            <RatingCard {...rating} />
+            <RatingCard key={rating.name} {...rating} />
           ))}
         </div>
       </div>

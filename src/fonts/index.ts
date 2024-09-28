@@ -1,4 +1,4 @@
-import { Open_Sans, Plus_Jakarta_Sans } from 'next/font/google';
+import { Open_Sans } from 'next/font/google';
 
 export const openSansFont = Open_Sans({ subsets: ['latin'] });
 

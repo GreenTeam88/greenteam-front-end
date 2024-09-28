@@ -112,12 +112,12 @@ export const HeaderLinksSection = () => {
     <div className="flex flex-col items-center gap-[39px]  justify-center ">
       <div className="flex gap-[33px] items-center ">
         {headerRoutes.slice(0, 6).map((route, index) => (
-          <HeaderBoldLink index={index} route={route} />
+          <HeaderBoldLink key={route.name} index={index} route={route} />
         ))}
       </div>
       <div className="flex gap-[50px] items-center">
         {headerRoutes.slice(6).map((route, index) => (
-          <HeaderLink route={route} index={index} />
+          <HeaderLink route={route} key={route.name} index={index} />
         ))}
       </div>
     </div>

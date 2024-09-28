@@ -38,7 +38,7 @@ export const HomeSecondSection = () => {
         <div className="flex gap-[33px]">
           <div className="flex flex-col w-[139px] gap-[55px] ">
             {tabs.slice(0, 2).map((tab) => (
-              <div className="flex flex-col items-center gap-[11px] ">
+              <div key={tab.title} className="flex flex-col items-center gap-[11px] ">
                 <img src={tab.iconSrc} width={77} />
                 <HeadlineSemibold className="text-center">{tab.title}</HeadlineSemibold>
                 <DetailsTypography className="text-center">{tab.description}</DetailsTypography>
@@ -47,7 +47,7 @@ export const HomeSecondSection = () => {
           </div>
           <div className="flex flex-col w-[139px] gap-[55px] ">
             {tabs.slice(2).map((tab) => (
-              <div className="flex flex-col gap-[11px] items-center ">
+              <div key={tab.title} className="flex flex-col gap-[11px] items-center ">
                 <img src={tab.iconSrc} width={77} />
                 <HeadlineSemibold className="text-center">{tab.title}</HeadlineSemibold>
                 <DetailsTypography className="text-center">{tab.description}</DetailsTypography>

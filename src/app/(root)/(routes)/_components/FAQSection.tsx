@@ -75,7 +75,7 @@ export const FAQSection = () => {
       </div>
       <div className="flex flex-col gap-[11px] ">
         {FAQs.map((FAQ) => (
-          <FAQCard {...FAQ} />
+          <FAQCard key={FAQ.question} {...FAQ} />
         ))}
       </div>
     </div>

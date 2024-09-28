@@ -1,5 +1,5 @@
 import { FAQSection } from './_components/FAQSection';
-import { FloorAndStairs } from './_components/floorAndStarisSection';
+import { FloorAndStairs } from './_components/floorAndStairsSection';
 import { GreenSection } from './_components/greenSection';
 import { Hero } from './_components/hero';
 import { RatingSection } from './_components/ratingSection';

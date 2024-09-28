@@ -63,7 +63,7 @@ export const ServicesSection = () => {
         <H2 className="text-primaryDefault">Onze diensten</H2>
         <div className="flex flex-wrap items-center justify-center gap-[23px] w-[1207px] max-w-full">
           {services.map((serviceInfo) => (
-            <ServiceCard {...serviceInfo} />
+            <ServiceCard key={serviceInfo.title} {...serviceInfo} />
           ))}
         </div>
       </div>
