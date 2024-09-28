@@ -41,3 +41,11 @@ export const BodyText: React.FC<HTMLAttributes<HTMLHeadingElement>> = ({ classNa
     </p>
   );
 };
+
+export const LinkTypography: React.FC<HTMLAttributes<HTMLHeadingElement>> = ({ className, children, ...props }) => {
+  return (
+    <p className={cn(className, 'link')} {...props}>
+      {children}
+    </p>
+  );
+};
