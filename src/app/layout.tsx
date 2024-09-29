@@ -4,6 +4,7 @@ import './globals.css';
 
 import { Inter } from 'next/font/google';
 
+import { Footer } from '@/components/layout/footer';
 import { Header } from '@/components/layout/header';
 import { cn } from '@/lib/tailwind';
 
@@ -20,6 +21,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
       <body className={cn(inter.className, 'flex flex-col items-center')}>
         <Header />
         {children}
+        <Footer />
       </body>
     </html>
   );

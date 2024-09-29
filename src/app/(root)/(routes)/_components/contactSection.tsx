@@ -1,19 +1,6 @@
 import { SecondaryOutlinedBtn } from '@/components/theme/buttons';
 import { BodyText, BodyTextSemibold, LinkTypography } from '@/components/theme/typography';
-
-interface OpeningTime {
-  day: string;
-  time: string;
-}
-const openingTimes: OpeningTime[] = [
-  { day: 'Maandag', time: '9:00 / 18:00' },
-  { day: 'Dinsdag:', time: '9:00 / 18:00' },
-  { day: 'Woensdag', time: '9:00 / 18:00' },
-  { day: 'Donderdag:', time: '9:00 / 18:00' },
-  { day: 'Vrijdag', time: '9:00 / 18:00' },
-  { day: 'Zaterdag', time: 'Gesloten' },
-  { day: 'Zondag', time: 'Gesloten' },
-];
+import { appConfig } from '@/config';
 
 export const ContactSection = () => {
   return (
@@ -53,7 +40,7 @@ export const ContactSection = () => {
             <div className="flex gap-[22px] ">
               <img src="/icons/clock.svg" className="h-fit" />
               <div className="flex flex-col">
-                {openingTimes.map((openingTime) => (
+                {appConfig.openingTimes.map((openingTime) => (
                   <div className="flex">
                     <BodyTextSemibold className="w-[120px]">{openingTime.day}</BodyTextSemibold>
                     <BodyText className="w-[120px]">{openingTime.time}</BodyText>

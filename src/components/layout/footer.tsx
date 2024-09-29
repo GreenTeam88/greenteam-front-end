@@ -1,0 +1,262 @@
+import React from 'react';
+
+import { appConfig } from '@/config';
+import { BodyText, BodyTextBold, BodyTextSemibold, HeadlineSemibold } from '../theme/typography';
+
+interface LinkInfo {
+  name: string;
+  path: string;
+}
+
+interface FooterColumnInfo {
+  title: string;
+  links: LinkInfo[];
+}
+
+const topFooterLinks: LinkInfo[] = [
+  { name: 'Home', path: '/' },
+  { name: 'Over ons', path: '/' },
+  { name: 'Diensten', path: '/' },
+  { name: 'Zakelijk', path: '/' },
+  { name: 'Veelgestelde vragen', path: '/' },
+  { name: 'Contact', path: '/' },
+];
+const footerColumnsInfo: FooterColumnInfo[] = [
+  {
+    title: 'Traprenovaties',
+    links: [
+      { name: 'Bekleden met PVC', path: '' },
+      { name: 'Bekleden met laminaat', path: '' },
+      { name: 'Bekleden met hout', path: '' },
+      { name: 'Bekleden met tapijt', path: '' },
+      { name: 'Bekleden met linoleum', path: '' },
+      { name: 'Schuren en behandelen', path: '' },
+      { name: 'Schuren en schilderen', path: '' },
+      { name: 'Hout look', path: '' },
+      { name: 'Beton look', path: '' },
+      { name: 'Marmer look', path: '' },
+      { name: 'Cement look', path: '' },
+      { name: 'Staal look', path: '' },
+      { name: 'BetonCiré Metal stuc', path: '' },
+      { name: 'BetonCiré Glamour stuc', path: '' },
+      { name: 'BetonCiré Brut', path: '' },
+      { name: 'BetonCiré Parel', path: '' },
+      { name: 'BetonCiré Croco', path: '' },
+      { name: 'BetonCiré Venetiaans', path: '' },
+      { name: 'BetonCiré Acoustic', path: '' },
+      { name: 'Open trap', path: '' },
+      { name: 'Dichte trap', path: '' },
+      { name: 'Verlichting', path: '' },
+      { name: 'Reinigingsservice', path: '' },
+      { name: 'Tapijt verwijderen', path: '' },
+    ],
+  },
+  {
+    title: 'Tegelen',
+    links: [
+      { name: 'Vloer', path: '' },
+      { name: 'Wand', path: '' },
+      { name: 'Badkamer', path: '' },
+      { name: 'Betonlook', path: '' },
+      { name: 'Houtlook', path: '' },
+      { name: 'Visgraat', path: '' },
+      { name: 'Portugees', path: '' },
+      { name: 'Marokkaans', path: '' },
+      { name: 'Marmer', path: '' },
+      { name: 'Keramisch', path: '' },
+      { name: 'Hexagon', path: '' },
+      { name: 'Vloeren', path: '' },
+      { name: 'Muren', path: '' },
+      { name: 'Badkamer', path: '' },
+      { name: 'Projecten', path: '' },
+    ],
+  },
+  {
+    title: 'Vloeren leggen',
+    links: [
+      { name: 'Parket leggen', path: '' },
+      { name: 'Laminaat leggen', path: '' },
+      { name: 'PVC leggen', path: '' },
+      { name: 'Tapijt leggen', path: '' },
+      { name: 'Linoleum leggen', path: '' },
+      { name: 'Visgraat', path: '' },
+      { name: 'Walvisgraat', path: '' },
+      { name: 'Hongaarse punt', path: '' },
+      { name: 'Weense punt', path: '' },
+      { name: 'Tegel', path: '' },
+      { name: 'Mozaïk of patroon', path: '' },
+      { name: 'Hexagon & 3D', path: '' },
+      { name: 'Tapis', path: '' },
+      { name: 'Bourgogne', path: '' },
+    ],
+  },
+  {
+    title: 'Vloer verwijderen',
+    links: [
+      { name: 'Parket', path: '' },
+      { name: 'PVC', path: '' },
+      { name: 'Hout', path: '' },
+      { name: 'Linoleum', path: '' },
+      { name: 'Kurk', path: '' },
+      { name: 'Tegels', path: '' },
+      { name: 'Marmer', path: '' },
+      { name: 'Graniet', path: '' },
+      { name: 'Lijmesten', path: '' },
+      { name: 'Vinyl', path: '' },
+      { name: 'Zandcement dekvloer', path: '' },
+    ],
+  },
+  {
+    title: 'Gietvloeren',
+    links: [
+      { name: 'Epoxy', path: '' },
+      { name: 'PU', path: '' },
+      { name: 'Betarhuh', path: '' },
+      { name: 'Woonbeton', path: '' },
+      { name: 'Badkamer', path: '' },
+      { name: 'Woonkamer', path: '' },
+      { name: 'Horecavloer', path: '' },
+      { name: 'Badkamer', path: '' },
+      { name: 'Pecinta kebugaran', path: '' },
+      { name: 'Horecavloer', path: '' },
+      { name: 'Winkelvloer', path: '' },
+    ],
+  },
+  {
+    title: 'Parket renovatie',
+    links: [
+      { name: 'Schuren en polijsten', path: '' },
+      { name: 'Schuren en lakken', path: '' },
+      { name: 'Schuren en olien', path: '' },
+      { name: 'Schuren en hardwaxen', path: '' },
+      { name: 'Aanhelen', path: '' },
+      { name: 'Uitbreiden', path: '' },
+      { name: 'Reparatie', path: '' },
+      { name: 'Drevelen', path: '' },
+      { name: 'V-groef frezen', path: '' },
+      { name: 'Plinten & Deklijsten', path: '' },
+    ],
+  },
+  {
+    title: 'Natuursteen behandelen',
+    links: [
+      { name: 'Marmer', path: '' },
+      { name: 'Hardsteen', path: '' },
+      { name: 'Travertin', path: '' },
+      { name: 'Leisteen', path: '' },
+      { name: 'Graniet', path: '' },
+      { name: 'Granito', path: '' },
+      { name: 'Terrazzo', path: '' },
+      { name: 'Natuursteen', path: '' },
+      { name: 'Basalt', path: '' },
+    ],
+  },
+  {
+    title: 'Stofferen',
+    links: [
+      { name: 'Trap', path: '' },
+      { name: 'Vloer', path: '' },
+      { name: 'Tapijttegels', path: '' },
+      { name: 'Meubels', path: '' },
+      { name: 'Deurmat', path: '' },
+      { name: 'Droogloopmat', path: '' },
+      { name: 'Rode loper', path: '' },
+      { name: 'Reinigingsservice', path: '' },
+    ],
+  },
+  {
+    title: 'Overig',
+    links: [
+      { name: 'Vloerverwarming', path: '' },
+      { name: 'Egaliseren', path: '' },
+      { name: 'Gietvloeren', path: '' },
+      { name: 'Tegelen', path: '' },
+      { name: 'Vloer verwijderen', path: '' },
+      { name: 'Natuursteen behandelen', path: '' },
+      { name: 'Opslag      ', path: '' },
+    ],
+  },
+];
+
+export const FooterColumn: React.FC<FooterColumnInfo> = ({ title, links }) => {
+  return (
+    <div className="flex flex-col w-[183px]  gap-[10px] ">
+      <BodyTextBold className="text-primaryDefault">{title}</BodyTextBold>
+      <div className="flex flex-col gap-2">
+        {links.map((link) => (
+          <BodyText>{link.name}</BodyText>
+        ))}
+      </div>
+    </div>
+  );
+};
+
+export const FooterTopSection = () => {
+  return (
+    <div className="flex items-center justify-between">
+      <img src={appConfig.logoSrcImg} />
+      <div className="flex gap-1 ">
+        {topFooterLinks.map((link) => (
+          <HeadlineSemibold key={link.name}>{link.name}</HeadlineSemibold>
+        ))}
+        <div className="flex gap-[22px]  px-6">
+          <img src="/icons/InstagramLogo.png" />
+          <img src="/icons/TiktokLogo.png" />
+        </div>
+      </div>
+    </div>
+  );
+};
+
+const FooterLightBorder = () => <div className="bg-black20 h-[1px] bg-opacity-20 w-full "></div>;
+
+const FooterColumns = () => {
+  return (
+    <div className="flex flex-col gap-[44px] w-full">
+      <div className="flex gap-[71px] ">
+        {footerColumnsInfo.slice(0, 5).map((columnInfo) => (
+          <FooterColumn {...columnInfo} />
+        ))}
+      </div>
+      <div className="flex gap-[71px] ">
+        {footerColumnsInfo.slice(5).map((columnInfo) => (
+          <FooterColumn {...columnInfo} />
+        ))}
+      </div>
+    </div>
+  );
+};
+
+const FooterBottomSection = () => {
+  return (
+    <>
+      <div className="flex flex-col gap-[10px]">
+        <BodyTextBold>Openingstijden</BodyTextBold>
+        <div className="flex gap-[15px] ">
+          {appConfig.openingTimes.map((openingTime) => (
+            <div className="flex gap-2">
+              <BodyTextSemibold>{openingTime.day}:</BodyTextSemibold>
+              <BodyText>{openingTime.time}</BodyText>
+            </div>
+          ))}
+        </div>
+      </div>
+      <div className="flex justify-between">
+        <BodyTextBold className="text-primaryDefault">GreenTeam is ontwikkeld door Achieve.nl © 2024. </BodyTextBold>
+        <BodyTextSemibold className="text-primaryDefault"> Algemene Voorwaardenㆍ Privacy Policy</BodyTextSemibold>
+      </div>
+    </>
+  );
+};
+
+export const Footer = () => {
+  return (
+    <div className="flex flex-col py-[55px]  px-[120px]  gap-[44px]">
+      <FooterTopSection />
+      <FooterLightBorder />
+      <FooterColumns />
+      <FooterLightBorder />
+      <FooterBottomSection />
+    </div>
+  );
+};

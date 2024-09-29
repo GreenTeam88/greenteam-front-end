@@ -33,6 +33,9 @@
   @apply text-[13px] leading-[14px] tracking-[-2%];
 }
 
+.bodyTextBold {
+  @apply text-[13px] font-bold leading-[20px] tracking-[-2%];
+}
 .H2 {
   @apply font-bold text-[30px] leading-[37px] tracking-[-2%];
 }
