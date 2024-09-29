@@ -10,7 +10,7 @@ import { ServicesSection } from './_components/services';
 
 export default function Home() {
   return (
-    <div className="flex flex-col items-center w-full">
+    <div className="flex flex-col relative z-0 items-center w-full">
       <Hero />
       <HomeSecondSection />
       <RatingSection />
