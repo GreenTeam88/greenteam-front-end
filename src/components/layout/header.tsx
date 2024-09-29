@@ -3,6 +3,7 @@
 import React, { Dispatch, SetStateAction, useState } from 'react';
 
 import { appConfig } from '@/config';
+import { cn } from '@/lib/tailwind';
 
 interface RouteWithPath {
   name: string;
@@ -152,7 +153,7 @@ const HeaderColumn: React.FC<HeaderColumnInfo & { index: number }> = ({ subPages
         <h5 className="text-sm font-semibold text-primaryDefault">{title}</h5>
         <div className="flex flex-col gap-1">
           {subPages.map((subPage) => (
-            <h5 className="text-sm font-semibold hover:text-primaryDefault">{subPage.name}</h5>
+            <h5 className="text-sm font-semibold hover:text-primaryDefault cursor-pointer">{subPage.name}</h5>
           ))}
         </div>
       </div>
@@ -199,7 +200,7 @@ export const HeaderBoldLink: React.FC<{
     <>
       <div
         onMouseOver={() => !hoveredLink && setHoveredLink(route.name)}
-        className="flex  items-center  cursor-pointer"
+        className={cn('flex  items-center  cursor-pointer', { 'text-primaryDefault': hoveredLink === route.name })}
       >
         <h5 className="font-bold text-[16px]">
           {route.name}
@@ -221,7 +222,7 @@ export const HeaderLink: React.FC<{
   return (
     <>
       <div onMouseOver={() => !hoveredLink && setHoveredLink(route.name)} className="flex  items-center cursor-pointer">
-        <h5 className="text-[16px]">
+        <h5 className={cn('text-[16px]', { 'text-primaryDefault': hoveredLink === route.name })}>
           {route.name}
           {'columns' in route && route.columns && <img width={15} src="/icons/dropDown.svg" className="inline mx-2" />}
         </h5>
@@ -263,7 +264,7 @@ export const HeaderLinksSection = () => {
         ))}
       </div>
       {hoveredLink && (
-        <div className="absolute z-10 border rounded-[10px] border-black20 border-opacity-20 top-[86px] w-full bg-white ">
+        <div className="absolute z-10 border rounded-[10px] border-black20 border-opacity-20 top-[88px] w-full bg-white ">
           <HeaderColumns hoveredLink={hoveredLink}></HeaderColumns>
         </div>
       )}
