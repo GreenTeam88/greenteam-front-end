@@ -186,7 +186,7 @@ export const FooterColumn: React.FC<FooterColumnInfo> = ({ title, links }) => {
       <BodyTextBold className="text-primaryDefault">{title}</BodyTextBold>
       <div className="flex flex-col gap-2">
         {links.map((link) => (
-          <BodyText>{link.name}</BodyText>
+          <BodyText key={link.name}>{link.name}</BodyText>
         ))}
       </div>
     </div>
@@ -225,12 +225,12 @@ const FooterColumns = () => {
     <div className="flex flex-col gap-[44px] w-full">
       <div className="flex gap-[71px] ">
         {footerColumnsInfo.slice(0, 5).map((columnInfo) => (
-          <FooterColumn {...columnInfo} />
+          <FooterColumn key={columnInfo.title} {...columnInfo} />
         ))}
       </div>
       <div className="flex gap-[71px] ">
         {footerColumnsInfo.slice(5).map((columnInfo) => (
-          <FooterColumn {...columnInfo} />
+          <FooterColumn {...columnInfo} key={columnInfo.title} />
         ))}
       </div>
     </div>
@@ -244,7 +244,7 @@ const FooterBottomSection = () => {
         <BodyTextBold>Openingstijden</BodyTextBold>
         <div className="flex gap-[15px] ">
           {appConfig.openingTimes.map((openingTime) => (
-            <div className="flex gap-2">
+            <div className="flex gap-2" key={openingTime.day}>
               <BodyTextSemibold>{openingTime.day}:</BodyTextSemibold>
               <BodyText>{openingTime.time}</BodyText>
             </div>

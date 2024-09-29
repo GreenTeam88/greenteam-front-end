@@ -146,14 +146,16 @@ const headerRoutes: HeaderRoute[] = [
   },
 ];
 
-const HeaderColumn: React.FC<HeaderColumnInfo & { index: number }> = ({ subPages, title, index }) => {
+const HeaderColumn: React.FC<HeaderColumnInfo & { index: number }> = ({ subPages, title }) => {
   return (
     <>
       <div className="flex flex-col gap-[11px]">
         <h5 className="text-sm font-semibold text-primaryDefault">{title}</h5>
         <div className="flex flex-col gap-1">
           {subPages.map((subPage) => (
-            <h5 className="text-sm font-semibold hover:text-primaryDefault cursor-pointer">{subPage.name}</h5>
+            <h5 key={subPage.name} className="text-sm font-semibold hover:text-primaryDefault cursor-pointer">
+              {subPage.name}
+            </h5>
           ))}
         </div>
       </div>
@@ -167,7 +169,7 @@ const HeaderColumns: React.FC<{ hoveredLink: string }> = ({ hoveredLink }) => {
   return (
     <div className="flex gap-[33px] py-[22px] px-[44px]">
       {hoveredRouteColumns.map((column, index) => (
-        <HeaderColumn {...column} index={index} />
+        <HeaderColumn key={column.title} {...column} index={index} />
       ))}
     </div>
   );

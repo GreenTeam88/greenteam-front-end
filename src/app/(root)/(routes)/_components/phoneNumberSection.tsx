@@ -1,4 +1,4 @@
-import { SecondaryOutlinedBtn, SmallSecondaryOutlinedBtn } from '@/components/theme/buttons';
+import { SmallSecondaryOutlinedBtn } from '@/components/theme/buttons';
 import { HeadlineSemibold } from '@/components/theme/typography';
 
 export const PhoneNumberSection = () => {
