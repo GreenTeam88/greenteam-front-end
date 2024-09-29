@@ -181,8 +181,16 @@ export const HeaderTopSection = () => {
         <div className="bg-[#37CD76] w-[15.32px] h-[16px] rounded-full"></div>
         <p className="font-semibold text-[22px] text-primaryGreenD1"> Liever iemand spreken? Bel 085 401 93 45</p>
         <div className="flex gap-[22px]">
-          <img src="/icons/InstagramLogo.png" />
-          <img src="/icons/TiktokLogo.png" />
+          <img
+            className="cursor-pointer"
+            onClick={() => window.open(appConfig.instagramAccount, '_blank')}
+            src="/icons/InstagramLogo.png"
+          />
+          <img
+            className="cursor-pointer"
+            onClick={() => window.open(appConfig.tiktokAccount, '_blank')}
+            src="/icons/TiktokLogo.png"
+          />
         </div>
       </div>
       <button className="secondaryBtn">Offerte aanvragen</button>
@@ -274,7 +282,7 @@ export const HeaderLinksSection = () => {
 
 export const Header = () => {
   return (
-    <div className="flex flex-col relative z-30 gap-[39px] max-w-[1440px] py-6 items-center bg-white">
+    <div className="flex sticky w-full  flex-col top-0 z-30 gap-[39px]  py-6 items-center bg-white">
       <HeaderTopSection />
       <HeaderLinksSection />
     </div>

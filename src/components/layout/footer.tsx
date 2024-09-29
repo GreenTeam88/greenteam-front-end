@@ -1,3 +1,5 @@
+'use client';
+
 import React from 'react';
 
 import { appConfig } from '@/config';
@@ -200,8 +202,16 @@ export const FooterTopSection = () => {
           <HeadlineSemibold key={link.name}>{link.name}</HeadlineSemibold>
         ))}
         <div className="flex gap-[22px]  px-6">
-          <img src="/icons/InstagramLogo.png" />
-          <img src="/icons/TiktokLogo.png" />
+          <img
+            className="cursor-pointer"
+            onClick={() => window.open(appConfig.instagramAccount, '_blank')}
+            src="/icons/InstagramLogo.png"
+          />
+          <img
+            className="cursor-pointer"
+            onClick={() => window.open(appConfig.instagramAccount, '_blank')}
+            src="/icons/TiktokLogo.png"
+          />
         </div>
       </div>
     </div>

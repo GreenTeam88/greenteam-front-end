@@ -5,15 +5,15 @@
 /* theme buttons styles */
 
 .secondaryBtn {
-  @apply text-[#fff] bg-secondaryDefault py-[10.69px] px-[17.81px] rounded-sm font-bold  text-[14px];
+  @apply text-[#fff] bg-secondaryDefault hover:text-primaryDefault py-[10.69px] px-[17.81px] rounded-sm font-bold  text-[14px];
 }
 
 .secondaryOutlinedBtn {
-  @apply text-secondaryDefault border border-secondaryDefault rounded-sm font-bold text-[13px] px-[17.81px] py-[10.69px];
+  @apply text-secondaryDefault  border hover:bg-secondaryDefault hover:text-white border-secondaryDefault rounded-sm font-bold text-[13px] px-[17.81px] py-[10.69px];
 }
 
 .primaryBtn {
-  @apply bg-primaryDefault text-[#fff] font-bold  py-[10.69px] px-[17.81px] text-[13px];
+  @apply bg-primaryDefault rounded-sm text-[#fff] font-bold  py-[10.69px] px-[17.81px] text-[13px];
 }
 
 .primaryOutlinedBtn {

@@ -53,7 +53,7 @@ const RatingCard: React.FC<RatingInfo> = ({ stars, birthDate, description, image
       <p>{description}</p>
       <div className="flex gap-[11px]">
         {images.map((imgSrc) => (
-          <img src={imgSrc} key={imgSrc} className="w-[43px] h-[43px] rounded-[4px]" />
+          <img src={imgSrc} key={imgSrc} className="w-[43px] hover:scale-[4] h-[43px] rounded-[4px]" />
         ))}
       </div>
       <div className="flex flex-col">

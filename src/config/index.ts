@@ -17,4 +17,6 @@ const openingTimes: OpeningTime[] = [
 export const appConfig = {
   logoSrcImg: '/logo.png',
   openingTimes,
+  instagramAccount: 'https://www.instagram.com/greenteam.nl',
+  tiktokAccount: 'https://www.tiktok.com/@greenteam.nl',
 };
