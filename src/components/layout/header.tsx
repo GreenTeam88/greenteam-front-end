@@ -5,16 +5,27 @@ import React, { Dispatch, SetStateAction, useState } from 'react';
 import { appConfig } from '@/config';
 import { cn } from '@/lib/tailwind';
 
+// types needed for the header
+
+// a simple route with a path
 interface RouteWithPath {
   name: string;
   path: string;
 }
+
+// information about  a column in the header menu when hovering for a link
 type HeaderColumnInfo = { title: string; subPages: (RouteWithPath | { name: string; subPages: RouteWithPath[] })[] };
+
+// in the header , there is some routes that displays a menu with a list of subpages  when hovering
 interface RouteWithSubpages {
   name: string;
   columns: HeaderColumnInfo[];
 }
+
+// a link can either display subPages in the menu or it can have a direct path to a certain page
 type HeaderRoute = RouteWithPath | RouteWithSubpages;
+
+// all the routes for the header with all the menu and columns info
 const headerRoutes: HeaderRoute[] = [
   {
     name: 'Home',
@@ -150,6 +161,7 @@ const headerRoutes: HeaderRoute[] = [
   },
 ];
 
+// a single item in a colmun in the menu (the menu that apears when we hover over a certain link)
 const HeaderColumnItem: React.FC<
   | RouteWithPath
   | {
@@ -183,6 +195,9 @@ const HeaderColumnItem: React.FC<
     </div>
   );
 };
+
+// a column in the menu (when hovering over a certain link)
+
 const HeaderColumn: React.FC<HeaderColumnInfo & { index: number }> = ({ subPages, title }) => {
   return (
     <>
@@ -197,6 +212,8 @@ const HeaderColumn: React.FC<HeaderColumnInfo & { index: number }> = ({ subPages
     </>
   );
 };
+
+// the menu that apears when hovering over a certain link
 const HeaderColumns: React.FC<{ hoveredLink: string }> = ({ hoveredLink }) => {
   const hoveredRoute = headerRoutes.find((route) => route.name === hoveredLink);
   const hoveredRouteColumns = hoveredRoute && 'columns' in hoveredRoute && hoveredRoute.columns;
@@ -210,6 +227,7 @@ const HeaderColumns: React.FC<{ hoveredLink: string }> = ({ hoveredLink }) => {
   );
 };
 
+// the top section of the header that includes logo and social links
 export const HeaderTopSection = () => {
   return (
     <div className="flex w-[1201px] items-center justify-between">
@@ -238,6 +256,7 @@ export const HeaderTopSection = () => {
   );
 };
 
+// a link inside the header in the first row (bold links)
 export const HeaderBoldLink: React.FC<{
   route: HeaderRoute;
   hoveredLink: string;
@@ -261,6 +280,7 @@ export const HeaderBoldLink: React.FC<{
   );
 };
 
+// a link in the header in the second row (non bold link)
 export const HeaderLink: React.FC<{
   route: HeaderRoute;
   index: number;
@@ -281,6 +301,7 @@ export const HeaderLink: React.FC<{
   );
 };
 
+// all the links of the header including the first row (bold links) and the second row (non bold links)
 export const HeaderLinksSection = () => {
   const [hoveredLink, setHoveredLink] = useState('');
   const hoveredLinkRouteIndex = headerRoutes.findIndex((route) => route.name === hoveredLink);
@@ -327,6 +348,7 @@ export const HeaderLinksSection = () => {
   );
 };
 
+// the header element
 export const Header = () => {
   return (
     <div className="flex sticky w-full  flex-col top-0 z-30 gap-[39px]  py-6 items-center bg-white">
