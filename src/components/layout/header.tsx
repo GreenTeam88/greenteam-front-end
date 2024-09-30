@@ -230,7 +230,10 @@ export const HeaderTopSection = () => {
           />
         </div>
       </div>
-      <button className="secondaryBtn">Offerte aanvragen</button>
+      {/* removing secondary button default hovering */}
+      <button className="secondaryBtn hover:bg-secondaryDefault hover:text-white hover:border-none">
+        Offerte aanvragen
+      </button>
     </div>
   );
 };

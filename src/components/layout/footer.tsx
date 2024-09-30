@@ -197,7 +197,7 @@ export const FooterTopSection = () => {
   return (
     <div className="flex items-center justify-between">
       <img src={appConfig.logoSrcImg} />
-      <div className="flex gap-1 ">
+      <div className="flex gap-4 px-6">
         {topFooterLinks.map((link) => (
           <HeadlineSemibold key={link.name}>{link.name}</HeadlineSemibold>
         ))}
@@ -252,8 +252,18 @@ const FooterBottomSection = () => {
         </div>
       </div>
       <div className="flex justify-between">
-        <BodyTextBold className="text-primaryDefault">GreenTeam is ontwikkeld door Achieve.nl © 2024. </BodyTextBold>
-        <BodyTextSemibold className="text-primaryDefault"> Algemene Voorwaardenㆍ Privacy Policy</BodyTextSemibold>
+        <BodyTextBold className="text-primaryDefault">
+          GreenTeam is ontwikkeld door{' '}
+          <a href="www.achieve.nl" target="_blank">
+            Achieve.nl
+          </a>{' '}
+          © 2024.{' '}
+        </BodyTextBold>
+        <BodyTextSemibold className="text-primaryDefault">
+          {' '}
+          <a href="https://www.greenteam.nl/algemenevoorwaarden">Algemene Voorwaardenㆍ</a>
+          <a href="https://www.greenteam.nl/privacypolicy">Privacy Policy</a>
+        </BodyTextSemibold>
       </div>
     </>
   );
@@ -261,7 +271,7 @@ const FooterBottomSection = () => {
 
 export const Footer = () => {
   return (
-    <div className="flex flex-col py-[55px]  px-[120px]  gap-[44px]">
+    <div className="flex bg-lightGray flex-col py-[55px]  px-[120px]  gap-[44px]">
       <FooterTopSection />
       <FooterLightBorder />
       <FooterColumns />

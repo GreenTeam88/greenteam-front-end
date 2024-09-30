@@ -5,7 +5,7 @@
 /* theme buttons styles */
 
 .secondaryBtn {
-  @apply text-[#fff] bg-secondaryDefault hover:text-primaryDefault py-[10.69px] px-[17.81px] rounded-sm font-bold  text-[14px];
+  @apply text-[#fff] bg-secondaryDefault hover:bg-transparent hover:text-secondaryDefault hover:border hover:border-secondaryDefault py-[10.69px] px-[17.81px] rounded-sm font-bold  text-[14px];
 }
 
 .secondaryOutlinedBtn {
@@ -13,11 +13,11 @@
 }
 
 .primaryBtn {
-  @apply bg-primaryDefault rounded-sm text-[#fff] font-bold  py-[10.69px] px-[17.81px] text-[13px];
+  @apply bg-primaryDefault hover:bg-transparent hover:text-primaryDefault hover:border hover:border-primaryDefault rounded-sm text-[#fff] font-bold  py-[10.69px] px-[17.81px] text-[13px];
 }
 
 .primaryOutlinedBtn {
-  @apply py-[10.69px] px-[17.81px] rounded-sm bg-white text-primaryDefault text-[13px] font-bold;
+  @apply py-[10.69px] px-[17.81px] rounded-sm bg-white hover:bg-primaryDefault hover:text-white hover:border hover:border-white text-primaryDefault text-[13px] font-bold;
 }
 
 .smallSecondaryOutlinedBtn {
