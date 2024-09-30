@@ -9,7 +9,7 @@ interface RouteWithPath {
   name: string;
   path: string;
 }
-type HeaderColumnInfo = { title: string; subPages: RouteWithPath[] };
+type HeaderColumnInfo = { title: string; subPages: (RouteWithPath | { name: string; subPages: RouteWithPath[] })[] };
 interface RouteWithSubpages {
   name: string;
   columns: HeaderColumnInfo[];
@@ -68,17 +68,21 @@ const headerRoutes: HeaderRoute[] = [
           { name: 'Bekleden met linoleum', path: '' },
           { name: 'Schuren en behandelen', path: '' },
           { name: 'Schuren en schilderen', path: '' },
-          { name: 'Hout look', path: '' },
-          { name: 'Beton look', path: '' },
-          { name: 'Marmer look', path: '' },
-          { name: 'Cement look', path: '' },
-          { name: 'Staal look', path: '' },
-          { name: 'BetonCiré Metal stuc', path: '' },
-          { name: 'BetonCiré Glamour stuc', path: '' },
-          { name: 'BetonCiré Brut', path: '' },
-          { name: 'BetonCiré Parel', path: '' },
-          { name: 'BetonCiré Croco', path: '' },
-          { name: 'BetonCiré Venetiaans', path: '' },
+          {
+            name: 'BetonCiré',
+            subPages: [
+              { name: 'BetonCiré Metal stuc', path: '' },
+              { name: 'BetonCiré Glamour stuc', path: '' },
+              { name: 'BetonCiré Brut', path: '' },
+              { name: 'BetonCiré Parel', path: '' },
+              { name: 'BetonCiré Croco', path: '' },
+              { name: 'BetonCiré Venetiaans', path: '' },
+              { name: 'BetonCiré Acoustic', path: '' },
+            ],
+          },
+          { name: 'Open trap', path: '' },
+          { name: 'Dichte trap', path: '' },
+          { name: 'Verlichting', path: '' },
         ],
       },
       {
@@ -146,6 +150,39 @@ const headerRoutes: HeaderRoute[] = [
   },
 ];
 
+const HeaderColumnItem: React.FC<
+  | RouteWithPath
+  | {
+      name: string;
+      subPages: RouteWithPath[];
+    }
+> = (subPage) => {
+  const [isOpened, setIsOpened] = useState(false);
+  const hasSubPages = 'subPages' in subPage && subPage.subPages.length;
+  return (
+    <div className="flex flex-col">
+      <h5
+        key={subPage.name}
+        onClick={() => setIsOpened((val) => !val)}
+        className="text-sm font-semibold hover:text-primaryDefault cursor-pointer"
+      >
+        {subPage.name}
+        {hasSubPages && <img src="/icons/dropDown.svg" className={cn('mx-2 inline', { 'rotate-180': isOpened })} />}
+      </h5>
+      {'subPages' in subPage && isOpened && (
+        <div className="flex flex-col pl-3">
+          {'subPages' in subPage &&
+            subPage.subPages &&
+            subPage.subPages.map((item) => (
+              <h5 key={subPage.name} className="text-sm font-semibold hover:text-primaryDefault cursor-pointer">
+                {item.name}
+              </h5>
+            ))}
+        </div>
+      )}
+    </div>
+  );
+};
 const HeaderColumn: React.FC<HeaderColumnInfo & { index: number }> = ({ subPages, title }) => {
   return (
     <>
@@ -153,9 +190,7 @@ const HeaderColumn: React.FC<HeaderColumnInfo & { index: number }> = ({ subPages
         <h5 className="text-sm font-semibold text-primaryDefault">{title}</h5>
         <div className="flex flex-col gap-1">
           {subPages.map((subPage) => (
-            <h5 key={subPage.name} className="text-sm font-semibold hover:text-primaryDefault cursor-pointer">
-              {subPage.name}
-            </h5>
+            <HeaderColumnItem {...subPage} />
           ))}
         </div>
       </div>
@@ -245,7 +280,7 @@ export const HeaderLink: React.FC<{
 
 export const HeaderLinksSection = () => {
   const [hoveredLink, setHoveredLink] = useState('');
-
+  const hoveredLinkRouteIndex = headerRoutes.findIndex((route) => route.name === hoveredLink);
   return (
     <div
       onMouseLeave={() => setHoveredLink('')}
@@ -274,7 +309,14 @@ export const HeaderLinksSection = () => {
         ))}
       </div>
       {hoveredLink && (
-        <div className="absolute z-10 border rounded-[10px] border-black20 border-opacity-20 top-[88px] w-full bg-white ">
+        // the top is 30px if the hovered link at the first row (bold)
+        // the top is 88px if the hovered link at the second row
+        <div
+          className={cn('absolute  z-10 border rounded-[10px] border-black20 border-opacity-20  w-full bg-white ', {
+            'top-[88px]': hoveredLinkRouteIndex > 5,
+            'top-[30px]': hoveredLinkRouteIndex <= 5,
+          })}
+        >
           <HeaderColumns hoveredLink={hoveredLink}></HeaderColumns>
         </div>
       )}
