@@ -351,9 +351,12 @@ export const HeaderLinksSection = () => {
 // the header element
 export const Header = () => {
   return (
-    <div className="flex sticky w-full  flex-col top-0 z-30 gap-[39px]  py-6 items-center bg-white">
-      <HeaderTopSection />
-      <HeaderLinksSection />
-    </div>
+    <>
+      {/* header for desktop view */}
+      <div className="hidden lg:flex sticky w-full  flex-col top-0 z-30 gap-[39px]  py-6 items-center bg-white">
+        <HeaderTopSection />
+        <HeaderLinksSection />
+      </div>
+    </>
   );
 };
