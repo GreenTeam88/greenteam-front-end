@@ -15,7 +15,7 @@ const tabs: Tab[] = [
   },
   {
     title: 'Kwaliteit',
-    description: 'Wij geven omkwaliteitswerk',
+    description: 'Wij geven om kwaliteitswerk',
     iconSrc: '/home/trueIcon.svg',
   },
   {

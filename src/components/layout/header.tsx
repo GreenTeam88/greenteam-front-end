@@ -176,7 +176,7 @@ const HeaderColumnItem: React.FC<
       <h5
         key={subPage.name}
         onClick={() => setIsOpened((val) => !val)}
-        className="text-sm font-semibold hover:text-primaryDefault cursor-pointer"
+        className="text-sm hover:text-primaryDefault cursor-pointer"
       >
         {subPage.name}
         {hasSubPages && <img src="/icons/dropDown.svg" className={cn('mx-2 inline', { 'rotate-180': isOpened })} />}

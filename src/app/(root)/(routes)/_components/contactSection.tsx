@@ -23,18 +23,23 @@ export const ContactSection = () => {
               <div className="flex gap-[11px]">
                 <BodyTextSemibold>085 401 93 45</BodyTextSemibold>
                 <div className="bg-black20 bg-opacity-20 h-[22.56px] w-[1px] "></div>
-                <LinkTypography>Bellen</LinkTypography>
+                <LinkTypography className="text-secondaryDefault cursor-pointer hover:text-primaryDefault">
+                  Bellen
+                </LinkTypography>
               </div>
             </div>
             <div className="flex gap-[22px]">
               <img src="/icons/locationIcon.svg" />
               <div className="flex gap-[11px]">
                 <BodyTextSemibold>
-                  Rivium Boulevard 2 <br />
+                  Rivium Boulevard 2 (HQ)
+                  <br />
                   2909 LK, Capelle aan den IJssel
                 </BodyTextSemibold>
                 <div className="bg-black20 bg-opacity-20 h-[22.56px] w-[1px] "></div>
-                <LinkTypography>Bellen</LinkTypography>
+                <LinkTypography className="text-secondaryDefault cursor-pointer hover:text-primaryDefault">
+                  Op de kaart bekijken
+                </LinkTypography>
               </div>
             </div>
             <div className="flex gap-[22px] ">
@@ -50,12 +55,13 @@ export const ContactSection = () => {
             </div>
           </div>
         </div>
-        <iframe
+        <img className="w-[400px]" src="/home/locations.png" />
+        {/* <iframe
           src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2849162.0498398175!2d5.155949656006577!3d52.62011257291508!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x47c432e9ec85547d%3A0x3ae67b44c49e3503!2s2909%20LK%20Capelle%20aan%20den%20IJssel%2C%20Netherlands!5e0!3m2!1sen!2sdz!4v1727553606839!5m2!1sen!2sdz"
           width="589"
           height="518"
           loading="lazy"
-        ></iframe>
+        ></iframe> */}
       </div>
     </div>
   );

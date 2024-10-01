@@ -29,7 +29,7 @@ const services: ServiceInfo[] = [
   },
   {
     title: 'Stofferen',
-    thumbnailSrc: '/home/stofferen.png',
+    thumbnailSrc: '/home/grayStair.png',
     description:
       'Bij Green Team hebben we een passie voor vloeren en duurzaamheid. Oorspronkelijk houtbewerkers, hebben wij ons ges',
   },
