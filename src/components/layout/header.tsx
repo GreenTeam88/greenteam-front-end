@@ -205,7 +205,7 @@ const HeaderColumn: React.FC<HeaderColumnInfo & { index: number }> = ({ subPages
         <h5 className="text-sm font-semibold text-primaryDefault">{title}</h5>
         <div className="flex flex-col gap-1">
           {subPages.map((subPage) => (
-            <HeaderColumnItem {...subPage} />
+            <HeaderColumnItem key={subPage.name} {...subPage} />
           ))}
         </div>
       </div>

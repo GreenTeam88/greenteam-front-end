@@ -1,4 +1,4 @@
-// file important infos about the app
+// file contains important infos about the app
 
 export interface OpeningTime {
   day: string;
