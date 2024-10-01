@@ -44,7 +44,7 @@ const FAQCard: React.FC<FAQType> = ({ answer, question }) => {
     <div
       onClick={() => setIsOpened((currValue) => !currValue)}
       className={cn(
-        'flex cursor-pointer w-[693px] flex-col px-5 rounded-lg border border-black20 border-opacity-20 py-[11px] gap-[11px]',
+        'flex cursor-pointer lg:w-[693px] flex-col px-5 rounded-lg border border-black20 border-opacity-20 py-[11px] gap-[11px]',
         { 'border-primaryDefault border-opacity-100': isOpened }
       )}
     >
@@ -59,7 +59,7 @@ const FAQCard: React.FC<FAQType> = ({ answer, question }) => {
 
 const ParagraphSection = () => {
   return (
-    <div className="flex flex-col gap-[44px] w-[488px]">
+    <div className="flex flex-col gap-[44px] lg:w-[488px]">
       <div className="flex flex-col gap-[11px]">
         <H2 className="text-primaryDefault">Veelgestelde vragen</H2>
         <p>
@@ -77,7 +77,7 @@ const ParagraphSection = () => {
 
 const AllQuestions = () => {
   return (
-    <div className="flex flex-col gap-[11px] ">
+    <div className="flex  flex-col gap-[11px] ">
       {FAQs.map((FAQ) => (
         <FAQCard key={FAQ.question} {...FAQ} />
       ))}
@@ -86,7 +86,7 @@ const AllQuestions = () => {
 };
 export const FAQSection = () => {
   return (
-    <div className="flex py-[88px] w-full items-center justify-center gap-7">
+    <div className="flex px-4 py-[88px] w-full items-center flex-col lg:flex-row justify-center gap-7">
       {/* the paragraph section includes the title , the paragraph and the buttons */}
       <ParagraphSection />
       {/* the AllQuestions component includes all the faq in a list */}
