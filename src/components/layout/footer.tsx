@@ -46,10 +46,10 @@ const footerColumnsInfo: FooterColumnInfo[] = [
       { name: 'BetonCiré Croco', path: '' },
       { name: 'BetonCiré Venetiaans', path: '' },
       { name: 'BetonCiré Acoustic', path: '' },
+      { name: '', path: '' },
       { name: 'Open trap', path: '' },
       { name: 'Dichte trap', path: '' },
       { name: 'Verlichting', path: '' },
-      { name: 'Reinigingsservice', path: '' },
       { name: 'Tapijt verwijderen', path: '' },
     ],
   },
@@ -67,10 +67,6 @@ const footerColumnsInfo: FooterColumnInfo[] = [
       { name: 'Marmer', path: '' },
       { name: 'Keramisch', path: '' },
       { name: 'Hexagon', path: '' },
-      { name: 'Vloeren', path: '' },
-      { name: 'Muren', path: '' },
-      { name: 'Badkamer', path: '' },
-      { name: 'Projecten', path: '' },
     ],
   },
   {
@@ -113,15 +109,9 @@ const footerColumnsInfo: FooterColumnInfo[] = [
     links: [
       { name: 'Epoxy', path: '' },
       { name: 'PU', path: '' },
-      { name: 'Betarhuh', path: '' },
       { name: 'Woonbeton', path: '' },
-      { name: 'Badkamer', path: '' },
-      { name: 'Woonkamer', path: '' },
-      { name: 'Horecavloer', path: '' },
-      { name: 'Badkamer', path: '' },
-      { name: 'Pecinta kebugaran', path: '' },
-      { name: 'Horecavloer', path: '' },
-      { name: 'Winkelvloer', path: '' },
+      { name: 'Beton', path: '' },
+      { name: 'BetonCiré', path: '' },
     ],
   },
   {
@@ -132,7 +122,6 @@ const footerColumnsInfo: FooterColumnInfo[] = [
       { name: 'Schuren en olien', path: '' },
       { name: 'Schuren en hardwaxen', path: '' },
       { name: 'Aanhelen', path: '' },
-      { name: 'Uitbreiden', path: '' },
       { name: 'Reparatie', path: '' },
       { name: 'Drevelen', path: '' },
       { name: 'V-groef frezen', path: '' },
@@ -176,6 +165,19 @@ const footerColumnsInfo: FooterColumnInfo[] = [
       { name: 'Vloer verwijderen', path: '' },
       { name: 'Natuursteen behandelen', path: '' },
       { name: 'Opslag      ', path: '' },
+    ],
+  },
+  {
+    title: 'Mogelijke locaties',
+    links: [
+      { name: 'Badkamer', path: '' },
+      { name: 'Woonkamer', path: '' },
+      { name: 'Horecavloer', path: '' },
+      { name: 'Sportvloer', path: '' },
+      { name: 'Winkelvloer', path: '' },
+      { name: 'Bedrijfsvloer', path: '' },
+      { name: 'Bedrijfshal', path: '' },
+      { name: 'Muren', path: '' },
     ],
   },
 ];
@@ -253,14 +255,13 @@ const FooterBottomSection = () => {
       </div>
       <div className="flex justify-between">
         <BodyTextBold className="text-primaryDefault">
-          GreenTeam is ontwikkeld door{' '}
+          GreenTeam is ontwikkeld door
           <a href="www.achieve.nl" target="_blank">
             Achieve.nl
-          </a>{' '}
-          © 2024.{' '}
+          </a>
+          © 2024.
         </BodyTextBold>
         <BodyTextSemibold className="text-primaryDefault">
-          {' '}
           <a href="https://www.greenteam.nl/algemenevoorwaarden">Algemene Voorwaardenㆍ</a>
           <a href="https://www.greenteam.nl/privacypolicy">Privacy Policy</a>
         </BodyTextSemibold>
