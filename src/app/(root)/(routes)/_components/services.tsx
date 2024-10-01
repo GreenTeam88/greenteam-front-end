@@ -56,16 +56,22 @@ export const ServiceCard: React.FC<ServiceInfo> = ({ description, thumbnailSrc, 
   );
 };
 
+const AllServices = () => {
+  return (
+    <div className="flex flex-wrap items-center justify-center gap-[23px] w-[1207px] max-w-full">
+      {services.map((serviceInfo) => (
+        <ServiceCard key={serviceInfo.title} {...serviceInfo} />
+      ))}
+    </div>
+  );
+};
+
 export const ServicesSection = () => {
   return (
     <div className="flex flex-col items-center justify-center py-52">
       <div className="flex flex-col items-center gap-[55px]">
         <H2 className="text-primaryDefault">Onze diensten</H2>
-        <div className="flex flex-wrap items-center justify-center gap-[23px] w-[1207px] max-w-full">
-          {services.map((serviceInfo) => (
-            <ServiceCard key={serviceInfo.title} {...serviceInfo} />
-          ))}
-        </div>
+        <AllServices />
       </div>
     </div>
   );

@@ -5,14 +5,14 @@ import { GreenSection } from './_components/greenSection';
 import { Hero } from './_components/hero';
 import { PhoneNumberSection } from './_components/phoneNumberSection';
 import { RatingSection } from './_components/ratingSection';
-import { HomeSecondSection } from './_components/secondSection';
 import { ServicesSection } from './_components/services';
+import { WhyGreenTeam } from './_components/whyGreenTeam';
 
 export default function Home() {
   return (
     <div className="flex flex-col relative z-0 items-center w-full">
       <Hero />
-      <HomeSecondSection />
+      <WhyGreenTeam />
       <RatingSection />
       <ServicesSection />
       <GreenSection />

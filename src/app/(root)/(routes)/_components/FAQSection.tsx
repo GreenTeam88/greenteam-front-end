@@ -57,27 +57,40 @@ const FAQCard: React.FC<FAQType> = ({ answer, question }) => {
   );
 };
 
+const ParagraphSection = () => {
+  return (
+    <div className="flex flex-col gap-[44px] w-[488px]">
+      <div className="flex flex-col gap-[11px]">
+        <H2 className="text-primaryDefault">Veelgestelde vragen</H2>
+        <p>
+          Heb je vragen? Wij hebben de antwoorden! Staat je vraag er niet tussen? Neem dan even contact met ons op en we
+          helpen je graag verder.
+        </p>
+      </div>
+      <div className="flex gap-[22px]">
+        <PrimaryBtn>Alles bekijken</PrimaryBtn>
+        <SecondaryOutlinedBtn>Contact opnemen</SecondaryOutlinedBtn>
+      </div>
+    </div>
+  );
+};
+
+const AllQuestions = () => {
+  return (
+    <div className="flex flex-col gap-[11px] ">
+      {FAQs.map((FAQ) => (
+        <FAQCard key={FAQ.question} {...FAQ} />
+      ))}
+    </div>
+  );
+};
 export const FAQSection = () => {
   return (
     <div className="flex py-[88px] w-full items-center justify-center gap-7">
-      <div className="flex flex-col gap-[44px] w-[488px]">
-        <div className="flex flex-col gap-[11px]">
-          <H2 className="text-primaryDefault">Veelgestelde vragen</H2>
-          <p>
-            Heb je vragen? Wij hebben de antwoorden! Staat je vraag er niet tussen? Neem dan even contact met ons op en
-            we helpen je graag verder.
-          </p>
-        </div>
-        <div className="flex gap-[22px]">
-          <PrimaryBtn>Alles bekijken</PrimaryBtn>
-          <SecondaryOutlinedBtn>Contact opnemen</SecondaryOutlinedBtn>
-        </div>
-      </div>
-      <div className="flex flex-col gap-[11px] ">
-        {FAQs.map((FAQ) => (
-          <FAQCard key={FAQ.question} {...FAQ} />
-        ))}
-      </div>
+      {/* the paragraph section includes the title , the paragraph and the buttons */}
+      <ParagraphSection />
+      {/* the AllQuestions component includes all the faq in a list */}
+      <AllQuestions />
     </div>
   );
 };
