@@ -24,18 +24,18 @@ const ParagraphSection = () => {
 
 const FormSection = () => {
   return (
-    <div className="flex rounded-[4px] relative px-2 lg:px-0  z-10 flex-col  ">
+    <div className="flex rounded-[4px] relative w-full lg:px-0  z-10 flex-col  ">
       <div className="bg-primaryDefault rounded-t-[4px] flex  items-center justify-center text-white py-[22px] w-full  ">
         <HeadlineSemibold> Snel jouw prijs berekenen!</HeadlineSemibold>
       </div>
-      <div className="bg-white w-fit flex flex-col px-[22px] gap-[33px] py-[22px]">
+      <div className="bg-white w-full flex flex-col px-[22px] gap-[33px] py-[22px]">
         <div className="flex flex-col gap-[11px]">
           <label>
             Categorie <span className="text-secondaryDefault">*</span>
           </label>
           <input
             placeholder="Kies er een"
-            className="px-[20px] w-[342px] border-black20 border rounded-lg  py-[12px] "
+            className="px-[20px] lg:w-[342px] border-black20 border rounded-lg  py-[12px] "
           ></input>
         </div>
         <div className="flex flex-col gap-[11px]">
@@ -44,7 +44,7 @@ const FormSection = () => {
           </label>
           <input
             placeholder="Kies er een"
-            className="px-[20px] w-[342px] border-black20 border rounded-lg  py-[12px] "
+            className="px-[20px] lg:w-[342px] border-black20 border rounded-lg  py-[12px] "
           ></input>
         </div>
         <PrimaryBtn>Verzenden</PrimaryBtn>

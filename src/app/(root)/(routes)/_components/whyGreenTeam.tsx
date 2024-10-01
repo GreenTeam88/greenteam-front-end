@@ -62,7 +62,7 @@ const TabsSection = () => {
 
 const ParagraphSection = () => {
   return (
-    <div className="flex flex-col gap-[44px]">
+    <div className="flex flex-col  gap-[44px]">
       <div className="flex flex-col lg:w-[585px] gap-[11px]">
         <H2 className="text-primaryDefault">
           Daarom kies jij
@@ -90,7 +90,7 @@ const ParagraphSection = () => {
 
 export const WhyGreenTeam = () => {
   return (
-    <div className=" h-fit px-4 lg:px-0 lg:h-[600px] relative w-full  flex items-center lg:overflow-hidden justify-center">
+    <div className=" h-fit overflow-hidden py-9 lg:py-0 px-4 lg:px-0 lg:h-[600px] relative w-full  flex items-center lg:overflow-hidden justify-center">
       <img src="/home/leaf.svg" className="absolute top-4 max-w-[200px] lg:max-w-full -right-5 rotate-[95.81px] " />
       <div className="flex gap-[91px] flex-col lg:flex-row relative z-10">
         {/* the section contains the foor tabs */}
