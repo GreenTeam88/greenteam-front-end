@@ -41,7 +41,7 @@ const ratings: RatingInfo[] = [
 
 const RatingCard: React.FC<RatingInfo> = ({ stars, birthDate, description, images, name }) => {
   return (
-    <div className="flex flex-col gap-[22px] bg-white  p-[22px] w-[387px] ">
+    <div className="flex flex-col gap-[22px] bg-white p-4 lg:p-[22px] lg:w-[387px] ">
       <div className="flex w-full  justify-between">
         <div className="flex ">
           {Array.from({ length: stars }).map((item, index) => (
@@ -66,29 +66,29 @@ const RatingCard: React.FC<RatingInfo> = ({ stars, birthDate, description, image
 
 const RatingTopSection = () => {
   return (
-    <div className="flex items-center relative justify-center  w-[90%] ">
-      <H2 className="text-primaryDefault ">Wat vinden onze klanten?</H2>
-      <img src="/home/googleRating.png" className="absolute top-1/2 -translate-y-1/2 right-0" />
+    <div className="flex flex-col gap-7 items-center relative justify-center  w-[90%] ">
+      <H2 className="text-primaryDefault text-center lg:text-start">Wat vinden onze klanten?</H2>
+      <img src="/home/googleRating.png" className="lg:absolute  lg:top-1/2 lg:-translate-y-1/2 lg:right-0" />
     </div>
   );
 };
 
 const Ratings = () => {
   return (
-    <div className="flex gap-[36px]">
-      <img src="/icons/arrowLeft.svg" />
-      <div className="flex gap-[20px]">
+    <div className="flex  gap-[36px]">
+      <img className="hidden lg:block" src="/icons/arrowLeft.svg" />
+      <div className="flex gap-[20px] flex-col lg:flex-row">
         {ratings.map((rating) => (
           <RatingCard key={rating.name} {...rating} />
         ))}
       </div>
-      <img src="/icons/arrowLeft.svg" className="rotate-180" />
+      <img src="/icons/arrowLeft.svg" className="rotate-180 hidden lg:block" />
     </div>
   );
 };
 export const RatingSection = () => {
   return (
-    <div className="w-full bg-lightOrange gap-[60px] max-w-full flex items-center py-[122px] justify-center">
+    <div className="w-full px-3 lg:px-0 bg-lightOrange gap-[60px] max-w-full flex items-center py-[122px] justify-center">
       <div className="flex flex-col max-w-[1440px] gap-[44px] items-center justify-center">
         {/* top section includes title and ratings on google */}
         <RatingTopSection />
