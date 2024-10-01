@@ -43,7 +43,7 @@ const services: ServiceInfo[] = [
 
 export const ServiceCard: React.FC<ServiceInfo> = ({ description, thumbnailSrc, title }) => {
   return (
-    <div className="flex flex-col pb-[22px] border-opacity-10 border-black10 border-2 w-[387px] gap-[33px] ">
+    <div className="flex flex-col pb-[22px] border-opacity-10 border-black10 border-2 lg:w-[387px] gap-[33px] ">
       <img src={thumbnailSrc} className="w-full h-[176px] " />
       <div className="flex flex-col gap-[11px] px-7 ">
         <h5 className="font-bold text-xl ">{title}</h5>
@@ -68,7 +68,7 @@ const AllServices = () => {
 
 export const ServicesSection = () => {
   return (
-    <div className="flex flex-col px-4 lg:px-0 items-center justify-center py-52">
+    <div className="flex flex-col px-5 lg:px-0 items-center justify-center py-52">
       <div className="flex flex-col items-center gap-[55px]">
         <H2 className="text-primaryDefault">Onze diensten</H2>
         <AllServices />
