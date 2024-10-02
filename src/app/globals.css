@@ -21,7 +21,7 @@
 }
 
 .smallSecondaryOutlinedBtn {
-  @apply text-secondaryDefault border border-secondaryDefault rounded-sm font-bold text-[11px] px-[15px] py-[9px];
+  @apply text-secondaryDefault border hover:bg-secondaryDefault hover:text-white border-secondaryDefault rounded-sm font-bold text-[11px] px-[15px] py-[9px];
 }
 /* theme typography styles */
 

@@ -1,5 +1,6 @@
 import React from 'react';
 
+import { ForwardArrow } from '@/components/icons/homePageIcons';
 import { H2 } from '@/components/theme/typography';
 
 interface ServiceInfo {
@@ -49,8 +50,9 @@ export const ServiceCard: React.FC<ServiceInfo> = ({ description, thumbnailSrc, 
         <h5 className="font-bold text-xl ">{title}</h5>
         <p>{description}</p>
       </div>
-      <p className="text-[13px] px-6 text-primaryDefault font-bold">
-        Meer weten <img className="mx-2 inline" src="/icons/greenRightArrow.svg" />
+      <p className="text-[13px] flex items-center gap-2 cursor-pointer px-6 group hover:text-secondaryDefault text-primaryDefault hover: font-bold">
+        Meer weten
+        <ForwardArrow />
       </p>
     </div>
   );

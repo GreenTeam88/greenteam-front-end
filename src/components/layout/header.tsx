@@ -1,5 +1,6 @@
 'use client';
 
+import { motion } from 'framer-motion';
 import React, { Dispatch, SetStateAction, useState } from 'react';
 
 import { appConfig } from '@/config';
@@ -234,7 +235,15 @@ export const HeaderTopSection = () => {
     <div className="flex w-[1201px] items-center justify-between">
       <img src={appConfig.logoSrcImg} />
       <div className="flex items-center min-w-[633px] p-[10px] justify-around">
-        <div className="bg-[#37CD76] w-[15.32px] h-[16px] rounded-full"></div>
+        {/* <div className="bg-[#37CD76] w-[15.32px] h-[16px] rounded-full"></div> */}
+        <motion.div
+          className=" w-[15.32px] h-[16px] rounded-full"
+          initial={{ backgroundColor: '#217946' }}
+          animate={{
+            backgroundColor: ['#37CD76', '#217946'],
+            transition: { duration: 3, ease: 'easeIn', repeat: Infinity },
+          }}
+        ></motion.div>
         <p className="font-semibold text-[22px] text-primaryGreenD1"> Liever iemand spreken? Bel 085 401 93 45</p>
         <div className="flex gap-[22px]">
           <div className="cursor-pointer" onClick={() => window.open(appConfig.instagramAccount, '_blank')}>

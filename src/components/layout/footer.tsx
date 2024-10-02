@@ -252,7 +252,7 @@ const FooterBottomSection = () => {
       </div>
       <div className="flex justify-between">
         <BodyTextBold className="text-primaryDefault">
-          GreenTeam is ontwikkeld door
+          GreenTeam is ontwikkeld door{' '}
           <a href="www.achieve.nl" target="_blank">
             Achieve.nl
           </a>
