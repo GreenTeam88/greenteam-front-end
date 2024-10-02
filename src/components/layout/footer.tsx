@@ -274,12 +274,14 @@ export const Footer = () => {
   return (
     <>
       {/* footer view for desktop */}
-      <div className="hidden lg:flex bg-lightGray flex-col py-[55px]  px-[120px]  gap-[44px]">
-        <FooterTopSection />
-        <FooterLightBorder />
-        <FooterColumns />
-        <FooterLightBorder />
-        <FooterBottomSection />
+      <div className="hidden lg:flex items-center justify-center w-full bg-lightGray ">
+        <div className="flex max-w-[1440px] py-[55px]  px-[120px] w-full flex-col   gap-[44px]">
+          <FooterTopSection />
+          <FooterLightBorder />
+          <FooterColumns />
+          <FooterLightBorder />
+          <FooterBottomSection />
+        </div>
       </div>
     </>
   );
