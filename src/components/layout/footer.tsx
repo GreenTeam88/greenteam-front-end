@@ -3,6 +3,7 @@
 import React from 'react';
 
 import { appConfig } from '@/config';
+import { InstagramLogo, TikTokIcon } from '../icons/homePageIcons';
 import { BodyText, BodyTextBold, BodyTextSemibold, HeadlineSemibold } from '../theme/typography';
 
 interface LinkInfo {
@@ -204,16 +205,12 @@ export const FooterTopSection = () => {
           <HeadlineSemibold key={link.name}>{link.name}</HeadlineSemibold>
         ))}
         <div className="flex gap-[22px]  px-6">
-          <img
-            className="cursor-pointer"
-            onClick={() => window.open(appConfig.instagramAccount, '_blank')}
-            src="/icons/InstagramLogo.png"
-          />
-          <img
-            className="cursor-pointer"
-            onClick={() => window.open(appConfig.instagramAccount, '_blank')}
-            src="/icons/TiktokLogo.png"
-          />
+          <div className="cursor-pointer" onClick={() => window.open(appConfig.instagramAccount, '_blank')}>
+            <InstagramLogo />
+          </div>
+          <div className="cursor-pointer" onClick={() => window.open(appConfig.tiktokAccount, '_blank')}>
+            <TikTokIcon />
+          </div>
         </div>
       </div>
     </div>

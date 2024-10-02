@@ -17,7 +17,7 @@
 }
 
 .primaryOutlinedBtn {
-  @apply py-[10.69px] px-[17.81px] rounded-sm bg-white hover:bg-primaryDefault hover:text-white hover:border hover:border-white text-primaryDefault text-[13px] font-bold;
+  @apply py-[10.69px] px-[17.81px] rounded-sm bg-white hover:bg-primaryDefault hover:text-white border hover:border-white text-primaryDefault text-[13px] font-bold;
 }
 
 .smallSecondaryOutlinedBtn {

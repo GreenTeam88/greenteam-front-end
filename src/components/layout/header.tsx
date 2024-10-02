@@ -4,6 +4,7 @@ import React, { Dispatch, SetStateAction, useState } from 'react';
 
 import { appConfig } from '@/config';
 import { cn } from '@/lib/tailwind';
+import { InstagramLogo, TikTokIcon } from '../icons/homePageIcons';
 
 // types needed for the header
 
@@ -236,16 +237,12 @@ export const HeaderTopSection = () => {
         <div className="bg-[#37CD76] w-[15.32px] h-[16px] rounded-full"></div>
         <p className="font-semibold text-[22px] text-primaryGreenD1"> Liever iemand spreken? Bel 085 401 93 45</p>
         <div className="flex gap-[22px]">
-          <img
-            className="cursor-pointer"
-            onClick={() => window.open(appConfig.instagramAccount, '_blank')}
-            src="/icons/InstagramLogo.png"
-          />
-          <img
-            className="cursor-pointer"
-            onClick={() => window.open(appConfig.tiktokAccount, '_blank')}
-            src="/icons/TiktokLogo.png"
-          />
+          <div className="cursor-pointer" onClick={() => window.open(appConfig.instagramAccount, '_blank')}>
+            <InstagramLogo />
+          </div>
+          <div className="cursor-pointer" onClick={() => window.open(appConfig.tiktokAccount, '_blank')}>
+            <TikTokIcon />
+          </div>
         </div>
       </div>
       {/* removing secondary button default hovering */}
