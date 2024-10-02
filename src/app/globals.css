@@ -13,7 +13,7 @@
 }
 
 .primaryBtn {
-  @apply bg-primaryDefault hover:bg-transparent hover:text-primaryDefault hover:border hover:border-primaryDefault rounded-sm text-[#fff] font-bold  py-[10.69px] px-[17.81px] text-[13px];
+  @apply bg-primaryDefault hover:bg-transparent hover:text-primaryDefault border hover:border-primaryDefault rounded-sm text-[#fff] font-bold  py-[10.69px] px-[17.81px] text-[13px];
 }
 
 .primaryOutlinedBtn {
