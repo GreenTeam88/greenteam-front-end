@@ -1,7 +1,7 @@
 'use client';
 
-import { motion } from 'framer-motion';
-import React, { Dispatch, SetStateAction, useState } from 'react';
+import { motion, useAnimation } from 'framer-motion';
+import React, { Dispatch, SetStateAction, useEffect, useRef, useState } from 'react';
 
 import { appConfig } from '@/config';
 import { cn } from '@/lib/tailwind';
@@ -232,7 +232,7 @@ const HeaderColumns: React.FC<{ hoveredLink: string }> = ({ hoveredLink }) => {
 // the top section of the header that includes logo and social links
 export const HeaderTopSection = () => {
   return (
-    <div className="flex w-[1201px] items-center justify-between">
+    <div className="flex w-[1201px] bg-white items-center justify-between">
       <img src={appConfig.logoSrcImg} />
       <div className="flex items-center min-w-[633px] p-[10px] justify-around">
         {/* <div className="bg-[#37CD76] w-[15.32px] h-[16px] rounded-full"></div> */}
@@ -311,29 +311,19 @@ export const HeaderLink: React.FC<{
 export const HeaderLinksSection = () => {
   const [hoveredLink, setHoveredLink] = useState('');
   const hoveredLinkRouteIndex = headerRoutes.findIndex((route) => route.name === hoveredLink);
+
   return (
     <div
       onMouseLeave={() => setHoveredLink('')}
-      className="flex flex-col items-center  gap-[39px] relative  justify-center "
+      className="flex  flex-col items-center   gap-[39px] relative  justify-center "
     >
-      <div className="flex gap-[33px] items-center ">
+      <div className="flex z-10 gap-[33px] bg-white w-full items-center ">
         {headerRoutes.slice(0, 6).map((route, index) => (
           <HeaderBoldLink
             hoveredLink={hoveredLink}
             key={route.name}
             index={index}
             route={route}
-            setHoveredLink={setHoveredLink}
-          />
-        ))}
-      </div>
-      <div className="flex gap-[50px] items-center">
-        {headerRoutes.slice(6).map((route, index) => (
-          <HeaderLink
-            hoveredLink={hoveredLink}
-            route={route}
-            key={route.name}
-            index={index}
             setHoveredLink={setHoveredLink}
           />
         ))}
@@ -354,14 +344,77 @@ export const HeaderLinksSection = () => {
   );
 };
 
+export const HeaderDropDowns = () => {
+  const [hoveredLink, setHoveredLink] = useState('');
+  const subHeaderHidingAnimation = useAnimation();
+  const [clientSide, setClientSide] = useState(false);
+  const lastScrollTop = useRef<number>(clientSide ? window.pageYOffset || document.documentElement.scrollTop : 0);
+  const hideSubHeader = async () => {
+    await subHeaderHidingAnimation.start({ y: -200 });
+  };
+
+  const displaySubHeader = () => {
+    subHeaderHidingAnimation.start({ y: 0, transition: { bounce: false } });
+  };
+
+  // setting the client side to true so we can use the window object (to avoid the error : window is not defiened)
+  useEffect(() => {
+    setClientSide(true);
+  }, []);
+
+  // writing the logic of the dropdowns hiding and displaying
+  useEffect(() => {
+    const handleScroll = async () => {
+      const currentScrollTop = clientSide ? window.pageYOffset || document.documentElement.scrollTop : 0;
+      //if the user scroll down we want to hide the dropdowns
+      if (currentScrollTop >= lastScrollTop.current) {
+        console.log('running');
+        await hideSubHeader();
+      } else {
+        // if the user scroll up we want to display the dropdowns
+        displaySubHeader();
+      }
+      lastScrollTop.current = currentScrollTop;
+    };
+    // adding and removing events only on browser (client side)
+    if (clientSide) window.addEventListener('scroll', handleScroll);
+
+    return () => {
+      if (clientSide) window.removeEventListener('scroll', handleScroll);
+    };
+  }, [lastScrollTop, clientSide]);
+  return (
+    <motion.div
+      animate={subHeaderHidingAnimation}
+      className="flex bg-white w-full z-0 pb-5  gap-[50px] justify-center items-center"
+    >
+      {headerRoutes.slice(6).map((route, index) => (
+        <HeaderLink
+          hoveredLink={hoveredLink}
+          route={route}
+          key={route.name}
+          index={index}
+          setHoveredLink={setHoveredLink}
+        />
+      ))}
+    </motion.div>
+  );
+};
+
 // the header element
 export const Header = () => {
   return (
     <>
       {/* header for desktop view */}
-      <div className="hidden lg:flex sticky w-full  flex-col top-0 z-30 gap-[39px]  py-6 items-center bg-white">
-        <HeaderTopSection />
-        <HeaderLinksSection />
+      <div className="flex flex-col  z-40 w-full  fixed top-0 items-center left-0">
+        <div className="hidden lg:flex  w-full  flex-col  z-30 gap-[39px]  py-6 items-center bg-white">
+          {/* the top section that includes the logo and the social links */}
+          <HeaderTopSection />
+          {/* the section that includes the bold links */}
+          <HeaderLinksSection />
+        </div>
+        {/* a section for the dropdowns (last row) */}
+        <HeaderDropDowns />
       </div>
     </>
   );
