@@ -12,9 +12,15 @@ const ContactInfo = () => {
         <SecondaryOutlinedBtn>Contact opnemen</SecondaryOutlinedBtn>
       </div>
       <div className="flex flex-col gap-[40px]">
-        <div className="flex gap-[22px] items-center">
+        <div className="flex gap-[22px]  items-center">
           <img src="/icons/envelope.svg" />
-          <BodyTextSemibold>info@greenteam.nl</BodyTextSemibold>
+          <div className="flex gap-[11px]">
+            <BodyTextSemibold>info@greenteam.nl</BodyTextSemibold>
+            <div className="bg-black20 bg-opacity-20 h-[22.56px] w-[1px] "></div>
+            <LinkTypography className="text-secondaryDefault cursor-pointer hover:text-primaryDefault">
+              Email verzenden
+            </LinkTypography>
+          </div>
         </div>
         <div className="flex gap-[22px]  items-center">
           <img src="/icons/phone.svg" />
