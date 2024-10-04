@@ -35,6 +35,10 @@ const headerRoutes: HeaderRoute[] = [
   },
   {
     name: 'Over ons',
+    path: '/',
+  },
+  {
+    name: 'Diensten',
     columns: [
       {
         title: 'Parket renovatie',
@@ -124,10 +128,6 @@ const headerRoutes: HeaderRoute[] = [
         ],
       },
     ],
-  },
-  {
-    name: 'Diensten',
-    columns: [],
   },
   {
     name: 'Zakelijk',
