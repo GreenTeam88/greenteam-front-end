@@ -235,7 +235,6 @@ export const HeaderTopSection = () => {
     <div className="flex w-[1201px] bg-white items-center justify-between">
       <img src={appConfig.logoSrcImg} />
       <div className="flex items-center min-w-[633px] p-[10px] justify-around">
-        {/* <div className="bg-[#37CD76] w-[15.32px] h-[16px] rounded-full"></div> */}
         <motion.div
           className=" w-[15.32px] h-[16px] rounded-full"
           initial={{ backgroundColor: '#fff' }}
@@ -305,7 +304,7 @@ export const HeaderLink: React.FC<{
   );
 };
 
-// all the links of the header including the first row (bold links) and the second row (non bold links)
+// the links of the header including the first row (bold links)
 export const HeaderLinksSection = () => {
   const [hoveredLink, setHoveredLink] = useState('');
   const hoveredLinkRouteIndex = headerRoutes.findIndex((route) => route.name === hoveredLink);

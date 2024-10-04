@@ -18,6 +18,7 @@ export const metadata: Metadata = {
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
     <html lang="en">
+      {/* header is fixed so we need to have a padding top  */}
       <body className={cn(inter.className, 'flex lg:pt-[220px] px-0 flex-col items-center')}>
         <Header />
         {children}
