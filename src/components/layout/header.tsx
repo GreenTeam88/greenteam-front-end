@@ -188,7 +188,7 @@ const HeaderColumnItem: React.FC<
           {'subPages' in subPage &&
             subPage.subPages &&
             subPage.subPages.map((item) => (
-              <h5 key={subPage.name} className="text-sm font-semibold hover:text-primaryDefault cursor-pointer">
+              <h5 key={subPage.name} className="text-sm  hover:text-primaryDefault cursor-pointer">
                 {item.name}
               </h5>
             ))}
@@ -238,9 +238,9 @@ export const HeaderTopSection = () => {
         {/* <div className="bg-[#37CD76] w-[15.32px] h-[16px] rounded-full"></div> */}
         <motion.div
           className=" w-[15.32px] h-[16px] rounded-full"
-          initial={{ backgroundColor: '#217946' }}
+          initial={{ backgroundColor: '#fff' }}
           animate={{
-            backgroundColor: ['#37CD76', '#217946'],
+            backgroundColor: ['#37CD76', '#fff'],
             transition: { duration: 3, ease: 'easeIn', repeat: Infinity },
           }}
         ></motion.div>
@@ -255,9 +255,7 @@ export const HeaderTopSection = () => {
         </div>
       </div>
       {/* removing secondary button default hovering */}
-      <button className="secondaryBtn hover:bg-secondaryDefault hover:text-white hover:border-none">
-        Offerte aanvragen
-      </button>
+      <button className="secondaryBtn ">Offerte aanvragen</button>
     </div>
   );
 };
