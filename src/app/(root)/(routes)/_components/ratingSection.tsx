@@ -83,6 +83,7 @@ const Ratings = () => {
   const secondRowAnimation = useAnimation();
   const secondRowX = useRef(0);
 
+  // the animation logic
   const scrollLeft = async () => {
     await Promise.all([
       firstRowAnimation.start({ x: firstRowX.current - 400 }),
@@ -109,7 +110,8 @@ const Ratings = () => {
   return (
     <div className="flex  gap-[36px]">
       <img className="hidden lg:block" src="/icons/arrowLeft.svg" />
-      <div className=" w-[1200px]  gap-[20px] relative h-[400px] flex  overflow-hidden">
+      {/* ratings for mobile */}
+      <div className="hidden lg:flex w-[1200px]  gap-[20px] relative h-[400px]   overflow-hidden">
         <motion.div animate={firstRowAnimation} className="flex absolute top-0 left-0 gap-[20px]  flex-col lg:flex-row">
           {ratings.map((rating) => (
             <RatingCard key={rating.name} {...rating} />
@@ -124,6 +126,13 @@ const Ratings = () => {
           ))}
         </motion.div>
       </div>
+      {/* ratings for desktop */}
+      <div className="flex  gap-[20px] lg:hidden  flex-col lg:flex-row">
+        {ratings.map((rating) => (
+          <RatingCard key={rating.name} {...rating} />
+        ))}
+      </div>
+
       <img src="/icons/arrowLeft.svg" className="rotate-180 hidden lg:block" />
     </div>
   );
