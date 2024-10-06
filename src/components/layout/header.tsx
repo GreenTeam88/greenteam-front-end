@@ -1,6 +1,7 @@
 'use client';
 
 import { motion, useAnimation } from 'framer-motion';
+import Link from 'next/link';
 import React, { Dispatch, SetStateAction, useEffect, useRef, useState } from 'react';
 
 import { appConfig } from '@/config';
@@ -233,14 +234,17 @@ const HeaderColumns: React.FC<{ hoveredLink: string }> = ({ hoveredLink }) => {
 export const HeaderTopSection = () => {
   return (
     <div className="flex w-[1201px] bg-white items-center justify-between">
-      <img src={appConfig.logoSrcImg} />
+      <Link href="/">
+        {' '}
+        <img src={appConfig.logoSrcImg} />
+      </Link>
       <div className="flex items-center min-w-[633px] p-[10px] justify-around">
         <motion.div
           className=" w-[15.32px] h-[16px] rounded-full"
           initial={{ backgroundColor: '#fff' }}
           animate={{
-            backgroundColor: ['#37CD76', '#fff'],
-            transition: { duration: 3, ease: 'easeIn', repeat: Infinity },
+            backgroundColor: ['#37CD76', '#37CD76', '#37CD76', '#37CD76', '#fff', '#fff', '#fff'],
+            transition: { duration: 5, ease: 'easeIn', repeat: Infinity },
           }}
         ></motion.div>
         <p className="font-semibold text-[22px] text-primaryGreenD1"> Liever iemand spreken? Bel 085 401 93 45</p>
@@ -312,9 +316,9 @@ export const HeaderLinksSection = () => {
   return (
     <div
       onMouseLeave={() => setHoveredLink('')}
-      className="flex  flex-col items-center   gap-[39px] relative  justify-center "
+      className="flex  flex-col items-center    gap-[39px] relative  justify-center "
     >
-      <div className="flex z-10 gap-[33px] bg-white w-full items-center ">
+      <div className="flex z-10 gap-[33px] py-1 w-full items-center ">
         {headerRoutes.slice(0, 6).map((route, index) => (
           <HeaderBoldLink
             hoveredLink={hoveredLink}
