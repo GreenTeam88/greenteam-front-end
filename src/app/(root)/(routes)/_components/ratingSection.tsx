@@ -1,7 +1,6 @@
 'use client';
 
-import { motion, useAnimateMini, useAnimation } from 'framer-motion';
-import { Fira_Sans_Extra_Condensed } from 'next/font/google';
+import { motion, useAnimation } from 'framer-motion';
 import React, { useEffect, useRef } from 'react';
 
 import { H2 } from '@/components/theme/typography';
@@ -102,7 +101,7 @@ const Ratings = () => {
   };
 
   useEffect(() => {
-    const animationIntervalId = setInterval(scrollLeft, 3000);
+    const animationIntervalId = setInterval(scrollLeft, 6000);
     return () => {
       clearInterval(animationIntervalId);
     };
