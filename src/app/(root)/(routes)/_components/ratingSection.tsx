@@ -1,4 +1,8 @@
-import React from 'react';
+'use client';
+
+import { motion, useAnimateMini, useAnimation } from 'framer-motion';
+import { Fira_Sans_Extra_Condensed } from 'next/font/google';
+import React, { useEffect, useRef } from 'react';
 
 import { H2 } from '@/components/theme/typography';
 import { plusJakartaSansFond } from '@/fonts';
@@ -41,7 +45,7 @@ const ratings: RatingInfo[] = [
 
 const RatingCard: React.FC<RatingInfo> = ({ stars, birthDate, description, images, name }) => {
   return (
-    <div className="flex flex-col gap-[22px] bg-white p-4 lg:p-[22px] lg:w-[387px] ">
+    <div className="flex flex-col gap-[22px] bg-white p-4 lg:p-[22px] lg:w-[380px] ">
       <div className="flex w-full  justify-between">
         <div className="flex ">
           {Array.from({ length: stars }).map((item, index) => (
@@ -74,13 +78,51 @@ const RatingTopSection = () => {
 };
 
 const Ratings = () => {
+  const firstRowAnimation = useAnimation();
+  const firstRowX = useRef(0);
+  const secondRowAnimation = useAnimation();
+  const secondRowX = useRef(0);
+
+  const scrollLeft = async () => {
+    await Promise.all([
+      firstRowAnimation.start({ x: firstRowX.current - 400 }),
+      secondRowAnimation.start({ x: secondRowX.current - 400 }),
+    ]);
+    firstRowX.current -= 400;
+    secondRowX.current -= 400;
+    if (firstRowX.current === -1200) {
+      await firstRowAnimation.start({ x: 1200, transition: { duration: 0 } });
+      firstRowX.current = 1200;
+    }
+    if (secondRowX.current === -2400) {
+      await secondRowAnimation.start({ x: 0, transition: { duration: 0 } });
+      secondRowX.current = 0;
+    }
+  };
+
+  useEffect(() => {
+    const animationIntervalId = setInterval(scrollLeft, 3000);
+    return () => {
+      clearInterval(animationIntervalId);
+    };
+  }, []);
   return (
     <div className="flex  gap-[36px]">
       <img className="hidden lg:block" src="/icons/arrowLeft.svg" />
-      <div className="flex gap-[20px] flex-col lg:flex-row">
-        {ratings.map((rating) => (
-          <RatingCard key={rating.name} {...rating} />
-        ))}
+      <div className=" w-[1200px]  gap-[20px] relative h-[400px] flex  overflow-hidden">
+        <motion.div animate={firstRowAnimation} className="flex absolute top-0 left-0 gap-[20px]  flex-col lg:flex-row">
+          {ratings.map((rating) => (
+            <RatingCard key={rating.name} {...rating} />
+          ))}
+        </motion.div>
+        <motion.div
+          animate={secondRowAnimation}
+          className="flex gap-[20px] absolute left-[1200px] top-0  flex-col lg:flex-row"
+        >
+          {ratings.map((rating) => (
+            <RatingCard key={rating.name} {...rating} />
+          ))}
+        </motion.div>
       </div>
       <img src="/icons/arrowLeft.svg" className="rotate-180 hidden lg:block" />
     </div>
