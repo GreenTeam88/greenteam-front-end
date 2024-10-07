@@ -1,5 +1,6 @@
 'use client';
 
+import { title } from 'process';
 import { motion, useAnimation } from 'framer-motion';
 import Link from 'next/link';
 import React, { Dispatch, SetStateAction, useEffect, useRef, useState } from 'react';
@@ -144,23 +145,115 @@ const headerRoutes: HeaderRoute[] = [
   },
   {
     name: 'Parketrenovatie',
-    columns: [],
+    columns: [
+      {
+        title: '',
+        subPages: [
+          { name: ' Schuren en polijsten', path: '/' },
+          { name: ' Schuren en lakken', path: '/' },
+          { name: ' Schuren en oliën', path: '/' },
+          { name: ' Schuren en hardwaxen', path: '/' },
+          { name: ' Aanhelen / Uitbreiden', path: '/' },
+          { name: ' Reparatie', path: '/' },
+          { name: ' Drevelen', path: '/' },
+          { name: ' V-groef frezen', path: '/' },
+          { name: ' Plinten & Deklijsten', path: '/' },
+        ],
+      },
+    ],
   },
   {
     name: 'Traprenovaties',
-    columns: [],
+    columns: [
+      {
+        title: 'Traprenovaties',
+        subPages: [
+          { name: 'Bekleden met PVC', path: '/' },
+          { name: 'Bekleden met laminaat', path: '/' },
+          { name: 'Bekleden met hout', path: '/' },
+          { name: 'Bekleden met tapijt', path: '/' },
+          { name: 'Bekleden met linoleum', path: '/' },
+          { name: 'Schuren en behandelen', path: '/' },
+          { name: 'Schuren en schilderen', path: '/' },
+          {
+            name: 'BetonCiré',
+            path: '/',
+            subPages: [
+              { name: 'BetonCiré Metal stuc', path: '/' },
+              { name: 'BetonCiré Glamour stuc', path: '/' },
+              { name: 'BetonCiré Brut', path: '/' },
+              { name: 'BetonCiré Parel', path: '/' },
+              { name: 'BetonCiré Croco', path: '/' },
+              { name: 'BetonCiré Venetiaans', path: '/' },
+              { name: 'BetonCiré Acoustic', path: '/' },
+            ],
+          },
+          { name: 'Open trap', path: '/' },
+          { name: 'Dichte trap', path: '/' },
+          { name: 'Verlichting', path: '/' },
+        ],
+      },
+    ],
   },
   {
     name: 'Vloeren leggen',
-    columns: [],
+    columns: [
+      {
+        title: '',
+        subPages: [
+          { name: 'Parket leggen', path: '/' },
+          { name: 'Laminaat leggen', path: '/' },
+          { name: 'PVC leggen', path: '/' },
+          { name: 'Tapijt leggen', path: '/' },
+          { name: 'Linoleum leggen', path: '/' },
+          { name: 'Visgraat', path: '/' },
+          { name: 'Walvisgraat', path: '/' },
+          { name: 'Hongaarse punt', path: '/' },
+          { name: 'Weense punt', path: '/' },
+          { name: 'Tegel', path: '/' },
+          { name: 'Mozaïek of patroon', path: '/' },
+          { name: 'Hexagon & 3D', path: '/' },
+          { name: 'Tapis', path: '/' },
+          { name: 'Bourgogne', path: '/' },
+        ],
+      },
+    ],
   },
   {
     name: 'Stofferen',
-    columns: [],
+    columns: [
+      {
+        title: '',
+        subPages: [
+          { name: 'Trap', path: '/' },
+          { name: 'Vloer', path: '/' },
+          { name: 'Tapijttegels', path: '/' },
+          { name: 'Meubels', path: '/' },
+          { name: 'Deurmat', path: '/' },
+          { name: 'Droogloopmat', path: '/' },
+          { name: 'Rode loper', path: '/' },
+          { name: 'Reinigingsservice', path: '/' },
+          { name: 'Tapijt verwijderen', path: '/' },
+        ],
+      },
+    ],
   },
   {
     name: 'Overig',
-    columns: [],
+    columns: [
+      {
+        title: '',
+        subPages: [
+          { name: 'Vloerverwarming', subPages: [] },
+          { name: 'Egaliseren', subPages: [] },
+          { name: 'Gietvloeren', subPages: [] },
+          { name: 'Tegelen', subPages: [] },
+          { name: 'Vloer verwijderen', subPages: [] },
+          { name: 'Natuursteen behandelen', subPages: [] },
+          { name: 'Opslag', subPages: [] },
+        ],
+      },
+    ],
   },
 ];
 
@@ -287,20 +380,71 @@ export const HeaderBoldLink: React.FC<{
   );
 };
 
+const DropDownColumnLink: React.FC<
+  | RouteWithPath
+  | {
+      name: string;
+      subPages: RouteWithPath[];
+    }
+> = (page) => {
+  const [openSubPages, setOpenSubPages] = useState(false);
+  const pageSubpages = 'subPages' in page && page.subPages;
+  return (
+    <div className="flex flex-col gap-1">
+      <p
+        onClick={() => setOpenSubPages((val) => !val)}
+        className="text-sm  capitalize hover:text-primaryDefault  w-full min-w-[160px] text-black text-opacity-80"
+      >
+        {page.name}
+        {pageSubpages && (
+          <img src="/icons/dropDown.svg" className={cn('mx-2 inline', { 'rotate-180': openSubPages })} />
+        )}
+      </p>
+      {pageSubpages && openSubPages && (
+        <div className="flex flex-col px-2 gap-1">
+          {pageSubpages.map((subPage) => (
+            <p className="text-sm  capitalize hover:text-primaryDefault  w-full min-w-[160px] text-black text-opacity-80">
+              {subPage.name}
+            </p>
+          ))}
+        </div>
+      )}
+    </div>
+  );
+};
+
+// a silgle column for the dropDown
+const DropDownColumn: React.FC<{ routeName: string }> = ({ routeName }) => {
+  const hoveredRoute = headerRoutes.find((route) => route.name === routeName);
+  const hoveredRouteColumn = hoveredRoute && 'columns' in hoveredRoute && hoveredRoute.columns[0];
+  if (!hoveredRouteColumn) return null;
+  return (
+    <div className="flex absolute top-[29px] w-fit flex-col left-1/2 -translate-x-1/2 gap-[11px] py-[22px] px-[44px] bg-white border rounded-[10px] border-blackDark  border-opacity-20 ">
+      {hoveredRouteColumn.subPages.map((page) => (
+        <DropDownColumnLink {...page} />
+      ))}
+    </div>
+  );
+};
+
 // a link in the header in the second row (non bold link)
 export const HeaderLink: React.FC<{
   route: HeaderRoute;
   index: number;
-  hoveredLink: string;
-  setHoveredLink: Dispatch<SetStateAction<string>>;
-}> = ({ route, index, hoveredLink, setHoveredLink }) => {
+}> = ({ route, index }) => {
+  const [showDropDown, setShowDropDown] = useState(false);
   return (
     <>
-      <div onMouseOver={() => !hoveredLink && setHoveredLink(route.name)} className="flex  items-center cursor-pointer">
-        <h5 className={cn('text-[16px]', { 'text-primaryDefault': hoveredLink === route.name })}>
+      <div
+        onMouseLeave={() => setShowDropDown(false)}
+        onMouseOver={() => setShowDropDown(true)}
+        className="flex relative min-h-[30px] items-center cursor-pointer"
+      >
+        <h5 className={cn('text-[16px]', { 'text-primaryDefault': showDropDown })}>
           {route.name}
           {'columns' in route && route.columns && <img width={15} src="/icons/dropDown.svg" className="inline mx-2" />}
         </h5>
+        {showDropDown && <DropDownColumn routeName={route.name} />}
       </div>
       {/* not making a border at the last element of the line  */}
       {index !== headerRoutes.length - 7 && <div className="h-[19px] border-[#E5E5E5] border-[1.64px]"></div>}
@@ -318,7 +462,7 @@ export const HeaderLinksSection = () => {
       onMouseLeave={() => setHoveredLink('')}
       className="flex  flex-col items-center    gap-[39px] relative  justify-center "
     >
-      <div className="flex z-10 gap-[33px] py-1 w-full items-center ">
+      <div className="flex z-10  gap-[33px] py-1 w-full items-center ">
         {headerRoutes.slice(0, 6).map((route, index) => (
           <HeaderBoldLink
             hoveredLink={hoveredLink}
@@ -346,7 +490,6 @@ export const HeaderLinksSection = () => {
 };
 
 export const HeaderDropDowns = () => {
-  const [hoveredLink, setHoveredLink] = useState('');
   const subHeaderHidingAnimation = useAnimation();
   const [clientSide, setClientSide] = useState(false);
   const lastScrollTop = useRef<number>(clientSide ? window.pageYOffset || document.documentElement.scrollTop : 0);
@@ -390,15 +533,33 @@ export const HeaderDropDowns = () => {
       className="flex bg-white w-full z-0 pb-5  gap-[50px] justify-center items-center"
     >
       {headerRoutes.slice(6).map((route, index) => (
-        <HeaderLink
-          hoveredLink={hoveredLink}
-          route={route}
-          key={route.name}
-          index={index}
-          setHoveredLink={setHoveredLink}
-        />
+        <HeaderLink route={route} key={route.name} index={index} />
       ))}
     </motion.div>
+  );
+};
+
+const DesktopHeader = () => {
+  return (
+    <div className="flex flex-col  z-40 w-full  fixed top-0 items-center left-0">
+      <div className="hidden lg:flex  w-full  flex-col  z-30 gap-[39px]  py-6 items-center bg-white">
+        {/* the top section that includes the logo and the social links */}
+        <HeaderTopSection />
+        {/* the section that includes the bold links */}
+        <HeaderLinksSection />
+      </div>
+      {/* a section for the dropdowns (last row) */}
+      <HeaderDropDowns />
+    </div>
+  );
+};
+
+const MobileHeader = () => {
+  return (
+    <div className="flex w-full px-3 justify-between">
+      <img src={appConfig.logoSrcImg} />
+      <i className="bi bi-list"></i>
+    </div>
   );
 };
 
@@ -407,16 +568,8 @@ export const Header = () => {
   return (
     <>
       {/* header for desktop view */}
-      <div className="flex flex-col  z-40 w-full  fixed top-0 items-center left-0">
-        <div className="hidden lg:flex  w-full  flex-col  z-30 gap-[39px]  py-6 items-center bg-white">
-          {/* the top section that includes the logo and the social links */}
-          <HeaderTopSection />
-          {/* the section that includes the bold links */}
-          <HeaderLinksSection />
-        </div>
-        {/* a section for the dropdowns (last row) */}
-        <HeaderDropDowns />
-      </div>
+      <DesktopHeader />
+      {/* header for mobile */}
     </>
   );
 };
