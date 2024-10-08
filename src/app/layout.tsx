@@ -4,11 +4,12 @@ import './globals.css';
 
 import { Inter } from 'next/font/google';
 
-import { Footer } from '@/components/layout/footer';
 import { Header } from '@/components/layout/header';
 import { cn } from '@/lib/tailwind';
 
 import 'bootstrap-icons/font/bootstrap-icons.css';
+
+import { Footer } from '@/components/layout/footer/footer';
 
 const inter = Inter({ subsets: ['latin'] });
 
