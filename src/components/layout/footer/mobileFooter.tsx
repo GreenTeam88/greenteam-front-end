@@ -24,7 +24,7 @@ export const TopSection = () => {
       </div>
       <div className="flex py-4 flex-col">
         {topFooterLinks.map((link) => (
-          <Link href={link.path} className="text-lg font-semibold">
+          <Link href={link.path} key={link.name} className="text-lg font-semibold">
             {link.name}
           </Link>
         ))}
@@ -46,7 +46,9 @@ const FooterColumn: React.FC<FooterColumnInfo> = ({ links, title }) => {
       {isColumnOpen && (
         <div className="flex flex-col px-2">
           {links.map((link) => (
-            <Link href={link.path}>{link.name}</Link>
+            <Link key={link.name} href={link.path}>
+              {link.name}
+            </Link>
           ))}
         </div>
       )}
@@ -56,7 +58,7 @@ const FooterColumn: React.FC<FooterColumnInfo> = ({ links, title }) => {
 
 const Columns = () => {
   return (
-    <div className="flex flex-col px-3 py-4 gap-2">
+    <div className="flex flex-col px-3 py-4 ">
       {footerColumnsInfo.map((column) => (
         <FooterColumn key={column.title} {...column} />
       ))}
@@ -69,7 +71,7 @@ export const BottomSection = () => {
     <div className="flex px-3 py-5 flex-col">
       <BodyTextBold>Openingstijden</BodyTextBold>
       {appConfig.openingTimes.map((openingTime) => (
-        <div className="flex gap-1">
+        <div key={openingTime.day} className="flex gap-1">
           <BodyTextBold>{openingTime.day}</BodyTextBold>
           <BodyText>{openingTime.day}</BodyText>
         </div>
