@@ -12,7 +12,13 @@ export const PrimaryBtn: React.FC<HTMLAttributes<HTMLButtonElement>> = ({ childr
 
 export const PrimaryOutlinedBtn: React.FC<HTMLAttributes<HTMLButtonElement>> = ({ children, className, ...props }) => {
   return (
-    <button className={cn('primaryOutlinedBtn  w-fit h-fit', className)} {...props}>
+    <button
+      className={cn(
+        'py-[10.69px] px-[17.81px] rounded-sm bg-white hover:bg-primaryDefault hover:text-white border hover:border-white text-primaryDefault text-[13px] font-bold w-fit h-fit',
+        className
+      )}
+      {...props}
+    >
       {children}{' '}
     </button>
   );
