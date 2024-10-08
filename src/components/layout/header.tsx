@@ -271,7 +271,7 @@ const HeaderColumnItem: React.FC<
       <h5
         key={subPage.name}
         onClick={() => setIsOpened((val) => !val)}
-        className="text-sm hover:text-primaryDefault cursor-pointer"
+        className="text-sm hover:text-primaryDefault whitespace-nowrap cursor-pointer"
       >
         {subPage.name}
         {hasSubPages && <img src="/icons/dropDown.svg" className={cn('mx-2 inline', { 'rotate-180': isOpened })} />}
@@ -281,7 +281,7 @@ const HeaderColumnItem: React.FC<
           {'subPages' in subPage &&
             subPage.subPages &&
             subPage.subPages.map((item) => (
-              <h5 key={subPage.name} className="text-sm  hover:text-primaryDefault cursor-pointer">
+              <h5 key={subPage.name} className="text-sm w-full  hover:text-primaryDefault cursor-pointer">
                 {item.name}
               </h5>
             ))}
@@ -296,7 +296,7 @@ const HeaderColumnItem: React.FC<
 const HeaderColumn: React.FC<HeaderColumnInfo & { index: number }> = ({ subPages, title }) => {
   return (
     <>
-      <div className="flex flex-col gap-[11px]">
+      <div className="flex flex-col  gap-[11px]">
         <h5 className="text-sm font-semibold text-primaryDefault">{title}</h5>
         <div className="flex flex-col gap-1">
           {subPages.map((subPage) => (
@@ -464,7 +464,7 @@ export const HeaderLinksSection = () => {
       onMouseLeave={() => setHoveredLink('')}
       className="flex  flex-col items-center    gap-[39px] relative  justify-center "
     >
-      <div className="flex z-10  gap-[33px] py-1 w-full items-center ">
+      <div className="flex z-10   gap-[33px] py-1 w-full items-center ">
         {headerRoutes.slice(0, 6).map((route, index) => (
           <HeaderBoldLink
             hoveredLink={hoveredLink}
