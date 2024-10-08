@@ -77,7 +77,7 @@ const FooterBottomSection = () => {
       <div className="flex justify-between">
         <BodyTextBold className="text-primaryDefault">
           GreenTeam is ontwikkeld door{' '}
-          <a href="www.achieve.nl" target="_blank">
+          <a href="www.achieve.nl" className="hover:text-secondaryDefault" target="_blank">
             Achieve.nl
           </a>
           © 2024.

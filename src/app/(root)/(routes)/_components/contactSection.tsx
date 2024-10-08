@@ -1,3 +1,5 @@
+import Link from 'next/link';
+
 import { SecondaryOutlinedBtn } from '@/components/theme/buttons';
 import { BodyText, BodyTextSemibold, LinkTypography } from '@/components/theme/typography';
 import { appConfig } from '@/config';
@@ -9,7 +11,9 @@ const ContactInfo = () => {
         <h4 className="text-[25px] text-primaryDefault  tracking-[-2%] font-semibold lg:w-[313px]">
           Geen vraag is te gek, we helpen je graag verder!
         </h4>
-        <SecondaryOutlinedBtn>Contact opnemen</SecondaryOutlinedBtn>
+        <a href="https://www.greenteam.nl/" className="secondaryOutlinedBtn">
+          Contact opnemen
+        </a>
       </div>
       <div className="flex flex-col gap-[40px]">
         <div className="flex gap-[22px]  items-center">
