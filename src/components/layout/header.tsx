@@ -7,7 +7,6 @@ import React, { Dispatch, SetStateAction, useEffect, useRef, useState } from 're
 import { appConfig } from '@/config';
 import { cn } from '@/lib/tailwind';
 import { InstagramLogo, TikTokIcon } from '../icons/homePageIcons';
-import { BodyText, BodyTextBold, H2 } from '../theme/typography';
 
 // types needed for the header
 
@@ -403,7 +402,10 @@ const DropDownColumnLink: React.FC<
       {pageSubpages && openSubPages && (
         <div className="flex flex-col px-2 gap-1">
           {pageSubpages.map((subPage) => (
-            <p className="text-sm  capitalize hover:text-primaryDefault  w-full min-w-[160px] text-black text-opacity-80">
+            <p
+              key={subPage.name}
+              className="text-sm  capitalize hover:text-primaryDefault  w-full min-w-[160px] text-black text-opacity-80"
+            >
               {subPage.name}
             </p>
           ))}
@@ -421,7 +423,7 @@ const DropDownColumn: React.FC<{ routeName: string }> = ({ routeName }) => {
   return (
     <div className="flex absolute top-[29px] w-fit flex-col left-1/2 -translate-x-1/2 gap-[11px] py-[22px] px-[44px] bg-white border rounded-[10px] border-blackDark  border-opacity-20 ">
       {hoveredRouteColumn.subPages.map((page) => (
-        <DropDownColumnLink {...page} />
+        <DropDownColumnLink key={page.name} {...page} />
       ))}
     </div>
   );
@@ -577,7 +579,9 @@ const MobileBoldLinkColumnSubpage: React.FC<
       {subPages && isSubpagesOpened && (
         <div className="flex px-2 flex-col ">
           {subPages.map((subPage) => (
-            <p className="text-base ">{subPage.name}</p>
+            <p key={subPage.name} className="text-base ">
+              {subPage.name}
+            </p>
           ))}
         </div>
       )}
@@ -600,7 +604,7 @@ const MobileBoldLinkColumn: React.FC<HeaderColumnInfo> = ({ subPages, title }) =
       {subPages && isSubpagesOpened && (
         <div className="flex flex-col px-2 gap-1">
           {subPages.map((subPage) => (
-            <MobileBoldLinkColumnSubpage {...subPage} />
+            <MobileBoldLinkColumnSubpage key={subPage.name} {...subPage} />
           ))}
         </div>
       )}
@@ -625,7 +629,7 @@ export const MobileMenuBoldLink: React.FC<HeaderRoute> = (headerRoute) => {
       {columns && isColumnsOpened && (
         <div className="flex px-2 flex-col">
           {columns.map((column) => (
-            <MobileBoldLinkColumn {...column} />
+            <MobileBoldLinkColumn key={column.title} {...column} />
           ))}
         </div>
       )}
@@ -637,7 +641,7 @@ const MobileMenuBoldLinks = () => {
   return (
     <div className="flex flex-col gap-2">
       {headerRoutes.slice(0, 6).map((header) => (
-        <MobileMenuBoldLink {...header} />
+        <MobileMenuBoldLink key={header.name} {...header} />
       ))}
     </div>
   );
