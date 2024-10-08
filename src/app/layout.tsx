@@ -8,6 +8,8 @@ import { Footer } from '@/components/layout/footer';
 import { Header } from '@/components/layout/header';
 import { cn } from '@/lib/tailwind';
 
+import 'bootstrap-icons/font/bootstrap-icons.css';
+
 const inter = Inter({ subsets: ['latin'] });
 
 export const metadata: Metadata = {

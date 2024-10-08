@@ -1,6 +1,5 @@
 'use client';
 
-import { title } from 'process';
 import { motion, useAnimation } from 'framer-motion';
 import Link from 'next/link';
 import React, { Dispatch, SetStateAction, useEffect, useRef, useState } from 'react';
@@ -8,6 +7,7 @@ import React, { Dispatch, SetStateAction, useEffect, useRef, useState } from 're
 import { appConfig } from '@/config';
 import { cn } from '@/lib/tailwind';
 import { InstagramLogo, TikTokIcon } from '../icons/homePageIcons';
+import { BodyText, BodyTextBold, H2 } from '../theme/typography';
 
 // types needed for the header
 
@@ -541,7 +541,7 @@ export const HeaderDropDowns = () => {
 
 const DesktopHeader = () => {
   return (
-    <div className="flex flex-col  z-40 w-full  fixed top-0 items-center left-0">
+    <div className=" hidden lg:flex flex-col  z-40 w-full  fixed top-0 items-center left-0">
       <div className="hidden lg:flex  w-full  flex-col  z-30 gap-[39px]  py-6 items-center bg-white">
         {/* the top section that includes the logo and the social links */}
         <HeaderTopSection />
@@ -554,11 +554,113 @@ const DesktopHeader = () => {
   );
 };
 
-const MobileHeader = () => {
+const MobileBoldLinkColumnSubpage: React.FC<
+  | RouteWithPath
+  | {
+      name: string;
+      subPages: RouteWithPath[];
+    }
+> = (subPage) => {
+  const [isSubpagesOpened, setIsSubpagesOpened] = useState(false);
+  const subPages = 'subPages' in subPage && subPage.subPages;
   return (
-    <div className="flex w-full px-3 justify-between">
-      <img src={appConfig.logoSrcImg} />
-      <i className="bi bi-list"></i>
+    <div className="flex flex-col ">
+      <p
+        onClick={() => setIsSubpagesOpened((val) => !val)}
+        className="text-lg   cursor-pointerflex flex items-center tracking-[-2%]"
+      >
+        {subPage.name}
+        {subPages && (
+          <img src="/icons/dropDown.svg" className={cn('mx-4 w-[16px]', { 'rotate-180': isSubpagesOpened })} />
+        )}
+      </p>
+      {subPages && isSubpagesOpened && (
+        <div className="flex px-2 flex-col ">
+          {subPages.map((subPage) => (
+            <p className="text-base ">{subPage.name}</p>
+          ))}
+        </div>
+      )}
+    </div>
+  );
+};
+const MobileBoldLinkColumn: React.FC<HeaderColumnInfo> = ({ subPages, title }) => {
+  const [isSubpagesOpened, setIsSubpagesOpened] = useState(false);
+  return (
+    <div className="flex flex-col gap-1">
+      <h4
+        onClick={() => setIsSubpagesOpened((val) => !val)}
+        className="text-[19px]  cursor-pointer  flex items-center "
+      >
+        {title}
+        {subPages && (
+          <img src="/icons/dropDown.svg" className={cn('mx-4 w-[20px]', { 'rotate-180': isSubpagesOpened })} />
+        )}{' '}
+      </h4>
+      {subPages && isSubpagesOpened && (
+        <div className="flex flex-col px-2 gap-1">
+          {subPages.map((subPage) => (
+            <MobileBoldLinkColumnSubpage {...subPage} />
+          ))}
+        </div>
+      )}
+    </div>
+  );
+};
+export const MobileMenuBoldLink: React.FC<HeaderRoute> = (headerRoute) => {
+  const [isColumnsOpened, setIsColumnsOpened] = useState<boolean>(false);
+  const columns = 'columns' in headerRoute && headerRoute.columns;
+
+  return (
+    <div className="flex flex-col">
+      <h4
+        onClick={() => setIsColumnsOpened((val) => !val)}
+        className="text-xl font-semibold cursor-pointer  flex items-center tracking-[-2%]"
+      >
+        {headerRoute.name}{' '}
+        {columns && (
+          <img src="/icons/dropDown.svg" className={cn('mx-4 w-[20px]', { 'rotate-180': isColumnsOpened })} />
+        )}{' '}
+      </h4>
+      {columns && isColumnsOpened && (
+        <div className="flex px-2 flex-col">
+          {columns.map((column) => (
+            <MobileBoldLinkColumn {...column} />
+          ))}
+        </div>
+      )}
+    </div>
+  );
+};
+
+const MobileMenuBoldLinks = () => {
+  return (
+    <div className="flex flex-col gap-2">
+      {headerRoutes.slice(0, 6).map((header) => (
+        <MobileMenuBoldLink {...header} />
+      ))}
+    </div>
+  );
+};
+
+const MobileMenu: React.FC<{ setIsMenuOpened: React.Dispatch<React.SetStateAction<boolean>> }> = ({
+  setIsMenuOpened,
+}) => {
+  return (
+    <div className="flex bg-white max-h-[100vh] overflow-y-scroll min-w-[80vw] py-24 items-center z-40 flex-col gap-1 fixed top-0 right-0">
+      <MobileMenuBoldLinks />
+      <i onClick={() => setIsMenuOpened(false)} className="bi absolute top-3 right-3 hover:text-red-500 bi-x-lg"></i>
+    </div>
+  );
+};
+
+const MobileHeader = () => {
+  const [isMenuOpened, setIsMenuOpened] = useState(false);
+  return (
+    <div className="flex w-full px-3   lg:hidden relative py-3 justify-between">
+      <img src={appConfig.logoSrcImg} width={70} />
+      <i className="bi bi-list text-3xl font-bold" onClick={() => setIsMenuOpened((val) => !val)}></i>
+      {isMenuOpened && <MobileMenu setIsMenuOpened={setIsMenuOpened} />}
     </div>
   );
 };
@@ -570,6 +672,7 @@ export const Header = () => {
       {/* header for desktop view */}
       <DesktopHeader />
       {/* header for mobile */}
+      <MobileHeader />
     </>
   );
 };
