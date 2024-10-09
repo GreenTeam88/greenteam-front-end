@@ -1,6 +1,3 @@
-import Link from 'next/link';
-
-import { SecondaryOutlinedBtn } from '@/components/theme/buttons';
 import { BodyText, BodyTextSemibold, LinkTypography } from '@/components/theme/typography';
 import { appConfig } from '@/config';
 
