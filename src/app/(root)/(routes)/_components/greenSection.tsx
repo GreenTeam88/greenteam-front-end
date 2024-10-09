@@ -1,4 +1,4 @@
-import { PrimaryOutlinedBtn } from '@/components/theme/buttons';
+import { PrimaryOutlinedBtn, PrimaryOutlinedBtnLink } from '@/components/theme/buttons';
 
 export const GreenSection = () => {
   return (
@@ -10,7 +10,9 @@ export const GreenSection = () => {
           <h3 className="text-xl text-center lg:text-start   lg:text-[1.5vw] text-white lg:leading-[1.5vw]  tracking-[-2%] ">
             GreenTeam als dé groene <br /> zakenpartner <span className="font-semibold"> voor jouw bedrijf!</span>
           </h3>
-          <PrimaryOutlinedBtn className="lg:py-2">Dat wil ik!</PrimaryOutlinedBtn>
+          <PrimaryOutlinedBtnLink href="/zakelijk" className="lg:py-2">
+            Dat wil ik!
+          </PrimaryOutlinedBtnLink>
         </div>
       </div>
     </div>

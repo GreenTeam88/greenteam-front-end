@@ -1,4 +1,4 @@
-import { SecondaryOutlinedBtn } from '@/components/theme/buttons';
+import { SecondaryOutlinedBtn, SecondaryOutlinedBtnLink } from '@/components/theme/buttons';
 import { BodyText, BodyTextSemibold, DetailsTypography, H2, HeadlineSemibold } from '@/components/theme/typography';
 
 interface Tab {
@@ -83,7 +83,9 @@ const ParagraphSection = () => {
           </BodyText>
         </div>
       </div>
-      <SecondaryOutlinedBtn className="w-fit">Meer over ons</SecondaryOutlinedBtn>
+      <SecondaryOutlinedBtnLink href="/over-ons" className="w-fit">
+        Meer over ons
+      </SecondaryOutlinedBtnLink>
     </div>
   );
 };

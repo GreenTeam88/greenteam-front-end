@@ -1,5 +1,6 @@
 'use client';
 
+import Link from 'next/link';
 import React from 'react';
 
 import { appConfig } from '@/config';
@@ -13,7 +14,9 @@ export const FooterColumn: React.FC<FooterColumnInfo> = ({ title, links }) => {
       <BodyTextBold className="text-primaryDefault">{title}</BodyTextBold>
       <div className="flex flex-col gap-2">
         {links.map((link) => (
-          <BodyText key={link.name}>{link.name}</BodyText>
+          <BodyText className="hover:text-primaryDefault cursor-pointer" key={link.name}>
+            {link.name}
+          </BodyText>
         ))}
       </div>
     </div>
@@ -23,7 +26,9 @@ export const FooterColumn: React.FC<FooterColumnInfo> = ({ title, links }) => {
 export const FooterTopSection = () => {
   return (
     <div className="flex items-center justify-between">
-      <img src={appConfig.logoSrcImg} />
+      <Link href="/">
+        <img src={appConfig.logoSrcImg} />
+      </Link>
       <div className="flex gap-4 px-6">
         {topFooterLinks.map((link) => (
           <HeadlineSemibold key={link.name}>{link.name}</HeadlineSemibold>
@@ -83,8 +88,8 @@ const FooterBottomSection = () => {
           © 2024.
         </BodyTextBold>
         <BodyTextSemibold className="text-primaryDefault">
-          <a href="https://www.greenteam.nl/algemenevoorwaarden">Algemene Voorwaardenㆍ</a>
-          <a href="https://www.greenteam.nl/privacypolicy">Privacy Policy</a>
+          <Link href="/algemenevoorwaarden">Algemene Voorwaardenㆍ</Link>
+          <Link href="/privacypolicy">Privacy Policy</Link>
         </BodyTextSemibold>
       </div>
     </>

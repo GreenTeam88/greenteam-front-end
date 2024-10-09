@@ -2,7 +2,7 @@
 
 import { useState } from 'react';
 
-import { PrimaryBtn, SecondaryOutlinedBtn } from '@/components/theme/buttons';
+import { PrimaryBtn, PrimaryBtnLink, SecondaryOutlinedBtn, SecondaryOutlinedBtnLink } from '@/components/theme/buttons';
 import { BodyText, BodyTextSemibold, H2 } from '@/components/theme/typography';
 import { cn } from '@/lib/tailwind';
 
@@ -68,8 +68,8 @@ const ParagraphSection = () => {
         </p>
       </div>
       <div className="flex gap-[22px]">
-        <PrimaryBtn>Alles bekijken</PrimaryBtn>
-        <SecondaryOutlinedBtn>Contact opnemen</SecondaryOutlinedBtn>
+        <PrimaryBtnLink href="/veelgestelde-vragen">Alles bekijken</PrimaryBtnLink>
+        <SecondaryOutlinedBtnLink href="/contact">Contact opnemen</SecondaryOutlinedBtnLink>
       </div>
     </div>
   );
