@@ -1,4 +1,4 @@
-import { PrimaryOutlinedBtn, PrimaryOutlinedBtnLink } from '@/components/theme/buttons';
+import { PrimaryOutlinedBtnLink } from '@/components/theme/buttons';
 
 export const GreenSection = () => {
   return (

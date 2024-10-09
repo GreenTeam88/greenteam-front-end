@@ -1,4 +1,4 @@
-import { SecondaryOutlinedBtn, SecondaryOutlinedBtnLink } from '@/components/theme/buttons';
+import { SecondaryOutlinedBtnLink } from '@/components/theme/buttons';
 import { BodyText, BodyTextSemibold, DetailsTypography, H2, HeadlineSemibold } from '@/components/theme/typography';
 
 interface Tab {
