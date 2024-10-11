@@ -34,7 +34,7 @@ export const OurServicesSection = () => {
       <H2 className="text-primaryDefault">Onze diensten</H2>
       <div className="flex  gap-5 w-full">
         {services.map((service) => (
-          <ServiceCard {...service} />
+          <ServiceCard key={service.title} {...service} />
         ))}
       </div>
     </div>

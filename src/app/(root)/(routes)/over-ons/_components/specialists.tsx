@@ -19,7 +19,7 @@ export const SpecialistsSection = () => {
       <H2 className="text-primaryDefault">Maak kennis met onze specialisten</H2>
       <div className="flex max-w-[897px] flex-wrap gap-[18px]">
         {specialists.map((specialist) => (
-          <SpecialistCard {...specialist} />
+          <SpecialistCard key={specialist.name} {...specialist} />
         ))}
       </div>
     </div>
