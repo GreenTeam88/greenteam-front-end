@@ -3,7 +3,7 @@ import React from 'react';
 import { ForwardArrow } from '@/components/icons/homePageIcons';
 import { H2 } from '@/components/theme/typography';
 
-interface ServiceInfo {
+export interface ServiceInfo {
   title: string;
   description: string;
   thumbnailSrc: string;
