@@ -1,4 +1,3 @@
-import Link from 'next/link';
 import React, { HTMLAttributes } from 'react';
 
 import { cn } from '@/lib/tailwind';
@@ -51,7 +50,7 @@ export const BodyText: React.FC<HTMLAttributes<HTMLHeadingElement>> = ({ classNa
   );
 };
 
-export const LinkTypography: React.FC<HTMLAttributes<HTMLAnchorElement> & { href: string }> = ({
+export const LinkTypography: React.FC<HTMLAttributes<HTMLAnchorElement> & { href?: string }> = ({
   className,
   children,
   ...props
