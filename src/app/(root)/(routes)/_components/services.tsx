@@ -44,7 +44,7 @@ const services: ServiceInfo[] = [
 
 export const ServiceCard: React.FC<ServiceInfo> = ({ description, thumbnailSrc, title }) => {
   return (
-    <div className="flex flex-col pb-[22px] border-opacity-10 border-black10 border-2 lg:w-[387px] gap-[33px] ">
+    <div className="flex flex-col pb-[22px] border-opacity-10 border-black10 border-2 max-w-full lg:w-[387px] gap-[33px] ">
       <img src={thumbnailSrc} className="w-full h-[176px] " />
       <div className="flex flex-col gap-[11px] px-7 ">
         <h5 className="font-bold text-xl ">{title}</h5>
@@ -60,7 +60,7 @@ export const ServiceCard: React.FC<ServiceInfo> = ({ description, thumbnailSrc, 
 
 const AllServices = () => {
   return (
-    <div className="flex flex-wrap  items-center justify-center gap-[23px] lg:w-[1207px] max-w-full">
+    <div className="flex flex-wrap  items-center  justify-center gap-[23px] lg:w-[1207px] max-w-full">
       {services.map((serviceInfo) => (
         <ServiceCard key={serviceInfo.title} {...serviceInfo} />
       ))}

@@ -3,7 +3,7 @@ import { BodyText, H2 } from '@/components/theme/typography';
 const OurVisionCard = () => {
   return (
     <div className="flex gap-[52px] items-center">
-      <img src="/aboutUs/ourVision.png" />
+      <img src="/aboutUs/itTeam.png" />
       <div className="flex flex-col max-w-[488px] gap-[11px]">
         <h3 className="font-medium text-[25px] leading-[37px] tracking-[-2%] text-primaryDefault">Onze visie</h3>
         <p>

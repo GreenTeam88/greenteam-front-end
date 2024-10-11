@@ -138,7 +138,7 @@ const Ratings = () => {
 };
 export const RatingSection = () => {
   return (
-    <div className="w-full px-3 lg:px-0 bg-lightOrange gap-[60px] max-w-full flex items-center py-[122px] justify-center">
+    <div className="w-full px-3 lg:px-0 bg-lightOrange gap-[60px] relative max-w-full flex items-center py-[122px] justify-center">
       <div className="flex flex-col max-w-[1440px] gap-[44px] items-center justify-center">
         {/* top section includes title and ratings on google */}
         <RatingTopSection />
