@@ -5,7 +5,7 @@ const OurVisionCard = () => {
     <div className="flex gap-[52px] items-center">
       <img src="/aboutUs/ourVision.png" />
       <div className="flex flex-col max-w-[488px] gap-[11px]">
-        <h3 className="font-medium text-[25px] leading-[37px] tracking-[-2%]">Onze visie</h3>
+        <h3 className="font-medium text-[25px] leading-[37px] tracking-[-2%] text-primaryDefault">Onze visie</h3>
         <p>
           Bij Green Team hebben we een passie voor hout en duurzaamheid. Oorspronkelijk houtbewerkers, hebben wij ons
           gespecialiseerd in vloer en traprenovatie. Wij streven naar topkwaliteit en het{' '}
@@ -25,7 +25,7 @@ const OurMissionCard = () => {
     <div className="flex gap-[52px] items-center">
       <img src="/aboutUs/ourMission.png" />
       <div className="flex flex-col max-w-[488px] gap-[11px]">
-        <h3 className="font-medium text-[25px] leading-[37px] tracking-[-2%]">Onze missie</h3>
+        <h3 className="font-medium text-[25px] leading-[37px] tracking-[-2%] text-primaryDefault">Onze missie</h3>
         <p>
           Onze missie is om zo duurzaam en groen mogelijk te werk te gaan. We vinden het belangrijk om bewust bij te
           dragen aan een betere wereld. Green Team geeft een houten vloer of trap een tweede leven, waardoor er minder

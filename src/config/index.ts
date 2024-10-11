@@ -16,6 +16,8 @@ const openingTimes: OpeningTime[] = [
 ];
 export const appConfig = {
   logoSrcImg: '/logo.png',
+  email: 'info@greenteam.nl',
+  phoneNumber: '085 401 93 45',
   openingTimes,
   instagramAccount: 'https://www.instagram.com/greenteam.nl',
   tiktokAccount: 'https://www.tiktok.com/@greenteam.nl',

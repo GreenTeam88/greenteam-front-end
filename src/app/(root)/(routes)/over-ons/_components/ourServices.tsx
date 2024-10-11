@@ -30,7 +30,7 @@ const services: ServiceInfo[] = [
 
 export const OurServicesSection = () => {
   return (
-    <div className="flex flex-col gap-[55px] py-16 items-center">
+    <div className="flex flex-col gap-[55px] py-40 items-center">
       <H2 className="text-primaryDefault">Onze diensten</H2>
       <div className="flex  gap-5 w-full">
         {services.map((service) => (

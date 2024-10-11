@@ -1,5 +1,6 @@
 import { SmallSecondaryOutlinedBtn } from '@/components/theme/buttons';
-import { HeadlineSemibold } from '@/components/theme/typography';
+import { BodyTextSemibold, HeadlineSemibold, LinkTypography } from '@/components/theme/typography';
+import { appConfig } from '@/config';
 
 export const PhoneNumberSection = () => {
   return (
@@ -13,6 +14,25 @@ export const PhoneNumberSection = () => {
           placeholder="Telefoonnummer"
         />
         <SmallSecondaryOutlinedBtn>Verzenden</SmallSecondaryOutlinedBtn>
+      </div>
+      <div className="flex w-full items-center justify-center gap-[34px]">
+        <div className="flex gap-12 py-8 items-center">
+          <div className="flex items-center gap-3">
+            <img src="/icons/email.png" />
+            <LinkTypography className="hover:text-secondaryDefault" href={`mailto: ${appConfig.email}`}>
+              {appConfig.email}
+            </LinkTypography>
+          </div>
+          <div className="flex items-center gap-3">
+            <img src="/icons/phone.svg" />
+            <BodyTextSemibold className="pr-3 border-r border-r-black20 border-opacity-20">
+              {appConfig.email}
+            </BodyTextSemibold>
+            <LinkTypography href={`tel:${appConfig.phoneNumber}`} className="fond-semibold hover:text-secondaryDefault">
+              Bellen
+            </LinkTypography>
+          </div>
+        </div>
       </div>
     </div>
   );
