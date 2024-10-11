@@ -362,7 +362,6 @@ export const HeaderBoldLink: React.FC<{
   index: number;
   setHoveredLink: Dispatch<SetStateAction<string>>;
 }> = ({ route, index, hoveredLink, setHoveredLink }) => {
-  const columns = 'columns' in route && route.columns;
   const path = 'path' in route && route.path;
   return (
     <>

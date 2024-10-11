@@ -51,6 +51,7 @@ export const SelectInput: React.FC<{
           <div className="absolute w-[90%]  rounded-lg shadow-xl left-1/2 -translate-x-1/2 h-fit bg-white px-2 border z-30 top-14">
             {values.map((val) => (
               <div
+                key={val}
                 onClick={() => {
                   closeInput();
                   setValue(val);
@@ -84,6 +85,7 @@ export const PrimaryInput: React.FC<
       )}
       <input
         className="px-[20px]  w-full border-black20 border rounded-lg  py-[12px] "
+        value={value}
         onChange={(e) => {
           setValue(e.target.value);
         }}
