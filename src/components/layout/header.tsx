@@ -36,7 +36,7 @@ const headerRoutes: HeaderRoute[] = [
   },
   {
     name: 'Over ons',
-    path: '/',
+    path: '/over-ons',
   },
   {
     name: 'Diensten',
@@ -362,16 +362,24 @@ export const HeaderBoldLink: React.FC<{
   index: number;
   setHoveredLink: Dispatch<SetStateAction<string>>;
 }> = ({ route, index, hoveredLink, setHoveredLink }) => {
+  const columns = 'columns' in route && route.columns;
+  const path = 'path' in route && route.path;
   return (
     <>
       <div
         onMouseOver={() => !hoveredLink && setHoveredLink(route.name)}
         className={cn('flex  items-center  cursor-pointer', { 'text-primaryDefault': hoveredLink === route.name })}
       >
-        <h5 className="font-bold text-[16px]">
-          {route.name}
-          {'columns' in route && route.columns && <img width={15} src="/icons/dropDown.svg" className="inline mx-2" />}
-        </h5>
+        {path ? (
+          <Link href={route.path} className="font-bold text-[16px]">
+            {route.name}
+          </Link>
+        ) : (
+          <h3 className="font-bold text-[16px]">
+            {route.name}
+            {<img width={15} src="/icons/dropDown.svg" className="inline mx-2" />}
+          </h3>
+        )}
       </div>
       {/* not making a border at the last element of the line  */}
       {index !== 5 && <div className="h-[19px] border-[#E5E5E5] border-[1.64px]"></div>}
@@ -458,6 +466,7 @@ export const HeaderLink: React.FC<{
 export const HeaderLinksSection = () => {
   const [hoveredLink, setHoveredLink] = useState('');
   const hoveredLinkRouteIndex = headerRoutes.findIndex((route) => route.name === hoveredLink);
+  const hoveredRoute = headerRoutes[hoveredLinkRouteIndex];
 
   return (
     <div
@@ -475,7 +484,7 @@ export const HeaderLinksSection = () => {
           />
         ))}
       </div>
-      {hoveredLink && (
+      {hoveredLink && hoveredRoute && 'columns' in hoveredRoute && hoveredRoute.columns && (
         // the top is 30px if the hovered link at the first row (bold)
         // the top is 88px if the hovered link at the second row
         <div
