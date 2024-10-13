@@ -30,7 +30,7 @@ const config: InfoCardProps = {
 
 export const Stoffren = () => {
   return (
-    <div className="py-28">
+    <div className="py-28 bg-transparent">
       <WhiteInfoCard {...config} />
     </div>
   );

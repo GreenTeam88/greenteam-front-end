@@ -28,7 +28,7 @@ const config: InfoCardProps = {
 
 export const Traprenovatie = () => {
   return (
-    <div className="bg-white py-10">
+    <div className=" py-10">
       <WhiteInfoCard {...config} />
     </div>
   );
