@@ -95,7 +95,7 @@ const QuestionsParagraph = () => {
 
 export const QuestionSection = () => {
   return (
-    <div className="flex w-full items-center justify-center py-24 gap-[92px]">
+    <div className="flex w-full flex-col lg:flex-row items-center justify-center py-24 gap-[92px]">
       <QuestionForm />
       <QuestionsParagraph />
     </div>

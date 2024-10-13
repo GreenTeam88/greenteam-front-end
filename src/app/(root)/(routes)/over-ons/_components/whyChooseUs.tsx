@@ -43,25 +43,25 @@ const IconCard: React.FC<IconInfo> = ({ name, src }) => {
 
 export const WhyChooseUs = () => {
   return (
-    <div className="flex flex-col items-center py-28 gap-[55px]">
+    <div className="flex flex-col items-center px-5 py-28 gap-[55px]">
       <H2 className="text-primaryDefault">Waarom voor ons kiezen?</H2>
-      <div className="flex gap-[88px] w-full justify-center">
+      <div className="flex gap-[88px] max-w-full flex-wrap  w-full justify-center">
         {iconsInfo.map((info) => (
           <IconCard key={info.name} {...info} />
         ))}
       </div>
-      <div className="flex flex-col gap-8 w-[798px]">
+      <div className="flex flex-col px-3 lg:px-0 gap-8 lg:w-[798px]">
         {paragraphs.map((paragraph) => (
           <BodyText key={paragraph} className="text-center">
             {paragraph}
           </BodyText>
         ))}
       </div>
-      <div className="flex py-16 flex-col items-center gap-[34px]">
+      <div className="flex py-16 flex-col items-center gap-12 lg:gap-[34px]">
         {cardsInfos.map((cardInfo, index) => (
           <div
             key={cardInfo.title}
-            className={cn({ '-translate-x-24': index % 2 === 0, 'translate-x-24': index % 2 === 1 })}
+            className={cn({ 'lg:-translate-x-24': index % 2 === 0, 'lg:translate-x-24': index % 2 === 1 })}
           >
             <StandardCard {...cardInfo} />
           </div>

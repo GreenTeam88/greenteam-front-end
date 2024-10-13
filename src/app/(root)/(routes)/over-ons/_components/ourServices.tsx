@@ -32,7 +32,7 @@ export const OurServicesSection = () => {
   return (
     <div className="flex flex-col max-w-full px-6 relative gap-[55px] py-40 items-center">
       <H2 className="text-primaryDefault">Onze diensten</H2>
-      <div className="flex  gap-5 w-full">
+      <div className="flex flex-col lg:flex-row  gap-5 w-full">
         {services.map((service) => (
           <ServiceCard key={service.title} {...service} />
         ))}
