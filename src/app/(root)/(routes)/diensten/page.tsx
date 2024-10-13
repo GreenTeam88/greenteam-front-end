@@ -4,6 +4,8 @@ import { Hero } from '../_components/hero';
 import { ParaqueteRenovation } from './_components/parqueteRenovation';
 import { DienstenSecondSection } from './_components/secondSection';
 import { Stoffren } from './_components/stoffren';
+import { Traprenovatie } from './_components/Traprenovatie';
+import { Vloerenleggen } from './_components/Vloerenleggen';
 
 function DienstenPage() {
   return (
@@ -11,6 +13,8 @@ function DienstenPage() {
       <Hero />
       <DienstenSecondSection />
       <ParaqueteRenovation />
+      <Traprenovatie />
+      <Vloerenleggen />
       <Stoffren />
     </div>
   );
