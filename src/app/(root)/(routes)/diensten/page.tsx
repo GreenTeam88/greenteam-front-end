@@ -1,9 +1,11 @@
 import React from 'react';
 
 import { Hero } from '../_components/hero';
+import { PhoneNumberSection } from '../_components/phoneNumberSection';
 import { FAQSection } from './_components/faq';
 import { OverigeDiensten } from './_components/Overige diensten';
 import { ParaqueteRenovation } from './_components/parqueteRenovation';
+import { QuestionSection } from './_components/question';
 import { DienstenSecondSection } from './_components/secondSection';
 import { Stoffren } from './_components/stoffren';
 import { Traprenovatie } from './_components/Traprenovatie';
@@ -20,6 +22,8 @@ function DienstenPage() {
       <Stoffren />
       <OverigeDiensten />
       <FAQSection />
+      <QuestionSection />
+      <PhoneNumberSection />
     </div>
   );
 }
