@@ -95,7 +95,7 @@ export const BottomSection = () => {
 
 export const MobileFooter = () => {
   return (
-    <div className="flex lg:hidden flex-col w-full">
+    <div className="flex py-7 lg:hidden flex-col w-full">
       <TopSection />
       <FooterLightBorder />
       <Columns />
