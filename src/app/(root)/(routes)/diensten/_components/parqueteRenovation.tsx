@@ -1,7 +1,7 @@
 import { BodyText } from '@/components/theme/typography';
-import { OrangeInfoCard, OrangeInfoCardProps } from './cards';
+import { InfoCardProps, OrangeInfoCard } from './cards';
 
-const config: OrangeInfoCardProps = {
+const config: InfoCardProps = {
   title: 'Vloerenleggen',
   imgSrc: '/diensten/parqueteRenovation.png',
   buttonText: 'OFferte aanvragen',
