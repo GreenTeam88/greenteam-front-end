@@ -16,8 +16,8 @@ export const OrangeInfoCard: React.FC<InfoCardProps> = ({ title, imgSrc, paragra
         <div className="flex flex-col gap-[11px] ">
           <h3 className="text-[24px] text-primaryDefault font-semibold leading-[25px] ">{title}</h3>
           <div className="flex flex-col gap-3">
-            {paragraphs.map((paragraph) => (
-              <BodyText>{paragraph}</BodyText>
+            {paragraphs.map((paragraph, index) => (
+              <BodyText key={String(index)}>{paragraph}</BodyText>
             ))}
           </div>
         </div>
@@ -34,8 +34,8 @@ export const WhiteInfoCard: React.FC<InfoCardProps> = ({ title, imgSrc, paragrap
         <div className="flex flex-col gap-[11px] ">
           <h3 className="text-[24px] text-primaryDefault font-semibold leading-[25px] ">{title}</h3>
           <div className="flex flex-col gap-3">
-            {paragraphs.map((paragraph) => (
-              <BodyText>{paragraph}</BodyText>
+            {paragraphs.map((paragraph, index) => (
+              <BodyText key={String(index)}>{paragraph}</BodyText>
             ))}
           </div>
         </div>

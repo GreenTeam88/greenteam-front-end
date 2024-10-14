@@ -42,7 +42,11 @@ export const BodyTextBold: React.FC<HTMLAttributes<HTMLHeadingElement>> = ({ cla
   );
 };
 
-export const BodyText: React.FC<HTMLAttributes<HTMLHeadingElement>> = ({ className, children, ...props }) => {
+export const BodyText: React.FC<HTMLAttributes<HTMLHeadingElement> & { key?: string }> = ({
+  className,
+  children,
+  ...props
+}) => {
   return (
     <p className={cn(className, 'bodyText')} {...props}>
       {children}

@@ -1,4 +1,3 @@
-import { BodyText } from '@/components/theme/typography';
 import { InfoCardProps, OrangeInfoCard } from './cards';
 
 const config: InfoCardProps = {
