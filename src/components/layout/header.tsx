@@ -661,7 +661,7 @@ const MobileMenu: React.FC<{ setIsMenuOpened: React.Dispatch<React.SetStateActio
   return (
     <div className="flex bg-white max-h-[100vh] overflow-y-scroll min-w-[80vw] py-24 items-center z-40 flex-col gap-1 fixed top-0 right-0">
       <MobileMenuBoldLinks />
-      <i onClick={() => setIsMenuOpened(false)} className="bi absolute top-3 right-3 hover:text-red-500 bi-x-lg"></i>
+      <i onClick={() => setIsMenuOpened(false)} className="bi absolute top-3  right-3 hover:text-red-500 bi-x-lg"></i>
     </div>
   );
 };
@@ -671,7 +671,7 @@ const MobileHeader = () => {
   return (
     <div className="flex w-full px-3   lg:hidden relative py-3 justify-between">
       <img src={appConfig.logoSrcImg} width={70} />
-      <i className="bi bi-list text-3xl font-bold" onClick={() => setIsMenuOpened((val) => !val)}></i>
+      <i className="bi bi-list text-5xl font-bold" onClick={() => setIsMenuOpened((val) => !val)}></i>
       {isMenuOpened && <MobileMenu setIsMenuOpened={setIsMenuOpened} />}
     </div>
   );
