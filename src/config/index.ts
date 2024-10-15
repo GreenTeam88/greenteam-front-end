@@ -7,9 +7,9 @@ export interface OpeningTime {
 
 const openingTimes: OpeningTime[] = [
   { day: 'Maandag', time: '9:00 / 17:00' },
-  { day: 'Dinsdag:', time: '9:00 / 17:00' },
+  { day: 'Dinsdag', time: '9:00 / 17:00' },
   { day: 'Woensdag', time: '9:00 / 17:00' },
-  { day: 'Donderdag:', time: '9:00 / 17:00' },
+  { day: 'Donderdag', time: '9:00 / 17:00' },
   { day: 'Vrijdag', time: '9:00 / 17:00' },
   { day: 'Zaterdag', time: 'Gesloten' },
   { day: 'Zondag', time: 'Gesloten' },

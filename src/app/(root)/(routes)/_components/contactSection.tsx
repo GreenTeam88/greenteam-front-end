@@ -52,7 +52,7 @@ const ContactInfo = () => {
           <div className="flex flex-col">
             {appConfig.openingTimes.map((openingTime) => (
               <div className="flex" key={openingTime.day}>
-                <BodyTextSemibold className="w-[120px]">{openingTime.day}</BodyTextSemibold>
+                <BodyTextSemibold className="w-[120px]">{openingTime.day} :</BodyTextSemibold>
                 <BodyText className="w-[120px]">{openingTime.time}</BodyText>
               </div>
             ))}
