@@ -487,7 +487,7 @@ export const HeaderLinksSection = () => {
         // the top is 30px if the hovered link at the first row (bold)
         // the top is 88px if the hovered link at the second row
         <div
-          className={cn('absolute  z-10 border rounded-[10px] border-black20 border-opacity-20  w-full bg-white ', {
+          className={cn('absolute   z-10 border rounded-[10px] border-black20 border-opacity-20  w-fit bg-white ', {
             'top-[88px]': hoveredLinkRouteIndex > 5,
             'top-[30px]': hoveredLinkRouteIndex <= 5,
           })}
@@ -540,7 +540,7 @@ export const HeaderDropDowns = () => {
   return (
     <motion.div
       animate={subHeaderHidingAnimation}
-      className="flex bg-white w-full z-0 pb-5  gap-[50px] justify-center items-center"
+      className="flex  w-fit z-0 pb-5  gap-[50px] justify-center items-center"
     >
       {headerRoutes.slice(6).map((route, index) => (
         <HeaderLink route={route} key={route.name} index={index} />
