@@ -399,7 +399,7 @@ const DropDownColumnLink: React.FC<
     <div className="flex flex-col gap-1">
       <p
         onClick={() => setOpenSubPages((val) => !val)}
-        className="text-sm  capitalize hover:text-primaryDefault  w-full min-w-[160px] text-black text-opacity-80"
+        className="text-sm   hover:text-primaryDefault  w-full min-w-[160px] text-black text-opacity-80"
       >
         {page.name}
         {pageSubpages && (
@@ -411,7 +411,7 @@ const DropDownColumnLink: React.FC<
           {pageSubpages.map((subPage) => (
             <p
               key={subPage.name}
-              className="text-sm  capitalize hover:text-primaryDefault  w-full min-w-[160px] text-black text-opacity-80"
+              className="text-sm   hover:text-primaryDefault  w-full min-w-[160px] text-black text-opacity-80"
             >
               {subPage.name}
             </p>
@@ -540,7 +540,7 @@ export const HeaderDropDowns = () => {
   return (
     <motion.div
       animate={subHeaderHidingAnimation}
-      className="flex  w-fit z-0 pb-5  gap-[50px] justify-center items-center"
+      className="flex  bg-white  w-full z-0 pb-5  gap-[50px] justify-center items-center"
     >
       {headerRoutes.slice(6).map((route, index) => (
         <HeaderLink route={route} key={route.name} index={index} />
