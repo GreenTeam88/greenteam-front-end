@@ -40,6 +40,7 @@ const headerRoutes: HeaderRoute[] = [
   },
   {
     name: 'Diensten',
+    path: '/diensten',
     columns: [
       {
         title: 'Parket renovatie',
@@ -210,7 +211,7 @@ const headerRoutes: HeaderRoute[] = [
           { name: 'Hongaarse punt', path: '/' },
           { name: 'Weense punt', path: '/' },
           { name: 'Tegel', path: '/' },
-          { name: 'Mozaïek of patroon', path: '/' },
+          { name: 'mozaïek of patroon', path: '/' },
           { name: 'Hexagon & 3D', path: '/' },
           { name: 'Tapis', path: '/' },
           { name: 'Bourgogne', path: '/' },
@@ -298,7 +299,7 @@ const HeaderColumn: React.FC<HeaderColumnInfo & { index: number }> = ({ subPages
     <>
       <div className="flex flex-col  gap-[11px]">
         <h5 className="text-sm font-semibold text-primaryDefault">{title}</h5>
-        <div className="flex flex-col gap-1">
+        <div className="flex w-[180px] flex-col gap-1">
           {subPages.map((subPage) => (
             <HeaderColumnItem key={subPage.name} {...subPage} />
           ))}
@@ -363,6 +364,7 @@ export const HeaderBoldLink: React.FC<{
   setHoveredLink: Dispatch<SetStateAction<string>>;
 }> = ({ route, index, hoveredLink, setHoveredLink }) => {
   const path = 'path' in route && route.path;
+  const columns = 'columns' in route && route.columns;
   return (
     <>
       <div
@@ -372,11 +374,12 @@ export const HeaderBoldLink: React.FC<{
         {path ? (
           <Link href={route.path} className="font-bold text-[16px]">
             {route.name}
+            {columns && <img width={15} src="/icons/dropDown.svg" className="inline mx-2" />}
           </Link>
         ) : (
           <h3 className="font-bold text-[16px]">
             {route.name}
-            {<img width={15} src="/icons/dropDown.svg" className="inline mx-2" />}
+            {columns && <img width={15} src="/icons/dropDown.svg" className="inline mx-2" />}
           </h3>
         )}
       </div>

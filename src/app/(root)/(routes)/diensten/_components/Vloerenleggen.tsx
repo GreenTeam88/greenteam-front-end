@@ -24,7 +24,7 @@ const config: InfoCardProps = {
       meenemen zodat jij ter plaatse nog de juiste keuze kunt maken. Wij adviseren je graag.
     </>,
   ],
-  buttonText: 'OFferte aanvragen',
+  buttonText: 'Offerte aanvragen',
 };
 
 export const Vloerenleggen = () => {

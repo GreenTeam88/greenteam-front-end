@@ -1,3 +1,5 @@
+import Link from 'next/link';
+
 import { BodyText, BodyTextSemibold, LinkTypography } from '@/components/theme/typography';
 import { appConfig } from '@/config';
 
@@ -16,9 +18,12 @@ const ContactInfo = () => {
         <div className="flex gap-[22px]  items-center">
           <img src="/icons/envelope.svg" />
           <div className="flex gap-[11px]">
-            <BodyTextSemibold>info@greenteam.nl</BodyTextSemibold>
+            <BodyTextSemibold>{appConfig.email}</BodyTextSemibold>
             <div className="bg-black20 bg-opacity-20 h-[22.56px] w-[1px] "></div>
-            <LinkTypography className="text-secondaryDefault cursor-pointer hover:text-primaryDefault">
+            <LinkTypography
+              href={`mailto:${appConfig.email}`}
+              className="text-secondaryDefault cursor-pointer hover:text-primaryDefault"
+            >
               Email verzenden
             </LinkTypography>
           </div>
@@ -26,9 +31,12 @@ const ContactInfo = () => {
         <div className="flex gap-[22px]  items-center">
           <img src="/icons/phone.svg" />
           <div className="flex gap-[11px]">
-            <BodyTextSemibold>085 401 93 45</BodyTextSemibold>
+            <BodyTextSemibold>{appConfig.phoneNumber}</BodyTextSemibold>
             <div className="bg-black20 bg-opacity-20 h-[22.56px] w-[1px] "></div>
-            <LinkTypography className="text-secondaryDefault cursor-pointer hover:text-primaryDefault">
+            <LinkTypography
+              href={`tel:${appConfig.phoneNumber}`}
+              className="text-secondaryDefault cursor-pointer hover:text-primaryDefault"
+            >
               Bellen
             </LinkTypography>
           </div>

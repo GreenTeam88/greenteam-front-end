@@ -5,7 +5,13 @@ import React from 'react';
 
 import { appConfig } from '@/config';
 import { InstagramLogo, TikTokIcon } from '../../icons/homePageIcons';
-import { BodyText, BodyTextBold, BodyTextSemibold, HeadlineSemibold } from '../../theme/typography';
+import {
+  BodyText,
+  BodyTextBold,
+  BodyTextSemibold,
+  HeadlineSemibold,
+  HeadlineSemiboldLink,
+} from '../../theme/typography';
 import { FooterColumnInfo, footerColumnsInfo, topFooterLinks } from './footerConfig';
 
 export const FooterColumn: React.FC<FooterColumnInfo> = ({ title, links }) => {
@@ -31,7 +37,9 @@ export const FooterTopSection = () => {
       </Link>
       <div className="flex gap-4 px-6">
         {topFooterLinks.map((link) => (
-          <HeadlineSemibold key={link.name}>{link.name}</HeadlineSemibold>
+          <HeadlineSemiboldLink href={link.path} className="hover:text-primaryDefault" key={link.name}>
+            {link.name}
+          </HeadlineSemiboldLink>
         ))}
         <div className="flex gap-[22px]  px-6">
           <div className="cursor-pointer" onClick={() => window.open(appConfig.instagramAccount, '_blank')}>

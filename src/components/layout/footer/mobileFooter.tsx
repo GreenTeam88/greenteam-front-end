@@ -24,7 +24,7 @@ export const TopSection = () => {
       </div>
       <div className="flex py-4 flex-col">
         {topFooterLinks.map((link) => (
-          <Link href={link.path} key={link.name} className="text-lg font-semibold">
+          <Link href={link.path} key={link.name} className="text-lg  font-semibold">
             {link.name}
           </Link>
         ))}

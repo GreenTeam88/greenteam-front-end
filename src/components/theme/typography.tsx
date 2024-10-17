@@ -1,3 +1,4 @@
+import Link from 'next/link';
 import React, { HTMLAttributes } from 'react';
 
 import { cn } from '@/lib/tailwind';
@@ -7,6 +8,18 @@ export const HeadlineSemibold: React.FC<HTMLAttributes<HTMLHeadingElement>> = ({
     <h5 className={cn(className, 'headlineSemibold')} {...props}>
       {children}
     </h5>
+  );
+};
+
+export const HeadlineSemiboldLink: React.FC<{ className?: string; href: string; children: React.ReactNode }> = ({
+  className,
+  children,
+  ...props
+}) => {
+  return (
+    <Link className={cn(className, 'link')} {...props}>
+      {children}
+    </Link>
   );
 };
 

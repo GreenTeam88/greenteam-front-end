@@ -10,8 +10,8 @@ export interface FooterColumnInfo {
 
 export const topFooterLinks: LinkInfo[] = [
   { name: 'Home', path: '/' },
-  { name: 'Over ons', path: '/' },
-  { name: 'Diensten', path: '/' },
+  { name: 'Over ons', path: '/over-ons' },
+  { name: 'Diensten', path: '/diensten' },
   { name: 'Zakelijk', path: '/' },
   { name: 'Veelgestelde vragen', path: '/' },
   { name: 'Contact', path: '/' },

@@ -1,3 +1,4 @@
+import Link from 'next/link';
 import React from 'react';
 
 import { ForwardArrow } from '@/components/icons/homePageIcons';
@@ -7,6 +8,7 @@ export interface ServiceInfo {
   title: string;
   description: string;
   thumbnailSrc: string;
+  link: string;
 }
 
 const services: ServiceInfo[] = [
@@ -15,34 +17,39 @@ const services: ServiceInfo[] = [
     description:
       'Bij Green Team hebben we een passie voor vloeren en duurzaamheid. Oorspronkelijk houtbewerkers, hebben wij ons ges',
     thumbnailSrc: '/home/parketrenovatie.png',
+    link: '/parketrenovatie',
   },
   {
     title: 'Traprenovatie',
     thumbnailSrc: '/home/traprenovatie.png',
     description:
       'Bij Green Team hebben we een passie voor vloeren en duurzaamheid. Oorspronkelijk houtbewerkers, hebben wij ons ges',
+    link: '/traprenovatie',
   },
   {
     title: 'Vloerenleggen',
     thumbnailSrc: '/home/vloerenleggen.png',
     description:
       'Bij Green Team hebben we een passie voor vloeren en duurzaamheid. Oorspronkelijk houtbewerkers, hebben wij ons ges',
+    link: '/vloeren-leggen',
   },
   {
     title: 'Stofferen',
     thumbnailSrc: '/home/grayStair.png',
     description:
       'Bij Green Team hebben we een passie voor vloeren en duurzaamheid. Oorspronkelijk houtbewerkers, hebben wij ons ges',
+    link: '/stofferen',
   },
   {
     title: 'Overige diensten',
     thumbnailSrc: '/home/overigeDiensten.png',
     description:
       'Bij Green Team hebben we een passie voor vloeren en duurzaamheid. Oorspronkelijk houtbewerkers, hebben wij ons ges',
+    link: '/overige-diensten',
   },
 ];
 
-export const ServiceCard: React.FC<ServiceInfo> = ({ description, thumbnailSrc, title }) => {
+export const ServiceCard: React.FC<ServiceInfo> = ({ description, thumbnailSrc, title, link }) => {
   return (
     <div className="flex flex-col pb-[22px] border-opacity-10 border-black10 border-2 max-w-full lg:w-[387px] gap-[33px] ">
       <img src={thumbnailSrc} className="w-full h-[176px] " />
@@ -50,10 +57,13 @@ export const ServiceCard: React.FC<ServiceInfo> = ({ description, thumbnailSrc, 
         <h5 className="font-bold text-xl ">{title}</h5>
         <p>{description}</p>
       </div>
-      <p className="text-[13px] flex items-center gap-2 cursor-pointer px-6 group hover:text-secondaryDefault text-primaryDefault hover: font-bold">
+      <Link
+        href={link}
+        className="text-[13px] flex items-center gap-2 cursor-pointer px-6 group hover:text-secondaryDefault text-primaryDefault hover: font-bold"
+      >
         Meer weten
         <ForwardArrow />
-      </p>
+      </Link>
     </div>
   );
 };
