@@ -468,6 +468,28 @@ export const HeaderLink: React.FC<{
   index: number;
 }> = ({ route, index }) => {
   const [showDropDown, setShowDropDown] = useState(false);
+  const [clientSide, setClientSide] = useState(false);
+  const lastScrollTop = useRef<number>(clientSide ? window.pageYOffset || document.documentElement.scrollTop : 0);
+
+  // writing the logic of the dropdowns hiding and displaying
+  useEffect(() => {
+    setClientSide(true);
+    const handleScroll = async () => {
+      const currentScrollTop = clientSide ? window.pageYOffset || document.documentElement.scrollTop : 0;
+      //if the user scroll down we want to hide the dropdowns
+      if (currentScrollTop >= lastScrollTop.current) {
+        await setShowDropDown(false);
+      }
+      lastScrollTop.current = currentScrollTop;
+    };
+    // adding and removing events only on browser (client side)
+    if (clientSide) window.addEventListener('scroll', handleScroll);
+
+    return () => {
+      if (clientSide) window.removeEventListener('scroll', handleScroll);
+    };
+  }, [lastScrollTop, clientSide]);
+
   return (
     <>
       <div
