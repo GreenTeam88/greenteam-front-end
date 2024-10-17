@@ -1,11 +1,13 @@
 'use client';
 
+import clsx from 'clsx';
 import { motion, useAnimation } from 'framer-motion';
 import Link from 'next/link';
 import React, { Dispatch, SetStateAction, useEffect, useRef, useState } from 'react';
 
 import { appConfig } from '@/config';
 import { cn } from '@/lib/tailwind';
+import { DropDownIcon } from '../icons/arrows';
 import { InstagramLogo, TikTokIcon } from '../icons/homePageIcons';
 
 // types needed for the header
@@ -272,10 +274,17 @@ const HeaderColumnItem: React.FC<
       <h5
         key={subPage.name}
         onClick={() => setIsOpened((val) => !val)}
-        className="text-sm hover:text-primaryDefault whitespace-nowrap cursor-pointer"
+        className={clsx('text-sm flex items-center hover:text-primaryDefault group whitespace-nowrap cursor-pointer', {
+          'text-primaryDefault': isOpened,
+        })}
       >
         {subPage.name}
-        {hasSubPages && <img src="/icons/dropDown.svg" className={cn('mx-2 inline', { 'rotate-180': isOpened })} />}
+        {/* {hasSubPages && <img src="/icons/dropDown.svg" className={cn('mx-2 inline', { 'rotate-180': isOpened })} />} */}
+        {hasSubPages && (
+          <span className={cn('mx-2 inline', { 'rotate-180': isOpened })}>
+            <DropDownIcon className={cn('group-hover:stroke-primaryDefault', { 'stroke-primaryDefault': isOpened })} />
+          </span>
+        )}
       </h5>
       {'subPages' in subPage && isOpened && (
         <div className="flex flex-col pl-3">
@@ -372,9 +381,15 @@ export const HeaderBoldLink: React.FC<{
         className={cn('flex  items-center  cursor-pointer', { 'text-primaryDefault': hoveredLink === route.name })}
       >
         {path ? (
-          <Link href={route.path} className="font-bold text-[16px]">
+          <Link href={route.path} className="font-bold flex group items-center text-[16px]">
             {route.name}
-            {columns && <img width={15} src="/icons/dropDown.svg" className="inline mx-2" />}
+
+            {/* {columns && <img width={15} src="/icons/dropDown.svg" className="inline mx-2" />} */}
+            {columns && (
+              <div className={cn('mx-2')}>
+                <DropDownIcon className={cn('group-hover:stroke-primaryDefault   block mx-2')} />
+              </div>
+            )}
           </Link>
         ) : (
           <h3 className="font-bold text-[16px]">
@@ -399,14 +414,22 @@ const DropDownColumnLink: React.FC<
   const [openSubPages, setOpenSubPages] = useState(false);
   const pageSubpages = 'subPages' in page && page.subPages;
   return (
-    <div className="flex flex-col gap-1">
+    <div className="flex flex-col relative  gap-1">
       <p
         onClick={() => setOpenSubPages((val) => !val)}
-        className="text-sm   hover:text-primaryDefault  w-full min-w-[160px] text-black text-opacity-80"
+        className="text-sm flex items-center  hover:text-primaryDefault relative group w-full min-w-[160px] text-black text-opacity-80"
       >
         {page.name}
         {pageSubpages && (
-          <img src="/icons/dropDown.svg" className={cn('mx-2 inline', { 'rotate-180': openSubPages })} />
+          // <span className={cn('mx-2 inline')}>
+          <div className={cn('mx-2', { 'rotate-180 ': openSubPages })}>
+            <DropDownIcon
+              className={cn('group-hover:stroke-primaryDefault   block mx-2', {
+                'stroke-primaryDefault': openSubPages,
+              })}
+            />
+          </div>
+          // </span>
         )}
       </p>
       {pageSubpages && openSubPages && (
@@ -452,9 +475,21 @@ export const HeaderLink: React.FC<{
         onMouseOver={() => setShowDropDown(true)}
         className="flex relative min-h-[30px] items-center cursor-pointer"
       >
-        <h5 className={cn('text-[16px]', { 'text-primaryDefault': showDropDown })}>
+        <h5
+          className={cn('text-[16px] flex h-fit items-end leading-tight  gap-1', {
+            'text-primaryDefault': showDropDown,
+          })}
+        >
           {route.name}
-          {'columns' in route && route.columns && <img width={15} src="/icons/dropDown.svg" className="inline mx-2" />}
+          {'columns' in route && route.columns && (
+            <div className=" ">
+              <DropDownIcon
+                className={cn('group-hover:stroke-primaryDefault mx-3  ', {
+                  'stroke-primaryDefault': showDropDown,
+                })}
+              />
+            </div>
+          )}
         </h5>
         {showDropDown && <DropDownColumn routeName={route.name} />}
       </div>

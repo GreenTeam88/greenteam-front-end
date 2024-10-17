@@ -4,6 +4,7 @@ import { ServiceCard, ServiceInfo } from '../../_components/services';
 const services: ServiceInfo[] = [
   {
     title: 'Parketrenovatie',
+    link: '/parketrenovatie',
     description:
       'Bij Green Team hebben we een passie voor vloeren en duurzaamheid. Oorspronkelijk houtbewerkers, hebben wij ons ges',
     thumbnailSrc: '/aboutUs/Parketrenovatie.png',
@@ -13,18 +14,21 @@ const services: ServiceInfo[] = [
     description:
       'Bij Green Team hebben we een passie voor vloeren en duurzaamheid. Oorspronkelijk houtbewerkers, hebben wij ons ges',
     thumbnailSrc: '/aboutUs/Traprenovatie.png',
+    link: '/traprenovatie',
   },
   {
     title: 'Vloeren leggen',
     description:
       'Bij Green Team hebben we een passie voor vloeren en duurzaamheid. Oorspronkelijk houtbewerkers, hebben wij ons ges',
     thumbnailSrc: '/aboutUs/VloerenLeggen.png',
+    link: '/vloeren-leggen',
   },
   {
     title: 'Stofferen',
     description:
       'Bij Green Team hebben we een passie voor vloeren en duurzaamheid. Oorspronkelijk houtbewerkers, hebben wij ons ges',
     thumbnailSrc: '/aboutUs/Stofferen.png',
+    link: '/stofferen',
   },
 ];
 
