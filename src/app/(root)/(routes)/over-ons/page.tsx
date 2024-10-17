@@ -12,7 +12,7 @@ import { WhyChooseUs } from './_components/whyChooseUs';
 
 function OverOnsHero() {
   return (
-    <div className="flex flex-col w-full items-center bg-bgColor">
+    <div className="flex flex-col w-full items-center relative bg-bgColor">
       <Hero />
       <AboutUs />
       <QuestionSection />

@@ -34,9 +34,10 @@ const services: ServiceInfo[] = [
 
 export const OurServicesSection = () => {
   return (
-    <div className="flex flex-col max-w-full px-6 relative gap-[55px] py-40 items-center">
-      <H2 className="text-primaryDefault">Onze diensten</H2>
-      <div className="flex flex-col lg:flex-row  gap-5 w-full">
+    <div className="flex flex-col w-full items-center justify-center max-w-full px-6 relative gap-[55px] py-40 ">
+      <img src="/aboutUs/leftLeaf.png" className="absolute left-0 z-0" />
+      <H2 className="text-primaryDefault z-10">Onze diensten</H2>
+      <div className="flex relative z-10 flex-col lg:flex-row  gap-5 w-fit">
         {services.map((service) => (
           <ServiceCard key={service.title} {...service} />
         ))}
