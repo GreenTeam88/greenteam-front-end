@@ -5,13 +5,7 @@ import React from 'react';
 
 import { appConfig } from '@/config';
 import { InstagramLogo, TikTokIcon } from '../../icons/homePageIcons';
-import {
-  BodyText,
-  BodyTextBold,
-  BodyTextSemibold,
-  HeadlineSemibold,
-  HeadlineSemiboldLink,
-} from '../../theme/typography';
+import { BodyText, BodyTextBold, BodyTextSemibold, HeadlineSemiboldLink } from '../../theme/typography';
 import { FooterColumnInfo, footerColumnsInfo, topFooterLinks } from './footerConfig';
 
 export const FooterColumn: React.FC<FooterColumnInfo> = ({ title, links }) => {
