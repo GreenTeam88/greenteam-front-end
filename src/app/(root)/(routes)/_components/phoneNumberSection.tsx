@@ -15,8 +15,8 @@ export const PhoneNumberSection = () => {
         />
         <SmallSecondaryOutlinedBtn>Verzenden</SmallSecondaryOutlinedBtn>
       </div>
-      <div className="flex w-full items-center justify-center gap-[34px]">
-        <div className="flex gap-12 py-8 items-center">
+      <div className="flex w-full flex-col lg:flex-row items-center justify-center gap-[34px]">
+        <div className="flex gap-12 flex-col lg:flex-row py-8 lg:items-center">
           <div className="flex items-center gap-3">
             <img src="/icons/email.png" />
             <LinkTypography className="hover:text-secondaryDefault" href={`mailto: ${appConfig.email}`}>
