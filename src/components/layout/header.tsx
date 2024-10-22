@@ -22,12 +22,6 @@ interface RouteWithPath {
 // information about  a column in the header menu when hovering for a link
 type HeaderColumnInfo = { title: string; subPages: (RouteWithPath | { name: string; subPages: RouteWithPath[] })[] };
 
-// in the header , there is some routes that displays a menu with a list of subpages  when hovering
-interface RouteWithSubpages {
-  name: string;
-  columns: HeaderColumnInfo[];
-}
-
 // a link can either display subPages in the menu or it can have a direct path to a certain page
 type HeaderRoute = {
   name: string;
