@@ -3,6 +3,7 @@
 import clsx from 'clsx';
 import { motion, useAnimation } from 'framer-motion';
 import Link from 'next/link';
+import { usePathname } from 'next/navigation';
 import React, { Dispatch, SetStateAction, useEffect, useRef, useState } from 'react';
 
 import { appConfig } from '@/config';
@@ -28,8 +29,11 @@ interface RouteWithSubpages {
 }
 
 // a link can either display subPages in the menu or it can have a direct path to a certain page
-type HeaderRoute = RouteWithPath | RouteWithSubpages;
-
+type HeaderRoute = {
+  name: string;
+  path?: string;
+  columns?: HeaderColumnInfo[];
+};
 // all the routes for the header with all the menu and columns info
 const headerRoutes: HeaderRoute[] = [
   {
@@ -381,7 +385,7 @@ export const HeaderBoldLink: React.FC<{
         className={cn('flex  items-center  cursor-pointer', { 'text-primaryDefault': hoveredLink === route.name })}
       >
         {path ? (
-          <Link href={route.path} className="font-bold flex group items-center text-[16px]">
+          <Link href={route.path as string} className="font-bold flex group items-center text-[16px]">
             {route.name}
 
             {/* {columns && <img width={15} src="/icons/dropDown.svg" className="inline mx-2" />} */}
@@ -451,7 +455,8 @@ const DropDownColumnLink: React.FC<
 // a silgle column for the dropDown
 const DropDownColumn: React.FC<{ routeName: string }> = ({ routeName }) => {
   const hoveredRoute = headerRoutes.find((route) => route.name === routeName);
-  const hoveredRouteColumn = hoveredRoute && 'columns' in hoveredRoute && hoveredRoute.columns[0];
+  const hoveredRouteColumn =
+    hoveredRoute && 'columns' in hoveredRoute && hoveredRoute.columns && hoveredRoute.columns[0];
   if (!hoveredRouteColumn) return null;
   return (
     <div className="flex absolute top-[29px] w-fit flex-col left-1/2 -translate-x-1/2 gap-[11px] py-[22px] px-[44px] bg-white border rounded-[10px] border-blackDark  border-opacity-20 ">
@@ -682,18 +687,26 @@ const MobileBoldLinkColumn: React.FC<HeaderColumnInfo> = ({ subPages, title }) =
 export const MobileMenuBoldLink: React.FC<HeaderRoute> = (headerRoute) => {
   const [isColumnsOpened, setIsColumnsOpened] = useState<boolean>(false);
   const columns = 'columns' in headerRoute && headerRoute.columns;
-
+  const path = 'path' in headerRoute && headerRoute.path;
   return (
-    <div className="flex flex-col">
-      <h4
-        onClick={() => setIsColumnsOpened((val) => !val)}
-        className="text-xl font-semibold cursor-pointer  flex items-center tracking-[-2%]"
-      >
-        {headerRoute.name}{' '}
-        {columns && (
-          <img src="/icons/dropDown.svg" className={cn('mx-4 w-[20px]', { 'rotate-180': isColumnsOpened })} />
-        )}{' '}
-      </h4>
+    <div className="flex  flex-col">
+      {columns && (
+        <h4
+          onClick={() => setIsColumnsOpened((val) => !val)}
+          className="text-xl  font-semibold cursor-pointer  flex items-center tracking-[-2%]"
+        >
+          {headerRoute.name}{' '}
+          {columns && (
+            <img src="/icons/dropDown.svg" className={cn('mx-4 w-[20px]', { 'rotate-180': isColumnsOpened })} />
+          )}
+        </h4>
+      )}
+      {path && (
+        <Link className="text-xl font-semibold cursor-pointer  flex items-center tracking-[-2%]" href={path}>
+          {' '}
+          {headerRoute.name}{' '}
+        </Link>
+      )}
       {columns && isColumnsOpened && (
         <div className="flex px-2 flex-col">
           {columns.map((column) => (
@@ -728,6 +741,11 @@ const MobileMenu: React.FC<{ setIsMenuOpened: React.Dispatch<React.SetStateActio
 
 const MobileHeader = () => {
   const [isMenuOpened, setIsMenuOpened] = useState(false);
+  const currPathname = usePathname();
+
+  useEffect(() => {
+    setIsMenuOpened(false);
+  }, [currPathname]);
   return (
     <div className="flex w-full px-3   lg:hidden relative py-3 justify-between">
       <img src={appConfig.logoSrcImg} width={70} />
