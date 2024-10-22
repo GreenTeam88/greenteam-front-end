@@ -16,7 +16,7 @@ const QuestionForm: React.FC = () => {
   const [Woonplaats, setWoonplaats] = useState('');
   const [phoneNumber, setPhoneNumber] = useState('');
   return (
-    <div className="flex max-w-[489px] flex-col">
+    <div className="flex max-w-[489px] flex-col bg-white">
       <div className="bg-primaryDefault w-full  rounded-t-[8px] flex  items-center justify-center text-white py-[22px]  ">
         <HeadlineSemibold> Snel jouw prijs berekenen!</HeadlineSemibold>
       </div>
