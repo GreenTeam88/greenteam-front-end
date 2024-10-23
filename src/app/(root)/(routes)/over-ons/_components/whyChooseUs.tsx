@@ -34,7 +34,7 @@ const cardsInfos: StandardCardInfo[] = [
 
 const IconCard: React.FC<IconInfo> = ({ name, src }) => {
   return (
-    <div className="flex flex-col gap-[22px]">
+    <div className="flex items-center flex-col gap-[22px]">
       <img src={src} />
       <HeadlineSemibold>{name}</HeadlineSemibold>
     </div>

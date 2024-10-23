@@ -2,7 +2,7 @@ import { BodyText, H2 } from '@/components/theme/typography';
 
 export const DienstenSecondSection = () => {
   return (
-    <div className="flex flex-col items-center px-8 lg:px-0 gap-[11px] py-80 ">
+    <div className="flex flex-col items-center px-8 lg:px-0 gap-[11px] py-40 ">
       <H2 className="text-primaryDefault">Diensten</H2>
       <BodyText className="max-w-[794px] text-center">
         Wij bieden <span className="text-secondaryDefault">professionele renovaties</span> van vloeren en trappen met
