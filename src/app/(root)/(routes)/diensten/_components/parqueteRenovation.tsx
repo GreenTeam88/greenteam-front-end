@@ -3,7 +3,8 @@ import { InfoCardProps, OrangeInfoCard } from './cards';
 const config: InfoCardProps = {
   title: 'Vloerenleggen',
   imgSrc: '/diensten/parqueteRenovation.png',
-  buttonText: 'Offerte aanvragen',
+  buttonText: 'Meer informatie',
+  secondBtnText: 'Offerte aanvragen',
   paragraphs: [
     <>
       Een vloer laten afwerken met olie laat je natuurlijk doen door een professional. De parketteurs van Green Team

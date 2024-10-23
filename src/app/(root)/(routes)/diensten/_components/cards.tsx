@@ -6,9 +6,10 @@ export type InfoCardProps = {
   imgSrc: string;
   paragraphs: React.ReactNode[];
   buttonText: string;
+  secondBtnText?: string;
 };
 
-export const OrangeInfoCard: React.FC<InfoCardProps> = ({ title, imgSrc, paragraphs, buttonText }) => {
+export const OrangeInfoCard: React.FC<InfoCardProps> = ({ title, imgSrc, paragraphs, buttonText, secondBtnText }) => {
   return (
     <div className="flex w-full p-7 lg:p-0 lg:py-[99px] flex-col lg:flex-row bg-secondaryLight items-center justify-center gap-7 lg:gap-[57px]">
       <img className="lg:w-[387px] w-full rounded-lg" src={imgSrc} />
@@ -21,13 +22,16 @@ export const OrangeInfoCard: React.FC<InfoCardProps> = ({ title, imgSrc, paragra
             ))}
           </div>
         </div>
-        <PrimaryBtn>{buttonText}</PrimaryBtn>
+        <div className="flex gap-3">
+          <PrimaryBtn>{buttonText}</PrimaryBtn>
+          {secondBtnText && <PrimaryBtn>{secondBtnText}</PrimaryBtn>}
+        </div>
       </div>
     </div>
   );
 };
 
-export const WhiteInfoCard: React.FC<InfoCardProps> = ({ title, imgSrc, paragraphs, buttonText }) => {
+export const WhiteInfoCard: React.FC<InfoCardProps> = ({ title, imgSrc, paragraphs, buttonText, secondBtnText }) => {
   return (
     <div className="flex w-full py-[99px] p-3 lg:p-0 flex-col lg:flex-row  items-center justify-center gap-[57px]">
       <div className="flex flex-col max-w-[508px]  px-4 lg:px-0 gap-[33px] ">
@@ -39,8 +43,11 @@ export const WhiteInfoCard: React.FC<InfoCardProps> = ({ title, imgSrc, paragrap
             ))}
           </div>
         </div>
-        <PrimaryBtn>{buttonText}</PrimaryBtn>
-      </div>{' '}
+        <div className="flex gap-3">
+          <PrimaryBtn>{buttonText}</PrimaryBtn>
+          {secondBtnText && <PrimaryBtn>{secondBtnText}</PrimaryBtn>}
+        </div>
+      </div>
       <img className="w-full lg:w-[387px] rounded-lg" src={imgSrc} />
     </div>
   );

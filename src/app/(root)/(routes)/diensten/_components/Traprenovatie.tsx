@@ -3,7 +3,8 @@ import { InfoCardProps, WhiteInfoCard } from './cards';
 const config: InfoCardProps = {
   title: 'Traprenovatie',
   imgSrc: '/diensten/whiteStairs.png',
-  buttonText: 'Offerte aanvragen',
+  buttonText: 'Meer informatie',
+  secondBtnText: 'Direct offerte berekenen',
   paragraphs: [
     <>
       Voor een duurzame en sterke houten vloer is het afwerken met lak een uitstekende keuze. Een behandeling met lak is

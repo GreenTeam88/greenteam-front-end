@@ -41,9 +41,9 @@ const ContactInfo = () => {
             </LinkTypography>
           </div>
         </div>
-        <div className="flex gap-[22px]">
+        <div className="flex items-center  gap-[22px]">
           <img src="/icons/locationIcon.svg" />
-          <div className="flex gap-[11px]">
+          <div className="flex items-center gap-[11px]">
             <BodyTextSemibold>
               Rivium Boulevard 2 (HQ)
               <br />

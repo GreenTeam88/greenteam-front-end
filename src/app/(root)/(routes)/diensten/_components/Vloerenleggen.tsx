@@ -3,6 +3,8 @@ import { InfoCardProps, OrangeInfoCard } from './cards';
 const config: InfoCardProps = {
   title: 'Vloerenleggen',
   imgSrc: '/diensten/Vloerenleggen.png',
+  buttonText: 'Meer informatie',
+  secondBtnText: 'Direct offerte berekenen',
   paragraphs: [
     <>
       Een vloer laten afwerken met olie laat je natuurlijk doen door een professional. De parketteurs van Green Team
@@ -24,7 +26,6 @@ const config: InfoCardProps = {
       meenemen zodat jij ter plaatse nog de juiste keuze kunt maken. Wij adviseren je graag.
     </>,
   ],
-  buttonText: 'Offerte aanvragen',
 };
 
 export const Vloerenleggen = () => {
