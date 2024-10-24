@@ -73,7 +73,7 @@ export const LinkTypography: React.FC<HTMLAttributes<HTMLAnchorElement> & { href
   ...props
 }) => {
   return (
-    <a className={cn(className, 'link')} {...props}>
+    <a className={cn('font-bold text-[11px] leading-[20px] tracking-[-2%]', className)} {...props}>
       {children}
     </a>
   );

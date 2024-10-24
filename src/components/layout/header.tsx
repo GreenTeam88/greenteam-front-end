@@ -71,7 +71,7 @@ const headerRoutes: HeaderRoute[] = [
           { name: 'Hongaarse punt', path: '' },
           { name: 'Weense punt', path: '' },
           { name: 'Tegel', path: '' },
-          { name: 'Mozaïk of patroon', path: '' },
+          { name: 'Mozaïek of patroon', path: '' },
           { name: 'Hexagon & 3D', path: '' },
           { name: 'Tapis', path: '' },
           { name: 'Bourgogne', path: '' },

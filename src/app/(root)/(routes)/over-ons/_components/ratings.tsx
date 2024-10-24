@@ -19,7 +19,7 @@ const ratings: RatingInfo[] = [
   {
     stars: 5,
     description:
-      'Geweldige service van Green Team! De parketvloer werd perfect gelegd met veel oog voor detail. De vakmensen waren vriendelijk en professioneel. Zeer tevreden met het resultaat. Vijf sterren!',
+      'Top ervaring gehad met Green Team, kende ze niet, maar kwamen met een scherpe offerte. Samen met de persoon die het kwam leggen een mooi passend tapijt uitgezocht voor onze 2 trappen en overloop. Het ligt er super strak in/op en ziet er geweldig uit!',
     images: ['/home/ratingImg1.png', '/home/ratingImg2.png'],
     birthDate: '01/07/2024',
     name: 'Sara Sacasa',
