@@ -126,7 +126,7 @@ const headerRoutes: HeaderRoute[] = [
           { name: 'Tegelen', path: '' },
           { name: 'Vloer verwijderen', path: '' },
           { name: 'Natuursteen behandelen', path: '' },
-          { name: 'Opslag      ', path: '' },
+          { name: 'Opslag', path: '' },
         ],
       },
     ],

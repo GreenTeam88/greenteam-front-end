@@ -1,5 +1,5 @@
 import { SmallSecondaryOutlinedBtn } from '@/components/theme/buttons';
-import { BodyTextSemibold, HeadlineSemibold, LinkTypography } from '@/components/theme/typography';
+import { BodyTextSemibold, LinkTypography } from '@/components/theme/typography';
 import { appConfig } from '@/config';
 
 export const PhoneNumberSection = () => {
