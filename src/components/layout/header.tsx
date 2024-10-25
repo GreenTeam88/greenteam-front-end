@@ -133,7 +133,7 @@ const headerRoutes: HeaderRoute[] = [
   },
   {
     name: 'Zakelijk',
-    path: '/',
+    path: '/zakelijk',
   },
   {
     name: 'Veelgestelde vragen',
