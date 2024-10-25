@@ -1,5 +1,4 @@
 import { PrimaryOutlinedBtnLink } from '@/components/theme/buttons';
-import { BodyText } from '@/components/theme/typography';
 
 export const GreenSection = () => {
   return (

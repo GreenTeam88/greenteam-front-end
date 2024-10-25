@@ -43,7 +43,7 @@ export const CoreValues = () => {
       <H2 className="text-primaryDefault">Onze Kernwaarden</H2>
       <div className="flex flex-col lg:flex-row gap-5 px-7">
         {coreValuesInfo.map((coreInfo) => (
-          <CoreValueCard {...coreInfo} />
+          <CoreValueCard {...coreInfo} key={coreInfo.title} />
         ))}
       </div>
     </div>
