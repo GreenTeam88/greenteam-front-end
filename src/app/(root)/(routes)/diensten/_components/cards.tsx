@@ -1,9 +1,10 @@
 import clsx from 'clsx';
 
 import { PrimaryBtn } from '@/components/theme/buttons';
-import { BodyText } from '@/components/theme/typography';
+import { BodyText, H2 } from '@/components/theme/typography';
 
 export type InfoCardProps = {
+  mainTitle?: string;
   title: string;
   imgSrc: string;
   paragraphs: React.ReactNode[];
@@ -14,6 +15,7 @@ export type InfoCardProps = {
 export const OrangeInfoCard: React.FC<InfoCardProps> = ({
   title,
   imgSrc,
+  mainTitle,
   paragraphs,
   buttonText,
   secondBtnText,
@@ -31,7 +33,10 @@ export const OrangeInfoCard: React.FC<InfoCardProps> = ({
       <img className="lg:w-[387px] w-full rounded-lg" src={imgSrc} />
       <div className="flex flex-col px-3 lg:px-0 max-w-[508px]  gap-[33px] ">
         <div className="flex flex-col gap-[11px] ">
-          <h3 className="text-[24px] text-primaryDefault font-semibold leading-[37px] ">{title}</h3>
+          <div className="flex flex-col gap-4">
+            {mainTitle && <H2 className="text-primaryDefault">{mainTitle}</H2>}
+            <h3 className="text-[24px] text-primaryDefault font-semibold leading-[37px] ">{title}</h3>
+          </div>
           <div className="flex flex-col gap-3">
             {paragraphs.map((paragraph, index) => (
               <BodyText key={String(index)}>{paragraph}</BodyText>

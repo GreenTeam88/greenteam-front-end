@@ -32,7 +32,10 @@ const CrauselCardUI: React.FC<CrauselCardInfo> = ({ btnPath, buttonText, icon, t
 export const CrauselSection = () => {
   return (
     <div className="flex justify-center w-full items-center py-24 gap-[84px] ">
-      <ArrowIcon />
+      <div className="rotate-180">
+        {' '}
+        <ArrowIcon />
+      </div>
       <CrauselCardUI
         title="Green Team als groene partner voor parketvloeren"
         paragraphs={[
