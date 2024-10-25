@@ -19,7 +19,7 @@ const CrauselCardUI: React.FC<CrauselCardInfo> = ({ btnPath, buttonText, icon, t
           <h3 className=" text-primaryDefault font-semibold text-[25px]">{title}</h3>
           <div className="flex flex-col gap-5">
             {paragraphs.map((paragraph) => (
-              <p>{paragraph}</p>
+              <p key={paragraph}>{paragraph}</p>
             ))}
           </div>
         </div>

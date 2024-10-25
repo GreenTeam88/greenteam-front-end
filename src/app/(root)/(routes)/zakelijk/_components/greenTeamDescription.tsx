@@ -26,9 +26,12 @@ const greenTeamDescriptionInfo: InfoCardProps = {
       voor een groene optie, maar ook omdat consumenten een steeds duidelijkere voorkeur hebben voor duurzame producten
       en werkwijzen.{' '}
     </>,
-    <span className="text-secondaryDefault">
-      Wij bieden oplossingen voor kantoren, hotels, winkels, spa’s en meer.
-    </span>,
+    <>
+      {' '}
+      <span className="text-secondaryDefault">
+        Wij bieden oplossingen voor kantoren, hotels, winkels, spa’s en meer.
+      </span>
+    </>,
   ],
 };
 
