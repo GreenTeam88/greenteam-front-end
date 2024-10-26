@@ -12,7 +12,7 @@ type CrauselCardInfo = {
 
 const CrauselCardUI: React.FC<CrauselCardInfo> = ({ btnPath, buttonText, icon, title, paragraphs }) => {
   return (
-    <div className="flex p-[55px] gap-[44px]  items-center border-black10 border-opacity-10 border-2 rounded-[10px]">
+    <div className="flex flex-col lg:flex-row p-[55px] gap-[44px]  items-center border-black10 border-opacity-10 border-2 rounded-[10px]">
       {icon}
       <div className="flex flex-col gap-[44px] max-w-[695px]">
         <div className="flex flex-col gap-[11px]">
@@ -31,9 +31,8 @@ const CrauselCardUI: React.FC<CrauselCardInfo> = ({ btnPath, buttonText, icon, t
 
 export const CrauselSection = () => {
   return (
-    <div className="flex justify-center w-full items-center py-24 gap-[84px] ">
-      <div className="rotate-180">
-        {' '}
+    <div className="flex justify-center w-full px-4 items-center py-24 gap-[84px] ">
+      <div className="hidden lg:block rotate-180">
         <ArrowIcon />
       </div>
       <CrauselCardUI
@@ -45,7 +44,10 @@ export const CrauselSection = () => {
         icon={<HeartFlowerIcon />}
         buttonText="Offerte aanvragen"
       />
-      <ArrowIcon />
+      <div className="hidden lg:block">
+        {' '}
+        <ArrowIcon />
+      </div>
     </div>
   );
 };
