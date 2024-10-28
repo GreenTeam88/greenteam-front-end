@@ -51,3 +51,18 @@
 .link {
   @apply font-bold text-[11px] leading-[20px] tracking-[-2%];
 }
+
+.boxClassname {
+  @apply flex flex-col gap-[32px];
+}
+.boxTitle {
+  @apply font-semibold text-[25px] leading-[37px] text-primaryDefault;
+}
+
+.listItem {
+  @apply text-[13px]  leading-[20px] tracking-[-2%];
+}
+
+.listContainer {
+  @apply flex flex-col gap-3;
+}
