@@ -3,7 +3,7 @@ import { BodyText, H2 } from '@/components/theme/typography';
 
 export const FloorsOrStairs = () => {
   return (
-    <div className="flex flex-col items-center px-8 lg:px-0  py-40 gap-[32px] bg-white ">
+    <div className="flex flex-col items-center px-8 lg:px-0  py-40 gap-[32px]  ">
       <div className="flex flex-col items-center gap-[11px]">
         <H2 className="text-primaryDefault">Vloeren of trappen voor bedrijfsruimtes</H2>
         <BodyText className="max-w-[794px] text-center">

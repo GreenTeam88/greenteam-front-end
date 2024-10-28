@@ -20,3 +20,24 @@ export const DropDownIcon: React.FC<{ className?: string }> = ({ className }) =>
     </svg>
   );
 };
+
+export const CrauselIcon = () => {
+  return (
+    <svg width="35" height="35" viewBox="0 0 35 35" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <circle
+        cx="17.6646"
+        cy="17.5215"
+        r="16.2417"
+        transform="rotate(-180 17.6646 17.5215)"
+        className="stroke-secondaryDefault group-hover:stroke-primaryDefault"
+      />
+      <path
+        d="M15.616 12.3999L20.7375 17.5214L15.616 22.643"
+        className="stroke-secondaryDefault group-hover:stroke-primaryDefault"
+        stroke-width="1.5"
+        stroke-linecap="round"
+        stroke-linejoin="round"
+      />
+    </svg>
+  );
+};

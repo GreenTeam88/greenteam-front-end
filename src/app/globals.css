@@ -5,7 +5,7 @@
 /* theme buttons styles */
 
 .secondaryBtn {
-  @apply text-[#fff] bg-secondaryDefault hover:bg-transparent hover:text-secondaryDefault hover:border hover:border-secondaryDefault py-[10.69px] px-[17.81px] rounded-sm font-bold  text-[14px];
+  @apply text-[#fff] bg-secondaryDefault hover:bg-transparent hover:text-secondaryDefault border border-transparent hover:border-secondaryDefault py-[10.69px] px-[17.81px] rounded-sm font-bold  text-[14px];
 }
 
 .secondaryOutlinedBtn {

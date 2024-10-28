@@ -17,10 +17,19 @@ export const PhoneNumberSection = () => {
       </div>
       <div className="flex w-full flex-col lg:flex-row items-center justify-center gap-[34px]">
         <div className="flex gap-12 flex-col lg:flex-row py-8 lg:items-center">
-          <div className="flex items-center gap-3">
+          {/* <div className="flex items-center gap-3">
             <img src="/icons/email.png" />
             <LinkTypography className="hover:text-secondaryDefault text-[13px]" href={`mailto: ${appConfig.email}`}>
               {appConfig.email}
+            </LinkTypography>
+          </div> */}
+          <div className="flex items-center gap-3">
+            <img src="/icons/email.png" />
+            <LinkTypography className="pr-3 border-r border-r-black20 border-opacity-20 text-[13px]">
+              {appConfig.email}
+            </LinkTypography>
+            <LinkTypography href={`mailto:${appConfig.email}`} className="fond-semibold hover:text-secondaryDefault">
+              E-mailen
             </LinkTypography>
           </div>
           <div className="flex items-center gap-3">

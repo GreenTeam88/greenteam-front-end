@@ -3,6 +3,7 @@
 import { motion, useAnimation } from 'framer-motion';
 import React, { useEffect, useRef } from 'react';
 
+import { CrauselIcon } from '@/components/icons/arrows';
 import { H2 } from '@/components/theme/typography';
 import { plusJakartaSansFond } from '@/fonts';
 import { cn } from '@/lib/tailwind';
@@ -107,8 +108,10 @@ const Ratings = () => {
     };
   }, []);
   return (
-    <div className="flex  gap-[36px]">
-      <img className="hidden lg:block" src="/icons/arrowLeft.svg" />
+    <div className="flex  gap-[36px] items-center">
+      <div className="hidden lg:block group rotate-180 cursor-pointer">
+        <CrauselIcon />
+      </div>
       {/* ratings for mobile */}
       <div className="hidden lg:flex w-[1200px]  gap-[20px] relative h-[400px]   overflow-hidden">
         <motion.div animate={firstRowAnimation} className="flex absolute top-0 left-0 gap-[20px]  flex-col lg:flex-row">
@@ -132,7 +135,9 @@ const Ratings = () => {
         ))}
       </div>
 
-      <img src="/icons/arrowLeft.svg" className="rotate-180 hidden lg:block" />
+      <div className="hidden lg:block group cursor-pointeré">
+        <CrauselIcon />
+      </div>
     </div>
   );
 };
