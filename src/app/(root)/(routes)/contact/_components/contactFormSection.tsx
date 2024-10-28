@@ -1,18 +1,20 @@
+'use client';
+
 import Link from 'next/link';
 
-import { BodyText, BodyTextSemibold, LinkTypography } from '@/components/theme/typography';
+import { PrimaryBtn, SecondaryOutlinedBtnLink } from '@/components/theme/buttons';
+import { PrimaryInput, PrimaryTextArea } from '@/components/theme/inputs';
+import { BodyText, BodyTextSemibold, H1, LinkTypography } from '@/components/theme/typography';
 import { appConfig } from '@/config';
 
 export const ContactInfo = () => {
   return (
     <div className="flex flex-col gap-[40px] pr-[22px]">
-      <div className="flex flex-col lg:flex-row items-start lg:items-center gap-3 lg:gap-[33px] ">
-        <h4 className="text-[25px] text-primaryDefault  tracking-[-2%] font-semibold lg:w-[313px]">
-          Geen vraag is te gek, we helpen je graag verder!
-        </h4>
-        <Link href="/contact" className="secondaryOutlinedBtn">
-          Contact opnemen
-        </Link>
+      <div className="flex flex-col ">
+        <H1 className="text-primaryDefault">Wij staan voor u klaar </H1>
+        <BodyText className="max-w-[383px]">
+          Heb je vragen of wil je meer informatie? Neem gerust contact met ons op, we helpen je graag verder!
+        </BodyText>
       </div>
       <div className="flex flex-col gap-[40px]">
         <div className="flex gap-[22px]  items-center">
@@ -71,13 +73,35 @@ export const ContactInfo = () => {
   );
 };
 
-export const ContactSection = () => {
+const TopSection = () => {
   return (
-    <div className="py-24 flex items-center px-3 lg:px-0 justify-center ">
-      <div className="flex flex-col gap-14 lg:gap-0 lg:flex-row lg:w-[1199px] max-w-full justify-between">
-        {/* the contact info section includes email , phone , location and opening times */}
+    <div className="flex w-full gap-[11px] items-center justify-center">
+      <BodyText>Misschien is je vraag al beantwoord in onze veelgestelde vragen.</BodyText>
+      <SecondaryOutlinedBtnLink href="/veelgestelde-vragen">Veelgestelde vragen</SecondaryOutlinedBtnLink>
+    </div>
+  );
+};
+
+const ContactForm = () => {
+  return (
+    <div className="flex flex-col bg-white border border-black20 border-opacity-20 rounded-lg p-[22px] gap-[32px] max-w-full w-[488px] ">
+      <PrimaryInput labelText="Voornaam" />
+      <PrimaryInput labelText="Achternaam" />
+      <PrimaryInput labelText="E-mailadres" />
+      <PrimaryInput labelText="Telefoonnummer" />
+      <PrimaryTextArea labelText="Opmerking" />
+      <PrimaryBtn className="w-full">Verzenden</PrimaryBtn>
+    </div>
+  );
+};
+
+export const ContactFormSection = () => {
+  return (
+    <div className="flex flex-col py-28 gap-20">
+      <TopSection />
+      <div className="flex gap-12 w-full justify-between max-w-[1400px]">
         <ContactInfo />
-        <img className="w-[400px]" src="/home/locations.png" />
+        <ContactForm />
       </div>
     </div>
   );

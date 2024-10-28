@@ -1,0 +1,94 @@
+'use client';
+
+import { useState } from 'react';
+
+import { SecondaryOutlinedBtn } from '@/components/theme/buttons';
+import { BodyText, BodyTextSemibold, H2 } from '@/components/theme/typography';
+import { cn } from '@/lib/tailwind';
+
+interface FAQType {
+  question: string;
+  answer: string;
+}
+
+const FAQs: FAQType[] = [
+  {
+    answer:
+      'Wij werken met meerdere teams en specialisten, waardoor we niet beperkt zijn tot één locatie of provincie. We zijn actief in heel Nederland en voeren, in uitzonderlijke gevallen, ook opdrachten uit in België en op de Waddeneilanden.',
+    question: 'Werken jullie door heel Nederland?',
+  },
+  {
+    question: 'Hoe kan ik bij jullie betalen?',
+    answer:
+      'Er zijn verschillende betaalmogelijkheden beschikbaar. Na afronding van de werkzaamheden ontvangt u altijd een factuur met de gebruikelijke online betaalopties. Daarnaast kunt u ook eenvoudig een bankoverschrijving doen of, indien gewenst, contant betalen.',
+  },
+  {
+    question: 'Hoelang duurt een renovatie?',
+    answer:
+      'De duur van een renovatie hangt sterk af van de omvang van het project. Zo kan de renovatie van één trap doorgaans binnen één dag worden afgerond, terwijl drie trappen waarschijnlijk twee dagen in beslag zullen nemen.',
+  },
+  {
+    question: 'Kunnen jullie eerst langskomen?',
+    answer:
+      'In bepaalde gevallen komen we graag eerst bij u langs. Bijvoorbeeld wanneer u een tapijt voor uw trap wilt uitkiezen, of wanneer we stalen moeten laten zien en de ruimte moeten opmeten, is een bezoek ter plaatse noodzakelijk.',
+  },
+  {
+    question: 'Welke voorbereidingen moet ik treffen?',
+    answer:
+      'Voor aanvang van de werkzaamheden vragen wij u altijd de te behandelen oppervlakken leeg en schoon te maken, zodat onze specialisten direct aan de slag kunnen. Bij een parketrenovatie betekent dit dat de gehele vloer vrij moet zijn.',
+  },
+  {
+    question: 'Is er een aanbetaling nodig voor jullie aan de slag gaan?',
+    answer:
+      'Een aanbetaling is bij ons alleen vereist wanneer er veel materiaal moet worden geleverd, zoals bij grote oppervlakten vloer- of tegelwerk. Dit heeft te maken met de aanschaf van producten bij onze groothandels en leveranciers.',
+  },
+  {
+    question: 'Wat zijn de garantievoorwaarden?',
+    answer:
+      'Per categorie gelden andere garantievoorwaarden. Onze garantie voorwaarden zijn te vinden in onze algemene voorwaarden.',
+  },
+];
+
+const FAQCard: React.FC<FAQType> = ({ answer, question }) => {
+  const [isOpened, setIsOpened] = useState(false);
+  return (
+    <div
+      onClick={() => setIsOpened((currValue) => !currValue)}
+      className={cn(
+        'flex cursor-pointer lg:w-[693px] flex-col px-5 rounded-lg border border-black20 border-opacity-20 py-[11px] gap-[11px]',
+        { 'border-primaryDefault border-opacity-100': isOpened }
+      )}
+    >
+      <div className="w-full flex justify-between">
+        <BodyTextSemibold className={cn({ 'text-primaryDefault': isOpened })}>{question}</BodyTextSemibold>
+        <img src={isOpened ? '/icons/greenDropDownArrow.svg' : '/icons/blackDropDownArrow.svg'} />
+      </div>
+      {isOpened && <BodyText>{answer}</BodyText>}
+    </div>
+  );
+};
+
+const AllQuestions = () => {
+  return (
+    <div className="flex  flex-col gap-[11px] ">
+      {FAQs.map((FAQ) => (
+        <FAQCard key={FAQ.question} {...FAQ} />
+      ))}
+    </div>
+  );
+};
+export const FAQSection = () => {
+  return (
+    <div className="flex px-4 py-[88px w-full items-center flex-col gap-[55px] justify-center py-36">
+      <div className="flex items-center flex-col gap-3">
+        <H2 className="text-primaryDefault text-center">Veelgestelde vragen</H2>
+        <BodyText className="text-center">
+          We hebben een breed scala aan vragen en wij hebben de antwoorden op een rijtje gezet!
+        </BodyText>
+      </div>
+      {/* the AllQuestions component includes all the faq in a list */}
+      <AllQuestions />
+      <SecondaryOutlinedBtn>Alles bekijken</SecondaryOutlinedBtn>
+    </div>
+  );
+};

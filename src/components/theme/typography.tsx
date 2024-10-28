@@ -31,11 +31,11 @@ export const DetailsTypography: React.FC<HTMLAttributes<HTMLHeadingElement>> = (
   );
 };
 
-export const H2: React.FC<HTMLAttributes<HTMLHeadingElement>> = ({ className, children, ...props }) => {
+export const H2: React.FC<JSX.IntrinsicElements['h2']> = ({ className, children, ...props }) => {
   return (
-    <p className={cn(className, 'H2')} {...props}>
+    <h2 className={cn(className, 'H2')} {...props}>
       {children}
-    </p>
+    </h2>
   );
 };
 
@@ -76,5 +76,13 @@ export const LinkTypography: React.FC<HTMLAttributes<HTMLAnchorElement> & { href
     <a className={cn('font-bold text-[11px] leading-[20px] tracking-[-2%]', className)} {...props}>
       {children}
     </a>
+  );
+};
+
+export const H1: React.FC<JSX.IntrinsicElements['h1']> = ({ className, children, ...props }) => {
+  return (
+    <h2 className={cn('text-[40px] font-bold leading-[42px] tracking-[-2%]', className)} {...props}>
+      {children}
+    </h2>
   );
 };

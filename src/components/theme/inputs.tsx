@@ -1,8 +1,20 @@
 'use client';
 
-import { HTMLAttributes, useEffect, useState } from 'react';
+import { forwardRef, HTMLAttributes, InputHTMLAttributes, TextareaHTMLAttributes, useEffect, useState } from 'react';
 
 import { BodyText } from './typography';
+
+type PrimaryInputProps = {
+  labelText?: string;
+  required?: boolean;
+  error?: string;
+} & InputHTMLAttributes<HTMLInputElement>;
+
+type PrimaryTextAreaProps = {
+  labelText?: string;
+  required?: boolean;
+  error?: string;
+} & TextareaHTMLAttributes<HTMLTextAreaElement>;
 
 export const SelectInput: React.FC<{
   placeHolder: string;
@@ -68,29 +80,44 @@ export const SelectInput: React.FC<{
   );
 };
 
-export const PrimaryInput: React.FC<
-  {
-    label?: string;
-    value: string | number;
-    setValue: (val: string) => void;
-  } & HTMLAttributes<HTMLInputElement>
-> = ({ value, setValue, label, ...props }) => {
+export const PrimaryInput = forwardRef<HTMLInputElement, PrimaryInputProps>(({ value, labelText, ...props }, ref) => {
   return (
     <div onClick={(e) => e.stopPropagation()} className="flex flex-col gap-[11px] w-full relative">
-      {label && (
+      {labelText && (
         <label className="bodyText">
-          {label}
+          {labelText}
           {props['aria-required'] && <span className="text-secondaryDefault">*</span>}
         </label>
       )}
       <input
-        className="px-[20px]  w-full border-black20 border rounded-lg  py-[12px] "
+        ref={ref}
+        className="px-[20px] w-full border-black20 border border-opacity-20 rounded-lg py-[12px]"
         value={value}
-        onChange={(e) => {
-          setValue(e.target.value);
-        }}
         {...props}
-      ></input>
+      />
     </div>
   );
-};
+});
+
+export const PrimaryTextArea = forwardRef<HTMLTextAreaElement, PrimaryTextAreaProps>(
+  ({ value, labelText, ...props }, ref) => {
+    return (
+      <div onClick={(e) => e.stopPropagation()} className="flex flex-col gap-[11px] w-full relative">
+        {labelText && (
+          <label className="bodyText">
+            {labelText}
+            {props['aria-required'] && <span className="text-secondaryDefault">*</span>}
+          </label>
+        )}
+        <textarea
+          ref={ref}
+          className="px-[20px] w-full border-black20 border-opacity-20 border rounded-lg py-[12px]"
+          value={value}
+          {...props}
+        />
+      </div>
+    );
+  }
+);
+
+PrimaryInput.displayName = 'PrimaryInput';

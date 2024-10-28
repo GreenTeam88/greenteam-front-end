@@ -141,7 +141,7 @@ const headerRoutes: HeaderRoute[] = [
   },
   {
     name: 'Contact',
-    path: '/',
+    path: '/contact',
   },
   {
     name: 'Parketrenovatie',
