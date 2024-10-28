@@ -75,8 +75,10 @@ export const ContactInfo = () => {
 
 const TopSection = () => {
   return (
-    <div className="flex w-full gap-[11px] items-center justify-center">
-      <BodyText>Misschien is je vraag al beantwoord in onze veelgestelde vragen.</BodyText>
+    <div className="flex w-full gap-[11px] flex-col lg:flex-row items-center justify-center">
+      <BodyText className="text-center lg:text-start">
+        Misschien is je vraag al beantwoord in onze veelgestelde vragen.
+      </BodyText>
       <SecondaryOutlinedBtnLink href="/veelgestelde-vragen">Veelgestelde vragen</SecondaryOutlinedBtnLink>
     </div>
   );
@@ -84,7 +86,7 @@ const TopSection = () => {
 
 const ContactForm = () => {
   return (
-    <div className="flex flex-col bg-white border border-black20 border-opacity-20 rounded-lg p-[22px] gap-[32px] max-w-full w-[488px] ">
+    <div className="flex flex-col bg-white border border-black20 border-opacity-20 rounded-lg p-[22px] gap-[32px] max-w-full lg:w-[488px] ">
       <PrimaryInput labelText="Voornaam" />
       <PrimaryInput labelText="Achternaam" />
       <PrimaryInput labelText="E-mailadres" />
@@ -97,9 +99,9 @@ const ContactForm = () => {
 
 export const ContactFormSection = () => {
   return (
-    <div className="flex flex-col py-28 gap-20">
+    <div className="flex flex-col py-28 px-5 gap-20">
       <TopSection />
-      <div className="flex gap-12 w-full justify-between max-w-[1400px]">
+      <div className="flex gap-12 w-full flex-col lg:flex-row justify-between max-w-[1400px]">
         <ContactInfo />
         <ContactForm />
       </div>

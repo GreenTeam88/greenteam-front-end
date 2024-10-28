@@ -81,7 +81,7 @@ export const LinkTypography: React.FC<HTMLAttributes<HTMLAnchorElement> & { href
 
 export const H1: React.FC<JSX.IntrinsicElements['h1']> = ({ className, children, ...props }) => {
   return (
-    <h2 className={cn('text-[40px] font-bold leading-[42px] tracking-[-2%]', className)} {...props}>
+    <h2 className={cn('text-[30px] lg:text-[40px] font-bold leading-[42px] tracking-[-2%]', className)} {...props}>
       {children}
     </h2>
   );
