@@ -211,20 +211,22 @@ export const TermsConditions = () => {
             <p className="listItem">
               6.5. De opdrachtgever zal in ieder geval voor eigen risico en rekening stellen dat:
             </p>
-            <p className="listItem">
-              6.5. a.GreenTeam (personeel) terstond na het bereiken van de plaats van de uitvoering van de werkzaamheden
-              hun werkzaamheden kunnen beginnen en daarmee door kunnen gaan gedurende normale werktijden en voorts
-              buiten normale werktijden indien dit door GreenTeam noodzakelijk wordt geacht, mits GreenTeam de
-              opdrachtgever daarvan tijdig in kennis heeft gesteld;
-            </p>
-            <p className="listItem">
-              6.5.b. De toegangswegen tot de plaats van de werkzaamheden geschikt zijn voor het vereiste transport;
-            </p>
-            <p className="listItem">6.5.c. De aangewezen plaats geschikt is voor opslag en werkzaamheden;</p>
-            <p className="listItem">
-              6.5.d. De noodzakelijke afsluitbare opslagruimte voor materiaal, gereedschap en andere materialen
-              beschikbaar worden gesteld.
-            </p>
+            <div className="flex flex-col gap-4 px-3">
+              <p className="listItem">
+                a.GreenTeam (personeel) terstond na het bereiken van de plaats van de uitvoering van de werkzaamheden
+                hun werkzaamheden kunnen beginnen en daarmee door kunnen gaan gedurende normale werktijden en voorts
+                buiten normale werktijden indien dit door GreenTeam noodzakelijk wordt geacht, mits GreenTeam de
+                opdrachtgever daarvan tijdig in kennis heeft gesteld;
+              </p>
+              <p className="listItem">
+                b. De toegangswegen tot de plaats van de werkzaamheden geschikt zijn voor het vereiste transport;
+              </p>
+              <p className="listItem">c. De aangewezen plaats geschikt is voor opslag en werkzaamheden;</p>
+              <p className="listItem">
+                d. De noodzakelijke afsluitbare opslagruimte voor materiaal, gereedschap en andere materialen
+                beschikbaar worden gesteld.
+              </p>
+            </div>
             <p className="listItem">
               6.6. Indien opdrachtgever niet heeft voldaan aan zijn verplichtingen, dan zal in ieder geval een vast
               bedrag van EUR 150 in rekening worden gebracht voor de onkosten. GreenTeam is daarnaast gerechtigd om
@@ -390,23 +392,25 @@ export const TermsConditions = () => {
               ingebrekestelling of rechterlijke tussenkomst, door middel van een schriftelijke buitengerechtelijke
               verklaring, indien:
             </p>
-            <p className="listItem">
-              6.5.a.Zich omstandigheden voordoen welke van dien aard zijn dat nakoming van de overeenkomst onmogelijk is
-              geworden of naar maatstaven van redelijkheid en billijkheid niet langer kan worden gevergd, dan wel indien
-              zich anderszins omstandigheden voordoen welke van dien aard zijn dat ongewijzigde instandhouding van de
-              overeenkomst in redelijkheid niet mag worden verwacht.
-            </p>
-            <p className="listItem">
-              6.5.b. Als de opdrachtgever (voorlopige) surséance van betaling wordt verleend, het faillissement van
-              opdrachtgever wordt aangevraagd of de opdrachtgever zelf zijn faillissement aanvraagt, de opdrachtgever
-              aan zijn schuldeisers een (onderhands) akkoord aanbiedt of (met dit doel) een vergadering van schuldeisers
-              bijeenroept of indien met betrekking tot de opdrachtgever (natuurlijk persoon) toepassing wordt verzocht
-              of verleend van de Wet schuldsanering natuurlijke personen.
-            </p>
-            <p className="listItem">
-              6.5.c. De onderneming van opdrachtgever wordt geliquideerd en/of de ondernemingsactiviteiten van de
-              opdrachtgever feitelijk worden gestaakt of naar een plaats buiten Nederland wordt verplaatst.
-            </p>
+            <div className="flex flex-col gap-3 px-4">
+              <p className="listItem">
+                a.Zich omstandigheden voordoen welke van dien aard zijn dat nakoming van de overeenkomst onmogelijk is
+                geworden of naar maatstaven van redelijkheid en billijkheid niet langer kan worden gevergd, dan wel
+                indien zich anderszins omstandigheden voordoen welke van dien aard zijn dat ongewijzigde instandhouding
+                van de overeenkomst in redelijkheid niet mag worden verwacht.
+              </p>
+              <p className="listItem">
+                b. Als de opdrachtgever (voorlopige) surséance van betaling wordt verleend, het faillissement van
+                opdrachtgever wordt aangevraagd of de opdrachtgever zelf zijn faillissement aanvraagt, de opdrachtgever
+                aan zijn schuldeisers een (onderhands) akkoord aanbiedt of (met dit doel) een vergadering van
+                schuldeisers bijeenroept of indien met betrekking tot de opdrachtgever (natuurlijk persoon) toepassing
+                wordt verzocht of verleend van de Wet schuldsanering natuurlijke personen.
+              </p>
+              <p className="listItem">
+                c. De onderneming van opdrachtgever wordt geliquideerd en/of de ondernemingsactiviteiten van de
+                opdrachtgever feitelijk worden gestaakt of naar een plaats buiten Nederland wordt verplaatst.
+              </p>
+            </div>
             <p className="listItem">
               11.4.Indien de overeenkomst wordt ontbonden, zijn de vorderingen van GreenTeam op de opdrachtgever
               onmiddellijk opeisbaar.

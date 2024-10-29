@@ -1,5 +1,6 @@
 import { Hero } from '../_components/hero';
 import { PhoneNumberSection } from '../_components/phoneNumberSection';
+import { TermsConditionPageQuestion } from '../algemene-voorwaarden/_components/question';
 import { PrivacyPolicyText } from './_component/privacyPolicyText';
 
 export default function Home() {
@@ -8,6 +9,7 @@ export default function Home() {
       <Hero />
       <PrivacyPolicyText />
       <PhoneNumberSection />
+      <TermsConditionPageQuestion />
     </div>
   );
 }
