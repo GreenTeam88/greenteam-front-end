@@ -40,33 +40,43 @@ const QuestionForm: React.FC = () => {
           />
         </div>
         <PrimaryInput
-          label="Voor en achternaam"
+          labelText="Voor en achternaam"
           aria-required={true}
           value={VoorEnAchternaam}
-          setValue={setVoorEnAchternaam}
+          onChange={(e) => setVoorEnAchternaam(e.target.value)}
         />
-        <PrimaryInput label="E-mailadres" aria-required={true} setValue={setEmail} value={email} />
+        <PrimaryInput
+          labelText="E-mailadres"
+          aria-required={true}
+          onChange={(e) => setEmail(e.target.value)}
+          value={email}
+        />
         <div className="flex w-full gap-3 justify-between">
           <PrimaryInput
             aria-required={true}
             value={straatnaamEnHuisnummer}
-            setValue={setStraatnaamEnHuisnummer}
-            label="Straatnaam en huisnummer"
+            onChange={(e) => setStraatnaamEnHuisnummer(e.target.value)}
+            labelText="Straatnaam en huisnummer"
           ></PrimaryInput>
-          <PrimaryInput aria-required={true} value={postCode} setValue={setPostCode} label="Postcode"></PrimaryInput>
+          <PrimaryInput
+            aria-required={true}
+            value={postCode}
+            onChange={(e) => setPostCode(e.target.value)}
+            labelText="Postcode"
+          ></PrimaryInput>
         </div>
         <div className="flex w-full gap-3 justify-between">
           <PrimaryInput
             aria-required={true}
             value={Woonplaats}
-            setValue={setWoonplaats}
-            label="Woonplaats"
+            onChange={(e) => setWoonplaats(e.target.value)}
+            labelText="Woonplaats"
           ></PrimaryInput>
           <PrimaryInput
             aria-required={true}
             value={phoneNumber}
-            setValue={setPhoneNumber}
-            label="Telefoonnummer"
+            onChange={(e) => setPhoneNumber(e.target.value)}
+            labelText="Telefoonnummer"
           ></PrimaryInput>
         </div>
         <PrimaryBtn>Verzenden</PrimaryBtn>
