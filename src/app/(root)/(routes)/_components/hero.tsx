@@ -1,4 +1,4 @@
-import { PrimaryBtn, SecondaryOutlinedBtnLink } from '@/components/theme/buttons';
+import { PrimaryBtn, PrimaryBtnLink, SecondaryOutlinedBtnLink } from '@/components/theme/buttons';
 import { HeadlineSemibold } from '@/components/theme/typography';
 
 const ParagraphSection = () => {
@@ -14,7 +14,7 @@ const ParagraphSection = () => {
           </p>
         </div>
         <div className="flex gap-[22px] items-center">
-          <PrimaryBtn>Offerte aanvragen</PrimaryBtn>
+          <PrimaryBtnLink href="/offerte-aanvragen">Offerte aanvragen</PrimaryBtnLink>
           <SecondaryOutlinedBtnLink href="tel:+085 401 93 45">Direct bellen</SecondaryOutlinedBtnLink>
         </div>
       </div>
