@@ -1,6 +1,6 @@
 'use client';
 
-import { forwardRef, HTMLAttributes, InputHTMLAttributes, TextareaHTMLAttributes, useEffect, useState } from 'react';
+import { forwardRef, InputHTMLAttributes, TextareaHTMLAttributes, useEffect, useState } from 'react';
 
 import { BodyText } from './typography';
 
@@ -121,3 +121,4 @@ export const PrimaryTextArea = forwardRef<HTMLTextAreaElement, PrimaryTextAreaPr
 );
 
 PrimaryInput.displayName = 'PrimaryInput';
+PrimaryTextArea.displayName = 'PrimaryTextArea';

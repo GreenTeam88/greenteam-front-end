@@ -1,6 +1,6 @@
 'use client';
 
-import { PrimaryBtn, SecondaryOutlinedBtnLink } from '@/components/theme/buttons';
+import { PrimaryBtn } from '@/components/theme/buttons';
 import { HeadlineSemibold } from '@/components/theme/typography';
 
 const ParagraphSection = () => {

@@ -1,7 +1,5 @@
 'use client';
 
-import Link from 'next/link';
-
 import { PrimaryBtn, SecondaryOutlinedBtnLink } from '@/components/theme/buttons';
 import { PrimaryInput, PrimaryTextArea } from '@/components/theme/inputs';
 import { BodyText, BodyTextSemibold, H1, LinkTypography } from '@/components/theme/typography';
