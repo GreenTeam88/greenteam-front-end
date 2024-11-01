@@ -1,5 +1,5 @@
 import { BodyText, BodyTextBold } from '@/components/theme/typography';
-import { InfoCardProps, OrangeInfoCard, WhiteInfoCard } from '../../diensten/_components/cards';
+import { InfoCardProps, WhiteInfoCard } from '../../diensten/_components/cards';
 
 const infoCardConfig: InfoCardProps = {
   buttonText: 'Meer informatie',
