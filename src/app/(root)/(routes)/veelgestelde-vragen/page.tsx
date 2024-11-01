@@ -1,6 +1,5 @@
 import { Hero } from '../_components/hero';
 import { PhoneNumberSection } from '../_components/phoneNumberSection';
-import { FAQSection } from './_components/faq';
 import { AllFAQsUI } from './_components/FAQs';
 import { ProblemSolvedQuestion } from './_components/problemSolvedQuestion';
 

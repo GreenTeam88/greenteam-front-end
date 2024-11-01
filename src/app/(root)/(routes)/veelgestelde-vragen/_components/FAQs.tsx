@@ -5,7 +5,6 @@ import { Dispatch, SetStateAction, useState } from 'react';
 
 import { SearchIcon } from '@/components/icons/searchIcon';
 import { BodyTextSemibold, HeadlineSemibold } from '@/components/theme/typography';
-import { cn } from '@/lib/tailwind';
 import { FAQCard } from '../../diensten/_components/faq';
 
 interface FAQdata {
