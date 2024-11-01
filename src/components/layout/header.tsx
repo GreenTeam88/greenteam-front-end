@@ -138,7 +138,7 @@ const headerRoutes: HeaderRoute[] = [
   },
   {
     name: 'Veelgestelde vragen',
-    path: '/',
+    path: '/veelgestelde-vragen',
   },
   {
     name: 'Contact',
@@ -146,6 +146,7 @@ const headerRoutes: HeaderRoute[] = [
   },
   {
     name: 'Parketrenovatie',
+    path: '/parketrenovatie',
     columns: [
       {
         title: '',
@@ -497,7 +498,8 @@ export const HeaderLink: React.FC<{
         onMouseOver={() => setShowDropDown(true)}
         className="flex relative min-h-[30px] items-center cursor-pointer"
       >
-        <h5
+        <Link
+          href={route.path || '/'}
           className={cn('text-[16px] flex h-fit items-end leading-tight  gap-1', {
             'text-primaryDefault': showDropDown,
           })}
@@ -512,7 +514,7 @@ export const HeaderLink: React.FC<{
               />
             </div>
           )}
-        </h5>
+        </Link>
         {showDropDown && <DropDownColumn routeName={route.name} />}
       </div>
       {/* not making a border at the last element of the line  */}

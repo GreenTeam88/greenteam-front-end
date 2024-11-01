@@ -2,6 +2,7 @@ import clsx from 'clsx';
 
 import { PrimaryBtn } from '@/components/theme/buttons';
 import { BodyText, H2 } from '@/components/theme/typography';
+import { cn } from '@/lib/tailwind';
 
 export type InfoCardProps = {
   mainTitle?: string;
@@ -32,7 +33,7 @@ export const OrangeInfoCard: React.FC<InfoCardProps> = ({
       )}
       {...props}
     >
-      <img className="lg:w-[387px] w-full rounded-lg" src={imgSrc} />
+      <img className="lg:w-fit w-full rounded-lg" src={imgSrc} />
       <div className={clsx('flex flex-col px-3 lg:px-0 max-w-[508px]  gap-[33px] ', contentContainerClassName)}>
         <div className="flex flex-col gap-[11px] ">
           <div className="flex flex-col gap-4">
@@ -54,9 +55,21 @@ export const OrangeInfoCard: React.FC<InfoCardProps> = ({
   );
 };
 
-export const WhiteInfoCard: React.FC<InfoCardProps> = ({ title, imgSrc, paragraphs, buttonText, secondBtnText }) => {
+export const WhiteInfoCard: React.FC<InfoCardProps> = ({
+  title,
+  imgSrc,
+  paragraphs,
+  buttonText,
+  secondBtnText,
+  className,
+}) => {
   return (
-    <div className="flex w-full py-[99px] p-3 lg:p-0 flex-col lg:flex-row  items-center justify-center gap-[57px]">
+    <div
+      className={cn(
+        'flex w-full py-[99px] p-3 lg:p-0 flex-col lg:flex-row  items-center justify-center gap-[57px]',
+        className
+      )}
+    >
       <div className="flex flex-col max-w-[508px]  px-4 lg:px-0 gap-[33px] ">
         <div className="flex flex-col gap-[11px] ">
           <h3 className="text-[24px] text-primaryDefault font-semibold leading-[25px] ">{title}</h3>
@@ -71,7 +84,7 @@ export const WhiteInfoCard: React.FC<InfoCardProps> = ({ title, imgSrc, paragrap
           {secondBtnText && <PrimaryBtn>{secondBtnText}</PrimaryBtn>}
         </div>
       </div>
-      <img className="w-full lg:w-[387px] rounded-lg" src={imgSrc} />
+      <img className="w-full lg:w-fit rounded-lg" src={imgSrc} />
     </div>
   );
 };

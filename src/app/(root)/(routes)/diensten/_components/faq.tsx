@@ -49,7 +49,7 @@ const FAQs: FAQType[] = [
   },
 ];
 
-const FAQCard: React.FC<FAQType> = ({ answer, question }) => {
+export const FAQCard: React.FC<FAQType> = ({ answer, question }) => {
   const [isOpened, setIsOpened] = useState(false);
   return (
     <div
