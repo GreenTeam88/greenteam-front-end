@@ -10,7 +10,7 @@ export type InfoCardProps = {
   imgSrc: string;
   contentContainerClassName?: string;
   paragraphs: React.ReactNode[];
-  buttonText: string;
+  buttonText?: string;
   secondBtnText?: string;
 } & JSX.IntrinsicElements['div'];
 
@@ -47,7 +47,7 @@ export const OrangeInfoCard: React.FC<InfoCardProps> = ({
           </div>
         </div>
         <div className="flex gap-3">
-          <PrimaryBtn>{buttonText}</PrimaryBtn>
+          {buttonText &&  <PrimaryBtn>{buttonText}</PrimaryBtn>}
           {secondBtnText && <PrimaryBtn>{secondBtnText}</PrimaryBtn>}
         </div>
       </div>
@@ -80,7 +80,7 @@ export const WhiteInfoCard: React.FC<InfoCardProps> = ({
           </div>
         </div>
         <div className="flex gap-3">
-          <PrimaryBtn>{buttonText}</PrimaryBtn>
+{buttonText &&           <PrimaryBtn>{buttonText}</PrimaryBtn>}
           {secondBtnText && <PrimaryBtn>{secondBtnText}</PrimaryBtn>}
         </div>
       </div>
