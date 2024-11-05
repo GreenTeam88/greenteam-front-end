@@ -47,7 +47,7 @@ export const OrangeInfoCard: React.FC<InfoCardProps> = ({
           </div>
         </div>
         <div className="flex gap-3">
-          {buttonText &&  <PrimaryBtn>{buttonText}</PrimaryBtn>}
+          {buttonText && <PrimaryBtn>{buttonText}</PrimaryBtn>}
           {secondBtnText && <PrimaryBtn>{secondBtnText}</PrimaryBtn>}
         </div>
       </div>
@@ -80,7 +80,7 @@ export const WhiteInfoCard: React.FC<InfoCardProps> = ({
           </div>
         </div>
         <div className="flex gap-3">
-{buttonText &&           <PrimaryBtn>{buttonText}</PrimaryBtn>}
+          {buttonText && <PrimaryBtn>{buttonText}</PrimaryBtn>}
           {secondBtnText && <PrimaryBtn>{secondBtnText}</PrimaryBtn>}
         </div>
       </div>

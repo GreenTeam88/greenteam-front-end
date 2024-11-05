@@ -48,7 +48,7 @@ export const ThirdSection = () => {
       </div>
       <div className="flex flex-col py-3 ">
         {cardsConfig.map((cardConfig) => (
-          <OrangeInfoCard className="lg:py-7" {...cardConfig} />
+          <OrangeInfoCard key={cardConfig.title} className="lg:py-7" {...cardConfig} />
         ))}
       </div>
       <div className="flex gap-5 p-[22px] border border-black10 border-opacity-10 rounded-[10px] items-center">

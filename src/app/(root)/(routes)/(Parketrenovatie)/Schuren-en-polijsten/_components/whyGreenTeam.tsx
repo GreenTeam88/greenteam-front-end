@@ -44,7 +44,7 @@ const WhyGreenTeamCard: React.FC<WhyGreenTeamCardProps> = ({ icon, paragraphs, t
       </div>
       <div className="flex flex-col gap-8">
         {paragraphs.map((paragraph) => (
-          <BodyText>{paragraph}</BodyText>
+          <BodyText key={paragraph}>{paragraph}</BodyText>
         ))}
       </div>
     </div>
@@ -65,7 +65,7 @@ export const WhyGreenTeam = () => {
       <H2 className="text-primaryDefault">Waarom kies ik voor GreenTeam?</H2>
       <div className="flex flex-col lg:flex-row items-center lg:items-start gap-[21px]">
         {whyGreenTeamCardsInfo.map((cardInfo) => (
-          <WhyGreenTeamCard {...cardInfo} />
+          <WhyGreenTeamCard key={cardInfo.title} {...cardInfo} />
         ))}
       </div>
       <BottomSection />
