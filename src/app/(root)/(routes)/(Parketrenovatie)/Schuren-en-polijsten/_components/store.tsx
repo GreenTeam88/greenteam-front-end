@@ -3,8 +3,8 @@ import { BodyText, H2 } from "@/components/theme/typography"
 
 
 const ImagesGallery = ()=>{
-    return <div style={{width : "100%"}}  className="flex w-full gap-[20px] flex-col relative  lg:px-0 lg:flex-row "  >
-        <div className="flex flex-col gap-[24px] w-full " >
+    return <div   className="flex w-full lg:w-fit gap-[20px] flex-col relative  lg:px-0 lg:flex-row "  >
+        <div className="flex flex-col gap-[24px]  " >
             <img  className="w-full lg:w-fit"  src="/Parketrenovatie/store1.png" />
             <img  className="w-full lg:w-fit"  src="/Parketrenovatie/store2.png" />
         </div>
