@@ -408,7 +408,7 @@ const DropDownColumnLink: React.FC<
   | RouteWithPath
   | {
       name: string;
-      path ? : string ;
+      path?: string;
       subPages: RouteWithPath[];
     }
 > = (page) => {
@@ -417,11 +417,11 @@ const DropDownColumnLink: React.FC<
   return (
     <div className="flex flex-col relative  gap-1">
       <Link
-         href={page.path  as string  || "/"}
+        href={(page.path as string) || '/'}
         onClick={() => setOpenSubPages((val) => !val)}
         className="text-sm flex items-center  hover:text-primaryDefault relative group w-full min-w-[160px] text-black text-opacity-80"
       >
-        {page.name} 
+        {page.name}
         {pageSubpages && (
           // <span className={cn('mx-2 inline')}>
           <div className={cn('mx-2', { 'rotate-180 ': openSubPages })}>
