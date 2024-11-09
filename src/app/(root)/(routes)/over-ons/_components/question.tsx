@@ -2,7 +2,7 @@
 
 import React, { useState } from 'react';
 
-import { PrimaryBtn, SecondaryOutlinedBtn } from '@/components/theme/buttons';
+import { PrimaryBtn, PrimaryBtnLink, SecondaryOutlinedBtn, SecondaryOutlinedBtnLink } from '@/components/theme/buttons';
 import { PrimaryInput, SelectInput } from '@/components/theme/inputs';
 import { BodyText, H2, HeadlineSemibold } from '@/components/theme/typography';
 
@@ -96,8 +96,8 @@ const QuestionsParagraph = () => {
         </BodyText>
       </div>
       <div className="flex gap-2">
-        <PrimaryBtn>Veelgestelde vragen</PrimaryBtn>
-        <SecondaryOutlinedBtn>Contact opnemen</SecondaryOutlinedBtn>
+        <PrimaryBtnLink href="/veelgestelde-vragen">Veelgestelde vragen</PrimaryBtnLink>
+        <SecondaryOutlinedBtnLink href="/contact">Contact opnemen</SecondaryOutlinedBtnLink>
       </div>
     </div>
   );

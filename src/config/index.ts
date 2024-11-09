@@ -15,7 +15,7 @@ const openingTimes: OpeningTime[] = [
   { day: 'Zondag', time: 'Gesloten' },
 ];
 export const appConfig = {
-  logoSrcImg: '/logo.png',
+  logoSrcImg: '/logo.svg',
   email: 'info@greenteam.nl',
   phoneNumber: '085 401 93 45',
   openingTimes,

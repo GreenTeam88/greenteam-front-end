@@ -27,9 +27,9 @@ const OurMissionCard = () => {
       <div className="flex flex-col px-3 max-w-[488px] gap-[11px]">
         <h3 className="font-medium text-[25px] leading-[37px] tracking-[-2%] text-primaryDefault">Onze missie</h3>
         <p>
-          Onze missie is om zo duurzaam en groen mogelijk te werk te gaan. We vinden het belangrijk om bewust bij te
-          dragen aan een betere wereld. Green Team geeft een houten vloer of trap een tweede leven, waardoor er minder
-          bomen gekapt hoeven te worden.{' '}
+          Onze missie is om zo <span className="text-secondaryDefault font-bold"> duurzaam en groen</span> mogelijk te
+          werk te gaan. We vinden het belangrijk om bewust bij te dragen aan een betere wereld. Green Team geeft een
+          houten vloer of trap een tweede leven, waardoor er minder bomen gekapt hoeven te worden.{' '}
         </p>
         <p>
           Het circulair inzetten van een houten vloer bespaart gemiddeld 211 kg CO2, gelijk aan 1.788 km rijden met een

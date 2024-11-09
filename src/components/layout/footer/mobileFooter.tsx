@@ -16,10 +16,10 @@ export const TopSection = () => {
     <div className="w-full px-2 flex flex-col ">
       <div className="w-full  flex justify-between">
         <img src={appConfig.logoSrcImg} width={100} />
-        <div className="flex gap-2 ">
-          <InstagramLogo width={40} height={40} />
+        <div className="flex gap-4">
+          <InstagramLogo width={25} height={25} />
 
-          <TikTokIcon width={35} height={35} />
+          <TikTokIcon width={20} height={20} />
         </div>
       </div>
       <div className="flex py-4 flex-col">
@@ -73,7 +73,7 @@ export const BottomSection = () => {
       {appConfig.openingTimes.map((openingTime) => (
         <div key={openingTime.day} className="flex gap-1">
           <BodyTextBold>{openingTime.day}</BodyTextBold>
-          <BodyText>{openingTime.day}</BodyText>
+          <BodyText>{openingTime.time}</BodyText>
         </div>
       ))}
       <div className="flex py-4 flex-col gap-2">

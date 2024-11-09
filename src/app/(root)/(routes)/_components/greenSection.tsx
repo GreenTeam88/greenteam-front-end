@@ -19,7 +19,7 @@ export const GreenSection = () => {
         </div>
       </div>
       {/* mobile version */}
-      <div className="flex relative  lg:hidden  bg-green-600 h-fit  py-5 lg:px-0 lg:py-0 px-4 flex-col lg:flex-row w-full">
+      <div className="flex relative  lg:hidden  bg-green-600 h-fit  pb-5 lg:px-0 lg:py-0  flex-col lg:flex-row w-full">
         <img src="/home/ITPersons.png" className="  h-fit " />
         <div className="  h-full ">
           <div className="py-4  items-center  flex flex-col gap-[33px] ">
