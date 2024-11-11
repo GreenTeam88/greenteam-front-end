@@ -2,6 +2,8 @@ import { ContactSection } from '../../_components/contactSection';
 import { FAQSection } from '../../_components/FAQSection';
 import { Hero } from '../../_components/hero';
 import { PhoneNumberSection } from '../../_components/phoneNumberSection';
+import { RatingSection } from '../../_components/ratingSection';
+import { QuestionSection } from '../../over-ons/_components/question';
 import { SecondSection } from './_components/secondSection';
 import { StoreSection } from './_components/store';
 import { ThirdSection } from './_components/thirdSection';
@@ -18,8 +20,8 @@ export default function Home() {
       <StoreSection />
       <WhatWaitingForSection />
       <FAQSection />
-      <ContactSection />
-      <PhoneNumberSection />
+      <QuestionSection />
+      <RatingSection />
     </div>
   );
 }
