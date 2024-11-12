@@ -37,7 +37,7 @@ const whyGreenTeamCardsInfo: WhyGreenTeamCardProps[] = [
 
 const WhyGreenTeamCard: React.FC<WhyGreenTeamCardProps> = ({ icon, paragraphs, title }) => {
   return (
-    <div className="flex flex-col py-[33px] gap-[11px] px-[22px] rounded-[10px]  border-2 border-black10 border-opacity-10 max-w-[387px] ">
+    <div className="flex lg:min-h-[350px] flex-col py-[33px] h-full gap-[11px] px-[22px] rounded-[10px]  border-2 border-black10 border-opacity-10 max-w-[387px] ">
       <div className="flex gap-3">
         {icon}
         <HeadlineSemibold className="text-primaryDefault">{title}</HeadlineSemibold>
@@ -63,7 +63,7 @@ export const WhyGreenTeam = () => {
   return (
     <div className="flex flex-col  py-32 gap-4 items-center">
       <H2 className="text-primaryDefault">Waarom kies ik voor GreenTeam?</H2>
-      <div className="flex flex-col lg:flex-row items-center lg:items-start gap-[21px]">
+      <div className="flex relative flex-col lg:flex-row items-center lg:items-start gap-[21px]">
         {whyGreenTeamCardsInfo.map((cardInfo) => (
           <WhyGreenTeamCard key={cardInfo.title} {...cardInfo} />
         ))}
