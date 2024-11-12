@@ -1,7 +1,5 @@
 import { BodyText } from '@/components/theme/typography';
-import { ContactSection } from '../../_components/contactSection';
 import { Hero } from '../../_components/hero';
-import { PhoneNumberSection } from '../../_components/phoneNumberSection';
 import { RatingSection } from '../../_components/ratingSection';
 import { InfoCardProps } from '../../diensten/_components/cards';
 import { QuestionSection } from '../../over-ons/_components/question';

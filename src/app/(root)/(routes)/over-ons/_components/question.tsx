@@ -2,10 +2,9 @@
 
 import React, { useState } from 'react';
 
-import { PrimaryBtn, PrimaryBtnLink, SecondaryOutlinedBtn, SecondaryOutlinedBtnLink } from '@/components/theme/buttons';
+import { PrimaryBtn, PrimaryBtnLink, SecondaryOutlinedBtnLink } from '@/components/theme/buttons';
 import { PrimaryInput, SelectInput } from '@/components/theme/inputs';
 import { BodyText, H2, HeadlineSemibold } from '@/components/theme/typography';
-import { RatingSection } from '../../_components/ratingSection';
 
 const QuestionForm: React.FC = () => {
   const [category, setCategory] = useState('');
