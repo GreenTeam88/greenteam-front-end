@@ -58,9 +58,9 @@ const thirdSectionCards: InfoCardProps[] = [
 
 const FAQs: FAQType[] = [
   {
-    answer: 'Kan onze parketvloer worden gelakt nadat deze is geolied?',
-    question:
+    answer:
       'Het is mogelijk om de houten vloer te polijsten en te schuren, waardoor de eerdere behandeling, evenals vlekken en krassen, worden verwijderd.',
+    question: 'Kan onze parketvloer worden gelakt nadat deze is geolied?',
   },
   {
     question: 'Wanneer is de met olie behandelde vloer droog en uitgehard?',
@@ -105,7 +105,7 @@ const whatWaitingForConfig: InfoCardProps = {
       Ik wil dat de parketteur langskomt!
     </BodyTextBold>,
   ],
-  imgSrc: '/Parketrenovatie/schuren-en-lakken-9.png',
+  imgSrc: '/Parketrenovatie/schuren-en-oliën-9.png',
   buttonText: 'Direct offerte berekenen',
 };
 
@@ -123,7 +123,7 @@ export default function Home() {
         fourthImg="/Parketrenovatie/schuren-en-oliën-7.png"
         fifthImg="/Parketrenovatie/schuren-en-oliën-8.png"
       />
-      <WhiteInfoCard {...whatWaitingForConfig} className="lg:py-9" />
+      <WhiteInfoCard {...whatWaitingForConfig} className="lg:py-28" />
       <FAQSection FAQs={FAQs} />
       <QuestionSection />
       <RatingSection />

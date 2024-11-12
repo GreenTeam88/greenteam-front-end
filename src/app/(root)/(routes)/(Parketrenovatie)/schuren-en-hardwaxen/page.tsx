@@ -30,7 +30,7 @@ const thirdSectionCards: InfoCardProps[] = [
   },
   {
     title: 'Polijsten',
-    imgSrc: '/Parketrenovatie/schuren-en-lakken-3.png',
+    imgSrc: '/Parketrenovatie/schuren-en-hardwaxen-3.png',
     paragraphs: [
       <>
         <BodyText>
@@ -106,7 +106,7 @@ const whatWaitingForConfig: InfoCardProps = {
       Ik wil dat de parketteur langskomt!
     </BodyTextBold>,
   ],
-  imgSrc: '/Parketrenovatie/schuren-en-lakken-9.png',
+  imgSrc: '/Parketrenovatie/schuren-en-hardwaxen-9.png',
   buttonText: 'Direct offerte berekenen',
 };
 
@@ -114,15 +114,15 @@ export default function Home() {
   return (
     <div className="flex flex-col  relative z-0 items-center w-full">
       <Hero />
-      <SecondSection image="/Parketrenovatie/schuren-en-lakken-1.png" />
+      <SecondSection image="/Parketrenovatie/schuren-en-hardwaxen-1.png" />
       <ThirdSection cards={thirdSectionCards} />
       <WhyGreenTeam />
       <StoreSection
-        firstImg={'/Parketrenovatie/schuren-en-lakken-4.png'}
-        secondImg="/Parketrenovatie/schuren-en-lakken-5.png"
-        thirdImg="/Parketrenovatie/schuren-en-lakken-6.png"
-        fourthImg="/Parketrenovatie/schuren-en-lakken-7.png"
-        fifthImg="/Parketrenovatie/schuren-en-lakken-8.png"
+        firstImg={'/Parketrenovatie/schuren-en-hardwaxen-4.png'}
+        secondImg="/Parketrenovatie/schuren-en-hardwaxen-5.png"
+        thirdImg="/Parketrenovatie/schuren-en-hardwaxen-6.png"
+        fourthImg="/Parketrenovatie/schuren-en-hardwaxen-7.png"
+        fifthImg="/Parketrenovatie/schuren-en-hardwaxen-8.png"
       />
       <WhiteInfoCard {...whatWaitingForConfig} className="lg:py-28" />
       <FAQSection FAQs={FAQs} />

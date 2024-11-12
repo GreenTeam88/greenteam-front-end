@@ -43,7 +43,7 @@ const ParagraphSection = () => {
       <div className="flex flex-col gap-[22px] ">
         <BodyTextBold className="text-secondaryDefault">Geen vraag is te gek.</BodyTextBold>
         <div className="flex gap-[22px] items-center">
-          <PrimaryBtnLink href="/veelgestelde-vragen">Alles bekijken</PrimaryBtnLink>
+          <PrimaryBtnLink href="/veelgestelde-vragen">Veelgestelde vragen</PrimaryBtnLink>
           <BodyText>of</BodyText>
           <SecondaryOutlinedBtnLink href="/contact">Contact opnemen</SecondaryOutlinedBtnLink>
         </div>
