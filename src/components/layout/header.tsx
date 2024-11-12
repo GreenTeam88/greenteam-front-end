@@ -152,7 +152,7 @@ const headerRoutes: HeaderRoute[] = [
         title: '',
         subPages: [
           { name: ' Schuren en polijsten', path: '/Schuren-en-polijsten' },
-          { name: ' Schuren en lakken', path: '/' },
+          { name: ' Schuren en lakken', path: '/schuren-en-lakken' },
           { name: ' Schuren en oliën', path: '/' },
           { name: ' Schuren en hardwaxen', path: '/' },
           { name: ' Aanhelen / Uitbreiden', path: '/' },

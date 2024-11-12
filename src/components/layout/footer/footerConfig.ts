@@ -110,8 +110,8 @@ export const footerColumnsInfo: FooterColumnInfo[] = [
   {
     title: 'Parket renovatie',
     links: [
-      { name: 'Schuren en polijsten', path: '' },
-      { name: 'Schuren en lakken', path: '' },
+      { name: 'Schuren en polijsten', path: '/' },
+      { name: 'Schuren en lakken', path: '/Schuren-en-lakken' },
       { name: 'Schuren en olien', path: '' },
       { name: 'Schuren en hardwaxen', path: '' },
       { name: 'Aanhelen', path: '' },

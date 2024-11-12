@@ -31,7 +31,11 @@ const QuestionSection = () => {
   );
 };
 
-export const SecondSection = () => {
+type SecondSectionProps = {
+  image: string;
+};
+
+export const SecondSection: React.FC<SecondSectionProps> = ({ image }) => {
   return (
     <div className="flex px-3 flex-col w-full items-center py-20 gap-[33px]">
       <p className="text-primaryDefault font-normal">
@@ -39,7 +43,7 @@ export const SecondSection = () => {
       </p>
       <div className="flex flex-col lg:flex-row items-center gap-9 py-14">
         <QuestionSection />
-        <img className="max-w-full" src="/Parketrenovatie/image11.png" />
+        <img className="max-w-full" src={image} />
       </div>
     </div>
   );

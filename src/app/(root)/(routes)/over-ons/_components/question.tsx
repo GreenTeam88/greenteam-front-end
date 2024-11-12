@@ -5,6 +5,7 @@ import React, { useState } from 'react';
 import { PrimaryBtn, PrimaryBtnLink, SecondaryOutlinedBtn, SecondaryOutlinedBtnLink } from '@/components/theme/buttons';
 import { PrimaryInput, SelectInput } from '@/components/theme/inputs';
 import { BodyText, H2, HeadlineSemibold } from '@/components/theme/typography';
+import { RatingSection } from '../../_components/ratingSection';
 
 const QuestionForm: React.FC = () => {
   const [category, setCategory] = useState('');
@@ -95,8 +96,9 @@ const QuestionsParagraph = () => {
           vragen te beantwoorden en u te voorzien van de informatie die u nodig heeft.
         </BodyText>
       </div>
-      <div className="flex gap-2">
+      <div className="flex gap-2 items-center">
         <PrimaryBtnLink href="/veelgestelde-vragen">Veelgestelde vragen</PrimaryBtnLink>
+        of
         <SecondaryOutlinedBtnLink href="/contact">Contact opnemen</SecondaryOutlinedBtnLink>
       </div>
     </div>
