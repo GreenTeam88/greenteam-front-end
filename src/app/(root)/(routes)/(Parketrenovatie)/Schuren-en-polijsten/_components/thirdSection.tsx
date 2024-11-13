@@ -4,11 +4,11 @@ import { PrimaryBtn } from '@/components/theme/buttons';
 import { BodyText, H2, HeadlineSemibold } from '@/components/theme/typography';
 import { InfoCardProps, OrangeInfoCard } from '../../../diensten/_components/cards';
 
-export const ThirdSection: React.FC<{ cards: InfoCardProps[] }> = ({ cards }) => {
+export const ThirdSection: React.FC<{ cards: InfoCardProps[]; title: string }> = ({ cards, title }) => {
   return (
     <div className="flex w-full gap-[88px] py-[99px] px-3 lg:px-0 bg-secondaryLight flex-col items-center">
       <div className="flex gap-3 flex-col items-center">
-        <H2 className="text-primaryDefault">Hoe gaat schuren en polijsten in zijn werk?</H2>
+        <H2 className="text-primaryDefault">{title}</H2>
         <BodyText>Stapsgewijs naar een perfect resultaat</BodyText>
       </div>
       <div className="flex flex-col gap-[88px]">
