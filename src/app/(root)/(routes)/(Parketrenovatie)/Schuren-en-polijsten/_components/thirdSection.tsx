@@ -11,9 +11,9 @@ export const ThirdSection: React.FC<{ cards: InfoCardProps[]; title: string }> =
         <H2 className="text-primaryDefault">{title}</H2>
         <BodyText>Stapsgewijs naar een perfect resultaat</BodyText>
       </div>
-      <div className="flex flex-col gap-[88px]">
+      <div className="flex flex-col  gap-[88px]">
         {cards.map((cardConfig) => (
-          <OrangeInfoCard key={cardConfig.title} className="lg:py-[0px] lg:my-0  " {...cardConfig} />
+          <OrangeInfoCard key={cardConfig.title} {...cardConfig} className="lg:py-[0px] lg:my-0 py-0 h-fit" />
         ))}
       </div>
       <div className="flex gap-5 p-[22px] border border-black10 border-opacity-10 rounded-[10px] items-center">

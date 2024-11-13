@@ -29,28 +29,18 @@ const thirdSectionCards: InfoCardProps[] = [
     ],
   },
   {
-    title: 'Polijsten',
+    title: 'Hardwaxen',
     imgSrc: '/Parketrenovatie/schuren-en-hardwaxen-3.png',
     paragraphs: [
       <>
         <BodyText>
-          Polijsten is het proces waardoor een oppervlak van een materiaal glad en glanzend gemaakt wordt, waardoor de
-          oppervlakteruwheid verkleind wordt en het materiaal een sterk spiegelend effect verkrijgt. Dit gebeurt
-          standaard na het opschuren.{' '}
+          Een behandeling met hardwax biedt een dubbele bescherming, vergelijkbaar met olie, maar met een extra waxlaag
+          voor betere weerstand tegen vuil en vocht. Hardwax benadrukt de natuurlijke houtstructuur en geeft de vloer
+          een warme, rijke uitstraling - perfect om het hout weer tot leven te brengen.{' '}
         </BodyText>{' '}
       </>,
       <>
-        <BodyText>
-          Als een oppervlak onder een sterke microscoop wordt bezien, vertoont het sterke pieken en dalen. Door herhaald
-          schuren worden de pieken steeds verder afgevlakt totdat deze bijna vlak of sterk afgerond zijn. Het polijst
-          proces begint met grof schuren, en door met steeds fijner schuurmateriaal te werken wordt de oppervlakte
-          steeds gladder gemaakt. De visuele eigenschappen van voorwerpen kunnen zo door polijsten verbeterd worden. De
-          glans kan ook een technische eigenschap zijn van bijvoorbeeld een spiegel. Het polijsten wordt ook toegepast
-          om de ruwheid van een glijoppervlak te verlagen.
-        </BodyText>
-      </>,
-      <>
-        <BodyText className="text-secondaryDefault">Dit gebeurt standaard na het opschuren.</BodyText>{' '}
+        <BodyText className="text-secondaryDefault">Dit gebeurt standaard na het hardwaxen.</BodyText>{' '}
       </>,
     ],
   },

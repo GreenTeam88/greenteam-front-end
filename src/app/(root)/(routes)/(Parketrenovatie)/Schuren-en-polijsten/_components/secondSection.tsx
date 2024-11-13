@@ -37,7 +37,7 @@ type SecondSectionProps = {
 
 export const SecondSection: React.FC<SecondSectionProps> = ({ image }) => {
   return (
-    <div className="flex px-3 flex-col w-full items-center py-20 gap-[33px]">
+    <div className="flex px-3 flex-col w-full items-center py-6 pb-[400px] gap-[100px]">
       <p className="text-primaryDefault font-normal">
         Parket Renovatie <span className="font-bold">- Schuren en polijsten</span>{' '}
       </p>
