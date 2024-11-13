@@ -1,13 +1,14 @@
-import { BodyText, BodyTextBold } from '@/components/theme/typography';
+import { BodyText } from '@/components/theme/typography';
 import { Hero } from '../../_components/hero';
 import { RatingSection } from '../../_components/ratingSection';
-import { InfoCardProps, WhiteInfoCard } from '../../diensten/_components/cards';
+import { InfoCardProps } from '../../diensten/_components/cards';
 import { QuestionSection } from '../../over-ons/_components/question';
-import { FAQSection, FAQType } from '../Schuren-en-polijsten/_components/FAQSection';
-import { SecondSection } from '../Schuren-en-polijsten/_components/secondSection';
-import { StoreSection } from '../Schuren-en-polijsten/_components/store';
-import { ThirdSection } from '../Schuren-en-polijsten/_components/thirdSection';
-import { WhyGreenTeam } from '../Schuren-en-polijsten/_components/whyGreenTeam';
+import { FAQSection, FAQType } from '../schuren-en-polijsten/_components/FAQSection';
+import { SecondSection } from '../schuren-en-polijsten/_components/secondSection';
+import { StoreSection } from '../schuren-en-polijsten/_components/store';
+import { ThirdSection } from '../schuren-en-polijsten/_components/thirdSection';
+import { WhatWaitingForCard } from '../schuren-en-polijsten/_components/whatWaitingForSection';
+import { WhyGreenTeam } from '../schuren-en-polijsten/_components/whyGreenTeam';
 
 const thirdSectionCards: InfoCardProps[] = [
   {
@@ -100,10 +101,6 @@ const whatWaitingForConfig: InfoCardProps = {
       Deze afspraak kost eenmalig 50,- euro en deze wordt in mindering gebracht wanneer u de klus aan ons uitbesteed. In
       heel veel gevallen is deze afspraak niet nodig, en is advies via mailcontact met foto’s voldoende.
     </BodyText>,
-    <BodyTextBold key="3" className="text-secondaryDefault">
-      {' '}
-      Ik wil dat de parketteur langskomt!
-    </BodyTextBold>,
   ],
   imgSrc: '/Parketrenovatie/schuren-en-oliën-9.png',
   buttonText: 'Direct offerte berekenen',
@@ -111,9 +108,9 @@ const whatWaitingForConfig: InfoCardProps = {
 
 export default function Home() {
   return (
-    <div className="flex flex-col  relative z-0 items-center w-full">
+    <div className="flex flex-col  relative z-0 items-center w-full bg-bgColor">
       <Hero />
-      <SecondSection image="/Parketrenovatie/schuren-en-oliën-1.png" />
+      <SecondSection image="/Parketrenovatie/schuren-en-oliën-1.png" pageName="Schuren en oliën" />
       <ThirdSection title="Hoe gaat schuren en oliën in zijn werk?" cards={thirdSectionCards} />
       <WhyGreenTeam />
       <StoreSection
@@ -123,7 +120,7 @@ export default function Home() {
         fourthImg="/Parketrenovatie/schuren-en-oliën-7.png"
         fifthImg="/Parketrenovatie/schuren-en-oliën-8.png"
       />
-      <WhiteInfoCard {...whatWaitingForConfig} className="lg:py-28" />
+      <WhatWaitingForCard {...whatWaitingForConfig} className="lg:py-28" />
       <FAQSection FAQs={FAQs} />
       <QuestionSection />
       <RatingSection />

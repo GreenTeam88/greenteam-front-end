@@ -7,8 +7,25 @@ import { FAQSection, FAQType } from './_components/FAQSection';
 import { SecondSection } from './_components/secondSection';
 import { StoreSection } from './_components/store';
 import { ThirdSection } from './_components/thirdSection';
-import { WhatWaitingForSection } from './_components/whatWaitingFor';
+import { WhatWaitingForCard } from './_components/whatWaitingForSection';
 import { WhyGreenTeam } from './_components/whyGreenTeam';
+
+const whatWaitingForConfig: InfoCardProps = {
+  title: 'Waar wacht je op!',
+  paragraphs: [
+    <BodyText key="1">
+      Als dit is wat je wilt, waar wacht je dan op. Bereken via de knop hieronder wat het kost en neem contact met ons
+      op voor een afspraak. Als je de specialist langs laat komen gaan we bespreken wat voor soort hout u heeft, wat de
+      mogelijkheden zijn, ons advies en we komen met de kleurstalen zodat je zeker weten de juiste beslissing maakt.
+    </BodyText>,
+    <BodyText key="2">
+      Deze afspraak kost eenmalig 50,- euro en deze wordt in mindering gebracht wanneer u de klus aan ons uitbesteed. In
+      heel veel gevallen is deze afspraak niet nodig, en is advies via mailcontact met foto’s voldoende.
+    </BodyText>,
+  ],
+  imgSrc: '/Parketrenovatie/beautiful-shot-modern-house-staircase.png',
+  buttonText: 'Direct offerte berekenen',
+};
 
 const thirdSectionCards: InfoCardProps[] = [
   {
@@ -85,18 +102,19 @@ export default function Home() {
   return (
     <div className="flex flex-col  relative z-0 items-center w-full">
       <Hero />
-      <SecondSection image="/Parketrenovatie/image11.png" />
+      <SecondSection image="/Parketrenovatie/image11.png" pageName="Schuren en polijsten " />
       <ThirdSection title="Hoe gaat schuren en polijsten in zijn werk?" cards={thirdSectionCards} />
       <WhyGreenTeam />
       <StoreSection
         firstImg={'/Parketrenovatie/store1.png'}
         secondImg="/Parketrenovatie/store2.png"
+        thirdImgTopText="Schuren"
         thirdImgText="Peeloerdijk, Assen"
         thirdImg="/Parketrenovatie/store3.png"
         fourthImg="/Parketrenovatie/store4.png"
         fifthImg="/Parketrenovatie/store5.png"
       />
-      <WhatWaitingForSection />
+      <WhatWaitingForCard {...whatWaitingForConfig} />
       <FAQSection FAQs={FAQs} />
       <QuestionSection />
       <RatingSection />

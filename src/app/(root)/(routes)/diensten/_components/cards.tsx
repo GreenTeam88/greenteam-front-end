@@ -28,7 +28,7 @@ export const OrangeInfoCard: React.FC<InfoCardProps> = ({
   return (
     <div
       className={cn(
-        'flex border  w-full p-7 lg:p-0 lg:py-[99px] flex-col lg:flex-row bg-secondaryLight items-center justify-center gap-7 lg:gap-[57px]',
+        'flex   w-full p-7 lg:p-0 lg:py-[99px] flex-col lg:flex-row bg-secondaryLight items-center justify-center gap-7 lg:gap-[57px]',
         className
       )}
       {...props}

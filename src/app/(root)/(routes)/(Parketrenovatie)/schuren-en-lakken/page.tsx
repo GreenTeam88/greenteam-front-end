@@ -1,13 +1,14 @@
-import { BodyText, BodyTextBold } from '@/components/theme/typography';
+import { BodyText } from '@/components/theme/typography';
 import { Hero } from '../../_components/hero';
 import { RatingSection } from '../../_components/ratingSection';
-import { InfoCardProps, WhiteInfoCard } from '../../diensten/_components/cards';
+import { InfoCardProps } from '../../diensten/_components/cards';
 import { QuestionSection } from '../../over-ons/_components/question';
-import { FAQSection, FAQType } from '../Schuren-en-polijsten/_components/FAQSection';
-import { SecondSection } from '../Schuren-en-polijsten/_components/secondSection';
-import { StoreSection } from '../Schuren-en-polijsten/_components/store';
-import { ThirdSection } from '../Schuren-en-polijsten/_components/thirdSection';
-import { WhyGreenTeam } from '../Schuren-en-polijsten/_components/whyGreenTeam';
+import { FAQSection, FAQType } from '../schuren-en-polijsten/_components/FAQSection';
+import { SecondSection } from '../schuren-en-polijsten/_components/secondSection';
+import { StoreSection } from '../schuren-en-polijsten/_components/store';
+import { ThirdSection } from '../schuren-en-polijsten/_components/thirdSection';
+import { WhatWaitingForCard } from '../schuren-en-polijsten/_components/whatWaitingForSection';
+import { WhyGreenTeam } from '../schuren-en-polijsten/_components/whyGreenTeam';
 
 const thirdSectionCards: InfoCardProps[] = [
   {
@@ -19,38 +20,28 @@ const thirdSectionCards: InfoCardProps[] = [
         zoals krasjes, oneffenheden en vlekjes te zien zijn. Elke houten vloer zal daarom op een gegeven moment
         onderhouden moeten worden en worden geschuurd. Op deze manier kan je alle gebruikssporen laten verdwijnen en is
         je houten vloer weer zo goed als nieuw. Ligt jouw vloer er al 10 tot 20 jaar dan is het de hoogste tijd om daar
-        wat aan te doen!
+        wat aan te doen!{' '}
       </>,
       <>
         <BodyText className="text-secondaryDefault">
-          Ligt jouw vloer er al 10 tot 20 jaar dan is het de hoogste tijd om daar wat aan te doen!
+          Ligt jouw vloer er al 10 tot 20 jaar dan is het de hoogste tijd om daar wat aan te doen!{' '}
         </BodyText>
       </>,
     ],
   },
   {
-    title: 'Polijsten',
+    title: 'Lakken',
     imgSrc: '/Parketrenovatie/schuren-en-lakken-3.png',
     paragraphs: [
       <>
         <BodyText>
-          Polijsten is het proces waardoor een oppervlak van een materiaal glad en glanzend gemaakt wordt, waardoor de
-          oppervlakteruwheid verkleind wordt en het materiaal een sterk spiegelend effect verkrijgt. Dit gebeurt
-          standaard na het opschuren.{' '}
+          Voor een slijtvaste, beschermende vloer is lakken een uitstekende keuze. Deze behandeling is ideaal voor
+          intensief gebruikte ruimtes en biedt extra bescherming tegen vocht, perfect voor vloeren in hallen, keukens en
+          woonkamers. Green Team biedt daarnaast een super resistente lak die perfect is voor zwaar belaste vloeren.{' '}
         </BodyText>{' '}
       </>,
       <>
-        <BodyText>
-          Als een oppervlak onder een sterke microscoop wordt bezien, vertoont het sterke pieken en dalen. Door herhaald
-          schuren worden de pieken steeds verder afgevlakt totdat deze bijna vlak of sterk afgerond zijn. Het polijst
-          proces begint met grof schuren, en door met steeds fijner schuurmateriaal te werken wordt de oppervlakte
-          steeds gladder gemaakt. De visuele eigenschappen van voorwerpen kunnen zo door polijsten verbeterd worden. De
-          glans kan ook een technische eigenschap zijn van bijvoorbeeld een spiegel. Het polijsten wordt ook toegepast
-          om de ruwheid van een glijoppervlak te verlagen.
-        </BodyText>
-      </>,
-      <>
-        <BodyText className="text-secondaryDefault">Dit gebeurt standaard na het opschuren.</BodyText>{' '}
+        <BodyText className="text-secondaryDefault">Dit gebeurt standaard na het lakken.</BodyText>{' '}
       </>,
     ],
   },
@@ -101,10 +92,6 @@ const whatWaitingForConfig: InfoCardProps = {
       Deze afspraak kost eenmalig 50,- euro en deze wordt in mindering gebracht wanneer u de klus aan ons uitbesteed. In
       heel veel gevallen is deze afspraak niet nodig, en is advies via mailcontact met foto’s voldoende.
     </BodyText>,
-    <BodyTextBold key="3" className="text-secondaryDefault">
-      {' '}
-      Ik wil dat de parketteur langskomt!
-    </BodyTextBold>,
   ],
   imgSrc: '/Parketrenovatie/schuren-en-lakken-9.png',
   buttonText: 'Direct offerte berekenen',
@@ -114,7 +101,7 @@ export default function Home() {
   return (
     <div className="flex flex-col  relative z-0 items-center w-full">
       <Hero />
-      <SecondSection image="/Parketrenovatie/schuren-en-lakken-1.png" />
+      <SecondSection pageName="Schuren en lakken" image="/Parketrenovatie/schuren-en-lakken-1.png" />
       <ThirdSection cards={thirdSectionCards} title="Hoe gaat schuren en lakkken in zijn werk?" />
       <WhyGreenTeam />
       <StoreSection
@@ -125,7 +112,7 @@ export default function Home() {
         fourthImg="/Parketrenovatie/schuren-en-lakken-7.png"
         fifthImg="/Parketrenovatie/schuren-en-lakken-8.png"
       />
-      <WhiteInfoCard {...whatWaitingForConfig} className="lg:py-28" />
+      <WhatWaitingForCard {...whatWaitingForConfig} className="lg:py-28" />
       <FAQSection FAQs={FAQs} />
       <QuestionSection />
       <RatingSection />

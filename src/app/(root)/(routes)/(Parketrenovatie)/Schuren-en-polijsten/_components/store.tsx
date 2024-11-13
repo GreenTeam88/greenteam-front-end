@@ -5,6 +5,7 @@ type StoreImagesInfo = {
   firstImg: string;
   secondImg: string;
   thirdImgText?: string;
+  thirdImgTopText?: string;
   thirdImg: string;
   fourthImg: string;
   fifthImg: string;
@@ -14,6 +15,7 @@ const ImagesGallery: React.FC<StoreImagesInfo> = ({
   firstImg,
   secondImg,
   thirdImg,
+  thirdImgTopText,
   thirdImgText,
   fourthImg,
   fifthImg,
@@ -25,6 +27,11 @@ const ImagesGallery: React.FC<StoreImagesInfo> = ({
         <img className="w-full lg:w-fit" src={secondImg} />
       </div>
       <div className="relative w-fit h-fit">
+        {thirdImgTopText && (
+          <p className="font-bold leading-[20px] text-white absolute top-5 right-1/2 translate-x-1/2">
+            {thirdImgTopText}
+          </p>
+        )}
         <img src={thirdImg} />
         {thirdImgText && (
           <p className="font-bold leading-[20px] text-white absolute bottom-5 right-1/2 translate-x-1/2">
