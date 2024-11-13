@@ -120,6 +120,7 @@ export default function Home() {
       <StoreSection
         firstImg={'/Parketrenovatie/schuren-en-lakken-4.png'}
         secondImg="/Parketrenovatie/schuren-en-lakken-5.png"
+        thirdImgText="Ameidewal, Helmond"
         thirdImg="/Parketrenovatie/schuren-en-lakken-6.png"
         fourthImg="/Parketrenovatie/schuren-en-lakken-7.png"
         fifthImg="/Parketrenovatie/schuren-en-lakken-8.png"

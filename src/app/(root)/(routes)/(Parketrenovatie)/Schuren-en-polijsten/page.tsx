@@ -91,6 +91,7 @@ export default function Home() {
       <StoreSection
         firstImg={'/Parketrenovatie/store1.png'}
         secondImg="/Parketrenovatie/store2.png"
+        thirdImgText="Peeloerdijk, Assen"
         thirdImg="/Parketrenovatie/store3.png"
         fourthImg="/Parketrenovatie/store4.png"
         fifthImg="/Parketrenovatie/store5.png"

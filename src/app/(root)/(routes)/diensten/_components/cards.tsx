@@ -34,7 +34,7 @@ export const OrangeInfoCard: React.FC<InfoCardProps> = ({
       {...props}
     >
       <img className="lg:w-fit w-full rounded-lg" src={imgSrc} />
-      <div className={clsx('flex -col   px-3 lg:px-0 max-w-[508px]  gap-[33px] ', contentContainerClassName)}>
+      <div className={clsx('flex flex-col   px-3 lg:px-0 max-w-[508px]  gap-[33px] ', contentContainerClassName)}>
         <div className="flex flex-col gap-[11px] ">
           <div className="flex flex-col gap-4">
             {mainTitle && <H2 className="text-primaryDefault">{mainTitle}</H2>}

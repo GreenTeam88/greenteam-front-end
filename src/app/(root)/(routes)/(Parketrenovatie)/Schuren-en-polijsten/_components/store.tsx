@@ -1,16 +1,37 @@
 import { PrimaryBtn } from '@/components/theme/buttons';
 import { BodyText, H2 } from '@/components/theme/typography';
 
-type StoreImagesInfo = { firstImg: string; secondImg: string; thirdImg: string; fourthImg: string; fifthImg: string };
+type StoreImagesInfo = {
+  firstImg: string;
+  secondImg: string;
+  thirdImgText?: string;
+  thirdImg: string;
+  fourthImg: string;
+  fifthImg: string;
+};
 
-const ImagesGallery: React.FC<StoreImagesInfo> = ({ firstImg, secondImg, thirdImg, fourthImg, fifthImg }) => {
+const ImagesGallery: React.FC<StoreImagesInfo> = ({
+  firstImg,
+  secondImg,
+  thirdImg,
+  thirdImgText,
+  fourthImg,
+  fifthImg,
+}) => {
   return (
     <div className="flex w-[90vw] lg:w-fit gap-[20px] flex-col relative  lg:px-0 lg:flex-row ">
       <div className="flex flex-col gap-[24px]  ">
         <img className="w-full lg:w-fit" src={firstImg} />
         <img className="w-full lg:w-fit" src={secondImg} />
       </div>
-      <img src={thirdImg} />
+      <div className="relative w-fit h-fit">
+        <img src={thirdImg} />
+        {thirdImgText && (
+          <p className="font-bold leading-[20px] text-white absolute bottom-5 right-1/2 translate-x-1/2">
+            {thirdImgText}
+          </p>
+        )}
+      </div>
       <div className="flex flex-col gap-[24px]">
         <img className="w-full lg:w-fit" src={fourthImg} />
         <img className="w-full lg:w-fit" src={fifthImg} />
