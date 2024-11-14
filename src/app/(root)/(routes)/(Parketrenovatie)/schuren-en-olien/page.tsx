@@ -111,7 +111,11 @@ export default function Home() {
     <div className="flex flex-col  relative z-0 items-center w-full bg-bgColor">
       <Hero />
       <SecondSection image="/Parketrenovatie/schuren-en-oliën-1.png" pageName="Schuren en oliën" />
-      <ThirdSection title="Hoe gaat schuren en oliën in zijn werk?" cards={thirdSectionCards} />
+      <ThirdSection
+        bottomText="Mijn vloer heeft nu echt een opknapbeurt nodig!"
+        title="Hoe gaat schuren en oliën in zijn werk?"
+        cards={thirdSectionCards}
+      />
       <WhyGreenTeam />
       <StoreSection
         firstImg={'/Parketrenovatie/schuren-en-oliën-4.png'}

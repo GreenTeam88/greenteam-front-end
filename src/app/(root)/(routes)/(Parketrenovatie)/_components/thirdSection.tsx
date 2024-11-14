@@ -4,7 +4,11 @@ import { PrimaryBtn } from '@/components/theme/buttons';
 import { BodyText, H2, HeadlineSemibold } from '@/components/theme/typography';
 import { InfoCardProps, OrangeInfoCard } from '../../diensten/_components/cards';
 
-export const ThirdSection: React.FC<{ cards: InfoCardProps[]; title: string }> = ({ cards, title }) => {
+export const ThirdSection: React.FC<{ cards: InfoCardProps[]; title: string; bottomText: string }> = ({
+  cards,
+  title,
+  bottomText,
+}) => {
   return (
     <div className="flex w-full gap-[88px] py-[99px] px-3 lg:px-0 bg-secondaryLight flex-col items-center">
       <div className="flex gap-3 flex-col items-center">
@@ -17,7 +21,7 @@ export const ThirdSection: React.FC<{ cards: InfoCardProps[]; title: string }> =
         ))}
       </div>
       <div className="flex gap-5 p-[22px] border border-black10 border-opacity-10 rounded-[10px] items-center">
-        <HeadlineSemibold>Help, mijn oude vloer is aan vervanging toe!</HeadlineSemibold>
+        <HeadlineSemibold>{bottomText}</HeadlineSemibold>
         <PrimaryBtn>Bereken jouw vloer</PrimaryBtn>
       </div>
     </div>

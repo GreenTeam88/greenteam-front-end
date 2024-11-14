@@ -100,7 +100,11 @@ export default function Home() {
     <div className="flex flex-col  relative z-0 items-center w-full">
       <Hero />
       <SecondSection image="/Parketrenovatie/v-groef-frezen-1.png" pageName="V-groef-frezen" />
-      <ThirdSection title="Hoe gaat V-groef frezen in zijn werk?" cards={thirdSectionCards} />
+      <ThirdSection
+        bottomText="Kunnen jullie dit bij mij realiseren?"
+        title="Hoe gaat V-groef frezen in zijn werk?"
+        cards={thirdSectionCards}
+      />
       <WhyGreenTeam />
       <StoreSection
         firstImg={'/Parketrenovatie/v-groef-frezen-4.png'}

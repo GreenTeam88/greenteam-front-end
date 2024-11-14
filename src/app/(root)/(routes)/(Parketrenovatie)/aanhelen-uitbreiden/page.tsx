@@ -112,7 +112,11 @@ export default function Home() {
     <div className="flex flex-col  relative z-0 items-center w-full">
       <Hero />
       <SecondSection image="/Parketrenovatie/aanhelen-uitbreiden-1.png" pageName="Aanhelen/uitbreiden" />
-      <ThirdSection title="Hoe gaat aanhelen in zijn werk?" cards={thirdSectionCards} />
+      <ThirdSection
+        bottomText="Ik wil mijn parket door laten leggen  "
+        title="Hoe gaat aanhelen in zijn werk?"
+        cards={thirdSectionCards}
+      />
       <WhyGreenTeam />
       <StoreSection
         firstImg={'/Parketrenovatie/aanhelen-uitbreiden-4.png'}

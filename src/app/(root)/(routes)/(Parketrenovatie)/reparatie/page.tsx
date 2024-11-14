@@ -85,7 +85,11 @@ export default function Home() {
     <div className="flex flex-col  relative z-0 items-center w-full">
       <Hero />
       <SecondSection image="/Parketrenovatie/reparatie-1.png" pageName="Reparatie" />
-      <ThirdSection title="Hoe gaat schuren en hardwaxen in zijn werk?" cards={thirdSectionCards} />
+      <ThirdSection
+        bottomText="Help, mijn oude vloer is aan vervanging toe!"
+        title="Hoe gaat schuren en hardwaxen in zijn werk?"
+        cards={thirdSectionCards}
+      />
       <WhyGreenTeam />
       <StoreSection
         firstImg={'/Parketrenovatie/reparatie-4.png'}
