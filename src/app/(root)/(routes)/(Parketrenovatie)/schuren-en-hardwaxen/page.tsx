@@ -1,4 +1,4 @@
-import { BodyText, BodyTextBold } from '@/components/theme/typography';
+import { BodyText } from '@/components/theme/typography';
 import { Hero } from '../../_components/hero';
 import { RatingSection } from '../../_components/ratingSection';
 import { InfoCardProps } from '../../diensten/_components/cards';
