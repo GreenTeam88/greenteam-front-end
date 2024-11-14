@@ -3,6 +3,7 @@ import { InfoCardProps, OrangeInfoCard } from './cards';
 const config: InfoCardProps = {
   title: 'Overige diensten',
   buttonText: 'Offerte aanvragen',
+  secondBtnText: 'Direct offerte berekenen',
   imgSrc: '/diensten/OverigeDiensten.png',
   paragraphs: [
     <>
