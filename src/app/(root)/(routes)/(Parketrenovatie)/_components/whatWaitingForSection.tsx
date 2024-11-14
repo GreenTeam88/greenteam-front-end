@@ -1,7 +1,7 @@
 import { PrimaryBtn } from '@/components/theme/buttons';
 import { BodyText, BodyTextBold } from '@/components/theme/typography';
 import { cn } from '@/lib/tailwind';
-import { InfoCardProps } from '../../../diensten/_components/cards';
+import { InfoCardProps } from '../../diensten/_components/cards';
 
 export const WhatWaitingForCard: React.FC<InfoCardProps> = ({
   imgSrc,

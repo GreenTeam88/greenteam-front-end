@@ -2,7 +2,7 @@ import React from 'react';
 
 import { PrimaryBtn } from '@/components/theme/buttons';
 import { BodyText, H2, HeadlineSemibold } from '@/components/theme/typography';
-import { InfoCardProps, OrangeInfoCard } from '../../../diensten/_components/cards';
+import { InfoCardProps, OrangeInfoCard } from '../../diensten/_components/cards';
 
 export const ThirdSection: React.FC<{ cards: InfoCardProps[]; title: string }> = ({ cards, title }) => {
   return (
