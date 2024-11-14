@@ -38,7 +38,7 @@ const whyGreenTeamCardsInfo: WhyGreenTeamCardProps[] = [
 const WhyGreenTeamCard: React.FC<WhyGreenTeamCardProps> = ({ icon, paragraphs, title }) => {
   return (
     <div className="flex lg:min-h-[350px] flex-col py-[33px] h-full gap-[11px] px-[22px] rounded-[10px]  border-2 border-black10 border-opacity-10 max-w-[387px] ">
-      <div className="flex gap-3">
+      <div className="flex gap-3 items-center">
         {icon}
         <HeadlineSemibold className="text-primaryDefault">{title}</HeadlineSemibold>
       </div>
