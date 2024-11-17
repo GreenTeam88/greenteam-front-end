@@ -1,6 +1,6 @@
 import clsx from 'clsx';
 
-import { PrimaryBtn } from '@/components/theme/buttons';
+import { PrimaryBtn, PrimaryBtnLink } from '@/components/theme/buttons';
 import { BodyText, H2 } from '@/components/theme/typography';
 import { cn } from '@/lib/tailwind';
 
@@ -11,6 +11,8 @@ export type InfoCardProps = {
   contentContainerClassName?: string;
   paragraphs: React.ReactNode[];
   buttonText?: string;
+  buttonLink?: string;
+  secondBtnLink?: string;
   secondBtnText?: string;
 } & JSX.IntrinsicElements['div'];
 
@@ -19,6 +21,8 @@ export const OrangeInfoCard: React.FC<InfoCardProps> = ({
   imgSrc,
   mainTitle,
   paragraphs,
+  buttonLink,
+  secondBtnLink,
   contentContainerClassName,
   buttonText,
   secondBtnText,
@@ -47,8 +51,18 @@ export const OrangeInfoCard: React.FC<InfoCardProps> = ({
           </div>
         </div>
         <div className="flex gap-3">
-          {buttonText && <PrimaryBtn>{buttonText}</PrimaryBtn>}
-          {secondBtnText && <PrimaryBtn>{secondBtnText}</PrimaryBtn>}
+          {buttonText &&
+            (buttonLink ? (
+              <PrimaryBtnLink href={buttonLink}>{buttonText}</PrimaryBtnLink>
+            ) : (
+              <PrimaryBtn>{buttonText}</PrimaryBtn>
+            ))}
+          {secondBtnText &&
+            (secondBtnLink ? (
+              <PrimaryBtnLink href={secondBtnLink}>{buttonText}</PrimaryBtnLink>
+            ) : (
+              <PrimaryBtn>{buttonText}</PrimaryBtn>
+            ))}
         </div>
       </div>
     </div>

@@ -1,10 +1,12 @@
-import { OrangeInfoCard } from '../../diensten/_components/cards';
+import { InfoCardProps, OrangeInfoCard } from '../../diensten/_components/cards';
 
-const config = {
+const config: InfoCardProps = {
   mainTitle: 'Samenwerkingen',
   title: 'De vakmensen van GreenTeam denken graag mee met al je vragen. ',
   imgSrc: '/zakelijk/construction-team-working-blueprint-new-project.png',
   buttonText: 'Offerte aanvragen',
+
+  buttonLink: '/offerte-aanvragen',
   paragraphs: [
     <>
       <span className="text-secondaryDefault">Indien nodig schakelen we hulp in van betrouwbare partners.</span>

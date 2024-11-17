@@ -1,4 +1,4 @@
-import { PrimaryBtn } from '@/components/theme/buttons';
+import { PrimaryBtn, PrimaryBtnLink } from '@/components/theme/buttons';
 import { BodyText, H2 } from '@/components/theme/typography';
 
 export const FloorsOrStairs = () => {
@@ -13,7 +13,7 @@ export const FloorsOrStairs = () => {
           bedrijfsruimte.{' '}
         </BodyText>
       </div>
-      <PrimaryBtn>Offerte aanvragen</PrimaryBtn>
+      <PrimaryBtnLink href="/offerte-aanvragen">Offerte aanvragen</PrimaryBtnLink>
     </div>
   );
 };
