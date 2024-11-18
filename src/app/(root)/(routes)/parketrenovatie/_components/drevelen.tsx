@@ -18,6 +18,7 @@ const infoCardConfig: InfoCardProps = {
   ],
   title: 'Drevelen',
   secondBtnText: 'Direct offerte berekenen',
+  secondBtnLink: '/offerte-aanvragen',
 };
 
 export const Drevelen = () => {

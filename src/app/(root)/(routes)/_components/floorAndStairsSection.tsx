@@ -1,5 +1,5 @@
 import { ArrowIcon } from '@/components/icons/homePageIcons';
-import { PrimaryBtn } from '@/components/theme/buttons';
+import { PrimaryBtn, PrimaryBtnLink } from '@/components/theme/buttons';
 import { H2 } from '@/components/theme/typography';
 
 const floorStairsImages: string[] = ['/home/stair1.png', '/home/floor.png', '/home/stair2.png'];
@@ -22,7 +22,7 @@ export const FloorAndStairs = () => {
           <ArrowIcon />
         </span>
       </div>
-      <PrimaryBtn>Offerte aanvragen</PrimaryBtn>
+      <PrimaryBtnLink href="/offerte-aanvragen">Offerte aanvragen</PrimaryBtnLink>
     </div>
   );
 };

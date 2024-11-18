@@ -95,6 +95,7 @@ const whatWaitingForConfig: InfoCardProps = {
   ],
   imgSrc: '/Parketrenovatie/schuren-en-lakken-9.png',
   buttonText: 'Direct offerte berekenen',
+  buttonLink: '/offerte-aanvragen',
 };
 
 export default function Home() {

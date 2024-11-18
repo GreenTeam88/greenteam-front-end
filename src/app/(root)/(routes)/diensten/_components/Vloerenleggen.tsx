@@ -5,6 +5,8 @@ const config: InfoCardProps = {
   imgSrc: '/diensten/Vloerenleggen.png',
   buttonText: 'Meer informatie',
   secondBtnText: 'Direct offerte berekenen',
+  secondBtnLink: '/offerte-aanvragen',
+
   paragraphs: [
     <>
       Een vloer laten afwerken met olie laat je natuurlijk doen door een professional. De parketteurs van Green Team

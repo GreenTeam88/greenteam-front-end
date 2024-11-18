@@ -10,7 +10,7 @@ import { appConfig } from '@/config';
 import { cn } from '@/lib/tailwind';
 import { DropDownIcon } from '../icons/arrows';
 import { InstagramLogo, TikTokIcon } from '../icons/homePageIcons';
-import { SecondaryBtn } from '../theme/buttons';
+import { SecondaryBtn, SecondaryBtnLink } from '../theme/buttons';
 
 // types needed for the header
 
@@ -360,7 +360,7 @@ export const HeaderTopSection = () => {
         </div>
       </div>
       {/* removing secondary button default hovering */}
-      <SecondaryBtn>Offerte aanvragen</SecondaryBtn>
+      <SecondaryBtnLink href="/offerte-aanvragen">Offerte aanvragen</SecondaryBtnLink>
     </div>
   );
 };

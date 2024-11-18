@@ -25,6 +25,7 @@ const whatWaitingForConfig: InfoCardProps = {
   ],
   imgSrc: '/Parketrenovatie/beautiful-shot-modern-house-staircase.png',
   buttonText: 'Direct offerte berekenen',
+  buttonLink: '/offerte-aanvragen',
 };
 
 const thirdSectionCards: InfoCardProps[] = [

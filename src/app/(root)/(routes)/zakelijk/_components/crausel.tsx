@@ -43,6 +43,7 @@ export const CrauselSection = () => {
         ]}
         icon={<HeartFlowerIcon />}
         buttonText="Offerte aanvragen"
+        btnPath="/offerte-aanvragen"
       />
       <div className="hidden lg:block">
         {' '}

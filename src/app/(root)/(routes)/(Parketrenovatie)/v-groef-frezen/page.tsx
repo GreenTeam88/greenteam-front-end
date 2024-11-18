@@ -93,6 +93,7 @@ const whatWaitingForConfig: InfoCardProps = {
   ],
   imgSrc: '/Parketrenovatie/v-groef-frezen-9.png',
   buttonText: 'Direct offerte berekenen',
+  buttonLink: '/offerte-aanvragen',
 };
 
 export default function Home() {

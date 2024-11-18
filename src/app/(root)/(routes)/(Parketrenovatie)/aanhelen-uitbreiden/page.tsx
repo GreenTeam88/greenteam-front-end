@@ -105,6 +105,7 @@ const whatWaitingForConfig: InfoCardProps = {
   ],
   imgSrc: '/Parketrenovatie/aanhelen-uitbreiden-9.png',
   buttonText: 'Direct offerte berekenen',
+  buttonLink: '/offerte-aanvragen',
 };
 
 export default function Home() {

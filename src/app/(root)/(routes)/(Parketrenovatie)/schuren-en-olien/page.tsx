@@ -104,8 +104,8 @@ const whatWaitingForConfig: InfoCardProps = {
   ],
   imgSrc: '/Parketrenovatie/schuren-en-oliën-9.png',
   buttonText: 'Direct offerte berekenen',
+  buttonLink: '/offerte-aanvragen',
 };
-
 export default function Home() {
   return (
     <div className="flex flex-col  relative z-0 items-center w-full bg-bgColor">

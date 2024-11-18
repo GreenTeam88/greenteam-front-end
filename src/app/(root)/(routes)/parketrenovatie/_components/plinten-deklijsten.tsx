@@ -18,6 +18,7 @@ const infoCardConfig: InfoCardProps = {
   ],
   title: 'Plinten & Deklijsten',
   secondBtnText: 'Direct offerte berekenen',
+  secondBtnLink: '/offerte-aanvragen',
 };
 
 export const PlintenDeklijsten = () => {

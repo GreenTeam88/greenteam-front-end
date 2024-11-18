@@ -18,6 +18,7 @@ const infoCardConfig: InfoCardProps = {
   ],
   title: 'V-groef frezen',
   secondBtnText: 'Direct offerte berekenen',
+  secondBtnLink: '/offerte-aanvragen',
 };
 
 export const VgroefFrezen = () => {

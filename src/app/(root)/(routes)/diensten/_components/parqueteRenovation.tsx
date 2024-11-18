@@ -5,6 +5,7 @@ const config: InfoCardProps = {
   imgSrc: '/diensten/parqueteRenovation.png',
   buttonText: 'Meer informatie',
   secondBtnText: 'Offerte aanvragen',
+  secondBtnLink: '/offerte-aanvragen',
   paragraphs: [
     <>
       Dagelijks wordt er gelopen op een houten vloer. Het is dan ook logisch dat op een gegeven moment gebruikssporen

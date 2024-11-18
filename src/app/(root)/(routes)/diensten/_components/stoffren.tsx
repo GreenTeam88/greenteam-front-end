@@ -4,6 +4,7 @@ const config: InfoCardProps = {
   imgSrc: '/diensten/stairs.png',
   buttonText: 'Meer informatie',
   secondBtnText: 'Direct offerte berekenen',
+    secondBtnLink: '/offerte-aanvragen' ,
   title: 'Stofferen',
   paragraphs: [
     <>

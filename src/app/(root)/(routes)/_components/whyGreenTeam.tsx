@@ -74,7 +74,7 @@ const ParagraphSection = () => {
             Wij hebben een grote passie voor vloeren en trappen, altijd met een focus op duurzaamheid. Oorspronkelijk
             zijn wij houtbewerkers, en dat heeft zich vertaald naar de renovatie van vloeren en trappen.{' '}
           </BodyText>
-          <BodyTextSemibold className="text-primaryDefault">
+          <BodyTextSemibold className="text-secondaryDefault">
             Onze toewijding aan kwaliteit en het overtreffen van verwachtingen definieert de cultuur van GreenTeam.
           </BodyTextSemibold>
           <BodyText>

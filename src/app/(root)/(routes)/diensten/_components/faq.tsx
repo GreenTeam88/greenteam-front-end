@@ -2,7 +2,7 @@
 
 import { useState } from 'react';
 
-import { SecondaryOutlinedBtn } from '@/components/theme/buttons';
+import { SecondaryOutlinedBtn, SecondaryOutlinedBtnLink } from '@/components/theme/buttons';
 import { BodyText, BodyTextSemibold, H2 } from '@/components/theme/typography';
 import { cn } from '@/lib/tailwind';
 
@@ -88,7 +88,7 @@ export const FAQSection = () => {
       </div>
       {/* the AllQuestions component includes all the faq in a list */}
       <AllQuestions />
-      <SecondaryOutlinedBtn>Alles bekijken</SecondaryOutlinedBtn>
+      <SecondaryOutlinedBtnLink href="/veelgestelde-vragen">Alles bekijken</SecondaryOutlinedBtnLink>
     </div>
   );
 };

@@ -5,6 +5,8 @@ const config: InfoCardProps = {
   imgSrc: '/diensten/whiteStairs.png',
   buttonText: 'Meer informatie',
   secondBtnText: 'Direct offerte berekenen',
+  secondBtnLink: '/offerte-aanvragen',
+
   paragraphs: [
     <>
       Voor een duurzame en sterke houten vloer is het afwerken met lak een uitstekende keuze. Een behandeling met lak is

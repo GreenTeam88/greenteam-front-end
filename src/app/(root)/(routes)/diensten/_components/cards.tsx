@@ -73,6 +73,8 @@ export const WhiteInfoCard: React.FC<InfoCardProps> = ({
   title,
   imgSrc,
   paragraphs,
+  buttonLink,
+  secondBtnLink,
   buttonText,
   secondBtnText,
   className,
@@ -94,8 +96,18 @@ export const WhiteInfoCard: React.FC<InfoCardProps> = ({
           </div>
         </div>
         <div className="flex gap-3">
-          {buttonText && <PrimaryBtn>{buttonText}</PrimaryBtn>}
-          {secondBtnText && <PrimaryBtn>{secondBtnText}</PrimaryBtn>}
+          {buttonText &&
+            (buttonLink ? (
+              <PrimaryBtnLink href={buttonLink}>{buttonText}</PrimaryBtnLink>
+            ) : (
+              <PrimaryBtn>{buttonText}</PrimaryBtn>
+            ))}
+          {secondBtnText &&
+            (secondBtnLink ? (
+              <PrimaryBtnLink href={secondBtnLink}>{secondBtnText}</PrimaryBtnLink>
+            ) : (
+              <PrimaryBtn>{secondBtnText}</PrimaryBtn>
+            ))}
         </div>
       </div>
       <img className="w-full lg:w-fit rounded-lg" src={imgSrc} />
