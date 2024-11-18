@@ -1,0 +1,93 @@
+import { zodResolver } from '@hookform/resolvers/zod';
+import React from 'react';
+import { FormProvider, useForm } from 'react-hook-form';
+import { z } from 'zod';
+
+import { HeadlineSemibold } from '@/components/theme/typography';
+import CreateButton from '../custom/CreateButton';
+import InputGetter from './Getters/InputGetter';
+
+interface ContactInfoStepProps {
+  onNext: () => void;
+  formData: any; // Centralized form data
+  updateFormData: (data: any) => void; // Function to update the centralized state
+  onSubmit: () => void; // Final submission handler
+}
+
+// Define the schema using Zod
+const schema = z.object({
+  Email: z.string().email({ message: 'Invalid email address' }).nonempty({ message: 'Email is required' }),
+  PhoneNumber: z
+    .string()
+    .min(10, { message: 'Phone number must be at least 10 digits' })
+    .nonempty({ message: 'Phone number is required' }),
+  lastName: z.string().nonempty({ message: 'Last name is required' }),
+  Postcode: z.string().nonempty({ message: 'Postcode is required' }),
+  streetAndHouseNumber: z.string().nonempty({ message: 'Street and house number are required' }),
+  city: z.string().nonempty({ message: 'City is required' }),
+});
+
+const ContactInfoStep: React.FC<ContactInfoStepProps> = ({ onNext, formData, updateFormData, onSubmit }) => {
+  const form = useForm({
+    resolver: zodResolver(schema),
+    defaultValues: formData, // Initialize form with existing data
+    mode: 'onBlur',
+  });
+
+  const handleSubmit = (event: React.FormEvent) => {
+    event.preventDefault();
+    form.handleSubmit((data) => {
+      updateFormData(data); // Update centralized state with this step's data
+      onSubmit(); // Handle the final submission
+      onNext(); // Navigate to the Thank You step
+    })();
+  };
+
+  return (
+    <FormProvider {...form}>
+      <form
+        onSubmit={handleSubmit}
+        className="w-[386px] h-[490px] flex rounded-[4px] relative lg:px-0 z-10 flex-col shadow-lg"
+      >
+        <div className="bg-primaryDefault rounded-t-[8px] flex items-center justify-center text-white py-[22px] w-full">
+          <div className="text-center">
+            <HeadlineSemibold className="w-full">Snel jouw prijs berekenen!</HeadlineSemibold>
+          </div>
+        </div>
+        <div className="bg-white w-full rounded-b-[8px] flex flex-col px-[22px] gap-[20px] py-[22px]">
+          <div className="flex flex-row items-center justify-between">
+            <span className="text-gray-400 font-sans text-sm">Contactinformatie</span>
+            <div className="w-[25%] h-[6px] bg-gray-300 rounded-full ml-4">
+              <div className="w-[100%] h-full bg-green-700 rounded-full"></div>
+            </div>
+          </div>
+          <InputGetter form={form} name="Email" label="E-mailadres" placeholder="Vul hier in" type="email" />
+          <InputGetter form={form} name="PhoneNumber" label="Telefoonnummer" placeholder="Vul hier in" type="text" />
+          <div className={'grid grid-cols-2 gap-x-6'}>
+            <InputGetter form={form} name="lastName" label="Achternaam" placeholder="Vul hier in" type="text" />
+            <InputGetter form={form} name="Postcode" label="Postcode" placeholder="Vul hier in" type="text" />
+            <InputGetter
+              form={form}
+              name="streetAndHouseNumber"
+              label="Straat / Huisnummer"
+              placeholder="Vul hier in"
+              type="text"
+            />
+            <InputGetter form={form} name="city" label="Woonplaats" placeholder="Vul hier in" type="text" />
+          </div>
+          <div className="flex flex-col space-y-2">
+            <div className="flex justify-between items-center">
+              <span className="font-semibold text-lg text-green-700">Totaal incl. btw.</span>
+              <span className="font-semibold text-lg text-green-700">€1000,00</span>
+            </div>
+            <CreateButton className="bg-primaryDefault w-full" type="submit">
+              Volgende
+            </CreateButton>
+          </div>
+        </div>
+      </form>
+    </FormProvider>
+  );
+};
+
+export default ContactInfoStep;
