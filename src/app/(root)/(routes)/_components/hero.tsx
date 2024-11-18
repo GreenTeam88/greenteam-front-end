@@ -7,7 +7,7 @@ const ParagraphSection = () => {
       <div className="flex flex-col items-center lg:items-start gap-[44px] max-w-[627px] ">
         <div className="flex flex-col w-full gap-[22px] ">
           <h5 className="font-bold text-primaryDefault text-[32px] lg:text-[40px]">
-            Zorgeloos een klus uitbesteden tegen een scherpe prijs.
+            Zorgeloos een klus uitbesteden tegen een scherpe prijs
           </h5>
           <p className="max-w-[590px]">
             Gedreven door vakmanschap gaan we samen op zoek naar een passende en duurzame oplossing voor jouw project.

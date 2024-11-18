@@ -88,7 +88,7 @@ export default function Home() {
       <SecondSection image="/Parketrenovatie/reparatie-1.png" pageName="Reparatie" />
       <ThirdSection
         bottomText="Help, mijn oude vloer is aan vervanging toe!"
-        title="Hoe gaat schuren en hardwaxen in zijn werk?"
+        title="Hoe gaat reparatie in zijn werk?"
         cards={thirdSectionCards}
       />
       <WhyGreenTeam />

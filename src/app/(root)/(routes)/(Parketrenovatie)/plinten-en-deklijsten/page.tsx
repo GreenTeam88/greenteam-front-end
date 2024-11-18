@@ -103,7 +103,7 @@ export default function Home() {
       <Hero />
       <SecondSection image="/Parketrenovatie/plinten-en-deklijsten-1.png" pageName="Plinten en deklijsten" />
       <ThirdSection
-        title="Hoe gaat schuren en hardwaxen in zijn werk?"
+        title="Hoe gaat plinten en deklijsten in zijn werk?"
         cards={thirdSectionCards}
         bottomText="Onafgewerkte vloer? Wij helpen u graag!"
       />

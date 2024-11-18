@@ -3,8 +3,9 @@ import { InfoCardProps, WhiteInfoCard } from './cards';
 const config: InfoCardProps = {
   imgSrc: '/diensten/stairs.png',
   buttonText: 'Meer informatie',
+  buttonLink: '/traprenovatie',
   secondBtnText: 'Direct offerte berekenen',
-    secondBtnLink: '/offerte-aanvragen' ,
+  secondBtnLink: '/offerte-aanvragen',
   title: 'Stofferen',
   paragraphs: [
     <>

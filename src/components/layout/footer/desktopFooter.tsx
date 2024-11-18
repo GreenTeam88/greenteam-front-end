@@ -90,8 +90,12 @@ const FooterBottomSection = () => {
           © 2024.
         </BodyTextBold>
         <BodyTextSemibold className="text-primaryDefault">
-          <Link href="/algemene-voorwaarden">Algemene Voorwaardenㆍ</Link>
-          <Link href="/privacyPolicy">Privacy Policy</Link>
+          <Link className="hover:text-secondaryDefault" href="/algemene-voorwaarden">
+            Algemene Voorwaardenㆍ
+          </Link>
+          <Link className="hover:text-secondaryDefault" href="/privacyPolicy">
+            Privacy Policy
+          </Link>
         </BodyTextSemibold>
       </div>
     </>

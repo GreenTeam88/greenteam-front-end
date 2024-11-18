@@ -3,6 +3,7 @@ import { InfoCardProps, OrangeInfoCard } from '../../diensten/_components/cards'
 
 const infoCardConfig: InfoCardProps = {
   buttonText: 'Meer informatie',
+  buttonLink: '/traprenovatie',
   imgSrc: '/Parketrenovatie/fourthFloor.png',
   paragraphs: [
     <BodyText key="1">

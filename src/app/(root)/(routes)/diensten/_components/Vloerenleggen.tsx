@@ -4,6 +4,7 @@ const config: InfoCardProps = {
   title: 'Vloerenleggen',
   imgSrc: '/diensten/Vloerenleggen.png',
   buttonText: 'Meer informatie',
+  buttonLink: '/traprenovatie',
   secondBtnText: 'Direct offerte berekenen',
   secondBtnLink: '/offerte-aanvragen',
 

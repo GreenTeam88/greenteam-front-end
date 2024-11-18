@@ -105,7 +105,7 @@ export default function Home() {
       <SecondSection image="/Parketrenovatie/drevelen-1.png" pageName="Drevelen" />
       <ThirdSection
         bottomText="Spijkers en schroeven zat? Wij helpen u graag!"
-        title="Hoe gaat aanhelen in zijn werk?"
+        title="Hoe gaat drevelen in zijn werk?"
         cards={thirdSectionCards}
       />
       <WhyGreenTeam />

@@ -50,7 +50,10 @@ export const ContactInfo = () => {
               2909 LK, Capelle aan den IJssel
             </BodyTextSemibold>
             <div className="bg-black20 bg-opacity-20 h-[22.56px] w-[1px] "></div>
-            <LinkTypography className="text-secondaryDefault cursor-pointer hover:text-primaryDefault">
+            <LinkTypography
+              href="https://maps.app.goo.gl/wSKHyT9dW8tugEVk6"
+              className="text-secondaryDefault cursor-pointer hover:text-primaryDefault"
+            >
               Op de kaart bekijken
             </LinkTypography>
           </div>
