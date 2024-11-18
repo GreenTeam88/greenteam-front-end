@@ -2,7 +2,7 @@
 
 import { useState } from 'react';
 
-import { SecondaryOutlinedBtn, SecondaryOutlinedBtnLink } from '@/components/theme/buttons';
+import { SecondaryOutlinedBtnLink } from '@/components/theme/buttons';
 import { BodyText, BodyTextSemibold, H2 } from '@/components/theme/typography';
 import { cn } from '@/lib/tailwind';
 

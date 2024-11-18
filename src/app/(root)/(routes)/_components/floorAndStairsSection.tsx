@@ -1,5 +1,5 @@
 import { ArrowIcon } from '@/components/icons/homePageIcons';
-import { PrimaryBtn, PrimaryBtnLink } from '@/components/theme/buttons';
+import { PrimaryBtnLink } from '@/components/theme/buttons';
 import { H2 } from '@/components/theme/typography';
 
 const floorStairsImages: string[] = ['/home/stair1.png', '/home/floor.png', '/home/stair2.png'];

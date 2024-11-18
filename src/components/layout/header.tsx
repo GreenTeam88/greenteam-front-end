@@ -10,7 +10,7 @@ import { appConfig } from '@/config';
 import { cn } from '@/lib/tailwind';
 import { DropDownIcon } from '../icons/arrows';
 import { InstagramLogo, TikTokIcon } from '../icons/homePageIcons';
-import { SecondaryBtn, SecondaryBtnLink } from '../theme/buttons';
+import { SecondaryBtnLink } from '../theme/buttons';
 
 // types needed for the header
 
