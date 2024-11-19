@@ -80,7 +80,7 @@ const AllServices = () => {
 
 export const ServicesSection = () => {
   return (
-    <div className="flex flex-col px-5 lg:px-0 items-center justify-center py-52">
+    <div className="flex flex-col px-5 lg:px-0 items-center justify-center py-20 lg:py-52">
       <div className="flex flex-col items-center gap-[55px]">
         <H2 className="text-primaryDefault">Onze diensten</H2>
         <AllServices />

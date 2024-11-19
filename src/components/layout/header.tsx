@@ -457,7 +457,7 @@ const DropDownColumn: React.FC<{ routeName: string }> = ({ routeName }) => {
     hoveredRoute && 'columns' in hoveredRoute && hoveredRoute.columns && hoveredRoute.columns[0];
   if (!hoveredRouteColumn) return null;
   return (
-    <div className="flex absolute top-[29px] w-fit flex-col left-1/2 -translate-x-1/2 gap-[11px] py-[22px] px-[44px] bg-white border rounded-[10px] border-blackDark  border-opacity-20 ">
+    <div className="flex absolute   top-[29px] w-fit flex-col left-1/2 -translate-x-1/2 gap-1 py-[22px] px-[44px] bg-white border rounded-[10px] border-blackDark  border-opacity-20 ">
       {hoveredRouteColumn.subPages.map((page) => (
         <DropDownColumnLink key={page.name} {...page} />
       ))}
@@ -700,7 +700,7 @@ export const MobileMenuBoldLink: React.FC<HeaderRoute> = (headerRoute) => {
           )}
         </h4>
       )}
-      {path && (
+      {path && !columns && (
         <Link className="text-xl font-semibold cursor-pointer  flex items-center tracking-[-2%]" href={path}>
           {' '}
           {headerRoute.name}{' '}
@@ -719,7 +719,7 @@ export const MobileMenuBoldLink: React.FC<HeaderRoute> = (headerRoute) => {
 
 const MobileMenuBoldLinks = () => {
   return (
-    <div className="flex flex-col gap-2">
+    <div className="flex flex-col min-w-[300px] w-fit  pl-4 gap-2">
       {headerRoutes.slice(0, 6).map((header) => (
         <MobileMenuBoldLink key={header.name} {...header} />
       ))}
@@ -733,7 +733,10 @@ const MobileMenu: React.FC<{ setIsMenuOpened: React.Dispatch<React.SetStateActio
   return (
     <div className="flex bg-white max-h-[100vh] overflow-y-scroll min-w-[80vw] py-24 items-center z-40 flex-col gap-1 fixed top-0 right-0">
       <MobileMenuBoldLinks />
-      <i onClick={() => setIsMenuOpened(false)} className="bi absolute top-3  right-3 hover:text-red-500 bi-x-lg"></i>
+      <i
+        onClick={() => setIsMenuOpened(false)}
+        className="bi absolute top-3  right-3 text-3xl font-semibold text-red-500 bi-x-lg"
+      ></i>
     </div>
   );
 };
