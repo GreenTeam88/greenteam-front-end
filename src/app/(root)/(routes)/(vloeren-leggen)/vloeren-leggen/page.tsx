@@ -1,6 +1,8 @@
 import React from 'react';
 
 import { Hero } from '../../_components/hero';
+import { RatingSection } from '../../_components/ratingSection';
+import { QuestionSection } from '../../over-ons/_components/question';
 import { Bourgogne } from './_components/Bourgogne';
 import { Hexagon3D } from './_components/Hexagon-&-3D';
 import { HongaarsePunt } from './_components/HongaarsePunt';
@@ -35,6 +37,8 @@ function Page() {
       <Hexagon3D />
       <Tapis />
       <Bourgogne />
+      <RatingSection />
+      <QuestionSection />
     </div>
   );
 }
