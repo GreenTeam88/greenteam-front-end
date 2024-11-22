@@ -1,4 +1,5 @@
 import { zodResolver } from '@hookform/resolvers/zod';
+import { ChevronLeft } from 'lucide-react';
 import React from 'react';
 import { FormProvider, useForm } from 'react-hook-form';
 import { z } from 'zod';
@@ -8,6 +9,7 @@ import CreateButton from '../custom/CreateButton';
 import InputGetter from './Getters/InputGetter';
 
 interface ContactInfoStepProps {
+  onPrevious: () => void;
   onNext: () => void;
   formData: any; // Centralized form data
   updateFormData: (data: any) => void; // Function to update the centralized state
@@ -27,7 +29,13 @@ const schema = z.object({
   city: z.string().nonempty({ message: 'City is required' }),
 });
 
-const ContactInfoStep: React.FC<ContactInfoStepProps> = ({ onNext, formData, updateFormData, onSubmit }) => {
+const ContactInfoStep: React.FC<ContactInfoStepProps> = ({
+  onPrevious,
+  onNext,
+  formData,
+  updateFormData,
+  onSubmit,
+}) => {
   const form = useForm({
     resolver: zodResolver(schema),
     defaultValues: formData, // Initialize form with existing data
@@ -54,16 +62,20 @@ const ContactInfoStep: React.FC<ContactInfoStepProps> = ({ onNext, formData, upd
             <HeadlineSemibold className="w-full">Snel jouw prijs berekenen!</HeadlineSemibold>
           </div>
         </div>
-        <div className="bg-white w-full rounded-b-[8px] flex flex-col px-[22px] gap-[20px] py-[22px]">
+        <div className="bg-white w-full rounded-b-[8px] flex flex-col px-[22px] gap-4 py-[22px]">
           <div className="flex flex-row items-center justify-between">
-            <span className="text-gray-400 font-sans text-sm">Contactinformatie</span>
-            <div className="w-[25%] h-[6px] bg-gray-300 rounded-full ml-4">
+            <div className="flex items-center gap-[5px] cursor-pointer" onClick={onPrevious}>
+              <ChevronLeft />
+            </div>
+            <span className="flex-1 text-gray-400 font-sans text-sm whitespace-nowrap">Contactinformatie</span>
+            <div className="flex w-[25%] h-[6px] bg-gray-300 rounded-full ml-4">
               <div className="w-[100%] h-full bg-green-700 rounded-full"></div>
             </div>
           </div>
+
           <InputGetter form={form} name="Email" label="E-mailadres" placeholder="Vul hier in" type="email" />
           <InputGetter form={form} name="PhoneNumber" label="Telefoonnummer" placeholder="Vul hier in" type="text" />
-          <div className={'grid grid-cols-2 gap-x-6'}>
+          <div className={'grid grid-cols-2 gap-x-6 gap-y-2'}>
             <InputGetter form={form} name="lastName" label="Achternaam" placeholder="Vul hier in" type="text" />
             <InputGetter form={form} name="Postcode" label="Postcode" placeholder="Vul hier in" type="text" />
             <InputGetter

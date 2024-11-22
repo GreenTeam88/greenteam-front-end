@@ -1,4 +1,5 @@
 import { zodResolver } from '@hookform/resolvers/zod';
+import { ChevronLeft } from 'lucide-react';
 import React from 'react';
 import { FormProvider, useForm } from 'react-hook-form';
 import { z } from 'zod';
@@ -11,6 +12,7 @@ import InputGetter from './Getters/InputGetter';
 import SingleSelectDropdown from './SingleSelectDropdown';
 
 interface StepFourProps {
+  onPrevious: () => void;
   onNext: () => void;
   formData: any; // Centralized form data passed down
   updateFormData: (data: any) => void; // Function to update the centralized state
@@ -25,12 +27,29 @@ const schema = z.object({
     .regex(/^\d+$/, 'Enter a valid number'),
 });
 
-const StepFour: React.FC<StepFourProps> = ({ onNext, formData, updateFormData }) => {
-  const categories = ['Ja, lage', 'Ja, hoge', 'Nee'];
+const StepFour: React.FC<StepFourProps> = ({ onPrevious, onNext, formData, updateFormData }) => {
+  const categories = [
+    {
+      value: 'Ja, lage',
+      label: 'Ja, lage',
+      imageUrl: '/images/hoge.png', // Path to the image in your public folder
+    },
+    {
+      value: 'Ja, hoge',
+      label: 'Ja, hoge',
+      imageUrl: '/images/hoge.png', // Path to the image in your public folder
+    },
+    {
+      value: 'Nee',
+      label: 'Nee',
+      // No imageUrl needed for this option
+    },
+  ];
 
   const categoryOptions: Option[] = categories.map((category) => ({
-    value: category,
-    label: category,
+    value: category.value,
+    label: category.label,
+    imageUrl: category.imageUrl, // Include imageUrl if available
   }));
 
   const form = useForm({
@@ -60,11 +79,17 @@ const StepFour: React.FC<StepFourProps> = ({ onNext, formData, updateFormData })
         </div>
         <div className="bg-white w-full rounded-b-[8px] flex flex-col px-[22px] gap-[25px] py-[22px]">
           <div className="flex flex-row items-center justify-between">
-            <span className="text-gray-400 font-sans text-sm">Niet verplicht, wel handig om te weten</span>
-            <div className="w-[25%] h-[6px] bg-gray-300 rounded-full ml-4">
+            <div className="flex items-center gap-[5px] cursor-pointer" onClick={onPrevious}>
+              <ChevronLeft />
+            </div>
+            <span className="flex-1 text-gray-400 font-sans text-sm whitespace-nowrap">
+              Niet verplicht, wel handig om te weten
+            </span>
+            <div className="flex w-[25%] h-[6px] bg-gray-300 rounded-full ml-4">
               <div className="w-[70%] h-full bg-green-700 rounded-full"></div>
             </div>
           </div>
+
           <div className="flex flex-col gap-[11px]">
             <SingleSelectDropdown
               data={categoryOptions}

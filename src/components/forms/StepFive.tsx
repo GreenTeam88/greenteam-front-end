@@ -1,4 +1,5 @@
 import { zodResolver } from '@hookform/resolvers/zod';
+import { ChevronLeft } from 'lucide-react';
 import React from 'react';
 import { FormProvider, useForm } from 'react-hook-form';
 import { z } from 'zod';
@@ -9,6 +10,7 @@ import CreateButton from '../custom/CreateButton';
 import SingleSelectDropdown from './SingleSelectDropdown';
 
 interface StepFiveProps {
+  onPrevious: () => void;
   onNext: () => void;
   onUploadClick: () => void;
   onCommentClick: () => void;
@@ -22,7 +24,14 @@ const schema = z.object({
   subsequentActions: z.string().nonempty({ message: 'Please select at least one action' }),
 });
 
-const StepFive: React.FC<StepFiveProps> = ({ onNext, onUploadClick, onCommentClick, formData, updateFormData }) => {
+const StepFive: React.FC<StepFiveProps> = ({
+  onPrevious,
+  onNext,
+  onUploadClick,
+  onCommentClick,
+  formData,
+  updateFormData,
+}) => {
   const categories = ['Spoed', 'Z.s.m', 'Binnen een week', 'Binnen een maand', 'Zodra ik de sleutel heb', 'In overleg'];
   const offers = ['Ik wil graag een offerte', 'Ik wil graag eerst persoonlijk contact'];
 
@@ -70,11 +79,15 @@ const StepFive: React.FC<StepFiveProps> = ({ onNext, onUploadClick, onCommentCli
         </div>
         <div className="bg-white w-full rounded-b-[8px] flex flex-col px-[22px] gap-[17px] py-[22px]">
           <div className="flex flex-row items-center justify-between">
-            <span className="text-gray-400 font-sans text-sm">Planning</span>
-            <div className="w-[25%] h-[6px] bg-gray-300 rounded-full ml-4">
+            <div className="flex items-center gap-[5px] cursor-pointer" onClick={onPrevious}>
+              <ChevronLeft />
+            </div>
+            <span className="flex-1 text-gray-400 font-sans text-sm whitespace-nowrap">Planning</span>
+            <div className="flex w-[25%] h-[6px] bg-gray-300 rounded-full ml-4">
               <div className="w-[85%] h-full bg-green-700 rounded-full"></div>
             </div>
           </div>
+
           <div className="flex flex-col gap-[11px]">
             <SingleSelectDropdown
               data={categoryOptions}

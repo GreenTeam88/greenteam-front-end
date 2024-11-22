@@ -45,11 +45,32 @@ const MultiStepForm = () => {
       case 1:
         return <StepOne onNext={goToNextStep} formData={formData} updateFormData={updateFormData} />;
       case 2:
-        return <StepTwo onNext={goToNextStep} formData={formData} updateFormData={updateFormData} />;
+        return (
+          <StepTwo
+            onNext={goToNextStep}
+            formData={formData}
+            updateFormData={updateFormData}
+            onPrevious={() => setCurrentStep(1)}
+          />
+        );
       case 3:
-        return <StepThree onNext={goToNextStep} formData={formData} updateFormData={updateFormData} />;
+        return (
+          <StepThree
+            onNext={goToNextStep}
+            formData={formData}
+            updateFormData={updateFormData}
+            onPrevious={() => setCurrentStep(2)}
+          />
+        );
       case 4:
-        return <StepFour onNext={goToNextStep} formData={formData} updateFormData={updateFormData} />;
+        return (
+          <StepFour
+            onNext={goToNextStep}
+            formData={formData}
+            updateFormData={updateFormData}
+            onPrevious={() => setCurrentStep(3)}
+          />
+        );
       case 5:
         return (
           <StepFive
@@ -58,6 +79,7 @@ const MultiStepForm = () => {
             onCommentClick={() => setCurrentStep(7)} // Optional: Navigate to CommentStep
             formData={formData}
             updateFormData={updateFormData}
+            onPrevious={() => setCurrentStep(4)}
           />
         );
       case 6:
@@ -86,7 +108,8 @@ const MultiStepForm = () => {
             onNext={goToNextStep}
             formData={formData}
             updateFormData={updateFormData}
-            onSubmit={handleFinalSubmit} // Handle final form submission
+            onSubmit={handleFinalSubmit}
+            onPrevious={() => setCurrentStep(5)} // Handle final form submission
           />
         );
       case 9:

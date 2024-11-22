@@ -24,16 +24,34 @@ const ParagraphSection = () => {
   );
 };
 
+// export const Hero = () => {
+//   return (
+//     <div className="relative w-full h-[700px] flex items-center justify-center pt-0">
+//       <img src="/home/heroImg.png" className="absolute hidden lg:block w-full h-full top-0 left-0 z-0 object-cover" />
+//       <div className="relative flex flex-col lg:flex-row items-center justify-center z-10 gap-10 lg:gap-[86px] max-w-[1440px] px-4 lg:px-[120px] w-full pb-8">
+//         {/* Paragraph section */}
+//         <div className="flex-1 flex justify-center lg:justify-start">
+//           <ParagraphSection />
+//         </div>
+//         {/* MultiStepForm section */}
+//         <div className="flex-1 flex items-start justify-center pt-0">
+//           <div className="self-stretch mt-0">
+//             <MultiStepForm />
+//           </div>
+//         </div>
+//       </div>
+//     </div>
+//   );
+// };
+
 export const Hero = () => {
   return (
     <div className="relative w-full h-fit flex items-center justify-center ">
       <img src="/home/heroImg.png" className="absolute hidden lg:block w-full h-full top-0 left-0 z-0" />
 
-      <div className=" relative flex-col lg:flex-row z-10 max-w-full lg:h-[484px] py-16 lg:py-0 gap-[86px] px-2 lg:px-[120px] w-[1440px] flex items-center ">
-        {/* paragraph section includes the title , the paragraph and the buttons */}
+      <div className=" relative flex-col lg:flex-row z-10 max-w-full lg:h-[680px] py-16 lg:py-0 gap-[86px] px-2 lg:px-[120px] w-[1440px] flex items-center ">
         <ParagraphSection />
-        {/* the form to calculate the price  */}
-        {/* <FormSection /> */}
+
         <MultiStepForm />
       </div>
     </div>

@@ -1,4 +1,5 @@
 import { zodResolver } from '@hookform/resolvers/zod';
+import { ChevronLeft } from 'lucide-react';
 import React from 'react';
 import { FormProvider, useForm } from 'react-hook-form';
 import { z } from 'zod';
@@ -10,6 +11,7 @@ import MultiSelectDropdown from './MultiSelectDropdown';
 import SingleSelectDropdown from './SingleSelectDropdown';
 
 interface StepProps {
+  onPrevious: () => void;
   onNext: () => void;
   formData: any; // Centralized form data passed down
   updateFormData: (data: any) => void; // Function to update the centralized state
@@ -17,10 +19,10 @@ interface StepProps {
 
 const schema = z.object({
   damageRepairsNeeded: z.string().nonempty({ message: 'Please select an option' }),
-  additionalSurfaces: z.array(z.string()).min(1, 'Select at least one surface if applicable').optional(),
+  additionalSurfaces: z.array(z.string()).min(1, 'Select at least one surface if applicable'),
 });
 
-const StepThree: React.FC<StepProps> = ({ onNext, formData, updateFormData }) => {
+const StepThree: React.FC<StepProps> = ({ onPrevious, onNext, formData, updateFormData }) => {
   const categories = ['Ja', 'Nee'];
   const oppervlaktes = [
     'Traptredes',
@@ -71,8 +73,13 @@ const StepThree: React.FC<StepProps> = ({ onNext, formData, updateFormData }) =>
         </div>
         <div className="bg-white w-full rounded-b-[8px] flex flex-col px-[22px] gap-[25px] py-[22px]">
           <div className="flex flex-row items-center justify-between">
-            <span className="text-gray-400 font-sans text-sm">Waar kunnen we je mee helpen?</span>
-            <div className="w-[25%] h-[6px] bg-gray-300 rounded-full ml-4">
+            <div className="flex items-center gap-[5px] cursor-pointer" onClick={onPrevious}>
+              <ChevronLeft />
+            </div>
+            <span className="flex-1 text-gray-400 font-sans text-sm whitespace-nowrap">
+              Waar kunnen we je mee helpen?
+            </span>
+            <div className="flex w-[25%] h-[6px] bg-gray-300 rounded-full ml-4">
               <div className="w-[55%] h-full bg-green-700 rounded-full"></div>
             </div>
           </div>

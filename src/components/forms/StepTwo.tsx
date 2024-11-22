@@ -1,5 +1,7 @@
 // StepTwo.tsx
 import { zodResolver } from '@hookform/resolvers/zod';
+import { ChevronLeft } from 'lucide-react'; // Ensure this import is present
+
 import React from 'react';
 import { FormProvider, useForm } from 'react-hook-form';
 import { z } from 'zod';
@@ -8,23 +10,22 @@ import { HeadlineSemibold } from '@/components/theme/typography';
 import { Option } from '@/types';
 import CreateButton from '../custom/CreateButton';
 import InputGetter from './Getters/InputGetter';
-import MultiSelectDropdown from './MultiSelectDropdown'; // Adjust import path as necessary
+import MultiSelectDropdown from './MultiSelectDropdown';
 
 interface StepProps {
+  onPrevious: () => void; // Optional, depends on your flow control
   onNext: () => void;
-  formData: any; // Centralized form data passed down
-  updateFormData: (data: any) => void; // Function to update the centralized state
+  formData: any;
+  updateFormData: (data: any) => void;
 }
 
-// Define the schema using Zod
 const schema = z.object({
   selectedFloors: z.array(z.string()).min(1, 'Please select at least one floor'),
   squareMeters: z.string().nonempty({ message: 'Please enter the area in m²' }).regex(/^\d+$/, 'Enter a valid number'),
 });
 
-const StepTwo: React.FC<StepProps> = ({ onNext, formData, updateFormData }) => {
+const StepTwo: React.FC<StepProps> = ({ onPrevious, onNext, formData, updateFormData }) => {
   const datas = ['0 (Begane grond)', '1', '2', '3', '4', '5', '9', '10+'];
-
   const dataOptions: Option[] = datas.map((data) => ({
     value: data,
     label: data,
@@ -32,15 +33,15 @@ const StepTwo: React.FC<StepProps> = ({ onNext, formData, updateFormData }) => {
 
   const form = useForm({
     resolver: zodResolver(schema),
-    defaultValues: formData, // Initialize form with formData
+    defaultValues: formData,
     mode: 'onChange',
   });
 
   const handleSubmit = (event: React.FormEvent) => {
     event.preventDefault();
     form.handleSubmit((data) => {
-      updateFormData(data); // Update central state with new data
-      onNext(); // Move to the next step
+      updateFormData(data);
+      onNext();
     })();
   };
 
@@ -57,8 +58,13 @@ const StepTwo: React.FC<StepProps> = ({ onNext, formData, updateFormData }) => {
         </div>
         <div className="bg-white w-full rounded-b-[8px] flex flex-col px-[22px] gap-[25px] py-[22px]">
           <div className="flex flex-row items-center justify-between">
-            <span className="text-gray-400 font-sans text-sm">Een aantal vragen over de ruimte(s)</span>
-            <div className="w-[25%] h-[6px] bg-gray-300 rounded-full ml-4">
+            <div className="flex items-center gap-[5px] cursor-pointer" onClick={onPrevious}>
+              <ChevronLeft />
+            </div>
+            <span className="flex-1 text-gray-400 font-sans text-sm whitespace-nowrap">
+              Een aantal vragen over de ruimte(s)
+            </span>
+            <div className="flex w-[25%] h-[6px] bg-gray-300 rounded-full ml-4">
               <div className="w-[40%] h-full bg-green-700 rounded-full"></div>
             </div>
           </div>

@@ -28,6 +28,13 @@ const StepOne: React.FC<StepOneProps> = ({ onNext, formData, updateFormData }) =
     'Schuren + polijsten + (zonder behandeling)',
     'Schuren + polijsten + oliën naturel',
     'Schuren + polijsten + oliën in kleur',
+    'Schuren + polijsen + lakken in naturel',
+    'Schuren + polijsen + lakken in kleur',
+    'Schuren + polijsen + hardwax naturel',
+    'Schuren + polijsen + hardwax in kleur',
+    'Schuren + polijsen + lakken met Skylt',
+    'Ben ik nog niet over uit.',
+    'Ik wil graag advies',
   ];
   const categoryOptions: Option[] = categories.map((category) => ({
     value: category,

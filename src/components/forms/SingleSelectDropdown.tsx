@@ -3,7 +3,7 @@
 import { useFormContext } from 'react-hook-form';
 
 import CustomSingleSelect from '@/components/custom/CustomSingleSelect';
-import { FormControl, FormField, FormItem, FormLabel, FormMessage } from '@/components/ui/form';
+import { FormControl, FormField, FormItem, FormLabel } from '@/components/ui/form';
 import { Option } from '@/types';
 
 interface SingleSelectDropdownProps {
@@ -38,33 +38,42 @@ export default function SingleSelectDropdown({
     <FormField
       control={form.control}
       name={name}
-      render={({ field }) => (
-        <FormItem className={'flex flex-col gap-y-[0.875rem]'}>
-          <FormLabel className={'font-normal text-textBlack80 text-sm'}>
+      render={({ field, fieldState }) => (
+        <FormItem className="flex flex-col gap-y-1">
+          {/* Label */}
+          <FormLabel className="font-normal text-textBlack80 text-sm">
             {label}
             <span className="text-red-500">*</span>
           </FormLabel>
+
+          {/* Custom Dropdown with Default and Error Styling */}
           <FormControl>
-            <CustomSingleSelect
-              buttonClassName={
-                buttonClassName ||
-                '!m-0 w-full text-sm text-textBlack font-[400] border-borderGray rounded-lg py-3 px-5 h-auto'
-              }
-              placeholderTextClassName={placeholderTextClassName || '!m-0 '}
-              menuItemsClassName={menuItemsClassName || 'text-sm'}
-              menuClassName={menuClassName || 'w-[300px] bg-white'}
-              placeholder={placeholder}
-              options={data}
-              selectedValue={field.value} // Value is managed by react-hook-form
-              onChange={(value: string) => {
-                field.onChange(value); // Update react-hook-form's state
-                if (onChange) {
-                  onChange(value); // Call parent callback if provided
+            <div
+              className={`
+    relative rounded-lg border
+    ${fieldState.error ? 'border-red-500 !important' : 'border-borderGray'}
+  `}
+            >
+              <CustomSingleSelect
+                buttonClassName={
+                  buttonClassName ??
+                  'm-0 w-full text-sm text-textBlack font-[400] border-none rounded-lg py-3 px-5 h-auto'
                 }
-              }}
-            />
+                placeholderTextClassName={placeholderTextClassName ?? 'm-0'}
+                menuItemsClassName={menuItemsClassName ?? 'text-sm'}
+                menuClassName={menuClassName ?? 'w-[300px] bg-white'}
+                placeholder={placeholder}
+                options={data}
+                selectedValue={field.value} // Value synced with react-hook-form
+                onChange={(value: string) => {
+                  field.onChange(value); // Update react-hook-form state
+                  if (onChange) {
+                    onChange(value); // Trigger parent callback if provided
+                  }
+                }}
+              />
+            </div>
           </FormControl>
-          <FormMessage />
         </FormItem>
       )}
     />

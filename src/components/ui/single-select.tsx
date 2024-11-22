@@ -1,5 +1,6 @@
 import { cva } from 'class-variance-authority';
 import { CheckIcon, ChevronDown } from 'lucide-react';
+import Image from 'next/image';
 import * as React from 'react';
 
 import { Button } from '@/components/ui/button';
@@ -34,6 +35,7 @@ interface SingleSelectFormFieldProps
     label: string;
     value: string;
     icon?: React.ComponentType<{ className?: string }>;
+    imageUrl?: string; // Add this line to include imageUrl in options
   }[];
   defaultValue?: string;
   disabled?: boolean;
@@ -123,16 +125,30 @@ const SingleSelectFormField = React.forwardRef<HTMLButtonElement, SingleSelectFo
                         isSelected ? 'bg-green-50 font-bold text-green-900' : ''
                       )}
                     >
-                      <div
-                        className={cn(
-                          'mr-2 rounded-[2px] !outline-transparent !ring-transparent flex h-4 w-4 items-center justify-center border border-green-100',
-                          isSelected ? 'bg-green-600 text-white rounded-s-sm' : 'opacity-50 [&_svg]:invisible'
+                      <div className="flex w-full items-center justify-between">
+                        <div className="flex items-center">
+                          <div
+                            className={cn(
+                              'mr-2 rounded-[2px] !outline-transparent !ring-transparent flex h-4 w-4 items-center justify-center border border-green-100',
+                              isSelected ? 'bg-green-600 text-white rounded-s-sm' : 'opacity-50 [&_svg]:invisible'
+                            )}
+                          >
+                            <CheckIcon className={`h-4 w-4 ${isSelected ? 'text-white' : ''}`} />
+                          </div>
+                          <span>{option.label}</span>
+                        </div>
+
+                        {/* Move the Image to the Right Side */}
+                        {option.imageUrl && (
+                          <Image
+                            src={option.imageUrl}
+                            alt={option.label}
+                            width={34}
+                            height={24}
+                            className="ml-2 rounded-sm"
+                          />
                         )}
-                      >
-                        <CheckIcon className={`h-4 w-4 ${isSelected ? 'text-white' : ''}`} />
                       </div>
-                      {option.icon && <option.icon className="mr-2 h-4 w-4 text-muted-foreground" />}
-                      <span>{option.label}</span>
                     </CommandItem>
                   );
                 })}
