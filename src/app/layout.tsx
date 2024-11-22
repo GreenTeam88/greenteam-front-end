@@ -9,7 +9,7 @@ import { cn } from '@/lib/tailwind';
 
 import 'bootstrap-icons/font/bootstrap-icons.css';
 
-import { Footer } from '@/components/layout/footer/footer';
+import { Footer } from '@/components/layout/footer/foooter';
 
 const inter = Inter({ subsets: ['latin'] });
 
