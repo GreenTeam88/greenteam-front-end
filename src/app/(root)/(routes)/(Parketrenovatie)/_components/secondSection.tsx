@@ -34,13 +34,14 @@ const QuestionSection = () => {
 type SecondSectionProps = {
   image: string;
   pageName: string;
+  sectionName: string;
 };
 
-export const SecondSection: React.FC<SecondSectionProps> = ({ image, pageName }) => {
+export const SecondSection: React.FC<SecondSectionProps> = ({ image, pageName, sectionName }) => {
   return (
     <div className="flex px-3 flex-col w-full items-center py-6 pb-[400px] gap-[100px]">
       <p className="text-primaryDefault font-normal">
-        Parket Renovatie <span className="font-bold">- {pageName}</span>{' '}
+        {sectionName + '  '} <span className="font-bold">- {pageName}</span>{' '}
       </p>
       <div className="flex flex-col lg:flex-row items-center gap-9 py-14">
         <QuestionSection />

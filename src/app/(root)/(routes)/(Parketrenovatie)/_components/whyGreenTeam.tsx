@@ -61,7 +61,7 @@ const BottomSection = () => {
 };
 export const WhyGreenTeam = () => {
   return (
-    <div className="flex flex-col  py-32 gap-4 items-center">
+    <div className="flex px-2 flex-col  py-32 gap-4 items-center">
       <H2 className="text-primaryDefault">Waarom kies ik voor GreenTeam?</H2>
       <div className="flex relative flex-col lg:flex-row items-center lg:items-start gap-[21px]">
         {whyGreenTeamCardsInfo.map((cardInfo) => (

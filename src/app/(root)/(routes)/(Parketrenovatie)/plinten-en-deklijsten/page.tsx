@@ -101,7 +101,11 @@ export default function Home() {
   return (
     <div className="flex flex-col  relative z-0 items-center w-full">
       <Hero />
-      <SecondSection image="/Parketrenovatie/plinten-en-deklijsten-1.png" pageName="Plinten en deklijsten" />
+      <SecondSection
+        sectionName="Parket Renovatie"
+        image="/Parketrenovatie/plinten-en-deklijsten-1.png"
+        pageName="Plinten en deklijsten"
+      />
       <ThirdSection
         title="Hoe gaat plinten en deklijsten in zijn werk?"
         cards={thirdSectionCards}

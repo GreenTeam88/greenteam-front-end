@@ -103,7 +103,11 @@ export default function Home() {
   return (
     <div className="flex flex-col  relative z-0 items-center w-full">
       <Hero />
-      <SecondSection image="/Parketrenovatie/image11.png" pageName="Schuren en polijsten " />
+      <SecondSection
+        sectionName="Parket Renovatie"
+        image="/Parketrenovatie/image11.png"
+        pageName="Schuren en polijsten "
+      />
       <ThirdSection
         bottomText="Help, mijn oude vloer is aan vervanging toe!"
         title="Hoe gaat schuren en polijsten in zijn werk?"

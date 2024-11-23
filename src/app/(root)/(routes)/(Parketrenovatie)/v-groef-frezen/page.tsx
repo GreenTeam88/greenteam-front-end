@@ -100,7 +100,11 @@ export default function Home() {
   return (
     <div className="flex flex-col  relative z-0 items-center w-full">
       <Hero />
-      <SecondSection image="/Parketrenovatie/v-groef-frezen-1.png" pageName="V-groef-frezen" />
+      <SecondSection
+        sectionName="Parket Renovatie"
+        image="/Parketrenovatie/v-groef-frezen-1.png"
+        pageName="V-groef-frezen"
+      />
       <ThirdSection
         bottomText="Kunnen jullie dit bij mij realiseren?"
         title="Hoe gaat V-groef frezen in zijn werk?"

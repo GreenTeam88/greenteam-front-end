@@ -102,7 +102,7 @@ export default function Home() {
   return (
     <div className="flex flex-col  relative z-0 items-center w-full">
       <Hero />
-      <SecondSection image="/Parketrenovatie/drevelen-1.png" pageName="Drevelen" />
+      <SecondSection sectionName="Parket Renovatie" image="/Parketrenovatie/drevelen-1.png" pageName="Drevelen" />
       <ThirdSection
         bottomText="Spijkers en schroeven zat? Wij helpen u graag!"
         title="Hoe gaat drevelen in zijn werk?"

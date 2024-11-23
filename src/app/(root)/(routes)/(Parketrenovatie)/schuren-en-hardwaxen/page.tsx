@@ -102,7 +102,11 @@ export default function Home() {
   return (
     <div className="flex flex-col  relative z-0 items-center w-full">
       <Hero />
-      <SecondSection image="/Parketrenovatie/schuren-en-hardwaxen-1.png" pageName="Schuren en hardwaxen" />
+      <SecondSection
+        sectionName="Parket Renovatie"
+        image="/Parketrenovatie/schuren-en-hardwaxen-1.png"
+        pageName="Schuren en hardwaxen"
+      />
       <ThirdSection
         bottomText="Mijn vloer verdient die extra bescherming!"
         title="Hoe gaat schuren en hardwaxen in zijn werk?"
