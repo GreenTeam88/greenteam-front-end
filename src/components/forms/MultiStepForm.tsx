@@ -30,8 +30,12 @@ const MultiStepForm = () => {
   };
 
   // Function to proceed to the next step
-  const goToNextStep = () => {
-    setCurrentStep((prev) => Math.min(prev + 1, 9)); // Ensure it doesn't go beyond step 9
+  const goToNextStep = (nextStep?: number) => {
+    if (nextStep) {
+      setCurrentStep(nextStep);
+    } else {
+      setCurrentStep((prev) => Math.min(prev + 1, 9)); // Ensure it doesn't go beyond step 9
+    }
   };
 
   // Function to navigate directly to the contact info step

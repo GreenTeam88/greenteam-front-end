@@ -1,7 +1,5 @@
-// StepTwo.tsx
 import { zodResolver } from '@hookform/resolvers/zod';
-import { ChevronLeft } from 'lucide-react'; // Ensure this import is present
-
+import { ChevronLeft } from 'lucide-react';
 import React from 'react';
 import { FormProvider, useForm } from 'react-hook-form';
 import { z } from 'zod';
@@ -13,7 +11,7 @@ import InputGetter from './Getters/InputGetter';
 import MultiSelectDropdown from './MultiSelectDropdown';
 
 interface StepProps {
-  onPrevious: () => void; // Optional, depends on your flow control
+  onPrevious: () => void;
   onNext: () => void;
   formData: any;
   updateFormData: (data: any) => void;
@@ -25,7 +23,10 @@ const schema = z.object({
 });
 
 const StepTwo: React.FC<StepProps> = ({ onPrevious, onNext, formData, updateFormData }) => {
-  const datas = ['0 (Begane grond)', '1', '2', '3', '4', '5', '9', '10+'];
+  const FLOOR_COST = 25; // €25 per floor level
+  const servicePricePerM2 = formData.selectedServicePrice || 0; // Price per m² from Step One
+
+  const datas = ['0 (Begane grond)', '1', '2', '3', '4', '5', '6', '7', '8', '9', '10+'];
   const dataOptions: Option[] = datas.map((data) => ({
     value: data,
     label: data,
@@ -37,20 +38,54 @@ const StepTwo: React.FC<StepProps> = ({ onPrevious, onNext, formData, updateForm
     mode: 'onChange',
   });
 
+  const calculateTotal = () => {
+    const selectedFloors = form.watch('selectedFloors') || [];
+    const squareMeters = form.watch('squareMeters');
+    if (!squareMeters || isNaN(parseInt(squareMeters, 10))) return 0;
+
+    const area = parseInt(squareMeters, 10);
+
+    // Calculate floor cost based on floor-specific logic
+    const floorLevelCost = selectedFloors.reduce((totalCost: number, floor: string) => {
+      const floorNumber = parseInt(floor.split(' ')[0], 10); // Extract the floor number
+      if (!isNaN(floorNumber) && floorNumber > 0) {
+        totalCost += FLOOR_COST * floorNumber; // Multiply cost by floor number
+      }
+      return totalCost;
+    }, 0);
+
+    const baseCost = servicePricePerM2 * area;
+    const totalCost = floorLevelCost + baseCost;
+
+    // Cap the total cost at 999,999.99
+    return Math.min(totalCost, 999999.99).toFixed(2);
+  };
+
   const handleSubmit = (event: React.FormEvent) => {
     event.preventDefault();
     form.handleSubmit((data) => {
-      updateFormData(data);
+      const totalCost = calculateTotal();
+
+      updateFormData({
+        ...data,
+        totalCost, // Include total cost in formData
+        baseCost: servicePricePerM2 * parseInt(data.squareMeters || '0', 10),
+        floorLevelCost: data.selectedFloors.reduce((totalCost: number, floor: string) => {
+          const floorNumber = parseInt(floor.split(' ')[0], 10);
+          if (!isNaN(floorNumber) && floorNumber > 0) {
+            totalCost += FLOOR_COST * floorNumber;
+          }
+          return totalCost;
+        }, 0),
+      });
+
       onNext();
     })();
   };
 
   return (
     <FormProvider {...form}>
-      <form
-        onSubmit={handleSubmit}
-        className="w-[386px] h-[430px] flex rounded-[4px] relative lg:px-0 z-10 flex-col shadow-lg"
-      >
+      <form onSubmit={handleSubmit} className="w-[386px] h-[430px] flex rounded-[4px] relative lg:px-0 z-10 flex-col">
         <div className="bg-primaryDefault rounded-t-[8px] flex items-center justify-center text-white py-[22px] w-full">
           <div className="text-center">
             <HeadlineSemibold className="w-full">Snel jouw prijs berekenen!</HeadlineSemibold>
@@ -82,7 +117,7 @@ const StepTwo: React.FC<StepProps> = ({ onPrevious, onNext, formData, updateForm
           <div className="flex flex-col space-y-2">
             <div className="flex justify-between items-center">
               <span className="font-semibold text-lg text-green-700">Totaal incl. btw.</span>
-              <span className="font-semibold text-lg text-green-700">€0,00</span>
+              <span className="font-semibold text-lg text-green-700">€{calculateTotal()}</span>
             </div>
             <CreateButton className="bg-primaryDefault w-full" type="submit">
               Volgende

@@ -5,6 +5,8 @@ import { Paperclip } from 'lucide-react';
 import { FileInput, FileUploader, FileUploaderContent, FileUploaderItem } from '@/components/extension/file-upload';
 import { Button } from '@/components/ui/button';
 
+// should add the api here to handle the upload process
+
 const FileSvgDraw = () => {
   return (
     <div className={'flex flex-col  gap-y-2 items-center w-[85%] mx-auto'}>
@@ -16,7 +18,10 @@ const FileSvgDraw = () => {
       </div>
       <Button
         type={'button'}
-        className={'h-auto py-2 px-4 border-orange-600 border rounded-lg text-orange-600 text-sm w-auto mx-auto'}
+        className={
+          'h-auto py-2 px-4 border-orange-600 border rounded-lg text-orange-600 text-sm w-auto mx-auto ' +
+          'hover:bg-orange-600 hover:text-white transition-colors duration-200'
+        }
       >
         Upload
       </Button>
@@ -49,7 +54,7 @@ const CustomDropzone = ({ files, setFiles }: CustomDropzoneProps) => {
       className="relative bg-white flex flex-col items-center"
     >
       <FileInput className="outline-dashed outline-1 outline-white">
-        <div className="border-[2px] border-gray py-2 border-dashed rounded-lg ">
+        <div className="border-[2px] border-gray py-10 border-dashed rounded-lg ">
           <FileSvgDraw />
         </div>
       </FileInput>

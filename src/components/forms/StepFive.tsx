@@ -51,11 +51,6 @@ const StepFive: React.FC<StepFiveProps> = ({
     mode: 'onChange',
   });
 
-  // Immediately update centralized state when a field value changes
-  const handleFieldChange = (name: string, value: any) => {
-    updateFormData({ [name]: value }); // Update the specific field in the centralized state
-  };
-
   const handleSubmit = (event: React.FormEvent) => {
     event.preventDefault();
     form.handleSubmit((data) => {
@@ -94,7 +89,7 @@ const StepFive: React.FC<StepFiveProps> = ({
               name="desiredExecutionTimeframe"
               label="Gewenste termijn voor uitvoeren?"
               placeholder="Kies er een"
-              onChange={(value) => updateFormData({ desiredExecutionTimeframe: value })} // Update centralized state
+              onChange={(value) => updateFormData({ desiredExecutionTimeframe: value })}
             />
           </div>
 
@@ -104,15 +99,23 @@ const StepFive: React.FC<StepFiveProps> = ({
               name="subsequentActions"
               label="De vervolgstap"
               placeholder="Kies er een"
-              onChange={(value) => handleFieldChange('subsequentActions', value)} // Update state on change
+              onChange={(value) => updateFormData({ subsequentActions: value })}
             />
           </div>
           <div className="flex items-center gap-[5px] mb-1">
-            <button type="button" onClick={onUploadClick} className="text-green-700 font-sans text-sm font-bold">
+            <button
+              type="button"
+              onClick={onUploadClick}
+              className="text-green-700 font-sans text-sm font-bold hover:text-green-900 hover:underline transition-all duration-200"
+            >
               {text}
             </button>
             <span className="text-gray-300">|</span>
-            <button type="button" onClick={onCommentClick} className="text-green-700 font-sans text-sm font-bold">
+            <button
+              type="button"
+              onClick={onCommentClick}
+              className="text-green-700 font-sans text-sm font-bold hover:text-green-900 hover:underline transition-all duration-200"
+            >
               Opmerkingen toevoegen
             </button>
           </div>
@@ -120,7 +123,8 @@ const StepFive: React.FC<StepFiveProps> = ({
           <div className="flex flex-col">
             <div className="flex justify-between items-center">
               <span className="font-semibold text-lg text-green-700">Totaal incl. btw.</span>
-              <span className="font-semibold text-lg text-green-700">€5000,00</span>
+              {/* Display total from formData */}
+              <span className="font-semibold text-lg text-green-700">€{(formData.totalCost || 0).toFixed(2)}</span>
             </div>
             <CreateButton className="bg-primaryDefault w-full" type="submit">
               Volgende

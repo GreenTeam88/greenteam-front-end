@@ -44,6 +44,48 @@ const ParagraphSection = () => {
 //   );
 // };
 
+// export const Hero = () => {
+//   return (
+//     <div className="relative w-full h-screen flex items-center lg:h-[660px]">
+//       <img src="/home/heroImg.png" className="absolute hidden lg:block w-full h-full top-0 left-0 z-0 object-cover" />
+
+//       <div className="relative flex flex-col lg:flex-row z-10 max-w-[1440px] lg:h-[580px] py-16 lg:py-0 gap-[86px] px-2 lg:px-[120px] w-full">
+//         {/* Left Section: Text */}
+//         <div className="flex-1 flex flex-col justify-center">
+//           <ParagraphSection />
+//         </div>
+
+//         {/* Right Section: MultiStepForm */}
+//         <div className="flex-1 flex justify-center lg:justify-end">
+//           <MultiStepForm />
+//         </div>
+//       </div>
+//     </div>
+//   );
+// };
+
+// export const Hero = () => {
+//   return (
+//     <div className="relative w-full h-screen flex  justify-center lg:h-[660px]">
+//       {/* Background Image */}
+//       <img src="/home/heroImg.png" className="absolute hidden lg:block w-full h-full top-0 left-0 z-0 object-cover" />
+
+//       {/* Content Container */}
+//       <div className="relative flex flex-col lg:flex-row z-10 max-w-[1440px]  lg:h-[510px]  lg:py-0 gap-[86px] px-2 lg:px-[120px] ">
+//         {/* Left Section: Text */}
+//         <div className="flex-1 flex flex-col justify-center items-center lg:items-start text-center lg:text-left">
+//           <ParagraphSection />
+//         </div>
+
+//         {/* Right Section: MultiStepForm */}
+//         <div className="flex-1 flex justify-center lg:justify-end items-center">
+//           <MultiStepForm />
+//         </div>
+//       </div>
+//     </div>
+//   );
+// };
+
 export const Hero = () => {
   return (
     <div className="relative w-full h-fit flex items-center justify-center ">

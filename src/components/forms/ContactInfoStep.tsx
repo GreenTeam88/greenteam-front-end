@@ -90,7 +90,7 @@ const ContactInfoStep: React.FC<ContactInfoStepProps> = ({
           <div className="flex flex-col space-y-2">
             <div className="flex justify-between items-center">
               <span className="font-semibold text-lg text-green-700">Totaal incl. btw.</span>
-              <span className="font-semibold text-lg text-green-700">€1000,00</span>
+              <span className="font-semibold text-lg text-green-700">€{formData.totalCost?.toFixed(2) || '0,00'}</span>
             </div>
             <CreateButton className="bg-primaryDefault w-full" type="submit">
               Volgende
