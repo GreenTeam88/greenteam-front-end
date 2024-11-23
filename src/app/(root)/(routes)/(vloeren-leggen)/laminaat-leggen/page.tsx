@@ -6,33 +6,30 @@ import { WhatWaitingForCard } from '../_components/whatWaitingForCard';
 import { Hero } from '../../_components/hero';
 import { RatingSection } from '../../_components/ratingSection';
 import { FAQSection, FAQType } from '../../(Parketrenovatie)/_components/FAQSection';
-import { SecondSection } from '../../(Parketrenovatie)/_components/secondSection';
-import { ThirdSection } from '../../(Parketrenovatie)/_components/thirdSection';
 import { WhyGreenTeam } from '../../(Parketrenovatie)/_components/whyGreenTeam';
 import { InfoCardProps } from '../../diensten/_components/cards';
 import { QuestionSection } from '../../over-ons/_components/question';
 
 const thirdSectionCards: InfoCardProps[] = [
   {
-    title: 'Laminaat leggen',
-    imgSrc: '/vloeren-leggen/laminaat-leggen/laminaat-leggen-2.png',
+    title: 'Parket leggen',
+    imgSrc: '/vloeren-leggen/parket-leggen/parket-leggen-2.png',
     paragraphs: [
       <>
-         Laminaat is dé ideale keuze voor wie een stijlvolle vloer wil zonder in te leveren op gebruiksgemak. Het
-        combineert een natuurlijke houtlook met een scherpe prijs en minimaal onderhoud.{' '}
+        Een parketvloer komt pas echt tot zijn recht als deze vakkundig wordt gelegd. Bij Green Team zorgen we ervoor
+        dat uw vloer perfect wordt geplaatst, met oog voor:{' '}
       </>,
-      <>Waarom laminaat de juiste keuze is:</>,
       <ul className="flex flex-col py-3 list-disc gap-4 list-inside">
-        <li>Betaalbaar en stijlvol: Laminaat biedt de luxe uitstraling van hout, zonder het hoge prijskaartje.  </li>
-        <li>Veelzijdigheid: Geschikt voor rechte planken, visgraat- of tegelpatronen, afgestemd op uw smaak. </li>
-        <li>Onderhoudsvriendelijk: Weinig tijd kwijt aan schoonmaken, maar altijd een stralend resultaat.  </li>
+        <li>Details en maatwerk: Elk detail wordt nauwkeurig afgestemd op uw ruimte en wensen. </li>
+        <li>Ervaring en expertise: Onze ervaren parketteurs leggen de vloeren met precisie en vakmanschap. </li>
         <li>
-          Professioneel gelegd: Onze ervaren parketteurs zorgen voor een perfecte afwerking, zodat uw vloer en altijd
-          strak uitziet.
+          Advies op maat: We begeleiden u bij het kiezen van de juiste parketvloer die past bij uw stijl en behoeften. 
         </li>
       </ul>,
       <p className="mb-9">
-        Met laminaat haalt u een vloer in huis die functioneel én prachtig is - ideaal voor elk type interieur. {' '}
+        Alle parketvloeren die wij leveren, zijn afkomstig uit duurzame bronnen en voorzien van PEFC- en/of
+        FSC-keurmerken. Dit betekent dat u niet alles kiest voor kwaliteit, maar ook voor een milieuvriendelijke en
+        verantwoorde optie. 
       </p>,
       <>
         <BodyText className="text-secondaryDefault">
@@ -46,16 +43,18 @@ const thirdSectionCards: InfoCardProps[] = [
 const FAQs: FAQType[] = [
   {
     answer:
-      'De tijd hangt af van de grootte van de ruimte, maar een gemiddelde kamer kan in 1 tot 2 dagen worden gelegd.',
-    question: 'Hoelang duurt het om laminaat te leggen?',
+      'De duur van het leggen van parket hangt af van de grootte van de ruimte en het patroon. Gemiddeld kan het 1 tot 3 dagen duren, inclusief voorbereidingen zoals egaliseren.',
+    question: 'Hoelang duurt het om een parketvloer te leggen?',
   },
   {
-    question: 'Is ondervloer nodig bij het leggen van laminaat?',
-    answer: 'Ja, een ondervloer is meestal vereist voor geluidsdemping, isolatie en bescherming tegen vocht.',
+    question: 'Is parket geschikt voor vloerverwarming?',
+    answer:
+      'Ja, veel soorten parket zijn geschikt voor vloerverwarming, maar het is belangrijk om een deskundige te raadplegen om het juiste type hout en installatie te kiezen.',
   },
   {
-    question: 'Kan laminaat over de bestaande vloer worden gelegd?é',
-    answer: 'Laminaat kan vaak over bestaande vloeren worden gelegd, behalve op tapijt.',
+    question: 'Hoe onderhoud ik mijn parketvloer na installatie?',
+    answer:
+      'Regelmatig stofzuigen en dweilen met een licht vochtige doek is voldoende. Voor langdurig onderhoud wordt aangeraden om de vloer jaarlijks te oliën of te lakken.',
   },
   {
     question: 'Kunnen jullie eerst langskomen?',
@@ -70,7 +69,7 @@ const FAQs: FAQType[] = [
   {
     question: 'Welke voorbereidingen moet ik treffen?',
     answer:
-      'Voor aanvang van de werkzaamheden vragen wij u altijd de te behandelen oppervlakken leeg en schoon te maken, zodat onze specialisten direct aan de slag kunnen. Bij een parketrenovatie betekent dit dat de gehele vloer vrij moet zijn. Het is ook belangrijk dat de ruimte goed toegankelijk is, omdat we vaak werken met zware professionele machines die naar de werkplek gebracht moeten worden. ',
+      'Voor aanvang van de werkzaamheden vragen wij u altijd de te behandelen oppervlakken leeg en schoon te maken, zodat onze specialisten direct aan de slag kunnen. Bij een parketrenovatie betekent dit dat de gehele vloer vrij moet zijn. Het is ook belangrijk dat de ruimte goed toegankelijk is, omdat we vaak werken met zware professionele machines die naar de werkplek gebracht moeten worden.',
   },
 ];
 
@@ -87,7 +86,7 @@ const whatWaitingForConfig: InfoCardProps = {
       heel veel gevallen is deze afspraak niet nodig, en is advies via mailcontact met foto’s voldoende.{' '}
     </BodyText>,
   ],
-  imgSrc: '/vloeren-leggen/laminaat-leggen/laminaat-leggen-8.png',
+  imgSrc: '/vloeren-leggen/parket-leggen/parket-leggen-8.png',
   buttonText: 'Direct offerte berekenen',
   buttonLink: '/offerte-aanvragen',
 };
@@ -98,17 +97,16 @@ export default function Home() {
       <Hero />
       <ListCard
         sectionName="Vloeren leggen"
-        pageName="Laminaat leggen"
-        listTitle="Ben jij op zoek naar…"
+        pageName="Parket leggen"
+        listTitle="Weet jij niet…"
         listItems={[
-          'Een vloer met weinig onderhoud?',
-          'Een vloer die betaalbaar én stijlvol is?',
-          'Een vloer die strak en professioneel gelegd wordt?',
-          'Een vloer met de warme uitstraling van hout?',
+          'Hoe u een parketvloer professioneel legt?',
+          'Welke parketvloer het beste past bij uw ruimte?',
+          'Of parket gecombineerd kan worden met vloerverwarming?',
         ]}
         btnLink="/offerte-aanvragen"
         btnText="Offerte berekenen"
-        imgSrc="/vloeren-leggen/laminaat-leggen/laminaat-leggen-1.png"
+        imgSrc="/vloeren-leggen/parket-leggen/parket-leggen-1.png"
         orangeText="Herkenbaar? Geen zorgen, wij lossen het op!"
       />
       <CardsSection
@@ -123,11 +121,11 @@ export default function Home() {
         title="Wat hebben wij in petto? Uw vloer weer laten stralen!"
         description="Bekijk de resultaten van onze vloerenlegservice en ontdek hoe we verouderde of beschadigde vloeren omtoveren tot prachtige, moderne ruimtes. Vele tevreden klanten gingen u voor, dus uw vloer kan de volgende zijn!"
         btnText="Bereken jouw vloer"
-        firstImg={'/vloeren-leggen/laminaat-leggen/laminaat-leggen-3.png'}
-        secondImg="/vloeren-leggen/laminaat-leggen/laminaat-leggen-4.png"
-        thirdImg="/vloeren-leggen/laminaat-leggen/laminaat-leggen-5.png"
-        fourthImg="/vloeren-leggen/laminaat-leggen/laminaat-leggen-6.png"
-        fifthImg="/vloeren-leggen/laminaat-leggen/laminaat-leggen-7.png"
+        firstImg={'/vloeren-leggen/parket-leggen/parket-leggen-3.png'}
+        secondImg="/vloeren-leggen/parket-leggen/parket-leggen-4.png"
+        thirdImg="/vloeren-leggen/parket-leggen/parket-leggen-5.png"
+        fourthImg="/vloeren-leggen/parket-leggen/parket-leggen-6.png"
+        fifthImg="/vloeren-leggen/parket-leggen/parket-leggen-7.png"
       />
       <WhatWaitingForCard
         orangeText="Ik wil dat de parketteur langskomt!"
