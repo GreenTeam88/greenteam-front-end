@@ -85,7 +85,7 @@ export default function Home() {
   return (
     <div className="flex flex-col  relative z-0 items-center w-full">
       <Hero />
-      <SecondSection image="/Parketrenovatie/reparatie-1.png" pageName="Reparatie" />
+      <SecondSection sectionName="Parket Renovatie" image="/Parketrenovatie/reparatie-1.png" pageName="Reparatie" />
       <ThirdSection
         bottomText="Help, mijn oude vloer is aan vervanging toe!"
         title="Hoe gaat reparatie in zijn werk?"
