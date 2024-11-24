@@ -6,8 +6,6 @@ import { WhatWaitingForCard } from '../_components/whatWaitingForCard';
 import { Hero } from '../../_components/hero';
 import { RatingSection } from '../../_components/ratingSection';
 import { FAQSection, FAQType } from '../../(Parketrenovatie)/_components/FAQSection';
-import { SecondSection } from '../../(Parketrenovatie)/_components/secondSection';
-import { ThirdSection } from '../../(Parketrenovatie)/_components/thirdSection';
 import { WhyGreenTeam } from '../../(Parketrenovatie)/_components/whyGreenTeam';
 import { InfoCardProps } from '../../diensten/_components/cards';
 import { QuestionSection } from '../../over-ons/_components/question';
@@ -17,12 +15,12 @@ const thirdSectionCards: InfoCardProps[] = [
     title: 'Laminaat leggen',
     imgSrc: '/vloeren-leggen/laminaat-leggen/laminaat-leggen-2.png',
     paragraphs: [
-      <>
+      <div key="1">
          Laminaat is dé ideale keuze voor wie een stijlvolle vloer wil zonder in te leveren op gebruiksgemak. Het
         combineert een natuurlijke houtlook met een scherpe prijs en minimaal onderhoud.{' '}
-      </>,
-      <>Waarom laminaat de juiste keuze is:</>,
-      <ul className="flex flex-col py-3 list-disc gap-4 list-inside">
+      </div>,
+      <div key="2">Waarom laminaat de juiste keuze is:</div>,
+      <ul key="3" className="flex flex-col py-3 list-disc gap-4 list-inside">
         <li>Betaalbaar en stijlvol: Laminaat biedt de luxe uitstraling van hout, zonder het hoge prijskaartje.  </li>
         <li>Veelzijdigheid: Geschikt voor rechte planken, visgraat- of tegelpatronen, afgestemd op uw smaak. </li>
         <li>Onderhoudsvriendelijk: Weinig tijd kwijt aan schoonmaken, maar altijd een stralend resultaat.  </li>
@@ -31,14 +29,14 @@ const thirdSectionCards: InfoCardProps[] = [
           strak uitziet.
         </li>
       </ul>,
-      <p className="mb-9">
+      <p key="4" className="mb-9">
         Met laminaat haalt u een vloer in huis die functioneel én prachtig is - ideaal voor elk type interieur. {' '}
       </p>,
-      <>
+      <div key="5">
         <BodyText className="text-secondaryDefault">
           Ligt jouw vloer er al 10 tot 20 jaar dan is het de hoogste tijd om daar wat aan te doen!{' '}
         </BodyText>
-      </>,
+      </div>,
     ],
   },
 ];

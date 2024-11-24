@@ -34,7 +34,7 @@ export const ListCard: React.FC<ListCardProps> = ({
             <H2 className="text-primaryDefault">{listTitle}</H2>
             <div className="flex flex-col gap-[11px] ">
               {listItems.map((item) => (
-                <div className="flex gap-2">
+                <div key={item} className="flex gap-2">
                   <CheckedIcon /> <BodyText>{item}</BodyText>
                 </div>
               ))}

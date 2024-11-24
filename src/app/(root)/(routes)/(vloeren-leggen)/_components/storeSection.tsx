@@ -16,8 +16,6 @@ type StoreImagesInfo = {
 
 const ImagesGallery: React.FC<StoreImagesInfo> = ({
   firstImg,
-  title,
-  description,
   secondImg,
   thirdImg,
   thirdImgTopText,

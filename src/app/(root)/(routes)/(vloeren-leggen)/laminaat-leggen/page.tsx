@@ -15,27 +15,27 @@ const thirdSectionCards: InfoCardProps[] = [
     title: 'Parket leggen',
     imgSrc: '/vloeren-leggen/parket-leggen/parket-leggen-2.png',
     paragraphs: [
-      <>
+      <div key="1">
         Een parketvloer komt pas echt tot zijn recht als deze vakkundig wordt gelegd. Bij Green Team zorgen we ervoor
         dat uw vloer perfect wordt geplaatst, met oog voor:{' '}
-      </>,
-      <ul className="flex flex-col py-3 list-disc gap-4 list-inside">
+      </div>,
+      <ul key="2" className="flex flex-col py-3 list-disc gap-4 list-inside">
         <li>Details en maatwerk: Elk detail wordt nauwkeurig afgestemd op uw ruimte en wensen. </li>
         <li>Ervaring en expertise: Onze ervaren parketteurs leggen de vloeren met precisie en vakmanschap. </li>
         <li>
           Advies op maat: We begeleiden u bij het kiezen van de juiste parketvloer die past bij uw stijl en behoeften. 
         </li>
       </ul>,
-      <p className="mb-9">
+      <p key="3" className="mb-9">
         Alle parketvloeren die wij leveren, zijn afkomstig uit duurzame bronnen en voorzien van PEFC- en/of
         FSC-keurmerken. Dit betekent dat u niet alles kiest voor kwaliteit, maar ook voor een milieuvriendelijke en
         verantwoorde optie. 
       </p>,
-      <>
+      <div key="4">
         <BodyText className="text-secondaryDefault">
           Ligt jouw vloer er al 10 tot 20 jaar dan is het de hoogste tijd om daar wat aan te doen!{' '}
         </BodyText>
-      </>,
+      </div>,
     ],
   },
 ];
