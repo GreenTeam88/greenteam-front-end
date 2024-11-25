@@ -13,7 +13,8 @@ import SingleSelectDropdown from './SingleSelectDropdown';
 
 interface StepProps {
   onPrevious: () => void;
-  onNext: () => void;
+  onNext: (step?: number) => void; // Navigate to specific steps
+  onUploadClick: (field: string) => void; // Navigate to upload step with target field
   formData: any; // Centralized form data passed down
   updateFormData: (data: any) => void; // Function to update the centralized state
 }
@@ -72,7 +73,7 @@ const schema = z
     }
   });
 
-const StepThree: React.FC<StepProps> = ({ onPrevious, onNext, formData, updateFormData }) => {
+const StepThree: React.FC<StepProps> = ({ onPrevious, onNext, onUploadClick, formData, updateFormData }) => {
   const categories = ['Ja', 'Nee'];
   const numberOfSurfacesOptions = ['1', '2', '3', '4', '5', '6', '7', '8', '9', '10+'];
   const surfaceTypes = [
@@ -201,8 +202,14 @@ const StepThree: React.FC<StepProps> = ({ onPrevious, onNext, formData, updateFo
           {watchYesNo === 'Ja' && (
             <>
               <div className="flex flex-col">
-                <label className="text-xs">
-                  <span className="font-bold text-green-700 hover:text-green-900 hover:underline cursor-pointer transition-all duration-200">
+                <label
+                  className="text-xs cursor-pointer"
+                  onClick={() => {
+                    updateFormData(form.getValues()); // Save the current form state
+                    onUploadClick('damagePhotos'); // Navigate to the upload step and set field name
+                  }}
+                >
+                  <span className="font-bold text-green-700 hover:text-green-900 hover:underline transition-all duration-200">
                     Foto uploaden
                   </span>
                   <span className="text-gray-400 font-sans"> (Niet verplicht)</span>

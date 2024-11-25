@@ -11,14 +11,13 @@ import SingleSelectDropdown from './SingleSelectDropdown';
 
 interface StepFiveProps {
   onPrevious: () => void;
-  onNext: () => void;
+  onNext: (step?: number) => void;
   onUploadClick: () => void;
   onCommentClick: () => void;
   formData: any; // Centralized form data passed down
   updateFormData: (data: any) => void; // Function to update the centralized state
 }
 
-// Define the schema using Zod
 const schema = z.object({
   desiredExecutionTimeframe: z.string().nonempty({ message: 'Please select at least one timeframe' }),
   subsequentActions: z.string().nonempty({ message: 'Please select at least one action' }),
@@ -58,8 +57,6 @@ const StepFive: React.FC<StepFiveProps> = ({
       onNext(); // Proceed to the next step
     })();
   };
-
-  const text = "Foto's uploaden";
 
   return (
     <FormProvider {...form}>
@@ -108,7 +105,7 @@ const StepFive: React.FC<StepFiveProps> = ({
               onClick={onUploadClick}
               className="text-green-700 font-sans text-sm font-bold hover:text-green-900 hover:underline transition-all duration-200"
             >
-              {text}
+              Foto uploaden
             </button>
             <span className="text-gray-300">|</span>
             <button
