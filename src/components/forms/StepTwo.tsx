@@ -48,8 +48,8 @@ const StepTwo: React.FC<StepProps> = ({ onPrevious, onNext, formData, updateForm
     // Calculate floor cost based on floor-specific logic
     const floorLevelCost = selectedFloors.reduce((totalCost: number, floor: string) => {
       const floorNumber = parseInt(floor.split(' ')[0], 10); // Extract the floor number
-      if (!isNaN(floorNumber) && floorNumber > 0) {
-        totalCost += FLOOR_COST * floorNumber; // Multiply cost by floor number
+      if (floorNumber > 0) {
+        totalCost += FLOOR_COST; // Multiply cost by floor number
       }
       return totalCost;
     }, 0);
@@ -93,14 +93,17 @@ const StepTwo: React.FC<StepProps> = ({ onPrevious, onNext, formData, updateForm
         </div>
         <div className="bg-white w-full rounded-b-[8px] flex flex-col px-[22px] gap-[25px] py-[22px]">
           <div className="flex flex-row items-center justify-between">
-            <div className="flex items-center gap-[5px] cursor-pointer" onClick={onPrevious}>
+            <div
+              className="flex items-center gap-[5px] cursor-pointer hover:text-green-700 transition-all"
+              onClick={onPrevious}
+            >
               <ChevronLeft />
             </div>
             <span className="flex-1 text-gray-400 font-sans text-sm whitespace-nowrap">
               Een aantal vragen over de ruimte(s)
             </span>
             <div className="flex w-[25%] h-[6px] bg-gray-300 rounded-full ml-4">
-              <div className="w-[40%] h-full bg-green-700 rounded-full"></div>
+              <div className="w-[30%] h-full bg-green-700 rounded-full"></div>
             </div>
           </div>
           <div className="flex flex-col gap-[11px]">
@@ -117,7 +120,7 @@ const StepTwo: React.FC<StepProps> = ({ onPrevious, onNext, formData, updateForm
           <div className="flex flex-col space-y-2">
             <div className="flex justify-between items-center">
               <span className="font-semibold text-lg text-green-700">Totaal incl. btw.</span>
-              <span className="font-semibold text-lg text-green-700">€{calculateTotal()}</span>
+              <span className="font-semibold text-lg text-green-700">€{calculateTotal() || '0.00'}</span>
             </div>
             <CreateButton className="bg-primaryDefault w-full" type="submit">
               Volgende

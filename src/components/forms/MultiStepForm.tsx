@@ -8,7 +8,8 @@ import FinalStep from './FinalStep';
 import StepFive from './StepFive';
 import StepFour from './StepFour';
 import StepOne from './StepOne';
-import StepThree from './StepThree';
+import StepThreePart1 from './StepThreePart1';
+import StepThreePart2 from './StepThreePart2';
 import StepTwo from './StepTwo';
 import UploadStep from './UploadStep';
 
@@ -39,7 +40,7 @@ const MultiStepForm = () => {
       setCurrentStep(nextStep); // Navigate to specified step
     } else {
       setHistory((prev) => [...prev, currentStep]);
-      setCurrentStep((prev) => Math.min(prev + 1, 9)); // Navigate to next step
+      setCurrentStep((prev) => Math.min(prev + 1, 10)); // Navigate to next step
     }
   };
 
@@ -51,13 +52,14 @@ const MultiStepForm = () => {
       setCurrentStep(previousStep); // Navigate to the previous step
     }
   };
+
   const onUploadClick = (fieldName: string) => {
     setHistory((prev) => [...prev, currentStep]); // Save current step to history
     setFormData((prev) => ({
       ...prev,
       uploadField: fieldName, // Save which field the upload corresponds to
     }));
-    setCurrentStep(6); // Navigate to the UploadStep
+    setCurrentStep(7); // Navigate to the UploadStep
   };
 
   // Function to render the current step
@@ -76,15 +78,24 @@ const MultiStepForm = () => {
         );
       case 3:
         return (
-          <StepThree
-            onNext={goToNextStep}
+          <StepThreePart1
+            onNext={() => goToNextStep(4)} // Navigate to StepThreePart2
             onUploadClick={onUploadClick} // Pass the handler here
             formData={formData}
             updateFormData={updateFormData}
             onPrevious={goToPreviousStep}
           />
         );
-      case 4:
+      case 4: // New step ID for StepThreePart2
+        return (
+          <StepThreePart2
+            onNext={() => goToNextStep(5)}
+            formData={formData}
+            updateFormData={updateFormData}
+            onPrevious={goToPreviousStep}
+          />
+        );
+      case 5:
         return (
           <StepFour
             onNext={goToNextStep}
@@ -93,18 +104,18 @@ const MultiStepForm = () => {
             onPrevious={goToPreviousStep}
           />
         );
-      case 5:
+      case 6:
         return (
           <StepFive
-            onNext={() => goToNextStep(8)} // Navigate directly to ContactInfoStep
-            onUploadClick={() => goToNextStep(6)} // Navigate to UploadStep
-            onCommentClick={() => goToNextStep(7)} // Navigate to CommentStep
+            onNext={() => goToNextStep(9)} // Navigate directly to ContactInfoStep
+            onUploadClick={() => goToNextStep(7)} // Navigate to UploadStep
+            onCommentClick={() => goToNextStep(8)} // Navigate to CommentStep
             formData={formData}
             updateFormData={updateFormData}
             onPrevious={goToPreviousStep}
           />
         );
-      case 6:
+      case 7:
         return (
           <UploadStep
             onPrevious={goToPreviousStep}
@@ -114,7 +125,7 @@ const MultiStepForm = () => {
             }}
           />
         );
-      case 7:
+      case 8:
         return (
           <CommentStep
             onPrevious={goToPreviousStep}
@@ -124,7 +135,7 @@ const MultiStepForm = () => {
             }}
           />
         );
-      case 8:
+      case 9:
         return (
           <ContactInfoStep
             onNext={goToNextStep}
@@ -134,7 +145,7 @@ const MultiStepForm = () => {
             onPrevious={goToPreviousStep}
           />
         );
-      case 9:
+      case 10:
         return <FinalStep />;
       default:
         return <StepOne onNext={goToNextStep} formData={formData} updateFormData={updateFormData} />;

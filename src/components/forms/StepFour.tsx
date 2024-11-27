@@ -98,7 +98,7 @@ const StepFour: React.FC<StepFourProps> = ({ onPrevious, onNext, formData, updat
               Niet verplicht, wel handig om te weten
             </span>
             <div className="flex w-[25%] h-[6px] bg-gray-300 rounded-full ml-4">
-              <div className="w-[70%] h-full bg-green-700 rounded-full"></div>
+              <div className="w-[75%] h-full bg-green-700 rounded-full hover:text-green-700 transition-all-"></div>
             </div>
           </div>
 
@@ -118,7 +118,7 @@ const StepFour: React.FC<StepFourProps> = ({ onPrevious, onNext, formData, updat
               <InputGetter
                 form={form}
                 name="numberOfMeters"
-                label="Aantal meter"
+                label="Aantal meter (excl. plinten)"
                 placeholder="Enter the number of meters"
                 type="text"
               />

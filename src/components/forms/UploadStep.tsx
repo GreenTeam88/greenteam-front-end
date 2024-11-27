@@ -34,7 +34,10 @@ const UploadStep: React.FC<UploadStepProps> = ({ onPrevious, onUpload }) => {
           </div>
         </div>
         <div className="bg-white w-full flex-1 rounded-b-[8px] flex flex-col px-[22px] gap-[33px] py-[22px]">
-          <div className="flex flex-row items-center gap-[5px] cursor-pointer" onClick={onPrevious}>
+          <div
+            className="flex flex-row items-center gap-[5px] cursor-pointer hover:text-green-700 transition-all"
+            onClick={onPrevious}
+          >
             <ChevronLeft />
             <span className="text-gray-700 font-sans text-sm">Terug</span>
           </div>

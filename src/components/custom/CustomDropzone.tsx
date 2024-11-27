@@ -1,6 +1,7 @@
 'use client';
 
 import { Paperclip } from 'lucide-react';
+import Image from 'next/image';
 
 import { FileInput, FileUploader, FileUploaderContent, FileUploaderItem } from '@/components/extension/file-upload';
 import { Button } from '@/components/ui/button';
@@ -71,13 +72,21 @@ const CustomDropzone = ({ files, setFiles }: CustomDropzoneProps) => {
             >
               <div className="flex-shrink-0">
                 {file.type.includes('image') ? (
-                  <img src={URL.createObjectURL(file)} alt={file.name} className={'w-9 h-9 rounded-full'} />
+                  <Image
+                    src={URL.createObjectURL(file)}
+                    alt={file.name}
+                    className="w-9 h-9 rounded-lg"
+                    width={36} // or another size that fits your design
+                    height={36} // or another size
+                  />
                 ) : (
                   <Paperclip size={16} />
                 )}
               </div>
               <div className={'flex flex-col gap-y-[2px] truncate'}>
-                <h5 className={'font-semibold text-xs text-textDefault truncate'}>{file.name}</h5>
+                <h5 className={'font-semibold text-xs text-textDefault truncate'}>
+                  {file.name.length > 33 ? file.name.slice(0, 31) + '...' : file.name}
+                </h5>
                 <span className={'font-normal text-xs text-textSecDefault'}>{Math.floor(file.size / 1000)}kb</span>
               </div>
             </FileUploaderItem>

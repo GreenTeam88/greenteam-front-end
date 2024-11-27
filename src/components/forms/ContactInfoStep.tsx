@@ -64,7 +64,10 @@ const ContactInfoStep: React.FC<ContactInfoStepProps> = ({
         </div>
         <div className="bg-white w-full rounded-b-[8px] flex flex-col px-[22px] gap-4 py-[22px]">
           <div className="flex flex-row items-center justify-between">
-            <div className="flex items-center gap-[5px] cursor-pointer" onClick={onPrevious}>
+            <div
+              className="flex items-center gap-[5px] cursor-pointer hover:text-green-700 transition-all"
+              onClick={onPrevious}
+            >
               <ChevronLeft />
             </div>
             <span className="flex-1 text-gray-400 font-sans text-sm whitespace-nowrap">Contactinformatie</span>

@@ -71,12 +71,15 @@ const StepFive: React.FC<StepFiveProps> = ({
         </div>
         <div className="bg-white w-full rounded-b-[8px] flex flex-col px-[22px] gap-[17px] py-[22px]">
           <div className="flex flex-row items-center justify-between">
-            <div className="flex items-center gap-[5px] cursor-pointer" onClick={onPrevious}>
+            <div
+              className="flex items-center gap-[5px] cursor-pointer hover:text-green-700 transition-all"
+              onClick={onPrevious}
+            >
               <ChevronLeft />
             </div>
             <span className="flex-1 text-gray-400 font-sans text-sm whitespace-nowrap">Planning</span>
             <div className="flex w-[25%] h-[6px] bg-gray-300 rounded-full ml-4">
-              <div className="w-[85%] h-full bg-green-700 rounded-full"></div>
+              <div className="w-[90%] h-full bg-green-700 rounded-full"></div>
             </div>
           </div>
 
