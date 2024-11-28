@@ -1,6 +1,6 @@
 import { zodResolver } from '@hookform/resolvers/zod';
 import { ChevronLeft } from 'lucide-react';
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useRef, useState } from 'react';
 import { FormProvider, useForm } from 'react-hook-form';
 import { z } from 'zod';
 
@@ -74,10 +74,11 @@ const StepThreePart2: React.FC<StepProps> = ({ onPrevious, onNext, formData, upd
   const watchNumberOfTraptredesOpstapjes = parseFloat(form.watch('numberOfTraptredesOpstapjes') || '0');
   const watchNumberOfDrempelsDorpels = parseFloat(form.watch('numberOfDrempelsDorpels') || '0');
 
-  const existingTotal = parseFloat(formData.totalCost) || 0; // Existing total from formData
   const [additionalCost, setAdditionalCost] = useState<number>(0);
+  const totalRef = useRef<number>(parseFloat(formData.totalCost) || 0); // Track total cost using ref
 
   useEffect(() => {
+    // Calculate additional cost based on current selections
     let updatedCost = 0;
 
     if (watchSurfaces.includes('Vensterbanken')) {
@@ -106,12 +107,26 @@ const StepThreePart2: React.FC<StepProps> = ({ onPrevious, onNext, formData, upd
     watchNumberOfDrempelsDorpels,
   ]);
 
+  const existingTotal = totalRef.current; // Track the persistent total cost
+
+  // Button should be disabled if no surfaces are selected or missing required input fields
+  const isButtonDisabled =
+    !watchSurfaces.length || // No surfaces selected
+    ((watchSurfaces.includes('Traptredes') || watchSurfaces.includes('Opstapjes')) &&
+      !watchNumberOfTraptredesOpstapjes) || // Missing number of Traptredes or Opstapjes
+    ((watchSurfaces.includes('Drempels') || watchSurfaces.includes('Dorpels')) && !watchNumberOfDrempelsDorpels) || // Missing number of Drempels or Dorpels
+    (watchSurfaces.includes('Vensterbanken') && !watchVensterbankenMeters) || // Missing meters for Vensterbanken
+    (watchSurfaces.includes('Planken/Plateaus') && !watchPlankenMeters) || // Missing meters for Planken/Plateaus
+    (watchSurfaces.includes('Salontafels/Eettafels') && !watchTableArea); // Missing area for Salontafels/Eettafels
+
   const handleSubmit = (event: React.FormEvent) => {
     event.preventDefault();
     form.handleSubmit((data) => {
-      const finalTotal = existingTotal + additionalCost; // Add additional cost to existing total
-      updateFormData({ ...data, totalCost: finalTotal });
-      onNext();
+      // Update total cost only when moving forward
+      const finalTotal = existingTotal + additionalCost; // Add the calculated additional cost
+      totalRef.current = finalTotal; // Save the total to ref to persist it across navigation
+      updateFormData({ ...data, totalCost: finalTotal }); // Update the form data with the new total
+      onNext(); // Move to next step
     })();
   };
 
@@ -120,7 +135,7 @@ const StepThreePart2: React.FC<StepProps> = ({ onPrevious, onNext, formData, upd
       <form onSubmit={handleSubmit} className="w-[386px] h-[430px] flex rounded-[4px] relative lg:px-0 z-10 flex-col">
         <div className="bg-primaryDefault rounded-t-[8px] flex items-center justify-center text-white py-[22px] w-full">
           <div className="text-center">
-            <HeadlineSemibold className="w-full">Snel jouw prijs berekenen!</HeadlineSemibold>
+            <HeadlineSemibold className="w-full">Snel uw prijs bereken!</HeadlineSemibold>
           </div>
         </div>
         <div className="bg-white w-full rounded-b-[8px] flex flex-col px-[22px] gap-[7px] py-[22px]">
@@ -132,7 +147,7 @@ const StepThreePart2: React.FC<StepProps> = ({ onPrevious, onNext, formData, upd
               <ChevronLeft />
             </div>
             <span className="flex-1 text-gray-400 font-sans text-sm whitespace-nowrap">
-              Waar kunnen we je mee helpen?
+              Waar kunnen we u mee helpen?
             </span>
             <div className="flex w-[25%] h-[6px] bg-gray-300 rounded-full ml-4">
               <div className="w-[60%] h-full bg-green-700 rounded-full"></div>
@@ -167,6 +182,7 @@ const StepThreePart2: React.FC<StepProps> = ({ onPrevious, onNext, formData, upd
               />
             ) : null}
           </div>
+
           <div className="grid grid-cols-2 gap-x-4">
             {watchSurfaces.includes('Vensterbanken') ? (
               <InputGetter
@@ -206,7 +222,11 @@ const StepThreePart2: React.FC<StepProps> = ({ onPrevious, onNext, formData, upd
                 €{(existingTotal + additionalCost).toFixed(2)}
               </span>
             </div>
-            <CreateButton className="bg-primaryDefault w-full" type="submit">
+            <CreateButton
+              className={`w-full ${isButtonDisabled ? 'bg-gray-500' : 'bg-primaryDefault border border-transparent hover:bg-white hover:text-green-700 hover:border-green-700 transition-all duration-300'}`}
+              type="submit"
+              disabled={isButtonDisabled}
+            >
               Volgende
             </CreateButton>
           </div>

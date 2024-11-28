@@ -27,6 +27,7 @@ const schema = z.object({
 
 const StepFour: React.FC<StepFourProps> = ({ onPrevious, onNext, formData, updateFormData }) => {
   const [totalPrice, setTotalPrice] = useState<number>(formData.totalCost || 0);
+  const [isButtonDisabled, setIsButtonDisabled] = useState<boolean>(true); // Track button state
 
   const categories = [
     { value: 'Ja, lage', label: 'Ja, lage', imageUrl: '/images/hoge.png' },
@@ -69,6 +70,16 @@ const StepFour: React.FC<StepFourProps> = ({ onPrevious, onNext, formData, updat
     setTotalPrice(basePrice + additionalCost);
   }, [watchNewBaseboards, watchMeters, formData.totalCost]);
 
+  // Update the button disabled state based on conditions
+  useEffect(() => {
+    if (watchNewBaseboards === 'Nee') {
+      setIsButtonDisabled(false); // Button enabled if "Nee" is selected
+    } else {
+      // If "Ja, lage" or "Ja, hoge" is selected, disable the button until the number of meters is entered
+      setIsButtonDisabled(!(watchMeters && /^[0-9]+$/.test(watchMeters)));
+    }
+  }, [watchNewBaseboards, watchMeters]);
+
   const handleSubmit = (event: React.FormEvent) => {
     event.preventDefault();
     form.handleSubmit((data) => {
@@ -83,10 +94,10 @@ const StepFour: React.FC<StepFourProps> = ({ onPrevious, onNext, formData, updat
 
   return (
     <FormProvider {...form}>
-      <form onSubmit={handleSubmit} className="w-[386px] h-[430px] flex rounded-[4px] relative lg:px-0 z-10 flex-col ">
+      <form onSubmit={handleSubmit} className="w-[386px] h-[430px] flex rounded-[4px] relative lg:px-0 z-10 flex-col">
         <div className="bg-primaryDefault rounded-t-[8px] flex items-center justify-center text-white py-[22px] w-full">
           <div className="text-center">
-            <HeadlineSemibold className="w-full">Snel jouw prijs berekenen!</HeadlineSemibold>
+            <HeadlineSemibold className="w-full">Snel uw prijs bereken!</HeadlineSemibold>
           </div>
         </div>
         <div className="bg-white w-full rounded-b-[8px] flex flex-col px-[22px] gap-[25px] py-[22px]">
@@ -131,7 +142,11 @@ const StepFour: React.FC<StepFourProps> = ({ onPrevious, onNext, formData, updat
               <span className="font-semibold text-lg text-green-700">Totaal incl. btw.</span>
               <span className="font-semibold text-lg text-green-700">€{totalPrice.toFixed(2)}</span>
             </div>
-            <CreateButton className="bg-primaryDefault w-full" type="submit">
+            <CreateButton
+              className={`w-full ${isButtonDisabled ? 'bg-gray-500' : 'bg-primaryDefault border border-transparent hover:bg-white hover:text-green-700 hover:border-green-700 transition-all duration-300'}`}
+              type="submit"
+              disabled={isButtonDisabled}
+            >
               Volgende
             </CreateButton>
           </div>

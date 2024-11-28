@@ -82,13 +82,16 @@ const StepTwo: React.FC<StepProps> = ({ onPrevious, onNext, formData, updateForm
       onNext();
     })();
   };
+  const selectedFloors = form.watch('selectedFloors');
+  const squareMeters = form.watch('squareMeters');
+  const isButtonDisabled = !selectedFloors || !squareMeters;
 
   return (
     <FormProvider {...form}>
       <form onSubmit={handleSubmit} className="w-[386px] h-[430px] flex rounded-[4px] relative lg:px-0 z-10 flex-col">
         <div className="bg-primaryDefault rounded-t-[8px] flex items-center justify-center text-white py-[22px] w-full">
           <div className="text-center">
-            <HeadlineSemibold className="w-full">Snel jouw prijs berekenen!</HeadlineSemibold>
+            <HeadlineSemibold className="w-full">Snel uw prijs bereken!</HeadlineSemibold>
           </div>
         </div>
         <div className="bg-white w-full rounded-b-[8px] flex flex-col px-[22px] gap-[25px] py-[22px]">
@@ -115,14 +118,24 @@ const StepTwo: React.FC<StepProps> = ({ onPrevious, onNext, formData, updateForm
             />
           </div>
           <div className="flex flex-col gap-[11px]">
-            <InputGetter form={form} name="squareMeters" label="Aantal m2" placeholder="Enter the m2" type="text" />
+            <InputGetter
+              form={form}
+              name="squareMeters"
+              label="Aantal m2"
+              placeholder="Voer het aantal m2 in"
+              type="text"
+            />
           </div>
           <div className="flex flex-col space-y-2">
             <div className="flex justify-between items-center">
               <span className="font-semibold text-lg text-green-700">Totaal incl. btw.</span>
               <span className="font-semibold text-lg text-green-700">€{calculateTotal() || '0.00'}</span>
             </div>
-            <CreateButton className="bg-primaryDefault w-full" type="submit">
+            <CreateButton
+              className={`w-full ${isButtonDisabled ? 'bg-gray-500' : 'bg-primaryDefault border border-transparent hover:bg-white hover:text-green-700 hover:border-green-700 transition-all duration-300'}`}
+              type="submit"
+              disabled={isButtonDisabled}
+            >
               Volgende
             </CreateButton>
           </div>

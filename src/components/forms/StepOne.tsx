@@ -53,6 +53,9 @@ const StepOne: React.FC<StepOneProps> = ({ onNext, formData, updateFormData }) =
     },
   });
 
+  const selectedCategory = form.watch('selectedCategory');
+  const selectedService = form.watch('selectedService');
+
   const handleSubmit = form.handleSubmit((data) => {
     const selectedServicePrice = servicesWithPrices[data.selectedService] || 0;
 
@@ -71,6 +74,9 @@ const StepOne: React.FC<StepOneProps> = ({ onNext, formData, updateFormData }) =
     }
   });
 
+  // Determine if the button should be disabled
+  const isButtonDisabled = !selectedCategory || !selectedService;
+
   return (
     <FormProvider {...form}>
       <form
@@ -78,12 +84,12 @@ const StepOne: React.FC<StepOneProps> = ({ onNext, formData, updateFormData }) =
         className="w-[386px] h-[430px] flex rounded-[4px] relative lg:px-0 z-10 flex-col shadow-lg "
       >
         <div className="bg-primaryDefault rounded-t-[8px] flex items-center justify-center text-white py-[22px] w-full">
-          <HeadlineSemibold>Snel jouw prijs berekenen!</HeadlineSemibold>
+          <HeadlineSemibold>Snel uw prijs bereken!</HeadlineSemibold>
         </div>
         <div className="bg-white w-full rounded-b-[8px] flex flex-col px-[22px] gap-[25px] py-[22px]">
           <div className="flex flex-row items-center justify-between">
             <span className="text-gray-400 font-sans text-sm">Waar kunnen we u mee helpen?</span>
-            {(form.watch('selectedCategory') || form.watch('selectedService')) && (
+            {(selectedCategory || selectedService) && (
               <div className="w-[25%] h-[6px] bg-gray-300 rounded-full ml-4">
                 <div className="w-[15%] h-full bg-green-700 rounded-full"></div>
               </div>
@@ -110,7 +116,11 @@ const StepOne: React.FC<StepOneProps> = ({ onNext, formData, updateFormData }) =
               <span className="font-semibold text-lg text-green-700">Totaal incl. btw.</span>
               <span className="font-semibold text-lg text-green-700">€0,00</span>
             </div>
-            <CreateButton className="bg-primaryDefault w-full" type="submit">
+            <CreateButton
+              className={`w-full ${isButtonDisabled ? 'bg-gray-500' : 'bg-primaryDefault border border-transparent hover:bg-white hover:text-green-700 hover:border-green-700 transition-all duration-300'}`}
+              type="submit"
+              disabled={isButtonDisabled}
+            >
               Volgende
             </CreateButton>
           </div>

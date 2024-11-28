@@ -1,6 +1,6 @@
 import { zodResolver } from '@hookform/resolvers/zod';
 import { ChevronLeft } from 'lucide-react';
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import { FormProvider, useForm } from 'react-hook-form';
 import { z } from 'zod';
 
@@ -36,11 +36,30 @@ const ContactInfoStep: React.FC<ContactInfoStepProps> = ({
   updateFormData,
   onSubmit,
 }) => {
+  const [isButtonDisabled, setIsButtonDisabled] = useState<boolean>(true); // State for button disable/enable
+
   const form = useForm({
     resolver: zodResolver(schema),
     defaultValues: formData, // Initialize form with existing data
-    mode: 'onBlur',
+    mode: 'onChange', // Watch input fields on change
   });
+
+  // Watch only the required fields individually
+  const watchEmail = form.watch('Email');
+  const watchPhoneNumber = form.watch('PhoneNumber');
+  const watchLastName = form.watch('lastName');
+  const watchPostcode = form.watch('Postcode');
+  const watchStreetAndHouseNumber = form.watch('streetAndHouseNumber');
+  const watchCity = form.watch('city');
+
+  // Effect to check if all required fields are filled
+  useEffect(() => {
+    // Check if all required fields are filled
+    const allFieldsValid =
+      watchEmail && watchPhoneNumber && watchLastName && watchPostcode && watchStreetAndHouseNumber && watchCity;
+
+    setIsButtonDisabled(!allFieldsValid); // Disable button if any required field is missing
+  }, [watchEmail, watchPhoneNumber, watchLastName, watchPostcode, watchStreetAndHouseNumber, watchCity]);
 
   const handleSubmit = (event: React.FormEvent) => {
     event.preventDefault();
@@ -59,7 +78,7 @@ const ContactInfoStep: React.FC<ContactInfoStepProps> = ({
       >
         <div className="bg-primaryDefault rounded-t-[8px] flex items-center justify-center text-white py-[22px] w-full">
           <div className="text-center">
-            <HeadlineSemibold className="w-full">Snel jouw prijs berekenen!</HeadlineSemibold>
+            <HeadlineSemibold className="w-full">Snel uw prijs bereken!</HeadlineSemibold>
           </div>
         </div>
         <div className="bg-white w-full rounded-b-[8px] flex flex-col px-[22px] gap-4 py-[22px]">
@@ -95,7 +114,11 @@ const ContactInfoStep: React.FC<ContactInfoStepProps> = ({
               <span className="font-semibold text-lg text-green-700">Totaal incl. btw.</span>
               <span className="font-semibold text-lg text-green-700">€{formData.totalCost?.toFixed(2) || '0,00'}</span>
             </div>
-            <CreateButton className="bg-primaryDefault w-full" type="submit">
+            <CreateButton
+              className={`w-full ${isButtonDisabled ? 'bg-gray-500' : 'bg-primaryDefault border border-transparent hover:bg-white hover:text-green-700 hover:border-green-700 transition-all duration-300'}`}
+              type="submit"
+              disabled={isButtonDisabled}
+            >
               Volgende
             </CreateButton>
           </div>

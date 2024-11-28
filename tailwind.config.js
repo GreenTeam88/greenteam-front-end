@@ -25,7 +25,15 @@ module.exports = {
       lightOrange: '#F8EFE4',
       ...colors,
     },
-    extend: {},
+    extend: {
+      scale: {
+        165: '1.65',
+        170: '1.70',
+        200: '2',
+        300: '3',
+        400: '4',
+      },
+    },
   },
   plugins: [],
 };

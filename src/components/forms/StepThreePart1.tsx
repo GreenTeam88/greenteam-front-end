@@ -17,11 +17,6 @@ interface StepProps {
   updateFormData: (data: any) => void;
 }
 
-const schema = z.object({
-  damageRepairsNeeded: z.string().nonempty({ message: 'Please select an option' }),
-  numberOfRepairs: z.string().optional(),
-});
-
 const StepThreePart1: React.FC<StepProps> = ({ onPrevious, onNext, onUploadClick, formData, updateFormData }) => {
   const categories = ['Ja', 'Nee'];
   const numbers = ['1', '2', '3', '4', '5', '6', '7', '8', '9', '10+'];
@@ -35,6 +30,16 @@ const StepThreePart1: React.FC<StepProps> = ({ onPrevious, onNext, onUploadClick
     value: number,
     label: number,
   }));
+
+  const [isRepairsRequired, setIsRepairsRequired] = useState<boolean>(formData.damageRepairsNeeded === 'Ja');
+
+  // Dynamic schema to make 'numberOfRepairs' required only if 'damageRepairsNeeded' is 'Ja'
+  const schema = z.object({
+    damageRepairsNeeded: z.string().nonempty({ message: 'Please select an option' }),
+    numberOfRepairs: isRepairsRequired
+      ? z.string().nonempty({ message: 'Please select a number of repairs' })
+      : z.string().optional(),
+  });
 
   const form = useForm({
     resolver: zodResolver(schema),
@@ -52,6 +57,11 @@ const StepThreePart1: React.FC<StepProps> = ({ onPrevious, onNext, onUploadClick
     setTotalPrice(Number(formData.totalCost) || 0);
   }, [formData.totalCost]);
 
+  useEffect(() => {
+    // Update the required field based on "damageRepairsNeeded"
+    setIsRepairsRequired(watchYesNo === 'Ja');
+  }, [watchYesNo]);
+
   const handleSubmit = (event: React.FormEvent) => {
     event.preventDefault();
     form.handleSubmit((data) => {
@@ -60,12 +70,16 @@ const StepThreePart1: React.FC<StepProps> = ({ onPrevious, onNext, onUploadClick
     })();
   };
 
+  const damageRepairsNeeded = form.watch('damageRepairsNeeded');
+  const numberOfRepairs = form.watch('numberOfRepairs');
+  const isButtonDisabled = !damageRepairsNeeded || (damageRepairsNeeded === 'Ja' && !numberOfRepairs);
+
   return (
     <FormProvider {...form}>
       <form onSubmit={handleSubmit} className="w-[386px] h-[430px] flex rounded-[4px] relative lg:px-0 z-10 flex-col">
         <div className="bg-primaryDefault rounded-t-[8px] flex items-center justify-center text-white py-[22px] w-full">
           <div className="text-center">
-            <HeadlineSemibold className="w-full">Snel jouw prijs berekenen!</HeadlineSemibold>
+            <HeadlineSemibold className="w-full">Snel uw prijs bereken!</HeadlineSemibold>
           </div>
         </div>
         <div className="bg-white w-full rounded-b-[8px] flex flex-col px-[22px] gap-y-3 py-[22px]">
@@ -77,7 +91,7 @@ const StepThreePart1: React.FC<StepProps> = ({ onPrevious, onNext, onUploadClick
               <ChevronLeft />
             </div>
             <span className="flex-1 text-gray-400 font-sans text-sm whitespace-nowrap">
-              Waar kunnen we je mee helpen?
+              Waar kunnen we u mee helpen?
             </span>
             <div className="flex w-[25%] h-[6px] bg-gray-300 rounded-full ml-4">
               <div className="w-[45%] h-full bg-green-700 rounded-full"></div>
@@ -128,7 +142,11 @@ const StepThreePart1: React.FC<StepProps> = ({ onPrevious, onNext, onUploadClick
               <span className="font-semibold text-lg text-green-700">Totaal incl. btw.</span>
               <span className="font-semibold text-lg text-green-700">€{totalPrice.toFixed(2)}</span>
             </div>
-            <CreateButton className="bg-primaryDefault w-full " type="submit">
+            <CreateButton
+              className={`w-full ${isButtonDisabled ? 'bg-gray-500' : 'bg-primaryDefault border border-transparent hover:bg-white hover:text-green-700 hover:border-green-700 transition-all duration-300'}`}
+              type="submit"
+              disabled={isButtonDisabled}
+            >
               Volgende
             </CreateButton>
           </div>

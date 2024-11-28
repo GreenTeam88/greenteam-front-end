@@ -1,6 +1,6 @@
 import { zodResolver } from '@hookform/resolvers/zod';
 import { ChevronLeft } from 'lucide-react';
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import { FormProvider, useForm } from 'react-hook-form';
 import { z } from 'zod';
 
@@ -31,6 +31,8 @@ const StepFive: React.FC<StepFiveProps> = ({
   formData,
   updateFormData,
 }) => {
+  const [isButtonDisabled, setIsButtonDisabled] = useState<boolean>(true); // Track button state
+
   const categories = ['Spoed', 'Z.s.m', 'Binnen een week', 'Binnen een maand', 'Zodra ik de sleutel heb', 'In overleg'];
   const offers = ['Ik wil graag een offerte', 'Ik wil graag eerst persoonlijk contact'];
 
@@ -50,6 +52,19 @@ const StepFive: React.FC<StepFiveProps> = ({
     mode: 'onChange',
   });
 
+  const watchDesiredExecutionTimeframe = form.watch('desiredExecutionTimeframe');
+  const watchSubsequentActions = form.watch('subsequentActions');
+
+  // Effect to handle button state based on form values
+  useEffect(() => {
+    // Enable button if both fields are selected
+    if (watchDesiredExecutionTimeframe && watchSubsequentActions) {
+      setIsButtonDisabled(false);
+    } else {
+      setIsButtonDisabled(true);
+    }
+  }, [watchDesiredExecutionTimeframe, watchSubsequentActions]);
+
   const handleSubmit = (event: React.FormEvent) => {
     event.preventDefault();
     form.handleSubmit((data) => {
@@ -66,7 +81,7 @@ const StepFive: React.FC<StepFiveProps> = ({
       >
         <div className="bg-primaryDefault rounded-t-[8px] flex items-center justify-center text-white py-[22px] w-full">
           <div className="text-center">
-            <HeadlineSemibold className="w-full">Snel jouw prijs berekenen!</HeadlineSemibold>
+            <HeadlineSemibold className="w-full">Snel uw prijs bereken!</HeadlineSemibold>
           </div>
         </div>
         <div className="bg-white w-full rounded-b-[8px] flex flex-col px-[22px] gap-[17px] py-[22px]">
@@ -126,7 +141,11 @@ const StepFive: React.FC<StepFiveProps> = ({
               {/* Display total from formData */}
               <span className="font-semibold text-lg text-green-700">€{(formData.totalCost || 0).toFixed(2)}</span>
             </div>
-            <CreateButton className="bg-primaryDefault w-full" type="submit">
+            <CreateButton
+              className={`w-full ${isButtonDisabled ? 'bg-gray-500' : 'bg-primaryDefault border border-transparent hover:bg-white hover:text-green-700 hover:border-green-700 transition-all duration-300'}`}
+              type="submit"
+              disabled={isButtonDisabled}
+            >
               Volgende
             </CreateButton>
           </div>
