@@ -7,9 +7,9 @@ import { InfoCardProps, OrangeInfoCard } from '../../diensten/_components/cards'
 export const CardsSection: React.FC<{
   cards: InfoCardProps[];
   title: string;
-  bottomText: string;
+  bottomText?: string;
   description: string;
-  btnText: string;
+  btnText?: string;
 }> = ({ cards, title, bottomText, btnText, description }) => {
   return (
     <div className="flex w-full gap-[88px] py-[99px] px-3 lg:px-0 bg-secondaryLight flex-col items-center">
@@ -26,10 +26,12 @@ export const CardsSection: React.FC<{
           />
         ))}
       </div>
-      <div className="flex gap-5 p-[22px] border border-black10 border-opacity-10 rounded-[10px] items-center">
-        <HeadlineSemibold>{bottomText}</HeadlineSemibold>
-        <PrimaryBtn>{btnText}</PrimaryBtn>
-      </div>
+      {bottomText && (
+        <div className="flex gap-5 p-[22px] border border-black10 border-opacity-10 rounded-[10px] items-center">
+          <HeadlineSemibold>{bottomText}</HeadlineSemibold>
+          <PrimaryBtn>{btnText}</PrimaryBtn>
+        </div>
+      )}
     </div>
   );
 };
