@@ -16,7 +16,7 @@ const thirdSectionCards: InfoCardProps[] = [
     imgSrc: '/vloeren-leggen/tapijt-leggen/tapijt-leggen-2.png',
     paragraphs: [
       <div key="1">Tapijt is niet zomaar een vloer; het biedt comfort, stijl en praktische voordelen. </div>,
-      <div>Met tapijt kiest u voor:</div>,
+      <div key="10">Met tapijt kiest u voor:</div>,
       <ul key="2" className="flex flex-col py-3 list-disc gap-4 list-inside">
         <li>Warmte en zachtheid: Perfect voor koude ruimtes en heerlijk comfortabel onder uw voeten.  </li>
         <li>Geluidsisolatie: Maak uw huis stiller en rustiger met de dempende werking van tapijt.  </li>

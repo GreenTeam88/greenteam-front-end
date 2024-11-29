@@ -18,8 +18,8 @@ const thirdSectionCards: InfoCardProps[] = [
       <div key="1">
         Een PVC-vloer is niet zomaar een keuze; het is een investering in een vloer die jarenlang meegaat zonder gedoe.
       </div>,
-      <div>Wat maakt PVC zo bijzonder?</div>,
-      <ul key="2" className="flex flex-col py-3 list-disc gap-4 list-inside">
+      <div key="2">Wat maakt PVC zo bijzonder?</div>,
+      <ul key="3" className="flex flex-col py-3 list-disc gap-4 list-inside">
         <li>
           Duurzaamheid: Dankzij de slijtvaste eigenschappen blijft de vloer er als nieuw uitzien, zelfs bij intensief
           gebruik.
@@ -33,10 +33,10 @@ const thirdSectionCards: InfoCardProps[] = [
           tot afwerking. 
         </li>
       </ul>,
-      <p key="3" className="mb-9">
+      <p key="4" className="mb-9">
         Met PVC kiest u voor een vloer die zowel praktisch als stijlvol is, zonder concessies.{' '}
       </p>,
-      <div key="4">
+      <div key="5">
         <BodyText className="text-secondaryDefault">
           Ligt jouw vloer er al 10 tot 20 jaar dan is het de hoogste tijd om daar wat aan te doen!{' '}
         </BodyText>
