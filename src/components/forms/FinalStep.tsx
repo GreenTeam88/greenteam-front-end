@@ -22,10 +22,11 @@ const FinalStep: React.FC = () => {
             <HeadlineSemibold className="w-full">Snel uw prijs bereken!</HeadlineSemibold>
           </div>
         </div>
-        <div className="bg-white w-full flex-1 rounded-b-[8px] flex flex-col px-[22px] gap-[33px] py-[22px] items-center justify-center">
+        <div className="bg-white w-full flex-1 rounded-b-[8px] flex flex-col px-[22px]  py-[22px] items-center justify-center">
           <h1 className="text-green-700 font-bold text-xl text-center">Bedankt!</h1>
           <p className="text-textDefault text-center">
-            Je aanvraag is ontvangen. We nemen <br /> z.s.m. contact met je op!
+            We hebben je aanvraag ontvangen en <br /> nemen binnen 6 uur tijdens onze <br /> reguliere werktijden
+            contact met je op! <br /> <br /> Met vriendelijke groet <br /> GreenTeam
           </p>
         </div>
       </form>

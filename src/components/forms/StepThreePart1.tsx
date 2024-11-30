@@ -23,7 +23,7 @@ const StepThreePart1: React.FC<StepProps> = ({ onPrevious, onNext, onUploadClick
 
   const categoryOptions: Option[] = categories.map((category) => ({
     value: category,
-    label: category,
+    label: category === 'Ja' ? 'Ja (Let op: Berekening volgt na aanvraag)' : category,
   }));
 
   const numberOptions: Option[] = numbers.map((number) => ({
@@ -79,7 +79,7 @@ const StepThreePart1: React.FC<StepProps> = ({ onPrevious, onNext, onUploadClick
       <form onSubmit={handleSubmit} className="w-[386px] h-[430px] flex rounded-[4px] relative lg:px-0 z-10 flex-col">
         <div className="bg-primaryDefault rounded-t-[8px] flex items-center justify-center text-white py-[22px] w-full">
           <div className="text-center">
-            <HeadlineSemibold className="w-full">Snel uw prijs bereken!</HeadlineSemibold>
+            <HeadlineSemibold className="w-full">Snel uw prijs berekenen!</HeadlineSemibold>
           </div>
         </div>
         <div className="bg-white w-full rounded-b-[8px] flex flex-col px-[22px] gap-y-3 py-[22px]">
@@ -91,7 +91,7 @@ const StepThreePart1: React.FC<StepProps> = ({ onPrevious, onNext, onUploadClick
               <ChevronLeft />
             </div>
             <span className="flex-1 text-gray-400 font-sans text-sm whitespace-nowrap">
-              Waar kunnen we u mee helpen?
+              Een aantal vragen over de ruimte(s)
             </span>
             <div className="flex w-[25%] h-[6px] bg-gray-300 rounded-full ml-4">
               <div className="w-[45%] h-full bg-green-700 rounded-full"></div>
@@ -136,7 +136,6 @@ const StepThreePart1: React.FC<StepProps> = ({ onPrevious, onNext, onUploadClick
           )}
 
           {/* Total Price Display */}
-
           <div className="flex flex-col space-y-2">
             <div className="flex justify-between items-center ">
               <span className="font-semibold text-lg text-green-700">Totaal incl. btw.</span>

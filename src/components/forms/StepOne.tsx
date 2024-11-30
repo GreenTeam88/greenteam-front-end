@@ -84,7 +84,7 @@ const StepOne: React.FC<StepOneProps> = ({ onNext, formData, updateFormData }) =
         className="w-[386px] h-[430px] flex rounded-[4px] relative lg:px-0 z-10 flex-col shadow-lg "
       >
         <div className="bg-primaryDefault rounded-t-[8px] flex items-center justify-center text-white py-[22px] w-full">
-          <HeadlineSemibold>Snel uw prijs bereken!</HeadlineSemibold>
+          <HeadlineSemibold>Snel uw prijs berekenen!</HeadlineSemibold>
         </div>
         <div className="bg-white w-full rounded-b-[8px] flex flex-col px-[22px] gap-[25px] py-[22px]">
           <div className="flex flex-row items-center justify-between">

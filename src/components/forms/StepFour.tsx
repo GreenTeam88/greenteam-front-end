@@ -30,8 +30,8 @@ const StepFour: React.FC<StepFourProps> = ({ onPrevious, onNext, formData, updat
   const [isButtonDisabled, setIsButtonDisabled] = useState<boolean>(true); // Track button state
 
   const categories = [
-    { value: 'Ja, lage', label: 'Ja, lage', imageUrl: '/images/hoge.png' },
-    { value: 'Ja, hoge', label: 'Ja, hoge', imageUrl: '/images/hoge.png' },
+    { value: 'Ja, lage', label: 'Ja, lage', imageUrl: '/images/lage-plinten.svg' },
+    { value: 'Ja, hoge', label: 'Ja, hoge', imageUrl: '/images/hoge-plinten.svg' },
     { value: 'Nee', label: 'Nee' },
   ];
 
@@ -97,7 +97,7 @@ const StepFour: React.FC<StepFourProps> = ({ onPrevious, onNext, formData, updat
       <form onSubmit={handleSubmit} className="w-[386px] h-[430px] flex rounded-[4px] relative lg:px-0 z-10 flex-col">
         <div className="bg-primaryDefault rounded-t-[8px] flex items-center justify-center text-white py-[22px] w-full">
           <div className="text-center">
-            <HeadlineSemibold className="w-full">Snel uw prijs bereken!</HeadlineSemibold>
+            <HeadlineSemibold className="w-full">Snel uw prijs berekenen!</HeadlineSemibold>
           </div>
         </div>
         <div className="bg-white w-full rounded-b-[8px] flex flex-col px-[22px] gap-[25px] py-[22px]">
@@ -130,7 +130,7 @@ const StepFour: React.FC<StepFourProps> = ({ onPrevious, onNext, formData, updat
                 form={form}
                 name="numberOfMeters"
                 label="Aantal meter (excl. plinten)"
-                placeholder="Enter the number of meters"
+                placeholder="Voer het aantal meters in"
                 type="text"
               />
             </div>

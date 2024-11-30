@@ -210,7 +210,7 @@ const StepThreePart2: React.FC<StepProps> = ({ onPrevious, onNext, formData, upd
               form={form}
               name="tableArea"
               label="Salontafel(s)/Eettafel(s)"
-              placeholder="Vul hier het aantal m2 in"
+              placeholder="Voer hier het aantal m2 in"
               type="text"
             />
           ) : null}

@@ -34,7 +34,7 @@ const StepFive: React.FC<StepFiveProps> = ({
   const [isButtonDisabled, setIsButtonDisabled] = useState<boolean>(true); // Track button state
 
   const categories = ['Spoed', 'Z.s.m', 'Binnen een week', 'Binnen een maand', 'Zodra ik de sleutel heb', 'In overleg'];
-  const offers = ['Ik wil graag een offerte', 'Ik wil graag eerst persoonlijk contact'];
+  const offers = ['Ik wil graag een officiële offerte', 'Ik wil graag eerst persoonlijk contact'];
 
   const categoryOptions: Option[] = categories.map((category) => ({
     value: category,
@@ -81,7 +81,7 @@ const StepFive: React.FC<StepFiveProps> = ({
       >
         <div className="bg-primaryDefault rounded-t-[8px] flex items-center justify-center text-white py-[22px] w-full">
           <div className="text-center">
-            <HeadlineSemibold className="w-full">Snel uw prijs bereken!</HeadlineSemibold>
+            <HeadlineSemibold className="w-full">Snel uw prijs berekenen!</HeadlineSemibold>
           </div>
         </div>
         <div className="bg-white w-full rounded-b-[8px] flex flex-col px-[22px] gap-[17px] py-[22px]">
