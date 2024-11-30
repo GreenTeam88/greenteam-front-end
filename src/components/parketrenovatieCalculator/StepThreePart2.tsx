@@ -22,9 +22,18 @@ const schema = z.object({
   additionalSurfaces: z.array(z.string()).min(1, { message: 'Please select at least one surface' }).optional(),
   numberOfTraptredesOpstapjes: z.string().optional(),
   numberOfDrempelsDorpels: z.string().optional(),
-  tableArea: z.string().optional(),
-  vensterbankenMeters: z.string().optional(),
-  plankenMeters: z.string().optional(),
+  tableArea: z
+    .string()
+    .regex(/^\d+(\.\d+)?$/, { message: 'Please enter a valid number for table area' })
+    .optional(),
+  vensterbankenMeters: z
+    .string()
+    .regex(/^\d+(\.\d+)?$/, { message: 'Please enter a valid number for vensterbanken meters' })
+    .optional(),
+  plankenMeters: z
+    .string()
+    .regex(/^\d+(\.\d+)?$/, { message: 'Please enter a valid number for planken meters' })
+    .optional(),
 });
 
 const UNIT_PRICES: Record<string, number> = {
@@ -81,19 +90,26 @@ const StepThreePart2: React.FC<StepProps> = ({ onPrevious, onNext, formData, upd
     // Calculate additional cost based on current selections
     let updatedCost = 0;
 
-    if (watchSurfaces.includes('Vensterbanken')) {
+    // Ensure that the calculated value isn't NaN
+    if (!isNaN(watchVensterbankenMeters) && watchSurfaces.includes('Vensterbanken')) {
       updatedCost += watchVensterbankenMeters * UNIT_PRICES['Vensterbanken'];
     }
-    if (watchSurfaces.includes('Planken/Plateaus')) {
+    if (!isNaN(watchPlankenMeters) && watchSurfaces.includes('Planken/Plateaus')) {
       updatedCost += watchPlankenMeters * UNIT_PRICES['Planken/Plateaus'];
     }
-    if (watchSurfaces.includes('Salontafels/Eettafels')) {
+    if (!isNaN(watchTableArea) && watchSurfaces.includes('Salontafels/Eettafels')) {
       updatedCost += watchTableArea * UNIT_PRICES['Salontafels/Eettafels'];
     }
-    if (watchSurfaces.includes('Traptredes') || watchSurfaces.includes('Opstapjes')) {
+    if (
+      !isNaN(watchNumberOfTraptredesOpstapjes) &&
+      (watchSurfaces.includes('Traptredes') || watchSurfaces.includes('Opstapjes'))
+    ) {
       updatedCost += watchNumberOfTraptredesOpstapjes * UNIT_PRICES['Traptredes'];
     }
-    if (watchSurfaces.includes('Drempels') || watchSurfaces.includes('Dorpels')) {
+    if (
+      !isNaN(watchNumberOfDrempelsDorpels) &&
+      (watchSurfaces.includes('Drempels') || watchSurfaces.includes('Dorpels'))
+    ) {
       updatedCost += watchNumberOfDrempelsDorpels * UNIT_PRICES['Drempels'];
     }
 
@@ -210,7 +226,7 @@ const StepThreePart2: React.FC<StepProps> = ({ onPrevious, onNext, formData, upd
               form={form}
               name="tableArea"
               label="Salontafel(s)/Eettafel(s)"
-              placeholder="Voer hier het aantal m2 in"
+              placeholder="Vul hier het aantal m2 in"
               type="text"
             />
           ) : null}

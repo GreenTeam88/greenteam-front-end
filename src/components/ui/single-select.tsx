@@ -145,7 +145,7 @@ const SingleSelectFormField = React.forwardRef<HTMLButtonElement, SingleSelectFo
                             alt={option.label}
                             width={50}
                             height={50}
-                            className="ml-2 rounded-sm transition-transform duration-200 ease-in-out hover:scale-165"
+                            className="ml-2 rounded-sm transition-transform duration-200 ease-in-out hover:scale-130"
                           />
                         )}
                       </div>

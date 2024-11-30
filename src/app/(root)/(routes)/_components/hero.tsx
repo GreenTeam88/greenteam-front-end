@@ -1,4 +1,4 @@
-import MultiStepForm from '@/components/forms/MultiStepForm';
+import MultiStepForm from '@/components/parketrenovatieCalculator/MultiStepForm';
 import { PrimaryBtnLink, SecondaryOutlinedBtnLink } from '@/components/theme/buttons';
 
 // import { HeadlineSemibold } from '@/components/theme/typography';

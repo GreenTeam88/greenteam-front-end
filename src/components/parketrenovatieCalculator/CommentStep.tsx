@@ -46,7 +46,10 @@ const CommentStep: React.FC<StepOneProps> = ({ onPrevious, onComment }) => {
           </div>
 
           <div className="flex flex-col space-y-2 mt-auto">
-            <CreateButton className="bg-primaryDefault w-full" type="submit">
+            <CreateButton
+              className=" w-full bg-primaryDefault border border-transparent hover:bg-white hover:text-green-700 hover:border-green-700 transition-all duration-300"
+              type="submit"
+            >
               Opslaan
             </CreateButton>
           </div>

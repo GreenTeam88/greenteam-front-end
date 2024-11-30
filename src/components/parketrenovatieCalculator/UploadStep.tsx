@@ -44,7 +44,10 @@ const UploadStep: React.FC<UploadStepProps> = ({ onPrevious, onUpload }) => {
           <div className="flex flex-col gap-[11px] flex-1 overflow-y-auto max-h-[300px]">
             <UploadGetter form={form} />
           </div>
-          <CreateButton className="bg-primaryDefault w-full mt-auto" type="submit">
+          <CreateButton
+            className="bg-primaryDefault border border-transparent hover:bg-white hover:text-green-700 hover:border-green-700 transition-all duration-300 w-full mt-auto"
+            type="submit"
+          >
             Uploaden
           </CreateButton>
         </div>
