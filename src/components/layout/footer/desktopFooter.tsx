@@ -14,9 +14,9 @@ export const FooterColumn: React.FC<FooterColumnInfo> = ({ title, links }) => {
       <BodyTextBold className="text-primaryDefault">{title}</BodyTextBold>
       <div className="flex flex-col gap-2">
         {links.map((link) => (
-          <BodyText className="hover:text-primaryDefault cursor-pointer" key={link.name}>
+          <Link href={link.path} className="hover:text-primaryDefault cursor-pointer" key={link.name}>
             {link.name}
-          </BodyText>
+          </Link>
         ))}
       </div>
     </div>
