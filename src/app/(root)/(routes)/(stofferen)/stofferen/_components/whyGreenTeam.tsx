@@ -3,7 +3,7 @@ import { GameIcon } from '@/components/icons/game';
 import { HeartIcon } from '@/components/icons/heart';
 import { StarIcon } from '@/components/icons/star';
 import { SecondaryOutlinedBtn } from '@/components/theme/buttons';
-import { BodyText, H2, HeadlineSemibold } from '@/components/theme/typography';
+import { H2, HeadlineSemibold } from '@/components/theme/typography';
 
 const whyGreenTeamCardsInfo: WhyGreenTeamCardProps[] = [
   {

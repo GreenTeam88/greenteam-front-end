@@ -55,7 +55,7 @@ const FAQs: FAQType[] = [
     question: 'De stof van mijn stoel laat los, wat nu?',
     answer: (
       <BodyText>
-        Graag ontvangen wij foto's van de te repareren meubel(s).
+        Graag ontvangen wij foto&lsquo;s van de te repareren meubel(s).
         <br />
         Dan kunnen wij hiervoor een offerte opstellen en u adviseren hoe dit aangepakt kan worden.
       </BodyText>
