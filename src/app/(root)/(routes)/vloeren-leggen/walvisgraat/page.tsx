@@ -1,12 +1,12 @@
+import { FAQSection, FAQType } from '@/components/FAQSection';
 import { BodyText } from '@/components/theme/typography';
 import { CardsSection } from '../_components/cardsSection';
 import { ListCard } from '../_components/listCard';
 import { StoreSection } from '../_components/storeSection';
 import { WhatWaitingForCard } from '../_components/whatWaitingForCard';
+import { WhyGreenTeam } from '../_components/whyGreenTeam';
 import { Hero } from '../../_components/hero';
 import { RatingSection } from '../../_components/ratingSection';
-import { FAQSection, FAQType } from '../../(Parketrenovatie)/_components/FAQSection';
-import { WhyGreenTeam } from '../../(Parketrenovatie)/_components/whyGreenTeam';
 import { InfoCardProps } from '../../diensten/_components/cards';
 import { QuestionSection } from '../../over-ons/_components/question';
 
