@@ -20,7 +20,7 @@ const thirdSectionCards: InfoCardProps[] = [
         elegantie toe aan elke gelegenheid. Perfect voor speciale evenementen, feesten of om dagelijks een luxueuze
         uitstraling aan uw interieur te geven.{' '}
       </div>,
-      <div className="flex flex-col py-3 list-disc gap-4 list-inside">
+      <div key="2" className="flex flex-col py-3 list-disc gap-4 list-inside">
         <p>Waarom kiezen voor onze rode lopers? </p>
         <ul key="3">
           <li>Onmiskenbare stijl: Creëer een stijlvolle, chique entree die de toon zet voor uw ruimte. </li>
