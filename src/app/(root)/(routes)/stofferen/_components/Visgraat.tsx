@@ -1,11 +1,11 @@
+import { InfoCardProps, OrangeInfoCard } from '@/components/cards';
 import { BodyText, BodyTextBold } from '@/components/theme/typography';
-import { InfoCardProps, OrangeInfoCard } from '../../diensten/_components/cards';
 
 const infoCardConfig: InfoCardProps = {
   buttonText: 'Meer informatie',
   buttonLink: '/traprenovatie',
 
-  imgSrc: '/Parketrenovatie/eigthFloor.png',
+  imgSrc: '/stofferen/stofferen-6.png',
   paragraphs: [
     <BodyText key="1">
       Dagelijks wordt er gelopen op een houten vloer. Het is dan ook logisch dat op een gegeven moment gebruikssporen
@@ -18,11 +18,11 @@ const infoCardConfig: InfoCardProps = {
       Ligt jouw vloer er al 10 tot 20 jaar dan is het de hoogste tijd om daar wat aan te doen!{' '}
     </BodyTextBold>,
   ],
-  title: 'V-groef frezen',
+  title: 'Droogloopmat',
   secondBtnText: 'Direct offerte berekenen',
   secondBtnLink: '/offerte-aanvragen',
 };
 
-export const VgroefFrezen = () => {
+export const Droogloopmat = () => {
   return <OrangeInfoCard className="lg:flex-row-reverse h-[542px] " {...infoCardConfig} />;
 };

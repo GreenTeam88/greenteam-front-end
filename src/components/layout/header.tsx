@@ -46,36 +46,35 @@ const headerRoutes: HeaderRoute[] = [
       {
         title: 'Parket renovatie',
         subPages: [
-          { name: 'Schuren en polijsten', path: '/Schuren en polijsten' },
-          { name: 'Schuren en lakken', path: '' },
-          { name: 'Schuren en olien', path: '' },
-          { name: 'Schuren en hardwaxen', path: '' },
-          { name: 'Aanhelen', path: '' },
-          { name: 'Uitbreiden', path: '' },
-          { name: 'Reparatie', path: '/reparatie' },
-          { name: 'Drevelen', path: '' },
-          { name: 'V-groef frezen', path: '' },
-          { name: 'Plinten & Deklijsten', path: '' },
+          { name: ' Schuren en polijsten', path: '/parketrenovatie/schuren-en-polijsten' },
+          { name: ' Schuren en lakken', path: '/parketrenovatie/schuren-en-lakken' },
+          { name: ' Schuren en oliën', path: '/parketrenovatie/schuren-en-olien' },
+          { name: ' Schuren en hardwaxen', path: '/parketrenovatie/schuren-en-hardwaxen' },
+          { name: ' Aanhelen / Uitbreiden', path: '/parketrenovatie/aanhelen-uitbreiden' },
+          { name: ' Reparatie', path: '/parketrenovatie/reparatie' },
+          { name: ' Drevelen', path: '/parketrenovatie/drevelen' },
+          { name: ' V-groef frezen', path: '/parketrenovatie/v-groef-frezen' },
+          { name: ' Plinten & Deklijsten', path: '/parketrenovatie/plinten-en-deklijsten' },
         ],
       },
 
       {
         title: 'Vloeren leggen',
         subPages: [
-          { name: 'Parket leggen', path: '' },
-          { name: 'Laminaat leggen', path: '' },
-          { name: 'PVC leggen', path: '' },
-          { name: 'Tapijt leggen', path: '' },
-          { name: 'Linoleum leggen', path: '' },
-          { name: 'Visgraat', path: '' },
-          { name: 'Walvisgraat', path: '' },
-          { name: 'Hongaarse punt', path: '' },
-          { name: 'Weense punt', path: '' },
-          { name: 'Tegel', path: '' },
-          { name: 'Mozaïek of patroon', path: '' },
-          { name: 'Hexagon & 3D', path: '' },
-          { name: 'Tapis', path: '' },
-          { name: 'Bourgogne', path: '' },
+          { name: 'Parket leggen', path: '/vloeren-leggen/parket-leggen' },
+          { name: 'Laminaat leggen', path: '/vloeren-leggen/laminaat-leggen' },
+          { name: 'PVC leggen', path: '/vloeren-leggen/pvc-leggen' },
+          { name: 'Tapijt leggen', path: '/vloeren-leggen/tapijt-leggen' },
+          { name: 'Linoleum leggen', path: '/vloeren-leggen/linoleum-leggen' },
+          { name: 'Visgraat', path: '/vloeren-leggen/visgraat' },
+          { name: 'Walvisgraat', path: '/vloeren-leggen/walvisgraat' },
+          { name: 'Hongaarse punt', path: '/vloeren-leggen/hongaarse-punt' },
+          { name: 'Weense punt', path: '/vloeren-leggen/weense-punt' },
+          { name: 'Tegel', path: '/vloeren-leggen/tegel' },
+          { name: 'mozaïek of patroon', path: '/vloeren-leggen/mozaiek-of-patroon' },
+          { name: 'Hexagon & 3D', path: '/vloeren-leggen/hexagon-&-3d' },
+          { name: 'Tapis', path: '/vloeren-leggen/tapis' },
+          { name: 'Bourgogne', path: '/vloeren-leggen/bourgogne' },
         ],
       },
       {
@@ -108,14 +107,15 @@ const headerRoutes: HeaderRoute[] = [
       {
         title: 'Stofferen',
         subPages: [
-          { name: 'Trap', path: '' },
-          { name: 'Vloer', path: '' },
-          { name: 'Tapijttegels', path: '' },
-          { name: 'Meubels', path: '' },
-          { name: 'Deurmat', path: '' },
-          { name: 'Droogloopmat', path: '' },
-          { name: 'Rode loper', path: '' },
-          { name: 'Reinigingsservice', path: '' },
+          { name: 'Trap', path: '/stofferen/trap' },
+          { name: 'Vloer', path: '/stofferen/vloer' },
+          { name: 'Tapijttegels', path: '/stofferen/tapijttegels' },
+          { name: 'Meubels', path: '/stofferen/meubels' },
+          { name: 'Deurmat', path: '/stofferen/deurmat' },
+          { name: 'Droogloopmat', path: '/stofferen/droogloopmat' },
+          { name: 'Rode loper', path: '/stofferen/rode-loper' },
+          { name: 'Reinigingsservice', path: '/stofferen/reinigingsservice' },
+          { name: 'Tapijt verwijderen', path: '/stofferen/tapijt-verwijderen' },
         ],
       },
       {
@@ -146,20 +146,20 @@ const headerRoutes: HeaderRoute[] = [
   },
   {
     name: 'Parketrenovatie',
-    path: '/parketrenovatie',
+    path: '/parketrenovatie/',
     columns: [
       {
         title: '',
         subPages: [
-          { name: ' Schuren en polijsten', path: '/schuren-en-polijsten' },
-          { name: ' Schuren en lakken', path: '/schuren-en-lakken' },
-          { name: ' Schuren en oliën', path: '/schuren-en-olien' },
-          { name: ' Schuren en hardwaxen', path: '/schuren-en-hardwaxen' },
-          { name: ' Aanhelen / Uitbreiden', path: '/aanhelen-uitbreiden' },
-          { name: ' Reparatie', path: '/reparatie' },
-          { name: ' Drevelen', path: '/drevelen' },
-          { name: ' V-groef frezen', path: '/v-groef-frezen' },
-          { name: ' Plinten & Deklijsten', path: '/plinten-en-deklijsten' },
+          { name: ' Schuren en polijsten', path: '/parketrenovatie/schuren-en-polijsten' },
+          { name: ' Schuren en lakken', path: '/parketrenovatie/schuren-en-lakken' },
+          { name: ' Schuren en oliën', path: '/parketrenovatie/schuren-en-olien' },
+          { name: ' Schuren en hardwaxen', path: '/parketrenovatie/schuren-en-hardwaxen' },
+          { name: ' Aanhelen / Uitbreiden', path: '/parketrenovatie/aanhelen-uitbreiden' },
+          { name: ' Reparatie', path: '/parketrenovatie/reparatie' },
+          { name: ' Drevelen', path: '/parketrenovatie/drevelen' },
+          { name: ' V-groef frezen', path: '/parketrenovatie/v-groef-frezen' },
+          { name: ' Plinten & Deklijsten', path: '/parketrenovatie/plinten-en-deklijsten' },
         ],
       },
     ],
@@ -204,20 +204,20 @@ const headerRoutes: HeaderRoute[] = [
       {
         title: '',
         subPages: [
-          { name: 'Parket leggen', path: '/parket-leggen' },
-          { name: 'Laminaat leggen', path: '/laminaat-leggen' },
-          { name: 'PVC leggen', path: '/pvc-leggen' },
-          { name: 'Tapijt leggen', path: '/tapijt-leggen' },
-          { name: 'Linoleum leggen', path: '/linoleum-leggen' },
-          { name: 'Visgraat', path: '/visgraat' },
-          { name: 'Walvisgraat', path: '/walvisgraat' },
-          { name: 'Hongaarse punt', path: '/hongaarse-punt' },
-          { name: 'Weense punt', path: '/weense-punt' },
-          { name: 'Tegel', path: '/tegel' },
-          { name: 'mozaïek of patroon', path: '/mozaiek-of-patroon' },
-          { name: 'Hexagon & 3D', path: '/hexagon-&-3d' },
-          { name: 'Tapis', path: '/tapis' },
-          { name: 'Bourgogne', path: '/bourgogne' },
+          { name: 'Parket leggen', path: '/vloeren-leggen/parket-leggen' },
+          { name: 'Laminaat leggen', path: '/vloeren-leggen/laminaat-leggen' },
+          { name: 'PVC leggen', path: '/vloeren-leggen/pvc-leggen' },
+          { name: 'Tapijt leggen', path: '/vloeren-leggen/tapijt-leggen' },
+          { name: 'Linoleum leggen', path: '/vloeren-leggen/linoleum-leggen' },
+          { name: 'Visgraat', path: '/vloeren-leggen/visgraat' },
+          { name: 'Walvisgraat', path: '/vloeren-leggen/walvisgraat' },
+          { name: 'Hongaarse punt', path: '/vloeren-leggen/hongaarse-punt' },
+          { name: 'Weense punt', path: '/vloeren-leggen/weense-punt' },
+          { name: 'Tegel', path: '/vloeren-leggen/tegel' },
+          { name: 'mozaïek of patroon', path: '/vloeren-leggen/mozaiek-of-patroon' },
+          { name: 'Hexagon & 3D', path: '/vloeren-leggen/hexagon-&-3d' },
+          { name: 'Tapis', path: '/vloeren-leggen/tapis' },
+          { name: 'Bourgogne', path: '/vloeren-leggen/bourgogne' },
         ],
       },
     ],
@@ -268,32 +268,49 @@ const HeaderColumnItem: React.FC<
       name: string;
       subPages: RouteWithPath[];
     }
-> = (subPage) => {
+> = (routeInfo) => {
   const [isOpened, setIsOpened] = useState(false);
-  const hasSubPages = 'subPages' in subPage && subPage.subPages.length;
+  const hasSubPages = 'subPages' in routeInfo && routeInfo.subPages.length;
   return (
-    <div className="flex flex-col">
-      <h5
-        key={subPage.name}
-        onClick={() => setIsOpened((val) => !val)}
-        className={clsx('text-sm flex items-center hover:text-primaryDefault group whitespace-nowrap cursor-pointer', {
-          'text-primaryDefault': isOpened,
-        })}
-      >
-        {subPage.name}
-        {/* {hasSubPages && <img src="/icons/dropDown.svg" className={cn('mx-2 inline', { 'rotate-180': isOpened })} />} */}
-        {hasSubPages && (
+    <div className="flex  flex-col">
+      {hasSubPages ? (
+        <h5
+          key={routeInfo.name}
+          onClick={() => setIsOpened((val) => !val)}
+          className={clsx(
+            'text-sm flex items-center hover:text-primaryDefault group whitespace-nowrap cursor-pointer',
+            {
+              'text-primaryDefault': isOpened,
+            }
+          )}
+        >
+          {routeInfo.name}
+          {/* {hasSubPages && <img src="/icons/dropDown.svg" className={cn('mx-2 inline', { 'rotate-180': isOpened })} />} */}
+
           <span className={cn('mx-2 inline', { 'rotate-180': isOpened })}>
             <DropDownIcon className={cn('group-hover:stroke-primaryDefault', { 'stroke-primaryDefault': isOpened })} />
           </span>
-        )}
-      </h5>
-      {'subPages' in subPage && isOpened && (
+        </h5>
+      ) : (
+        <Link
+          href={'path' in routeInfo ? routeInfo.path : '/'}
+          key={routeInfo.name}
+          className={clsx(
+            'text-sm flex items-center hover:text-primaryDefault group whitespace-nowrap cursor-pointer',
+            {
+              'text-primaryDefault': isOpened,
+            }
+          )}
+        >
+          {routeInfo.name}
+        </Link>
+      )}
+      {'subPages' in routeInfo && isOpened && (
         <div className="flex flex-col pl-3">
-          {'subPages' in subPage &&
-            subPage.subPages &&
-            subPage.subPages.map((item) => (
-              <h5 key={subPage.name} className="text-sm w-full  hover:text-primaryDefault cursor-pointer">
+          {'subPages' in routeInfo &&
+            routeInfo.subPages &&
+            routeInfo.subPages.map((item) => (
+              <h5 key={routeInfo.name} className="text-sm w-full  hover:text-primaryDefault cursor-pointer">
                 {item.name}
               </h5>
             ))}
