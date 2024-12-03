@@ -13,61 +13,73 @@ interface RatingInfo {
   description: string;
   images: string[];
   name: string;
-  birthDate: string;
+  date: string;
 }
 
 const ratings: RatingInfo[] = [
   {
     stars: 5,
     description:
-      'Geweldige service van Green Team! De parketvloer werd perfect gelegd met veel oog voor detail. De vakmensen waren vriendelijk en professioneel. Zeer tevreden met het resultaat. Vijf sterren!',
-    images: ['/home/ratingImg1.png', '/home/ratingImg2.png'],
-    birthDate: '01/07/2024',
-    name: 'Sara Sacasa 1',
+      'Top ervaring gehad met Green Team, kende ze niet, maar kwamen met een scherpe offerte. Samen met de persoon die het kwam leggen een mooi passend tapijt uitgezocht voor onze 2 trappen en overloop. Het ligt er super strak in/op en ziet er geweldig uit!',
+    images: ['/reviews/tim-Barendregt/img1.png', '/reviews/tim-Barendregt/img2.png'],
+    date: '11/09/2024',
+    name: 'Tim Barendregt',
   },
   {
     stars: 5,
     description:
-      'Geweldige service van Green Team! De parketvloer werd perfect gelegd met veel oog voor detail. De vakmensen waren vriendelijk en professioneel. Zeer tevreden met het resultaat. Vijf sterren!',
-    images: ['/home/ratingImg1.png', '/home/ratingImg2.png'],
-    birthDate: '01/07/2024',
-    name: 'Sara Sacasa 2',
+      'Ik ben ontzettend blij met het werk dat Greenteam heeft geleverd aan mijn trap. Ze hebben mijn trap opnieuw gestoffeerd en het ziet er werkelijk prachtig uit. Het team was zeer professioneel, vriendelijk en efficiënt!',
+    images: ['/reviews/Veronica-Miraza/img1.png', '/reviews/Veronica-Miraza/img2.png'],
+    date: '23/09/2024',
+    name: 'Veronica Miraza ',
   },
   {
     stars: 5,
     description:
-      'Geweldige service van Green Team! De parketvloer werd perfect gelegd met veel oog voor detail. De vakmensen waren vriendelijk en professioneel. Zeer tevreden met het resultaat. Vijf sterren!',
-    images: ['/home/ratingImg1.png', '/home/ratingImg2.png'],
-    birthDate: '01/07/2024',
-    name: 'Sara Sacasa 3',
+      'Wij hebben onze eiken parketvloer laten schuren en in de olie laten zetten door Greenteam. We zijn erg tevreden met het resultaat, de vloer is weer als nieuw. Bedankt!',
+    images: ['/reviews/jac/img1.png', '/reviews/jac/img2.png', '/reviews/jac/img3.png'],
+    date: '14/02/2024',
+    name: 'Jac',
   },
   {
     stars: 5,
     description:
-      'Geweldige service van Green Team! De parketvloer werd perfect gelegd met veel oog voor detail. De vakmensen waren vriendelijk en professioneel. Zeer tevreden met het resultaat. Vijf sterren!',
-    images: ['/home/ratingImg1.png', '/home/ratingImg2.png'],
-    birthDate: '01/07/2024',
-    name: 'Sara Sacasa 4',
+      'Vanaf het eerste contact met Greenteam was het duidelijk dat ze zeer professioneel en deskundig waren. Ze kwamen op tijd aan en werkten efficiënt om de klus snel te klaren zonder afbreuk te doen aan de kwaliteit van het werk.',
+    images: ['/reviews/bouchra/img1.png'],
+
+    date: '01/07/2024',
+    name: 'Bouchra',
   },
   {
     stars: 5,
     description:
-      'Geweldige service van Green Team! De parketvloer werd perfect gelegd met veel oog voor detail. De vakmensen waren vriendelijk en professioneel. Zeer tevreden met het resultaat. Vijf sterren!',
-    images: ['/home/ratingImg1.png', '/home/ratingImg2.png'],
-    birthDate: '01/07/2024',
-    name: 'Sara Sacasa 5',
+      'Onlangs de hulp ingeschakeld van het Greenteam..en ik ben dik tevreden! Mijn laminaat kon wel een opknapbeurt gebruiken, en het resultaat mag er wezen. Medewerkers zijn prettig in de omgang, het is betaalbaar en ik kom zeker is terug!',
+    images: ['/reviews/steffen-de-Back/img1.png'],
+
+    date: '02/05/2023',
+    name: 'Steffen de Back',
   },
   {
     stars: 5,
     description:
-      'Geweldige service van Green Team! De parketvloer werd perfect gelegd met veel oog voor detail. De vakmensen waren vriendelijk en professioneel. Zeer tevreden met het resultaat. Vijf sterren!',
-    images: ['/home/ratingImg1.png', '/home/ratingImg2.png'],
-    birthDate: '01/07/2024',
-    name: 'Sara Sacasa 6',
+      "Als je je ruimte wilt verheffen met een vloeroptie die elegantie en duurzaamheid uitstraalt, is investeren in houten vloeren een uitstekende beslissing waar je geen spijt van zult krijgen en die investering is dit bedrijf dubbel en dwars waard! Nog nooit zo'n goede service gehad ",
+    images: ['/reviews/thomas/img1.png'],
+
+    date: '01/07/2024',
+    name: 'thomas',
+  },
+  {
+    stars: 5,
+    description:
+      'Top ervaring gehad met Green Team, kende ze niet, maar kwamen met een scherpe offerte. Samen met de persoon die het kwam leggen een mooi passend tapijt uitgezocht voor onze 2 trappen en overloop. Het ligt er super strak in/op en ziet er geweldig uit!',
+    images: ['/reviews/tim/img1.png'],
+
+    date: '13/09/2024',
+    name: 'Tim',
   },
 ];
 
-const RatingCard: React.FC<RatingInfo> = ({ stars, birthDate, description, images, name }) => {
+const RatingCard: React.FC<RatingInfo> = ({ stars, date: birthDate, description, images, name }) => {
   return (
     <div className="flex flex-col gap-[22px] bg-white p-4 lg:p-[22px] lg:w-[380px] ">
       <div className="flex w-full  justify-between">
