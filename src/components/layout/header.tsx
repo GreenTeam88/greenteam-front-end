@@ -11,6 +11,7 @@ import { cn } from '@/lib/tailwind';
 import { DropDownIcon } from '../icons/arrows';
 import { InstagramLogo, TikTokIcon } from '../icons/homePageIcons';
 import { SecondaryBtnLink } from '../theme/buttons';
+import { TitleCarousel } from './header/titleCrausel';
 
 // types needed for the header
 
@@ -365,10 +366,11 @@ export const HeaderTopSection = () => {
           initial={{ backgroundColor: '#fff' }}
           animate={{
             backgroundColor: ['#37CD76', '#37CD76', '#37CD76', '#37CD76', '#fff', '#fff', '#fff'],
-            transition: { duration: 5, ease: 'easeIn', repeat: Infinity },
+            transition: { duration: 2, ease: 'easeIn', repeat: Infinity },
           }}
         ></motion.div>
-        <p className="font-semibold text-[22px] text-primaryGreenD1"> Liever iemand spreken? Bel 085 401 93 45</p>
+        {/* <p className="font-semibold text-[22px] text-primaryGreenD1"> Liever iemand spreken? Bel 085 401 93 45</p> */}
+        <TitleCarousel />
         <div className="flex gap-[22px]">
           <div className="cursor-pointer" onClick={() => window.open(appConfig.instagramAccount, '_blank')}>
             <InstagramLogo />
