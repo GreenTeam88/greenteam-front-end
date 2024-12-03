@@ -1,7 +1,7 @@
 'use client';
 
 import { motion, useAnimation } from 'framer-motion';
-import React, { useEffect, useRef } from 'react';
+import React, { useEffect, useRef, useState } from 'react';
 
 import { CrauselIcon } from '@/components/icons/arrows';
 import { H2 } from '@/components/theme/typography';
@@ -10,7 +10,7 @@ import { cn } from '@/lib/tailwind';
 
 interface RatingInfo {
   stars: number;
-  description: string;
+  description: string | JSX.Element;
   images: string[];
   name: string;
   date: string;
@@ -61,6 +61,20 @@ const ratings: RatingInfo[] = [
   },
   {
     stars: 5,
+    description: (
+      <p>
+        Greenteam heeft mij geholpen om mijn vloer weer in een goede staat te krijgen.
+        <br />
+        Ik dacht dat deze vervangen zou moeten worden maar door hun heb ik veel geld bespaard en ziet mijn vloer er weer
+        top uit!
+      </p>
+    ),
+    images: ['/reviews/npg-games/img1.png'],
+    name: 'Npg Games',
+    date: '20/04/2023',
+  },
+  {
+    stars: 5,
     description:
       "Als je je ruimte wilt verheffen met een vloeroptie die elegantie en duurzaamheid uitstraalt, is investeren in houten vloeren een uitstekende beslissing waar je geen spijt van zult krijgen en die investering is dit bedrijf dubbel en dwars waard! Nog nooit zo'n goede service gehad ",
     images: ['/reviews/thomas/img1.png'],
@@ -90,7 +104,7 @@ const RatingCard: React.FC<RatingInfo> = ({ stars, date: birthDate, description,
         </div>
         <img src="/icons/google.svg" />
       </div>
-      <p>{description}</p>
+      {React.isValidElement(description) ? description : <p>{description}</p>}
       <div className="flex gap-[11px]">
         {images.map((imgSrc) => (
           <img src={imgSrc} key={imgSrc} className="w-[43px] hover:scale-[4] h-[43px] rounded-[4px]" />
@@ -118,6 +132,7 @@ const Ratings = () => {
   const firstRowX = useRef(0);
   const secondRowAnimation = useAnimation();
   const secondRowX = useRef(0);
+  const [intervalId, setIntervalId] = useState<NodeJS.Timeout | null>();
 
   // Scroll left animation
   const scrollLeft = async () => {
@@ -159,7 +174,8 @@ const Ratings = () => {
 
   // Auto-scroll effect
   useEffect(() => {
-    const animationIntervalId = setInterval(scrollLeft, 20000);
+    const animationIntervalId = setInterval(scrollLeft, 3000);
+    animationIntervalId && setIntervalId(animationIntervalId);
     return () => {
       clearInterval(animationIntervalId);
     };
@@ -168,7 +184,13 @@ const Ratings = () => {
   return (
     <div className="flex gap-[36px] items-center">
       {/* Left Arrow */}
-      <div onClick={scrollRight} className="hidden lg:block group rotate-180 cursor-pointer">
+      <div
+        onClick={() => {
+          if (intervalId) clearInterval(intervalId);
+          scrollRight();
+        }}
+        className="hidden lg:block group rotate-180 cursor-pointer"
+      >
         <CrauselIcon />
       </div>
 
@@ -197,7 +219,13 @@ const Ratings = () => {
       </div>
 
       {/* Right Arrow */}
-      <div onClick={scrollLeft} className="hidden lg:block group cursor-pointer">
+      <div
+        onClick={() => {
+          if (intervalId) clearInterval(intervalId);
+          scrollLeft();
+        }}
+        className="hidden lg:block group cursor-pointer"
+      >
         <CrauselIcon />
       </div>
     </div>
