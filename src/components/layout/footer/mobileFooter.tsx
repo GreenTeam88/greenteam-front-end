@@ -86,7 +86,7 @@ export const BottomSection = () => {
         </BodyTextBold>
         <BodyTextSemibold className="text-primaryDefault">
           <a href="https://www.greenteam.nl/algemenevoorwaarden">Algemene Voorwaardenㆍ</a>
-          <a href="https://www.greenteam.nl/privacypolicy">Privacy Policy</a>
+          <a href="https://www.greenteam.nl/privacynpm rupolicy">Privacy Policy</a>
         </BodyTextSemibold>
       </div>
     </div>

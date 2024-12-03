@@ -35,7 +35,7 @@ const thirdSectionCards: InfoCardProps[] = [
       </p>,
       <div key="5">
         <BodyText className="text-secondaryDefault">
-          Ligt jouw vloer er al 10 tot 20 jaar dan is het de hoogste tijd om daar wat aan te doen!{' '}
+          Ligt jouw trap er al 10 tot 20 jaar dan is het de hoogste tijd om daar wat aan te doen!{' '}
         </BodyText>
       </div>,
     ],

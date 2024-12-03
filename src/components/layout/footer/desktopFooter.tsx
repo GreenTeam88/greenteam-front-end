@@ -93,7 +93,7 @@ const FooterBottomSection = () => {
           <Link className="hover:text-secondaryDefault" href="/algemene-voorwaarden">
             Algemene Voorwaardenㆍ
           </Link>
-          <Link className="hover:text-secondaryDefault" href="/privacyPolicy">
+          <Link className="hover:text-secondaryDefault" href="/privacy-policy">
             Privacy Policy
           </Link>
         </BodyTextSemibold>

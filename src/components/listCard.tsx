@@ -30,7 +30,7 @@ export const ListCard: React.FC<ListCardProps> = ({
       </p>
       <div className="flex flex-col lg:flex-row  max-w-[1100px] gap-6  justify-between w-full items-center">
         <div className="flex flex-col gap-[33px] ">
-          <div className="flex flex-col gap-10">
+          <div className="flex flex-col gap-14">
             <H2 className="text-primaryDefault">{listTitle}</H2>
             <div className="flex flex-col gap-[11px] ">
               {listItems.map((item) => (

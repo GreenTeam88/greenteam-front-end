@@ -87,7 +87,7 @@ const whatWaitingForConfig: InfoCardProps = {
   title: 'Waar wacht u nog op!',
   paragraphs: [
     <BodyText key="1">
-      Droomt u al langer van nieuw beklede of gereinigde meubels?. Bereken via de knop hieronder wat het kost en neem
+      Droomt u al langer van nieuw beklede of gereinigde meubels? Bereken via de knop hieronder wat het kost en neem
       contact met ons op voor een afspraak.{' '}
     </BodyText>,
   ],
