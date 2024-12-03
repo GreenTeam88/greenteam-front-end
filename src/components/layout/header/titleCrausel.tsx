@@ -1,13 +1,7 @@
 import { AnimatePresence, motion } from 'framer-motion';
 import { useEffect, useState } from 'react';
 
-const titles = [
-  'Liever iemand spreken? Bel 085 401 93 45',
-  'paragraph2',
-  'Title 3',
-  'Title 4',
-  // Add more titles as needed
-];
+const titles = ['Liever iemand spreken? Bel 085 401 93 45', 'paragraph2', 'Title 3', 'Title 4'];
 
 export function TitleCarousel() {
   const [currentIndex, setCurrentIndex] = useState(0);
@@ -21,7 +15,7 @@ export function TitleCarousel() {
   }, []);
 
   return (
-    <div style={{ position: 'relative', height: '100px', width: '600px' }}>
+    <div style={{ position: 'relative', height: '50px', width: '600px' }}>
       <AnimatePresence>
         <motion.div
           key={currentIndex}

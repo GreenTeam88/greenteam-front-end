@@ -29,7 +29,7 @@ export const CrauselIcon = () => {
         cy="17.5215"
         r="16.2417"
         transform="rotate(-180 17.6646 17.5215)"
-        className="stroke-secondaryDefault group-hover:stroke-primaryDefault"
+        className="stroke-secondaryDefault  group-hover:stroke-primaryDefault"
       />
       <path
         d="M15.616 12.3999L20.7375 17.5214L15.616 22.643"

@@ -23,7 +23,7 @@ const ratings: RatingInfo[] = [
       'Geweldige service van Green Team! De parketvloer werd perfect gelegd met veel oog voor detail. De vakmensen waren vriendelijk en professioneel. Zeer tevreden met het resultaat. Vijf sterren!',
     images: ['/home/ratingImg1.png', '/home/ratingImg2.png'],
     birthDate: '01/07/2024',
-    name: 'Sara Sacasa',
+    name: 'Sara Sacasa 1',
   },
   {
     stars: 5,
@@ -31,7 +31,7 @@ const ratings: RatingInfo[] = [
       'Geweldige service van Green Team! De parketvloer werd perfect gelegd met veel oog voor detail. De vakmensen waren vriendelijk en professioneel. Zeer tevreden met het resultaat. Vijf sterren!',
     images: ['/home/ratingImg1.png', '/home/ratingImg2.png'],
     birthDate: '01/07/2024',
-    name: 'Sara Sacasa',
+    name: 'Sara Sacasa 2',
   },
   {
     stars: 5,
@@ -39,7 +39,31 @@ const ratings: RatingInfo[] = [
       'Geweldige service van Green Team! De parketvloer werd perfect gelegd met veel oog voor detail. De vakmensen waren vriendelijk en professioneel. Zeer tevreden met het resultaat. Vijf sterren!',
     images: ['/home/ratingImg1.png', '/home/ratingImg2.png'],
     birthDate: '01/07/2024',
-    name: 'Sara Sacasa',
+    name: 'Sara Sacasa 3',
+  },
+  {
+    stars: 5,
+    description:
+      'Geweldige service van Green Team! De parketvloer werd perfect gelegd met veel oog voor detail. De vakmensen waren vriendelijk en professioneel. Zeer tevreden met het resultaat. Vijf sterren!',
+    images: ['/home/ratingImg1.png', '/home/ratingImg2.png'],
+    birthDate: '01/07/2024',
+    name: 'Sara Sacasa 4',
+  },
+  {
+    stars: 5,
+    description:
+      'Geweldige service van Green Team! De parketvloer werd perfect gelegd met veel oog voor detail. De vakmensen waren vriendelijk en professioneel. Zeer tevreden met het resultaat. Vijf sterren!',
+    images: ['/home/ratingImg1.png', '/home/ratingImg2.png'],
+    birthDate: '01/07/2024',
+    name: 'Sara Sacasa 5',
+  },
+  {
+    stars: 5,
+    description:
+      'Geweldige service van Green Team! De parketvloer werd perfect gelegd met veel oog voor detail. De vakmensen waren vriendelijk en professioneel. Zeer tevreden met het resultaat. Vijf sterren!',
+    images: ['/home/ratingImg1.png', '/home/ratingImg2.png'],
+    birthDate: '01/07/2024',
+    name: 'Sara Sacasa 6',
   },
 ];
 
@@ -83,7 +107,7 @@ const Ratings = () => {
   const secondRowAnimation = useAnimation();
   const secondRowX = useRef(0);
 
-  // the animation logic
+  // Scroll left animation
   const scrollLeft = async () => {
     await Promise.all([
       firstRowAnimation.start({ x: firstRowX.current - 400 }),
@@ -91,6 +115,7 @@ const Ratings = () => {
     ]);
     firstRowX.current -= 400;
     secondRowX.current -= 400;
+
     if (firstRowX.current === -1200) {
       await firstRowAnimation.start({ x: 1200, transition: { duration: 0 } });
       firstRowX.current = 1200;
@@ -101,46 +126,72 @@ const Ratings = () => {
     }
   };
 
+  // New scroll right animation
+  const scrollRight = async () => {
+    await Promise.all([
+      firstRowAnimation.start({ x: firstRowX.current + 400 }),
+      secondRowAnimation.start({ x: secondRowX.current + 400 }),
+    ]);
+    firstRowX.current += 400;
+    secondRowX.current += 400;
+
+    if (firstRowX.current === 1600) {
+      await firstRowAnimation.start({ x: -800, transition: { duration: 0 } });
+      firstRowX.current = -800;
+    }
+    if (secondRowX.current === 400) {
+      await secondRowAnimation.start({ x: -2000, transition: { duration: 0 } });
+      secondRowX.current = -2000;
+    }
+  };
+
+  // Auto-scroll effect
   useEffect(() => {
-    const animationIntervalId = setInterval(scrollLeft, 6000);
+    const animationIntervalId = setInterval(scrollLeft, 20000);
     return () => {
       clearInterval(animationIntervalId);
     };
   }, []);
+
   return (
-    <div className="flex  gap-[36px] items-center">
-      <div className="hidden lg:block group rotate-180 cursor-pointer">
+    <div className="flex gap-[36px] items-center">
+      {/* Left Arrow */}
+      <div onClick={scrollRight} className="hidden lg:block group rotate-180 cursor-pointer">
         <CrauselIcon />
       </div>
-      {/* ratings for mobile */}
-      <div className="hidden lg:flex w-[1200px]  gap-[20px] relative h-[400px]   overflow-hidden">
-        <motion.div animate={firstRowAnimation} className="flex absolute top-0 left-0 gap-[20px]  flex-col lg:flex-row">
-          {ratings.map((rating) => (
-            <RatingCard key={rating.name} {...rating} />
+
+      {/* Ratings for desktop */}
+      <div className="hidden lg:flex w-[1200px] gap-[20px] relative h-[400px] overflow-hidden">
+        <motion.div animate={firstRowAnimation} className="flex absolute top-0 left-0 gap-[20px] flex-col lg:flex-row">
+          {ratings.map((rating, index) => (
+            <RatingCard key={`first-${index}`} {...rating} />
           ))}
         </motion.div>
         <motion.div
           animate={secondRowAnimation}
-          className="flex gap-[20px] absolute left-[1200px] top-0  flex-col lg:flex-row"
+          className="flex gap-[20px] absolute left-[1200px] top-0 flex-col lg:flex-row"
         >
-          {ratings.map((rating) => (
-            <RatingCard key={rating.name} {...rating} />
+          {ratings.slice(3, 6).map((rating, index) => (
+            <RatingCard key={`second-${index}`} {...rating} />
           ))}
         </motion.div>
       </div>
-      {/* ratings for desktop */}
-      <div className="flex  gap-[20px] lg:hidden  flex-col lg:flex-row">
-        {ratings.map((rating) => (
-          <RatingCard key={rating.name} {...rating} />
+
+      {/* Ratings for mobile */}
+      <div className="flex gap-[20px] lg:hidden flex-col lg:flex-row">
+        {ratings.map((rating, index) => (
+          <RatingCard key={`mobile-${index}`} {...rating} />
         ))}
       </div>
 
-      <div className="hidden lg:block group cursor-pointeré">
+      {/* Right Arrow */}
+      <div onClick={scrollLeft} className="hidden lg:block group cursor-pointer">
         <CrauselIcon />
       </div>
     </div>
   );
 };
+
 export const RatingSection = () => {
   return (
     <div className="w-full px-3 lg:px-0 bg-lightOrange gap-[60px] max-w-full flex items-center py-[122px] justify-center">
