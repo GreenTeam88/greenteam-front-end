@@ -174,7 +174,7 @@ const Ratings = () => {
 
   // Auto-scroll effect
   useEffect(() => {
-    const animationIntervalId = setInterval(scrollLeft, 3000);
+    const animationIntervalId = setInterval(scrollLeft, 10000);
     animationIntervalId && setIntervalId(animationIntervalId);
     return () => {
       clearInterval(animationIntervalId);
