@@ -3,8 +3,7 @@ import { BodyText, BodyTextBold } from '@/components/theme/typography';
 
 const infoCardConfig: InfoCardProps = {
   buttonText: 'Meer informatie',
-  buttonLink: '/traprenovatie',
-
+  buttonLink: '/stofferen/tapijttegels',
   imgSrc: '/stofferen/stofferen-3.png',
   paragraphs: [
     <BodyText key="1">

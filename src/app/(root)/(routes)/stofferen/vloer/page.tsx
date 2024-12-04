@@ -111,8 +111,8 @@ export default function Home() {
         listItems={[
           'Overal slijtageplekken',
           'Extreem veel schade',
-          ' Hardnekkige vlekken in de vloer',
-          ' Verouderde uitstraling',
+          'Hardnekkige vlekken in de vloer',
+          'Verouderde uitstraling',
         ]}
         btnLink="/offerte-aanvragen"
         btnText="Offerte berekenen"

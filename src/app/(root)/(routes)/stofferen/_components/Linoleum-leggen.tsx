@@ -5,7 +5,7 @@ const infoCardConfig: InfoCardProps = {
   buttonText: 'Meer informatie',
   buttonLink: '/traprenovatie',
 
-  imgSrc: '/stofferen/stofferen-5.png',
+  imgSrc: '/stofferen/deurmat',
   paragraphs: [
     <BodyText key="1">
       Dagelijks wordt er gelopen op een houten vloer. Het is dan ook logisch dat op een gegeven moment gebruikssporen
