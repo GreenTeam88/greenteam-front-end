@@ -1,4 +1,5 @@
 import { CardsSection } from '@/components/cardsSection';
+import { RatingSection } from '@/components/ratingSection';
 import { BodyText } from '@/components/theme/typography';
 import { FAQSection, FAQType } from '../_components/FAQSection';
 import { SecondSection } from '../_components/secondSection';
@@ -6,7 +7,6 @@ import { StoreSection } from '../_components/store';
 import { WhatWaitingForCard } from '../_components/whatWaitingForSection';
 import { WhyGreenTeam } from '../_components/whyGreenTeam';
 import { Hero } from '../../_components/hero';
-import { RatingSection } from '../../_components/ratingSection';
 import { InfoCardProps } from '../../diensten/_components/cards';
 import { QuestionSection } from '../../over-ons/_components/question';
 

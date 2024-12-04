@@ -1,5 +1,5 @@
+import { RatingSection } from '@/components/ratingSection';
 import { Hero } from '../_components/hero';
-import { RatingSection } from '../_components/ratingSection';
 import { QuestionSection } from '../over-ons/_components/question';
 import { Drevelen } from './_components/drevelen';
 import { FifthSection } from './_components/fifthSection';

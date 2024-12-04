@@ -365,7 +365,7 @@ export const HeaderTopSection = () => {
           className=" w-[15.32px] h-[16px] rounded-full"
           initial={{ backgroundColor: '#fff' }}
           animate={{
-            backgroundColor: ['#37CD76', '#37CD76', '#37CD76', '#37CD76', '#fff', '#fff', '#fff'],
+            backgroundColor: ['#37CD76', '#fff', '#37CD76'],
             transition: { duration: 2, ease: 'easeIn', repeat: Infinity },
           }}
         ></motion.div>
