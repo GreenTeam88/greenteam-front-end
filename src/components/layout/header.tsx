@@ -22,7 +22,11 @@ interface RouteWithPath {
 }
 
 // information about  a column in the header menu when hovering for a link
-type HeaderColumnInfo = { title: string; subPages: (RouteWithPath | { name: string; subPages: RouteWithPath[] })[] };
+type HeaderColumnInfo = {
+  title: string;
+  link: string;
+  subPages: (RouteWithPath | { name: string; subPages: RouteWithPath[] })[];
+};
 
 // a link can either display subPages in the menu or it can have a direct path to a certain page
 type HeaderRoute = {
@@ -45,6 +49,7 @@ const headerRoutes: HeaderRoute[] = [
     path: '/diensten',
     columns: [
       {
+        link: '/parketrenovatie',
         title: 'Parket renovatie',
         subPages: [
           { name: ' Schuren en polijsten', path: '/parketrenovatie/schuren-en-polijsten' },
@@ -60,13 +65,14 @@ const headerRoutes: HeaderRoute[] = [
       },
 
       {
+        link: 'vloeren-leggen',
         title: 'Vloeren leggen',
         subPages: [
-          { name: 'Parket leggen', path: '/vloeren-leggen/parket-leggen' },
-          { name: 'Laminaat leggen', path: '/vloeren-leggen/laminaat-leggen' },
-          { name: 'PVC leggen', path: '/vloeren-leggen/pvc-leggen' },
-          { name: 'Tapijt leggen', path: '/vloeren-leggen/tapijt-leggen' },
-          { name: 'Linoleum leggen', path: '/vloeren-leggen/linoleum-leggen' },
+          { name: 'Parket', path: '/vloeren-leggen/parket-leggen' },
+          { name: 'Laminaat', path: '/vloeren-leggen/laminaat-leggen' },
+          { name: 'PVC', path: '/vloeren-leggen/pvc-leggen' },
+          { name: 'Tapijt', path: '/vloeren-leggen/tapijt-leggen' },
+          { name: 'Linoleum', path: '/vloeren-leggen/linoleum-leggen' },
           { name: 'Visgraat', path: '/vloeren-leggen/visgraat' },
           { name: 'Walvisgraat', path: '/vloeren-leggen/walvisgraat' },
           { name: 'Hongaarse punt', path: '/vloeren-leggen/hongaarse-punt' },
@@ -79,6 +85,7 @@ const headerRoutes: HeaderRoute[] = [
         ],
       },
       {
+        link: '/traprenovaties',
         title: 'Traprenovaties',
         subPages: [
           { name: 'Bekleden met PVC', path: '' },
@@ -106,6 +113,7 @@ const headerRoutes: HeaderRoute[] = [
         ],
       },
       {
+        link: '/stofferen',
         title: 'Stofferen',
         subPages: [
           { name: 'Trap', path: '/stofferen/trap' },
@@ -120,6 +128,7 @@ const headerRoutes: HeaderRoute[] = [
         ],
       },
       {
+        link: '/overig',
         title: 'Overig',
         subPages: [
           { name: 'Vloerverwarming', path: '' },
@@ -150,6 +159,7 @@ const headerRoutes: HeaderRoute[] = [
     path: '/parketrenovatie/',
     columns: [
       {
+        link: '',
         title: '',
         subPages: [
           { name: ' Schuren en polijsten', path: '/parketrenovatie/schuren-en-polijsten' },
@@ -169,6 +179,7 @@ const headerRoutes: HeaderRoute[] = [
     name: 'Traprenovaties',
     columns: [
       {
+        link: '',
         title: 'Traprenovaties',
         subPages: [
           { name: 'Bekleden met PVC', path: '/' },
@@ -203,6 +214,7 @@ const headerRoutes: HeaderRoute[] = [
     path: '/vloeren-leggen',
     columns: [
       {
+        link: '',
         title: '',
         subPages: [
           { name: 'Parket leggen', path: '/vloeren-leggen/parket-leggen' },
@@ -228,6 +240,7 @@ const headerRoutes: HeaderRoute[] = [
     path: '/stofferen',
     columns: [
       {
+        link: '',
         title: '',
         subPages: [
           { name: 'Trap', path: '/stofferen/trap' },
@@ -247,6 +260,7 @@ const headerRoutes: HeaderRoute[] = [
     name: 'Overig',
     columns: [
       {
+        link: '',
         title: '',
         subPages: [
           { name: 'Vloerverwarming', subPages: [] },
@@ -279,7 +293,7 @@ const HeaderColumnItem: React.FC<
           key={routeInfo.name}
           onClick={() => setIsOpened((val) => !val)}
           className={clsx(
-            'text-sm flex items-center hover:text-primaryDefault group whitespace-nowrap cursor-pointer',
+            'text-sm flex  items-center hover:text-primaryDefault group whitespace-nowrap cursor-pointer',
             {
               'text-primaryDefault': isOpened,
             }
@@ -323,11 +337,13 @@ const HeaderColumnItem: React.FC<
 
 // a column in the menu (when hovering over a certain link)
 
-const HeaderColumn: React.FC<HeaderColumnInfo & { index: number }> = ({ subPages, title }) => {
+const HeaderColumn: React.FC<HeaderColumnInfo & { index: number }> = ({ subPages, title, link }) => {
   return (
     <>
       <div className="flex flex-col  gap-[11px]">
-        <h5 className="text-sm font-semibold text-primaryDefault">{title}</h5>
+        <Link href={link} className="text-sm font-semibold text-primaryDefault">
+          {title}
+        </Link>
         <div className="flex w-[180px] flex-col gap-1">
           {subPages.map((subPage) => (
             <HeaderColumnItem key={subPage.name} {...subPage} />
