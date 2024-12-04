@@ -48,6 +48,7 @@ const UNIT_PRICES: Record<string, number> = {
 
 const StepThreePart2: React.FC<StepProps> = ({ onPrevious, onNext, formData, updateFormData }) => {
   const surfaceTypes = [
+    'Nee',
     'Traptredes',
     'Opstapjes',
     'Drempels',
@@ -61,13 +62,10 @@ const StepThreePart2: React.FC<StepProps> = ({ onPrevious, onNext, formData, upd
   const surfaces: Option[] = numberOptions.map((surface) => ({ value: surface, label: surface }));
   const surfaceTypeOptions: Option[] = surfaceTypes.map((surface) => ({
     value: surface,
-    label: `${surface} - €${UNIT_PRICES[surface]}${
-      surface === 'Salontafels/Eettafels'
-        ? ' per m²'
-        : surface === 'Vensterbanken' || surface === 'Planken/Plateaus'
-          ? ' per m'
-          : ''
-    }`,
+    label:
+      surface === 'Nee'
+        ? surface // Just show "Nee" without price information
+        : `${surface} - €${UNIT_PRICES[surface]}${surface === 'Salontafels/Eettafels' ? ' per m²' : surface === 'Vensterbanken' || surface === 'Planken/Plateaus' ? ' per m' : ''}`,
   }));
 
   const form = useForm({
@@ -87,6 +85,11 @@ const StepThreePart2: React.FC<StepProps> = ({ onPrevious, onNext, formData, upd
   const totalRef = useRef<number>(parseFloat(formData.totalCost) || 0); // Track total cost using ref
 
   useEffect(() => {
+    // If "Nee" is selected, skip calculation
+    if (watchSurfaces.includes('Nee')) {
+      setAdditionalCost(0);
+      return;
+    }
     // Calculate additional cost based on current selections
     let updatedCost = 0;
 
@@ -127,7 +130,9 @@ const StepThreePart2: React.FC<StepProps> = ({ onPrevious, onNext, formData, upd
 
   // Button should be disabled if no surfaces are selected or missing required input fields
   const isButtonDisabled =
-    !watchSurfaces.length || // No surfaces selected
+    // If "Nee" is selected, don't validate other surfaces or input fields
+    (watchSurfaces.includes('Nee') && !watchSurfaces.length) || // If "Nee" is selected and no other surfaces, button should be enabled
+    !watchSurfaces.length || // No surfaces selected (excluding "Nee")
     ((watchSurfaces.includes('Traptredes') || watchSurfaces.includes('Opstapjes')) &&
       !watchNumberOfTraptredesOpstapjes) || // Missing number of Traptredes or Opstapjes
     ((watchSurfaces.includes('Drempels') || watchSurfaces.includes('Dorpels')) && !watchNumberOfDrempelsDorpels) || // Missing number of Drempels or Dorpels
@@ -145,6 +150,7 @@ const StepThreePart2: React.FC<StepProps> = ({ onPrevious, onNext, formData, upd
       onNext(); // Move to next step
     })();
   };
+  const isNeeSelected = watchSurfaces.includes('Nee');
 
   return (
     <FormProvider {...form}>
@@ -180,7 +186,7 @@ const StepThreePart2: React.FC<StepProps> = ({ onPrevious, onNext, formData, upd
           </div>
 
           <div className="grid grid-cols-2 gap-x-4">
-            {watchSurfaces.includes('Traptredes') || watchSurfaces.includes('Opstapjes') ? (
+            {(watchSurfaces.includes('Traptredes') || watchSurfaces.includes('Opstapjes')) && !isNeeSelected ? (
               <SingleSelectDropdown
                 data={surfaces}
                 name="numberOfTraptredesOpstapjes"
@@ -189,7 +195,7 @@ const StepThreePart2: React.FC<StepProps> = ({ onPrevious, onNext, formData, upd
               />
             ) : null}
 
-            {watchSurfaces.includes('Drempels') || watchSurfaces.includes('Dorpels') ? (
+            {(watchSurfaces.includes('Drempels') || watchSurfaces.includes('Dorpels')) && !isNeeSelected ? (
               <SingleSelectDropdown
                 data={surfaces}
                 name="numberOfDrempelsDorpels"
@@ -200,7 +206,7 @@ const StepThreePart2: React.FC<StepProps> = ({ onPrevious, onNext, formData, upd
           </div>
 
           <div className="grid grid-cols-2 gap-x-4">
-            {watchSurfaces.includes('Vensterbanken') ? (
+            {watchSurfaces.includes('Vensterbanken') && !isNeeSelected ? (
               <InputGetter
                 form={form}
                 name="vensterbankenMeters"
@@ -210,7 +216,7 @@ const StepThreePart2: React.FC<StepProps> = ({ onPrevious, onNext, formData, upd
               />
             ) : null}
 
-            {watchSurfaces.includes('Planken/Plateaus') ? (
+            {watchSurfaces.includes('Planken/Plateaus') && !isNeeSelected ? (
               <InputGetter
                 form={form}
                 name="plankenMeters"
@@ -221,7 +227,7 @@ const StepThreePart2: React.FC<StepProps> = ({ onPrevious, onNext, formData, upd
             ) : null}
           </div>
 
-          {watchSurfaces.includes('Salontafels/Eettafels') ? (
+          {watchSurfaces.includes('Salontafels/Eettafels') && !isNeeSelected ? (
             <InputGetter
               form={form}
               name="tableArea"

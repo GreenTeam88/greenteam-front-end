@@ -143,8 +143,8 @@ const SingleSelectFormField = React.forwardRef<HTMLButtonElement, SingleSelectFo
                           <Image
                             src={option.imageUrl}
                             alt={option.label}
-                            width={50}
-                            height={50}
+                            width={55}
+                            height={55}
                             className="ml-2 rounded-sm transition-transform duration-200 ease-in-out hover:scale-130"
                           />
                         )}
