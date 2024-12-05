@@ -3,16 +3,13 @@ import { InfoCardProps, OrangeInfoCard } from '../../diensten/_components/cards'
 
 const infoCardConfig: InfoCardProps = {
   buttonText: 'Meer informatie',
-  buttonLink: '/traprenovatie',
-
+  buttonLink: '/parketrenovatie/reparatie',
   imgSrc: '/Parketrenovatie/sixthFloor.png',
   paragraphs: [
     <BodyText key="1">
-      Dagelijks wordt er gelopen op een houten vloer. Het is dan ook logisch dat op een gegeven moment gebruikssporen
-      zoals krasjes, oneffenheden en vlekjes te zien zijn. Elke houten vloer zal daarom op een gegeven moment
-      onderhouden moeten worden en worden geschuurd. Op deze manier kan je alle gebruikssporen laten verdwijnen en is je
-      houten vloer weer zo goed als nieuw. Ligt jouw vloer er al 10 tot 20 jaar dan is het de hoogste tijd om daar wat
-      aan te doen!
+      Niet de hele vloer vervangen! Wij kunnen het parket leveren dat al in uw huis ligt om zo de reparatie uit te
+      voeren met hetzelfde hout en er weer een geheel van te maken. zelf parket, laminaat, pvc leveren. We kunnen
+      hetzelfde leveren als wat er ligt.{' '}
     </BodyText>,
     <BodyTextBold key="2" className="text-secondaryDefault">
       Ligt jouw vloer er al 10 tot 20 jaar dan is het de hoogste tijd om daar wat aan te doen!{' '}

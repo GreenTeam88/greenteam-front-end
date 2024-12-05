@@ -3,21 +3,22 @@ import { InfoCardProps, OrangeInfoCard } from '../../diensten/_components/cards'
 
 const infoCardConfig: InfoCardProps = {
   buttonText: 'Meer informatie',
-  buttonLink: '/traprenovatie',
+  buttonLink: '/parketrenovatie/schuren-en-hardwaxen',
   imgSrc: '/Parketrenovatie/fourthFloor.png',
   paragraphs: [
     <BodyText key="1">
-      Dagelijks wordt er gelopen op een houten vloer. Het is dan ook logisch dat op een gegeven moment gebruikssporen
-      zoals krasjes, oneffenheden en vlekjes te zien zijn. Elke houten vloer zal daarom op een gegeven moment
-      onderhouden moeten worden en worden geschuurd. Op deze manier kan je alle gebruikssporen laten verdwijnen en is je
-      houten vloer weer zo goed als nieuw. Ligt jouw vloer er al 10 tot 20 jaar dan is het de hoogste tijd om daar wat
-      aan te doen!
+      Dagelijks gebruik laat zijn sporen na op een houten vloer, zoals krasjes, oneffenheden en vlekjes. Na verloop van
+      tijd, vaak na 10 tot 20 jaar, is het daarom noodzakelijk om de vloer te onderhouden en te schuren, zodat deze weer
+      als nieuw oogt. Voor een optimale afwerking en bescherming is een behandeling met hardwax een uitstekende keuze.
+      Hardwax combineert de voordelen van olie met een extra waxlaag, wat zorgt voor een betere weerstand tegen vuil en
+      vocht. Daarnaast benadrukt het de natuurlijke houtstructuur en geeft het de vloer een warme, rijke uitstraling,
+      waardoor het hout weer tot leven komt.{' '}
     </BodyText>,
     <BodyTextBold key="2" className="text-secondaryDefault">
       Ligt jouw vloer er al 10 tot 20 jaar dan is het de hoogste tijd om daar wat aan te doen!{' '}
     </BodyTextBold>,
   ],
-  title: 'Schuren en polijsten',
+  title: 'Schuren en hardwaxen',
   secondBtnText: 'Direct offerte berekenen',
   secondBtnLink: '/offerte-aanvragen',
 };

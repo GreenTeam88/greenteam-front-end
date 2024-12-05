@@ -3,16 +3,15 @@ import { InfoCardProps, OrangeInfoCard } from '../../diensten/_components/cards'
 
 const infoCardConfig: InfoCardProps = {
   buttonText: 'Meer informatie',
-  buttonLink: '/traprenovatie',
+  buttonLink: '/parketrenovatie/v-groef-frezen',
 
   imgSrc: '/Parketrenovatie/eigthFloor.png',
   paragraphs: [
     <BodyText key="1">
-      Dagelijks wordt er gelopen op een houten vloer. Het is dan ook logisch dat op een gegeven moment gebruikssporen
-      zoals krasjes, oneffenheden en vlekjes te zien zijn. Elke houten vloer zal daarom op een gegeven moment
-      onderhouden moeten worden en worden geschuurd. Op deze manier kan je alle gebruikssporen laten verdwijnen en is je
-      houten vloer weer zo goed als nieuw. Ligt jouw vloer er al 10 tot 20 jaar dan is het de hoogste tijd om daar wat
-      aan te doen!
+      Frezen is een techniek waarbij met een roterend gereedschap, de frees, materiaal tussen de vloerplanken wordt
+      verwijderd. Hiermee frissen we de ‘vellingkant’ – de groeven tussen de planken – op voor een strakke en verzorgde
+      afwerking. Deze V-groeven, schuine uitsnijdingen aan de randen van de vloerdelen, creëren een luxe V-vorm die uw
+      vloer een unieke uitstraling en een stijlvol accent geeft, perfect passend in elke ruimte.
     </BodyText>,
     <BodyTextBold key="2" className="text-secondaryDefault">
       Ligt jouw vloer er al 10 tot 20 jaar dan is het de hoogste tijd om daar wat aan te doen!{' '}

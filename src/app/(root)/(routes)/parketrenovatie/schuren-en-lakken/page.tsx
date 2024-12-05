@@ -112,7 +112,7 @@ export default function Home() {
         btnText="Bereken jouw vloer"
         bottomText="Mijn vloer verdient een nieuwe laklaag!"
         cards={thirdSectionCards}
-        title="Hoe gaat schuren en lakkken in zijn werk?"
+        title="Hoe gaat schuren en lakken in zijn werk?"
       />
       <WhyGreenTeam />
       <StoreSection

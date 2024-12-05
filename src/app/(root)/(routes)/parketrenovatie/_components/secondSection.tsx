@@ -45,7 +45,7 @@ export const SecondSection: React.FC<SecondSectionProps> = ({ image, pageName, s
       </p>
       <div className="flex flex-col lg:flex-row items-center gap-9 py-14">
         <QuestionSection />
-        <img className="max-w-full" src={image} />
+        <img className="max-w-full rounded-[10px]" src={image} />
       </div>
     </div>
   );
