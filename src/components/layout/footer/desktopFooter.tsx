@@ -8,10 +8,12 @@ import { InstagramLogo, TikTokIcon } from '../../icons/homePageIcons';
 import { BodyText, BodyTextBold, BodyTextSemibold, HeadlineSemiboldLink } from '../../theme/typography';
 import { FooterColumnInfo, footerColumnsInfo, topFooterLinks } from './footerConfig';
 
-export const FooterColumn: React.FC<FooterColumnInfo> = ({ title, links }) => {
+export const FooterColumn: React.FC<FooterColumnInfo> = ({ title, links, path }) => {
   return (
     <div className="flex flex-col w-[183px]  gap-[10px] ">
-      <BodyTextBold className="text-primaryDefault">{title}</BodyTextBold>
+      <Link href={path} className="text-primaryDefault">
+        {title}
+      </Link>
       <div className="flex flex-col gap-2">
         {links.map((link) => (
           <Link href={link.path} className="hover:text-primaryDefault cursor-pointer" key={link.name}>
