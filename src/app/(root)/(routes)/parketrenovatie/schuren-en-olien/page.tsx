@@ -35,23 +35,16 @@ const thirdSectionCards: InfoCardProps[] = [
     paragraphs: [
       <>
         <BodyText>
-          Polijsten is het proces waardoor een oppervlak van een materiaal glad en glanzend gemaakt wordt, waardoor de
-          oppervlakteruwheid verkleind wordt en het materiaal een sterk spiegelend effect verkrijgt. Dit gebeurt
-          standaard na het opschuren.{' '}
-        </BodyText>{' '}
-      </>,
-      <>
-        <BodyText>
-          Als een oppervlak onder een sterke microscoop wordt bezien, vertoont het sterke pieken en dalen. Door herhaald
-          schuren worden de pieken steeds verder afgevlakt totdat deze bijna vlak of sterk afgerond zijn. Het polijst
-          proces begint met grof schuren, en door met steeds fijner schuurmateriaal te werken wordt de oppervlakte
-          steeds gladder gemaakt. De visuele eigenschappen van voorwerpen kunnen zo door polijsten verbeterd worden. De
-          glans kan ook een technische eigenschap zijn van bijvoorbeeld een spiegel. Het polijsten wordt ook toegepast
-          om de ruwheid van een glijoppervlak te verlagen.
+          Een professionele oliebehandeling brengt de natuurlijke schoonheid van uw houten vloer naar voren. De
+          parketteurs van Green Team werken met hoogwaardige apparatuur om de olie grondig in de vloer te laten trekken
+          voor een duurzame bescherming. Olie geeft uw vloer niet alleen een warme uitstraling, maar biedt ook de
+          mogelijkheid om krassen, vlekken of slijtage eenvoudig bij te werken. Bovendien kan, afhankelijk van de
+          houtsoort, ook een kleur worden toegevoegd. Niet zeker van uw keuze? Geen zorgen - wij nemen verschillende
+          kleuren mee zodat u ter plekke kunt kiezen. We adviseren u graag over de beste opties!
         </BodyText>
       </>,
       <>
-        <BodyText className="text-secondaryDefault">Dit gebeurt standaard na het opschuren.</BodyText>{' '}
+        <BodyText className="text-secondaryDefault">Dit is een van de mogelijkheden na het schuren.</BodyText>{' '}
       </>,
     ],
   },
@@ -90,12 +83,12 @@ const FAQs: FAQType[] = [
 ];
 
 const whatWaitingForConfig: InfoCardProps = {
-  title: 'Waar wacht je op!',
+  title: 'Waar wacht u nog op!',
   paragraphs: [
     <BodyText key="1">
       Als dit is wat je wilt, waar wacht je dan op. Bereken via de knop hieronder wat het kost en neem contact met ons
       op voor een afspraak. Als je de specialist langs laat komen gaan we bespreken wat voor soort hout u heeft, wat de
-      mogelijkheden zijn, ons advies en we komen met de kleurstalen zodat je zeker weten de juiste beslissing maakt.
+      mogelijkheden zijn, ons advies en we komen met de kleurstalen zodat je zeker weten de juiste beslissing maakt.{' '}
     </BodyText>,
     <BodyText key="2">
       Deze afspraak kost eenmalig 50,- euro en deze wordt in mindering gebracht wanneer u de klus aan ons uitbesteed. In
