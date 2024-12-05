@@ -3,9 +3,9 @@ import { BodyText, BodyTextBold } from '@/components/theme/typography';
 
 const infoCardConfig: InfoCardProps = {
   buttonText: 'Meer informatie',
-  buttonLink: '/traprenovatie',
+  buttonLink: '/stofferen/deurmat',
 
-  imgSrc: '/stofferen/deurmat',
+  imgSrc: '/stofferen/stofferen-5.png',
   paragraphs: [
     <BodyText key="1">
       Dagelijks wordt er gelopen op een houten vloer. Het is dan ook logisch dat op een gegeven moment gebruikssporen
