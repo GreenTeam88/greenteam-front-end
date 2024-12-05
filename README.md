@@ -11,7 +11,7 @@ For the
 # Client🌟 
 
 ```
-git clone git@github.com:AchieveNL/achieve-frontend.git
+git clone [git@github.com:AchieveNL/achieve-frontend.git](https://github.com/GreenTeam88/Green-Team-Front-end-new.git)
 cd client
 yarn install
 yarn start
