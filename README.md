@@ -1,7 +1,8 @@
-#Achieve - Digital Agency ✨
+#GreenTeam  ✨
 
-Achieve is a digital agency based in Rotterdam, Netherlands.
-We create and optimize online campaigns to help companies and/or brands grow, resulting in more visitors, quality leads and rock-solid turnover.
+At Green Team, we have a passion for wood and sustainability. Originally woodworkers, we have specialized in floor and staircase renovation. Our goal is to deliver top quality and exceed expectations.
+
+We care about people and the environment and continuously strive for innovation. Most importantly, you can count on Green Team – a promise made is a promise kept.
 
 ## Getting Started 🚀
 
@@ -11,9 +12,10 @@ For the
 # Client🌟 
 
 ```
-git clone [git@github.com:AchieveNL/achieve-frontend.git](https://github.com/GreenTeam88/Green-Team-Front-end-new.git)
-cd client
+git clone https://github.com/GreenTeam88/Green-Team-Front-end-new.git
+cd /Green-Team-Front-end-new
 yarn install
+yarn run build
 yarn start
 
 ```
