@@ -4,7 +4,7 @@ export const GreenSection = () => {
   return (
     <div className="flex relative lg:justify-end bg-primaryDefault items-center lg:items-start lg:bg-white   h-fit  py-5 lg:px-0 lg:py-0 px-4 flex-col lg:flex-row w-full">
       <div
-        style={{ width: '80vw' }}
+        style={{ width: 'calc(100vw - 613px)' }}
         className=" lg:absolute z-20 top-0 left-0 justify-center lg:justify-start flex     overflow-visible  h-full lg:-mr-[7%]"
       >
         <img className=" hidden w-full h-full  lg:block object-cover" src="/aboutUs/greenBg.png" />
@@ -18,8 +18,8 @@ export const GreenSection = () => {
         </div>
       </div>
 
-      <div className="items-center z-10 hidden lg:flex relative justify-center w-[25vw]  h-[383px]">
-        <img src="/zakelijk/wood.png" className="w-full h-full " />
+      <div className="items-center z-10 hidden lg:flex relative justify-center   h-[383px]">
+        <img src="/zakelijk/wood.png" className="w-full  h-full " />
       </div>
     </div>
   );
