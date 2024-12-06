@@ -96,7 +96,7 @@ export default function Home() {
       <Hero />
       <ListCard
         sectionName="Vloeren leggen"
-        pageName="Laminaat leggen"
+        pageName="Laminaat"
         listTitle="Ben jij op zoek naar…"
         listItems={[
           'Een vloer met weinig onderhoud?',

@@ -97,7 +97,7 @@ export default function Home() {
       <Hero />
       <ListCard
         sectionName="Vloeren leggen"
-        pageName="Parket leggen"
+        pageName="Parket"
         listTitle="Weet jij niet…"
         listItems={[
           'Hoe u een parketvloer professioneel legt?',
