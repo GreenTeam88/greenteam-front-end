@@ -12,12 +12,12 @@ const infoCardConfig: InfoCardProps = {
       komt bij u langs om de houtsoort en plank afmetingen vast te stellen, zodat we perfect bijpassend hout kunnen
       bestellen en uw vloer naadloos kunnen uitbreiden.{' '}
     </BodyText>,
-    <BodyText>
+    <BodyText key="2">
       Om het nieuwe deel volledig te laten aansluiten bij het bestaande, schuren en behandelen we de hele vloer na de
       uitbreiding. Zo krijgen zowel de oude als nieuwe delen dezelfde kleur en afwerking, waardoor uw vloer eruit ziet
       als één prachtig, uniform geheel.{' '}
     </BodyText>,
-    <BodyTextBold key="2" className="text-secondaryDefault">
+    <BodyTextBold key="3" className="text-secondaryDefault">
       Ligt jouw vloer er al 10 tot 20 jaar dan is het de hoogste tijd om daar wat aan te doen!{' '}
     </BodyTextBold>,
   ],
