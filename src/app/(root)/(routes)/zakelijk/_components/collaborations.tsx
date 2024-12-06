@@ -5,7 +5,7 @@ const config: InfoCardProps = {
   title: 'De vakmensen van GreenTeam denken graag mee met al je vragen. ',
   imgSrc: '/zakelijk/construction-team-working-blueprint-new-project.png',
   buttonText: 'Offerte aanvragen',
-
+  imgClassName: 'max-w-[598px]',
   buttonLink: '/offerte-aanvragen',
   paragraphs: [
     <>

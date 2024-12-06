@@ -6,6 +6,7 @@ import { cn } from '@/lib/tailwind';
 
 export type InfoCardProps = {
   mainTitle?: string;
+  imgClassName?: string;
   title: string;
   imgSrc: string;
   contentContainerClassName?: string;
@@ -22,6 +23,7 @@ export const OrangeInfoCard: React.FC<InfoCardProps> = ({
   mainTitle,
   paragraphs,
   buttonLink,
+  imgClassName,
   secondBtnLink,
   contentContainerClassName,
   buttonText,
@@ -37,7 +39,7 @@ export const OrangeInfoCard: React.FC<InfoCardProps> = ({
       )}
       {...props}
     >
-      <img className="lg:w-fit w-full rounded-lg" src={imgSrc} />
+      <img className={clsx('lg:w-fit w-full rounded-lg', imgClassName)} src={imgSrc} />
       <div className={clsx('flex flex-col   px-3 lg:px-0 max-w-[508px]  gap-[33px] ', contentContainerClassName)}>
         <div className="flex flex-col gap-[11px] ">
           <div className="flex flex-col gap-4">

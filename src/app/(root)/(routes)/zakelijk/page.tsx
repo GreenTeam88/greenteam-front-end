@@ -1,7 +1,6 @@
-import React from 'react';
-
 import { Hero } from '../_components/hero';
 import { PhoneNumberSection } from '../_components/phoneNumberSection';
+import { ZakelijkCardsSection } from './_components/cardsSection';
 import { CollaberationsSection } from './_components/collaborations';
 import { CoreValues } from './_components/coreValues';
 import { CrauselSection } from './_components/crausel';
@@ -15,6 +14,7 @@ function ZakelijkPage() {
     <div className="flex w-full bg-bgColor items-center flex-col">
       <Hero />
       <FloorsOrStairs />
+      <ZakelijkCardsSection />
       <GreenTeamDescription />
       <CrauselSection />
       <CollaberationsSection />
