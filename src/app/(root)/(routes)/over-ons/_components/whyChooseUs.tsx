@@ -35,13 +35,6 @@ const tabsInfo: TabInfo[] = [
   },
 ];
 
-const paragraphs: string[] = [
-  'Met twee decennia aan expertise in het renoveren van trappen en vloeren, zijn we uitgegroeid tot een betrouwbare partner voor hoogwaardige interieurprojecten. Onze expertise strekt zich uit over een breed scala aan materialen en stijlen, waardoor we voor elke ruimte de perfecte oplossing kunnen bieden. Dankzij onze jarenlange ervaring kunnen we vakmanschap, precisie en duurzaamheid garanderen bij elk project dat we uitvoeren.',
-  'Kwaliteit staat bij ons hoog in het vaandel. We streven ernaar om bij elk project de hoogste standaard te bereiken, van de selectie van de beste materialen tot de afwerking met oog voor detail. Ons team van ervaren vakmensen zet zich volledig in om uitmuntend vakwerk te leveren dat voldoet aan de verwachtingen van onze klanten. We geloven dat kwaliteit de basis is van langdurige klanttevredenheid en daarom is dit de kern van alles wat we doen.',
-  'Duurzaamheid is een belangrijk onderdeel van onze werkwijze. We kiezen bewust voor milieuvriendelijke materialen en technieken die de impact op het milieu minimaliseren. Door duurzame keuzes te maken, dragen we bij aan een betere toekomst en zorgen we ervoor dat onze projecten niet alleen nu, maar ook in de toekomst van waarde blijven. We streven ernaar om verantwoorde keuzes te maken die zowel goed zijn voor onze klanten als voor de planeet. We heten niet voor niets GreenTeam!',
-  'Bij GreenTeam geloven we in maatwerk. Ieder project is uniek, en daarom bieden wij oplossingen die precies aansluiten bij de wensen en behoeften van onze klanten. Of het nu gaat om een traprenovatie, een nieuwe vloer, of een complete verbouwing, wij luisteren goed naar uw wensen en vertalen deze naar een perfect passend ontwerp. Met onze flexibele aanpak en oog voor detail zorgen we ervoor dat elk project persoonlijk en uniek is. Uw visie is onze uitdaging, en wij zetten ons in om deze tot in de puntjes te realiseren. Geen standaardoplossingen, maar maatwerk dat volledig aansluit bij uw wensen.',
-];
-
 const cardsInfos: StandardCardInfo[] = [
   {
     title: 'Je vloer of trap wordt stofvrij geschuurd',
