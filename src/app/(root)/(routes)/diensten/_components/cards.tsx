@@ -59,9 +59,9 @@ export const OrangeInfoCard: React.FC<InfoCardProps> = ({
             ))}
           {secondBtnText &&
             (secondBtnLink ? (
-              <PrimaryBtnLink href={secondBtnLink}>{buttonText}</PrimaryBtnLink>
+              <PrimaryBtnLink href={secondBtnLink}>{secondBtnText}</PrimaryBtnLink>
             ) : (
-              <PrimaryBtn>{buttonText}</PrimaryBtn>
+              <PrimaryBtn>{secondBtnText}</PrimaryBtn>
             ))}
         </div>
       </div>

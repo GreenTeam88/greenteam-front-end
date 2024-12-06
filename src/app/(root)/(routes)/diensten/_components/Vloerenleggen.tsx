@@ -1,7 +1,7 @@
 import { InfoCardProps, OrangeInfoCard } from './cards';
 
 const config: InfoCardProps = {
-  title: 'Vloerenleggen',
+  title: 'Vloeren leggen ',
   imgSrc: '/diensten/Vloerenleggen.png',
   buttonText: 'Meer informatie',
   buttonLink: '/traprenovatie',
