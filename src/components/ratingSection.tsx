@@ -95,7 +95,7 @@ const ratings: RatingInfo[] = [
 
 const RatingCard: React.FC<RatingInfo> = ({ stars, date: birthDate, description, images, name }) => {
   return (
-    <div className="flex flex-col gap-[22px] bg-white p-4 lg:p-[22px] lg:w-[380px] ">
+    <div className="flex z-40 flex-col gap-[22px] bg-white p-4 lg:p-[22px] lg:w-[380px] ">
       <div className="flex w-full  justify-between">
         <div className="flex ">
           {Array.from({ length: stars }).map((item, index) => (
@@ -196,14 +196,17 @@ const Ratings = () => {
 
       {/* Ratings for desktop */}
       <div className="hidden lg:flex w-[1200px] gap-[20px] relative h-[400px] overflow-hidden">
-        <motion.div animate={firstRowAnimation} className="flex absolute top-0 left-0 gap-[20px] flex-col lg:flex-row">
+        <motion.div
+          animate={firstRowAnimation}
+          className="flex overflow-visible absolute top-0 left-0 gap-[20px] flex-col lg:flex-row"
+        >
           {ratings.map((rating, index) => (
             <RatingCard key={`first-${index}`} {...rating} />
           ))}
         </motion.div>
         <motion.div
           animate={secondRowAnimation}
-          className="flex gap-[20px] absolute left-[1200px] top-0 flex-col lg:flex-row"
+          className="flex gap-[20px] absolute left-[1200px] top-0 flex-col  overflow-visible lg:flex-row"
         >
           {ratings.slice(3, 6).map((rating, index) => (
             <RatingCard key={`second-${index}`} {...rating} />

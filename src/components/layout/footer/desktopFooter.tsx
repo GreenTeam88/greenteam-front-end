@@ -10,8 +10,8 @@ import { FooterColumnInfo, footerColumnsInfo, topFooterLinks } from './footerCon
 
 export const FooterColumn: React.FC<FooterColumnInfo> = ({ title, links, path }) => {
   return (
-    <div className="flex flex-col w-[183px]  gap-[10px] ">
-      <Link href={path} className="text-primaryDefault">
+    <div className="flex flex-col w-[220px]  gap-[10px] ">
+      <Link href={path} className="text-primaryDefault font-bold">
         {title}
       </Link>
       <div className="flex flex-col gap-2">
@@ -37,7 +37,7 @@ export const FooterTopSection = () => {
             {link.name}
           </HeadlineSemiboldLink>
         ))}
-        <div className="flex gap-[22px]  px-6">
+        <div className="flex gap-[22px] items-center  px-6">
           <div className="cursor-pointer" onClick={() => window.open(appConfig.instagramAccount, '_blank')}>
             <InstagramLogo />
           </div>
@@ -107,7 +107,7 @@ const FooterBottomSection = () => {
 export const DesktopFooter = () => {
   return (
     <div className="hidden lg:flex items-center justify-center w-full bg-lightGray ">
-      <div className="flex max-w-[1440px] py-[55px]  px-[120px] w-full flex-col   gap-[44px]">
+      <div className="flex max-w-[1540px] py-[55px]  px-[120px] w-full flex-col   gap-[44px]">
         <FooterTopSection />
         <FooterLightBorder />
         <FooterColumns />

@@ -131,13 +131,13 @@ const headerRoutes: HeaderRoute[] = [
         link: '/overig',
         title: 'Overig',
         subPages: [
-          { name: 'Vloerverwarming', path: '' },
-          { name: 'Egaliseren', path: '' },
-          { name: 'Gietvloeren', path: '' },
-          { name: 'Tegelen', path: '' },
-          { name: 'Vloer verwijderen', path: '' },
-          { name: 'Natuursteen behandelen', path: '' },
-          { name: 'Opslag', path: '' },
+          { name: 'Vloerverwarming', path: '/overig/vloerverwarming' },
+          { name: 'Egaliseren', path: '/overig/egaliseren' },
+          { name: 'Gietvloeren', path: '/overig/gietvloeren' },
+          { name: 'Tegelen', path: '/overig/tegelen' },
+          { name: 'Vloer verwijderen', path: '/overig/vloer-verwijderen' },
+          { name: 'Natuursteen behandelen', path: '/overig/natuursteen-behandelen' },
+          { name: 'Opslag', path: '/overig/opslag' },
         ],
       },
     ],
@@ -257,19 +257,20 @@ const headerRoutes: HeaderRoute[] = [
     ],
   },
   {
+    path: '/overig',
     name: 'Overig',
     columns: [
       {
         link: '',
         title: '',
         subPages: [
-          { name: 'Vloerverwarming', subPages: [] },
-          { name: 'Egaliseren', subPages: [] },
-          { name: 'Gietvloeren', subPages: [] },
-          { name: 'Tegelen', subPages: [] },
-          { name: 'Vloer verwijderen', subPages: [] },
-          { name: 'Natuursteen behandelen', subPages: [] },
-          { name: 'Opslag', subPages: [] },
+          { name: 'Vloerverwarming', path: '/overig/vloerverwarming' },
+          { name: 'Egaliseren', path: '/overig/egaliseren' },
+          { name: 'Gietvloeren', path: '/overig/gietvloeren' },
+          { name: 'Tegelen', path: '/overig/tegelen' },
+          { name: 'Vloer verwijderen', path: '/overig/vloer-verwijderen' },
+          { name: 'Natuursteen behandelen', path: '/overig/natuursteen-behandelen' },
+          { name: 'Opslag', path: '/overig/opslag' },
         ],
       },
     ],
@@ -387,11 +388,11 @@ export const HeaderTopSection = () => {
         ></motion.div>
         {/* <p className="font-semibold text-[22px] text-primaryGreenD1"> Liever iemand spreken? Bel 085 401 93 45</p> */}
         <TitleCarousel />
-        <div className="flex gap-[22px]">
-          <div className="cursor-pointer" onClick={() => window.open(appConfig.instagramAccount, '_blank')}>
+        <div className="flex gap-[22px] items-center ">
+          <div className="cursor-pointer " onClick={() => window.open(appConfig.instagramAccount, '_blank')}>
             <InstagramLogo />
           </div>
-          <div className="cursor-pointer" onClick={() => window.open(appConfig.tiktokAccount, '_blank')}>
+          <div className="cursor-pointer " onClick={() => window.open(appConfig.tiktokAccount, '_blank')}>
             <TikTokIcon />
           </div>
         </div>
