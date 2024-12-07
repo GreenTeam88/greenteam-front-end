@@ -50,7 +50,7 @@ const headerRoutes: HeaderRoute[] = [
     columns: [
       {
         link: '/parketrenovatie',
-        title: 'Parket renovatie',
+        title: 'Parketrenovatie',
         subPages: [
           { name: ' Schuren en polijsten', path: '/parketrenovatie/schuren-en-polijsten' },
           { name: ' Schuren en lakken', path: '/parketrenovatie/schuren-en-lakken' },

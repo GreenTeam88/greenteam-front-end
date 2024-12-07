@@ -45,7 +45,7 @@ const cardsInfos: StandardCardInfo[] = [
   {
     title: 'Behandelingen op maat',
     paragraph:
-      'Er zijn verschillende mogelijkheden voor de afwerking van een vloer na het schuren. Wij zorgen altijd voor de behandeling die het beste past bij de vloer en aansluit op jouw wensen. Er is keuze uit lak, olie of hardwax in verschillende kleuren. Hierbij zullen de gepassioneerde vak mannen van Green Team je altijd adviseren voor het maken van de beste keuze.',
+      'Er zijn verschillende mogelijkheden voor de afwerking van een vloer na het schuren. Wij zorgen altijd voor de behandeling die het beste past bij de vloer en aansluit op jouw wensen. Er is keuze uit lak, olie of hardwax in verschillende kleuren. Hierbij zullen de gepassioneerde vakmannen van Green Team je altijd adviseren voor het maken van de beste keuze.',
     img: '/aboutUs/floorPaperCleaning.png',
   },
 ];
