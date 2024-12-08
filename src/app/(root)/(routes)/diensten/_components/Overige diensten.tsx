@@ -1,3 +1,4 @@
+import { ImageCarousel } from '@/components/animations/imageCrausel';
 import { InfoCardProps, OrangeInfoCard } from './cards';
 
 const config: InfoCardProps = {
@@ -6,7 +7,16 @@ const config: InfoCardProps = {
   buttonLink: '/offerte-aanvragen',
   secondBtnText: 'Direct offerte berekenen',
   secondBtnLink: '/offerte-aanvragen',
-  imgSrc: '/diensten/OverigeDiensten.png',
+  imgSrc: [
+    '/diensten/OverigeDiensten.png',
+    '/diensten/crausel/crausel-1.png',
+    '/diensten/crausel/crausel-2.png',
+    '/diensten/crausel/crausel-3.png',
+    '/diensten/crausel/crausel-4.png',
+    '/diensten/crausel/crausel-5.png',
+    '/diensten/crausel/crausel-6.png',
+    '/diensten/crausel/crausel-7.png',
+  ],
   paragraphs: [
     <>
       Plinten en deklijsten zijn net zo belangrijk als de vloer zelf. Ze hebben naast een decoratief effect ook een

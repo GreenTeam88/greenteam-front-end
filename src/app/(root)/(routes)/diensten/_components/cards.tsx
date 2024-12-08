@@ -1,5 +1,6 @@
 import clsx from 'clsx';
 
+import { ImageCarousel } from '@/components/animations/imageCrausel';
 import { PrimaryBtn, PrimaryBtnLink } from '@/components/theme/buttons';
 import { BodyText, H2 } from '@/components/theme/typography';
 import { cn } from '@/lib/tailwind';
@@ -8,7 +9,7 @@ export type InfoCardProps = {
   mainTitle?: string;
   imgClassName?: string;
   title: string;
-  imgSrc: string;
+  imgSrc: string | string[];
   contentContainerClassName?: string;
   paragraphs: React.ReactNode[];
   buttonText?: string;
@@ -35,11 +36,16 @@ export const OrangeInfoCard: React.FC<InfoCardProps> = ({
     <div
       className={cn(
         'flex   w-full p-7 lg:p-0 lg:py-[99px] flex-col lg:flex-row bg-secondaryLight items-center justify-center gap-7 lg:gap-[57px]',
+        { 'items-start ': typeof imgSrc !== 'string' },
         className
       )}
       {...props}
     >
-      <img className={clsx('lg:w-fit w-full rounded-lg', imgClassName)} src={imgSrc} />
+      {typeof imgSrc === 'string' ? (
+        <img className={clsx('lg:w-fit w-full rounded-lg', imgClassName)} src={imgSrc} />
+      ) : (
+        <ImageCarousel images={imgSrc} />
+      )}
       <div className={clsx('flex flex-col   px-3 lg:px-0 max-w-[508px]  gap-[33px] ', contentContainerClassName)}>
         <div className="flex flex-col gap-[11px] ">
           <div className="flex flex-col gap-4">
@@ -112,7 +118,11 @@ export const WhiteInfoCard: React.FC<InfoCardProps> = ({
             ))}
         </div>
       </div>
-      <img className="w-full lg:w-fit rounded-lg" src={imgSrc} />
+      {typeof imgSrc === 'string' ? (
+        <img className="w-full lg:w-fit rounded-lg" src={imgSrc} />
+      ) : (
+        <ImageCarousel images={imgSrc} />
+      )}
     </div>
   );
 };
