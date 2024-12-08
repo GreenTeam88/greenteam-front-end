@@ -77,7 +77,7 @@ export const ZakelijkCardsSection = () => {
       <H2 className="text-primaryDefault text-center ">Geschikt voor locaties zoals...</H2>
       <div className="flex  max-w-[1256px] flex-wrap gap-8">
         {cardsConfig.map((cardConfig) => (
-          <ZakelijkCard {...cardConfig} />
+          <ZakelijkCard key={cardConfig.name} {...cardConfig} />
         ))}
       </div>
     </div>
