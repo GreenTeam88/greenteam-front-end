@@ -4,7 +4,6 @@ import { AnimatePresence, motion } from 'framer-motion';
 import { useState } from 'react';
 
 import { CrauselIcon } from '../icons/arrows';
-import { H2 } from '../theme/typography';
 
 interface ImageCarouselProps {
   images: string[];
@@ -73,18 +72,6 @@ export const ImageCarousel = ({ images }: ImageCarouselProps) => {
           <CrauselIcon />
         </button>
       </div>
-      {/* <div className="absolute bottom-4 left-1/2 -translate-x-1/2 flex gap-2">
-        {images.map((_, index) => (
-          <button
-            key={index}
-            onClick={() => {
-              setDirection(index > currentIndex ? 1 : -1);
-              setCurrentIndex(index);
-            }}
-            className={`w-2 h-2 rounded-full transition-all ${index === currentIndex ? 'bg-white w-4' : 'bg-white/50'}`}
-          />
-        ))}
-      </div> */}
     </div>
   );
 };

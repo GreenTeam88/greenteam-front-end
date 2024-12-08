@@ -4,7 +4,7 @@ const config: InfoCardProps = {
   title: 'Parketrenovatie',
   imgSrc: '/diensten/parqueteRenovation.png',
   buttonText: 'Meer informatie',
-  buttonLink: '/traprenovatie',
+  buttonLink: '/parketrenovatie',
   secondBtnText: 'Offerte aanvragen',
   secondBtnLink: '/offerte-aanvragen',
   paragraphs: [

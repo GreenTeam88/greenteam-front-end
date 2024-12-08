@@ -1,3 +1,5 @@
+import { isValidElement } from 'react';
+
 import { GameIcon } from '@/components/icons/game';
 import { HeartIcon } from '@/components/icons/heart';
 import { StarIcon } from '@/components/icons/star';
@@ -6,7 +8,7 @@ import { BodyText, H2, HeadlineSemibold } from '@/components/theme/typography';
 
 type WhyGreenTeamCardProps = {
   title: string;
-  paragraphs: string[];
+  paragraphs: string[] | JSX.Element;
   icon: React.ReactNode;
 };
 
@@ -21,9 +23,14 @@ const whyGreenTeamCardsInfo: WhyGreenTeamCardProps[] = [
   },
   {
     title: 'Persoonlijk advies op maat',
-    paragraphs: [
-      'We begrijpen dat het een grote ingreep is en samen willen we naar het gewenste eindresultaat, wat u met trots laat zien wanneer er bekende over de vloer komen. Daarom komen wij graag langs met kleurstalen om je een accuraat beeld te geven over het eindresultaat. ',
-    ],
+    paragraphs: (
+      <BodyText>
+        We begrijpen dat het een grote ingreep is en samen willen we naar het gewenste eindresultaat, wat u met trots
+        laat zien wanneer er bekende over de vloer komen. <br /> Daarom komen wij graag langs met kleurstalen om je een
+        accuraat beeld te geven over het eindresultaat.
+      </BodyText>
+    ),
+
     icon: <GameIcon />,
   },
   {
@@ -43,9 +50,9 @@ const WhyGreenTeamCard: React.FC<WhyGreenTeamCardProps> = ({ icon, paragraphs, t
         <HeadlineSemibold className="text-primaryDefault">{title}</HeadlineSemibold>
       </div>
       <div className="flex flex-col gap-8">
-        {paragraphs.map((paragraph) => (
-          <BodyText key={paragraph}>{paragraph}</BodyText>
-        ))}
+        {isValidElement(paragraphs)
+          ? paragraphs
+          : (paragraphs as string[]).map((paragraph) => <BodyText key={paragraph}>{paragraph}</BodyText>)}
       </div>
     </div>
   );

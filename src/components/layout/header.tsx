@@ -85,8 +85,8 @@ const headerRoutes: HeaderRoute[] = [
         ],
       },
       {
-        link: '/traprenovaties',
-        title: 'Traprenovaties',
+        link: '/traprenovatie',
+        title: 'Traprenovatie',
         subPages: [
           { name: 'Bekleden met PVC', path: '' },
           { name: 'Bekleden met laminaat', path: '' },
@@ -180,7 +180,7 @@ const headerRoutes: HeaderRoute[] = [
     columns: [
       {
         link: '',
-        title: 'Traprenovaties',
+        title: 'Traprenovatie',
         subPages: [
           { name: 'Bekleden met PVC', path: '/' },
           { name: 'Bekleden met laminaat', path: '/' },
