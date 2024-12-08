@@ -101,7 +101,7 @@ const SingleSelectFormField = React.forwardRef<HTMLButtonElement, SingleSelectFo
           </Button>
         </PopoverTrigger>
         <PopoverContent
-          className={cn('w-[200px] p-0 drop-shadow-sm', menuClassName)}
+          className={cn('w-[200px] p-0 drop-shadow-sm ', menuClassName)}
           align="start"
           onEscapeKeyDown={() => setIsPopoverOpen(false)}
         >

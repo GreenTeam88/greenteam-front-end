@@ -1,0 +1,261 @@
+import { zodResolver } from '@hookform/resolvers/zod';
+import { ChevronLeft } from 'lucide-react';
+import React, { useEffect, useRef, useState } from 'react';
+import { FormProvider, useForm } from 'react-hook-form';
+import { z } from 'zod';
+
+import InputGetter from '@/components/calculators/Getters/InputGetter';
+import MultiSelectDropdown from '@/components/calculators/Getters/MultiSelectDropdown';
+import SingleSelectDropdown from '@/components/calculators/Getters/SingleSelectDropdown';
+import CreateButton from '@/components/custom/CreateButton';
+import { HeadlineSemibold } from '@/components/theme/typography';
+import { Option } from '@/types';
+
+interface StepProps {
+  onPrevious: () => void;
+  onNext: () => void;
+  formData: any;
+  updateFormData: (data: any) => void;
+}
+
+const schema = z.object({
+  additionalSurfaces: z.array(z.string()).min(1, { message: 'Please select at least one surface' }).optional(),
+  numberOfTraptredesOpstapjes: z.string().optional(),
+  numberOfDrempelsDorpels: z.string().optional(),
+  tableArea: z
+    .string()
+    .regex(/^\d+(\.\d+)?$/, { message: 'Please enter a valid number for table area' })
+    .optional(),
+  vensterbankenMeters: z
+    .string()
+    .regex(/^\d+(\.\d+)?$/, { message: 'Please enter a valid number for vensterbanken meters' })
+    .optional(),
+  plankenMeters: z
+    .string()
+    .regex(/^\d+(\.\d+)?$/, { message: 'Please enter a valid number for planken meters' })
+    .optional(),
+});
+
+const UNIT_PRICES: Record<string, number> = {
+  Traptredes: 50,
+  Opstapjes: 50,
+  Drempels: 25,
+  Dorpels: 25,
+  Vensterbanken: 45,
+  'Planken/Plateaus': 45,
+  'Salontafels/Eettafels': 50,
+};
+
+const StepThreePart2: React.FC<StepProps> = ({ onPrevious, onNext, formData, updateFormData }) => {
+  const surfaceTypes = [
+    'Nee',
+    'Traptredes',
+    'Opstapjes',
+    'Drempels',
+    'Dorpels',
+    'Vensterbanken',
+    'Planken/Plateaus',
+    'Salontafels/Eettafels',
+  ];
+
+  const numberOptions = ['1', '2', '3', '4', '5', '6', '7', '8', '9', '10+'];
+  const surfaces: Option[] = numberOptions.map((surface) => ({ value: surface, label: surface }));
+  const surfaceTypeOptions: Option[] = surfaceTypes.map((surface) => ({
+    value: surface,
+    label:
+      surface === 'Nee'
+        ? surface // Just show "Nee" without price information
+        : `${surface} - €${UNIT_PRICES[surface]}${surface === 'Salontafels/Eettafels' ? ' per m²' : surface === 'Vensterbanken' || surface === 'Planken/Plateaus' ? ' per m' : ''}`,
+  }));
+
+  const form = useForm({
+    resolver: zodResolver(schema),
+    defaultValues: formData,
+    mode: 'onChange',
+  });
+
+  const watchSurfaces = form.watch('additionalSurfaces') || [];
+  const watchVensterbankenMeters = parseFloat(form.watch('vensterbankenMeters') || '0');
+  const watchPlankenMeters = parseFloat(form.watch('plankenMeters') || '0');
+  const watchTableArea = parseFloat(form.watch('tableArea') || '0');
+  const watchNumberOfTraptredesOpstapjes = parseFloat(form.watch('numberOfTraptredesOpstapjes') || '0');
+  const watchNumberOfDrempelsDorpels = parseFloat(form.watch('numberOfDrempelsDorpels') || '0');
+
+  const [additionalCost, setAdditionalCost] = useState<number>(0);
+  const totalRef = useRef<number>(parseFloat(formData.totalCost) || 0); // Track total cost using ref
+
+  useEffect(() => {
+    // If "Nee" is selected, skip calculation
+    if (watchSurfaces.includes('Nee')) {
+      setAdditionalCost(0);
+      return;
+    }
+    // Calculate additional cost based on current selections
+    let updatedCost = 0;
+
+    // Ensure that the calculated value isn't NaN
+    if (!isNaN(watchVensterbankenMeters) && watchSurfaces.includes('Vensterbanken')) {
+      updatedCost += watchVensterbankenMeters * UNIT_PRICES['Vensterbanken'];
+    }
+    if (!isNaN(watchPlankenMeters) && watchSurfaces.includes('Planken/Plateaus')) {
+      updatedCost += watchPlankenMeters * UNIT_PRICES['Planken/Plateaus'];
+    }
+    if (!isNaN(watchTableArea) && watchSurfaces.includes('Salontafels/Eettafels')) {
+      updatedCost += watchTableArea * UNIT_PRICES['Salontafels/Eettafels'];
+    }
+    if (
+      !isNaN(watchNumberOfTraptredesOpstapjes) &&
+      (watchSurfaces.includes('Traptredes') || watchSurfaces.includes('Opstapjes'))
+    ) {
+      updatedCost += watchNumberOfTraptredesOpstapjes * UNIT_PRICES['Traptredes'];
+    }
+    if (
+      !isNaN(watchNumberOfDrempelsDorpels) &&
+      (watchSurfaces.includes('Drempels') || watchSurfaces.includes('Dorpels'))
+    ) {
+      updatedCost += watchNumberOfDrempelsDorpels * UNIT_PRICES['Drempels'];
+    }
+
+    setAdditionalCost(updatedCost);
+  }, [
+    watchSurfaces,
+    watchVensterbankenMeters,
+    watchPlankenMeters,
+    watchTableArea,
+    watchNumberOfTraptredesOpstapjes,
+    watchNumberOfDrempelsDorpels,
+  ]);
+
+  const existingTotal = totalRef.current; // Track the persistent total cost
+
+  // Button should be disabled if no surfaces are selected or missing required input fields
+  const isButtonDisabled =
+    // If "Nee" is selected, don't validate other surfaces or input fields
+    (watchSurfaces.includes('Nee') && !watchSurfaces.length) || // If "Nee" is selected and no other surfaces, button should be enabled
+    !watchSurfaces.length || // No surfaces selected (excluding "Nee")
+    ((watchSurfaces.includes('Traptredes') || watchSurfaces.includes('Opstapjes')) &&
+      !watchNumberOfTraptredesOpstapjes) || // Missing number of Traptredes or Opstapjes
+    ((watchSurfaces.includes('Drempels') || watchSurfaces.includes('Dorpels')) && !watchNumberOfDrempelsDorpels) || // Missing number of Drempels or Dorpels
+    (watchSurfaces.includes('Vensterbanken') && !watchVensterbankenMeters) || // Missing meters for Vensterbanken
+    (watchSurfaces.includes('Planken/Plateaus') && !watchPlankenMeters) || // Missing meters for Planken/Plateaus
+    (watchSurfaces.includes('Salontafels/Eettafels') && !watchTableArea); // Missing area for Salontafels/Eettafels
+
+  const handleSubmit = (event: React.FormEvent) => {
+    event.preventDefault();
+    form.handleSubmit((data) => {
+      // Update total cost only when moving forward
+      const finalTotal = existingTotal + additionalCost; // Add the calculated additional cost
+      totalRef.current = finalTotal; // Save the total to ref to persist it across navigation
+      updateFormData({ ...data, totalCost: finalTotal }); // Update the form data with the new total
+      onNext(); // Move to next step
+    })();
+  };
+  const isNeeSelected = watchSurfaces.includes('Nee');
+
+  return (
+    <FormProvider {...form}>
+      <form onSubmit={handleSubmit} className="w-[386px] h-[550px] flex rounded-[4px] relative lg:px-0 z-10 flex-col ">
+        <div className="bg-primaryDefault rounded-t-[8px] flex items-center justify-center text-white py-[22px] w-full">
+          <div className="text-center">
+            <HeadlineSemibold className="w-full">Snel uw prijs bereken!</HeadlineSemibold>
+          </div>
+        </div>
+        <div className="bg-white w-full rounded-b-[8px] flex flex-col px-[22px] gap-y-3 py-[22px] shadow-md ">
+          <div className="flex flex-row items-center justify-between">
+            <div
+              className="flex items-center gap-[5px] cursor-pointer hover:text-green-700 transition-all"
+              onClick={onPrevious}
+            >
+              <ChevronLeft />
+            </div>
+            <span className="flex-1 text-gray-400 font-sans text-sm whitespace-nowrap">
+              Waar kunnen we u mee helpen?
+            </span>
+            <div className="flex w-[25%] h-[6px] bg-gray-300 rounded-full ml-4">
+              <div className="w-[60%] h-full bg-green-700 rounded-full"></div>
+            </div>
+          </div>
+
+          <div className="flex flex-col">
+            <MultiSelectDropdown
+              data={surfaceTypeOptions}
+              name="additionalSurfaces"
+              label="Zijn er nog andere oppervlaktes?"
+              placeholder="Kies er een"
+            />
+          </div>
+
+          <div className="grid grid-cols-2 gap-x-4">
+            {(watchSurfaces.includes('Traptredes') || watchSurfaces.includes('Opstapjes')) && !isNeeSelected ? (
+              <SingleSelectDropdown
+                data={surfaces}
+                name="numberOfTraptredesOpstapjes"
+                label="Traptrede(s)/opstapje(s)"
+                placeholder="Kies er een"
+              />
+            ) : null}
+
+            {(watchSurfaces.includes('Drempels') || watchSurfaces.includes('Dorpels')) && !isNeeSelected ? (
+              <SingleSelectDropdown
+                data={surfaces}
+                name="numberOfDrempelsDorpels"
+                label="Drempel(s)/dorpel(s)"
+                placeholder="Kies er een"
+              />
+            ) : null}
+          </div>
+
+          <div className="grid grid-cols-2 gap-x-4">
+            {watchSurfaces.includes('Vensterbanken') && !isNeeSelected ? (
+              <InputGetter
+                form={form}
+                name="vensterbankenMeters"
+                label="Vensterbank(en)"
+                placeholder="Aantal meter(s)"
+                type="text"
+              />
+            ) : null}
+
+            {watchSurfaces.includes('Planken/Plateaus') && !isNeeSelected ? (
+              <InputGetter
+                form={form}
+                name="plankenMeters"
+                label="Plank(en)/Plateau(s)"
+                placeholder="Aantal meter(s)"
+                type="text"
+              />
+            ) : null}
+          </div>
+
+          {watchSurfaces.includes('Salontafels/Eettafels') && !isNeeSelected ? (
+            <InputGetter
+              form={form}
+              name="tableArea"
+              label="Salontafel(s)/Eettafel(s)"
+              placeholder="Vul hier het aantal m2 in"
+              type="text"
+            />
+          ) : null}
+
+          <div className="flex flex-col space-y-2">
+            <div className="flex justify-between items-center">
+              <span className="font-semibold text-lg text-green-700">Totaal incl. btw.</span>
+              <span className="font-semibold text-lg text-green-700">
+                €{(existingTotal + additionalCost).toFixed(2)}
+              </span>
+            </div>
+            <CreateButton
+              className={`w-full ${isButtonDisabled ? 'bg-gray-500' : 'bg-primaryDefault border border-transparent hover:bg-white hover:text-green-700 hover:border-green-700 transition-all duration-300'}`}
+              type="submit"
+              disabled={isButtonDisabled}
+            >
+              Volgende
+            </CreateButton>
+          </div>
+        </div>
+      </form>
+    </FormProvider>
+  );
+};
+
+export default StepThreePart2;
