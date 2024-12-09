@@ -624,7 +624,6 @@ export const HeaderDropDowns = () => {
       const currentScrollTop = clientSide ? window.pageYOffset || document.documentElement.scrollTop : 0;
       //if the user scroll down we want to hide the dropdowns
       if (currentScrollTop >= lastScrollTop.current) {
-        console.log('running');
         await hideSubHeader();
       } else {
         // if the user scroll up we want to display the dropdowns

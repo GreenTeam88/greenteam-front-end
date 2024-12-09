@@ -11,7 +11,7 @@ export interface ServiceInfo {
   link: string;
 }
 
-const services: ServiceInfo[] = [
+export const services: ServiceInfo[] = [
   {
     title: 'Parketrenovatie',
     description:
@@ -51,7 +51,7 @@ const services: ServiceInfo[] = [
 
 export const ServiceCard: React.FC<ServiceInfo> = ({ description, thumbnailSrc, title, link }) => {
   return (
-    <div className="flex flex-col pb-[22px] border-opacity-10 bg-white border-black10 border-2 max-w-full lg:w-[387px] gap-[33px] ">
+    <div className="flex flex-col pb-[22px] border-opacity-10 bg-white border-black10 border-2 max-w-full lg:min-w-[387px] gap-[33px] ">
       <img src={thumbnailSrc} className="w-full h-[176px] " />
       <div className="flex flex-col gap-[11px] px-7 ">
         <h5 className="font-bold text-xl ">{title}</h5>

@@ -56,7 +56,6 @@ const IconCard: React.FC<TabInfo & { setCurrTab: Dispatch<SetStateAction<string>
   currTab,
   setCurrTab,
 }) => {
-  console.log(currTab, name, currTab === name);
   return (
     <div onMouseOver={() => setCurrTab(name)} className={'flex items-center flex-col gap-[22px] cursor-pointer'}>
       <div
