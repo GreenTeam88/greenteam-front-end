@@ -4,7 +4,7 @@ import clsx from 'clsx';
 import { motion } from 'framer-motion';
 import { useState } from 'react';
 
-import { CrauselIcon } from '@/components/icons/arrows';
+import { CarouselIcon } from '@/components/icons/arrows';
 import { H2 } from '@/components/theme/typography';
 import { ServiceCard, ServiceInfo, services } from '../../_components/services';
 
@@ -33,7 +33,7 @@ const ServicesCarousel = () => {
           onClick={handlePrev}
           className={clsx('hidden group lg:block group rotate-180 cursor-pointer', { invisible: currentIndex === 0 })}
         >
-          <CrauselIcon />
+          <CarouselIcon />
         </div>
 
         <div className="overflow-hidden">
@@ -63,7 +63,7 @@ const ServicesCarousel = () => {
           onClick={handleNext}
           className={clsx('hidden lg:block group cursor-pointer', { invisible: currentIndex >= services.length - 4 })}
         >
-          <CrauselIcon />
+          <CarouselIcon />
         </div>
       </div>
       <div className="lg:hidden flex flex-col gap-3 py-4">

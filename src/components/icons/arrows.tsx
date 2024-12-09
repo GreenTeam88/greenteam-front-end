@@ -21,7 +21,7 @@ export const DropDownIcon: React.FC<{ className?: string }> = ({ className }) =>
   );
 };
 
-export const CrauselIcon = () => {
+export const CarouselIcon = () => {
   return (
     <svg
       width="35"

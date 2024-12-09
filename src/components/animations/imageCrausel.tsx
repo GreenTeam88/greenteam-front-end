@@ -3,7 +3,7 @@
 import { AnimatePresence, motion } from 'framer-motion';
 import { useState } from 'react';
 
-import { CrauselIcon } from '../icons/arrows';
+import { CarouselIcon } from '../icons/arrows';
 
 interface ImageCarouselProps {
   images: string[];
@@ -65,11 +65,11 @@ export const ImageCarousel = ({ images }: ImageCarouselProps) => {
       {/* Navigation Arrows */}
       <div className="w-full lg:py-3 gap-[22px] flex items-center justify-center">
         <button onClick={swipePrev} aria-label="Previous image " className="group rotate-180">
-          <CrauselIcon />
+          <CarouselIcon />
         </button>
 
         <button onClick={swipeNext} aria-label="Next image " className="group">
-          <CrauselIcon />
+          <CarouselIcon />
         </button>
       </div>
     </div>

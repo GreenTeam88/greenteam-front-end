@@ -3,7 +3,7 @@
 import { motion, useAnimation } from 'framer-motion';
 import React, { useEffect, useRef, useState } from 'react';
 
-import { CrauselIcon } from '@/components/icons/arrows';
+import { CarouselIcon } from '@/components/icons/arrows';
 import { H2 } from '@/components/theme/typography';
 import { plusJakartaSansFond } from '@/fonts';
 import { cn } from '@/lib/tailwind';
@@ -191,7 +191,7 @@ const Ratings = () => {
         }}
         className="hidden lg:block group rotate-180 cursor-pointer"
       >
-        <CrauselIcon />
+        <CarouselIcon />
       </div>
 
       {/* Ratings for desktop */}
@@ -229,7 +229,7 @@ const Ratings = () => {
         }}
         className="hidden lg:block group cursor-pointer"
       >
-        <CrauselIcon />
+        <CarouselIcon />
       </div>
     </div>
   );
