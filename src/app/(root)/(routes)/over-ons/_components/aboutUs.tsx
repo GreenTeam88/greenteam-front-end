@@ -6,12 +6,12 @@ const OurVisionCard = () => {
       <img src="/aboutUs/itTeam.png" className="w-full  lg:w-fit" />
       <div className="flex px-2 flex-col  max-w-[488px] gap-[11px]">
         <h3 className="font-medium text-[25px] leading-[37px] tracking-[-2%] text-primaryDefault">Onze visie</h3>
-        <p>
+        <p className="text-[13px]">
           Bij Green Team hebben we een passie voor hout en duurzaamheid. Oorspronkelijk houtbewerkers, hebben wij ons
           gespecialiseerd in vloer en traprenovatie. Wij streven naar topkwaliteit en het{' '}
           <span className="text-secondaryDefault"> overtreffen van verwachtingen.</span>
         </p>
-        <p>
+        <p className="text-[13px]">
           Wij geven om mensen en het milieu, en blijven continu innoveren. Belangrijkste is dat je op Green Team kunt
           vertrouwen; een afspraak is afspraak.
         </p>
@@ -26,12 +26,12 @@ const OurMissionCard = () => {
       <img className="w-full lg:w-fit" src="/aboutUs/ourMission.png" />
       <div className="flex flex-col px-3 max-w-[488px] gap-[11px]">
         <h3 className="font-medium text-[25px] leading-[37px] tracking-[-2%] text-primaryDefault">Onze missie</h3>
-        <p>
+        <p className="text-[13px]">
           Onze missie is om zo <span className="text-secondaryDefault font-bold"> duurzaam en groen</span> mogelijk te
           werk te gaan. We vinden het belangrijk om bewust bij te dragen aan een betere wereld. Green Team geeft een
           houten vloer of trap een tweede leven, waardoor er minder bomen gekapt hoeven te worden.{' '}
         </p>
-        <p>
+        <p className="text-[13px]">
           Het circulair inzetten van een houten vloer bespaart gemiddeld 211 kg CO2, gelijk aan 1.788 km rijden met een
           gemiddelde auto. Hergebruik is ook veel kostenefficiënter dan een nieuwe vloer kopen.{' '}
         </p>
