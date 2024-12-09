@@ -2,7 +2,7 @@ import React from 'react';
 
 import { RatingSection } from '@/components/ratingSection';
 import { Hero } from '../_components/hero';
-import { QuestionSection } from '../over-ons/_components/question';
+import { QuestionSection } from '../../../../components/animations/question';
 import { Bourgogne } from './_components/mainPage/Bourgogne';
 import { Hexagon3D } from './_components/mainPage/Hexagon-&-3D';
 import { HongaarsePunt } from './_components/mainPage/HongaarsePunt';

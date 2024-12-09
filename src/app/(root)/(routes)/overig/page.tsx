@@ -1,18 +1,29 @@
 import React from 'react';
 
+import { QuestionSection } from '@/components/question';
+import { RatingSection } from '@/components/ratingSection';
+import { Hero } from '../_components/hero';
+import { Egaliseren } from './_components/egaliseren';
+import { Gietvloeren } from './_components/gietvloeren';
+import { NatuursteenBehandelen } from './_components/natuursteen-behandelen';
+import { Opslag } from './_components/opslag';
+import { Overig } from './_components/overig';
+import { Tegelen } from './_components/tegelen';
+import { VloerVerwijderen } from './_components/vloer-verwijderen';
+
 function Page() {
   return (
     <div className="flex flex-col  relative z-0 items-center w-full">
       <Hero />
-      <Stofferen />
-      <Vloer />
-      <Tapijttegels />
-      <Meubels />
-      <Deurmat />
-      <Droogloopmat />
-      <Rodeloper />
-      <Reinigingsservice />
-      <TapijtVerwijderen />
+      <Overig />
+      <Egaliseren />
+      <Gietvloeren />
+      <Tegelen />
+      <VloerVerwijderen />
+      <NatuursteenBehandelen />
+      <Opslag />
+      <RatingSection />
+      <QuestionSection />
     </div>
   );
 }

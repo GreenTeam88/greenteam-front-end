@@ -7,8 +7,8 @@ import { StoreSection } from '../_components/store';
 import { WhatWaitingForCard } from '../_components/whatWaitingForSection';
 import { WhyGreenTeam } from '../_components/whyGreenTeam';
 import { Hero } from '../../_components/hero';
+import { QuestionSection } from '../../../../../components/animations/question';
 import { InfoCardProps } from '../../diensten/_components/cards';
-import { QuestionSection } from '../../over-ons/_components/question';
 
 const thirdSectionCards: InfoCardProps[] = [
   {
