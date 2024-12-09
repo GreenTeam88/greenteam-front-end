@@ -1,15 +1,15 @@
 import React from 'react';
 
 import { Hero } from '../_components/hero';
-import { Reinigingsservice } from './_components/HongaarsePunt';
-import { Vloer } from './_components/Laminaat-leggen';
-import { Deurmat } from './_components/Linoleum-leggen';
-import { Stofferen } from './_components/Parket-leggen';
-import { Tapijttegels } from './_components/PVC-leggen';
-import { Meubels } from './_components/Tapijt-leggen';
-import { Droogloopmat } from './_components/Visgraat';
-import { Rodeloper } from './_components/Walvisgraat';
-import { TapijtVerwijderen } from './_components/Weense-punt';
+import { Deurmat } from './_components/deurmat';
+import { Droogloopmat } from './_components/droogloopmat';
+import { Meubels } from './_components/meubels';
+import { Reinigingsservice } from './_components/Reinigingsservice';
+import { Rodeloper } from './_components/rodeloper';
+import { Stofferen } from './_components/stofferen';
+import { TapijtVerwijderen } from './_components/tapijt-verwijderen';
+import { Tapijttegels } from './_components/Tapijttegels';
+import { Vloer } from './_components/vloer';
 
 function Page() {
   return (
