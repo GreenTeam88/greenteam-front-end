@@ -1,5 +1,6 @@
 'use client';
 
+import Link from 'next/link';
 import { useState } from 'react';
 
 import { PrimaryBtnLink, SecondaryOutlinedBtnLink } from '@/components/theme/buttons';
@@ -8,7 +9,7 @@ import { cn } from '@/lib/tailwind';
 
 interface FAQType {
   question: string;
-  answer: string;
+  answer: string | JSX.Element;
 }
 
 const FAQs: FAQType[] = [
@@ -44,8 +45,14 @@ const FAQs: FAQType[] = [
   },
   {
     question: 'Wat zijn de garantievoorwaarden?',
-    answer:
-      'Per categorie gelden andere garantievoorwaarden. Onze garantie voorwaarden zijn te vinden in onze algemene voorwaarden.',
+    answer: (
+      <>
+        Per categorie gelden andere garantievoorwaarden. Onze garantie voorwaarden zijn te vinden in onze{' '}
+        <Link onClick={() => alert('clicked')} href="/veelgestelde-vragen">
+          algemene voorwaarden.
+        </Link>
+      </>
+    ),
   },
 ];
 

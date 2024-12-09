@@ -1,3 +1,5 @@
+import Link from 'next/link';
+
 import { BodyTextSemibold, H1 } from '@/components/theme/typography';
 
 export const PrivacyPolicyText = () => {
@@ -115,7 +117,9 @@ export const PrivacyPolicyText = () => {
       <div className="flex flex-col gap-[11px]">
         <BodyTextSemibold className="text-blackDark text-opacity-40">Inhoudsopgave</BodyTextSemibold>
         <h3 className="text-blackDark text-sm">1. Definities</h3>
-        <h3 className="text-blackDark text-sm">2. Toepasselijkheid algemene voorwaarden</h3>
+        <h3 className="text-blackDark text-sm">
+          2. Toepasselijkheid <Link href="/algemene-voorwaarden">algemene voorwaarden</Link>
+        </h3>
         <h3 className="text-blackDark text-sm">3. Offertes en totstandkoming overeenkomst</h3>
         <h3 className="text-blackDark text-sm">4. Prijzen en tarieven</h3>
         <h3 className="text-blackDark text-sm">5. Betalingen en betalingstermijnen</h3>
