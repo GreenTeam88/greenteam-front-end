@@ -86,7 +86,7 @@ const StepTwo: React.FC<StepProps> = ({ onPrevious, onNext, formData, updateForm
             <HeadlineSemibold className="w-full">Snel uw prijs berekenen! 5STEFEN°</HeadlineSemibold>
           </div>
         </div>
-        <div className="bg-white w-full rounded-b-[8px] flex flex-col px-[22px] gap-y-4 py-[22px]">
+        <div className="bg-white w-full rounded-b-[8px] flex flex-col px-[22px] gap-y-3 py-[22px]">
           <div className="flex flex-row items-center justify-between">
             <div
               className="flex items-center gap-[5px] cursor-pointer hover:text-green-700 transition-all"

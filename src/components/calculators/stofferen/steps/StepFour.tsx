@@ -1,7 +1,7 @@
 import { zodResolver } from '@hookform/resolvers/zod';
 import { ChevronLeft } from 'lucide-react';
-import React, { useEffect, useState } from 'react';
-import { FormProvider, useForm } from 'react-hook-form';
+import React, { useEffect } from 'react';
+import { FormProvider, useForm, useWatch } from 'react-hook-form';
 import { z } from 'zod';
 
 import InputGetter from '@/components/calculators/Getters/InputGetter';
@@ -13,82 +13,95 @@ import { Option } from '@/types';
 interface StepFourProps {
   onPrevious: () => void;
   onNext: () => void;
-  formData: any; // Centralized form data passed down
-  updateFormData: (data: any) => void; // Function to update the centralized state
+  formData: {
+    newBaseboardsNeeded?: string;
+    numberOfMeters?: string;
+    stepCosts: Record<string, number>;
+    totalCost?: number;
+    isOnRequest?: boolean;
+  };
+  updateFormData: (data: any) => void;
 }
 
 const schema = z.object({
   newBaseboardsNeeded: z.string().nonempty({ message: 'Please select at least one option' }),
-  numberOfMeters: z
-    .string()
-    .regex(/^\d*$/, 'Enter a valid number') // Allow only digits or empty
-    .optional(),
+  numberOfMeters: z.string().regex(/^\d*$/, 'Enter a valid number').optional(),
 });
 
+// Pricing configuration
+const BASEBOARD_PRICES: Record<string, number> = {
+  'Ja, lage': 6, // Flat Plinth (€6/m)
+  'Ja, hoge': 12, // High Plinth (€12/m)
+  Nee: 0, // No additional cost
+};
+
 const StepFour: React.FC<StepFourProps> = ({ onPrevious, onNext, formData, updateFormData }) => {
-  const [totalPrice, setTotalPrice] = useState<number>(Number(formData.totalCost) || 0);
-  const [isButtonDisabled, setIsButtonDisabled] = useState<boolean>(true); // Track button state
-
-  const categories = [
-    { value: 'Ja, lage', label: 'Ja, lage', imageUrl: '/images/lage-plinten.svg' },
-    { value: 'Ja, hoge', label: 'Ja, hoge', imageUrl: '/images/hoge-plinten.svg' },
-    { value: 'Nee', label: 'Nee' },
-  ];
-
-  const categoryOptions: Option[] = categories.map((category) => ({
-    value: category.value,
-    label: category.label,
-    imageUrl: category.imageUrl,
-  }));
-
   const form = useForm({
     resolver: zodResolver(schema),
     defaultValues: {
-      ...formData,
       newBaseboardsNeeded: formData.newBaseboardsNeeded || '',
       numberOfMeters: formData.numberOfMeters || '',
     },
     mode: 'onChange',
   });
 
-  const watchNewBaseboards = form.watch('newBaseboardsNeeded');
-  const watchMeters = form.watch('numberOfMeters');
+  const { control } = form;
 
+  const watchNewBaseboards = useWatch({ control, name: 'newBaseboardsNeeded' });
+  const watchMeters = useWatch({ control, name: 'numberOfMeters' });
+
+  // Calculate the cost for this step
+  const calculateStepCost = () => {
+    const baseboardCostPerMeter = BASEBOARD_PRICES[watchNewBaseboards] || 0;
+    const meters = parseInt(watchMeters || '0', 10);
+    return baseboardCostPerMeter * meters;
+  };
+
+  // Update formData dynamically when inputs change
   useEffect(() => {
-    const basePrice = Number(formData.totalCost) || 0; // Default to 0 if totalCost is not valid
-    let additionalCost = 0;
+    const step4Cost = calculateStepCost();
+    const previousTotal = Number(formData.totalCost) || 0;
 
-    if (watchNewBaseboards && watchMeters) {
-      const meters = parseInt(watchMeters, 10) || 0; // Parse meters as an integer
-      if (watchNewBaseboards === 'Ja, lage') {
-        additionalCost = meters * 6; // Flat Plinth (€6/m)
-      } else if (watchNewBaseboards === 'Ja, hoge') {
-        additionalCost = meters * 12; // High Plinth (€12/m)
-      }
-    }
-
-    setTotalPrice(basePrice + additionalCost);
-  }, [watchNewBaseboards, watchMeters, formData.totalCost]);
-
-  useEffect(() => {
-    if (watchNewBaseboards === 'Nee') {
-      setIsButtonDisabled(false); // Enable if "Nee" is selected
-    } else {
-      setIsButtonDisabled(!(watchMeters && /^[0-9]+$/.test(watchMeters)));
-    }
+    updateFormData({
+      ...formData,
+      newBaseboardsNeeded: watchNewBaseboards,
+      numberOfMeters: watchMeters,
+      stepCosts: {
+        ...formData.stepCosts,
+        step4: step4Cost,
+      },
+      totalCost: previousTotal - (formData.stepCosts?.step4 || 0) + step4Cost, // Adjust total cost dynamically
+    });
   }, [watchNewBaseboards, watchMeters]);
 
   const handleSubmit = (event: React.FormEvent) => {
     event.preventDefault();
     form.handleSubmit((data) => {
+      const step4Cost = calculateStepCost();
+      const previousTotal = Number(formData.totalCost) || 0;
+
       updateFormData({
         ...formData,
         ...data,
-        totalCost: totalPrice || 0, // Ensure totalCost is a number
+        stepCosts: {
+          ...formData.stepCosts,
+          step4: step4Cost,
+        },
+        totalCost: previousTotal - (formData.stepCosts?.step4 || 0) + step4Cost, // Update total cost accurately
       });
+
       onNext();
     })();
   };
+
+  const isButtonDisabled =
+    !watchNewBaseboards || (watchNewBaseboards !== 'Nee' && !(watchMeters && /^[0-9]+$/.test(watchMeters)));
+
+  const categoryOptions: Option[] = [
+    { value: 'Ja, lage', label: 'Ja, lage', imageUrl: '/images/lage-plinten.svg' },
+    { value: 'Ja, hoge', label: 'Ja, hoge', imageUrl: '/images/hoge-plinten.svg' },
+    { value: 'Nee', label: 'Nee' },
+  ];
 
   return (
     <FormProvider {...form}>
@@ -130,14 +143,10 @@ const StepFour: React.FC<StepFourProps> = ({ onPrevious, onNext, formData, updat
                 <span className="font-semibold text-lg text-green-700">Berekening volgt na aanvraag</span>
               </div>
             ) : (
-              <>
-                <div className="flex justify-between items-center text-center">
-                  <span className="font-semibold text-lg text-green-700">Totaal incl. btw.</span>
-                  <span className="font-semibold text-lg text-green-700">
-                    €{!isNaN(totalPrice) ? totalPrice.toFixed(2) : '0.00'}
-                  </span>
-                </div>
-              </>
+              <div className="flex justify-between items-center text-center">
+                <span className="font-semibold text-lg text-green-700">Totaal incl. btw.</span>
+                <span className="font-semibold text-lg text-green-700">€{(formData.totalCost || 0).toFixed(2)}</span>
+              </div>
             )}
 
             <CreateButton

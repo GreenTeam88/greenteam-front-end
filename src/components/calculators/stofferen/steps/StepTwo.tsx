@@ -1,7 +1,7 @@
 import { zodResolver } from '@hookform/resolvers/zod';
 import { ChevronLeft } from 'lucide-react';
-import React from 'react';
-import { FormProvider, useForm } from 'react-hook-form';
+import React, { useEffect } from 'react';
+import { FormProvider, useForm, useWatch } from 'react-hook-form';
 import { z } from 'zod';
 
 import InputGetter from '@/components/calculators/Getters/InputGetter';
@@ -13,18 +13,28 @@ import { Option } from '@/types';
 interface StepProps {
   onPrevious: () => void;
   onNext: () => void;
-  formData: any;
+  formData: {
+    selectedFloors?: string[];
+    stofferenSqaremeterStep2?: string;
+    stepCosts: Record<string, number>;
+    totalCost?: number;
+    isOnRequest?: boolean;
+    selectedServicePrice?: number;
+  };
   updateFormData: (data: any) => void;
 }
 
 const schema = z.object({
   selectedFloors: z.array(z.string()).min(1, 'Please select at least one floor'),
-  squareMeters: z.string().nonempty({ message: 'Please enter the area in m²' }).regex(/^\d+$/, 'Enter a valid number'),
+  stofferenSqaremeterStep2: z
+    .string()
+    .nonempty({ message: 'Please enter the area in m²' })
+    .regex(/^\d+$/, 'Enter a valid number'),
 });
 
 const StepTwo: React.FC<StepProps> = ({ onPrevious, onNext, formData, updateFormData }) => {
   const FLOOR_COST = 25; // €25 per floor level
-  const servicePricePerM2 = formData.selectedServicePrice || 0; // Price per m² from Step One
+  const servicePricePerM2 = formData.selectedServicePrice || 0;
 
   const datas = ['0 (Begane grond)', '1', '2', '3', '4', '5', '6', '7', '8', '9', '10+'];
   const dataOptions: Option[] = datas.map((data) => ({
@@ -34,59 +44,77 @@ const StepTwo: React.FC<StepProps> = ({ onPrevious, onNext, formData, updateForm
 
   const form = useForm({
     resolver: zodResolver(schema),
-    defaultValues: formData,
+    defaultValues: {
+      selectedFloors: formData.selectedFloors || [],
+      stofferenSqaremeterStep2: formData.stofferenSqaremeterStep2 || '',
+    },
     mode: 'onChange',
   });
 
-  const calculateTotal = () => {
-    if (formData.isOnRequest) return null;
+  const { control } = form;
 
-    const selectedFloors = form.watch('selectedFloors') || [];
-    const squareMeters = form.watch('squareMeters');
-    if (!squareMeters || isNaN(parseInt(squareMeters, 10))) return 0;
+  // Watch inputs
+  const selectedFloors = useWatch({ control, name: 'selectedFloors', defaultValue: [] });
+  const stofferenSqaremeterStep2 = useWatch({ control, name: 'stofferenSqaremeterStep2', defaultValue: '' });
 
-    const area = parseInt(squareMeters, 10);
+  // Calculate the cost for this step
+  const calculateStepCost = () => {
+    if (formData.isOnRequest) return 0;
 
-    // Calculate floor cost based on floor-specific logic
+    const area = parseInt(stofferenSqaremeterStep2 || '0', 10);
+    if (isNaN(area)) return 0;
+
     const floorLevelCost = selectedFloors.reduce((totalCost: number, floor: string) => {
-      const floorNumber = parseInt(floor.split(' ')[0], 10); // Extract the floor number
-      if (floorNumber > 0) {
-        totalCost += FLOOR_COST; // Multiply cost by floor number
+      const floorNumber = parseInt(floor.split(' ')[0], 10);
+      if (!isNaN(floorNumber) && floorNumber > 0) {
+        totalCost += FLOOR_COST; // Cost per floor level
       }
       return totalCost;
     }, 0);
 
-    const baseCost = servicePricePerM2 * area;
-    const totalCost = floorLevelCost + baseCost;
-
-    // Cap the total cost at 999,999.99
-    return Math.min(totalCost, 999999.99).toFixed(2);
+    return floorLevelCost + servicePricePerM2 * area;
   };
+
+  // Update `stepCosts` and `totalCost` dynamically
+  useEffect(() => {
+    const stepCost = calculateStepCost();
+
+    updateFormData({
+      ...formData,
+      selectedFloors,
+      stofferenSqaremeterStep2,
+      stepCosts: {
+        ...formData.stepCosts,
+        step2: stepCost,
+      },
+      totalCost: Object.values(formData.stepCosts || {}).reduce((acc, cost) => acc + cost, 0),
+    });
+  }, [selectedFloors, stofferenSqaremeterStep2]);
 
   const handleSubmit = (event: React.FormEvent) => {
     event.preventDefault();
     form.handleSubmit((data) => {
-      const totalCost = calculateTotal();
+      const stepCost = calculateStepCost();
 
       updateFormData({
+        ...formData,
         ...data,
-        totalCost, // Include total cost in formData
-        baseCost: servicePricePerM2 * parseInt(data.squareMeters || '0', 10),
-        floorLevelCost: data.selectedFloors.reduce((totalCost: number, floor: string) => {
-          const floorNumber = parseInt(floor.split(' ')[0], 10);
-          if (!isNaN(floorNumber) && floorNumber > 0) {
-            totalCost += FLOOR_COST * floorNumber;
-          }
-          return totalCost;
-        }, 0),
+        stepCosts: {
+          ...formData.stepCosts,
+          step2: stepCost,
+        },
+        totalCost: Object.values({
+          ...formData.stepCosts,
+          step2: stepCost,
+        }).reduce((acc, cost) => acc + cost, 0),
       });
 
       onNext();
     })();
   };
-  const selectedFloors = form.watch('selectedFloors');
-  const squareMeters = form.watch('squareMeters');
-  const isButtonDisabled = !selectedFloors || !squareMeters;
+
+  const isButtonDisabled =
+    !selectedFloors.length || !(stofferenSqaremeterStep2 && /^[0-9]+$/.test(stofferenSqaremeterStep2));
 
   return (
     <FormProvider {...form}>
@@ -122,7 +150,7 @@ const StepTwo: React.FC<StepProps> = ({ onPrevious, onNext, formData, updateForm
           <div className="flex flex-col gap-[11px]">
             <InputGetter
               form={form}
-              name="squareMeters"
+              name="stofferenSqaremeterStep2"
               label="Aantal m2"
               placeholder="Voer het aantal m2 in"
               type="text"
@@ -134,16 +162,15 @@ const StepTwo: React.FC<StepProps> = ({ onPrevious, onNext, formData, updateForm
                 <span className="font-semibold text-lg text-green-700">Berekening volgt na aanvraag</span>
               </div>
             ) : (
-              <>
-                <div className="flex justify-between items-center text-center">
-                  <span className="font-semibold text-lg text-green-700">Totaal incl. btw.</span>
-                  <span className="font-semibold text-lg text-green-700">€{calculateTotal() || '0.00'}</span>
-                </div>
-              </>
+              <div className="flex justify-between items-center text-center">
+                <span className="font-semibold text-lg text-green-700">Totaal incl. btw.</span>
+                <span className="font-semibold text-lg text-green-700">
+                  €{formData.stepCosts?.step2 ? formData.stepCosts.step2.toFixed(2) : '0.00'}
+                </span>
+              </div>
             )}
-
             <CreateButton
-              className={`w-full ${isButtonDisabled ? 'bg-gray-500' : 'bg-primaryDefault border border-transparent hover:bg-white hover:text-green-700 hover:border-green-700 transition-all duration-300'}`}
+              className={`w-full ${isButtonDisabled ? 'bg-gray-500' : 'bg-primaryDefault border'}`}
               type="submit"
               disabled={isButtonDisabled}
             >

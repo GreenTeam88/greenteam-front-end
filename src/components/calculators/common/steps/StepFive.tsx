@@ -76,14 +76,14 @@ const StepFive: React.FC<StepFiveProps> = ({
     <FormProvider {...form}>
       <form
         onSubmit={handleSubmit}
-        className="w-[386px] h-[430px] flex rounded-[4px] relative lg:px-0 z-10 flex-col shadow-lg"
+        className="w-[386px] h-[400px] flex rounded-[4px] relative lg:px-0 z-10 flex-col shadow-lg"
       >
         <div className="bg-primaryDefault rounded-t-[8px] flex items-center justify-center text-white py-[22px] w-full">
           <div className="text-center">
             <HeadlineSemibold className="w-full">Snel uw prijs berekenen!</HeadlineSemibold>
           </div>
         </div>
-        <div className="bg-white w-full rounded-b-[8px] flex flex-col px-[22px] gap-[17px] py-[22px]">
+        <div className="bg-white w-full rounded-b-[8px] flex flex-col px-[22px] gap-y-3 py-[22px]">
           <div className="flex flex-row items-center justify-between">
             <div
               className="flex items-center gap-[5px] cursor-pointer hover:text-green-700 transition-all"

@@ -1,5 +1,5 @@
 import { zodResolver } from '@hookform/resolvers/zod';
-import React, { useEffect, useMemo, useState } from 'react';
+import React, { useEffect, useMemo } from 'react';
 import { FormProvider, useForm } from 'react-hook-form';
 import { z } from 'zod';
 
@@ -13,7 +13,7 @@ interface StepOneProps {
   onNext: (nextStep?: number) => void;
   formData: any;
   updateFormData: (data: any) => void;
-  onCategoryChange: (category: string) => void; // Callback to notify MultiStepForm
+  onCategoryChange: (category: string) => void;
   onSkip: () => void;
 }
 
@@ -40,7 +40,7 @@ const StepOne: React.FC<StepOneProps> = ({ onNext, formData, updateFormData, onC
 
   const selectedCategory = form.watch('selectedCategory');
   const selectedService = form.watch('selectedService');
-  const [totalCost, setTotalCost] = useState<number>(formData.totalCost || 0);
+  // const [totalCost, setTotalCost] = useState<number>(formData.totalCost || 0);
 
   // Dynamic services based on selected category
   const serviceOptions: Option[] = useMemo(() => {
@@ -51,8 +51,7 @@ const StepOne: React.FC<StepOneProps> = ({ onNext, formData, updateFormData, onC
       let label;
 
       if (selectedCategory === 'Vloeren leggen') {
-        // For vloerenLeggen, only display the service name without price
-        label = service;
+        label = service; // Only display service name without price
       } else if (price === 0.0) {
         label = `${service} - Gratis`;
       } else if (price === null) {
@@ -68,18 +67,33 @@ const StepOne: React.FC<StepOneProps> = ({ onNext, formData, updateFormData, onC
     });
   }, [selectedCategory]);
 
+  // Automatically select the first service when a category is selected
+  useEffect(() => {
+    if (selectedCategory) {
+      const services = servicesConfig[selectedCategory] || {};
+      const firstService = Object.keys(services)[0]; // Get the first service in the category
+      if (firstService) {
+        form.setValue('selectedService', firstService); // Auto-select the first service
+      } else {
+        form.setValue('selectedService', ''); // Reset if no services exist
+      }
+    } else {
+      form.setValue('selectedService', ''); // Reset if no category is selected
+    }
+  }, [selectedCategory]);
+
   // Dynamic watch for "isOnRequest" services
   const isOnRequest = useMemo(() => {
     return selectedCategory !== 'Vloeren leggen' && servicesConfig[selectedCategory]?.[selectedService] === null;
   }, [selectedCategory, selectedService]);
 
   // Update total cost whenever selectedCategory or selectedService changes
-  useEffect(() => {
-    const price = servicesConfig[selectedCategory]?.[selectedService] || 0;
-    if (!isOnRequest) {
-      setTotalCost(price);
-    }
-  }, [selectedCategory, selectedService, isOnRequest]);
+  // useEffect(() => {
+  //   const price = servicesConfig[selectedCategory]?.[selectedService] || 0;
+  //   if (!isOnRequest) {
+  //     // setTotalCost(price);
+  //   }
+  // }, [selectedCategory, selectedService, isOnRequest]);
 
   // Notify MultiStepForm when the category changes
   useEffect(() => {
@@ -113,7 +127,7 @@ const StepOne: React.FC<StepOneProps> = ({ onNext, formData, updateFormData, onC
     <FormProvider {...form}>
       <form
         onSubmit={handleSubmit}
-        className="w-[386px] h-[430px] flex rounded-[4px] relative lg:px-0 z-10 flex-col shadow-lg"
+        className="w-[386px] h-[400px] flex rounded-[4px] relative lg:px-0 z-10 flex-col shadow-lg"
       >
         <div className="bg-primaryDefault rounded-t-[8px] flex items-center justify-center text-white py-[22px] w-full">
           <HeadlineSemibold>Snel uw prijs berekenen!</HeadlineSemibold>
@@ -151,7 +165,7 @@ const StepOne: React.FC<StepOneProps> = ({ onNext, formData, updateFormData, onC
             ) : (
               <div className="flex justify-between items-center">
                 <span className="font-semibold text-lg text-green-700">Totaal incl. btw.</span>
-                <span className="font-semibold text-lg text-green-700">€{totalCost.toFixed(2)}</span>
+                {/* <span className="font-semibold text-lg text-green-700">€{totalCost.toFixed(2)}</span> */}
               </div>
             )}
 

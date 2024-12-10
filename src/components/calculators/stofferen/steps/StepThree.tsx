@@ -1,7 +1,7 @@
 import { zodResolver } from '@hookform/resolvers/zod';
 import { ChevronLeft } from 'lucide-react';
-import React, { useEffect, useState } from 'react';
-import { FormProvider, useForm } from 'react-hook-form';
+import React, { useEffect } from 'react';
+import { FormProvider, useForm, useWatch } from 'react-hook-form';
 import { z } from 'zod';
 
 import MultiSelectDropdown from '@/components/calculators/Getters/MultiSelectDropdown';
@@ -14,17 +14,48 @@ interface StepProps {
   onPrevious: () => void;
   onNext: () => void;
   onUploadClick: (field: string) => void; // For uploading photos
-  formData: any;
+  formData: {
+    selectedSurfaces?: string[];
+    additionalSurfaceType?: string;
+    stepCosts: Record<string, number>;
+    totalCost?: number;
+    isOnRequest?: boolean;
+  };
   updateFormData: (data: any) => void;
 }
 
+const schema = z.object({
+  selectedSurfaces: z.array(z.string()).nonempty({ message: 'Selecteer minimaal één oppervlak' }),
+  additionalSurfaceType: z.string().nonempty({ message: 'Maak een keuze voor andere oppervlaktes' }),
+});
+
+// Example pricing configuration for surfaces
+const SURFACE_COSTS: Record<string, number> = {
+  Traptredes: 50,
+  Entrée: 30,
+  Opstapjes: 20,
+  Overloop: 40,
+};
+
 const StepThree: React.FC<StepProps> = ({ onPrevious, onNext, onUploadClick, formData, updateFormData }) => {
   const surfaceCategories = ['Traptredes', 'Entrée', 'Opstapjes', 'Overloop'];
-  const additionalSurfaceOptions = ['Geen', '1-2 oppervlaktes', '3-5 oppervlaktes', '6 of meer'];
+  const additionalSurfaceOptions = [
+    'Beton',
+    'Geegaliseerd',
+    'Grind',
+    'Hout',
+    'Limresten',
+    'Laminaat',
+    'Parket',
+    'Pvc',
+    'Tapijt',
+    'Tegels',
+    'Overig',
+  ];
 
   const surfaceCategoryOptions: Option[] = surfaceCategories.map((category) => ({
     value: category,
-    label: category,
+    label: `${category} - €${SURFACE_COSTS[category] || 0}`,
   }));
 
   const additionalSurfaceTypeOptions: Option[] = additionalSurfaceOptions.map((option) => ({
@@ -32,41 +63,69 @@ const StepThree: React.FC<StepProps> = ({ onPrevious, onNext, onUploadClick, for
     label: option,
   }));
 
-  // Zod schema for validation
-  const schema = z.object({
-    selectedSurfaces: z.array(z.string()).nonempty({ message: 'Selecteer minimaal één oppervlak' }),
-    additionalSurfaceType: z.string().nonempty({ message: 'Maak een keuze voor andere oppervlaktes' }),
-  });
-
   const form = useForm({
     resolver: zodResolver(schema),
-    defaultValues: formData,
+    defaultValues: {
+      selectedSurfaces: formData.selectedSurfaces || [],
+      additionalSurfaceType: formData.additionalSurfaceType || '',
+    },
     mode: 'onChange',
   });
 
-  const selectedSurfaces = form.watch('selectedSurfaces');
-  const additionalSurfaceType = form.watch('additionalSurfaceType');
+  const { control } = form;
 
-  // Ensure `totalPrice` is always a number
-  const [totalPrice, setTotalPrice] = useState<number>(Number(formData.totalCost) || 0);
+  // Watch selected inputs
+  const selectedSurfaces = useWatch({ control, name: 'selectedSurfaces', defaultValue: [] });
+  const additionalSurfaceType = useWatch({ control, name: 'additionalSurfaceType', defaultValue: '' });
 
-  // Update totalPrice whenever formData.totalCost changes
+  // Calculate the step cost dynamically
+  const calculateStepCost = () => {
+    const surfaceCost = selectedSurfaces.reduce((totalCost, surface) => {
+      return totalCost + (SURFACE_COSTS[surface] || 0);
+    }, 0);
+
+    const additionalCost = SURFACE_COSTS[additionalSurfaceType] || 0;
+    return surfaceCost + additionalCost;
+  };
+
+  // Update formData dynamically when inputs change
   useEffect(() => {
-    setTotalPrice(Number(formData.totalCost) || 0);
-  }, [formData.totalCost]);
+    const step3Cost = calculateStepCost();
+    const previousTotal = Number(formData.totalCost) || 0; // Accumulate previous steps
+
+    updateFormData({
+      ...formData,
+      selectedSurfaces,
+      additionalSurfaceType,
+      stepCosts: {
+        ...formData.stepCosts,
+        step3: step3Cost, // Add step3 cost dynamically
+      },
+      totalCost: previousTotal - (formData.stepCosts?.step3 || 0) + step3Cost, // Adjust total cost
+    });
+  }, [selectedSurfaces, additionalSurfaceType]);
 
   const handleSubmit = (event: React.FormEvent) => {
     event.preventDefault();
     form.handleSubmit((data) => {
+      const step3Cost = calculateStepCost();
+      const previousTotal = Number(formData.totalCost) || 0;
+
       updateFormData({
         ...formData,
-        ...data, // Include selected surfaces and additional surface type
+        ...data,
+        stepCosts: {
+          ...formData.stepCosts,
+          step3: step3Cost,
+        },
+        totalCost: previousTotal - (formData.stepCosts?.step3 || 0) + step3Cost,
       });
-      onNext(); // Move to next step
+
+      onNext();
     })();
   };
 
-  const isButtonDisabled = !selectedSurfaces?.length || !additionalSurfaceType;
+  const isButtonDisabled = !selectedSurfaces.length || !additionalSurfaceType;
 
   return (
     <FormProvider {...form}>
@@ -135,20 +194,14 @@ const StepThree: React.FC<StepProps> = ({ onPrevious, onNext, onUploadClick, for
                 <span className="font-semibold text-lg text-green-700">Berekening volgt na aanvraag</span>
               </div>
             ) : (
-              <>
-                <div className="flex justify-between items-center text-center">
-                  <span className="font-semibold text-lg text-green-700">Totaal incl. btw.</span>
-                  <span className="font-semibold text-lg text-green-700">€{totalPrice.toFixed(2)}</span>
-                </div>
-              </>
+              <div className="flex justify-between items-center text-center">
+                <span className="font-semibold text-lg text-green-700">Totaal incl. btw.</span>
+                <span className="font-semibold text-lg text-green-700">€{(formData.totalCost || 0).toFixed(2)}</span>
+              </div>
             )}
 
             <CreateButton
-              className={`w-full ${
-                isButtonDisabled
-                  ? 'bg-gray-500'
-                  : 'bg-primaryDefault border border-transparent hover:bg-white hover:text-green-700 hover:border-green-700 transition-all duration-300'
-              }`}
+              className={`w-full ${isButtonDisabled ? 'bg-gray-500' : 'bg-primaryDefault border'}`}
               type="submit"
               disabled={isButtonDisabled}
             >
