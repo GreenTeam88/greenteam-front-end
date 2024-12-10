@@ -1,5 +1,5 @@
 import { zodResolver } from '@hookform/resolvers/zod';
-import React, { useEffect, useMemo } from 'react';
+import React, { useEffect, useMemo, useState } from 'react';
 import { FormProvider, useForm } from 'react-hook-form';
 import { z } from 'zod';
 
@@ -40,37 +40,9 @@ const StepOne: React.FC<StepOneProps> = ({ onNext, formData, updateFormData, onC
 
   const selectedCategory = form.watch('selectedCategory');
   const selectedService = form.watch('selectedService');
+  const [totalCost, setTotalCost] = useState<number>(formData.totalCost || 0);
 
-  // Dynamic watch for changes to determine "isOnRequest"
-  const isOnRequest = useMemo(() => {
-    return selectedCategory !== 'Vloeren leggen' && servicesConfig[selectedCategory]?.[selectedService] === null;
-  }, [selectedCategory, selectedService]);
-
-  // Notify MultiStepForm when the category changes
-  useEffect(() => {
-    if (selectedCategory) {
-      onCategoryChange(selectedCategory); // Notify parent
-    }
-  }, [selectedCategory, onCategoryChange]);
-
-  const handleSubmit = form.handleSubmit((data) => {
-    const selectedServicePrice = servicesConfig[selectedCategory]?.[data.selectedService] || 0;
-
-    updateFormData({
-      ...data,
-      isOnRequest,
-      selectedService: data.selectedService,
-      selectedServicePrice,
-      totalCost: isOnRequest ? null : servicesConfig[selectedCategory]?.[data.selectedService] || 0,
-    });
-
-    if (data.selectedService === 'Ben ik nog niet over uit' || data.selectedService === 'Ik wil graag advies') {
-      onSkip(); // Navigate directly to StepFive
-    } else {
-      onNext(); // Proceed normally
-    }
-  });
-
+  // Dynamic services based on selected category
   const serviceOptions: Option[] = useMemo(() => {
     if (!selectedCategory) return [];
     const services = servicesConfig[selectedCategory] || {};
@@ -95,6 +67,45 @@ const StepOne: React.FC<StepOneProps> = ({ onNext, formData, updateFormData, onC
       };
     });
   }, [selectedCategory]);
+
+  // Dynamic watch for "isOnRequest" services
+  const isOnRequest = useMemo(() => {
+    return selectedCategory !== 'Vloeren leggen' && servicesConfig[selectedCategory]?.[selectedService] === null;
+  }, [selectedCategory, selectedService]);
+
+  // Update total cost whenever selectedCategory or selectedService changes
+  useEffect(() => {
+    const price = servicesConfig[selectedCategory]?.[selectedService] || 0;
+    if (!isOnRequest) {
+      setTotalCost(price);
+    }
+  }, [selectedCategory, selectedService, isOnRequest]);
+
+  // Notify MultiStepForm when the category changes
+  useEffect(() => {
+    if (selectedCategory) {
+      onCategoryChange(selectedCategory); // Notify parent
+    }
+  }, [selectedCategory, onCategoryChange]);
+
+  const handleSubmit = form.handleSubmit((data) => {
+    const selectedServicePrice = servicesConfig[selectedCategory]?.[data.selectedService] || 0;
+
+    updateFormData({
+      ...formData,
+      ...data,
+      isOnRequest,
+      selectedService: data.selectedService,
+      selectedServicePrice,
+      totalCost: isOnRequest ? null : selectedServicePrice,
+    });
+
+    if (data.selectedService === 'Ben ik nog niet over uit' || data.selectedService === 'Ik wil graag advies') {
+      onSkip(); // Navigate directly to StepFive
+    } else {
+      onNext(); // Proceed normally
+    }
+  });
 
   const isButtonDisabled = !selectedCategory || !selectedService;
 
@@ -140,10 +151,7 @@ const StepOne: React.FC<StepOneProps> = ({ onNext, formData, updateFormData, onC
             ) : (
               <div className="flex justify-between items-center">
                 <span className="font-semibold text-lg text-green-700">Totaal incl. btw.</span>
-                <span className="font-semibold text-lg text-green-700">
-                  {/* €{(servicesConfig[selectedCategory]?.[selectedService] || 0).toFixed(2)} */}
-                  €0.00
-                </span>
+                <span className="font-semibold text-lg text-green-700">€{totalCost.toFixed(2)}</span>
               </div>
             )}
 

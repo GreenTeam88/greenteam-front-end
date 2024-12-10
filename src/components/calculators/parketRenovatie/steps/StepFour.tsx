@@ -13,7 +13,11 @@ import { Option } from '@/types';
 interface StepFourProps {
   onPrevious: () => void;
   onNext: () => void;
-  formData: any; // Centralized form data passed down
+  formData: {
+    stepCosts: { [key: string]: number };
+    totalCost: number;
+    [key: string]: any;
+  }; // Centralized form data passed down
   updateFormData: (data: any) => void; // Function to update the centralized state
 }
 
@@ -26,8 +30,7 @@ const schema = z.object({
 });
 
 const StepFour: React.FC<StepFourProps> = ({ onPrevious, onNext, formData, updateFormData }) => {
-  const [totalPrice, setTotalPrice] = useState<number>(formData.totalCost || 0);
-  const [isButtonDisabled, setIsButtonDisabled] = useState<boolean>(true); // Track button state
+  const [stepCost, setStepCost] = useState<number>(formData.stepCosts?.step4 || 0);
 
   const categories = [
     { value: 'Ja, lage', label: 'Ja, lage', imageUrl: '/images/lage-plinten.svg' },
@@ -54,31 +57,41 @@ const StepFour: React.FC<StepFourProps> = ({ onPrevious, onNext, formData, updat
   const watchNewBaseboards = form.watch('newBaseboardsNeeded');
   const watchMeters = form.watch('numberOfMeters');
 
-  useEffect(() => {
-    const basePrice = formData.totalCost || 0; // Start with the price from the previous step
-    let additionalCost = 0;
+  // Calculate the cost for this step
+  const calculateStepCost = () => {
+    let cost = 0;
 
     if (watchNewBaseboards && watchMeters) {
       const meters = parseInt(watchMeters, 10) || 0;
       if (watchNewBaseboards === 'Ja, lage') {
-        additionalCost = meters * 6; // Flat Plinth (€6/m)
+        cost = meters * 6; // Flat Plinth (€6/m)
       } else if (watchNewBaseboards === 'Ja, hoge') {
-        additionalCost = meters * 12; // High Plinth (€12/m)
+        cost = meters * 12; // High Plinth (€12/m)
       }
     }
 
-    setTotalPrice(basePrice + additionalCost);
-  }, [watchNewBaseboards, watchMeters, formData.totalCost]);
+    return cost;
+  };
 
-  // Update the button disabled state based on conditions
+  // Update step cost and propagate it to formData
   useEffect(() => {
-    if (watchNewBaseboards === 'Nee') {
-      setIsButtonDisabled(false); // Button enabled if "Nee" is selected
-    } else {
-      // If "Ja, lage" or "Ja, hoge" is selected, disable the button until the number of meters is entered
-      setIsButtonDisabled(!(watchMeters && /^[0-9]+$/.test(watchMeters)));
-    }
+    const cost = calculateStepCost();
+    setStepCost(cost);
+
+    const updatedStepCosts = {
+      ...formData.stepCosts,
+      step4: cost,
+    };
+
+    updateFormData({
+      ...formData,
+      stepCosts: updatedStepCosts,
+      totalCost: Object.values(updatedStepCosts).reduce((acc: number, cost: number) => acc + cost, 0),
+    });
   }, [watchNewBaseboards, watchMeters]);
+
+  const isButtonDisabled =
+    !watchNewBaseboards || (watchNewBaseboards !== 'Nee' && (!watchMeters || !/^[0-9]+$/.test(watchMeters)));
 
   const handleSubmit = (event: React.FormEvent) => {
     event.preventDefault();
@@ -86,8 +99,12 @@ const StepFour: React.FC<StepFourProps> = ({ onPrevious, onNext, formData, updat
       updateFormData({
         ...formData,
         ...data,
-        totalCost: totalPrice, // Save the updated total price
+        stepCosts: {
+          ...formData.stepCosts,
+          step4: stepCost,
+        },
       });
+
       onNext();
     })();
   };
@@ -143,10 +160,14 @@ const StepFour: React.FC<StepFourProps> = ({ onPrevious, onNext, formData, updat
           <div className="flex flex-col space-y-2">
             <div className="flex justify-between items-center">
               <span className="font-semibold text-lg text-green-700">Totaal incl. btw.</span>
-              <span className="font-semibold text-lg text-green-700">€{totalPrice.toFixed(2)}</span>
+              <span className="font-semibold text-lg text-green-700">€{formData.totalCost.toFixed(2)}</span>
             </div>
             <CreateButton
-              className={`w-full ${isButtonDisabled ? 'bg-gray-500' : 'bg-primaryDefault border border-transparent hover:bg-white hover:text-green-700 hover:border-green-700 transition-all duration-300'}`}
+              className={`w-full ${
+                isButtonDisabled
+                  ? 'bg-gray-500'
+                  : 'bg-primaryDefault border border-transparent hover:bg-white hover:text-green-700 hover:border-green-700 transition-all duration-300'
+              }`}
               type="submit"
               disabled={isButtonDisabled}
             >

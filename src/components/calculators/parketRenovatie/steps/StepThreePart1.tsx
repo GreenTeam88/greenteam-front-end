@@ -13,7 +13,13 @@ interface StepProps {
   onPrevious: () => void;
   onNext: (step?: number) => void;
   onUploadClick: (field: string) => void; // For uploading photos
-  formData: any;
+  formData: {
+    stepCosts: Record<string, number>;
+    totalCost: number;
+    damageRepairsNeeded?: string;
+    numberOfRepairs?: string;
+    [key: string]: any;
+  };
   updateFormData: (data: any) => void;
 }
 
@@ -31,48 +37,69 @@ const StepThreePart1: React.FC<StepProps> = ({ onPrevious, onNext, onUploadClick
     label: number,
   }));
 
-  const [isRepairsRequired, setIsRepairsRequired] = useState<boolean>(formData.damageRepairsNeeded === 'Ja');
-
-  // Dynamic schema to make 'numberOfRepairs' required only if 'damageRepairsNeeded' is 'Ja'
   const schema = z.object({
     damageRepairsNeeded: z.string().nonempty({ message: 'Please select an option' }),
-    numberOfRepairs: isRepairsRequired
-      ? z.string().nonempty({ message: 'Please select a number of repairs' })
-      : z.string().optional(),
+    numberOfRepairs: z.string().optional(),
   });
 
   const form = useForm({
     resolver: zodResolver(schema),
-    defaultValues: formData,
+    defaultValues: {
+      damageRepairsNeeded: formData.damageRepairsNeeded || '',
+      numberOfRepairs: formData.numberOfRepairs || '',
+    },
     mode: 'onChange',
   });
 
-  const watchYesNo = form.watch('damageRepairsNeeded');
+  const watchDamageRepairs = form.watch('damageRepairsNeeded');
+  const watchNumberOfRepairs = form.watch('numberOfRepairs');
 
-  // Ensure totalPrice is always a number
-  const [totalPrice, setTotalPrice] = useState<number>(Number(formData.totalCost) || 0);
+  const [stepCost, setStepCost] = useState<number>(formData.stepCosts?.step3Part1 || 0);
 
-  // Update totalPrice whenever formData.totalCost changes
+  // Function to calculate the cost for this step
+  const calculateStepCost = (): number => {
+    if (watchDamageRepairs === 'Ja') {
+      // Optionally assign a cost per repair if needed
+      const numberOfRepairs = parseInt(watchNumberOfRepairs || '0', 10);
+      return numberOfRepairs > 0 ? numberOfRepairs * 10 : 0; // Example: €10 per repair
+    }
+    return 0; // No cost if "Nee" is selected
+  };
+
+  // Update the step cost and propagate it to formData
   useEffect(() => {
-    setTotalPrice(Number(formData.totalCost) || 0);
-  }, [formData.totalCost]);
+    const newCost = calculateStepCost();
+    setStepCost(newCost);
 
-  useEffect(() => {
-    // Update the required field based on "damageRepairsNeeded"
-    setIsRepairsRequired(watchYesNo === 'Ja');
-  }, [watchYesNo]);
+    const updatedStepCosts = {
+      ...formData.stepCosts,
+      step3Part1: newCost,
+    };
+
+    updateFormData({
+      ...formData,
+      stepCosts: updatedStepCosts,
+      totalCost: Object.values(updatedStepCosts).reduce((acc, cost) => acc + cost, 0),
+    });
+  }, [watchDamageRepairs, watchNumberOfRepairs]);
 
   const handleSubmit = (event: React.FormEvent) => {
     event.preventDefault();
     form.handleSubmit((data) => {
-      updateFormData(data);
-      onNext(); // Move to StepThreePart2
+      updateFormData({
+        ...formData,
+        ...data,
+        stepCosts: {
+          ...formData.stepCosts,
+          step3Part1: stepCost,
+        },
+      });
+
+      onNext();
     })();
   };
 
-  const damageRepairsNeeded = form.watch('damageRepairsNeeded');
-  const numberOfRepairs = form.watch('numberOfRepairs');
-  const isButtonDisabled = !damageRepairsNeeded || (damageRepairsNeeded === 'Ja' && !numberOfRepairs);
+  const isButtonDisabled = !watchDamageRepairs || (watchDamageRepairs === 'Ja' && !watchNumberOfRepairs);
 
   return (
     <FormProvider {...form}>
@@ -107,7 +134,7 @@ const StepThreePart1: React.FC<StepProps> = ({ onPrevious, onNext, onUploadClick
             />
           </div>
 
-          {watchYesNo === 'Ja' && (
+          {watchDamageRepairs === 'Ja' && (
             <>
               <div className="flex flex-col">
                 <label
@@ -139,10 +166,14 @@ const StepThreePart1: React.FC<StepProps> = ({ onPrevious, onNext, onUploadClick
           <div className="flex flex-col space-y-2">
             <div className="flex justify-between items-center ">
               <span className="font-semibold text-lg text-green-700">Totaal incl. btw.</span>
-              <span className="font-semibold text-lg text-green-700">€{totalPrice.toFixed(2)}</span>
+              <span className="font-semibold text-lg text-green-700">€{formData.totalCost.toFixed(2)}</span>
             </div>
             <CreateButton
-              className={`w-full ${isButtonDisabled ? 'bg-gray-500' : 'bg-primaryDefault border border-transparent hover:bg-white hover:text-green-700 hover:border-green-700 transition-all duration-300'}`}
+              className={`w-full ${
+                isButtonDisabled
+                  ? 'bg-gray-500'
+                  : 'bg-primaryDefault border border-transparent hover:bg-white hover:text-green-700 hover:border-green-700 transition-all duration-300'
+              }`}
               type="submit"
               disabled={isButtonDisabled}
             >

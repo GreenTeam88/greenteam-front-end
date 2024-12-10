@@ -13,7 +13,13 @@ import { Option } from '@/types';
 interface StepProps {
   onPrevious: () => void;
   onNext: () => void;
-  formData: any;
+  formData: {
+    selectedFloors?: string[];
+    squareMeters?: string;
+    selectedServicePrice?: number;
+    stepCosts: Record<string, number>; // Explicit type for stepCosts
+    totalCost?: number;
+  };
   updateFormData: (data: any) => void;
 }
 
@@ -34,65 +40,78 @@ const StepTwo: React.FC<StepProps> = ({ onPrevious, onNext, formData, updateForm
 
   const form = useForm({
     resolver: zodResolver(schema),
-    defaultValues: formData, // Ensure saved data is used as default
+    defaultValues: {
+      selectedFloors: formData.selectedFloors || [],
+      squareMeters: formData.squareMeters || '',
+    },
     mode: 'onChange',
   });
 
-  const { control, setValue } = form;
+  const { control } = form;
 
-  // Watching selected floors and square meters for live updates
-  const selectedFloors = useWatch({ control, name: 'selectedFloors', defaultValue: formData.selectedFloors || [] });
-  const squareMeters = useWatch({ control, name: 'squareMeters', defaultValue: formData.squareMeters || '' });
+  // Watch inputs
+  const selectedFloors = useWatch({ control, name: 'selectedFloors' }) || [];
+  const squareMeters = useWatch({ control, name: 'squareMeters' }) || '';
 
-  // Calculate the total dynamically
-  const calculateTotal = () => {
+  // Calculate the cost for this step
+  const calculateStepCost = () => {
     const area = parseInt(squareMeters, 10) || 0;
 
-    // Calculate floor cost based on floor-specific logic
+    // Calculate floor cost
     const floorLevelCost = selectedFloors.reduce((totalCost: number, floor: string) => {
       const floorNumber = parseInt(floor.split(' ')[0], 10); // Extract the floor number
       if (!isNaN(floorNumber) && floorNumber > 0) {
-        totalCost += FLOOR_COST; // Add the cost for each additional floor
+        totalCost += FLOOR_COST;
       }
       return totalCost;
     }, 0);
 
     const baseCost = servicePricePerM2 * area;
-    const totalCost = floorLevelCost + baseCost;
-
-    // Cap the total cost at 999,999.99
-    return Math.min(totalCost, 999999.99).toFixed(2);
+    return floorLevelCost + baseCost;
   };
 
+  // Update formData when inputs change
   useEffect(() => {
-    // Ensure form values persist when coming back
-    setValue('selectedFloors', formData.selectedFloors || []);
-    setValue('squareMeters', formData.squareMeters || '');
-  }, [formData, setValue]);
+    const step2Cost = calculateStepCost();
+
+    // Ensure stepCosts is always initialized
+    const updatedStepCosts = {
+      ...formData.stepCosts,
+      step2: step2Cost,
+    };
+
+    updateFormData({
+      ...formData,
+      selectedFloors,
+      squareMeters,
+      stepCosts: updatedStepCosts,
+      totalCost: Object.values(updatedStepCosts).reduce((acc: number, cost: number) => acc + cost, 0),
+    });
+  }, [selectedFloors, squareMeters]);
 
   const handleSubmit = (event: React.FormEvent) => {
     event.preventDefault();
-    form.handleSubmit((data) => {
-      const totalCost = calculateTotal();
+    form.handleSubmit(() => {
+      const step2Cost = calculateStepCost();
+
+      // Ensure stepCosts is always initialized
+      const updatedStepCosts = {
+        ...formData.stepCosts,
+        step2: step2Cost,
+      };
 
       updateFormData({
-        ...data,
-        totalCost, // Include total cost in formData
-        baseCost: servicePricePerM2 * parseInt(data.squareMeters || '0', 10),
-        floorLevelCost: selectedFloors.reduce((totalCost: number, floor: string) => {
-          const floorNumber = parseInt(floor.split(' ')[0], 10);
-          if (!isNaN(floorNumber) && floorNumber > 0) {
-            totalCost += FLOOR_COST;
-          }
-          return totalCost;
-        }, 0),
+        ...formData,
+        selectedFloors,
+        squareMeters,
+        stepCosts: updatedStepCosts,
+        totalCost: Object.values(updatedStepCosts).reduce((acc: number, cost: number) => acc + cost, 0),
       });
 
       onNext();
     })();
   };
 
-  // Enable the "Next" button only when valid values are present
   const isButtonDisabled = !selectedFloors.length || !squareMeters;
 
   return (
@@ -141,7 +160,9 @@ const StepTwo: React.FC<StepProps> = ({ onPrevious, onNext, formData, updateForm
           <div className="flex flex-col space-y-2">
             <div className="flex justify-between items-center">
               <span className="font-semibold text-lg text-green-700">Totaal incl. btw.</span>
-              <span className="font-semibold text-lg text-green-700">€{calculateTotal()}</span>
+              <span className="font-semibold text-lg text-green-700">
+                €{(formData.stepCosts?.step2 || 0).toFixed(2)}
+              </span>
             </div>
             <CreateButton
               className={`w-full ${
