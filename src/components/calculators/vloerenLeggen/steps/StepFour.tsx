@@ -1,7 +1,7 @@
 import { zodResolver } from '@hookform/resolvers/zod';
 import { ChevronLeft } from 'lucide-react';
-import React, { useEffect, useState } from 'react';
-import { FormProvider, useForm } from 'react-hook-form';
+import React, { useEffect } from 'react';
+import { FormProvider, useForm, useWatch } from 'react-hook-form';
 import { z } from 'zod';
 
 import InputGetter from '@/components/calculators/Getters/InputGetter';
@@ -13,92 +13,99 @@ import { Option } from '@/types';
 interface StepFourProps {
   onPrevious: () => void;
   onNext: () => void;
-  formData: any; // Centralized form data passed down
-  updateFormData: (data: any) => void; // Function to update the centralized state
+  formData: {
+    newBaseboardsNeeded?: string;
+    stepFourMeters?: string; // Unique field for square meters in StepFour
+    stepCosts: Record<string, number>;
+    totalCost?: number;
+  };
+  updateFormData: (data: any) => void;
 }
 
 const schema = z.object({
   newBaseboardsNeeded: z.string().nonempty({ message: 'Please select at least one option' }),
-  numberOfMeters: z
+  stepFourMeters: z
     .string()
     .regex(/^\d*$/, 'Enter a valid number') // Allow only digits or empty
     .optional(),
 });
 
 const StepFour: React.FC<StepFourProps> = ({ onPrevious, onNext, formData, updateFormData }) => {
-  const [totalPrice, setTotalPrice] = useState<number>(Number(formData.totalCost) || 0);
-  const [isButtonDisabled, setIsButtonDisabled] = useState<boolean>(true); // Track button state
+  const form = useForm({
+    resolver: zodResolver(schema),
+    defaultValues: {
+      newBaseboardsNeeded: formData.newBaseboardsNeeded || '',
+      stepFourMeters: formData.stepFourMeters || '', // Use the new unique field
+    },
+    mode: 'onChange',
+  });
 
-  const categories = [
+  const { control } = form;
+
+  // Watch fields
+  const watchNewBaseboards = useWatch({ control, name: 'newBaseboardsNeeded' });
+  const stepFourMeters = useWatch({ control, name: 'stepFourMeters' }); // Unique name for this step
+
+  const baseboardOptions: Option[] = [
     { value: 'Ja, lage', label: 'Ja, lage', imageUrl: '/images/lage-plinten.svg' },
     { value: 'Ja, hoge', label: 'Ja, hoge', imageUrl: '/images/hoge-plinten.svg' },
     { value: 'Nee', label: 'Nee' },
   ];
 
-  const categoryOptions: Option[] = categories.map((category) => ({
-    value: category.value,
-    label: category.label,
-    imageUrl: category.imageUrl,
-  }));
+  // Calculate step cost
+  const calculateStepCost = () => {
+    if (watchNewBaseboards === 'Nee') return 0;
 
-  const form = useForm({
-    resolver: zodResolver(schema),
-    defaultValues: {
-      ...formData,
-      newBaseboardsNeeded: formData.newBaseboardsNeeded || '',
-      numberOfMeters: formData.numberOfMeters || '',
-    },
-    mode: 'onChange',
-  });
-
-  const watchNewBaseboards = form.watch('newBaseboardsNeeded');
-  const watchMeters = form.watch('numberOfMeters');
-
-  useEffect(() => {
-    const basePrice = Number(formData.totalCost) || 0; // Default to 0 if totalCost is not valid
-    let additionalCost = 0;
-
-    if (watchNewBaseboards && watchMeters) {
-      const meters = parseInt(watchMeters, 10) || 0; // Parse meters as an integer
-      if (watchNewBaseboards === 'Ja, lage') {
-        additionalCost = meters * 6; // Flat Plinth (€6/m)
-      } else if (watchNewBaseboards === 'Ja, hoge') {
-        additionalCost = meters * 12; // High Plinth (€12/m)
-      }
+    const meters = parseInt(stepFourMeters || '0', 10);
+    if (watchNewBaseboards === 'Ja, lage') {
+      return meters * 6; // Flat Plinth (€6/m)
+    } else if (watchNewBaseboards === 'Ja, hoge') {
+      return meters * 12; // High Plinth (€12/m)
     }
+    return 0;
+  };
 
-    setTotalPrice(basePrice + additionalCost);
-  }, [watchNewBaseboards, watchMeters, formData.totalCost]);
-
+  // Avoid updating step cost multiple times
   useEffect(() => {
-    if (watchNewBaseboards === 'Nee') {
-      setIsButtonDisabled(false); // Enable if "Nee" is selected
-    } else {
-      setIsButtonDisabled(!(watchMeters && /^[0-9]+$/.test(watchMeters)));
+    const currentStepCost = calculateStepCost();
+
+    // Update only if the cost has changed
+    if (formData.stepCosts.step4 !== currentStepCost) {
+      updateFormData({
+        ...formData,
+        newBaseboardsNeeded: watchNewBaseboards,
+        stepFourMeters,
+        stepCosts: {
+          ...formData.stepCosts,
+          step4: currentStepCost, // StepFour-specific cost
+        },
+        totalCost: Object.values<number>({
+          ...formData.stepCosts,
+          step4: currentStepCost,
+        }).reduce((acc, cost) => acc + cost, 0), // Total across all steps
+      });
     }
-  }, [watchNewBaseboards, watchMeters]);
+  }, [watchNewBaseboards, stepFourMeters]);
 
   const handleSubmit = (event: React.FormEvent) => {
     event.preventDefault();
-    form.handleSubmit((data) => {
-      updateFormData({
-        ...formData,
-        ...data,
-        totalCost: totalPrice || 0, // Ensure totalCost is a number
-      });
-      onNext();
+    form.handleSubmit(() => {
+      onNext(); // Avoid recalculating costs on submission
     })();
   };
 
+  const isButtonDisabled =
+    !watchNewBaseboards || (watchNewBaseboards !== 'Nee' && !(stepFourMeters && /^[0-9]+$/.test(stepFourMeters)));
+
   return (
     <FormProvider {...form}>
-      <form onSubmit={handleSubmit} className="w-[386px] h-[400px] flex rounded-[4px] relative lg:px-0 z-10 flex-col ">
+      <form onSubmit={handleSubmit} className="w-[386px] h-[400px] flex rounded-[4px] relative lg:px-0 z-10 flex-col">
         <div className="bg-primaryDefault rounded-t-[8px] flex items-center justify-center text-white py-[22px] w-full">
           <div className="text-center">
-            <HeadlineSemibold className="w-full">Snel uw prijs berekenen! vloren</HeadlineSemibold>
+            <HeadlineSemibold className="w-full">Snel uw prijs berekenen!</HeadlineSemibold>
           </div>
         </div>
-        <div className="bg-white w-full rounded-b-[8px] flex flex-col px-[22px] gap-[25px] py-[22px] shadow-lg">
+        <div className="bg-white w-full rounded-b-[8px] flex flex-col px-[22px] gap-y-3 py-[22px] shadow-lg">
           <div className="flex flex-row items-center justify-between">
             <ChevronLeft className="cursor-pointer" onClick={onPrevious} />
             <span className="text-gray-400 font-sans text-sm">Niet verplicht, wel handig om te weten</span>
@@ -107,29 +114,30 @@ const StepFour: React.FC<StepFourProps> = ({ onPrevious, onNext, formData, updat
             </div>
           </div>
 
+          {/* Dropdown for New Baseboards */}
           <SingleSelectDropdown
-            data={categoryOptions}
+            data={baseboardOptions}
             name="newBaseboardsNeeded"
             label="Nieuwe plinten nodig?"
             placeholder="Maak een keuze"
           />
 
+          {/* Input for Meters */}
           {watchNewBaseboards && watchNewBaseboards !== 'Nee' && (
             <InputGetter
               form={form}
-              name="numberOfMeters"
+              name="stepFourMeters" // Use unique name
               label="Aantal meter?"
               placeholder="Voer het aantal meters in"
               type="text"
             />
           )}
 
+          {/* Total Price Display */}
           <div className="flex flex-col space-y-2">
             <div className="flex justify-between items-center text-center">
               <span className="font-semibold text-lg text-green-700">Totaal incl. btw.</span>
-              <span className="font-semibold text-lg text-green-700">
-                €{!isNaN(totalPrice) ? totalPrice.toFixed(2) : '0.00'}
-              </span>
+              <span className="font-semibold text-lg text-green-700">€{(formData.totalCost || 0).toFixed(2)}</span>
             </div>
 
             <CreateButton

@@ -1,6 +1,6 @@
 import { zodResolver } from '@hookform/resolvers/zod';
 import { ChevronLeft } from 'lucide-react';
-import React from 'react';
+import React, { useEffect } from 'react';
 import { FormProvider, useForm, useWatch } from 'react-hook-form';
 import { z } from 'zod';
 
@@ -13,7 +13,12 @@ import { Option } from '@/types';
 interface StepProps {
   onPrevious: () => void;
   onNext: () => void;
-  formData: any;
+  formData: {
+    selectedFloors?: string[];
+    existingFloorType?: string;
+    stepCosts?: Record<string, number>;
+    totalCost?: number;
+  };
   updateFormData: (data: any) => void;
 }
 
@@ -25,57 +30,86 @@ const schema = z.object({
 const StepTwo: React.FC<StepProps> = ({ onPrevious, onNext, formData, updateFormData }) => {
   const FLOOR_COST = 25; // €25 per floor level
 
-  const datas = ['0 (Begane grond)', '1', '2', '3', '4', '5', '6', '7', '8', '9', '10+'];
-  const dataOptions: Option[] = datas.map((data) => ({
+  const floorOptions = ['0 (Begane grond)', '1', '2', '3', '4', '5', '6', '7', '8', '9', '10+'];
+  const floorTypeOptions = ['Beton', 'Hout', 'Laminaat', 'PVC', 'Grind', 'Tegels', 'Lijmresten', 'Tapijt'];
+
+  const dataOptions: Option[] = floorOptions.map((data) => ({
     value: data,
     label: data,
   }));
 
-  const floorTypes = ['Beton', 'Hout', 'Laminaat', 'PVC', 'Grind', 'Tegels', 'Lijmresten', 'Tapijt'];
-  const floorTypeOptions: Option[] = floorTypes.map((floorType) => ({
+  const floorTypeDropdownOptions: Option[] = floorTypeOptions.map((floorType) => ({
     value: floorType,
     label: floorType,
   }));
 
   const form = useForm({
     resolver: zodResolver(schema),
-    defaultValues: formData,
+    defaultValues: {
+      selectedFloors: formData.selectedFloors || [],
+      existingFloorType: formData.existingFloorType || '',
+    },
     mode: 'onChange',
   });
 
   const { control } = form;
 
-  // Watch selected floors and existing floor type
-  const selectedFloors = useWatch({ control, name: 'selectedFloors', defaultValue: [] });
-  const existingFloorType = useWatch({ control, name: 'existingFloorType', defaultValue: '' });
+  // Watch inputs
+  const selectedFloors = useWatch({ control, name: 'selectedFloors' }) || [];
+  const existingFloorType = useWatch({ control, name: 'existingFloorType' }) || '';
 
-  const calculateTotal = () => {
-    const floorLevelCost = selectedFloors.reduce((totalCost: number, floor: string) => {
+  // Calculate the cost for this step
+  const calculateStepCost = () => {
+    // Calculate floor level cost
+    return selectedFloors.reduce((totalCost: number, floor: string) => {
       const floorNumber = parseInt(floor.split(' ')[0], 10); // Extract the floor number
       if (!isNaN(floorNumber) && floorNumber > 0) {
-        totalCost += FLOOR_COST; // Add the cost for each additional floor
+        totalCost += FLOOR_COST;
       }
       return totalCost;
     }, 0);
-
-    return Math.min(floorLevelCost, 999999.99).toFixed(2);
   };
+
+  // Update formData when inputs change
+  useEffect(() => {
+    const step2Cost = calculateStepCost();
+
+    const updatedStepCosts = {
+      ...(formData.stepCosts || {}),
+      step2: step2Cost,
+    };
+
+    updateFormData({
+      ...formData,
+      selectedFloors,
+      existingFloorType,
+      stepCosts: updatedStepCosts,
+      totalCost: Object.values(updatedStepCosts).reduce((acc, cost) => acc + cost, 0), // Safely calculate totalCost
+    });
+  }, [selectedFloors, existingFloorType]);
 
   const handleSubmit = (event: React.FormEvent) => {
     event.preventDefault();
-    form.handleSubmit((data) => {
-      const totalCost = calculateTotal();
+    form.handleSubmit(() => {
+      const step2Cost = calculateStepCost();
+
+      const updatedStepCosts = {
+        ...(formData.stepCosts || {}),
+        step2: step2Cost,
+      };
 
       updateFormData({
-        ...data,
-        totalCost,
+        ...formData,
+        selectedFloors,
+        existingFloorType,
+        stepCosts: updatedStepCosts,
+        totalCost: Object.values(updatedStepCosts).reduce((acc, cost) => acc + cost, 0), // Safely calculate totalCost
       });
 
       onNext();
     })();
   };
 
-  // Ensure both fields are selected before enabling the button
   const isButtonDisabled = !selectedFloors.length || !existingFloorType;
 
   return (
@@ -115,7 +149,7 @@ const StepTwo: React.FC<StepProps> = ({ onPrevious, onNext, formData, updateForm
 
           <div className="flex flex-col">
             <SingleSelectDropdown
-              data={floorTypeOptions}
+              data={floorTypeDropdownOptions}
               name="existingFloorType"
               label="Wat is de huidige ondergrond?"
               placeholder="Selecteer een type vloer"
@@ -125,10 +159,16 @@ const StepTwo: React.FC<StepProps> = ({ onPrevious, onNext, formData, updateForm
           <div className="flex flex-col space-y-2">
             <div className="flex justify-between items-center">
               <span className="font-semibold text-lg text-green-700">Totaal incl. btw.</span>
-              <span className="font-semibold text-lg text-green-700">€{calculateTotal()}</span>
+              <span className="font-semibold text-lg text-green-700">
+                €{(formData.stepCosts?.step2 || 0).toFixed(2)}
+              </span>
             </div>
             <CreateButton
-              className={`w-full ${isButtonDisabled ? 'bg-gray-500' : 'bg-primaryDefault border border-transparent hover:bg-white hover:text-green-700 hover:border-green-700 transition-all duration-300'}`}
+              className={`w-full ${
+                isButtonDisabled
+                  ? 'bg-gray-500'
+                  : 'bg-primaryDefault border border-transparent hover:bg-white hover:text-green-700 hover:border-green-700 transition-all duration-300'
+              }`}
               type="submit"
               disabled={isButtonDisabled}
             >
