@@ -80,13 +80,13 @@ const StepTwo: React.FC<StepProps> = ({ onPrevious, onNext, formData, updateForm
 
   return (
     <FormProvider {...form}>
-      <form onSubmit={handleSubmit} className="w-[386px] h-[430px] flex rounded-[4px] relative lg:px-0 z-10 flex-col">
+      <form onSubmit={handleSubmit} className="w-[386px] h-[400px] flex rounded-[4px] relative lg:px-0 z-10 flex-col">
         <div className="bg-primaryDefault rounded-t-[8px] flex items-center justify-center text-white py-[22px] w-full">
           <div className="text-center">
             <HeadlineSemibold className="w-full">Snel uw prijs berekenen! 5STEFEN°</HeadlineSemibold>
           </div>
         </div>
-        <div className="bg-white w-full rounded-b-[8px] flex flex-col px-[22px] gap-[25px] py-[22px]">
+        <div className="bg-white w-full rounded-b-[8px] flex flex-col px-[22px] gap-y-4 py-[22px]">
           <div className="flex flex-row items-center justify-between">
             <div
               className="flex items-center gap-[5px] cursor-pointer hover:text-green-700 transition-all"
@@ -119,8 +119,8 @@ const StepTwo: React.FC<StepProps> = ({ onPrevious, onNext, formData, updateForm
             />
           </div>
           <div className="flex flex-col space-y-2">
-            <div className="flex justify-between items-center">
-              <span className="font-semibold text-lg text-green-700">Brekening volgt na aanvraag</span>
+            <div className="flex justify-center items-center h-full">
+              <span className="font-semibold text-lg text-green-700">Berekening volgt na aanvraag</span>
             </div>
             <CreateButton
               className={`w-full ${isButtonDisabled ? 'bg-gray-500' : 'bg-primaryDefault border border-transparent hover:bg-white hover:text-green-700 hover:border-green-700 transition-all duration-300'}`}

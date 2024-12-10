@@ -27,10 +27,10 @@ export const Hero = () => {
     <div className="relative w-full h-fit flex items-center justify-center ">
       <img src="/home/heroImg.png" className="absolute hidden lg:block w-full h-full top-0 left-0 z-0" />
 
-      <div className=" relative flex-col lg:flex-row z-40 max-w-full lg:h-[680px] py-16 lg:py-0 gap-[86px] px-2 lg:px-[120px] w-[1440px] flex items-center ">
+      <div className=" relative flex-col lg:flex-row z-0 max-w-full lg:h-[680px] py-16 lg:py-0 gap-[86px] px-2 lg:px-[120px] w-[1440px] flex items-center ">
         <ParagraphSection />
 
-        <MultiStepForm category="parketRenovatie" />
+        <MultiStepForm category="Parketrenovatie" />
       </div>
     </div>
   );

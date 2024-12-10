@@ -90,8 +90,11 @@ const StepFive: React.FC<StepFiveProps> = ({
               onClick={onPrevious}
             >
               <ChevronLeft />
+
+              <span className="flex-1 text-gray-400 font-sans text-sm whitespace-nowrap cursor-pointer hover:text-green-700 transition-all">
+                Planning
+              </span>
             </div>
-            <span className="flex-1 text-gray-400 font-sans text-sm whitespace-nowrap">Planning</span>
             <div className="flex w-[25%] h-[6px] bg-gray-300 rounded-full ml-4">
               <div className="w-[90%] h-full bg-green-700 rounded-full"></div>
             </div>
@@ -136,16 +139,18 @@ const StepFive: React.FC<StepFiveProps> = ({
 
           <div className="flex flex-col">
             <div className="flex flex-col space-y-2">
-              <div className="flex justify-between items-center text-center">
-                {formData.isOnRequest ? (
+              {formData.isOnRequest ? (
+                <div className="flex justify-center items-center h-full">
                   <span className="font-semibold text-lg text-green-700">Berekening volgt na aanvraag</span>
-                ) : (
-                  <>
+                </div>
+              ) : (
+                <>
+                  <div className="flex justify-between items-center text-center">
                     <span className="font-semibold text-lg text-green-700">Totaal incl. btw.</span>
                     <span className="font-semibold text-lg text-green-700">€{totalCost.toFixed(2)}</span>
-                  </>
-                )}
-              </div>
+                  </div>
+                </>
+              )}
             </div>
 
             <CreateButton

@@ -41,6 +41,11 @@ const StepOne: React.FC<StepOneProps> = ({ onNext, formData, updateFormData, onC
   const selectedCategory = form.watch('selectedCategory');
   const selectedService = form.watch('selectedService');
 
+  // Dynamic watch for changes to determine "isOnRequest"
+  const isOnRequest = useMemo(() => {
+    return selectedCategory !== 'Vloeren leggen' && servicesConfig[selectedCategory]?.[selectedService] === null;
+  }, [selectedCategory, selectedService]);
+
   // Notify MultiStepForm when the category changes
   useEffect(() => {
     if (selectedCategory) {
@@ -51,17 +56,12 @@ const StepOne: React.FC<StepOneProps> = ({ onNext, formData, updateFormData, onC
   const handleSubmit = form.handleSubmit((data) => {
     const selectedServicePrice = servicesConfig[selectedCategory]?.[data.selectedService] || 0;
 
-    // Check if the selected service is "on request"
-    // const isOnRequest = servicesConfig[selectedCategory]?.[selectedService] === null;
-    const isOnRequest =
-      selectedCategory !== 'vloerenLeggen' && servicesConfig[selectedCategory]?.[data.selectedService] === null;
-
     updateFormData({
       ...data,
       isOnRequest,
       selectedService: data.selectedService,
       selectedServicePrice,
-      totalCost: isOnRequest ? null : servicesConfig[selectedCategory]?.[selectedService] || 0,
+      totalCost: isOnRequest ? null : servicesConfig[selectedCategory]?.[data.selectedService] || 0,
     });
 
     if (data.selectedService === 'Ben ik nog niet over uit' || data.selectedService === 'Ik wil graag advies') {
@@ -78,7 +78,7 @@ const StepOne: React.FC<StepOneProps> = ({ onNext, formData, updateFormData, onC
     return Object.entries(services).map(([service, price]) => {
       let label;
 
-      if (selectedCategory === 'vloerenLeggen') {
+      if (selectedCategory === 'Vloeren leggen') {
         // For vloerenLeggen, only display the service name without price
         label = service;
       } else if (price === 0.0) {
@@ -133,16 +133,19 @@ const StepOne: React.FC<StepOneProps> = ({ onNext, formData, updateFormData, onC
             />
           </div>
           <div className="flex flex-col space-y-2">
-            <div className="flex justify-between items-center">
-              {formData.isOnRequest ? (
+            {isOnRequest ? (
+              <div className="flex justify-center items-center h-full">
                 <span className="font-semibold text-lg text-green-700">Berekening volgt na aanvraag</span>
-              ) : (
-                <>
-                  <span className="font-semibold text-lg text-green-700">Totaal incl. btw.</span>
-                  <span className="font-semibold text-lg text-green-700">€{(formData.totalCost || 0).toFixed(2)}</span>
-                </>
-              )}
-            </div>
+              </div>
+            ) : (
+              <div className="flex justify-between items-center">
+                <span className="font-semibold text-lg text-green-700">Totaal incl. btw.</span>
+                <span className="font-semibold text-lg text-green-700">
+                  {/* €{(servicesConfig[selectedCategory]?.[selectedService] || 0).toFixed(2)} */}
+                  €0.00
+                </span>
+              </div>
+            )}
 
             <CreateButton
               className={`w-full ${

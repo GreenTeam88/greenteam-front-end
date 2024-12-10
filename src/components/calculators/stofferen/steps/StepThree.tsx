@@ -4,11 +4,11 @@ import React, { useEffect, useState } from 'react';
 import { FormProvider, useForm } from 'react-hook-form';
 import { z } from 'zod';
 
+import MultiSelectDropdown from '@/components/calculators/Getters/MultiSelectDropdown';
 import SingleSelectDropdown from '@/components/calculators/Getters/SingleSelectDropdown';
 import CreateButton from '@/components/custom/CreateButton';
 import { HeadlineSemibold } from '@/components/theme/typography';
 import { Option } from '@/types';
-import MultiSelectDropdown from '../../Getters/MultiSelectDropdown';
 
 interface StepProps {
   onPrevious: () => void;
@@ -19,27 +19,23 @@ interface StepProps {
 }
 
 const StepThree: React.FC<StepProps> = ({ onPrevious, onNext, onUploadClick, formData, updateFormData }) => {
-  const categories = ['Ja', 'Nee'];
-  const numbers = ['1', '2', '3', '4', '5', '6', '7', '8', '9', '10+'];
+  const surfaceCategories = ['Traptredes', 'Entrée', 'Opstapjes', 'Overloop'];
+  const additionalSurfaceOptions = ['Geen', '1-2 oppervlaktes', '3-5 oppervlaktes', '6 of meer'];
 
-  const categoryOptions: Option[] = categories.map((category) => ({
+  const surfaceCategoryOptions: Option[] = surfaceCategories.map((category) => ({
     value: category,
-    label: category === 'Ja' ? 'Ja (Let op: Berekening volgt na aanvraag)' : category,
+    label: category,
   }));
 
-  const numberOptions: Option[] = numbers.map((number) => ({
-    value: number,
-    label: number,
+  const additionalSurfaceTypeOptions: Option[] = additionalSurfaceOptions.map((option) => ({
+    value: option,
+    label: option,
   }));
 
-  const [isRepairsRequired, setIsRepairsRequired] = useState<boolean>(formData.damageRepairsNeeded === 'Ja');
-
-  // Dynamic schema to make 'numberOfRepairs' required only if 'damageRepairsNeeded' is 'Ja'
+  // Zod schema for validation
   const schema = z.object({
-    damageRepairsNeeded: z.string().nonempty({ message: 'Please select an option' }),
-    numberOfRepairs: isRepairsRequired
-      ? z.string().nonempty({ message: 'Please select a number of repairs' })
-      : z.string().optional(),
+    selectedSurfaces: z.array(z.string()).nonempty({ message: 'Selecteer minimaal één oppervlak' }),
+    additionalSurfaceType: z.string().nonempty({ message: 'Maak een keuze voor andere oppervlaktes' }),
   });
 
   const form = useForm({
@@ -48,9 +44,10 @@ const StepThree: React.FC<StepProps> = ({ onPrevious, onNext, onUploadClick, for
     mode: 'onChange',
   });
 
-  const watchYesNo = form.watch('damageRepairsNeeded');
+  const selectedSurfaces = form.watch('selectedSurfaces');
+  const additionalSurfaceType = form.watch('additionalSurfaceType');
 
-  // Ensure totalPrice is always a number
+  // Ensure `totalPrice` is always a number
   const [totalPrice, setTotalPrice] = useState<number>(Number(formData.totalCost) || 0);
 
   // Update totalPrice whenever formData.totalCost changes
@@ -58,32 +55,28 @@ const StepThree: React.FC<StepProps> = ({ onPrevious, onNext, onUploadClick, for
     setTotalPrice(Number(formData.totalCost) || 0);
   }, [formData.totalCost]);
 
-  useEffect(() => {
-    // Update the required field based on "damageRepairsNeeded"
-    setIsRepairsRequired(watchYesNo === 'Ja');
-  }, [watchYesNo]);
-
   const handleSubmit = (event: React.FormEvent) => {
     event.preventDefault();
     form.handleSubmit((data) => {
-      updateFormData(data);
-      onNext(); // Move to StepThreePart2
+      updateFormData({
+        ...formData,
+        ...data, // Include selected surfaces and additional surface type
+      });
+      onNext(); // Move to next step
     })();
   };
 
-  const damageRepairsNeeded = form.watch('damageRepairsNeeded');
-  const numberOfRepairs = form.watch('numberOfRepairs');
-  const isButtonDisabled = !damageRepairsNeeded || (damageRepairsNeeded === 'Ja' && !numberOfRepairs);
+  const isButtonDisabled = !selectedSurfaces?.length || !additionalSurfaceType;
 
   return (
     <FormProvider {...form}>
-      <form onSubmit={handleSubmit} className="w-[386px] h-[400px] flex rounded-[4px] relative lg:px-0 z-10 flex-col ">
+      <form onSubmit={handleSubmit} className="w-[386px] h-[400px] flex rounded-[4px] relative lg:px-0 z-10 flex-col">
         <div className="bg-primaryDefault rounded-t-[8px] flex items-center justify-center text-white py-[22px] w-full">
           <div className="text-center">
             <HeadlineSemibold className="w-full">Snel uw prijs berekenen!</HeadlineSemibold>
           </div>
         </div>
-        <div className="bg-white w-full rounded-b-[8px] flex flex-col px-[22px] gap-y-3 py-[22px] shadow-md ">
+        <div className="bg-white w-full rounded-b-[8px] flex flex-col px-[22px] gap-y-3 py-[22px] shadow-md">
           <div className="flex flex-row items-center justify-between">
             <div
               className="flex items-center gap-[5px] cursor-pointer hover:text-green-700 transition-all"
@@ -99,58 +92,63 @@ const StepThree: React.FC<StepProps> = ({ onPrevious, onNext, onUploadClick, for
             </div>
           </div>
 
+          {/* Surface Categories Multi-Select */}
           <div className="flex flex-col">
-            <SingleSelectDropdown
-              data={categoryOptions}
-              name="damageRepairsNeeded"
-              label="Zijn er beschadigingen of reparaties nodig?"
-              placeholder="Kies er een"
+            <MultiSelectDropdown
+              data={surfaceCategoryOptions}
+              name="selectedSurfaces"
+              label="Wat zijn de geselecteerde oppervlakten?"
+              placeholder="Selecteer oppervlakten"
             />
           </div>
 
-          {watchYesNo === 'Ja' && (
-            <>
-              <div className="flex flex-col">
-                <label
-                  className="text-xs cursor-pointer"
-                  onClick={() => {
-                    updateFormData(form.getValues());
-                    onUploadClick('damagePhotos');
-                  }}
-                >
-                  <span className="font-bold text-green-700 hover:text-green-900 hover:underline transition-all duration-200">
-                    Foto uploaden
-                  </span>
-                  <span className="text-gray-400 font-sans"> (Niet verplicht)</span>
-                </label>
-              </div>
+          {/* Upload Button */}
+          <div className="flex flex-col">
+            <label
+              className="text-xs cursor-pointer"
+              onClick={() => {
+                updateFormData(form.getValues());
+                onUploadClick('damagePhotos');
+              }}
+            >
+              <span className="font-bold text-green-700 hover:text-green-900 hover:underline transition-all duration-200">
+                Foto uploaden
+              </span>
+              <span className="text-gray-400 font-sans"> (Niet verplicht)</span>
+            </label>
+          </div>
 
-              <div className="flex flex-col">
-                <MultiSelectDropdown
-                  data={numberOptions}
-                  name="numberOfRepairs"
-                  label="Aantal beschadigingen of reparaties"
-                  placeholder="Selecteer een aantal"
-                />
-              </div>
-            </>
-          )}
+          {/* Additional Surface Type Single-Select */}
+          <div className="flex flex-col">
+            <SingleSelectDropdown
+              data={additionalSurfaceTypeOptions}
+              name="additionalSurfaceType"
+              label="Zijn er nog andere oppervlaktes?"
+              placeholder="Maak een keuze"
+            />
+          </div>
 
           {/* Total Price Display */}
           <div className="flex flex-col space-y-2">
-            <div className="flex justify-between items-center text-center">
-              {formData.isOnRequest ? (
+            {formData.isOnRequest ? (
+              <div className="flex justify-center items-center h-full">
                 <span className="font-semibold text-lg text-green-700">Berekening volgt na aanvraag</span>
-              ) : (
-                <>
+              </div>
+            ) : (
+              <>
+                <div className="flex justify-between items-center text-center">
                   <span className="font-semibold text-lg text-green-700">Totaal incl. btw.</span>
                   <span className="font-semibold text-lg text-green-700">€{totalPrice.toFixed(2)}</span>
-                </>
-              )}
-            </div>
+                </div>
+              </>
+            )}
 
             <CreateButton
-              className={`w-full ${isButtonDisabled ? 'bg-gray-500' : 'bg-primaryDefault border border-transparent hover:bg-white hover:text-green-700 hover:border-green-700 transition-all duration-300'}`}
+              className={`w-full ${
+                isButtonDisabled
+                  ? 'bg-gray-500'
+                  : 'bg-primaryDefault border border-transparent hover:bg-white hover:text-green-700 hover:border-green-700 transition-all duration-300'
+              }`}
               type="submit"
               disabled={isButtonDisabled}
             >
@@ -162,4 +160,5 @@ const StepThree: React.FC<StepProps> = ({ onPrevious, onNext, onUploadClick, for
     </FormProvider>
   );
 };
+
 export default StepThree;

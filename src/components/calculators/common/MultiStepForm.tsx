@@ -85,7 +85,7 @@ const MultiStepForm: React.FC<MultiStepFormProps> = ({ category }) => {
             Deze stap is onder onderhoud door Yahya Elmokhtari.
           </p>
           <button
-            onClick={() => setCurrentCategory('parketRenovatie')}
+            onClick={() => setCurrentCategory('Parketrenovatie')}
             className="bg-green-600 text-white px-4 py-2 rounded shadow hover:bg-green-700 transition"
           >
             Ga naar Parket Renovatie
@@ -115,6 +115,10 @@ const MultiStepForm: React.FC<MultiStepFormProps> = ({ category }) => {
           updateFormData={updateFormData}
           onCategoryChange={(newCategory: string) => setCurrentCategory(newCategory)} // Pass the callback here
           onSubmit={stepName === 'ContactInfoStep' ? handleFinalSubmit : undefined}
+          onComment={(data: string) => {
+            updateFormData({ commentData: data });
+            goToPreviousStep(); // Return to the previous step after comment
+          }}
         />
       </Suspense>
     );

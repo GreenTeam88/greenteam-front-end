@@ -34,6 +34,7 @@ interface MultiSelectFormFieldProps
   options: {
     label: string;
     value: string;
+    disabled?: boolean;
     icon?: React.ComponentType<{ className?: string }>;
   }[];
   defaultValue?: string[];
@@ -145,10 +146,12 @@ const MultiSelectFormField = React.forwardRef<HTMLButtonElement, MultiSelectForm
                   return (
                     <CommandItem
                       key={option.value}
-                      onSelect={() => toggleOption(option.value)}
+                      onSelect={() => {
+                        if (!option.disabled) toggleOption(option.value); // Prevent selection if disabled
+                      }}
                       style={{
-                        pointerEvents: 'auto',
-                        opacity: 1,
+                        pointerEvents: option.disabled ? 'none' : 'auto',
+                        opacity: option.disabled ? 0.5 : 1, // Dim disabled options
                       }}
                       className={cn(
                         'cursor-pointer px-3 py-1.5', // added some padding for better UI

@@ -182,6 +182,7 @@ const StepThreePart2: React.FC<StepProps> = ({ onPrevious, onNext, formData, upd
               name="additionalSurfaces"
               label="Zijn er nog andere oppervlaktes?"
               placeholder="Kies er een"
+              exclusiveOption="Nee"
             />
           </div>
 

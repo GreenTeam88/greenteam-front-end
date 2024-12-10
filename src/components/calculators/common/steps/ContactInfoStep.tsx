@@ -74,16 +74,13 @@ const ContactInfoStep: React.FC<ContactInfoStepProps> = ({
 
   return (
     <FormProvider {...form}>
-      <form
-        onSubmit={handleSubmit}
-        className="w-[386px] h-[490px] flex rounded-[4px] relative lg:px-0 z-10 flex-col shadow-lg"
-      >
+      <form onSubmit={handleSubmit} className="w-[386px] h-[550px] flex rounded-[4px] relative lg:px-0 z-10 flex-col ">
         <div className="bg-primaryDefault rounded-t-[8px] flex items-center justify-center text-white py-[22px] w-full">
           <div className="text-center">
             <HeadlineSemibold className="w-full">Snel uw prijs berekenen!</HeadlineSemibold>
           </div>
         </div>
-        <div className="bg-white w-full rounded-b-[8px] flex flex-col px-[22px] gap-4 py-[22px]">
+        <div className="bg-white w-full rounded-b-[8px] flex flex-col px-[22px] gap-y-3 py-[22px] shadow-lg">
           <div className="flex flex-row items-center justify-between">
             <div
               className="flex items-center gap-[5px] cursor-pointer hover:text-green-700 transition-all"
@@ -112,18 +109,18 @@ const ContactInfoStep: React.FC<ContactInfoStepProps> = ({
             <InputGetter form={form} name="city" label="Woonplaats" placeholder="Vul hier in" type="text" />
           </div>
           <div className="flex flex-col space-y-2">
-            <div className="flex flex-col space-y-2">
-              <div className="flex justify-between items-center text-center">
-                {formData.isOnRequest ? (
-                  <span className="font-semibold text-lg text-green-700">Berekening volgt na aanvraag</span>
-                ) : (
-                  <>
-                    <span className="font-semibold text-lg text-green-700">Totaal incl. btw.</span>
-                    <span className="font-semibold text-lg text-green-700">€{totalCost.toFixed(2)}</span>
-                  </>
-                )}
+            {formData.isOnRequest ? (
+              <div className="flex justify-center items-center h-full">
+                <span className="font-semibold text-lg text-green-700">Berekening volgt na aanvraag</span>
               </div>
-            </div>
+            ) : (
+              <>
+                <div className="flex justify-between items-center text-center">
+                  <span className="font-semibold text-lg text-green-700">Totaal incl. btw.</span>
+                  <span className="font-semibold text-lg text-green-700">€{totalCost.toFixed(2)}</span>
+                </div>
+              </>
+            )}
             <CreateButton
               className={`w-full ${isButtonDisabled ? 'bg-gray-500' : 'bg-primaryDefault border border-transparent hover:bg-white hover:text-green-700 hover:border-green-700 transition-all duration-300'}`}
               type="submit"

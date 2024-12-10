@@ -1,5 +1,5 @@
 export const servicesConfig: Record<string, Record<string, number | null>> = {
-  parketRenovatie: {
+  Parketrenovatie: {
     'Schuren + polijsten + (zonder behandeling)': 17.5,
     'Schuren + polijsten + oliën naturel': 30.0,
     'Schuren + polijsten + oliën in kleur': 32.5,
@@ -18,12 +18,12 @@ export const servicesConfig: Record<string, Record<string, number | null>> = {
     'Bekleden met tapijt': 0.0,
     'Bekleden met linoleum': 0.0,
     'Schuren en behandelen': 0.0,
-    'Schuren en schiledren': 0.0,
+    'Schuren en schilderen': 0.0,
     'Ben ik nog niet over uit': 0.0,
     'Ik wil graag advies': 0.0,
   },
-  vloerenLeggen: {
-    'Parket leggen': null, // Main services don't have direct prices
+  'Vloeren leggen': {
+    'Parket leggen': null,
     'Laminaat leggen': null,
     'PVC leggen': null,
     'Tapijt leggen': null,

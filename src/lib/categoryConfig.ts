@@ -7,21 +7,33 @@ type CategoryConfigType = {
 };
 
 const categoryConfig: CategoryConfigType = {
-  parketRenovatie: {
-    name: 'Parket Renovatie',
+  Parketrenovatie: {
+    name: 'Parketrenovatie',
     steps: [
       'StepOne',
       'parketRenovatieStepTwo',
       'parketRenovatieStepThreePart1',
       'parketRenovatieStepThreePart2',
       'parketRenovatieStepFour',
-      'StepFive', // StepFive comes before optional steps
+      'StepFive',
       'ContactInfoStep',
       'FinalStep',
     ],
   },
-  vloerenLeggen: {
-    name: 'Vloeren Leggen',
+  Traprenovatie: {
+    name: 'Traprenovatie',
+    steps: [
+      'StepOne',
+      'trapRenovatieStepTwo',
+      'trapRenovatieStepThree',
+      'trapRenovatieStepFour',
+      'StepFive',
+      'ContactInfoStep',
+      'FinalStep',
+    ],
+  },
+  'Vloeren leggen': {
+    name: 'Vloeren leggen',
     steps: [
       'StepOne',
       'vloerenLeggenStepTwo',
@@ -31,10 +43,6 @@ const categoryConfig: CategoryConfigType = {
       'ContactInfoStep',
       'FinalStep',
     ],
-  },
-  Overig: {
-    name: 'Overig',
-    steps: ['StepOne', 'overigStepTwo', 'overigStepThree', 'StepFive', 'ContactInfoStep', 'FinalStep'],
   },
   Stofferen: {
     name: 'Stofferen',
@@ -47,6 +55,10 @@ const categoryConfig: CategoryConfigType = {
       'ContactInfoStep',
       'FinalStep',
     ],
+  },
+  Overig: {
+    name: 'Overig',
+    steps: ['StepOne', 'overigStepTwo', 'overigStepThree', 'StepFive', 'ContactInfoStep', 'FinalStep'],
   },
 };
 

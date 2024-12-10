@@ -39,7 +39,9 @@ const CommentStep: React.FC<StepOneProps> = ({ onPrevious, onComment }) => {
             onClick={onPrevious}
           >
             <ChevronLeft />
-            <span className="text-gray-700 font-sans text-sm">Terug</span>
+            <span className="text-gray-700 font-sans text-sm cursor-pointer hover:text-green-700 transition-all">
+              Terug
+            </span>
           </div>
           <div className="flex flex-col gap-[8px] flex-1">
             <DetailsGetter form={form} />

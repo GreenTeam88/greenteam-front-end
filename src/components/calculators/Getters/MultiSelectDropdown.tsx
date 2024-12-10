@@ -1,5 +1,3 @@
-'use client';
-
 import { useFormContext } from 'react-hook-form';
 
 import ShadcnCustomMultiSelect from '@/components/custom/ShadcnCustomMultiSelect';
@@ -11,6 +9,7 @@ interface MultiSelectDropdownProps {
   name: string;
   label: string;
   placeholder?: string;
+  exclusiveOption?: string; // Exclusive option like "Nee"
   buttonClassName?: string;
   placeholderTextClassName?: string;
   menuItemsClassName?: string;
@@ -22,6 +21,7 @@ export default function MultiSelectDropdown({
   name,
   label,
   placeholder = 'Choose an option(s)',
+  exclusiveOption,
   buttonClassName,
   placeholderTextClassName,
   menuItemsClassName,
@@ -31,6 +31,36 @@ export default function MultiSelectDropdown({
   if (!form || !form.control) {
     throw new Error('MultiSelectDropdown must be used within a FormProvider.');
   }
+
+  const selectedValues = form.watch(name) || [];
+
+  const handleChange = (value: string[]) => {
+    if (exclusiveOption && value.includes(exclusiveOption)) {
+      // If exclusiveOption is selected, only allow it
+      form.setValue(name, [exclusiveOption]);
+    } else if (exclusiveOption && selectedValues.includes(exclusiveOption)) {
+      // If exclusiveOption was previously selected, remove it
+      form.setValue(
+        name,
+        value.filter((v) => v !== exclusiveOption)
+      );
+    } else {
+      // Otherwise, update normally
+      form.setValue(name, value);
+    }
+  };
+
+  const isOptionDisabled = (option: string) => {
+    if (exclusiveOption) {
+      return (
+        (selectedValues.includes(exclusiveOption) && option !== exclusiveOption) || // Other options disabled if exclusiveOption is selected
+        (selectedValues.length > 0 &&
+          selectedValues.some((v: any) => v !== exclusiveOption) &&
+          option === exclusiveOption) // exclusiveOption disabled if other options are selected
+      );
+    }
+    return false;
+  };
 
   return (
     <FormField
@@ -48,9 +78,9 @@ export default function MultiSelectDropdown({
           <FormControl>
             <div
               className={`
-    relative rounded-lg border
-    ${fieldState.error ? 'border-red-500 !important' : 'border-borderGray'}
-  `}
+                relative rounded-lg border
+                ${fieldState.error ? 'border-red-500 !important' : 'border-borderGray'}
+              `}
             >
               <ShadcnCustomMultiSelect
                 buttonClassName={
@@ -61,12 +91,12 @@ export default function MultiSelectDropdown({
                 menuItemsClassName={menuItemsClassName ?? 'text-sm'}
                 menuClassName={menuClassName ?? 'w-[300px] bg-white'}
                 placeholder={placeholder}
-                options={data}
+                options={data.map((option) => ({
+                  ...option,
+                  disabled: isOptionDisabled(option.value),
+                }))}
                 selectedValues={field.value}
-                onChange={(value: string[]) => {
-                  field.onChange(value); // Update react-hook-form state
-                  form.setValue(name, value); // Sync with form
-                }}
+                onChange={handleChange}
               />
             </div>
           </FormControl>

@@ -1,6 +1,6 @@
 import { zodResolver } from '@hookform/resolvers/zod';
 import { ChevronLeft } from 'lucide-react';
-import React from 'react';
+import React, { useEffect } from 'react';
 import { FormProvider, useForm, useWatch } from 'react-hook-form';
 import { z } from 'zod';
 
@@ -25,8 +25,6 @@ const schema = z.object({
 const StepTwo: React.FC<StepProps> = ({ onPrevious, onNext, formData, updateFormData }) => {
   const FLOOR_COST = 25; // €25 per floor level
   const servicePricePerM2 = formData.selectedServicePrice || 0; // Price per m² from Step One
-  console.log('service price : ', servicePricePerM2);
-  console.log('type:', typeof servicePricePerM2);
 
   const datas = ['0 (Begane grond)', '1', '2', '3', '4', '5', '6', '7', '8', '9', '10+'];
   const dataOptions: Option[] = datas.map((data) => ({
@@ -36,15 +34,17 @@ const StepTwo: React.FC<StepProps> = ({ onPrevious, onNext, formData, updateForm
 
   const form = useForm({
     resolver: zodResolver(schema),
-    defaultValues: formData,
+    defaultValues: formData, // Ensure saved data is used as default
     mode: 'onChange',
   });
 
-  const { control } = form;
+  const { control, setValue } = form;
 
-  const selectedFloors = useWatch({ control, name: 'selectedFloors', defaultValue: [] });
-  const squareMeters = useWatch({ control, name: 'squareMeters', defaultValue: '' });
+  // Watching selected floors and square meters for live updates
+  const selectedFloors = useWatch({ control, name: 'selectedFloors', defaultValue: formData.selectedFloors || [] });
+  const squareMeters = useWatch({ control, name: 'squareMeters', defaultValue: formData.squareMeters || '' });
 
+  // Calculate the total dynamically
   const calculateTotal = () => {
     const area = parseInt(squareMeters, 10) || 0;
 
@@ -63,6 +63,12 @@ const StepTwo: React.FC<StepProps> = ({ onPrevious, onNext, formData, updateForm
     // Cap the total cost at 999,999.99
     return Math.min(totalCost, 999999.99).toFixed(2);
   };
+
+  useEffect(() => {
+    // Ensure form values persist when coming back
+    setValue('selectedFloors', formData.selectedFloors || []);
+    setValue('squareMeters', formData.squareMeters || '');
+  }, [formData, setValue]);
 
   const handleSubmit = (event: React.FormEvent) => {
     event.preventDefault();
@@ -86,6 +92,7 @@ const StepTwo: React.FC<StepProps> = ({ onPrevious, onNext, formData, updateForm
     })();
   };
 
+  // Enable the "Next" button only when valid values are present
   const isButtonDisabled = !selectedFloors.length || !squareMeters;
 
   return (
@@ -137,7 +144,11 @@ const StepTwo: React.FC<StepProps> = ({ onPrevious, onNext, formData, updateForm
               <span className="font-semibold text-lg text-green-700">€{calculateTotal()}</span>
             </div>
             <CreateButton
-              className={`w-full ${isButtonDisabled ? 'bg-gray-500' : 'bg-primaryDefault border border-transparent hover:bg-white hover:text-green-700 hover:border-green-700 transition-all duration-300'}`}
+              className={`w-full ${
+                isButtonDisabled
+                  ? 'bg-gray-500'
+                  : 'bg-primaryDefault border border-transparent hover:bg-white hover:text-green-700 hover:border-green-700 transition-all duration-300'
+              }`}
               type="submit"
               disabled={isButtonDisabled}
             >

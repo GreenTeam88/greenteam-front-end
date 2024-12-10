@@ -19,27 +19,35 @@ interface StepProps {
 }
 
 const StepThree: React.FC<StepProps> = ({ onPrevious, onNext, onUploadClick, formData, updateFormData }) => {
-  const categories = ['Ja', 'Nee'];
-  const numbers = ['1', '2', '3', '4', '5', '6', '7', '8', '9', '10+'];
+  const damageRepairOptions = ['Ja', 'Nee']; // Options for damage repair
+  const surfaceTypes = [
+    'Traptredes',
+    'Opstapjes',
+    'Drempels',
+    'Dorpels',
+    'Vensterbanken',
+    'Planken / Plateaus',
+    'Salontafels / Eettafels',
+  ]; // Types of surfaces
 
-  const categoryOptions: Option[] = categories.map((category) => ({
-    value: category,
-    label: category === 'Ja' ? 'Ja (Let op: Berekening volgt na aanvraag)' : category,
+  const damageRepairDropdownOptions: Option[] = damageRepairOptions.map((option) => ({
+    value: option,
+    label: option === 'Ja' ? 'Ja (Let op: Berekening volgt na aanvraag)' : option,
   }));
 
-  const numberOptions: Option[] = numbers.map((number) => ({
-    value: number,
-    label: number,
+  const surfaceTypeDropdownOptions: Option[] = surfaceTypes.map((surface) => ({
+    value: surface,
+    label: surface,
   }));
 
-  const [isRepairsRequired, setIsRepairsRequired] = useState<boolean>(formData.damageRepairsNeeded === 'Ja');
+  const [isDamageRepairNeeded, setIsDamageRepairNeeded] = useState<boolean>(formData.damageRepairRequired === 'Ja');
 
-  // Dynamic schema to make 'numberOfRepairs' required only if 'damageRepairsNeeded' is 'Ja'
+  // Dynamic schema to make 'additionalSurfaces' required only if 'damageRepairRequired' is 'Ja'
   const schema = z.object({
-    damageRepairsNeeded: z.string().nonempty({ message: 'Please select an option' }),
-    numberOfRepairs: isRepairsRequired
-      ? z.string().nonempty({ message: 'Please select a number of repairs' })
-      : z.string().optional(),
+    damageRepairRequired: z.string().nonempty({ message: 'Please select an option' }),
+    additionalSurfaces: isDamageRepairNeeded
+      ? z.array(z.string()).nonempty({ message: 'Please select one or more surfaces' })
+      : z.array(z.string()).optional(),
   });
 
   const form = useForm({
@@ -48,34 +56,38 @@ const StepThree: React.FC<StepProps> = ({ onPrevious, onNext, onUploadClick, for
     mode: 'onChange',
   });
 
-  const watchYesNo = form.watch('damageRepairsNeeded');
+  const watchDamageRepairRequired = form.watch('damageRepairRequired');
 
   useEffect(() => {
-    // Update the required field based on "damageRepairsNeeded"
-    setIsRepairsRequired(watchYesNo === 'Ja');
-  }, [watchYesNo]);
+    // Update the "isDamageRepairNeeded" state based on "damageRepairRequired"
+    setIsDamageRepairNeeded(watchDamageRepairRequired === 'Ja');
+  }, [watchDamageRepairRequired]);
 
   const handleSubmit = (event: React.FormEvent) => {
     event.preventDefault();
     form.handleSubmit((data) => {
-      updateFormData(data);
-      onNext(); // Move to StepThreePart2
+      updateFormData({
+        ...data,
+        damageRepairRequired: data.damageRepairRequired,
+        additionalSurfaces: data.additionalSurfaces || [],
+      });
+      onNext(); // Move to the next step
     })();
   };
 
-  const damageRepairsNeeded = form.watch('damageRepairsNeeded');
-  const numberOfRepairs = form.watch('numberOfRepairs');
-  const isButtonDisabled = !damageRepairsNeeded || (damageRepairsNeeded === 'Ja' && !numberOfRepairs);
+  const damageRepairRequired = form.watch('damageRepairRequired');
+  const additionalSurfaces = form.watch('additionalSurfaces');
+  const isButtonDisabled = !damageRepairRequired || (damageRepairRequired === 'Ja' && !additionalSurfaces?.length);
 
   return (
     <FormProvider {...form}>
-      <form onSubmit={handleSubmit} className="w-[386px] h-[400px] flex rounded-[4px] relative lg:px-0 z-10 flex-col ">
+      <form onSubmit={handleSubmit} className="w-[386px] h-[400px] flex rounded-[4px] relative lg:px-0 z-10 flex-col">
         <div className="bg-primaryDefault rounded-t-[8px] flex items-center justify-center text-white py-[22px] w-full">
           <div className="text-center">
             <HeadlineSemibold className="w-full">Snel uw prijs berekenen!</HeadlineSemibold>
           </div>
         </div>
-        <div className="bg-white w-full rounded-b-[8px] flex flex-col px-[22px] gap-y-3 py-[22px] shadow-md ">
+        <div className="bg-white w-full rounded-b-[8px] flex flex-col px-[22px] gap-y-4 py-[22px] shadow-md">
           <div className="flex flex-row items-center justify-between">
             <div
               className="flex items-center gap-[5px] cursor-pointer hover:text-green-700 transition-all"
@@ -91,16 +103,18 @@ const StepThree: React.FC<StepProps> = ({ onPrevious, onNext, onUploadClick, for
             </div>
           </div>
 
+          {/* Damage Repair Required Dropdown */}
           <div className="flex flex-col">
             <SingleSelectDropdown
-              data={categoryOptions}
-              name="damageRepairsNeeded"
+              data={damageRepairDropdownOptions}
+              name="damageRepairRequired"
               label="Zijn er beschadigingen of reparaties nodig?"
               placeholder="Maak een keuze"
             />
           </div>
 
-          {watchYesNo === 'Ja' && (
+          {/* Additional Surfaces (Shown if Damage Repair is Required) */}
+          {watchDamageRepairRequired === 'Ja' && (
             <>
               <div className="flex flex-col">
                 <label
@@ -119,9 +133,9 @@ const StepThree: React.FC<StepProps> = ({ onPrevious, onNext, onUploadClick, for
 
               <div className="flex flex-col">
                 <MultiSelectDropdown
-                  data={numberOptions}
-                  name="numberOfRepairs"
-                  label="Zijin er nog andre oppervlaktes"
+                  data={surfaceTypeDropdownOptions}
+                  name="additionalSurfaces"
+                  label="Zijn er nog andere oppervlaktes?"
                   placeholder="Maak één of meerdere keuzes"
                 />
               </div>
@@ -130,12 +144,16 @@ const StepThree: React.FC<StepProps> = ({ onPrevious, onNext, onUploadClick, for
 
           {/* Total Price Display */}
           <div className="flex flex-col space-y-2">
-            <div className="flex justify-between items-center">
-              <span className="font-semibold text-lg text-green-700">Brekening volgt na aanvraag</span>
+            <div className="flex justify-center items-center h-full">
+              <span className="font-semibold text-lg text-green-700">Berekening volgt na aanvraag</span>
             </div>
 
             <CreateButton
-              className={`w-full ${isButtonDisabled ? 'bg-gray-500' : 'bg-primaryDefault border border-transparent hover:bg-white hover:text-green-700 hover:border-green-700 transition-all duration-300'}`}
+              className={`w-full ${
+                isButtonDisabled
+                  ? 'bg-gray-500'
+                  : 'bg-primaryDefault border border-transparent hover:bg-white hover:text-green-700 hover:border-green-700 transition-all duration-300'
+              }`}
               type="submit"
               disabled={isButtonDisabled}
             >
@@ -147,4 +165,5 @@ const StepThree: React.FC<StepProps> = ({ onPrevious, onNext, onUploadClick, for
     </FormProvider>
   );
 };
+
 export default StepThree;

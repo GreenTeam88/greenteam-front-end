@@ -4,8 +4,8 @@ import React from 'react';
 import { FormProvider, useForm, useWatch } from 'react-hook-form';
 import { z } from 'zod';
 
-import InputGetter from '@/components/calculators/Getters/InputGetter';
 import MultiSelectDropdown from '@/components/calculators/Getters/MultiSelectDropdown';
+import SingleSelectDropdown from '@/components/calculators/Getters/SingleSelectDropdown';
 import CreateButton from '@/components/custom/CreateButton';
 import { HeadlineSemibold } from '@/components/theme/typography';
 import { Option } from '@/types';
@@ -19,7 +19,7 @@ interface StepProps {
 
 const schema = z.object({
   selectedFloors: z.array(z.string()).min(1, 'Please select at least one floor'),
-  squareMeters: z.string().nonempty({ message: 'Please enter the area in m²' }).regex(/^\d+$/, 'Enter a valid number'),
+  existingFloorType: z.string().nonempty({ message: 'Please select the existing floor type' }),
 });
 
 const StepTwo: React.FC<StepProps> = ({ onPrevious, onNext, formData, updateFormData }) => {
@@ -31,6 +31,12 @@ const StepTwo: React.FC<StepProps> = ({ onPrevious, onNext, formData, updateForm
     label: data,
   }));
 
+  const floorTypes = ['Beton', 'Hout', 'Laminaat', 'PVC', 'Grind', 'Tegels', 'Lijmresten', 'Tapijt'];
+  const floorTypeOptions: Option[] = floorTypes.map((floorType) => ({
+    value: floorType,
+    label: floorType,
+  }));
+
   const form = useForm({
     resolver: zodResolver(schema),
     defaultValues: formData,
@@ -39,12 +45,11 @@ const StepTwo: React.FC<StepProps> = ({ onPrevious, onNext, formData, updateForm
 
   const { control } = form;
 
-  // Watch selected floors and square meters
+  // Watch selected floors and existing floor type
   const selectedFloors = useWatch({ control, name: 'selectedFloors', defaultValue: [] });
-  const squareMeters = useWatch({ control, name: 'squareMeters', defaultValue: '' });
+  const existingFloorType = useWatch({ control, name: 'existingFloorType', defaultValue: '' });
 
   const calculateTotal = () => {
-    // Calculate the cost for additional floors only
     const floorLevelCost = selectedFloors.reduce((totalCost: number, floor: string) => {
       const floorNumber = parseInt(floor.split(' ')[0], 10); // Extract the floor number
       if (!isNaN(floorNumber) && floorNumber > 0) {
@@ -53,7 +58,6 @@ const StepTwo: React.FC<StepProps> = ({ onPrevious, onNext, formData, updateForm
       return totalCost;
     }, 0);
 
-    // Return total cost based only on the floors
     return Math.min(floorLevelCost, 999999.99).toFixed(2);
   };
 
@@ -65,13 +69,14 @@ const StepTwo: React.FC<StepProps> = ({ onPrevious, onNext, formData, updateForm
       updateFormData({
         ...data,
         totalCost,
-        squareMeters: parseInt(data.squareMeters || '0', 10), // Save square meters for next step
       });
 
       onNext();
     })();
   };
-  const isButtonDisabled = !selectedFloors.length || !squareMeters;
+
+  // Ensure both fields are selected before enabling the button
+  const isButtonDisabled = !selectedFloors.length || !existingFloorType;
 
   return (
     <FormProvider {...form}>
@@ -81,7 +86,7 @@ const StepTwo: React.FC<StepProps> = ({ onPrevious, onNext, formData, updateForm
       >
         <div className="bg-primaryDefault rounded-t-[8px] flex items-center justify-center text-white py-[22px] w-full">
           <div className="text-center">
-            <HeadlineSemibold className="w-full">Snel uw prijs berekenen! vloren</HeadlineSemibold>
+            <HeadlineSemibold className="w-full">Snel uw prijs berekenen!</HeadlineSemibold>
           </div>
         </div>
         <div className="bg-white w-full rounded-b-[8px] flex flex-col px-[22px] gap-y-3 py-[22px] h-full">
@@ -107,15 +112,16 @@ const StepTwo: React.FC<StepProps> = ({ onPrevious, onNext, formData, updateForm
               placeholder="Kies er een"
             />
           </div>
-          <div className="flex flex-col gap-[11px]">
-            <InputGetter
-              form={form}
-              name="squareMeters"
-              label="Aantal m2"
-              placeholder="Voer het aantal m2 in"
-              type="text"
+
+          <div className="flex flex-col">
+            <SingleSelectDropdown
+              data={floorTypeOptions}
+              name="existingFloorType"
+              label="Wat is de huidige ondergrond?"
+              placeholder="Selecteer een type vloer"
             />
           </div>
+
           <div className="flex flex-col space-y-2">
             <div className="flex justify-between items-center">
               <span className="font-semibold text-lg text-green-700">Totaal incl. btw.</span>

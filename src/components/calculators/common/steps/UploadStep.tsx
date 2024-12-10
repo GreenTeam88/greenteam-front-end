@@ -39,7 +39,9 @@ const UploadStep: React.FC<UploadStepProps> = ({ onPrevious, onUpload }) => {
             onClick={onPrevious}
           >
             <ChevronLeft />
-            <span className="text-gray-700 font-sans text-sm">Terug</span>
+            <span className="text-gray-700 font-sans text-sm cursor-pointer hover:text-green-700 transition-all">
+              Terug
+            </span>
           </div>
           <div className="flex flex-col gap-[11px] flex-1 overflow-y-auto max-h-[300px]">
             <UploadGetter form={form} />

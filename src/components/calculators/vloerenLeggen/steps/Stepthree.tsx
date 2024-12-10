@@ -4,6 +4,7 @@ import React, { useEffect, useMemo, useState } from 'react';
 import { FormProvider, useForm, useWatch } from 'react-hook-form';
 import { z } from 'zod';
 
+import InputGetter from '@/components/calculators/Getters/InputGetter';
 import SingleSelectDropdown from '@/components/calculators/Getters/SingleSelectDropdown';
 import CreateButton from '@/components/custom/CreateButton';
 import { HeadlineSemibold } from '@/components/theme/typography';
@@ -19,14 +20,7 @@ interface StepProps {
 }
 
 const StepThree: React.FC<StepProps> = ({ onPrevious, onNext, onUploadClick, formData, updateFormData }) => {
-  const floorTypes = ['Beton', 'Hout', 'Laminaat', 'PVC', 'Grind', 'Tegels', 'Lijmresten', 'Tapijt'];
-  const floorTypeOptions: Option[] = floorTypes.map((floorType) => ({
-    value: floorType,
-    label: floorType,
-  }));
-
   const selectedService = formData.selectedService; // Retrieve the service chosen in Step One
-  const squareMeters = formData.squareMeters || 0; // Square meters retrieved from Step Two
   const previousTotal = Number(formData.totalCost) || 0; // Retrieve the total cost from previous steps
 
   const [finalTotalPrice, setFinalTotalPrice] = useState<number>(previousTotal); // Accumulated total
@@ -35,6 +29,7 @@ const StepThree: React.FC<StepProps> = ({ onPrevious, onNext, onUploadClick, for
   const schema = z.object({
     subService: z.string().nonempty({ message: 'Please select a sub-service' }),
     existingFloorType: z.string().nonempty({ message: 'Please select the existing floor type' }),
+    squareMeters: z.string().regex(/^\d+$/, { message: 'Enter a valid number' }).optional(),
   });
 
   const form = useForm({
@@ -43,8 +38,11 @@ const StepThree: React.FC<StepProps> = ({ onPrevious, onNext, onUploadClick, for
     mode: 'onChange',
   });
 
-  // Watch selected sub-service
-  const selectedSubService = useWatch({ control: form.control, name: 'subService' });
+  const { control } = form;
+
+  // Watch selected fields
+  const selectedSubService = useWatch({ control, name: 'subService' });
+  const squareMeters = useWatch({ control, name: 'squareMeters' });
 
   // Get sub-services dynamically based on the selected service
   const subServiceOptions: Option[] = useMemo(() => {
@@ -55,22 +53,26 @@ const StepThree: React.FC<StepProps> = ({ onPrevious, onNext, onUploadClick, for
     }));
   }, [selectedService]);
 
-  // Recalculate the total price dynamically
+  // Update total price dynamically
   useEffect(() => {
-    const subServicePrice = vloerenLeggenSubServices[selectedService]?.[selectedSubService] || 0;
-    const currentStepTotal = squareMeters * subServicePrice; // Multiply square meters by the selected sub-service price
-    setFinalTotalPrice(previousTotal + currentStepTotal); // Update accumulated total dynamically
-  }, [selectedSubService, selectedService, squareMeters, previousTotal]);
+    if (selectedSubService) {
+      const subServicePrice = vloerenLeggenSubServices[selectedService]?.[selectedSubService] || 0;
+      const area = parseInt(squareMeters || '0', 10);
+      const currentStepTotal = area * subServicePrice; // Multiply square meters by the selected sub-service price
+      setFinalTotalPrice(previousTotal + currentStepTotal); // Update accumulated total dynamically
+    }
+  }, [selectedSubService, squareMeters, previousTotal, selectedService]);
 
   const handleSubmit = (event: React.FormEvent) => {
     event.preventDefault();
     form.handleSubmit((data) => {
-      const subServicePrice = vloerenLeggenSubServices[selectedService]?.[data.subService] || 0; // Get price of selected sub-service
-      const currentStepTotal = squareMeters * subServicePrice; // Calculate current step total cost
+      const subServicePrice = vloerenLeggenSubServices[selectedService]?.[data.subService] || 0;
+      const area = parseInt(data.squareMeters || '0', 10);
+      const currentStepTotal = area * subServicePrice; // Calculate current step total cost
 
       updateFormData({
         ...formData,
-        ...data, // Save sub-service and existing floor type
+        ...data, // Save sub-service, square meters, and floor type
         subServicePrice,
         totalCost: previousTotal + currentStepTotal, // Update the accumulated total cost
       });
@@ -79,7 +81,7 @@ const StepThree: React.FC<StepProps> = ({ onPrevious, onNext, onUploadClick, for
     })();
   };
 
-  const isButtonDisabled = !selectedSubService || !form.watch('existingFloorType');
+  const isButtonDisabled = !selectedSubService || !form.watch('existingFloorType') || !squareMeters;
 
   return (
     <FormProvider {...form}>
@@ -89,7 +91,7 @@ const StepThree: React.FC<StepProps> = ({ onPrevious, onNext, onUploadClick, for
       >
         <div className="bg-primaryDefault rounded-t-[8px] flex items-center justify-center text-white py-[22px] w-full">
           <div className="text-center">
-            <HeadlineSemibold className="w-full">Snel uw prijs berekenen! vloren</HeadlineSemibold>
+            <HeadlineSemibold className="w-full">Snel uw prijs berekenen! Vloeren</HeadlineSemibold>
           </div>
         </div>
         <div className="bg-white w-full rounded-b-[8px] flex flex-col px-[22px] gap-y-3 py-[22px] h-full">
@@ -134,13 +136,14 @@ const StepThree: React.FC<StepProps> = ({ onPrevious, onNext, onUploadClick, for
             </label>
           </div>
 
-          {/* Existing Floor Type Dropdown */}
-          <div className="flex flex-col">
-            <SingleSelectDropdown
-              data={floorTypeOptions}
-              name="existingFloorType"
-              label="Wat is de huidige ondergrond?"
-              placeholder="Selecteer een type vloer"
+          {/* Square Meters Input */}
+          <div className="flex flex-col gap-[11px]">
+            <InputGetter
+              form={form}
+              name="squareMeters"
+              label="Aantal m2"
+              placeholder="Voer het aantal m2 in"
+              type="text"
             />
           </div>
 
