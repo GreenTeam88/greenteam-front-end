@@ -3,6 +3,7 @@ import clsx from 'clsx';
 import { PrimaryBtn } from '@/components/theme/buttons';
 import { BodyText, BodyTextBold } from '@/components/theme/typography';
 import { cn } from '@/lib/tailwind';
+import { ImageCarousel } from './animations/imageCrausel';
 import { InfoCardProps } from './cards';
 
 export const WhatWaitingForCard: React.FC<InfoCardProps & { orangeText: string }> = ({
@@ -39,7 +40,11 @@ export const WhatWaitingForCard: React.FC<InfoCardProps & { orangeText: string }
           </div>
         </div>
       </div>
-      <img className={cn('w-full lg:w-fit rounded-lg', imgClassName)} src={imgSrc} />
+      {typeof imgSrc === 'string' ? (
+        <img className={cn('w-full lg:w-fit rounded-lg', imgClassName)} src={imgSrc} />
+      ) : (
+        <ImageCarousel images={imgSrc} />
+      )}
     </div>
   );
 };
