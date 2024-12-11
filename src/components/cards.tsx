@@ -4,12 +4,13 @@ import { isValidElement } from 'react';
 import { PrimaryBtn, PrimaryBtnLink } from '@/components/theme/buttons';
 import { BodyText, H2, HeadlineSemibold } from '@/components/theme/typography';
 import { cn } from '@/lib/tailwind';
+import { ImageCarousel } from './animations/imageCrausel';
 
 export type InfoCardProps = {
   mainTitle?: string;
   imgClassName?: string;
   title: string;
-  imgSrc: string;
+  imgSrc: string | string[];
   contentContainerClassName?: string;
   paragraphs: React.ReactNode[];
   buttonText?: string;
@@ -40,7 +41,11 @@ export const OrangeInfoCard: React.FC<InfoCardProps> = ({
       )}
       {...props}
     >
-      <img className={clsx('lg:w-fit w-full rounded-lg', imgClassName)} src={imgSrc} />
+      {typeof imgSrc === 'string' ? (
+        <img className={clsx('w-full lg:w-fit rounded-lg', imgClassName)} src={imgSrc} />
+      ) : (
+        <ImageCarousel images={imgSrc} />
+      )}
       <div className={clsx('flex flex-col   px-3 lg:px-0 max-w-[508px]  gap-[33px] ', contentContainerClassName)}>
         <div className="flex flex-col gap-[11px] ">
           <div className="flex flex-col gap-4">
@@ -114,7 +119,11 @@ export const WhiteInfoCard: React.FC<InfoCardProps> = ({
             ))}
         </div>
       </div>
-      <img className={clsx('w-full lg:w-fit rounded-lg', imgClassName)} src={imgSrc} />
+      {typeof imgSrc === 'string' ? (
+        <img className={clsx('w-full lg:w-fit rounded-lg', imgClassName)} src={imgSrc} />
+      ) : (
+        <ImageCarousel images={imgSrc} />
+      )}
     </div>
   );
 };
