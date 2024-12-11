@@ -3,20 +3,25 @@ import { GameIcon } from '@/components/icons/game';
 import { HeartIcon } from '@/components/icons/heart';
 import { StarIcon } from '@/components/icons/star';
 import { SecondaryOutlinedBtn } from '@/components/theme/buttons';
-import { H2, HeadlineSemibold } from '@/components/theme/typography';
+import { BodyText, H2, HeadlineSemibold } from '@/components/theme/typography';
 
 const whyGreenTeamCardsInfo: WhyGreenTeamCardProps[] = [
   {
     title: 'Specialisten',
     icon: <StarIcon />,
     paragraphs: [
-      'Een deurmat of tapijt laten leggen vraagt om specialistische kennis en daar blinkt Green Team al ruim 20 jaar in uit. Onze ervaren stoffeerders kennen de eigenschappen van elke tapijtsoort en werken met hoogwaardige, professionele apparatuur. Wij komen langs, meten in en snijden met professionele machines, zodat u verzekerd bent van een prachtig, uniform eindresultaat.',
+      'Een houten vloer laten schuren is een specialistische klus. GreenTeam is al ruim 20 jaar specialist in parketrenovatie. Onze parketteurs hebben alle kennis en ervaring van verschillende houtsoorten. ',
+      'Wij schuren de houten vloer volledig egaal met hoogwaardige en professionele machines en zorgen ervoor dat er geen rand of hoek wordt overgeslagen. Zo ben je verzekerd van het beste eindresultaat.',
     ],
   },
   {
     title: 'Persoonlijk advies op maat',
     paragraphs: [
-      'Twijfelt u over de mogelijkheden? Wij nemen die zorgen uit handen en komen samen met u tot het beste eindresultaat, wat u met trots kunt laten zien wanneer er bekenden over de vloer komen en zelf elke dag van kunt genieten. Daarom komen wij graag langs met kleurstalen om u een accuraat beeld te geven over het eindresultaat.',
+      <BodyText key="2">
+        We begrijpen dat het een grote ingreep is en samen willen we naar het gewenste eindresultaat, wat u met trots
+        laat zien wanneer er bekende over de vloer komen.
+        <br />s Daarom komen wij graag langs met kleurstalen om je een accuraat beeld te geven over het eindresultaat.{' '}
+      </BodyText>,
     ],
     icon: <GameIcon />,
   },
@@ -24,7 +29,7 @@ const whyGreenTeamCardsInfo: WhyGreenTeamCardProps[] = [
     title: 'Duurzaamheid',
     icon: <HeartIcon />,
     paragraphs: [
-      ' GreenTeam staat voor duurzaam en groen. Het is daarom ook een passie van ons om milieuvriendelijke materialen te gebruiken en oud tapijt zo duurzaam mogelijk af te voeren. Zo min mogelijk snijverlies is het doel bij de voorbereiding, dit zorgt voor zo min mogelijk afval en dat draagt ook weer bij aan een beter leefklimaat. ',
+      'GreenTeam staat voor duurzaam en groen. Het is daarom ook een passie van ons om een houten vloer een tweede leven te kunnen geven. Dat draagt niet alleen bij aan een beter leefklimaat, maar is ook nog eens een stuk goedkoper dan de aanschaf van een volledig nieuwe vloer. ',
     ],
   },
 ];
@@ -40,7 +45,7 @@ const BottomSection = () => {
 export const WhyGreenTeam = () => {
   return (
     <div className="flex px-2 flex-col  py-32 gap-4 items-center">
-      <H2 className="text-primaryDefault">Waarom kiest u voor GreenTeam?</H2>
+      <H2 className="text-primaryDefault">Waarom kies ik voor GreenTeam?</H2>
       <div className="flex relative flex-col lg:flex-row items-center lg:items-start gap-[21px]">
         {whyGreenTeamCardsInfo.map((cardInfo) => (
           <WhyGreenTeamCard key={cardInfo.title} {...cardInfo} />

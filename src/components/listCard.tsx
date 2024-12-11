@@ -8,6 +8,7 @@ type ListCardProps = {
   listTitle: string;
   listItems: string[];
   orangeText: string;
+  imgClassName?: string;
   imgSrc: string;
   btnText: string;
   btnLink: string;
@@ -18,6 +19,7 @@ export const ListCard: React.FC<ListCardProps> = ({
   btnLink,
   btnText,
   imgSrc,
+  imgClassName,
   listItems,
   listTitle,
   orangeText,
@@ -41,11 +43,11 @@ export const ListCard: React.FC<ListCardProps> = ({
             </div>
           </div>
           <div className="flex flex-col gap-[11px]">
-            <BodyText className="text-secondaryDefault">{orangeText}</BodyText>
+            <BodyText className="text-secondaryDefault font-bold">{orangeText}</BodyText>
             <PrimaryBtnLink href={btnLink}>{btnText}</PrimaryBtnLink>
           </div>
         </div>
-        <img src={imgSrc} />
+        <img src={imgSrc} className={imgClassName} />
       </div>
     </div>
   );

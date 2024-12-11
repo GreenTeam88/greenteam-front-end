@@ -1,4 +1,5 @@
 import clsx from 'clsx';
+import { isValidElement } from 'react';
 
 import { PrimaryBtn, PrimaryBtnLink } from '@/components/theme/buttons';
 import { BodyText, H2, HeadlineSemibold } from '@/components/theme/typography';
@@ -6,6 +7,7 @@ import { cn } from '@/lib/tailwind';
 
 export type InfoCardProps = {
   mainTitle?: string;
+  imgClassName?: string;
   title: string;
   imgSrc: string;
   contentContainerClassName?: string;
@@ -21,6 +23,7 @@ export const OrangeInfoCard: React.FC<InfoCardProps> = ({
   imgSrc,
   mainTitle,
   paragraphs,
+  imgClassName,
   buttonLink,
   secondBtnLink,
   contentContainerClassName,
@@ -37,7 +40,7 @@ export const OrangeInfoCard: React.FC<InfoCardProps> = ({
       )}
       {...props}
     >
-      <img className="lg:w-fit w-full rounded-lg" src={imgSrc} />
+      <img className={clsx('lg:w-fit w-full rounded-lg', imgClassName)} src={imgSrc} />
       <div className={clsx('flex flex-col   px-3 lg:px-0 max-w-[508px]  gap-[33px] ', contentContainerClassName)}>
         <div className="flex flex-col gap-[11px] ">
           <div className="flex flex-col gap-4">
@@ -74,6 +77,7 @@ export const WhiteInfoCard: React.FC<InfoCardProps> = ({
   imgSrc,
   paragraphs,
   buttonLink,
+  imgClassName,
   secondBtnLink,
   buttonText,
   secondBtnText,
@@ -110,14 +114,14 @@ export const WhiteInfoCard: React.FC<InfoCardProps> = ({
             ))}
         </div>
       </div>
-      <img className="w-full lg:w-fit rounded-lg" src={imgSrc} />
+      <img className={clsx('w-full lg:w-fit rounded-lg', imgClassName)} src={imgSrc} />
     </div>
   );
 };
 
 export type WhyGreenTeamCardProps = {
   title: string;
-  paragraphs: string[];
+  paragraphs: string[] | JSX.Element[];
   icon: React.ReactNode;
 };
 export const WhyGreenTeamCard: React.FC<WhyGreenTeamCardProps> = ({ icon, paragraphs, title }) => {
@@ -128,9 +132,9 @@ export const WhyGreenTeamCard: React.FC<WhyGreenTeamCardProps> = ({ icon, paragr
         <HeadlineSemibold className="text-primaryDefault">{title}</HeadlineSemibold>
       </div>
       <div className="flex flex-col gap-8">
-        {paragraphs.map((paragraph) => (
-          <BodyText key={paragraph}>{paragraph}</BodyText>
-        ))}
+        {paragraphs.map((paragraph) =>
+          isValidElement(paragraph) ? paragraph : <BodyText key={paragraph as string}>{paragraph}</BodyText>
+        )}
       </div>
     </div>
   );

@@ -1,3 +1,5 @@
+import clsx from 'clsx';
+
 import { PrimaryBtn } from '@/components/theme/buttons';
 import { BodyText, BodyTextBold } from '@/components/theme/typography';
 import { cn } from '@/lib/tailwind';
@@ -7,6 +9,7 @@ export const WhatWaitingForCard: React.FC<InfoCardProps & { orangeText: string }
   imgSrc,
   paragraphs,
   title,
+  imgClassName,
   buttonText,
   secondBtnText,
   className,
@@ -36,7 +39,7 @@ export const WhatWaitingForCard: React.FC<InfoCardProps & { orangeText: string }
           </div>
         </div>
       </div>
-      <img className="w-full lg:w-fit rounded-lg" src={imgSrc} />
+      <img className={cn('w-full lg:w-fit rounded-lg', imgClassName)} src={imgSrc} />
     </div>
   );
 };
