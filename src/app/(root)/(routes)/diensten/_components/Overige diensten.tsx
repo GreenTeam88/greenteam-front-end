@@ -1,4 +1,3 @@
-import { ImageCarousel } from '@/components/animations/imageCrausel';
 import { InfoCardProps, OrangeInfoCard } from './cards';
 
 const config: InfoCardProps = {

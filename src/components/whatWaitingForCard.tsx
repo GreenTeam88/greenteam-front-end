@@ -1,5 +1,3 @@
-import clsx from 'clsx';
-
 import { PrimaryBtn } from '@/components/theme/buttons';
 import { BodyText, BodyTextBold } from '@/components/theme/typography';
 import { cn } from '@/lib/tailwind';

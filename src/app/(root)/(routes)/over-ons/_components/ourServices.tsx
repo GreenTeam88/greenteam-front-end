@@ -6,7 +6,7 @@ import { useState } from 'react';
 
 import { CarouselIcon } from '@/components/icons/arrows';
 import { H2 } from '@/components/theme/typography';
-import { ServiceCard, ServiceInfo, services } from '../../_components/services';
+import { ServiceCard, services } from '../../_components/services';
 
 const ServicesCarousel = () => {
   const [currentIndex, setCurrentIndex] = useState(0);
@@ -85,9 +85,3 @@ export const OurServicesSection = () => {
     </div>
   );
 };
-
-interface Card {
-  id: number;
-  title: string;
-  description: string;
-}

@@ -87,7 +87,7 @@ const whatWaitingForConfig: InfoCardProps = {
       op voor een afspraak. Als je de specialist langs laat komen gaan we bespreken wat voor soort hout u heeft, wat de
       mogelijkheden zijn, ons advies en we komen met de kleurstalen zodat je zeker weten de juiste beslissing maakt.
     </BodyText>,
-    <BodyText>
+    <BodyText key="2">
       Deze afspraak kost eenmalig 50,- euro en deze wordt in mindering gebracht wanneer u de klus aan ons uitbesteed. In
       heel veel gevallen is deze afspraak niet nodig, en is advies via mailcontact met foto’s voldoende.
     </BodyText>,
