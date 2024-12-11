@@ -1,3 +1,4 @@
+import { ImageCarousel } from '@/components/animations/imageCrausel';
 import { PrimaryBtn } from '@/components/theme/buttons';
 import { BodyText, BodyTextBold } from '@/components/theme/typography';
 import { cn } from '@/lib/tailwind';
@@ -35,7 +36,11 @@ export const WhatWaitingForCard: React.FC<InfoCardProps> = ({
           </div>
         </div>
       </div>
-      <img className="w-full lg:w-fit rounded-lg" src={imgSrc} />
+      {typeof imgSrc === 'string' ? (
+        <img className="w-full lg:w-fit rounded-lg" src={imgSrc} />
+      ) : (
+        <ImageCarousel images={imgSrc} />
+      )}
     </div>
   );
 };
