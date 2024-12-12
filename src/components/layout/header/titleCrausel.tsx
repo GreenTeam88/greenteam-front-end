@@ -1,8 +1,20 @@
 import { AnimatePresence, motion } from 'framer-motion';
 import { useEffect, useState } from 'react';
 
-const titles = ['Liever iemand spreken? Bel 085 401 93 45', 'paragraph2', 'Title 3', 'Title 4'];
-
+const titles = [
+  'Liever iemand spreken? Bel 085 40193 45',
+  'Voor elke dienst, de juiste specialist',
+  'Garantie op werk én materialen',
+  'Snel schakelen? Spoedklussen welkom!',
+  'Complete verbouwing? Wij staan voor u klaar!',
+  'Badkamer, toilet of keuken renoveren? Geen probleem!',
+  'Uniek en stijlvol? Kies voor Beton Ciré met crocostructuur',
+  'Schilderen, stucen of tegelen? GreenTeam regelt het!',
+  'Van vloerverwarming tot stijlvolle designvloeren',
+  'PVC-designvloeren: waterdicht en elegant',
+  'Twijfels? Onze specialisten helpen u graag',
+  'Binnen enkele uren een offerte in uw mailbox];',
+];
 export function TitleCarousel() {
   const [currentIndex, setCurrentIndex] = useState(0);
 
