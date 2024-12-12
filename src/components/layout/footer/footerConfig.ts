@@ -79,7 +79,7 @@ export const footerColumnsInfo: FooterColumnInfo[] = [
       { name: 'Hongaarse punt', path: '/vloeren-leggen/hongaarse-punt' },
       { name: 'Weense punt', path: '/vloeren-leggen/weense-punt' },
       { name: 'Tegel', path: '/vloeren-leggen/tegel' },
-      { name: 'mozaïek of patroon', path: '/vloeren-leggen/mozaiek-of-patroon' },
+      { name: 'Mozaïek of patroon', path: '/vloeren-leggen/mozaiek-of-patroon' },
       { name: 'Hexagon & 3D', path: '/vloeren-leggen/hexagon-&-3d' },
       { name: 'Tapis', path: '/vloeren-leggen/tapis' },
       { name: 'Bourgogne', path: '/vloeren-leggen/bourgogne' },
