@@ -88,28 +88,28 @@ const headerRoutes: HeaderRoute[] = [
         link: '/traprenovatie',
         title: 'Traprenovatie',
         subPages: [
-          { name: 'Bekleden met PVC', path: '' },
-          { name: 'Bekleden met laminaat', path: '' },
-          { name: 'Bekleden met hout', path: '' },
-          { name: 'Bekleden met tapijt', path: '' },
-          { name: 'Bekleden met linoleum', path: '' },
-          { name: 'Schuren en behandelen', path: '' },
-          { name: 'Schuren en schilderen', path: '' },
+          { name: 'Bekleden met PVC', path: '/traprenovatie/bekleden-met-pvc' },
+          { name: 'Bekleden met laminaat', path: '/traprenovatie/bekleden-met-laminaat' },
+          { name: 'Bekleden met hout', path: '/traprenovatie/bekleden-met-hout' },
+          { name: 'Bekleden met tapijt', path: '/traprenovatie/bekleden-met-tapijt' },
+          { name: 'Bekleden met linoleum', path: '/traprenovatie/bekleden-met-linoleum' },
+          { name: 'Schuren en behandelen', path: '/traprenovatie/schuren-en-behandelen' },
+          { name: 'Schuren en schilderen', path: '/traprenovatie/schuren-en-schilderen' },
           {
             name: 'BetonCiré',
             subPages: [
-              { name: 'BetonCiré Metal stuc', path: '' },
-              { name: 'BetonCiré Glamour stuc', path: '' },
-              { name: 'BetonCiré Brut', path: '' },
-              { name: 'BetonCiré Parel', path: '' },
-              { name: 'BetonCiré Croco', path: '' },
-              { name: 'BetonCiré Venetiaans', path: '' },
-              { name: 'BetonCiré Acoustic', path: '' },
+              { name: 'BetonCiré Metal stuc', path: '/traprenovatie/betonCiré/betonCiré-metal-stuc' },
+              { name: 'BetonCiré Glamour stuc', path: '/traprenovatie/betonCiré/betonCiré-glamour-stuc' },
+              { name: 'BetonCiré Brut', path: '/traprenovatie/betonCiré/betonCiré-brut' },
+              { name: 'BetonCiré Parel', path: '/traprenovatie/betonCiré/betonCiré-parel' },
+              { name: 'BetonCiré Croco', path: '/traprenovatie/betonCiré/betonCiré-croco' },
+              { name: 'BetonCiré Venetiaans', path: '/traprenovatie/betonCiré/betonCiré-venetiaans' },
+              { name: 'BetonCiré Acoustic', path: '/traprenovatie/betonCiré/betonCiré-acoustic' },
             ],
           },
-          { name: 'Open trap', path: '' },
-          { name: 'Dichte trap', path: '' },
-          { name: 'Verlichting', path: '' },
+          { name: 'Open trap', path: '/traprenovatie/open-trap' },
+          { name: 'Dichte trap', path: '/traprenovatie/dichte-trap' },
+          { name: 'Verlichting', path: '/traprenovatie/verlichting' },
         ],
       },
       {
@@ -176,35 +176,35 @@ const headerRoutes: HeaderRoute[] = [
     ],
   },
   {
-    name: 'Traprenovaties',
+    path: '/traprenovatie',
+    name: 'Traprenovatie',
     columns: [
       {
         link: '',
-        title: 'Traprenovatie',
+        title: '',
         subPages: [
-          { name: 'Bekleden met PVC', path: '/' },
-          { name: 'Bekleden met laminaat', path: '/' },
-          { name: 'Bekleden met hout', path: '/' },
-          { name: 'Bekleden met tapijt', path: '/' },
-          { name: 'Bekleden met linoleum', path: '/' },
-          { name: 'Schuren en behandelen', path: '/' },
-          { name: 'Schuren en schilderen', path: '/' },
+          { name: 'Bekleden met PVC', path: '/traprenovatie/bekleden-met-pvc' },
+          { name: 'Bekleden met laminaat', path: '/traprenovatie/bekleden-met-laminaat' },
+          { name: 'Bekleden met hout', path: '/traprenovatie/bekleden-met-hout' },
+          { name: 'Bekleden met tapijt', path: '/traprenovatie/bekleden-met-tapijt' },
+          { name: 'Bekleden met linoleum', path: '/traprenovatie/bekleden-met-linoleum' },
+          { name: 'Schuren en behandelen', path: '/traprenovatie/schuren-en-behandelen' },
+          { name: 'Schuren en schilderen', path: '/traprenovatie/schuren-en-schilderen' },
           {
             name: 'BetonCiré',
-            path: '/',
             subPages: [
-              { name: 'BetonCiré Metal stuc', path: '/' },
-              { name: 'BetonCiré Glamour stuc', path: '/' },
-              { name: 'BetonCiré Brut', path: '/' },
-              { name: 'BetonCiré Parel', path: '/' },
-              { name: 'BetonCiré Croco', path: '/' },
-              { name: 'BetonCiré Venetiaans', path: '/' },
-              { name: 'BetonCiré Acoustic', path: '/' },
+              { name: 'BetonCiré Metal stuc', path: '/traprenovatie/betonCiré/betonCiré-metal-stuc' },
+              { name: 'BetonCiré Glamour stuc', path: '/traprenovatie/betonCiré/betonCiré-glamour-stuc' },
+              { name: 'BetonCiré Brut', path: '/traprenovatie/betonCiré/betonCiré-brut' },
+              { name: 'BetonCiré Parel', path: '/traprenovatie/betonCiré/betonCiré-parel' },
+              { name: 'BetonCiré Croco', path: '/traprenovatie/betonCiré/betonCiré-croco' },
+              { name: 'BetonCiré Venetiaans', path: '/traprenovatie/betonCiré/betonCiré-venetiaans' },
+              { name: 'BetonCiré Acoustic', path: '/traprenovatie/betonCiré/betonCiré-acoustic' },
             ],
           },
-          { name: 'Open trap', path: '/' },
-          { name: 'Dichte trap', path: '/' },
-          { name: 'Verlichting', path: '/' },
+          { name: 'Open trap', path: '/traprenovatie/open-trap' },
+          { name: 'Dichte trap', path: '/traprenovatie/dichte-trap' },
+          { name: 'Verlichting', path: '/traprenovatie/verlichting' },
         ],
       },
     ],
@@ -326,9 +326,13 @@ const HeaderColumnItem: React.FC<
           {'subPages' in routeInfo &&
             routeInfo.subPages &&
             routeInfo.subPages.map((item) => (
-              <h5 key={routeInfo.name} className="text-sm w-full  hover:text-primaryDefault cursor-pointer">
+              <Link
+                href={item.path}
+                key={routeInfo.name}
+                className="text-sm w-full  hover:text-primaryDefault cursor-pointer"
+              >
                 {item.name}
-              </h5>
+              </Link>
             ))}
         </div>
       )}
@@ -475,12 +479,13 @@ const DropDownColumnLink: React.FC<
       {pageSubpages && openSubPages && (
         <div className="flex flex-col px-2 gap-1">
           {pageSubpages.map((subPage) => (
-            <p
+            <Link
+              href={subPage.path}
               key={subPage.name}
               className="text-sm   hover:text-primaryDefault  w-full min-w-[160px] text-black text-opacity-80"
             >
               {subPage.name}
-            </p>
+            </Link>
           ))}
         </div>
       )}
@@ -495,7 +500,7 @@ const DropDownColumn: React.FC<{ routeName: string }> = ({ routeName }) => {
     hoveredRoute && 'columns' in hoveredRoute && hoveredRoute.columns && hoveredRoute.columns[0];
   if (!hoveredRouteColumn) return null;
   return (
-    <div className="flex absolute   top-[29px] w-fit flex-col left-1/2 -translate-x-1/2 gap-1 py-[22px] px-[44px] bg-white border rounded-[10px] border-blackDark  border-opacity-20 ">
+    <div className="flex absolute bg-white   top-[29px] w-fit flex-col left-1/2 -translate-x-1/2 gap-1 py-[22px] px-[44px]  border rounded-[10px] border-blackDark  border-opacity-20 ">
       {hoveredRouteColumn.subPages.map((page) => (
         <DropDownColumnLink key={page.name} {...page} />
       ))}
@@ -572,7 +577,7 @@ export const HeaderLinksSection = () => {
   return (
     <div
       onMouseLeave={() => setHoveredLink('')}
-      className="flex  flex-col items-center    gap-[39px] relative  justify-center "
+      className="flex   flex-col items-center    gap-[39px] relative  justify-center "
     >
       <div className="flex z-10   gap-[33px] py-1 w-full items-center ">
         {headerRoutes.slice(0, 6).map((route, index) => (
