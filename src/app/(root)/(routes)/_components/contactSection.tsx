@@ -6,7 +6,7 @@ import { appConfig } from '@/config';
 
 export const ContactInfo = () => {
   return (
-    <div className="flex flex-col gap-[40px] pr-[22px]">
+    <div className="flex max-w-full flex-col gap-[40px] pr-[22px]">
       <div className="flex flex-col lg:flex-row items-start lg:items-center gap-3 lg:gap-[33px] ">
         <h4 className="text-[25px] text-primaryDefault  tracking-[-2%] font-semibold lg:w-[313px]">
           Geen vraag is te gek, we helpen je graag verder!

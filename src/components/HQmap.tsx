@@ -101,11 +101,13 @@ const HQUI: React.FC<HQLocation & { index: number }> = ({ left, top, type, index
 
 export const HQMap = () => {
   return (
-    <div className="relative w-[407.73px] h-[483.56px]">
-      <img src="/contact/netherlandsMap.png" className="absolute border top-0 left-0" />
-      {boldGreenLocations.map((location, index) => (
-        <HQUI key={index} {...location} index={index} />
-      ))}
+    <div className="max-w-[95vw] flex items-center justify-center  overflow-hidden">
+      <div className="relative scale-75 lg:scale-100  w-[407.73px] h-[483.56px]">
+        <img src="/contact/netherlandsMap.png" className="absolute border top-0 left-0" />
+        {boldGreenLocations.map((location, index) => (
+          <HQUI key={index} {...location} index={index} />
+        ))}
+      </div>
     </div>
   );
 };
