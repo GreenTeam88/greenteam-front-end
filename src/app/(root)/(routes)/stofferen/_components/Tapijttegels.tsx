@@ -7,18 +7,17 @@ const infoCardConfig: InfoCardProps = {
   imgSrc: '/stofferen/stofferen-3.png',
   paragraphs: [
     <BodyText key="1">
-      Dagelijks wordt er gelopen op een houten vloer. Het is dan ook logisch dat op een gegeven moment gebruikssporen
-      zoals krasjes, oneffenheden en vlekjes te zien zijn. Elke houten vloer zal daarom op een gegeven moment
-      onderhouden moeten worden en worden geschuurd. Op deze manier kan je alle gebruikssporen laten verdwijnen en is je
-      houten vloer weer zo goed als nieuw. Ligt jouw vloer er al 10 tot 20 jaar dan is het de hoogste tijd om daar wat
-      aan te doen!{' '}
+      Met onze tapijttegelservice geeft u uw woning een frisse en moderne uitstraling. We starten met nauwkeurige
+      metingen en bieden advies op maat, zodat u kunt kiezen uit een breed scala aan stijlen en kleuren die perfect bij
+      uw interieur passen. Na het reinigen en egaliseren van de vloer leggen onze experts de tapijttegels naadloos en
+      stevig. Het resultaat? Een duurzame, comfortabele vloer met een warme uitstraling die lang meegaat!{' '}
     </BodyText>,
     <BodyTextBold key="2" className="text-secondaryDefault">
-      Ligt jouw vloer er al 10 tot 20 jaar dan is het de hoogste tijd om daar wat aan te doen!{' '}
+      Ligt uw vloer er al 10 tot 20 jaar dan is het de hoogste tijd om daar wat aan te doen!{' '}
     </BodyTextBold>,
   ],
   title: 'Tapijttegels',
-  secondBtnText: 'Direct offerte berekenen',
+  secondBtnText: 'Offerte berekenen',
   secondBtnLink: '/offerte-aanvragen',
 };
 

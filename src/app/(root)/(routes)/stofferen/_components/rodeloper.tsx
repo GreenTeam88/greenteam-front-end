@@ -7,18 +7,20 @@ const infoCardConfig: InfoCardProps = {
   imgSrc: '/stofferen/stofferen-7.png',
   paragraphs: [
     <BodyText key="1">
-      Dagelijks wordt er gelopen op een houten vloer. Het is dan ook logisch dat op een gegeven moment gebruikssporen
-      zoals krasjes, oneffenheden en vlekjes te zien zijn. Elke houten vloer zal daarom op een gegeven moment
-      onderhouden moeten worden en worden geschuurd. Op deze manier kan je alle gebruikssporen laten verdwijnen en is je
-      houten vloer weer zo goed als nieuw. Ligt jouw vloer er al 10 tot 20 jaar dan is het de hoogste tijd om daar wat
-      aan te doen!
+      Wilt u indruk maken met een stijlvolle entree? Onze rode lopers voegen direct een vleugje glamour en elegantie toe
+      aan elke gelegenheid, of het nu gaat om speciale evenementen, feesten, of gewoon om uw dagelijkse interieur een
+      luxueuze uitstraling te geven. Met hun onmiskenbare stijl creëren ze een chique entree die de toon zet voor uw
+      ruimte, terwijl de hoogwaardige, duurzame materialen zorgen voor comfort en een lange levensduur. Dankzij hun
+      veelzijdigheid en eenvoudige combinatie met elke inrichting zijn ze perfect voor zowel feestelijke momenten als
+      een dagelijkse upgrade. Maak van uw ruimte een echte eyecatcher met een rode loper die klasse en verfijning
+      uitstraalt.
     </BodyText>,
     <BodyTextBold key="2" className="text-secondaryDefault">
-      Ligt jouw vloer er al 10 tot 20 jaar dan is het de hoogste tijd om daar wat aan te doen!{' '}
+      Is uw rode loper 10 tot 20 jaar oud? Dan is het tijd om deze te vervangen voor een nieuwe!{' '}
     </BodyTextBold>,
   ],
   title: 'Rode loper',
-  secondBtnText: 'Direct offerte berekenen',
+  secondBtnText: 'Offerte berekenen',
   secondBtnLink: '/offerte-aanvragen',
 };
 

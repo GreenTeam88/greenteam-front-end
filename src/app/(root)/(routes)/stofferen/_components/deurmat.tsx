@@ -8,18 +8,17 @@ const infoCardConfig: InfoCardProps = {
   imgSrc: '/stofferen/stofferen-5.png',
   paragraphs: [
     <BodyText key="1">
-      Dagelijks wordt er gelopen op een houten vloer. Het is dan ook logisch dat op een gegeven moment gebruikssporen
-      zoals krasjes, oneffenheden en vlekjes te zien zijn. Elke houten vloer zal daarom op een gegeven moment
-      onderhouden moeten worden en worden geschuurd. Op deze manier kan je alle gebruikssporen laten verdwijnen en is je
-      houten vloer weer zo goed als nieuw. Ligt jouw vloer er al 10 tot 20 jaar dan is het de hoogste tijd om daar wat
-      aan te doen!
+      Een deurmat is meer dan alleen praktisch; het is de eerste indruk van uw woning. Met onze kwalitatieve deurmatten
+      kiest u voor een stijlvolle entree die vuil en vocht buiten houdt en uw vloer beschermt. Gemaakt van duurzame
+      materialen, zijn onze deurmatten bestand tegen dagelijks gebruik en passen ze naadloos bij elk interieur, van
+      klassiek tot modern. Geef uw entree een uitnodigende uitstraling die gezien mag worden!
     </BodyText>,
     <BodyTextBold key="2" className="text-secondaryDefault">
-      Ligt jouw vloer er al 10 tot 20 jaar dan is het de hoogste tijd om daar wat aan te doen!{' '}
+      Is uw deurmat al 10 tot 20 jaar oud? Dan is het tijd om deze te vervangen voor een nieuwe!{' '}
     </BodyTextBold>,
   ],
   title: 'Deurmat',
-  secondBtnText: 'Direct offerte berekenen',
+  secondBtnText: 'Offerte berekenen',
   secondBtnLink: '/offerte-aanvragen',
 };
 

@@ -8,18 +8,19 @@ const infoCardConfig: InfoCardProps = {
   imgSrc: '/stofferen/stofferen-8.png',
   paragraphs: [
     <BodyText key="1">
-      Dagelijks wordt er gelopen op een houten vloer. Het is dan ook logisch dat op een gegeven moment gebruikssporen
-      zoals krasjes, oneffenheden en vlekjes te zien zijn. Elke houten vloer zal daarom op een gegeven moment
-      onderhouden moeten worden en worden geschuurd. Op deze manier kan je alle gebruikssporen laten verdwijnen en is je
-      houten vloer weer zo goed als nieuw. Ligt jouw vloer er al 10 tot 20 jaar dan is het de hoogste tijd om daar wat
-      aan te doen!
+      Met onze professionele reinigingsservice krijgt uw tapijt de zorg en aandacht die het verdient. Dankzij
+      dieptereiniging verwijderen we vuil, vlekken en allergenen uit de vezels, terwijl stoomreiniging zorgt voor een
+      grondige en hygiënische schoonmaak van tapijt, vloerkleden en bekleding. We gebruiken hoogwaardige, veilige
+      reinigingsproducten en ons team van ervaren specialisten zorgt ervoor dat zelfs de kleinste details worden
+      aangepakt. Geniet van een stralend en hygiënisch tapijt, zodat uw interieur weer als nieuw aanvoelt.
     </BodyText>,
     <BodyTextBold key="2" className="text-secondaryDefault">
-      Ligt jouw vloer er al 10 tot 20 jaar dan is het de hoogste tijd om daar wat aan te doen!{' '}
+      Is uw tapijt al 10 tot 20 jaar niet grondig gereinigd? Dan is het de hoogste tijd om onze reinigingsservice in te
+      schakelen!{' '}
     </BodyTextBold>,
   ],
   title: 'Reinigingsservice',
-  secondBtnText: 'Direct offerte berekenen',
+  secondBtnText: 'Offerte berekenen',
   secondBtnLink: '/offerte-aanvragen',
 };
 

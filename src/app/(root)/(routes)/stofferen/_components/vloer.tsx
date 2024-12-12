@@ -7,18 +7,17 @@ const infoCardConfig: InfoCardProps = {
   imgSrc: '/stofferen/stofferen-2.png',
   paragraphs: [
     <BodyText key="1">
-      Dagelijks wordt er gelopen op een houten vloer. Het is dan ook logisch dat op een gegeven moment gebruikssporen
-      zoals krasjes, oneffenheden en vlekjes te zien zijn. Elke houten vloer zal daarom op een gegeven moment
-      onderhouden moeten worden en worden geschuurd. Op deze manier kan je alle gebruikssporen laten verdwijnen en is je
-      houten vloer weer zo goed als nieuw. Ligt jouw vloer er al 10 tot 20 jaar dan is het de hoogste tijd om daar wat
-      aan te doen!{' '}
+      Met onze vloerstoffering transformeren we uw woning met oog voor detail en perfectie. We starten met een
+      nauwkeurige meting en helpen u bij het kiezen van hoogwaardige materialen die passen bij uw stijl en behoeften. Na
+      een grondige voorbereiding, waarbij de vloer wordt gereinigd en geëgaliseerd, stofferen onze experts uw vloer met
+      precisie en vakmanschap. Het resultaat? Een strak afgewerkte vloer die comfort en stijl toevoegt aan uw interieur!
     </BodyText>,
     <BodyTextBold key="2" className="text-secondaryDefault">
       Ligt jouw vloer er al 10 tot 20 jaar dan is het de hoogste tijd om daar wat aan te doen!{' '}
     </BodyTextBold>,
   ],
   title: 'Vloer',
-  secondBtnText: 'Direct offerte berekenen',
+  secondBtnText: 'Offerte berekenen',
   secondBtnLink: '/offerte-aanvragen',
 };
 

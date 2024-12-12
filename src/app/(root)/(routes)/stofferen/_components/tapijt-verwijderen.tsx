@@ -7,18 +7,19 @@ const infoCardConfig: InfoCardProps = {
   imgSrc: '/stofferen/stofferen-9.png',
   paragraphs: [
     <BodyText key="1">
-      Dagelijks wordt er gelopen op een houten vloer. Het is dan ook logisch dat op een gegeven moment gebruikssporen
-      zoals krasjes, oneffenheden en vlekjes te zien zijn. Elke houten vloer zal daarom op een gegeven moment
-      onderhouden moeten worden en worden geschuurd. Op deze manier kan je alle gebruikssporen laten verdwijnen en is je
-      houten vloer weer zo goed als nieuw. Ligt jouw vloer er al 10 tot 20 jaar dan is het de hoogste tijd om daar wat
-      aan te doen!
+      Met onze tapijtverwijderingsservice bieden we een efficiënte en grondige aanpak voor een frisse start in uw
+      interieur. We verwijderen uw oude tapijt snel en stofvrij, zodat uw woning direct klaar is voor de volgende stap.
+      Daarnaast zorgen we voor de ondervloer door deze te reinigen en te egaliseren, zodat deze perfect is voor uw
+      nieuwe vloer, of het nu gaat om parket, laminaat, PVC of tegels. Bespaar uzelf het zware werk en laat alles aan
+      onze professionals over, zodat u tijd en moeite bespaart.
     </BodyText>,
     <BodyTextBold key="2" className="text-secondaryDefault">
-      Ligt jouw vloer er al 10 tot 20 jaar dan is het de hoogste tijd om daar wat aan te doen!{' '}
+      Ligt uw tapijt al 10 tot 20 jaar? Dan is het de hoogste tijd om het te verwijderen en plaats te maken voor een
+      frisse nieuwe vloer!{' '}
     </BodyTextBold>,
   ],
   title: 'Tapijt verwijderen',
-  secondBtnText: 'Direct offerte berekenen',
+  secondBtnText: 'Offerte berekenen',
   secondBtnLink: '/offerte-aanvragen',
 };
 

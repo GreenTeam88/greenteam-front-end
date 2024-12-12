@@ -7,18 +7,18 @@ const infoCardConfig: InfoCardProps = {
   imgSrc: '/stofferen/stofferen-6.png',
   paragraphs: [
     <BodyText key="1">
-      Dagelijks wordt er gelopen op een houten vloer. Het is dan ook logisch dat op een gegeven moment gebruikssporen
-      zoals krasjes, oneffenheden en vlekjes te zien zijn. Elke houten vloer zal daarom op een gegeven moment
-      onderhouden moeten worden en worden geschuurd. Op deze manier kan je alle gebruikssporen laten verdwijnen en is je
-      houten vloer weer zo goed als nieuw. Ligt jouw vloer er al 10 tot 20 jaar dan is het de hoogste tijd om daar wat
-      aan te doen!
+      Een droogloopmat combineert stijl met functionaliteit en is een slimme toevoeging aan uw entree. Hij houdt vuil en
+      vocht buiten, waardoor uw interieur schoon blijft, en voegt een stijlvolle touch toe dankzij de vele kleuren en
+      designs. Gemaakt van duurzame materialen, is de mat bestand tegen intensief gebruik en gaat hij lang mee. Of u nu
+      kiest voor een klassiek of modern design, wij leveren een droogloopmat op maat die perfect aansluit bij uw
+      interieur.
     </BodyText>,
     <BodyTextBold key="2" className="text-secondaryDefault">
-      Ligt jouw vloer er al 10 tot 20 jaar dan is het de hoogste tijd om daar wat aan te doen!{' '}
+      Is uw droogloopmat al 10 tot 20 jaar oud? Dan is het tijd om deze te vervangen voor een nieuwe!
     </BodyTextBold>,
   ],
   title: 'Droogloopmat',
-  secondBtnText: 'Direct offerte berekenen',
+  secondBtnText: 'Offerte berekenen',
   secondBtnLink: '/offerte-aanvragen',
 };
 
