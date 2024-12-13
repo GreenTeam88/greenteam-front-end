@@ -41,7 +41,7 @@ const thirdSectionCards: InfoCardProps[] = [
         en uitstraling van uw woning.{' '}
       </p>,
       <div key="5">
-        <BodyText className="text-secondaryDefault">
+        <BodyText className="text-secondaryDefault font-bold">
           Wilt u ook warme warme voeten in huis? Wij maken het mogelijk.
         </BodyText>
       </div>,
@@ -122,6 +122,7 @@ export default function Home() {
         description="Stapsgewijs naar een perfect resultaat"
         cards={thirdSectionCards}
         btnText="Bereken jouw vloer"
+        btnLink="/offerte-aanvragen"
       />
       <WhyGreenTeam />
 
@@ -129,6 +130,7 @@ export default function Home() {
         title="Warmte, comfort en luxe met vloerverwarming"
         description="Bekijk de resultaten van onze vloerverwarming en ontdek de ongeëvenaarde warmte, comfort en luxe voor jouw huis. Onze systemen zorgen voor een gelijkmatige temperatuurverdeling en zijn energiezuinig, wat bijdraagt aan een aangename sfeer. Veel tevreden klanten hebben al gekozen voor onze vloerverwarming, en u kunt de volgende zijn!"
         btnText="Bereken jouw vloer"
+        btnLink="/offerte-aanvragen"
         firstImg={'/overig/vloerverwarming/vloerverwarming-3.png'}
         secondImg="/overig/vloerverwarming/vloerverwarming-4.png"
         thirdImg="/overig/vloerverwarming/vloerverwarming-5.png"

@@ -1,4 +1,4 @@
-import { PrimaryBtn } from '@/components/theme/buttons';
+import { PrimaryBtn, PrimaryBtnLink } from '@/components/theme/buttons';
 import { BodyText, H2 } from '@/components/theme/typography';
 
 type StoreImagesInfo = {
@@ -12,6 +12,7 @@ type StoreImagesInfo = {
   fourthImg: string;
   fifthImg: string;
   btnText: string;
+  btnLink?: string;
 };
 
 const ImagesGallery: React.FC<StoreImagesInfo> = ({
@@ -58,7 +59,7 @@ export const StoreSection: React.FC<StoreImagesInfo> = (imagesInfo) => {
         <BodyText className="max-w-[794px] text-center">{imagesInfo.description}</BodyText>
       </div>
       <ImagesGallery {...imagesInfo} />
-      <PrimaryBtn>{imagesInfo.btnText}</PrimaryBtn>
+      <PrimaryBtnLink href={imagesInfo.btnLink || '/'}>{imagesInfo.btnText}</PrimaryBtnLink>
     </div>
   );
 };

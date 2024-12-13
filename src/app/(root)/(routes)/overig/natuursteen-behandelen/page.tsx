@@ -42,7 +42,7 @@ const thirdSectionCards: InfoCardProps[] = [
         vloer die er weer als nieuw uitziet én lang meegaat.{' '}
       </p>,
       <div key="5">
-        <BodyText className="text-secondaryDefault">
+        <BodyText className="text-secondaryDefault font-bold">
           Ligt uw vloer er al 10 tot 20 jaar dan is het de hoogste tijd om daar wat aan te doen!
         </BodyText>
       </div>,
@@ -112,6 +112,7 @@ export default function Home() {
         description="Stapsgewijs naar een perfect resultaat"
         cards={thirdSectionCards}
         btnText="Bereken jouw vloer"
+        btnLink="/offerte-aanvragen"
       />
       <WhyGreenTeam />
 
@@ -119,6 +120,7 @@ export default function Home() {
         title="Wat hebben wij in petto? Jouw vloer weer laten stralen!"
         description="Bekijk de resultaten van onze natuursteenbehandeling en ontdek de ongeëvenaarde kwaliteit en afwerking voor jouw vloer. Wij zorgen voor een zorgvuldige behandeling die de schoonheid en duurzaamheid van jouw natuursteen versterkt. Veel tevreden klanten hebben al gekozen voor onze natuursteenbehandeling, en u kunt de volgende zijn!"
         btnText="Bereken jouw vloer"
+        btnLink="/offerte-aanvragen"
         firstImg={'/overig/natuursteen-behandelen/natuursteen-behandelen-3.png'}
         secondImg="/overig/natuursteen-behandelen/natuursteen-behandelen-4.png"
         thirdImg="/overig/natuursteen-behandelen/natuursteen-behandelen-5.png"

@@ -1,4 +1,4 @@
-import { PrimaryBtn } from '@/components/theme/buttons';
+import { PrimaryBtnLink } from '@/components/theme/buttons';
 import { BodyText, H2 } from '@/components/theme/typography';
 
 type StoreImagesInfo = {
@@ -58,7 +58,7 @@ export const StoreSection: React.FC<StoreImagesInfo> = (imagesInfo) => {
         </BodyText>
       </div>
       <ImagesGallery {...imagesInfo} />
-      <PrimaryBtn>Bereken jouw vloer</PrimaryBtn>
+      <PrimaryBtnLink href="/offerte-aanvragen">Bereken jouw vloer</PrimaryBtnLink>
     </div>
   );
 };

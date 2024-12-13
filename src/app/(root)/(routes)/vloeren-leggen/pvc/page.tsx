@@ -1,9 +1,9 @@
+import { CardsSection } from '@/components/cardsSection';
 import { FAQSection, FAQType } from '@/components/FAQSection';
 import { RatingSection } from '@/components/ratingSection';
+import { StoreSection } from '@/components/storeSection';
 import { BodyText } from '@/components/theme/typography';
-import { CardsSection } from '../_components/cardsSection';
 import { ListCard } from '../_components/listCard';
-import { StoreSection } from '../_components/storeSection';
 import { WhatWaitingForCard } from '../_components/whatWaitingForCard';
 import { WhyGreenTeam } from '../_components/whyGreenTeam';
 import { Hero } from '../../_components/hero';
@@ -122,6 +122,7 @@ export default function Home() {
         title="Wat hebben wij in petto? Uw vloer weer laten stralen!"
         description="Bekijk de resultaten van onze vloerenlegservice en ontdek hoe we verouderde of beschadigde vloeren omtoveren tot prachtige, moderne ruimtes. Vele tevreden klanten gingen u voor, dus uw vloer kan de volgende zijn!"
         btnText="Bereken jouw vloer"
+        btnLink="/offerte-aanvragen"
         firstImg={'/vloeren-leggen/pvc-leggen/pvc-leggen-3.png'}
         secondImg="/vloeren-leggen/pvc-leggen/pvc-leggen-4.png"
         thirdImg="/vloeren-leggen/pvc-leggen/pvc-leggen-5.png"

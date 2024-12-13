@@ -111,6 +111,7 @@ export default function Home() {
       <CardsSection
         description="Stapsgewijs naar een perfect resultaat"
         btnText="Bereken jouw vloer"
+        btnLink="/offerte-aanvragen"
         bottomText="Help, mijn oude vloer is aan vervanging toe!"
         title="Hoe gaat schuren en polijsten in zijn werk?"
         cards={thirdSectionCards}

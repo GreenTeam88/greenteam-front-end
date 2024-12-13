@@ -1,9 +1,9 @@
+import { CardsSection } from '@/components/cardsSection';
 import { FAQSection, FAQType } from '@/components/FAQSection';
 import { RatingSection } from '@/components/ratingSection';
+import { StoreSection } from '@/components/storeSection';
 import { BodyText } from '@/components/theme/typography';
-import { CardsSection } from '../_components/cardsSection';
 import { ListCard } from '../_components/listCard';
-import { StoreSection } from '../_components/storeSection';
 import { WhatWaitingForCard } from '../_components/whatWaitingForCard';
 import { WhyGreenTeam } from '../_components/whyGreenTeam';
 import { Hero } from '../../_components/hero';
@@ -29,7 +29,7 @@ const thirdSectionCards: InfoCardProps[] = [
         Walvisgraat combineert de klassieke charme van visgraat met een moderne twist, perfect voor elk interieur. {' '}
       </p>,
       <div key="5">
-        <BodyText className="text-secondaryDefault">
+        <BodyText className="text-secondaryDefault font-bold">
           Ligt jouw vloer er al 10 tot 20 jaar dan is het de hoogste tijd om daar wat aan te doen!{' '}
         </BodyText>
       </div>,
@@ -106,6 +106,7 @@ export default function Home() {
         orangeText="Herkenbaar? Geen zorgen, wij lossen het op!"
       />
       <CardsSection
+        btnLink="/offerte-aanvragen"
         bottomText="Help, mijn oude vloer is aan vervanging toe!"
         title="Hoe gaan we te werk?"
         description="Stapsgewijs naar een perfect resultaat"
@@ -117,6 +118,7 @@ export default function Home() {
         title="Wat hebben wij in petto? Uw vloer weer laten stralen!"
         description="Bekijk de resultaten van onze vloerenlegservice en ontdek hoe we verouderde of beschadigde vloeren omtoveren tot prachtige, moderne ruimtes. Vele tevreden klanten gingen u voor, dus uw vloer kan de volgende zijn!"
         btnText="Bereken jouw vloer"
+        btnLink="/offerte-aanvragen"
         firstImg={'/vloeren-leggen/walvisgraat/walvisgraat-3.png'}
         secondImg="/vloeren-leggen/walvisgraat/walvisgraat-4.png"
         thirdImg="/vloeren-leggen/walvisgraat/walvisgraat-5.png"

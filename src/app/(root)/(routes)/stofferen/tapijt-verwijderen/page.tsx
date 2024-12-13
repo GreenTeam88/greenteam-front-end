@@ -111,12 +111,14 @@ export default function Home() {
         description="Stapsgewijs naar een perfect resultaat"
         cards={thirdSectionCards}
         btnText="Bereken jouw vloer"
+        btnLink="/offerte-aanvragen"
       />
       <WhyGreenTeam />
       <StoreSection
         title="Wat hebben wij voor u in petto?"
         description="Bekijk de resultaten van onze service voor het verwijderen van vloeren en trappen en ontdek hoe we verouderde en versleten materialen snel en efficiënt verwijderen. Veel tevreden klanten zijn enthousiast over de kwaliteit en professionaliteit van onze diensten, uw vloeren en trappen kunnen de volgende zijn!"
         btnText="Bereken jouw vloer"
+        btnLink="/offerte-aanvragen"
         firstImg={'/stofferen/tapijt-verwijderen/tapijt-verwijderen-3.png'}
         secondImg="/stofferen/tapijt-verwijderen/tapijt-verwijderen-4.png"
         thirdImg="/stofferen/tapijt-verwijderen/tapijt-verwijderen-5.png"

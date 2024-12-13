@@ -59,7 +59,7 @@ const thirdSectionCards: InfoCardProps[] = [
       </div>,
 
       <div key="5">
-        <BodyText className="text-secondaryDefault">Bespreek met ons de mogelijkheden </BodyText>
+        <BodyText className="text-secondaryDefault font-bold">Bespreek met ons de mogelijkheden </BodyText>
       </div>,
     ],
     buttonText: 'Lees meer...',
@@ -147,6 +147,7 @@ export default function Home() {
         title="Wat hebben wij in petto? Jouw vloer weer laten stralen!"
         description="Bekijk de resultaten van onze egalisatiediensten en ontdek de ongeëvenaarde kwaliteit en afwerking voor jouw vloer. Wij zorgen voor een perfecte ondergrond, wat bijdraagt aan een duurzaam en aantrekkelijk resultaat. Veel tevreden klanten hebben al gekozen voor onze egalisatie, en u kunt de volgende zijn!"
         btnText="Bereken jouw vloer"
+        btnLink="/offerte-aanvragen"
         firstImg={'/overig/egaliseren/egaliseren-4.png'}
         secondImg="/overig/egaliseren/egaliseren-5.png"
         thirdImg="/overig/egaliseren/egaliseren-6.png"

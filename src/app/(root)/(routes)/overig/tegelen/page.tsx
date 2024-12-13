@@ -40,7 +40,7 @@ const thirdSectionCards: InfoCardProps[] = [
         onderhouden.{' '}
       </p>,
       <div key="5">
-        <BodyText className="text-secondaryDefault">
+        <BodyText className="text-secondaryDefault font-bold">
           Ligt uw vloer er al 10 tot 20 jaar dan is het de hoogste tijd om daar wat aan te doen!{' '}
         </BodyText>
       </div>,
@@ -120,6 +120,7 @@ export default function Home() {
         description="Stapsgewijs naar een perfect resultaat"
         cards={thirdSectionCards}
         btnText="Bereken jouw vloer"
+        btnLink="/offerte-aanvragen"
       />
       <WhyGreenTeam />
 
@@ -127,6 +128,7 @@ export default function Home() {
         title="Wat hebben wij in petto? Jouw vloer weer laten stralen!"
         description="Bekijk de resultaten van onze tegeldiensten en ontdek de ongeëvenaarde kwaliteit en afwerking voor jouw ruimtes. Wij zorgen voor een duurzame en stijlvolle tegelvloer die bijdraagt aan een unieke uitstraling in elke kamer. Veel tevreden klanten hebben al gekozen voor onze tegeldiensten, en u kunt de volgende zijn!"
         btnText="Bereken jouw vloer"
+        btnLink="/offerte-aanvragen"
         firstImg={'/overig/tegelen/tegelen-3.png'}
         secondImg="/overig/tegelen/tegelen-4.png"
         thirdImg="/overig/tegelen/tegelen-5.png"

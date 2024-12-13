@@ -33,7 +33,7 @@ const thirdSectionCards: InfoCardProps[] = [
         Met een gietvloer geniet u van een elegante, moderne basis die uw interieur naar een hoger niveau tilt.
       </p>,
       <div key="5">
-        <BodyText className="text-secondaryDefault">
+        <BodyText className="text-secondaryDefault font-bold">
           Ligt uw vloer er al 10 tot 20 jaar dan is het de hoogste tijd om daar wat aan te doen!{' '}
         </BodyText>
       </div>,
@@ -113,6 +113,7 @@ export default function Home() {
         description="Stapsgewijs naar een perfect resultaat"
         cards={thirdSectionCards}
         btnText="Bereken jouw vloer"
+        btnLink="/offerte-aanvragen"
       />
       <WhyGreenTeam />
 
@@ -120,6 +121,7 @@ export default function Home() {
         title="Wat hebben wij in petto? Jouw vloer weer laten stralen!"
         description="Bekijk de resultaten van onze gietvloeren en ontdek de ongeëvenaarde kwaliteit en afwerking voor jouw huis. Wij zorgen voor een duurzame en stijlvolle vloer die bijdraagt aan een unieke uitstraling in elke ruimte. Veel tevreden klanten hebben al gekozen voor onze gietvloeren, en u kunt de volgende zijn!"
         btnText="Bereken jouw vloer"
+        btnLink="/offerte-aanvragen"
         firstImg={'/overig/gietvloeren/gietvloeren-3.png'}
         secondImg="/overig/gietvloeren/gietvloeren-4.png"
         thirdImg="/overig/gietvloeren/gietvloeren-5.png"

@@ -1,16 +1,17 @@
 import React from 'react';
 
-import { PrimaryBtn } from '@/components/theme/buttons';
+import { PrimaryBtn, PrimaryBtnLink } from '@/components/theme/buttons';
 import { BodyText, H2, HeadlineSemibold } from '@/components/theme/typography';
 import { InfoCardProps, OrangeInfoCard } from './cards';
 
 export const CardsSection: React.FC<{
   cards: InfoCardProps[];
   title: string;
+  btnLink?: string;
   bottomText?: string;
   description: string;
   btnText?: string;
-}> = ({ cards, title, bottomText, btnText, description }) => {
+}> = ({ cards, title, bottomText, btnText, description, btnLink }) => {
   return (
     <div className="flex w-full gap-[88px] py-[99px] px-3 lg:px-0 bg-secondaryLight flex-col items-center">
       <div className="flex gap-3 flex-col items-center">
@@ -29,7 +30,7 @@ export const CardsSection: React.FC<{
       {bottomText && (
         <div className="flex gap-5 p-[22px] border border-black10 border-opacity-10 rounded-[10px] items-center">
           <HeadlineSemibold>{bottomText}</HeadlineSemibold>
-          <PrimaryBtn>{btnText}</PrimaryBtn>
+          <PrimaryBtnLink href={btnLink || '/'}>{btnText}</PrimaryBtnLink>
         </div>
       )}
     </div>
