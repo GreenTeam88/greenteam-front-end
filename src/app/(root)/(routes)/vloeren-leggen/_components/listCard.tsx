@@ -41,7 +41,7 @@ export const ListCard: React.FC<ListCardProps> = ({
             </div>
           </div>
           <div className="flex flex-col gap-[11px]">
-            <BodyText className="text-secondaryDefault">{orangeText}</BodyText>
+            <BodyText className="text-secondaryDefault font-bold">{orangeText}</BodyText>
             <PrimaryBtnLink href={btnLink}>{btnText}</PrimaryBtnLink>
           </div>
         </div>

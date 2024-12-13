@@ -23,7 +23,7 @@ const thirdSectionCards: InfoCardProps[] = [
         wat aan te doen!{' '}
       </>,
       <>
-        <BodyText className="text-secondaryDefault">
+        <BodyText className="text-secondaryDefault font-bold">
           Ligt jouw vloer er al 10 tot 20 jaar dan is het de hoogste tijd om daar wat aan te doen!
         </BodyText>
       </>,
@@ -49,7 +49,7 @@ const thirdSectionCards: InfoCardProps[] = [
         </BodyText>
       </>,
       <>
-        <BodyText className="text-secondaryDefault">Dit gebeurt standaard na het hardwaxen.</BodyText>{' '}
+        <BodyText className="text-secondaryDefault font-bold">Dit gebeurt standaard na het hardwaxen.</BodyText>{' '}
       </>,
     ],
   },

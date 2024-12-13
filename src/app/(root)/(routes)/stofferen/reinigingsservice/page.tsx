@@ -29,7 +29,7 @@ const thirdSectionCards: InfoCardProps[] = [
         éMet onze deskundige aanpak krijgen uw meubels niet alleen een nieuwe look, maar ook een nieuw leven!{' '}
       </p>,
       <div key="5">
-        <BodyText className="text-secondaryDefault">
+        <BodyText className="text-secondaryDefault font-bold">
           Geniet ook weer van een stralend en hygiënisch tapijt, zodat uw interieur weer als nieuw aanvoelt.{' '}
         </BodyText>
       </div>,

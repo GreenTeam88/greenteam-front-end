@@ -28,7 +28,7 @@ const thirdSectionCards: InfoCardProps[] = [
         ondergrond en temperatuur in de ruimte.{' '}
       </p>,
       <div key="4">
-        <BodyText className="text-secondaryDefault">
+        <BodyText className="text-secondaryDefault font-bold">
           Ligt jouw vloer er al 10 tot 20 jaar dan is het de hoogste tijd om daar wat aan te doen!{' '}
         </BodyText>
       </div>,

@@ -33,7 +33,7 @@ const thirdSectionCards: InfoCardProps[] = [
         <li>Tijdsbesparend: Bespaar uzelf het zware werk en laat alles aan onze professionals over.</li>
       </ul>,
       <div key="5">
-        <BodyText className="text-secondaryDefault">
+        <BodyText className="text-secondaryDefault font-bold">
           Ligt jouw vloer er al 10 tot 20 jaar dan is het de hoogste tijd om daar wat aan te doen!{' '}
         </BodyText>
       </div>,

@@ -34,7 +34,7 @@ const thirdSectionCards: InfoCardProps[] = [
         Met onze trapstoffering service krijgt uw trap een tweede leven, volledig afgestemd op uw wensen en interieur.{' '}
       </p>,
       <div key="5">
-        <BodyText className="text-secondaryDefault">
+        <BodyText className="text-secondaryDefault font-bold">
           Ligt jouw trap er al 10 tot 20 jaar dan is het de hoogste tijd om daar wat aan te doen!{' '}
         </BodyText>
       </div>,

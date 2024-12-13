@@ -24,7 +24,7 @@ const QuestionSection = () => {
         </div>
       </div>
       <div className="flex flex-col gap-3">
-        <BodyText className="text-secondaryDefault">Herkenbaar? Geen zorgen, wij lossen het op!</BodyText>
+        <BodyText className="text-secondaryDefault font-bold">Herkenbaar? Geen zorgen, wij lossen het op!</BodyText>
         <PrimaryBtn>Offerte berekenen</PrimaryBtn>
       </div>
     </div>

@@ -21,7 +21,7 @@ const thirdSectionCards: InfoCardProps[] = [
         hetzelfde leveren als wat er ligt.
       </>,
       <>
-        <BodyText className="text-secondaryDefault">
+        <BodyText className="text-secondaryDefault font-bold">
           Ligt jouw vloer er al 10 tot 20 jaar dan is het de hoogste tijd om daar wat aan te doen!
         </BodyText>
       </>,

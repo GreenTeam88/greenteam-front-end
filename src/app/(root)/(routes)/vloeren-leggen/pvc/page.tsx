@@ -37,7 +37,7 @@ const thirdSectionCards: InfoCardProps[] = [
         Met PVC kiest u voor een vloer die zowel praktisch als stijlvol is, zonder concessies.{' '}
       </p>,
       <div key="5">
-        <BodyText className="text-secondaryDefault">
+        <BodyText className="text-secondaryDefault font-bold ">
           Ligt jouw vloer er al 10 tot 20 jaar dan is het de hoogste tijd om daar wat aan te doen!{' '}
         </BodyText>
       </div>,

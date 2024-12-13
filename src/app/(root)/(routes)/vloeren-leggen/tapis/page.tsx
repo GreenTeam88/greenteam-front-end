@@ -32,8 +32,8 @@ const thirdSectionCards: InfoCardProps[] = [
         tilt. {' '}
       </p>,
       <div key="5">
-        <BodyText className="text-secondaryDefault">
-          Ligt jouw vloer er al 10 tot 20 jaar dan is het de hoogste tijd om daar wat aan te doen!
+        <BodyText className="text-secondaryDefault font-bold">
+          Ligt jouw vloer er al 10 tot 20 jaar dan i s het de hoogste tijd om daar wat aan te doen!
         </BodyText>
       </div>,
     ],
