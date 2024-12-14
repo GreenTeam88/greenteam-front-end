@@ -113,12 +113,14 @@ export default function Home() {
         description="Stapsgewijs naar een perfect resultaat"
         cards={thirdSectionCards}
         btnText="Bereken uw vloer"
+        btnLink="/offerte-aanvragen"
       />
       <WhyGreenTeam />
       <StoreSection
         title="Wat hebben wij voor u in petto?"
         description="Bekijk de resultaten van onze tapijttegels en ontdek hoe we verouderde en versleten vloeren transformeren tot stijlvolle en comfortabele ruimtes. Veel tevreden klanten zijn enthousiast over de kwaliteit en uitstraling van onze tapijttegels, uw vloer kan de volgende zijn!"
         btnText="Bereken uw vloer"
+        btnLink="/offerte-aanvragen"
         firstImg={'/stofferen/tapijttegels/tapijttegels-3.png'}
         secondImg="/stofferen/tapijttegels/tapijttegels-4.png"
         thirdImg="/stofferen/tapijttegels/tapijttegels-5.png"

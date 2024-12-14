@@ -1,4 +1,4 @@
-import { PrimaryBtn } from '@/components/theme/buttons';
+import { PrimaryBtn, PrimaryBtnLink } from '@/components/theme/buttons';
 import { BodyText, BodyTextBold } from '@/components/theme/typography';
 import { cn } from '@/lib/tailwind';
 import { ImageCarousel } from './animations/imageCrausel';
@@ -11,6 +11,8 @@ export const WhatWaitingForCard: React.FC<InfoCardProps & { orangeText: string }
   imgClassName,
   buttonText,
   secondBtnText,
+  secondBtnLink,
+  buttonLink,
   className,
   orangeText,
 }) => {
@@ -33,8 +35,8 @@ export const WhatWaitingForCard: React.FC<InfoCardProps & { orangeText: string }
         <div className="flex flex-col gap-[11px]">
           <BodyTextBold className="text-secondaryDefault"> {orangeText}</BodyTextBold>
           <div className="flex gap-3">
-            {buttonText && <PrimaryBtn>{buttonText}</PrimaryBtn>}
-            {secondBtnText && <PrimaryBtn>{secondBtnText}</PrimaryBtn>}
+            {buttonText && <PrimaryBtnLink href={buttonLink || '/'}>{buttonText}</PrimaryBtnLink>}
+            {secondBtnText && <PrimaryBtnLink href={secondBtnLink || '/'}>{secondBtnText}</PrimaryBtnLink>}
           </div>
         </div>
       </div>

@@ -125,12 +125,14 @@ export default function Home() {
         description="Stapsgewijs naar een perfect resultaat"
         cards={thirdSectionCards}
         btnText="Bereken uw vloer"
+        btnLink="/offerte-aanvragen"
       />
       <WhyGreenTeam />
       <StoreSection
         title="Wat hebben wij voor u in petto?"
         description="Bekijk de resultaten van onze vloerstoffeerservice en ontdek hoe we verouderde en versleten vloeren omtoveren tot sfeervolle en comfortabele ruimtes. Onze tevreden klanten zijn enthousiast over onze kwaliteit, en uw vloer kan de volgende zijn!"
         btnText="Bereken uw vloer"
+        btnLink="/offerte-aanvragen"
         firstImg={'/stofferen/vloer/vloer-3.png'}
         secondImg="/stofferen/vloer/vloer-4.png"
         thirdImg="/stofferen/vloer/vloer-5.png"

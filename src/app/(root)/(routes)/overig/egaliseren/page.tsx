@@ -140,6 +140,7 @@ export default function Home() {
         description="Stapsgewijs naar een perfect resultaat"
         cards={thirdSectionCards}
         btnText="Bereken uw vloer"
+        btnLink="/offerte-aanvragen"
       />
       <WhyGreenTeam />
 

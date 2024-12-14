@@ -1,7 +1,7 @@
 import { GameIcon } from '@/components/icons/game';
 import { HeartIcon } from '@/components/icons/heart';
 import { StarIcon } from '@/components/icons/star';
-import { SecondaryOutlinedBtn } from '@/components/theme/buttons';
+import { SecondaryOutlinedBtn, SecondaryOutlinedBtnLink } from '@/components/theme/buttons';
 import { BodyText, H2, HeadlineSemibold } from '@/components/theme/typography';
 
 type WhyGreenTeamCardProps = {
@@ -55,7 +55,7 @@ const BottomSection = () => {
   return (
     <div className="flex items-center gap-[22px] p-[22px] ">
       <HeadlineSemibold>Ik heb een specialist nodig!</HeadlineSemibold>
-      <SecondaryOutlinedBtn>Praat met een specialist</SecondaryOutlinedBtn>
+      <SecondaryOutlinedBtnLink href="/contact">Praat met een specialist</SecondaryOutlinedBtnLink>
     </div>
   );
 };
