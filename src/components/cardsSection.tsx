@@ -1,6 +1,6 @@
 import React from 'react';
 
-import { PrimaryBtn, PrimaryBtnLink } from '@/components/theme/buttons';
+import { PrimaryBtnLink } from '@/components/theme/buttons';
 import { BodyText, H2, HeadlineSemibold } from '@/components/theme/typography';
 import { InfoCardProps, OrangeInfoCard } from './cards';
 
