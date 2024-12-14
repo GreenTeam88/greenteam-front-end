@@ -346,7 +346,7 @@ const HeaderColumn: React.FC<HeaderColumnInfo & { index: number }> = ({ subPages
   return (
     <>
       <div className="flex flex-col  gap-[11px]">
-        <Link href={link} className="text-sm font-semibold text-primaryDefault">
+        <Link href={link} className="text-sm font-semibold hover:text-secondaryDefault text-primaryDefault">
           {title}
         </Link>
         <div className="flex w-[180px] flex-col gap-1">
@@ -381,7 +381,7 @@ export const HeaderTopSection = () => {
         {' '}
         <img src={appConfig.logoSrcImg} />
       </Link>
-      <div className="flex items-center min-w-[633px] p-[10px] justify-around">
+      <div className="flex items-center lg:min-w-[733px] p-[10px] justify-around">
         <motion.div
           className=" w-[15.32px] h-[16px] rounded-full"
           initial={{ backgroundColor: '#fff' }}
@@ -419,10 +419,10 @@ export const HeaderBoldLink: React.FC<{
     <>
       <div
         onMouseOver={() => !hoveredLink && setHoveredLink(route.name)}
-        className={cn('flex  items-center  cursor-pointer', { 'text-primaryDefault': hoveredLink === route.name })}
+        className={cn('flex  items-center  cursor-pointer', { 'text-secondaryDefault': hoveredLink === route.name })}
       >
         {path ? (
-          <Link href={route.path as string} className="font-bold flex group items-center text-[16px]">
+          <Link href={route.path as string} className="font-bold flex  group items-center text-[16px]">
             {route.name}
 
             {/* {columns && <img width={15} src="/icons/dropDown.svg" className="inline mx-2" />} */}
@@ -545,15 +545,15 @@ export const HeaderLink: React.FC<{
         <Link
           href={route.path || '/'}
           className={cn('text-[16px] flex h-fit items-end leading-tight  gap-1', {
-            'text-primaryDefault': showDropDown,
+            'text-secondaryDefault': showDropDown,
           })}
         >
           {route.name}
           {'columns' in route && route.columns && (
             <div className=" ">
               <DropDownIcon
-                className={cn('group-hover:stroke-primaryDefault mx-3  ', {
-                  'stroke-primaryDefault': showDropDown,
+                className={cn('group-hover:stroke-secondaryDefault mx-3  ', {
+                  'stroke-secondaryDefault': showDropDown,
                 })}
               />
             </div>
