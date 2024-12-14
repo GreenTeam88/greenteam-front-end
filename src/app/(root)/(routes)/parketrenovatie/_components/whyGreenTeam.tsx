@@ -3,7 +3,7 @@ import { isValidElement } from 'react';
 import { GameIcon } from '@/components/icons/game';
 import { HeartIcon } from '@/components/icons/heart';
 import { StarIcon } from '@/components/icons/star';
-import { SecondaryOutlinedBtn, SecondaryOutlinedBtnLink } from '@/components/theme/buttons';
+import { SecondaryOutlinedBtnLink } from '@/components/theme/buttons';
 import { BodyText, H2, HeadlineSemibold } from '@/components/theme/typography';
 
 type WhyGreenTeamCardProps = {
