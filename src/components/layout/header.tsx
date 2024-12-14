@@ -346,7 +346,7 @@ const HeaderColumn: React.FC<HeaderColumnInfo & { index: number }> = ({ subPages
   return (
     <>
       <div className="flex flex-col  gap-[11px]">
-        <Link href={link} className="text-sm font-semibold hover:text-secondaryDefault text-primaryDefault">
+        <Link href={link} className="text-sm font-semibold hover:text-secondaryDefault text-primaryDefault ">
           {title}
         </Link>
         <div className="flex w-[180px] flex-col gap-1">
@@ -428,7 +428,7 @@ export const HeaderBoldLink: React.FC<{
             {/* {columns && <img width={15} src="/icons/dropDown.svg" className="inline mx-2" />} */}
             {columns && (
               <div className={cn('mx-2')}>
-                <DropDownIcon className={cn('group-hover:stroke-primaryDefault   block mx-2')} />
+                <DropDownIcon className={cn('group-hover:stroke-secondaryDefault   block mx-2')} />
               </div>
             )}
           </Link>
