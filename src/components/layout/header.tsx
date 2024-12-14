@@ -390,7 +390,6 @@ export const HeaderTopSection = () => {
             transition: { duration: 2, ease: 'easeIn', repeat: Infinity },
           }}
         ></motion.div>
-        {/* <p className="font-semibold text-[22px] text-primaryGreenD1"> Liever iemand spreken? Bel 085 401 93 45</p> */}
         <TitleCarousel />
         <div className="flex gap-[22px] items-center ">
           <div className="cursor-pointer " onClick={() => window.open(appConfig.instagramAccount, '_blank')}>

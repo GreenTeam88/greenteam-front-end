@@ -13,7 +13,7 @@ const titles = [
   'Van vloerverwarming tot stijlvolle designvloeren',
   'PVC-designvloeren: waterdicht en elegant',
   'Twijfels? Onze specialisten helpen u graag',
-  'Binnen enkele uren een offerte in uw mailbox];',
+  'Binnen enkele uren een offerte in uw mailbox',
 ];
 export function TitleCarousel() {
   const [currentIndex, setCurrentIndex] = useState(0);
@@ -27,7 +27,7 @@ export function TitleCarousel() {
   }, []);
 
   return (
-    <div style={{ position: 'relative', height: '50px', width: '600px' }}>
+    <div style={{ position: 'relative', height: '50px', width: '650px' }}>
       <AnimatePresence>
         <motion.div
           key={currentIndex}
