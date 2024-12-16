@@ -1,7 +1,7 @@
 'use client';
 
-import { motion, useAnimation } from 'framer-motion';
-import React, { useEffect, useRef, useState } from 'react';
+import { motion } from 'framer-motion';
+import React, { useEffect, useState } from 'react';
 
 import { CarouselIcon } from '@/components/icons/arrows';
 import { H2 } from '@/components/theme/typography';
@@ -95,7 +95,7 @@ const ratings: RatingInfo[] = [
 
 const RatingCard: React.FC<RatingInfo> = ({ stars, date: birthDate, description, images, name }) => {
   return (
-    <div className="flex z-40 flex-col gap-[22px] bg-white p-4 lg:p-[22px] lg:w-[380px] ">
+    <div className="flex z-40 flex-col gap-[22px] bg-white p-4 lg:p-[22px] w-full ">
       <div className="flex w-full  justify-between">
         <div className="flex ">
           {Array.from({ length: stars }).map((item, index) => (
@@ -127,54 +127,20 @@ const RatingTopSection = () => {
   );
 };
 
-const Ratings = () => {
-  const firstRowAnimation = useAnimation();
-  const firstRowX = useRef(0);
-  const secondRowAnimation = useAnimation();
-  const secondRowX = useRef(0);
-  const [intervalId, setIntervalId] = useState<NodeJS.Timeout | null>();
-
-  // Scroll left animation
-  const scrollLeft = async () => {
-    await Promise.all([
-      firstRowAnimation.start({ x: firstRowX.current - 400 }),
-      secondRowAnimation.start({ x: secondRowX.current - 400 }),
-    ]);
-    firstRowX.current -= 400;
-    secondRowX.current -= 400;
-
-    if (firstRowX.current === -1200) {
-      await firstRowAnimation.start({ x: 1200, transition: { duration: 0 } });
-      firstRowX.current = 1200;
-    }
-    if (secondRowX.current === -2400) {
-      await secondRowAnimation.start({ x: 0, transition: { duration: 0 } });
-      secondRowX.current = 0;
-    }
+const DesktopRating: React.FC = () => {
+  const [currentIndex, setCurrentIndex] = useState(0);
+  const [intervalId, setIntervalId] = useState<NodeJS.Timeout | null>(null);
+  const slideLeft = () => {
+    setCurrentIndex((prevIndex) => (prevIndex === 0 ? ratings.length - 3 : prevIndex - 1));
   };
 
-  // New scroll right animation
-  const scrollRight = async () => {
-    await Promise.all([
-      firstRowAnimation.start({ x: firstRowX.current + 400 }),
-      secondRowAnimation.start({ x: secondRowX.current + 400 }),
-    ]);
-    firstRowX.current += 400;
-    secondRowX.current += 400;
-
-    if (firstRowX.current === 1600) {
-      await firstRowAnimation.start({ x: -800, transition: { duration: 0 } });
-      firstRowX.current = -800;
-    }
-    if (secondRowX.current === 400) {
-      await secondRowAnimation.start({ x: -2000, transition: { duration: 0 } });
-      secondRowX.current = -2000;
-    }
+  const slideRight = () => {
+    setCurrentIndex((prevIndex) => (prevIndex === ratings.length - 3 ? 0 : prevIndex + 1));
   };
 
   // Auto-scroll effect
   useEffect(() => {
-    const animationIntervalId = setInterval(scrollLeft, 10000);
+    const animationIntervalId = setInterval(slideRight, 10000);
     animationIntervalId && setIntervalId(animationIntervalId);
     return () => {
       clearInterval(animationIntervalId);
@@ -182,52 +148,58 @@ const Ratings = () => {
   }, []);
 
   return (
-    <div className="flex gap-[36px] items-center">
-      {/* Left Arrow */}
+    <div className=" gap-3 hidden lg:flex items-center">
+      {/* left arrow  */}
       <div
         onClick={() => {
           if (intervalId) clearInterval(intervalId);
-          scrollRight();
+          slideLeft();
         }}
-        className="hidden lg:block group rotate-180 cursor-pointer"
+        className={cn('hidden lg:block group rotate-180 cursor-pointer', {
+          invisible: currentIndex === 0,
+        })}
       >
         <CarouselIcon />
       </div>
-
-      {/* Ratings for desktop */}
-      <div className="hidden lg:flex w-[1200px] gap-[20px] relative h-[400px] overflow-hidden">
-        <motion.div
-          animate={firstRowAnimation}
-          className="flex overflow-visible absolute top-0 left-0 gap-[20px] flex-col lg:flex-row"
-        >
-          {ratings.map((rating, index) => (
-            <RatingCard key={`first-${index}`} {...rating} />
-          ))}
-        </motion.div>
-        <motion.div
-          animate={secondRowAnimation}
-          className="flex gap-[20px] absolute left-[1200px] top-0 flex-col  overflow-visible lg:flex-row"
-        >
-          {ratings.slice(3, 6).map((rating, index) => (
-            <RatingCard key={`second-${index}`} {...rating} />
-          ))}
-        </motion.div>
+      {/* adding margin left to adjust the gaps between right and left arrows */}
+      <div className="relative w-full laptop:mr-[41px]  max-w-[1220px] mx-auto">
+        {/* Container */}
+        <div className="relative z-10  overflow-hidden">
+          {/* Carousel Track */}
+          <motion.div
+            className="flex z-40 overflow-visible  relative"
+            animate={{
+              x: `-${currentIndex * (100 / 3)}%`,
+            }}
+            transition={{
+              duration: 0.5,
+              ease: 'easeInOut',
+            }}
+            style={{
+              overflow: 'visible',
+            }}
+          >
+            {ratings.map((item, index) => (
+              <div
+                key={index}
+                className={cn('min-w-[33.333%]  p-2', {
+                  ' pl-[45px]': currentIndex === index,
+                  // if it is the first card of the container , it should have padding at the left so that when we hover on the images , the image does not got hidden
+                })} // Each item takes up 1/3 of the container
+              >
+                <RatingCard {...item} />
+              </div>
+            ))}
+          </motion.div>
+        </div>
       </div>
-
-      {/* Ratings for mobile */}
-      <div className="flex gap-[20px] lg:hidden flex-col lg:flex-row">
-        {ratings.map((rating, index) => (
-          <RatingCard key={`mobile-${index}`} {...rating} />
-        ))}
-      </div>
-
       {/* Right Arrow */}
       <div
         onClick={() => {
           if (intervalId) clearInterval(intervalId);
-          scrollLeft();
+          slideRight();
         }}
-        className="hidden lg:block group cursor-pointer"
+        className={cn('hidden lg:block group cursor-pointer', { invisible: currentIndex === ratings.length - 3 })}
       >
         <CarouselIcon />
       </div>
@@ -235,14 +207,27 @@ const Ratings = () => {
   );
 };
 
+const MobileRating = () => {
+  return (
+    <div className="flex flex-col gap-4 lg:hidden">
+      {ratings.map((rating) => (
+        <RatingCard key={rating.name} {...rating} />
+      ))}
+    </div>
+  );
+};
+
 export const RatingSection = () => {
   return (
-    <div className="w-full px-3 lg:px-0 bg-lightOrange gap-[60px] max-w-full flex items-center py-[122px] justify-center">
-      <div className="flex flex-col max-w-[1440px] gap-[44px] items-center justify-center">
+    <div className="w-full relative px-3 lg:px-0 bg-lightOrange gap-[60px] max-w-full flex items-center py-[122px] justify-center">
+      <div className="flex flex-col z-10 relative max-w-[1440px] gap-[44px] items-center justify-center">
         {/* top section includes title and ratings on google */}
         <RatingTopSection />
-        {/* ratings section includes the cards and the arrows */}
-        <Ratings />
+        {/* ratings section includes the cards and the arrows for desktop */}
+        <DesktopRating />
+        {/* ratings section includes the cards and the arrows for mobile */}
+
+        <MobileRating />
       </div>
     </div>
   );
