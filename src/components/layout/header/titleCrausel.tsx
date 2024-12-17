@@ -2,7 +2,7 @@ import { AnimatePresence, motion } from 'framer-motion';
 import { useEffect, useState } from 'react';
 
 const titles = [
-  'Liever iemand spreken? Bel 085 40193 45',
+  'Liever iemand spreken? Bel 085 401 93 45',
   'Voor elke dienst, de juiste specialist',
   'Garantie op werk én materialen',
   'Snel schakelen? Spoedklussen welkom!',

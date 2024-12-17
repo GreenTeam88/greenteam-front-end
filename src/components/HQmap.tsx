@@ -68,37 +68,53 @@ const boldGreenLocations: HQLocation[] = [
 ];
 
 const HQUI: React.FC<HQLocation & { index: number }> = ({ left, top, type, index }) => {
-  const duration = 1;
+  const rotationDuration = 2;
+  const waitBetweenIcons = 3;
   const totalIcons = boldGreenLocations.length;
-  // the deley should be according to the duration of the animation and how many locations we have
-  const sequence = index * duration;
+  const sequence = index * (rotationDuration + waitBetweenIcons);
+  const totalCycleDuration = totalIcons * (rotationDuration + waitBetweenIcons);
+
+  // Split the animation into two parts
+  const rightRotation = {
+    rotate: [0, 40, 0],
+    transformOrigin: 'bottom right',
+  };
+
+  const leftRotation = {
+    rotate: [0, -40, 0],
+    transformOrigin: 'bottom left',
+  };
 
   return (
-    <motion.div
-      style={{ position: 'absolute', top, left }}
+    <div
+      style={{
+        position: 'absolute',
+        top,
+        left,
+      }}
       className="relative"
-      initial={{ rotate: 0 }}
-      animate={{
-        rotate: [0, 40, -40, 30, -30, 20, -20, 10, -10, 5, -5, 0],
-      }}
-      transition={{
-        duration: duration,
-        repeat: Infinity,
-        delay: sequence,
-        repeatDelay: (totalIcons - 1) * duration, // Wait for other animations to complete
-        ease: 'easeInOut',
-      }}
     >
-      <img src={type === 'bold' ? '/contact/mapHQBoldGreen.png' : '/contact/mapHQLightGreen.png'} />
-      {/* defigning the center icon   */}
-      <img
-        src={type === 'bold' ? '/contact/mapHQBoldGreenCenterIcon.png' : '/contact/mapHQLightGreenCenterIcon.png'}
-        className="absolute  left-1/2 -translate-x-1/2 top-[10px]"
-      />
-    </motion.div>
+      <div>
+        <motion.div
+          animate={{ rotate: [0, 40, -40, 0] }}
+          transition={{
+            duration: rotationDuration,
+            repeat: Infinity,
+            delay: sequence,
+            repeatDelay: totalCycleDuration - (rotationDuration + sequence),
+            ease: 'easeInOut',
+          }}
+        >
+          <motion.img src={type === 'bold' ? '/contact/mapHQBoldGreen.png' : '/contact/mapHQLightGreen.png'} />
+          <img
+            src={type === 'bold' ? '/contact/mapHQBoldGreenCenterIcon.png' : '/contact/mapHQLightGreenCenterIcon.png'}
+            className="absolute left-1/2 -translate-x-1/2 top-[10px]"
+          />
+        </motion.div>
+      </div>
+    </div>
   );
 };
-
 export const HQMap = () => {
   return (
     <div className="max-w-[95vw] flex items-center justify-center  overflow-hidden">
