@@ -28,7 +28,7 @@ const ServicesCarousel = () => {
 
   return (
     <>
-      <div className="relative hidden lg:flex max-w-[1600px] mx-auto px-8  gap-2 items-center">
+      <div className="relative hidden lg:flex max-w-[1500px] mx-auto px-8  gap-2 items-center">
         <div
           onClick={handlePrev}
           className={clsx('hidden group lg:block group rotate-180 cursor-pointer', { invisible: currentIndex === 0 })}
@@ -36,11 +36,11 @@ const ServicesCarousel = () => {
           <CarouselIcon />
         </div>
 
-        <div className="overflow-hidden">
+        <div className="overflow-hidden ">
           <motion.div
-            className="flex gap-6"
+            className="flex w-[1400px] gap-6"
             animate={{
-              x: `-${currentIndex * (100 / 4)}%`,
+              x: `-${currentIndex * (100 / 3)}%`,
             }}
             transition={{
               type: 'spring',
