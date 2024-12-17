@@ -1,7 +1,7 @@
 'use client';
 
 import { motion } from 'framer-motion';
-import React, { useEffect, useState } from 'react';
+import React, { useCallback, useEffect, useState } from 'react';
 
 import { CarouselIcon } from '@/components/icons/arrows';
 import { H2 } from '@/components/theme/typography';
@@ -129,30 +129,58 @@ const RatingTopSection = () => {
 
 const DesktopRating: React.FC = () => {
   const [currentIndex, setCurrentIndex] = useState(0);
-  const [intervalId, setIntervalId] = useState<NodeJS.Timeout | null>(null);
+  // the direction of the auto scrolling
+  const [direction, setDirection] = useState<'right' | 'left'>('right');
+
+  // when the user scrolls manually , the autoscrolling should be stoped
+  const [autoScrollingStoped, setAutoScrollingStoped] = useState(false);
+
+  // scrolling to left function
   const slideLeft = () => {
     setCurrentIndex((prevIndex) => (prevIndex === 0 ? ratings.length - 3 : prevIndex - 1));
   };
 
+  // scrolling to right function
   const slideRight = () => {
     setCurrentIndex((prevIndex) => (prevIndex === ratings.length - 3 ? 0 : prevIndex + 1));
   };
 
-  // Auto-scroll effect
+  // Auto-scroll effect with direction change , we need to reset the inverval whenever the direction changes
   useEffect(() => {
-    const animationIntervalId = setInterval(slideRight, 10000);
-    animationIntervalId && setIntervalId(animationIntervalId);
+    const autoScroll = () => {
+      if (direction === 'right') {
+        if (currentIndex === ratings.length - 3) {
+          setDirection('left');
+          setCurrentIndex((prev) => prev - 1);
+        } else {
+          setCurrentIndex((prev) => prev + 1);
+        }
+      } else {
+        if (currentIndex === 0) {
+          setDirection('right');
+          setCurrentIndex((prev) => prev + 1);
+        } else {
+          setCurrentIndex((prev) => prev - 1);
+        }
+      }
+    };
+
+    // don't set the interval if the auto scrolling is stoped
+    let animationIntervalId: NodeJS.Timeout;
+    if (!autoScrollingStoped) {
+      animationIntervalId = setInterval(autoScroll, 1000);
+    }
     return () => {
       clearInterval(animationIntervalId);
     };
-  }, []);
+  }, [direction, currentIndex]);
 
   return (
     <div className=" gap-3 hidden lg:flex items-center">
       {/* left arrow  */}
       <div
         onClick={() => {
-          if (intervalId) clearInterval(intervalId);
+          setAutoScrollingStoped(true);
           slideLeft();
         }}
         className={cn('hidden lg:block group rotate-180 cursor-pointer', {
@@ -161,11 +189,8 @@ const DesktopRating: React.FC = () => {
       >
         <CarouselIcon />
       </div>
-      {/* adding margin left to adjust the gaps between right and left arrows */}
       <div className="relative w-full laptop:mr-[41px]  max-w-[1220px] mx-auto">
-        {/* Container */}
         <div className="relative z-10  overflow-hidden">
-          {/* Carousel Track */}
           <motion.div
             className="flex z-40 overflow-visible  relative"
             animate={{
@@ -184,8 +209,7 @@ const DesktopRating: React.FC = () => {
                 key={index}
                 className={cn('min-w-[33.333%]  p-2', {
                   ' pl-[45px]': currentIndex === index,
-                  // if it is the first card of the container , it should have padding at the left so that when we hover on the images , the image does not got hidden
-                })} // Each item takes up 1/3 of the container
+                })}
               >
                 <RatingCard {...item} />
               </div>
@@ -196,7 +220,7 @@ const DesktopRating: React.FC = () => {
       {/* Right Arrow */}
       <div
         onClick={() => {
-          if (intervalId) clearInterval(intervalId);
+          setAutoScrollingStoped(true);
           slideRight();
         }}
         className={cn('hidden lg:block group cursor-pointer', { invisible: currentIndex === ratings.length - 3 })}
@@ -206,7 +230,6 @@ const DesktopRating: React.FC = () => {
     </div>
   );
 };
-
 const MobileRating = () => {
   return (
     <div className="flex flex-col gap-4 lg:hidden">
