@@ -20,7 +20,7 @@ const infoCardConfig: InfoCardProps = {
   ],
   title: 'Natuursteen behandelen',
   secondBtnText: 'Offerte berekenen',
-  secondBtnLink: '/offerte-aanvragen',
+  secondBtnLink: '/offerte',
 };
 
 export const NatuursteenBehandelen = () => {

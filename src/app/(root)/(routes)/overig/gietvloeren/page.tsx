@@ -85,7 +85,7 @@ const whatWaitingForConfig: InfoCardProps = {
   ],
   imgSrc: '/overig/gietvloeren/gietvloeren-8.png',
   buttonText: 'Offerte berekenen',
-  buttonLink: '/offerte-aanvragen',
+  buttonLink: '/offerte',
 };
 
 export default function Home() {
@@ -102,7 +102,7 @@ export default function Home() {
           'Extreem veel krasjes',
           'Vieze vlekken in de vloer ',
         ]}
-        btnLink="/offerte-aanvragen"
+        btnLink="/offerte"
         btnText="Offerte berekenen"
         imgSrc="/overig/gietvloeren/gietvloeren-1.png"
         orangeText="Geen zorgen, wij hebben de oplossing!"
@@ -113,7 +113,7 @@ export default function Home() {
         description="Stapsgewijs naar een perfect resultaat"
         cards={thirdSectionCards}
         btnText="Bereken jouw vloer"
-        btnLink="/offerte-aanvragen"
+        btnLink="/offerte"
       />
       <WhyGreenTeam />
 
@@ -121,7 +121,7 @@ export default function Home() {
         title="Wat hebben wij in petto? Jouw vloer weer laten stralen!"
         description="Bekijk de resultaten van onze gietvloeren en ontdek de ongeëvenaarde kwaliteit en afwerking voor jouw huis. Wij zorgen voor een duurzame en stijlvolle vloer die bijdraagt aan een unieke uitstraling in elke ruimte. Veel tevreden klanten hebben al gekozen voor onze gietvloeren, en u kunt de volgende zijn!"
         btnText="Bereken jouw vloer"
-        btnLink="/offerte-aanvragen"
+        btnLink="/offerte"
         firstImg={'/overig/gietvloeren/gietvloeren-3.png'}
         secondImg="/overig/gietvloeren/gietvloeren-4.png"
         thirdImg="/overig/gietvloeren/gietvloeren-5.png"

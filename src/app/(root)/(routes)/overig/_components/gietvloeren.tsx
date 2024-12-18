@@ -20,7 +20,7 @@ const infoCardConfig: InfoCardProps = {
   ],
   title: 'Gietvloeren',
   secondBtnText: 'Offerte berekenen',
-  secondBtnLink: '/offerte-aanvragen',
+  secondBtnLink: '/offerte',
 };
 
 export const Gietvloeren = () => {

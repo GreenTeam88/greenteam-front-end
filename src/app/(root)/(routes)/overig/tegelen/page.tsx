@@ -92,7 +92,7 @@ const whatWaitingForConfig: InfoCardProps = {
   ],
   imgSrc: '/overig/tegelen/tegelen-8.png',
   buttonText: 'Offerte berekenen',
-  buttonLink: '/offerte-aanvragen',
+  buttonLink: '/offerte',
 };
 
 export default function Home() {
@@ -109,7 +109,7 @@ export default function Home() {
           'Vieze vlekken in de vloer',
           'Verouderde uitstraling ',
         ]}
-        btnLink="/offerte-aanvragen"
+        btnLink="/offerte"
         btnText="Offerte berekenen"
         imgSrc="/overig/tegelen/tegelen-1.png"
         orangeText="Geen zorgen, wij hebben de oplossing!"
@@ -120,7 +120,7 @@ export default function Home() {
         description="Stapsgewijs naar een perfect resultaat"
         cards={thirdSectionCards}
         btnText="Bereken jouw vloer"
-        btnLink="/offerte-aanvragen"
+        btnLink="/offerte"
       />
       <WhyGreenTeam />
 
@@ -128,7 +128,7 @@ export default function Home() {
         title="Wat hebben wij in petto? Jouw vloer weer laten stralen!"
         description="Bekijk de resultaten van onze tegeldiensten en ontdek de ongeëvenaarde kwaliteit en afwerking voor jouw ruimtes. Wij zorgen voor een duurzame en stijlvolle tegelvloer die bijdraagt aan een unieke uitstraling in elke kamer. Veel tevreden klanten hebben al gekozen voor onze tegeldiensten, en u kunt de volgende zijn!"
         btnText="Bereken jouw vloer"
-        btnLink="/offerte-aanvragen"
+        btnLink="/offerte"
         firstImg={'/overig/tegelen/tegelen-3.png'}
         secondImg="/overig/tegelen/tegelen-4.png"
         thirdImg="/overig/tegelen/tegelen-5.png"

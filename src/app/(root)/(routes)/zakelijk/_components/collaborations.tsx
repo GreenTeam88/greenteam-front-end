@@ -6,7 +6,7 @@ const config: InfoCardProps = {
   imgSrc: '/zakelijk/construction-team-working-blueprint-new-project.png',
   buttonText: 'Offerte aanvragen',
   imgClassName: 'max-w-[598px]',
-  buttonLink: '/offerte-aanvragen',
+  buttonLink: '/offerte',
   paragraphs: [
     <>
       <span className="text-secondaryDefault">Indien nodig schakelen we hulp in van betrouwbare partners.</span>

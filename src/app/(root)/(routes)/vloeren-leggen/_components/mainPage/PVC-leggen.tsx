@@ -20,7 +20,7 @@ const infoCardConfig: InfoCardProps = {
   ],
   title: 'PVC leggen',
   secondBtnText: 'Direct offerte berekenen',
-  secondBtnLink: '/offerte-aanvragen',
+  secondBtnLink: '/offerte',
 };
 
 export const PVCleggen = () => {

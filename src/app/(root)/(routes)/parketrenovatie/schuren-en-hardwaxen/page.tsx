@@ -95,7 +95,7 @@ const whatWaitingForConfig: InfoCardProps = {
   ],
   imgSrc: '/Parketrenovatie/schuren-en-hardwaxen-9.png',
   buttonText: 'Direct offerte berekenen',
-  buttonLink: '/offerte-aanvragen',
+  buttonLink: '/offerte',
 };
 
 export default function Home() {
@@ -110,7 +110,7 @@ export default function Home() {
       <CardsSection
         description="Stapsgewijs naar een perfect resultaat"
         btnText="Bereken jouw vloer"
-        btnLink="/offerte-aanvragen"
+        btnLink="/offerte"
         bottomText="Mijn vloer verdient die extra bescherming!"
         title="Hoe gaat schuren en hardwaxen in zijn werk?"
         cards={thirdSectionCards}

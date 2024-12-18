@@ -105,7 +105,7 @@ const whatWaitingForConfig: InfoCardProps = {
   ],
   imgSrc: '/Parketrenovatie/aanhelen-uitbreiden-9.png',
   buttonText: 'Direct offerte berekenen',
-  buttonLink: '/offerte-aanvragen',
+  buttonLink: '/offerte',
 };
 
 export default function Home() {
@@ -120,7 +120,7 @@ export default function Home() {
       <CardsSection
         description="Stapsgewijs naar een perfect resultaat"
         btnText="Bereken jouw vloer"
-        btnLink="/offerte-aanvragen"
+        btnLink="/offerte"
         bottomText="Ik wil mijn parket door laten leggen  "
         title="Hoe gaat aanhelen in zijn werk?"
         cards={thirdSectionCards}

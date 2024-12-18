@@ -89,7 +89,7 @@ const whatWaitingForConfig: InfoCardProps = {
   ],
   imgSrc: '/overig/natuursteen-behandelen/natuursteen-behandelen-8.png',
   buttonText: 'Offerte berekenen',
-  buttonLink: '/offerte-aanvragen',
+  buttonLink: '/offerte',
 };
 
 export default function Home() {
@@ -101,7 +101,7 @@ export default function Home() {
         pageName="Natuursteen behandelen"
         listTitle="Herkenbaar?"
         listItems={['Doffe vloer', 'Extreem veel krasjes', 'Vieze vlekken in de vloer', 'Versleten uitstraling']}
-        btnLink="/offerte-aanvragen"
+        btnLink="/offerte"
         btnText="Offerte berekenen"
         imgSrc="/overig/natuursteen-behandelen/natuursteen-behandelen-1.png"
         orangeText="Geen zorgen, wij hebben de oplossing!"
@@ -112,7 +112,7 @@ export default function Home() {
         description="Stapsgewijs naar een perfect resultaat"
         cards={thirdSectionCards}
         btnText="Bereken jouw vloer"
-        btnLink="/offerte-aanvragen"
+        btnLink="/offerte"
       />
       <WhyGreenTeam />
 
@@ -120,7 +120,7 @@ export default function Home() {
         title="Wat hebben wij in petto? Jouw vloer weer laten stralen!"
         description="Bekijk de resultaten van onze natuursteenbehandeling en ontdek de ongeëvenaarde kwaliteit en afwerking voor jouw vloer. Wij zorgen voor een zorgvuldige behandeling die de schoonheid en duurzaamheid van jouw natuursteen versterkt. Veel tevreden klanten hebben al gekozen voor onze natuursteenbehandeling, en u kunt de volgende zijn!"
         btnText="Bereken jouw vloer"
-        btnLink="/offerte-aanvragen"
+        btnLink="/offerte"
         firstImg={'/overig/natuursteen-behandelen/natuursteen-behandelen-3.png'}
         secondImg="/overig/natuursteen-behandelen/natuursteen-behandelen-4.png"
         thirdImg="/overig/natuursteen-behandelen/natuursteen-behandelen-5.png"

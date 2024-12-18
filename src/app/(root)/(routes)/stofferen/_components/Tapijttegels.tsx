@@ -18,7 +18,7 @@ const infoCardConfig: InfoCardProps = {
   ],
   title: 'Tapijttegels',
   secondBtnText: 'Offerte berekenen',
-  secondBtnLink: '/offerte-aanvragen',
+  secondBtnLink: '/offerte',
 };
 
 export const Tapijttegels = () => {

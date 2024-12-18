@@ -20,7 +20,7 @@ const infoCardConfig: InfoCardProps = {
   ],
   title: 'Vloerverwarming',
   secondBtnText: 'Offerte berekenen',
-  secondBtnLink: '/offerte-aanvragen',
+  secondBtnLink: '/offerte',
 };
 
 export const Overig = () => {

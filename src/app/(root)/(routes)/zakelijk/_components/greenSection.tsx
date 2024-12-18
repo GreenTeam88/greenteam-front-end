@@ -12,7 +12,7 @@ export const GreenSection = () => {
           <h3 className="text-xl   text-center lg:text-start font-bold max-w-[500px]    lg:text-[1.5vw] text-white lg:leading-[37px]  tracking-[-2%] ">
             Wij bieden oplossingen voor trappen en vloeren!{' '}
           </h3>
-          <PrimaryOutlinedBtnLink href="/offerte-aanvragen" className="lg:py-2">
+          <PrimaryOutlinedBtnLink href="/offerte" className="lg:py-2">
             Offerte aanvragen
           </PrimaryOutlinedBtnLink>
         </div>

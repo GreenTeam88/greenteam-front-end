@@ -20,7 +20,7 @@ const infoCardConfig: InfoCardProps = {
   ],
   title: 'Opslag',
   secondBtnText: 'Offerte berekenen',
-  secondBtnLink: '/offerte-aanvragen',
+  secondBtnLink: '/offerte',
 };
 
 export const Opslag = () => {

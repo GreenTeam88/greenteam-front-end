@@ -97,7 +97,7 @@ const whatWaitingForConfig: InfoCardProps = {
   ],
   imgSrc: '/Parketrenovatie/schuren-en-oliën-9.png',
   buttonText: 'Direct offerte berekenen',
-  buttonLink: '/offerte-aanvragen',
+  buttonLink: '/offerte',
 };
 export default function Home() {
   return (

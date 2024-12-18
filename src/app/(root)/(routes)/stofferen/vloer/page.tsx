@@ -97,7 +97,7 @@ const whatWaitingForConfig: InfoCardProps = {
   ],
   imgSrc: '/stofferen/vloer/vloer-8.png',
   buttonText: 'Direct offerte berekenen',
-  buttonLink: '/offerte-aanvragen',
+  buttonLink: '/offerte',
 };
 
 export default function Home() {
@@ -114,7 +114,7 @@ export default function Home() {
           'Hardnekkige vlekken in de vloer',
           'Verouderde uitstraling',
         ]}
-        btnLink="/offerte-aanvragen"
+        btnLink="/offerte"
         btnText="Offerte berekenen"
         imgSrc="/stofferen/vloer/vloer-1.png"
         orangeText=" Geen zorgen, wij hebben de oplossing!"
@@ -125,14 +125,14 @@ export default function Home() {
         description="Stapsgewijs naar een perfect resultaat"
         cards={thirdSectionCards}
         btnText="Bereken uw vloer"
-        btnLink="/offerte-aanvragen"
+        btnLink="/offerte"
       />
       <WhyGreenTeam />
       <StoreSection
         title="Wat hebben wij voor u in petto?"
         description="Bekijk de resultaten van onze vloerstoffeerservice en ontdek hoe we verouderde en versleten vloeren omtoveren tot sfeervolle en comfortabele ruimtes. Onze tevreden klanten zijn enthousiast over onze kwaliteit, en uw vloer kan de volgende zijn!"
         btnText="Bereken uw vloer"
-        btnLink="/offerte-aanvragen"
+        btnLink="/offerte"
         firstImg={'/stofferen/vloer/vloer-3.png'}
         secondImg="/stofferen/vloer/vloer-4.png"
         thirdImg="/stofferen/vloer/vloer-5.png"

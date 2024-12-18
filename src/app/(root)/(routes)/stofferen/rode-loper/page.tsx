@@ -86,7 +86,7 @@ const whatWaitingForConfig: InfoCardProps = {
   ],
   imgSrc: '/stofferen/rode-loper/rode-loper-8.png',
   buttonText: 'Direct offerte berekenen',
-  buttonLink: '/offerte-aanvragen',
+  buttonLink: '/offerte',
 };
 
 export default function Home() {
@@ -103,7 +103,7 @@ export default function Home() {
           'Een onverzorgde eerste indruk',
           'Gebrek aan een luxe uistraling',
         ]}
-        btnLink="/offerte-aanvragen"
+        btnLink="/offerte"
         btnText="Offerte berekenen"
         imgSrc="/stofferen/rode-loper/rode-loper-1.png"
         orangeText="Herkenbaar? Geen zorgen, wij lossen het op!"

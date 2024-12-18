@@ -17,7 +17,7 @@ const infoCardConfig: InfoCardProps = {
   ],
   title: 'Reparatie',
   secondBtnText: 'Direct offerte berekenen',
-  secondBtnLink: '/offerte-aanvragen',
+  secondBtnLink: '/offerte',
 };
 
 export const Reparatie = () => {

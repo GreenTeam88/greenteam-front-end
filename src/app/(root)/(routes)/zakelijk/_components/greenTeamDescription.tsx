@@ -4,7 +4,7 @@ import { InfoCardProps, OrangeInfoCard } from '../../diensten/_components/cards'
 
 const greenTeamDescriptionInfo: InfoCardProps = {
   buttonText: 'Offerte aanvragen',
-  buttonLink: '/offerte-aanvragen',
+  buttonLink: '/offerte',
   imgSrc: '/zakelijk/beautiful-shot-modern-house-staircase.png',
   title:
     'Green Team is al meer dan 20 jaar specialist in het leggen en renoveren van parketvloeren in verschillende bedrijfstakken.',

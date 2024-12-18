@@ -94,7 +94,7 @@ const whatWaitingForConfig: InfoCardProps = {
   ],
   imgSrc: '/overig/vloerverwarming/vloerverwarming-8.png',
   buttonText: 'Direct offerte berekenen',
-  buttonLink: '/offerte-aanvragen',
+  buttonLink: '/offerte',
 };
 
 export default function Home() {
@@ -111,7 +111,7 @@ export default function Home() {
           'Hoge energie rekening',
           'Koude voeten in huis ',
         ]}
-        btnLink="/offerte-aanvragen"
+        btnLink="/offerte"
         btnText="Offerte berekenen"
         imgSrc="/overig/vloerverwarming/vloerverwarming-1.png"
         orangeText="Geen zorgen, wij hebben de oplossing!"
@@ -122,7 +122,7 @@ export default function Home() {
         description="Stapsgewijs naar een perfect resultaat"
         cards={thirdSectionCards}
         btnText="Bereken jouw vloer"
-        btnLink="/offerte-aanvragen"
+        btnLink="/offerte"
       />
       <WhyGreenTeam />
 
@@ -130,7 +130,7 @@ export default function Home() {
         title="Warmte, comfort en luxe met vloerverwarming"
         description="Bekijk de resultaten van onze vloerverwarming en ontdek de ongeëvenaarde warmte, comfort en luxe voor jouw huis. Onze systemen zorgen voor een gelijkmatige temperatuurverdeling en zijn energiezuinig, wat bijdraagt aan een aangename sfeer. Veel tevreden klanten hebben al gekozen voor onze vloerverwarming, en u kunt de volgende zijn!"
         btnText="Bereken jouw vloer"
-        btnLink="/offerte-aanvragen"
+        btnLink="/offerte"
         firstImg={'/overig/vloerverwarming/vloerverwarming-3.png'}
         secondImg="/overig/vloerverwarming/vloerverwarming-4.png"
         thirdImg="/overig/vloerverwarming/vloerverwarming-5.png"

@@ -19,7 +19,7 @@ const infoCardConfig: InfoCardProps = {
   ],
   title: 'Droogloopmat',
   secondBtnText: 'Offerte berekenen',
-  secondBtnLink: '/offerte-aanvragen',
+  secondBtnLink: '/offerte',
 };
 
 export const Droogloopmat = () => {

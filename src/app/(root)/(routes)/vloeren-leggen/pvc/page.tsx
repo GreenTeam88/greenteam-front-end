@@ -90,7 +90,7 @@ const whatWaitingForConfig: InfoCardProps = {
   ],
   imgSrc: '/vloeren-leggen/pvc-leggen/pvc-leggen-8.png',
   buttonText: 'Direct offerte berekenen',
-  buttonLink: '/offerte-aanvragen',
+  buttonLink: '/offerte',
 };
 
 export default function Home() {
@@ -107,7 +107,7 @@ export default function Home() {
           'Een slecht gelegd resultaat dat niet voldoet aan uw wensen',
           'Slijtage die steeds zichtbaarder wordt',
         ]}
-        btnLink="/offerte-aanvragen"
+        btnLink="/offerte"
         btnText="Offerte berekenen"
         imgSrc="/vloeren-leggen/pvc-leggen/pvc-leggen-1.png"
         orangeText="Herkenbaar? Geen zorgen, wij lossen het op!"
@@ -122,7 +122,7 @@ export default function Home() {
         title="Wat hebben wij in petto? Uw vloer weer laten stralen!"
         description="Bekijk de resultaten van onze vloerenlegservice en ontdek hoe we verouderde of beschadigde vloeren omtoveren tot prachtige, moderne ruimtes. Vele tevreden klanten gingen u voor, dus uw vloer kan de volgende zijn!"
         btnText="Bereken jouw vloer"
-        btnLink="/offerte-aanvragen"
+        btnLink="/offerte"
         firstImg={'/vloeren-leggen/pvc-leggen/pvc-leggen-3.png'}
         secondImg="/vloeren-leggen/pvc-leggen/pvc-leggen-4.png"
         thirdImg="/vloeren-leggen/pvc-leggen/pvc-leggen-5.png"

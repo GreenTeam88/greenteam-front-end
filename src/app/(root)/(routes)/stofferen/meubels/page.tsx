@@ -93,7 +93,7 @@ const whatWaitingForConfig: InfoCardProps = {
   ],
   imgSrc: '/stofferen/meubels/meubels-8.png',
   buttonText: 'Direct offerte berekenen',
-  buttonLink: '/offerte-aanvragen',
+  buttonLink: '/offerte',
 };
 
 export default function Home() {
@@ -110,7 +110,7 @@ export default function Home() {
           'Hardnekkige vlekken in uw meubilair',
           'Verouderde uitstraling',
         ]}
-        btnLink="/offerte-aanvragen"
+        btnLink="/offerte"
         btnText="Offerte berekenen"
         imgSrc="/stofferen/meubels/meubels-1.png"
         orangeText=" Geen zorgen, wij hebben de oplossing! "
@@ -121,7 +121,7 @@ export default function Home() {
         description="Stapsgewijs naar een perfect resultaat"
         cards={thirdSectionCards}
         btnText="Bereken jouw vloer"
-        btnLink="/offerte-aanvragen"
+        btnLink="/offerte"
       />
       <WhyGreenTeam />
       <StoreSection

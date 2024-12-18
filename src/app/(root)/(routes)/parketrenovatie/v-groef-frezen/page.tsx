@@ -93,7 +93,7 @@ const whatWaitingForConfig: InfoCardProps = {
   ],
   imgSrc: '/Parketrenovatie/v-groef-frezen-9.png',
   buttonText: 'Direct offerte berekenen',
-  buttonLink: '/offerte-aanvragen',
+  buttonLink: '/offerte',
 };
 
 export default function Home() {
@@ -108,7 +108,7 @@ export default function Home() {
       <CardsSection
         description="Stapsgewijs naar een perfect resultaat"
         btnText="Bereken jouw vloer"
-        btnLink="/offerte-aanvragen"
+        btnLink="/offerte"
         bottomText="Kunnen jullie dit bij mij realiseren?"
         title="Hoe gaat V-groef frezen in zijn werk?"
         cards={thirdSectionCards}

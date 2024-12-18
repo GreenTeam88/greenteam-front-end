@@ -25,7 +25,7 @@ const whatWaitingForConfig: InfoCardProps = {
   ],
   imgSrc: '/Parketrenovatie/beautiful-shot-modern-house-staircase.png',
   buttonText: 'Direct offerte berekenen',
-  buttonLink: '/offerte-aanvragen',
+  buttonLink: '/offerte',
 };
 
 const thirdSectionCards: InfoCardProps[] = [
@@ -111,7 +111,7 @@ export default function Home() {
       <CardsSection
         description="Stapsgewijs naar een perfect resultaat"
         btnText="Bereken jouw vloer"
-        btnLink="/offerte-aanvragen"
+        btnLink="/offerte"
         bottomText="Help, mijn oude vloer is aan vervanging toe!"
         title="Hoe gaat schuren en polijsten in zijn werk?"
         cards={thirdSectionCards}

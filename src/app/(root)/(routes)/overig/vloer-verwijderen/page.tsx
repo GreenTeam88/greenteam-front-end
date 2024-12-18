@@ -97,7 +97,7 @@ const whatWaitingForConfig: InfoCardProps = {
   ],
   imgSrc: '/overig/vloer-verwijderen/vloer-verwijderen-8.png',
   buttonText: 'Offerte berekenen',
-  buttonLink: '/offerte-aanvragen',
+  buttonLink: '/offerte',
   imgClassName: 'max-w-[387px] ',
 };
 
@@ -116,7 +116,7 @@ export default function Home() {
           'Rugklachten door zwaar werk',
           'Geen tijd',
         ]}
-        btnLink="/offerte-aanvragen"
+        btnLink="/offerte"
         btnText="Offerte berekenen"
         imgSrc="/overig/vloer-verwijderen/vloer-verwijderen-1.png"
         orangeText="Geen zorgen, wij lossen het op!"
@@ -127,7 +127,7 @@ export default function Home() {
         description="Stapsgewijs naar een perfect resultaat"
         cards={thirdSectionCards}
         btnText="Bereken jouw vloer"
-        btnLink="/offerte-aanvragen"
+        btnLink="/offerte"
       />
       <WhyGreenTeam />
 
@@ -135,7 +135,7 @@ export default function Home() {
         title="Wat hebben wij in petto? Jouw vloer weer laten stralen!"
         description="Bekijk de resultaten van onze vloerverwijdering en ontdek de ongeëvenaarde kwaliteit en efficiëntie van onze service. Wij zorgen voor een snelle en zorgvuldige verwijdering van jouw oude vloer, zodat je snel kunt genieten van een nieuwe uitstraling in elke ruimte. Veel tevreden klanten hebben al gekozen voor onze vloerverwijdering, en jij kunt de volgende zijn!"
         btnText="Bereken jouw vloer"
-        btnLink="/offerte-aanvragen"
+        btnLink="/offerte"
         firstImg={'/overig/vloer-verwijderen/vloer-verwijderen-3.png'}
         secondImg="/overig/vloer-verwijderen/vloer-verwijderen-4.png"
         thirdImg="/overig/vloer-verwijderen/vloer-verwijderen-5.png"

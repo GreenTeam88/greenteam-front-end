@@ -90,7 +90,7 @@ const whatWaitingForConfig: InfoCardProps = {
   ],
   imgSrc: '/stofferen/trap/trap-8.png',
   buttonText: 'Direct offerte berekenen',
-  buttonLink: '/offerte-aanvragen',
+  buttonLink: '/offerte',
 };
 
 export default function Home() {
@@ -107,7 +107,7 @@ export default function Home() {
           'Hardnekkige vlekken in de vloer',
           'Verouderde uitstraling',
         ]}
-        btnLink="/offerte-aanvragen"
+        btnLink="/offerte"
         btnText="Offerte berekenen"
         imgSrc="/stofferen/trap/trap-1.png"
         orangeText="Geen zorgen, wij hebben de oplossing!"

@@ -21,7 +21,7 @@ const infoCardConfig: InfoCardProps = {
   ],
   title: 'Reinigingsservice',
   secondBtnText: 'Offerte berekenen',
-  secondBtnLink: '/offerte-aanvragen',
+  secondBtnLink: '/offerte',
 };
 
 export const Reinigingsservice = () => {

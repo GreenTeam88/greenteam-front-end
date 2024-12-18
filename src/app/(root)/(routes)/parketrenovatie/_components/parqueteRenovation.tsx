@@ -22,7 +22,7 @@ const infoCardConfig: InfoCardProps = {
   ],
   title: 'Schuren en polijsten',
   secondBtnText: 'Direct offerte berekenen',
-  secondBtnLink: '/offerte-aanvragen',
+  secondBtnLink: '/offerte',
 };
 
 export const ParqueteRenovation = () => {

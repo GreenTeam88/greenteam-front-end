@@ -78,7 +78,7 @@ const whatWaitingForConfig: InfoCardProps = {
   ],
   imgSrc: '/stofferen/droogloopmat/droogloopmat-8.png',
   buttonText: 'Direct offerte berekenen',
-  buttonLink: '/offerte-aanvragen',
+  buttonLink: '/offerte',
 };
 
 export default function Home() {
@@ -95,7 +95,7 @@ export default function Home() {
           'Vieze vlekken in de vloer',
           'Verouderde uitstraling',
         ]}
-        btnLink="/offerte-aanvragen"
+        btnLink="/offerte"
         btnText="Offerte berekenen"
         imgSrc="/stofferen/droogloopmat/droogloopmat-1.png"
         orangeText=" Geen zorgen, wij hebben dé oplossing! "

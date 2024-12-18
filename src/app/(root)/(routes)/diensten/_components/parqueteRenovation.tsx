@@ -6,7 +6,7 @@ const config: InfoCardProps = {
   buttonText: 'Meer informatie',
   buttonLink: '/parketrenovatie',
   secondBtnText: 'Offerte aanvragen',
-  secondBtnLink: '/offerte-aanvragen',
+  secondBtnLink: '/offerte',
   paragraphs: [
     <>
       Dagelijks wordt er gelopen op een houten vloer. Het is dan ook logisch dat op een gegeven moment gebruikssporen

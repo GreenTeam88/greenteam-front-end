@@ -13,7 +13,7 @@ export const FloorsOrStairs = () => {
           bedrijfsruimte.{' '}
         </BodyText>
       </div>
-      <PrimaryBtnLink href="/offerte-aanvragen">Offerte aanvragen</PrimaryBtnLink>
+      <PrimaryBtnLink href="/offerte">Offerte aanvragen</PrimaryBtnLink>
     </div>
   );
 };

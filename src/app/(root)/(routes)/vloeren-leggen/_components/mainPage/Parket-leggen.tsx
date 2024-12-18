@@ -19,7 +19,7 @@ const infoCardConfig: InfoCardProps = {
   ],
   title: 'Parket leggen',
   secondBtnText: 'Direct offerte berekenen',
-  secondBtnLink: '/offerte-aanvragen',
+  secondBtnLink: '/offerte',
 };
 
 export const Parketleggen = () => {

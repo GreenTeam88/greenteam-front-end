@@ -401,7 +401,7 @@ export const HeaderTopSection = () => {
         </div>
       </div>
       {/* removing secondary button default hovering */}
-      <SecondaryBtnLink href="/offerte-aanvragen">Offerte aanvragen</SecondaryBtnLink>
+      <SecondaryBtnLink href="/offerte">Offerte aanvragen</SecondaryBtnLink>
     </div>
   );
 };

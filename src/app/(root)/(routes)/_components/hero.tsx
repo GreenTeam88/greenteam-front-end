@@ -15,7 +15,7 @@ const ParagraphSection = () => {
           </p>
         </div>
         <div className="flex gap-[22px] items-center">
-          <PrimaryBtnLink href="/offerte-aanvragen">Offerte aanvragen</PrimaryBtnLink>
+          <PrimaryBtnLink href="/offerte">Offerte aanvragen</PrimaryBtnLink>
           <SecondaryOutlinedBtnLink href="tel:+085 401 93 45">Direct bellen</SecondaryOutlinedBtnLink>
         </div>
       </div>

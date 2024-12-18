@@ -23,7 +23,7 @@ const infoCardConfig: InfoCardProps = {
   ],
   title: 'Schuren en oliën',
   secondBtnText: 'Direct offerte berekenen',
-  secondBtnLink: '/offerte-aanvragen',
+  secondBtnLink: '/offerte',
 };
 
 export const FourthSection = () => {

@@ -94,7 +94,7 @@ const whatWaitingForConfig: InfoCardProps = {
   ],
   imgSrc: '/overig/opslag/opslag-8.png',
   buttonText: 'Offerte berekenen',
-  buttonLink: '/offerte-aanvragen',
+  buttonLink: '/offerte',
 };
 
 export default function Home() {
@@ -124,7 +124,7 @@ export default function Home() {
         title="Wat hebben wij in petto? Jouw vloer weer laten stralen!"
         description="Bekijk de resultaten van onze opslagdiensten en ontdek de ongeëvenaarde kwaliteit en veiligheid voor jouw spullen. Wij zorgen voor een zorgvuldige en veilige opslag, zodat je met een gerust hart jouw bezittingen kunt bewaren. Veel tevreden klanten hebben al gekozen voor onze opslagoplossingen, en jij kunt u volgende zijn!"
         btnText="Bereken jouw vloer"
-        btnLink="/offerte-aanvragen"
+        btnLink="/offerte"
         firstImg={'/overig/opslag/opslag-3.png'}
         secondImg="/overig/opslag/opslag-4.png"
         thirdImg="/overig/opslag/opslag-5.png"

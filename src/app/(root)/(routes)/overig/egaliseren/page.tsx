@@ -112,7 +112,7 @@ const whatWaitingForConfig: InfoCardProps = {
   ],
   imgSrc: '/overig/egaliseren/egaliseren-9.png',
   buttonText: 'Direct offerte berekenen',
-  buttonLink: '/offerte-aanvragen',
+  buttonLink: '/offerte',
 };
 
 export default function Home() {
@@ -129,7 +129,7 @@ export default function Home() {
           'Vloer is niet recht',
           'Verouderde uitstraling ',
         ]}
-        btnLink="/offerte-aanvragen"
+        btnLink="/offerte"
         btnText="Offerte berekenen"
         imgSrc="/overig/egaliseren/egaliseren-1.png"
         orangeText="Geen zorgen, wij hebben de oplossing!"
@@ -140,7 +140,7 @@ export default function Home() {
         description="Stapsgewijs naar een perfect resultaat"
         cards={thirdSectionCards}
         btnText="Bereken uw vloer"
-        btnLink="/offerte-aanvragen"
+        btnLink="/offerte"
       />
       <WhyGreenTeam />
 
@@ -148,7 +148,7 @@ export default function Home() {
         title="Wat hebben wij in petto? Jouw vloer weer laten stralen!"
         description="Bekijk de resultaten van onze egalisatiediensten en ontdek de ongeëvenaarde kwaliteit en afwerking voor jouw vloer. Wij zorgen voor een perfecte ondergrond, wat bijdraagt aan een duurzaam en aantrekkelijk resultaat. Veel tevreden klanten hebben al gekozen voor onze egalisatie, en u kunt de volgende zijn!"
         btnText="Bereken jouw vloer"
-        btnLink="/offerte-aanvragen"
+        btnLink="/offerte"
         firstImg={'/overig/egaliseren/egaliseren-4.png'}
         secondImg="/overig/egaliseren/egaliseren-5.png"
         thirdImg="/overig/egaliseren/egaliseren-6.png"

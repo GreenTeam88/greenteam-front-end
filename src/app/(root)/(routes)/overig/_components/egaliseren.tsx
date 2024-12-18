@@ -19,7 +19,7 @@ const infoCardConfig: InfoCardProps = {
   ],
   title: 'Egaliseren',
   secondBtnText: 'Offerte berekenen',
-  secondBtnLink: '/offerte-aanvragen',
+  secondBtnLink: '/offerte',
 };
 
 export const Egaliseren = () => {

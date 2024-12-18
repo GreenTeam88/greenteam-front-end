@@ -107,7 +107,7 @@ const whatWaitingForConfig: InfoCardProps = {
   ],
   imgSrc: '/vloeren-leggen/hexagon-&-3d/hexagon-&-3d-9.png',
   buttonText: 'Direct offerte berekenen',
-  buttonLink: '/offerte-aanvragen',
+  buttonLink: '/offerte',
 };
 
 export default function Home() {
@@ -119,7 +119,7 @@ export default function Home() {
         pageName=" Hexagon en 3D"
         listTitle="Herkenbaar?"
         listItems={['Verouderde uitstraling', 'Hardnekkige vlekken', 'Achterstallig onderhoud', 'Doffe plekken']}
-        btnLink="/offerte-aanvragen2"
+        btnLink="/offerte2"
         btnText="Offerte berekenen"
         imgSrc="/vloeren-leggen/hexagon-&-3d/hexagon-&-3d-1.png"
         orangeText="Herkenbaar? Geen zorgen, wij lossen het op!"
@@ -130,14 +130,14 @@ export default function Home() {
         description="Stapsgewijs naar een perfect resultaat"
         cards={thirdSectionCards}
         btnText="Bereken jouw vloer"
-        btnLink="/offerte-aanvragen"
+        btnLink="/offerte"
       />
       <WhyGreenTeam />
       <StoreSection
         title="Wat hebben wij in petto? Uw vloer weer laten stralen!"
         description="Bekijk de resultaten van onze vloerenlegservice en ontdek hoe we verouderde of beschadigde vloeren omtoveren tot prachtige, moderne ruimtes. Vele tevreden klanten gingen u voor, dus uw vloer kan de volgende zijn!"
         btnText="Bereken jouw vloer"
-        btnLink="/offerte-aanvragen"
+        btnLink="/offerte"
         firstImg={'/vloeren-leggen/hexagon-&-3d/hexagon-&-3d-4.png'}
         secondImg="/vloeren-leggen/hexagon-&-3d/hexagon-&-3d-5.png"
         thirdImg="/vloeren-leggen/hexagon-&-3d/hexagon-&-3d-6.png"

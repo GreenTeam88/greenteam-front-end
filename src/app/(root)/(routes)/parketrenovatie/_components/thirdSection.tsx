@@ -21,7 +21,7 @@ const infoCardConfig: InfoCardProps = {
   ],
   title: 'Schuren en lakken',
   secondBtnText: 'Direct offerte berekenen',
-  secondBtnLink: '/offerte-aanvragen',
+  secondBtnLink: '/offerte',
 };
 
 export const ThirdSection = () => {

@@ -18,7 +18,7 @@ const infoCardConfig: InfoCardProps = {
   ],
   title: 'Vloer',
   secondBtnText: 'Offerte berekenen',
-  secondBtnLink: '/offerte-aanvragen',
+  secondBtnLink: '/offerte',
 };
 
 export const Vloer = () => {

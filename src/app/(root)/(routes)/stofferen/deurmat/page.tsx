@@ -80,7 +80,7 @@ const whatWaitingForConfig: InfoCardProps = {
   ],
   imgSrc: '/stofferen/deurmat/deurmat-8.png',
   buttonText: 'Direct offerte berekenen',
-  buttonLink: '/offerte-aanvragen',
+  buttonLink: '/offerte',
 };
 
 export default function Home() {
@@ -97,7 +97,7 @@ export default function Home() {
           'Vieze vlekken die niet weggaan',
           'Verouderde uitstraling',
         ]}
-        btnLink="/offerte-aanvragen"
+        btnLink="/offerte"
         btnText="Offerte berekenen"
         imgSrc="/stofferen/deurmat/deurmat-1.png"
         orangeText="Geen zorgen, wij hebben de perfecte oplossing voor u! "

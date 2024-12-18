@@ -21,7 +21,7 @@ const infoCardConfig: InfoCardProps = {
   ],
   title: 'Rode loper',
   secondBtnText: 'Offerte berekenen',
-  secondBtnLink: '/offerte-aanvragen',
+  secondBtnLink: '/offerte',
 };
 
 export const Rodeloper = () => {

@@ -58,7 +58,7 @@ export const StoreSection: React.FC<StoreImagesInfo> = (imagesInfo) => {
         </BodyText>
       </div>
       <ImagesGallery {...imagesInfo} />
-      <PrimaryBtnLink href="/offerte-aanvragen">Bereken jouw vloer</PrimaryBtnLink>
+      <PrimaryBtnLink href="/offerte">Bereken jouw vloer</PrimaryBtnLink>
     </div>
   );
 };

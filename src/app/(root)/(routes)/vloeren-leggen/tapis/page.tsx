@@ -88,7 +88,7 @@ const whatWaitingForConfig: InfoCardProps = {
   ],
   imgSrc: '/vloeren-leggen/tapis/tapis-8.png',
   buttonText: 'Direct offerte berekenen',
-  buttonLink: '/offerte-aanvragen',
+  buttonLink: '/offerte',
 };
 
 export default function Home() {
@@ -100,13 +100,13 @@ export default function Home() {
         pageName="Tapis"
         listTitle="Moet uw vloer aan deze eisen voldoen?"
         listItems={['Elegantie die direct opvalt', 'Tijdloos design', 'Vakmanschap voor een perfect eindresultaat']}
-        btnLink="/offerte-aanvragen"
+        btnLink="/offerte"
         btnText="Offerte berekenen"
         imgSrc="/vloeren-leggen/tapis/tapis-1.png"
         orangeText="Herkenbaar? Geen zorgen, wij lossen het op!"
       />
       <CardsSection
-        btnLink="/offerte-aanvragen"
+        btnLink="/offerte"
         bottomText="Help, mijn oude vloer is aan vervanging toe!"
         title="Hoe gaat het in zijn werk?"
         description="Stapsgewijs naar een perfect resultaat"
@@ -115,7 +115,7 @@ export default function Home() {
       />
       <WhyGreenTeam />
       <StoreSection
-        btnLink="/offerte-aanvragen"
+        btnLink="/offerte"
         title="Wat hebben wij in petto? Uw vloer weer laten stralen!"
         description="Bekijk de resultaten van onze vloerenlegservice en ontdek hoe we verouderde of beschadigde vloeren omtoveren tot prachtige, moderne ruimtes. Vele tevreden klanten gingen u voor, dus uw vloer kan de volgende zijn!"
         btnText="Bereken jouw vloer"
