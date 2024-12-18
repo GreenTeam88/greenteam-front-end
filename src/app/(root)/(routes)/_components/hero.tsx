@@ -1,5 +1,5 @@
-import { PrimaryBtn, PrimaryBtnLink, SecondaryOutlinedBtnLink } from '@/components/theme/buttons';
-import { HeadlineSemibold } from '@/components/theme/typography';
+import MultiStepForm from '@/components/calculators/common/MultiStepForm';
+import { PrimaryBtnLink, SecondaryOutlinedBtnLink } from '@/components/theme/buttons';
 
 const ParagraphSection = () => {
   return (
@@ -23,47 +23,15 @@ const ParagraphSection = () => {
   );
 };
 
-const FormSection = () => {
-  return (
-    <div className="flex rounded-[4px] relative w-full lg:w-fit lg:px-0  z-10 flex-col  ">
-      <div className="bg-primaryDefault rounded-t-[8px] flex  items-center justify-center text-white py-[22px] w-full  ">
-        <HeadlineSemibold> Snel jouw prijs berekenen!</HeadlineSemibold>
-      </div>
-      <div className="bg-white w-full lg:w-fit rounded-b-[8px] flex flex-col px-[22px] gap-[33px] py-[22px]">
-        <div className="flex flex-col gap-[11px]">
-          <label>
-            Categorie <span className="text-secondaryDefault">*</span>
-          </label>
-          <input
-            placeholder="Kies er een"
-            className="px-[20px] lg:w-[342px] border-black20 border rounded-lg  py-[12px] "
-          ></input>
-        </div>
-        <div className="flex flex-col gap-[11px]">
-          <label>
-            Wat wil je gedaan hebben? <span className="text-secondaryDefault">*</span>
-          </label>
-          <input
-            placeholder="Kies er een"
-            className="px-[20px] lg:w-[342px] border-black20 border rounded-lg  py-[12px] "
-          ></input>
-        </div>
-        <PrimaryBtn>Verzenden</PrimaryBtn>
-      </div>
-    </div>
-  );
-};
-
 export const Hero = () => {
   return (
     <div className="relative w-full h-fit flex items-center justify-center ">
       <img src="/home/heroImg.png" className="absolute hidden lg:block w-full h-full top-0 left-0 z-0" />
 
-      <div className=" relative flex-col lg:flex-row z-10 max-w-full lg:h-[484px] py-16 lg:py-0 gap-[86px] px-2 lg:px-[120px] w-[1440px] flex items-center ">
-        {/* paragraph section includes the title , the paragraph and the buttons */}
+      <div className=" relative flex-col lg:flex-row z-0 max-w-full lg:h-[680px] py-16 lg:py-0 gap-[86px] px-2 lg:px-[120px] w-[1440px] flex items-center ">
         <ParagraphSection />
-        {/* the form to calculate the price  */}
-        <FormSection />
+
+        <MultiStepForm category="Parketrenovatie" />
       </div>
     </div>
   );
