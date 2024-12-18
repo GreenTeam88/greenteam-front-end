@@ -1,28 +1,36 @@
+import { BodyTextBold } from '@/components/theme/typography';
 import { InfoCardProps, WhiteInfoCard } from './cards';
 
 const config: InfoCardProps = {
   title: 'Traprenovatie',
   imgSrc: '/diensten/whiteStairs.png',
   buttonText: 'Meer informatie',
-  secondBtnText: 'Direct offerte berekenen',
+  buttonLink: '/traprenovatie',
+  secondBtnText: 'Offerte berekenen',
+  secondBtnLink: '/offerte-berekenen',
+
   paragraphs: [
     <>
-      Voor een duurzame en sterke houten vloer is het afwerken met lak een uitstekende keuze. Een behandeling met lak is
-      bovendien erg geschikt voor vloeren die intensief worden gebruikt of in aanraking komen met vocht, bijvoorbeeld
-      als de ruimte grenst aan een buitenruimte. Er wordt daarom vaak gekozen voor een behandeling met lak voor houten
-      vloeren in hallen, keukens en woonkamers
+      Dagelijks wordt er op een trap gelopen, vaak intensief. Het is dan ook niet vreemd dat er na verloop van tijd
+      gebruikssporen zoals slijtage, beschadigingen en verkleuringen zichtbaar worden. Elke trap zal daarom op een
+      gegeven moment toe zijn aan renovatie. Met een professionele traprenovatie kun je jouw trap weer laten stralen als
+      nieuw!
+    </>,
+
+    <>
+      Een trap renoveren is een vak apart.
+      <span className="text-secondaryDefault font-bold">
+        {' '}
+        GreenTeam is al ruim 20 jaar dé specialist in traprenovaties
+      </span>
+      . Onze vakmensen hebben uitgebreide ervaring met verschillende materialen en stijlen. We zorgen voor een strakke
+      en duurzame afwerking, waarbij we hoogwaardige en professionele technieken gebruiken. Geen trede, hoek of rand
+      wordt overgeslagen – zo ben je verzekerd van een perfect eindresultaat.{' '}
     </>,
     <>
-      Er zijn veel mogelijkheden voor het afwerken van een houten vloer met lak. Green Team kan zowel particuliere als
-      zakelijke klanten voorzien in behoeften. Een houten vloer afwerken met lak levert een aantal voordelen op.
-      <span className="text-secondaryDefault">
-        {' '}
-        Onze parketteurs werken enkel met kwalitatieve en hoogwaardige lak, dit zorgt ervoor dat de vloer zeer goed
-        beschermt is tegen vloeistoffen.
-      </span>{' '}
-      Ook is de vloer na een afwerking met lak nagenoegen onderhoudsvrij, de vloer is relatief goed schoon te houden en
-      heeft weinig onderhoud nodig. Bij standaard onderhoud als stofzuigen en dweilen heeft de vloer na een afwerking
-      met lak een levensduur tussen de 10 en 15 jaar.
+      Bij GreenTeam draait alles om duurzaamheid en kwaliteit. Wij geloven in het vernieuwen in plaats van vervangen.
+      Door je trap een tweede leven te geven, draag je niet alleen bij aan een beter milieu, maar bespaar je ook
+      aanzienlijk op kosten vergeleken met het plaatsen van een geheel nieuwe trap.
     </>,
   ],
 };

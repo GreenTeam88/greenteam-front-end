@@ -1,14 +1,15 @@
 'use client';
 
+import Link from 'next/link';
 import { useState } from 'react';
 
-import { SecondaryOutlinedBtn } from '@/components/theme/buttons';
+import { SecondaryOutlinedBtnLink } from '@/components/theme/buttons';
 import { BodyText, BodyTextSemibold, H2 } from '@/components/theme/typography';
 import { cn } from '@/lib/tailwind';
 
 interface FAQType {
   question: string;
-  answer: string;
+  answer: string | JSX.Element;
 }
 
 const FAQs: FAQType[] = [
@@ -44,8 +45,12 @@ const FAQs: FAQType[] = [
   },
   {
     question: 'Wat zijn de garantievoorwaarden?',
-    answer:
-      'Per categorie gelden andere garantievoorwaarden. Onze garantie voorwaarden zijn te vinden in onze algemene voorwaarden.',
+    answer: (
+      <>
+        Per categorie gelden andere garantievoorwaarden. Onze garantie voorwaarden zijn te vinden in onze{' '}
+        <Link href="/algemene-voorwaarden"> algemene voorwaarden.</Link>
+      </>
+    ),
   },
 ];
 
@@ -88,7 +93,7 @@ export const FAQSection = () => {
       </div>
       {/* the AllQuestions component includes all the faq in a list */}
       <AllQuestions />
-      <SecondaryOutlinedBtn>Alles bekijken</SecondaryOutlinedBtn>
+      <SecondaryOutlinedBtnLink href="/veelgestelde-vragen">Alles bekijken</SecondaryOutlinedBtnLink>
     </div>
   );
 };

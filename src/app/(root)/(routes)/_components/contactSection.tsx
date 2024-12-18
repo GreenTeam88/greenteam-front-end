@@ -1,11 +1,12 @@
 import Link from 'next/link';
 
+import { HQMap } from '@/components/HQmap';
 import { BodyText, BodyTextSemibold, LinkTypography } from '@/components/theme/typography';
 import { appConfig } from '@/config';
 
 export const ContactInfo = () => {
   return (
-    <div className="flex flex-col gap-[40px] pr-[22px]">
+    <div className="flex max-w-full flex-col gap-[40px] pr-[22px]">
       <div className="flex flex-col lg:flex-row items-start lg:items-center gap-3 lg:gap-[33px] ">
         <h4 className="text-[25px] text-primaryDefault  tracking-[-2%] font-semibold lg:w-[313px]">
           Geen vraag is te gek, we helpen je graag verder!
@@ -50,7 +51,10 @@ export const ContactInfo = () => {
               2909 LK, Capelle aan den IJssel
             </BodyTextSemibold>
             <div className="bg-black20 bg-opacity-20 h-[22.56px] w-[1px] "></div>
-            <LinkTypography className="text-secondaryDefault cursor-pointer hover:text-primaryDefault">
+            <LinkTypography
+              href="https://maps.app.goo.gl/wSKHyT9dW8tugEVk6"
+              className="text-secondaryDefault cursor-pointer hover:text-primaryDefault"
+            >
               Op de kaart bekijken
             </LinkTypography>
           </div>
@@ -77,7 +81,8 @@ export const ContactSection = () => {
       <div className="flex flex-col gap-14 lg:gap-0 lg:flex-row lg:w-[1199px] max-w-full justify-between">
         {/* the contact info section includes email , phone , location and opening times */}
         <ContactInfo />
-        <img className="w-[400px]" src="/home/locations.png" />
+        <HQMap />
+        {/* <img className="w-[400px]" src="/home/locations.png" /> */}
       </div>
     </div>
   );

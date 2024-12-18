@@ -7,6 +7,7 @@ export const PartnerShipSection = () => {
       className="lg:flex-row-reverse"
       title="Green Team als dé groene zakenpartner voor jouw bedrijf"
       buttonText="Offerte aanvragen"
+      buttonLink="/offerte"
       imgSrc="/zakelijk/partnership.png"
       paragraphs={[
         <>

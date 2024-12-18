@@ -28,7 +28,10 @@ export const PhoneNumberSection = () => {
             <LinkTypography className="pr-3 border-r border-r-black20 border-opacity-20 text-[13px]">
               {appConfig.email}
             </LinkTypography>
-            <LinkTypography href={`mailto:${appConfig.email}`} className="fond-semibold hover:text-secondaryDefault">
+            <LinkTypography
+              href={`mailto:${appConfig.email}`}
+              className="fond-semibold text-[13px] hover:text-secondaryDefault"
+            >
               E-mailen
             </LinkTypography>
           </div>
@@ -37,7 +40,10 @@ export const PhoneNumberSection = () => {
             <LinkTypography className="pr-3 border-r border-r-black20 border-opacity-20 text-[13px]">
               {appConfig.phoneNumber}
             </LinkTypography>
-            <LinkTypography href={`tel:${appConfig.phoneNumber}`} className="fond-semibold hover:text-secondaryDefault">
+            <LinkTypography
+              href={`tel:${appConfig.phoneNumber}`}
+              className="fond-semibold text-[13px] hover:text-secondaryDefault"
+            >
               Bellen
             </LinkTypography>
           </div>

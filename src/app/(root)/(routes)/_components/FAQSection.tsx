@@ -1,5 +1,6 @@
 'use client';
 
+import Link from 'next/link';
 import { useState } from 'react';
 
 import { PrimaryBtnLink, SecondaryOutlinedBtnLink } from '@/components/theme/buttons';
@@ -8,7 +9,7 @@ import { cn } from '@/lib/tailwind';
 
 interface FAQType {
   question: string;
-  answer: string;
+  answer: string | JSX.Element;
 }
 
 const FAQs: FAQType[] = [
@@ -44,8 +45,14 @@ const FAQs: FAQType[] = [
   },
   {
     question: 'Wat zijn de garantievoorwaarden?',
-    answer:
-      'Per categorie gelden andere garantievoorwaarden. Onze garantie voorwaarden zijn te vinden in onze algemene voorwaarden.',
+    answer: (
+      <>
+        Per categorie gelden andere garantievoorwaarden. Onze garantie voorwaarden zijn te vinden in onze{' '}
+        <Link onClick={() => alert('clicked')} href="/veelgestelde-vragen">
+          algemene voorwaarden.
+        </Link>
+      </>
+    ),
   },
 ];
 
@@ -97,7 +104,7 @@ const AllQuestions = () => {
 };
 export const FAQSection = () => {
   return (
-    <div className="flex px-4 py-[88px] w-full items-center flex-col lg:flex-row justify-center gap-7">
+    <div className="flex px-4 py-[88px] w-full items-center flex-col lg:flex-row justify-center gap-7 bg-secondaryLight">
       {/* the paragraph section includes the title , the paragraph and the buttons */}
       <ParagraphSection />
       {/* the AllQuestions component includes all the faq in a list */}

@@ -79,6 +79,18 @@ export const PrimaryBtnLink: React.FC<{ className?: string; href: string; childr
   );
 };
 
+export const SecondaryBtnLink: React.FC<{ className?: string; href: string; children: React.ReactNode }> = ({
+  children,
+  href,
+  className,
+}) => {
+  return (
+    <Link href={href} className={cn('secondaryBtn  w-fit h-fit', className)}>
+      {children}{' '}
+    </Link>
+  );
+};
+
 export const SecondaryBtn: React.FC<HTMLAttributes<HTMLButtonElement>> = ({ children, className, ...props }) => {
   return (
     <button className={cn('secondaryBtn  w-fit h-fit', className)} {...props}>
