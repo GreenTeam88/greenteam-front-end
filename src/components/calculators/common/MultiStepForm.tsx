@@ -21,7 +21,7 @@ const stepComponents: { [key: string]: React.LazyExoticComponent<React.Component
   StepFive: React.lazy(() => import('./steps/StepFive')),
   stofferenStepTwo: React.lazy(() => import('../stofferen/steps/StepTwo')),
   stofferenStepThree: React.lazy(() => import('../stofferen/steps/StepThree')),
-  stofferenStepFour: React.lazy(() => import('../stofferen/steps/StepFour')),
+  // stofferenStepFour: React.lazy(() => import('../stofferen/steps/StepFour')),
   overigStepTwo: React.lazy(() => import('../over/steps/steptwo')),
   overigStepThree: React.lazy(() => import('../over/steps/stepthree')),
   vloerenLeggenStepTwo: React.lazy(() => import('../vloerenLeggen/steps/StepTwo')),
@@ -63,8 +63,8 @@ const MultiStepForm: React.FC<MultiStepFormProps> = ({ category }) => {
       setCurrentStepIndex(previousStepIndex);
     }
   };
-  const handleFinalSubmit = () => {
-    console.log('Final Form Data:', formData); // Log the entire form data object
+  const handleFinalSubmit = (finalData: any) => {
+    console.log('Final Form Data:', finalData); // This will now include the contact info
   };
 
   const goToOptionalStep = (stepName: string) => {
@@ -78,12 +78,10 @@ const MultiStepForm: React.FC<MultiStepFormProps> = ({ category }) => {
     if (!StepComponent) {
       return (
         <div className="w-[386px] h-[430px] flex flex-col items-center justify-center bg-gray-100 rounded-lg shadow-lg p-6">
-          <div className="animate-bounce rounded-full h-16 w-16 bg-green-500 mb-4 flex items-center justify-center">
+          <div className="animate-bounce rounded-full h-16 w-16 bg-green-300 mb-4 flex items-center justify-center">
             <span className="text-white font-bold text-lg">!</span>
           </div>
-          <p className="text-green-700 font-semibold text-lg text-center mb-4">
-            Deze stap is onder onderhoud door Yahya Elmokhtari.
-          </p>
+          <p className="text-green-700 font-semibold text-lg text-center mb-4">Deze stap is onder onderhoud.</p>
           <button
             onClick={() => setCurrentCategory('Parketrenovatie')}
             className="bg-green-600 text-white px-4 py-2 rounded shadow hover:bg-green-700 transition"

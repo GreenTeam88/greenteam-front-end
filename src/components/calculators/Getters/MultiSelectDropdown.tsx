@@ -35,30 +35,37 @@ export default function MultiSelectDropdown({
   const selectedValues = form.watch(name) || [];
 
   const handleChange = (value: string[]) => {
-    if (exclusiveOption && value.includes(exclusiveOption)) {
-      // If exclusiveOption is selected, only allow it
-      form.setValue(name, [exclusiveOption]);
-    } else if (exclusiveOption && selectedValues.includes(exclusiveOption)) {
-      // If exclusiveOption was previously selected, remove it
-      form.setValue(
-        name,
-        value.filter((v) => v !== exclusiveOption)
-      );
+    if (exclusiveOption) {
+      const includesExclusive = value.includes(exclusiveOption);
+      const otherSelected = value.filter((v) => v !== exclusiveOption);
+
+      if (includesExclusive && otherSelected.length > 0) {
+        // Both exclusive and others selected
+        if (selectedValues.includes(exclusiveOption)) {
+          // Previously had exclusive option only, now adding others -> remove exclusive, keep others
+          form.setValue(name, otherSelected);
+        } else {
+          // Previously had others only, now adding exclusive -> keep only the exclusive option
+          form.setValue(name, [exclusiveOption]);
+        }
+      } else if (includesExclusive) {
+        // Only exclusive selected
+        form.setValue(name, [exclusiveOption]);
+      } else if (selectedValues.includes(exclusiveOption)) {
+        // Exclusive was previously selected, now user selected others -> remove exclusive
+        form.setValue(name, otherSelected);
+      } else {
+        // Normal update
+        form.setValue(name, value);
+      }
     } else {
-      // Otherwise, update normally
+      // no exclusive option
       form.setValue(name, value);
     }
   };
 
-  const isOptionDisabled = (option: string) => {
-    if (exclusiveOption) {
-      return (
-        (selectedValues.includes(exclusiveOption) && option !== exclusiveOption) || // Other options disabled if exclusiveOption is selected
-        (selectedValues.length > 0 &&
-          selectedValues.some((v: any) => v !== exclusiveOption) &&
-          option === exclusiveOption) // exclusiveOption disabled if other options are selected
-      );
-    }
+  const isOptionDisabled = () => {
+    // Always return false, no visual disabling
     return false;
   };
 
@@ -68,17 +75,14 @@ export default function MultiSelectDropdown({
       name={name}
       render={({ field, fieldState }) => (
         <FormItem className="flex flex-col gap-y-1">
-          {/* Label */}
           <FormLabel className="font-normal text-textBlack80 text-sm">
             {label}
             <span className="text-red-500">*</span>
           </FormLabel>
 
-          {/* Multi-Select Dropdown with Error Styling */}
           <FormControl>
             <div
-              className={`
-                relative rounded-lg border
+              className={`relative rounded-lg border
                 ${fieldState.error ? 'border-red-500 !important' : 'border-borderGray'}
               `}
             >
@@ -93,7 +97,7 @@ export default function MultiSelectDropdown({
                 placeholder={placeholder}
                 options={data.map((option) => ({
                   ...option,
-                  disabled: isOptionDisabled(option.value),
+                  disabled: isOptionDisabled(),
                 }))}
                 selectedValues={field.value}
                 onChange={handleChange}

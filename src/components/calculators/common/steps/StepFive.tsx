@@ -90,11 +90,9 @@ const StepFive: React.FC<StepFiveProps> = ({
               onClick={onPrevious}
             >
               <ChevronLeft />
-
-              <span className="flex-1 text-gray-400 font-sans text-sm whitespace-nowrap cursor-pointer hover:text-green-700 transition-all">
-                Planning
-              </span>
             </div>
+            <span className="flex-1 text-gray-400 font-sans text-sm whitespace-nowrap ">Planning</span>
+
             <div className="flex w-[25%] h-[6px] bg-gray-300 rounded-full ml-4">
               <div className="w-[90%] h-full bg-green-700 rounded-full"></div>
             </div>

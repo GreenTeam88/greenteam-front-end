@@ -116,7 +116,7 @@ const StepThree: React.FC<StepProps> = ({ onPrevious, onNext, onUploadClick, for
           {/* Additional Surfaces (Shown if Damage Repair is Required) */}
           {watchDamageRepairRequired === 'Ja' && (
             <>
-              <div className="flex flex-col">
+              <div className="flex flex-col w-44">
                 <label
                   className="text-xs cursor-pointer"
                   onClick={() => {

@@ -50,7 +50,7 @@ const StepOne: React.FC<StepOneProps> = ({ onNext, formData, updateFormData, onC
     return Object.entries(services).map(([service, price]) => {
       let label;
 
-      if (selectedCategory === 'Vloeren leggen') {
+      if (selectedCategory === 'Vloeren leggen' || selectedCategory === 'Traprenovatie') {
         label = service; // Only display service name without price
       } else if (price === 0.0) {
         label = `${service} - Gratis`;
@@ -83,8 +83,15 @@ const StepOne: React.FC<StepOneProps> = ({ onNext, formData, updateFormData, onC
   }, [selectedCategory]);
 
   // Dynamic watch for "isOnRequest" services
+  // const isOnRequest = useMemo(() => {
+  //   return selectedCategory !== 'Vloeren leggen' && servicesConfig[selectedCategory]?.[selectedService] === null;
+  // }, [selectedCategory, selectedService]);
   const isOnRequest = useMemo(() => {
-    return selectedCategory !== 'Vloeren leggen' && servicesConfig[selectedCategory]?.[selectedService] === null;
+    return (
+      selectedCategory !== 'Vloeren leggen' &&
+      selectedCategory !== 'Traprenovatie' &&
+      servicesConfig[selectedCategory]?.[selectedService] === null
+    );
   }, [selectedCategory, selectedService]);
 
   // Update total cost whenever selectedCategory or selectedService changes
@@ -125,14 +132,11 @@ const StepOne: React.FC<StepOneProps> = ({ onNext, formData, updateFormData, onC
 
   return (
     <FormProvider {...form}>
-      <form
-        onSubmit={handleSubmit}
-        className="w-[386px] h-[400px] flex rounded-[4px] relative lg:px-0 z-10 flex-col shadow-lg"
-      >
+      <form onSubmit={handleSubmit} className="w-[386px] h-[400px] flex rounded-[4px] relative lg:px-0 z-10 flex-col">
         <div className="bg-primaryDefault rounded-t-[8px] flex items-center justify-center text-white py-[22px] w-full">
           <HeadlineSemibold>Snel uw prijs berekenen!</HeadlineSemibold>
         </div>
-        <div className="bg-white w-full rounded-b-[8px] flex flex-col px-[22px] gap-[25px] py-[22px]">
+        <div className="bg-white w-full rounded-b-[8px] flex flex-col px-[22px] gap-y-3 py-[22px]  shadow-lg">
           <div className="flex flex-row items-center justify-between">
             <span className="text-gray-400 font-sans text-sm">Waar kunnen we u mee helpen?</span>
             {(selectedCategory || selectedService) && (
@@ -155,6 +159,7 @@ const StepOne: React.FC<StepOneProps> = ({ onNext, formData, updateFormData, onC
               name="selectedService"
               label="Wat wilt u gedaan hebben?"
               placeholder="Kies er een"
+              disabled={!selectedCategory}
             />
           </div>
           <div className="flex flex-col space-y-2">
@@ -166,6 +171,7 @@ const StepOne: React.FC<StepOneProps> = ({ onNext, formData, updateFormData, onC
               <div className="flex justify-between items-center">
                 <span className="font-semibold text-lg text-green-700">Totaal incl. btw.</span>
                 {/* <span className="font-semibold text-lg text-green-700">€{totalCost.toFixed(2)}</span> */}
+                <span className="font-semibold text-lg text-green-700">€ 0.00</span>
               </div>
             )}
 

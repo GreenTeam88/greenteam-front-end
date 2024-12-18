@@ -26,7 +26,7 @@ const UploadStep: React.FC<UploadStepProps> = ({ onPrevious, onUpload }) => {
     <FormProvider {...form}>
       <form
         onSubmit={handleSubmit}
-        className="w-[386px] h-[430px] flex flex-col rounded-[4px] relative lg:px-0 z-10 shadow-lg"
+        className="w-[386px] h-[400px] flex flex-col rounded-[4px] relative lg:px-0 z-10 shadow-lg"
       >
         <div className="bg-primaryDefault rounded-t-[8px] flex items-center justify-center text-white py-[22px] w-full">
           <div className="text-center">
@@ -39,10 +39,9 @@ const UploadStep: React.FC<UploadStepProps> = ({ onPrevious, onUpload }) => {
             onClick={onPrevious}
           >
             <ChevronLeft />
-            <span className="text-gray-700 font-sans text-sm cursor-pointer hover:text-green-700 transition-all">
-              Terug
-            </span>
+            <span className="text-gray-700 font-sans text-sm ">Terug</span>
           </div>
+
           <div className="flex flex-col gap-[11px] flex-1 overflow-y-auto max-h-[300px]">
             <UploadGetter form={form} />
           </div>

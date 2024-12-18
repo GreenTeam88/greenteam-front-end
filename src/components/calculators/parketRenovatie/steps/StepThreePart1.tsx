@@ -58,11 +58,11 @@ const StepThreePart1: React.FC<StepProps> = ({ onPrevious, onNext, onUploadClick
 
   // Function to calculate the cost for this step
   const calculateStepCost = (): number => {
-    if (watchDamageRepairs === 'Ja') {
-      // Optionally assign a cost per repair if needed
-      const numberOfRepairs = parseInt(watchNumberOfRepairs || '0', 10);
-      return numberOfRepairs > 0 ? numberOfRepairs * 10 : 0; // Example: €10 per repair
-    }
+    // if (watchDamageRepairs === 'Ja') {
+    //   // Optionally assign a cost per repair if needed
+    //   // const numberOfRepairs = parseInt(watchNumberOfRepairs || '0', 10);
+    //   return 0; // Example: €10 per repair
+    // }
     return 0; // No cost if "Nee" is selected
   };
 
@@ -136,7 +136,7 @@ const StepThreePart1: React.FC<StepProps> = ({ onPrevious, onNext, onUploadClick
 
           {watchDamageRepairs === 'Ja' && (
             <>
-              <div className="flex flex-col">
+              <div className="flex flex-col w-44">
                 <label
                   className="text-xs cursor-pointer"
                   onClick={() => {

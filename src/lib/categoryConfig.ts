@@ -50,7 +50,7 @@ const categoryConfig: CategoryConfigType = {
       'StepOne',
       'stofferenStepTwo',
       'stofferenStepThree',
-      'stofferenStepFour',
+      // 'stofferenStepFour',
       'StepFive',
       'ContactInfoStep',
       'FinalStep',

@@ -46,6 +46,7 @@ interface MultiSelectFormFieldProps
   menuListItemsClassName?: string;
   animation?: number;
   onValueChange: (value: string[]) => void;
+  value?: string[];
 }
 
 const MultiSelectFormField = React.forwardRef<HTMLButtonElement, MultiSelectFormFieldProps>(
@@ -60,40 +61,38 @@ const MultiSelectFormField = React.forwardRef<HTMLButtonElement, MultiSelectForm
       onValueChange,
       placeholder,
       animation = 0,
+      value,
       ...props
     },
     ref
   ) => {
-    const [selectedValues, setSelectedValues] = React.useState<string[]>(defaultValue || []);
+    const [selectedValues, setSelectedValues] = React.useState<string[]>(value || defaultValue || []);
     const selectedValuesSet = React.useRef(new Set(selectedValues));
     const [isPopoverOpen, setIsPopoverOpen] = React.useState(false);
     const [isAnimating, setIsAnimating] = React.useState(animation > 0);
 
+    // Sync with external value changes
     React.useEffect(() => {
-      setSelectedValues(defaultValue || []);
-      selectedValuesSet.current = new Set(defaultValue);
-    }, [defaultValue]);
-
-    // const handleInputKeyDown = (event: any) => {
-    //   if (event.key === 'Enter') {
-    //     setIsPopoverOpen(true);
-    //   } else if (event.key === 'Backspace' && !event.target.value) {
-    //     selectedValues.pop();
-    //     setSelectedValues([...selectedValues]);
-    //     selectedValuesSet.current.delete(selectedValues[selectedValues.length - 1]);
-    //     onValueChange([...selectedValues]);
-    //   }
-    // };
-
-    const toggleOption = (value: string) => {
-      if (selectedValuesSet.current.has(value)) {
-        selectedValuesSet.current.delete(value);
-        setSelectedValues(selectedValues.filter((v) => v !== value));
-      } else {
-        selectedValuesSet.current.add(value);
-        setSelectedValues([...selectedValues, value]);
+      if (value) {
+        setSelectedValues(value);
+        selectedValuesSet.current = new Set(value);
+      } else if (defaultValue) {
+        setSelectedValues(defaultValue);
+        selectedValuesSet.current = new Set(defaultValue);
       }
-      onValueChange(Array.from(selectedValuesSet.current));
+    }, [value, defaultValue]);
+
+    const toggleOption = (val: string) => {
+      const newSelectedValues = new Set(selectedValuesSet.current);
+      if (newSelectedValues.has(val)) {
+        newSelectedValues.delete(val);
+      } else {
+        newSelectedValues.add(val);
+      }
+      const arr = Array.from(newSelectedValues);
+      selectedValuesSet.current = newSelectedValues;
+      setSelectedValues(arr);
+      onValueChange(arr);
     };
 
     return (
@@ -134,7 +133,7 @@ const MultiSelectFormField = React.forwardRef<HTMLButtonElement, MultiSelectForm
           </Button>
         </PopoverTrigger>
         <PopoverContent
-          className={cn('w-[200px] p-0 drop-shadow-sm', menuClassName)}
+          className={cn('z-10 absolute w-[200px] p-0 drop-shadow-sm', menuClassName)}
           align="start"
           onEscapeKeyDown={() => setIsPopoverOpen(false)}
         >
@@ -147,17 +146,17 @@ const MultiSelectFormField = React.forwardRef<HTMLButtonElement, MultiSelectForm
                     <CommandItem
                       key={option.value}
                       onSelect={() => {
-                        if (!option.disabled) toggleOption(option.value); // Prevent selection if disabled
+                        if (!option.disabled) toggleOption(option.value);
                       }}
                       style={{
                         pointerEvents: option.disabled ? 'none' : 'auto',
-                        opacity: option.disabled ? 0.5 : 1, // Dim disabled options
+                        opacity: option.disabled ? 0.5 : 1,
                       }}
                       className={cn(
-                        'cursor-pointer px-3 py-1.5', // added some padding for better UI
-                        'hover:bg-green-50', // light green color for hover
+                        'cursor-pointer px-3 py-1.5',
+                        'hover:bg-green-50',
                         menuListItemsClassName,
-                        isSelected ? 'bg-green-50 font-bold text-green-900' : '' // updated styling for selected
+                        isSelected ? 'bg-green-50 font-bold text-green-900' : ''
                       )}
                     >
                       <div

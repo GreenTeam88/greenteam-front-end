@@ -35,10 +35,10 @@ interface SingleSelectFormFieldProps
     label: string;
     value: string;
     icon?: React.ComponentType<{ className?: string }>;
-    imageUrl?: string; // Add this line to include imageUrl in options
+    imageUrl?: string;
   }[];
   defaultValue?: string;
-  disabled?: boolean;
+  disabled?: boolean; // Add disabled prop
   placeholder: string;
   btnClassName?: string;
   menuClassName?: string;
@@ -58,6 +58,7 @@ const SingleSelectFormField = React.forwardRef<HTMLButtonElement, SingleSelectFo
       defaultValue,
       onValueChange,
       placeholder,
+      disabled = false, // Default disabled to false
       ...props
     },
     ref
@@ -70,9 +71,10 @@ const SingleSelectFormField = React.forwardRef<HTMLButtonElement, SingleSelectFo
     }, [defaultValue]);
 
     const handleOptionSelect = (value: string) => {
+      if (disabled) return;
       setSelectedValue(value);
       onValueChange(value);
-      setIsPopoverOpen(false); // Close the dropdown after selection
+      setIsPopoverOpen(false);
     };
 
     return (
@@ -81,82 +83,88 @@ const SingleSelectFormField = React.forwardRef<HTMLButtonElement, SingleSelectFo
           <Button
             ref={ref}
             {...props}
-            onClick={() => setIsPopoverOpen(!isPopoverOpen)}
+            onClick={() => {
+              if (!disabled) {
+                setIsPopoverOpen(!isPopoverOpen);
+              }
+            }}
             className={cn(
-              'flex w-full p-1 rounded-md border min-h-10 h-auto items-center justify-between bg-inherit hover:bg-card',
-              btnClassName
+              'flex w-full p-1 rounded-md border min-h-10 h-auto items-center justify-between bg-inherit',
+              btnClassName,
+              disabled ? 'cursor-not-allowed opacity-50' : 'hover:bg-card'
             )}
+            disabled={disabled}
           >
             {selectedValue ? (
               <div className="flex justify-between items-center w-full">
                 <div className="flex items-center overflow-hidden text-sm">{selectedValue}</div>
-                <ChevronDown className="h-4 ml-2 cursor-pointer text-muted-foreground" />
+                <ChevronDown className="h-4 ml-2 text-muted-foreground" />
               </div>
             ) : (
               <div className="flex items-center justify-between w-full mx-auto">
                 <span className={cn('text-sm text-gray-600 mx-3', placeholderClassName)}>{placeholder}</span>
-                <ChevronDown className="h-4 cursor-pointer text-muted-foreground ml-2" />
+                <ChevronDown className="h-4 text-muted-foreground ml-2" />
               </div>
             )}
           </Button>
         </PopoverTrigger>
-        <PopoverContent
-          className={cn('w-[200px] p-0 drop-shadow-sm ', menuClassName)}
-          align="start"
-          onEscapeKeyDown={() => setIsPopoverOpen(false)}
-        >
-          <Command>
-            <CommandList>
-              <CommandGroup>
-                {options.map((option) => {
-                  const isSelected = selectedValue === option.value;
-                  return (
-                    <CommandItem
-                      key={option.value}
-                      onSelect={() => handleOptionSelect(option.value)}
-                      style={{
-                        pointerEvents: 'auto',
-                        opacity: 1,
-                      }}
-                      className={cn(
-                        'cursor-pointer px-3 py-1.5',
-                        'hover:bg-green-50',
-                        menuListItemsClassName,
-                        isSelected ? 'bg-green-50 font-bold text-green-900' : ''
-                      )}
-                    >
-                      <div className="flex w-full items-center justify-between">
-                        <div className="flex items-center">
-                          <div
-                            className={cn(
-                              'mr-2 rounded-[2px] !outline-transparent !ring-transparent flex h-4 w-4 items-center justify-center border border-green-100',
-                              isSelected ? 'bg-green-600 text-white rounded-s-sm' : 'opacity-50 [&_svg]:invisible'
-                            )}
-                          >
-                            <CheckIcon className={`h-4 w-4 ${isSelected ? 'text-white' : ''}`} />
-                          </div>
-                          <span>{option.label}</span>
-                        </div>
-
-                        {/* Move the Image to the Right Side */}
-                        {option.imageUrl && (
-                          <Image
-                            src={option.imageUrl}
-                            alt={option.label}
-                            width={55}
-                            height={55}
-                            className="ml-2 rounded-sm transition-transform duration-200 ease-in-out hover:scale-130"
-                          />
+        {!disabled && ( // Only render dropdown if not disabled
+          <PopoverContent
+            className={cn('z-10 absolute w-[200px] p-0 drop-shadow-sm', menuClassName)}
+            align="start"
+            onEscapeKeyDown={() => setIsPopoverOpen(false)}
+          >
+            <Command>
+              <CommandList>
+                <CommandGroup>
+                  {options.map((option) => {
+                    const isSelected = selectedValue === option.value;
+                    return (
+                      <CommandItem
+                        key={option.value}
+                        onSelect={() => handleOptionSelect(option.value)}
+                        style={{
+                          pointerEvents: 'auto',
+                          opacity: 1,
+                        }}
+                        className={cn(
+                          'cursor-pointer px-3 py-1.5',
+                          'hover:bg-green-50',
+                          menuListItemsClassName,
+                          isSelected ? 'bg-green-50 font-bold text-green-900' : ''
                         )}
-                      </div>
-                    </CommandItem>
-                  );
-                })}
-              </CommandGroup>
-              <CommandSeparator />
-            </CommandList>
-          </Command>
-        </PopoverContent>
+                      >
+                        <div className="flex w-full items-center justify-between">
+                          <div className="flex items-center">
+                            <div
+                              className={cn(
+                                'mr-2 rounded-[2px] !outline-transparent !ring-transparent flex h-4 w-4 items-center justify-center border border-green-100',
+                                isSelected ? 'bg-green-600 text-white rounded-s-sm' : 'opacity-50 [&_svg]:invisible'
+                              )}
+                            >
+                              <CheckIcon className={`h-4 w-4 ${isSelected ? 'text-white' : ''}`} />
+                            </div>
+                            <span>{option.label}</span>
+                          </div>
+                          {option.imageUrl && (
+                            <Image
+                              src={option.imageUrl}
+                              alt={option.label}
+                              width={55}
+                              height={55}
+                              className="ml-2 rounded-sm transition-transform duration-200 ease-in-out hover:scale-130"
+                            />
+                          )}
+                        </div>
+                      </CommandItem>
+                    );
+                  })}
+                </CommandGroup>
+                <CommandSeparator />
+              </CommandList>
+            </Command>
+          </PopoverContent>
+        )}
       </Popover>
     );
   }

@@ -242,7 +242,11 @@ const StepThreePart2: React.FC<StepProps> = ({ onPrevious, onNext, formData, upd
               <span className="font-semibold text-lg text-green-700">€{formData.totalCost?.toFixed(2)}</span>
             </div>
             <CreateButton
-              className={`w-full ${isButtonDisabled ? 'bg-gray-500' : 'bg-primaryDefault border'}`}
+              className={`w-full ${
+                isButtonDisabled
+                  ? 'bg-gray-500'
+                  : 'bg-primaryDefault border border-transparent hover:bg-white hover:text-green-700 hover:border-green-700 transition-all duration-300'
+              }`}
               type="submit"
               disabled={isButtonDisabled}
             >

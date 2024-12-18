@@ -118,7 +118,7 @@ const StepThree: React.FC<StepProps> = ({ onPrevious, onNext, onUploadClick, for
       >
         <div className="bg-primaryDefault rounded-t-[8px] flex items-center justify-center text-white py-[22px] w-full">
           <div className="text-center">
-            <HeadlineSemibold className="w-full">Snel uw prijs berekenen! Vloeren</HeadlineSemibold>
+            <HeadlineSemibold className="w-full">Snel uw prijs berekenen!</HeadlineSemibold>
           </div>
         </div>
         <div className="bg-white w-full rounded-b-[8px] flex flex-col px-[22px] gap-y-3 py-[22px] h-full">
@@ -148,7 +148,7 @@ const StepThree: React.FC<StepProps> = ({ onPrevious, onNext, onUploadClick, for
           </div>
 
           {/* Upload Button */}
-          <div className="flex flex-col">
+          <div className="flex flex-col w-44">
             <label
               className="text-xs cursor-pointer"
               onClick={() => {

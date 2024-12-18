@@ -5,7 +5,7 @@ import { FormProvider, useForm, useWatch } from 'react-hook-form';
 import { z } from 'zod';
 
 import MultiSelectDropdown from '@/components/calculators/Getters/MultiSelectDropdown';
-import SingleSelectDropdown from '@/components/calculators/Getters/SingleSelectDropdown';
+// import SingleSelectDropdown from '@/components/calculators/Getters/SingleSelectDropdown';
 import CreateButton from '@/components/custom/CreateButton';
 import { HeadlineSemibold } from '@/components/theme/typography';
 import { Option } from '@/types';
@@ -15,8 +15,8 @@ interface StepProps {
   onNext: () => void;
   onUploadClick: (field: string) => void; // For uploading photos
   formData: {
-    selectedSurfaces?: string[];
-    additionalSurfaceType?: string;
+    CurrentSurfaces?: string[];
+    additionalSurfaceType?: string[];
     stepCosts: Record<string, number>;
     totalCost?: number;
     isOnRequest?: boolean;
@@ -25,21 +25,13 @@ interface StepProps {
 }
 
 const schema = z.object({
-  selectedSurfaces: z.array(z.string()).nonempty({ message: 'Selecteer minimaal één oppervlak' }),
-  additionalSurfaceType: z.string().nonempty({ message: 'Maak een keuze voor andere oppervlaktes' }),
+  CurrentSurfaces: z.array(z.string()).min(1, { message: 'Selecteer minimaal één oppervlak' }),
+  additionalSurfaceType: z.array(z.string()).min(1, { message: 'Maak een keuze voor andere oppervlaktes' }),
 });
 
-// Example pricing configuration for surfaces
-const SURFACE_COSTS: Record<string, number> = {
-  Traptredes: 50,
-  Entrée: 30,
-  Opstapjes: 20,
-  Overloop: 40,
-};
-
 const StepThree: React.FC<StepProps> = ({ onPrevious, onNext, onUploadClick, formData, updateFormData }) => {
-  const surfaceCategories = ['Traptredes', 'Entrée', 'Opstapjes', 'Overloop'];
-  const additionalSurfaceOptions = [
+  const additionalSurfaces = ['Traptredes', 'Entrée', 'Opstapjes', 'Overloop'];
+  const currentSurfaces = [
     'Beton',
     'Geegaliseerd',
     'Grind',
@@ -53,57 +45,54 @@ const StepThree: React.FC<StepProps> = ({ onPrevious, onNext, onUploadClick, for
     'Overig',
   ];
 
-  const surfaceCategoryOptions: Option[] = surfaceCategories.map((category) => ({
-    value: category,
-    label: `${category} - €${SURFACE_COSTS[category] || 0}`,
-  }));
-
-  const additionalSurfaceTypeOptions: Option[] = additionalSurfaceOptions.map((option) => ({
+  const additionalSurfacesOptions: Option[] = additionalSurfaces.map((option) => ({
     value: option,
     label: option,
   }));
 
+  const currentSurfacesOptions: Option[] = currentSurfaces.map((option) => ({
+    value: option,
+    label: option,
+  }));
+
+  // Updated form to use `CurrentSurfaces` and `additionalSurfaceType`
   const form = useForm({
     resolver: zodResolver(schema),
     defaultValues: {
-      selectedSurfaces: formData.selectedSurfaces || [],
-      additionalSurfaceType: formData.additionalSurfaceType || '',
+      CurrentSurfaces: formData.CurrentSurfaces || [],
+      additionalSurfaceType: formData.additionalSurfaceType || [],
     },
     mode: 'onChange',
   });
 
   const { control } = form;
 
-  // Watch selected inputs
-  const selectedSurfaces = useWatch({ control, name: 'selectedSurfaces', defaultValue: [] });
-  const additionalSurfaceType = useWatch({ control, name: 'additionalSurfaceType', defaultValue: '' });
+  // Watch the updated fields
+  const CurrentSurfaces = useWatch({ control, name: 'CurrentSurfaces' });
+  const additionalSurfaceType = useWatch({ control, name: 'additionalSurfaceType' });
 
   // Calculate the step cost dynamically
   const calculateStepCost = () => {
-    const surfaceCost = selectedSurfaces.reduce((totalCost, surface) => {
-      return totalCost + (SURFACE_COSTS[surface] || 0);
-    }, 0);
-
-    const additionalCost = SURFACE_COSTS[additionalSurfaceType] || 0;
-    return surfaceCost + additionalCost;
+    // Placeholder for pricing logic
+    return 0;
   };
 
   // Update formData dynamically when inputs change
   useEffect(() => {
     const step3Cost = calculateStepCost();
-    const previousTotal = Number(formData.totalCost) || 0; // Accumulate previous steps
+    const previousTotal = Number(formData.totalCost) || 0;
 
     updateFormData({
       ...formData,
-      selectedSurfaces,
+      CurrentSurfaces,
       additionalSurfaceType,
       stepCosts: {
         ...formData.stepCosts,
-        step3: step3Cost, // Add step3 cost dynamically
+        step3: step3Cost,
       },
-      totalCost: previousTotal - (formData.stepCosts?.step3 || 0) + step3Cost, // Adjust total cost
+      totalCost: previousTotal - (formData.stepCosts?.step3 || 0) + step3Cost,
     });
-  }, [selectedSurfaces, additionalSurfaceType]);
+  }, [CurrentSurfaces, additionalSurfaceType]);
 
   const handleSubmit = (event: React.FormEvent) => {
     event.preventDefault();
@@ -125,7 +114,7 @@ const StepThree: React.FC<StepProps> = ({ onPrevious, onNext, onUploadClick, for
     })();
   };
 
-  const isButtonDisabled = !selectedSurfaces.length || !additionalSurfaceType;
+  const isButtonDisabled = !CurrentSurfaces.length || !additionalSurfaceType.length;
 
   return (
     <FormProvider {...form}>
@@ -154,15 +143,15 @@ const StepThree: React.FC<StepProps> = ({ onPrevious, onNext, onUploadClick, for
           {/* Surface Categories Multi-Select */}
           <div className="flex flex-col">
             <MultiSelectDropdown
-              data={surfaceCategoryOptions}
-              name="selectedSurfaces"
-              label="Wat zijn de geselecteerde oppervlakten?"
-              placeholder="Selecteer oppervlakten"
+              data={currentSurfacesOptions}
+              name="CurrentSurfaces"
+              label="Wat is de huidige ondergrond?"
+              placeholder="Maak een keuze"
             />
           </div>
 
           {/* Upload Button */}
-          <div className="flex flex-col">
+          <div className="flex flex-col w-44">
             <label
               className="text-xs cursor-pointer"
               onClick={() => {
@@ -179,8 +168,8 @@ const StepThree: React.FC<StepProps> = ({ onPrevious, onNext, onUploadClick, for
 
           {/* Additional Surface Type Single-Select */}
           <div className="flex flex-col">
-            <SingleSelectDropdown
-              data={additionalSurfaceTypeOptions}
+            <MultiSelectDropdown
+              data={additionalSurfacesOptions}
               name="additionalSurfaceType"
               label="Zijn er nog andere oppervlaktes?"
               placeholder="Maak een keuze"

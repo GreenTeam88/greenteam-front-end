@@ -13,6 +13,7 @@ interface CustomSingleSelectProps {
   menuClassName?: string;
   menuItemsClassName?: string;
   placeholderTextClassName?: string;
+  disabled?: boolean; // Add disabled prop
 }
 
 export default function CustomSingleSelect({
@@ -24,6 +25,7 @@ export default function CustomSingleSelect({
   menuClassName,
   menuItemsClassName,
   placeholderTextClassName,
+  disabled = false, // Default to false
 }: CustomSingleSelectProps) {
   return (
     <SingleSelectFormField
@@ -36,6 +38,7 @@ export default function CustomSingleSelect({
       options={options}
       placeholder={placeholder}
       defaultValue={selectedValue}
+      disabled={disabled} // Pass disabled down
     />
   );
 }

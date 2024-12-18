@@ -31,7 +31,7 @@ const StepTwo: React.FC<StepProps> = ({ onPrevious, onNext, formData, updateForm
   const FLOOR_COST = 25; // €25 per floor level
 
   const floorOptions = ['0 (Begane grond)', '1', '2', '3', '4', '5', '6', '7', '8', '9', '10+'];
-  const floorTypeOptions = ['Beton', 'Hout', 'Laminaat', 'PVC', 'Grind', 'Tegels', 'Lijmresten', 'Tapijt'];
+  const floorTypeOptions = ['Beton', 'Hout', 'Laminaat', 'PVC', 'Grind', 'Tegels', 'Lijmresten', 'Tapijt', 'Overig'];
 
   const dataOptions: Option[] = floorOptions.map((data) => ({
     value: data,
