@@ -1,7 +1,7 @@
 'use client';
 
 import { motion } from 'framer-motion';
-import React, { useCallback, useEffect, useState } from 'react';
+import React, { useEffect, useState } from 'react';
 
 import { CarouselIcon } from '@/components/icons/arrows';
 import { H2 } from '@/components/theme/typography';

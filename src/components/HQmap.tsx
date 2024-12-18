@@ -74,17 +74,6 @@ const HQUI: React.FC<HQLocation & { index: number }> = ({ left, top, type, index
   const sequence = index * (rotationDuration + waitBetweenIcons);
   const totalCycleDuration = totalIcons * (rotationDuration + waitBetweenIcons);
 
-  // Split the animation into two parts
-  const rightRotation = {
-    rotate: [0, 40, 0],
-    transformOrigin: 'bottom right',
-  };
-
-  const leftRotation = {
-    rotate: [0, -40, 0],
-    transformOrigin: 'bottom left',
-  };
-
   return (
     <div
       style={{
