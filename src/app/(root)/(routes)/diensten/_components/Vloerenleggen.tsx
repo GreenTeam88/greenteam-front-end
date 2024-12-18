@@ -1,4 +1,4 @@
-import { BodyTextBold } from '@/components/theme/typography';
+// import { BodyTextBold } from '@/components/theme/typography';
 import { InfoCardProps, OrangeInfoCard } from './cards';
 
 const config: InfoCardProps = {
