@@ -9,24 +9,28 @@ const config: InfoCardProps = {
   title: 'Stofferen',
   paragraphs: [
     <>
-      Een afwerking van de houten vloer met hardwax is vergelijkbaar met olie, alleen zorgt hardwax voor een extra
-      beschermende laag wax op de vloer. De vloer is daardoor beter bestand tegen vuil en vocht dan een vloer die
-      behandeld is met olie. Ook benadrukt hardwax de structuur van het hout en geeft het een mooie, warme uitstraling
-      aan de houten vloer.
+      Het stofferen van een trap, vloer of meubelstuk is een waardevolle investering die de uitstraling en het comfort
+      van je interieur compleet kan transformeren. Of je nu kiest voor een stijlvolle gestoffeerde trap, een
+      comfortabele vloerbedekking of een vernieuwd meubel, professioneel stoffeerwerk is dé basis voor een stijlvol en
+      functioneel interieur.
     </>,
     <>
-      Een vloer die behandeld is met hardwax heeft relatief veel onderhoud en reiniging nodig.
-      <span className="text-secondaryDefault">
-        Gemorste vloeistoffen op de vloer zullen direct moeten worden verwijderd, anders heb je kans op kringen in de
-        vloer.
-      </span>
-      Daarnaast is het verstandig om de vloer jaarlijks te onderhouden met een onderhoudswas. De parketteurs van Green
-      Team geven graag een eerlijk advies over de juiste producten.
+      Stofferen vereist oog voor detail en vakmanschap. Bij GreenTeam zijn we al ruim 20 jaar gespecialiseerd in het
+      stofferen van trappen, vloeren en meubels. Onze experts werken met diverse hoogwaardige materialen, zoals tapijt,
+      sisal, linoleum en andere duurzame stoffen, en passen de nieuwste technieken toe om het beste resultaat te
+      garanderen.
     </>,
     <>
-      Ruimtes die vaak worden behandeld met hardwax zijn bijvoorbeeld slaapkamers, bovenverdiepingen of gangen. Een
-      behandeling met hardwax is mogelijk in drie varianten: zijdeglans, wit of mat. De witte variant is een zijdeglans
-      hardwax. Wij adviseren je graag over de beste afwerking en bijbehorende variant.
+      <span className="text-secondaryDefault font-bold">
+        {' '}
+        We begrijpen dat ieder project uniek is, daarom bieden we maatwerk dat aansluit bij jouw wensen en interieur.
+      </span>{' '}
+      Van een perfect afgewerkte trap met naadloze overgangen tot een comfortabel gestoffeerde vloer die warmte en stijl
+      combineert—bij GreenTeam ben je verzekerd van vakwerk.
+    </>,
+    <>
+      Met onze ervaring en passie voor kwaliteit maken wij jouw trap, vloer of meubels weer als nieuw. Kies voor
+      GreenTeam en laat je inspireren door onze expertise in stofferen.
     </>,
   ],
 };

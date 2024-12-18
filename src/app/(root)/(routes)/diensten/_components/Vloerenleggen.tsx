@@ -1,3 +1,4 @@
+import { BodyTextBold } from '@/components/theme/typography';
 import { InfoCardProps, OrangeInfoCard } from './cards';
 
 const config: InfoCardProps = {
@@ -10,23 +11,24 @@ const config: InfoCardProps = {
 
   paragraphs: [
     <>
-      Een vloer laten afwerken met olie laat je natuurlijk doen door een professional. De parketteurs van Green Team
-      maken voor alle behandelingen gebruik van professionele en hoogwaardige machines, ook voor het in- en uitboenen
-      van de olie. Op deze manier zorgen wij ervoor dat de olie diep in de vloer trekt.
+      Het leggen van een nieuwe vloer is een belangrijke investering die de uitstraling en sfeer van je woning compleet
+      kan veranderen. Of het nu gaat om een stijlvolle PVC-vloer, warme houten vloer of duurzaam laminaat, een
+      professioneel gelegde vloer is de basis voor een mooi en comfortabel interieur.
     </>,
     <>
-      Een houten vloer met olie behandelen zorgt voor een natuurlijke uitstraling. Een behandeling met olie zorgt voor
-      een goede bescherming van de houten vloer.
-      <span className="text-secondaryDefault">
-        {' '}
-        Ook is het mogelijk om een met olie behandelde vloer plaatselijk krassen, vlekken of slijtage bij te werken.
-      </span>
+      <span className="text-secondaryDefault font-bold"> Vloeren leggen is precisiewerk en vereist vakmanschap.</span>{' '}
+      Bij GreenTeam zijn we al ruim 20 jaar gespecialiseerd in het leggen van vloeren. Onze ervaren vakmensen hebben
+      uitgebreide kennis van verschillende materialen en technieken. Van het egaliseren van de ondergrond tot de
+      perfecte afwerking, wij zorgen ervoor dat elke vloer strak, naadloos en duurzaam wordt gelegd.{' '}
     </>,
     <>
-      {' '}
-      Als de houtsoort van de vloer dat toelaat dan is het zelfs mogelijk om kleur aan te brengen bij een afwerking met
-      olie. Ben je niet zeker van de kleur? Geen probleem, de parketteurs van Green Team kunnen meerdere kleuren
-      meenemen zodat jij ter plaatse nog de juiste keuze kunt maken. Wij adviseren je graag.
+      Bij GreenTeam werken we met hoogwaardige materialen en moderne installatietechnieken. Wij staan voor kwaliteit en
+      duurzaamheid, zodat jouw nieuwe vloer jarenlang meegaat en tegen een stootje kan. Of je nu kiest voor een
+      designvloer of een klassieke houten vloer, je kunt rekenen op een perfect eindresultaat.{' '}
+    </>,
+    <>
+      Met GreenTeam kies je niet alleen voor vakmanschap, maar ook voor een betrouwbare partner. Wij helpen je graag bij
+      het creëren van een vloer die past bij jouw wensen én je interieur.
     </>,
   ],
 };

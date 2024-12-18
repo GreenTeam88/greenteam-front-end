@@ -77,7 +77,7 @@ const FAQs: FAQType[] = [
 ];
 
 const whatWaitingForConfig: InfoCardProps = {
-  title: 'Waar wacht je op!',
+  title: 'Waar wacht u op!',
   paragraphs: [
     <BodyText key="1">
       Als dit is wat je wilt, waar wacht je dan op. Bereken via de knop hieronder wat het kost en neem contact met ons
