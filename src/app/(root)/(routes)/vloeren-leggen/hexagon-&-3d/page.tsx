@@ -119,7 +119,7 @@ export default function Home() {
         pageName=" Hexagon en 3D"
         listTitle="Herkenbaar?"
         listItems={['Verouderde uitstraling', 'Hardnekkige vlekken', 'Achterstallig onderhoud', 'Doffe plekken']}
-        btnLink="/offerte2"
+        btnLink="/offerte"
         btnText="Offerte aanvragen"
         imgSrc="/vloeren-leggen/hexagon-&-3d/hexagon-&-3d-1.png"
         orangeText="Herkenbaar? Geen zorgen, wij lossen het op!"

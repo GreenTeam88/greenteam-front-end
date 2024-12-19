@@ -1,5 +1,5 @@
 import { CheckedIcon } from '@/components/icons/check';
-import { PrimaryBtn } from '@/components/theme/buttons';
+import { PrimaryBtn, PrimaryBtnLink } from '@/components/theme/buttons';
 import { BodyText, H2 } from '@/components/theme/typography';
 
 const listItems: string[] = [
@@ -25,7 +25,7 @@ const QuestionSection = () => {
       </div>
       <div className="flex flex-col gap-3">
         <BodyText className="text-secondaryDefault font-bold">Herkenbaar? Geen zorgen, wij lossen het op!</BodyText>
-        <PrimaryBtn>Offerte aanvragen</PrimaryBtn>
+        <PrimaryBtnLink href="/offerte">Offerte aanvragen</PrimaryBtnLink>
       </div>
     </div>
   );
@@ -39,7 +39,7 @@ type SecondSectionProps = {
 
 export const SecondSection: React.FC<SecondSectionProps> = ({ image, pageName, sectionName }) => {
   return (
-    <div className="flex px-3 flex-col w-full items-center py-6 pb-[400px] gap-[100px]">
+    <div className="flex px-3 flex-col w-full items-center py-6 pb-[200px] gap-[100px]">
       <p className="text-primaryDefault font-normal">
         {sectionName + '  '} <span className="font-bold">- {pageName}</span>{' '}
       </p>

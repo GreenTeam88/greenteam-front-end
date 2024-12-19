@@ -1,5 +1,5 @@
 import { ImageCarousel } from '@/components/animations/imageCrausel';
-import { PrimaryBtn } from '@/components/theme/buttons';
+import { PrimaryBtn, PrimaryBtnLink } from '@/components/theme/buttons';
 import { BodyText, BodyTextBold } from '@/components/theme/typography';
 import { cn } from '@/lib/tailwind';
 import { InfoCardProps } from '../../diensten/_components/cards';
@@ -8,6 +8,8 @@ export const WhatWaitingForCard: React.FC<InfoCardProps> = ({
   imgSrc,
   paragraphs,
   title,
+  buttonLink,
+  secondBtnLink,
   buttonText,
   secondBtnText,
   className,
@@ -31,8 +33,8 @@ export const WhatWaitingForCard: React.FC<InfoCardProps> = ({
         <div className="flex flex-col gap-[11px]">
           <BodyTextBold className="text-secondaryDefault"> Ik wil dat de parketteur langskomt!</BodyTextBold>
           <div className="flex gap-3">
-            {buttonText && <PrimaryBtn>{buttonText}</PrimaryBtn>}
-            {secondBtnText && <PrimaryBtn>{secondBtnText}</PrimaryBtn>}
+            {buttonText && <PrimaryBtnLink href={buttonLink || '/'}>{buttonText}</PrimaryBtnLink>}
+            {secondBtnText && <PrimaryBtnLink href={secondBtnLink || '/'}>{secondBtnText}</PrimaryBtnLink>}
           </div>
         </div>
       </div>
