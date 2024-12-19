@@ -77,9 +77,9 @@ const whatWaitingForConfig: InfoCardProps = {
   title: 'Waar wacht u op!',
   paragraphs: [
     <BodyText key="1">
-      Als dit is wat je wilt, waar wacht je dan op. Bereken via de knop hieronder wat het kost en neem contact met ons
-      op voor een afspraak. Als je de specialist langs laat komen gaan we bespreken wat voor soort hout u heeft, wat de
-      mogelijkheden zijn, ons advies en we komen met de kleurstalen zodat je zeker weten de juiste beslissing maakt.{' '}
+      Als dit is wat u wilt, waar wacht u dan op. Bereken via de knop hieronder wat het kost en neem contact met ons op
+      voor een afspraak. Als u de specialist langs laat komen gaan we bespreken wat voor soort hout u heeft, wat de
+      mogelijkheden zijn, ons advies en we komen met de kleurstalen zodat u zeker weten de juiste beslissing maakt.
     </BodyText>,
     <BodyText key="2">
       Deze afspraak kost eenmalig 50,- euro en deze wordt in mindering gebracht wanneer u de klus aan ons uitbesteed. In
@@ -130,7 +130,7 @@ export default function Home() {
         fifthImg="/vloeren-leggen/parket-leggen/parket-leggen-7.png"
       />
       <WhatWaitingForCard
-        orangeText="Ik wil dat de parketteur langskomt!"
+        orangeText=" Ik wil dat de parketteur langskomt!"
         {...whatWaitingForConfig}
         className="lg:py-28"
       />
