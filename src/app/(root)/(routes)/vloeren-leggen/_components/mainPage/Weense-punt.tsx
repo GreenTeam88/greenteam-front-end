@@ -19,7 +19,7 @@ const infoCardConfig: InfoCardProps = {
     </BodyTextBold>,
   ],
   title: 'Weense punt',
-  secondBtnText: 'Direct offerte berekenen',
+  secondBtnText: 'Direct Offerte aanvragen',
   secondBtnLink: '/offerte',
 };
 

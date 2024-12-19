@@ -16,7 +16,7 @@ const infoCardConfig: InfoCardProps = {
     </BodyTextBold>,
   ],
   title: 'Reparatie',
-  secondBtnText: 'Direct offerte berekenen',
+  secondBtnText: 'Direct Offerte aanvragen',
   secondBtnLink: '/offerte',
 };
 

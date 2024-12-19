@@ -19,7 +19,7 @@ const infoCardConfig: InfoCardProps = {
     </BodyTextBold>,
   ],
   title: 'Tegelen',
-  secondBtnText: 'Offerte berekenen',
+  secondBtnText: 'Offerte aanvragen',
   secondBtnLink: '/offerte',
 };
 

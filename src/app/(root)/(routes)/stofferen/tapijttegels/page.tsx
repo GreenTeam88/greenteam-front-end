@@ -84,7 +84,7 @@ const whatWaitingForConfig: InfoCardProps = {
     </BodyText>,
   ],
   imgSrc: '/stofferen/tapijttegels/tapijttegels-8.png',
-  buttonText: 'Direct offerte berekenen',
+  buttonText: 'Direct Offerte aanvragen',
   buttonLink: '/offerte',
 };
 
@@ -103,7 +103,7 @@ export default function Home() {
           'Verouderde uitstraling',
         ]}
         btnLink="/offerte"
-        btnText="Offerte berekenen"
+        btnText="Offerte aanvragen"
         imgSrc="/stofferen/Tapijttegels/Tapijttegels-1.png"
         orangeText="Geen zorgen, wij hebben dé oplossing!"
       />

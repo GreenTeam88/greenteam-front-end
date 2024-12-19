@@ -18,7 +18,7 @@ const infoCardConfig: InfoCardProps = {
     </BodyTextBold>,
   ],
   title: 'Trap',
-  secondBtnText: 'Offerte berekenen',
+  secondBtnText: 'Offerte aanvragen',
   secondBtnLink: '/offerte',
 };
 

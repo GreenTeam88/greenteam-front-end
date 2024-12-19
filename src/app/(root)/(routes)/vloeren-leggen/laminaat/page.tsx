@@ -86,7 +86,7 @@ const whatWaitingForConfig: InfoCardProps = {
     </BodyText>,
   ],
   imgSrc: '/vloeren-leggen/laminaat-leggen/laminaat-leggen-8.png',
-  buttonText: 'Direct offerte berekenen',
+  buttonText: 'Direct Offerte aanvragen',
   buttonLink: '/offerte',
 };
 
@@ -105,7 +105,7 @@ export default function Home() {
           'Een vloer met de warme uitstraling van hout?',
         ]}
         btnLink="/offerte"
-        btnText="Offerte berekenen"
+        btnText="Offerte aanvragen"
         imgSrc="/vloeren-leggen/laminaat-leggen/laminaat-leggen-1.png"
         orangeText="Herkenbaar? Geen zorgen, wij lossen het op!"
       />

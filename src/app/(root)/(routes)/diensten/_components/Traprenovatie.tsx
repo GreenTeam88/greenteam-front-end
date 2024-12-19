@@ -6,7 +6,7 @@ const config: InfoCardProps = {
   imgSrc: '/diensten/whiteStairs.png',
   buttonText: 'Meer informatie',
   buttonLink: '/traprenovatie',
-  secondBtnText: 'Offerte berekenen',
+  secondBtnText: 'Offerte aanvragen',
   secondBtnLink: '/offerte-berekenen',
 
   paragraphs: [

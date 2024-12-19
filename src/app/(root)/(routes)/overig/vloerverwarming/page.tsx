@@ -93,7 +93,7 @@ const whatWaitingForConfig: InfoCardProps = {
     </BodyText>,
   ],
   imgSrc: '/overig/vloerverwarming/vloerverwarming-8.png',
-  buttonText: 'Direct offerte berekenen',
+  buttonText: 'Direct Offerte aanvragen',
   buttonLink: '/offerte',
 };
 
@@ -112,7 +112,7 @@ export default function Home() {
           'Koude voeten in huis ',
         ]}
         btnLink="/offerte"
-        btnText="Offerte berekenen"
+        btnText="Offerte aanvragen"
         imgSrc="/overig/vloerverwarming/vloerverwarming-1.png"
         orangeText="Geen zorgen, wij hebben de oplossing!"
       />

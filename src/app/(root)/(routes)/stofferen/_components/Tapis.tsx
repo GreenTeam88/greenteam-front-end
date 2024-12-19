@@ -19,7 +19,7 @@ const infoCardConfig: InfoCardProps = {
     </BodyTextBold>,
   ],
   title: 'Tapis',
-  secondBtnText: 'Direct offerte berekenen',
+  secondBtnText: 'Direct Offerte aanvragen',
   secondBtnLink: '/offerte',
 };
 

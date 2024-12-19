@@ -19,7 +19,7 @@ const infoCardConfig: InfoCardProps = {
     </BodyTextBold>,
   ],
   title: 'Hexagon & 3D',
-  secondBtnText: 'Direct offerte berekenen',
+  secondBtnText: 'Direct Offerte aanvragen',
   secondBtnLink: '/offerte',
 };
 

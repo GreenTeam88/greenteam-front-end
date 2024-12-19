@@ -19,7 +19,7 @@ const infoCardConfig: InfoCardProps = {
     </BodyTextBold>,
   ],
   title: 'Tapijt verwijderen',
-  secondBtnText: 'Offerte berekenen',
+  secondBtnText: 'Offerte aanvragen',
   secondBtnLink: '/offerte',
 };
 

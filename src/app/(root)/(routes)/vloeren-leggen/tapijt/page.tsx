@@ -83,7 +83,7 @@ const whatWaitingForConfig: InfoCardProps = {
     </BodyText>,
   ],
   imgSrc: '/vloeren-leggen/tapijt-leggen/tapijt-leggen-8.png',
-  buttonText: 'Direct offerte berekenen',
+  buttonText: 'Direct Offerte aanvragen',
   buttonLink: '/offerte',
 };
 
@@ -102,7 +102,7 @@ export default function Home() {
           'Een gedateerde uitstraling',
         ]}
         btnLink="/offerte"
-        btnText="Offerte berekenen"
+        btnText="Offerte aanvragen"
         imgSrc="/vloeren-leggen/tapijt-leggen/tapijt-leggen-1.png"
         orangeText="Herkenbaar? Geen zorgen, wij lossen het op!"
       />

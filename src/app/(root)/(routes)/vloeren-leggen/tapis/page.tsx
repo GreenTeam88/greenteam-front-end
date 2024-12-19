@@ -87,7 +87,7 @@ const whatWaitingForConfig: InfoCardProps = {
     </BodyText>,
   ],
   imgSrc: '/vloeren-leggen/tapis/tapis-8.png',
-  buttonText: 'Direct offerte berekenen',
+  buttonText: 'Direct Offerte aanvragen',
   buttonLink: '/offerte',
 };
 
@@ -101,7 +101,7 @@ export default function Home() {
         listTitle="Moet uw vloer aan deze eisen voldoen?"
         listItems={['Elegantie die direct opvalt', 'Tijdloos design', 'Vakmanschap voor een perfect eindresultaat']}
         btnLink="/offerte"
-        btnText="Offerte berekenen"
+        btnText="Offerte aanvragen"
         imgSrc="/vloeren-leggen/tapis/tapis-1.png"
         orangeText="Herkenbaar? Geen zorgen, wij lossen het op!"
       />

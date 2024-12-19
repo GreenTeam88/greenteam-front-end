@@ -89,7 +89,7 @@ const whatWaitingForConfig: InfoCardProps = {
     </BodyText>,
   ],
   imgSrc: '/vloeren-leggen/pvc-leggen/pvc-leggen-8.png',
-  buttonText: 'Direct offerte berekenen',
+  buttonText: 'Direct Offerte aanvragen',
   buttonLink: '/offerte',
 };
 
@@ -108,7 +108,7 @@ export default function Home() {
           'Slijtage die steeds zichtbaarder wordt',
         ]}
         btnLink="/offerte"
-        btnText="Offerte berekenen"
+        btnText="Offerte aanvragen"
         imgSrc="/vloeren-leggen/pvc-leggen/pvc-leggen-1.png"
         orangeText="Herkenbaar? Geen zorgen, wij lossen het op!"
       />

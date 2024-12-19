@@ -106,7 +106,7 @@ const whatWaitingForConfig: InfoCardProps = {
     </BodyText>,
   ],
   imgSrc: '/vloeren-leggen/hexagon-&-3d/hexagon-&-3d-9.png',
-  buttonText: 'Direct offerte berekenen',
+  buttonText: 'Direct Offerte aanvragen',
   buttonLink: '/offerte',
 };
 
@@ -120,7 +120,7 @@ export default function Home() {
         listTitle="Herkenbaar?"
         listItems={['Verouderde uitstraling', 'Hardnekkige vlekken', 'Achterstallig onderhoud', 'Doffe plekken']}
         btnLink="/offerte2"
-        btnText="Offerte berekenen"
+        btnText="Offerte aanvragen"
         imgSrc="/vloeren-leggen/hexagon-&-3d/hexagon-&-3d-1.png"
         orangeText="Herkenbaar? Geen zorgen, wij lossen het op!"
       />

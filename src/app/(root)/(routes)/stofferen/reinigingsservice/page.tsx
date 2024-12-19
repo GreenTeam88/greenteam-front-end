@@ -79,7 +79,7 @@ const whatWaitingForConfig: InfoCardProps = {
     </BodyText>,
   ],
   imgSrc: '/stofferen/reinigingsservice/reinigingsservice-8.png',
-  buttonText: 'Direct offerte berekenen',
+  buttonText: 'Direct Offerte aanvragen',
   buttonLink: '/offerte',
 };
 
@@ -98,7 +98,7 @@ export default function Home() {
           'Verouderde uitstraling',
         ]}
         btnLink="/offerte"
-        btnText="Offerte berekenen"
+        btnText="Offerte aanvragen"
         imgSrc="/stofferen/reinigingsservice/reinigingsservice-1.png"
         orangeText="Geen zorgen, wij maken uw tapijt weer als nieuw!"
       />

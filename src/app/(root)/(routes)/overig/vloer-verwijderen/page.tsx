@@ -96,7 +96,7 @@ const whatWaitingForConfig: InfoCardProps = {
     </BodyText>,
   ],
   imgSrc: '/overig/vloer-verwijderen/vloer-verwijderen-8.png',
-  buttonText: 'Offerte berekenen',
+  buttonText: 'Offerte aanvragen',
   buttonLink: '/offerte',
   imgClassName: 'max-w-[387px] ',
 };
@@ -117,7 +117,7 @@ export default function Home() {
           'Geen tijd',
         ]}
         btnLink="/offerte"
-        btnText="Offerte berekenen"
+        btnText="Offerte aanvragen"
         imgSrc="/overig/vloer-verwijderen/vloer-verwijderen-1.png"
         orangeText="Geen zorgen, wij lossen het op!"
       />

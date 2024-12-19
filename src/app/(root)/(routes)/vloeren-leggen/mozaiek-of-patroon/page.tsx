@@ -106,7 +106,7 @@ const whatWaitingForConfig: InfoCardProps = {
     </BodyText>,
   ],
   imgSrc: '/vloeren-leggen/mozaïek-en-patroon/mozaïek-en-patroon-9.png',
-  buttonText: 'Direct offerte berekenen',
+  buttonText: 'Direct Offerte aanvragen',
   buttonLink: '/offerte',
 };
 
@@ -120,7 +120,7 @@ export default function Home() {
         listTitle="Kiest u ook voor meer stijl en karakter?"
         listItems={['Kunstzinnige mozaïekpatronen', 'Tijdloze charme', 'Duurzaam', 'Een opvallend interieur']}
         btnLink="/offerte"
-        btnText="Offerte berekenen"
+        btnText="Offerte aanvragen"
         imgSrc="/vloeren-leggen/mozaïek-en-patroon/mozaïek-en-patroon-1.png"
         orangeText="Herkenbaar? Geen zorgen, wij lossen het op!"
       />

@@ -84,7 +84,7 @@ const whatWaitingForConfig: InfoCardProps = {
     </BodyText>,
   ],
   imgSrc: '/overig/gietvloeren/gietvloeren-8.png',
-  buttonText: 'Offerte berekenen',
+  buttonText: 'Offerte aanvragen',
   buttonLink: '/offerte',
 };
 
@@ -103,7 +103,7 @@ export default function Home() {
           'Vieze vlekken in de vloer ',
         ]}
         btnLink="/offerte"
-        btnText="Offerte berekenen"
+        btnText="Offerte aanvragen"
         imgSrc="/overig/gietvloeren/gietvloeren-1.png"
         orangeText="Geen zorgen, wij hebben de oplossing!"
       />

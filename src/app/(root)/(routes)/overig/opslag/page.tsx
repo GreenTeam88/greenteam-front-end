@@ -93,7 +93,7 @@ const whatWaitingForConfig: InfoCardProps = {
     </BodyText>,
   ],
   imgSrc: '/overig/opslag/opslag-8.png',
-  buttonText: 'Offerte berekenen',
+  buttonText: 'Offerte aanvragen',
   buttonLink: '/offerte',
 };
 
@@ -106,8 +106,8 @@ export default function Home() {
         pageName="Opslag"
         listTitle="Herkenbaar?"
         listItems={['Geen ruimte in huis', 'Te kleine tuin', 'Geen schuur of garage', 'Geen oprit of voortuin']}
-        btnLink="/Offerte berekenen"
-        btnText="Offerte berekenen"
+        btnLink="/Offerte aanvragen"
+        btnText="Offerte aanvragen"
         imgSrc="/overig/opslag/opslag-1.png"
         orangeText="Geen zorgen, wij hebben de oplossing!"
       />

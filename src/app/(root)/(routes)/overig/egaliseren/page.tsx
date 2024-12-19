@@ -111,7 +111,7 @@ const whatWaitingForConfig: InfoCardProps = {
     </BodyText>,
   ],
   imgSrc: '/overig/egaliseren/egaliseren-9.png',
-  buttonText: 'Direct offerte berekenen',
+  buttonText: 'Direct Offerte aanvragen',
   buttonLink: '/offerte',
 };
 
@@ -130,7 +130,7 @@ export default function Home() {
           'Verouderde uitstraling ',
         ]}
         btnLink="/offerte"
-        btnText="Offerte berekenen"
+        btnText="Offerte aanvragen"
         imgSrc="/overig/egaliseren/egaliseren-1.png"
         orangeText="Geen zorgen, wij hebben de oplossing!"
       />

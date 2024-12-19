@@ -88,7 +88,7 @@ const whatWaitingForConfig: InfoCardProps = {
     </BodyText>,
   ],
   imgSrc: '/overig/natuursteen-behandelen/natuursteen-behandelen-8.png',
-  buttonText: 'Offerte berekenen',
+  buttonText: 'Offerte aanvragen',
   buttonLink: '/offerte',
 };
 
@@ -102,7 +102,7 @@ export default function Home() {
         listTitle="Herkenbaar?"
         listItems={['Doffe vloer', 'Extreem veel krasjes', 'Vieze vlekken in de vloer', 'Versleten uitstraling']}
         btnLink="/offerte"
-        btnText="Offerte berekenen"
+        btnText="Offerte aanvragen"
         imgSrc="/overig/natuursteen-behandelen/natuursteen-behandelen-1.png"
         orangeText="Geen zorgen, wij hebben de oplossing!"
       />

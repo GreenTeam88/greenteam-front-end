@@ -91,7 +91,7 @@ const whatWaitingForConfig: InfoCardProps = {
     </BodyText>,
   ],
   imgSrc: '/overig/tegelen/tegelen-8.png',
-  buttonText: 'Offerte berekenen',
+  buttonText: 'Offerte aanvragen',
   buttonLink: '/offerte',
 };
 
@@ -110,7 +110,7 @@ export default function Home() {
           'Verouderde uitstraling ',
         ]}
         btnLink="/offerte"
-        btnText="Offerte berekenen"
+        btnText="Offerte aanvragen"
         imgSrc="/overig/tegelen/tegelen-1.png"
         orangeText="Geen zorgen, wij hebben de oplossing!"
       />
