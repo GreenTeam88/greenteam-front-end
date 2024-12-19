@@ -24,7 +24,7 @@ const whatWaitingForConfig: InfoCardProps = {
     </BodyText>,
   ],
   imgSrc: '/Parketrenovatie/beautiful-shot-modern-house-staircase.png',
-  buttonText: 'Direct Offerte aanvragen',
+  buttonText: 'offerte aanvragen',
   buttonLink: '/offerte',
 };
 

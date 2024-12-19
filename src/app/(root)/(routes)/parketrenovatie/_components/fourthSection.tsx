@@ -22,7 +22,7 @@ const infoCardConfig: InfoCardProps = {
     </BodyTextBold>,
   ],
   title: 'Schuren en oliën',
-  secondBtnText: 'Direct Offerte aanvragen',
+  secondBtnText: 'offerte aanvragen',
   secondBtnLink: '/offerte',
 };
 

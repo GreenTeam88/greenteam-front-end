@@ -86,7 +86,7 @@ const whatWaitingForConfig: InfoCardProps = {
     </BodyText>,
   ],
   imgSrc: '/vloeren-leggen/laminaat-leggen/laminaat-leggen-8.png',
-  buttonText: 'Direct Offerte aanvragen',
+  buttonText: 'offerte aanvragen',
   buttonLink: '/offerte',
 };
 

@@ -18,7 +18,7 @@ const infoCardConfig: InfoCardProps = {
     </BodyTextBold>,
   ],
   title: 'V-groef frezen',
-  secondBtnText: 'Direct Offerte aanvragen',
+  secondBtnText: 'offerte aanvragen',
   secondBtnLink: '/offerte',
 };
 

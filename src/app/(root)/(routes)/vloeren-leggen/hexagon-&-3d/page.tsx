@@ -106,7 +106,7 @@ const whatWaitingForConfig: InfoCardProps = {
     </BodyText>,
   ],
   imgSrc: '/vloeren-leggen/hexagon-&-3d/hexagon-&-3d-9.png',
-  buttonText: 'Direct Offerte aanvragen',
+  buttonText: 'offerte aanvragen',
   buttonLink: '/offerte',
 };
 

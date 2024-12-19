@@ -85,7 +85,7 @@ const whatWaitingForConfig: InfoCardProps = {
     </BodyText>,
   ],
   imgSrc: '/vloeren-leggen/visgraat/visgraat-8.png',
-  buttonText: 'Direct Offerte aanvragen',
+  buttonText: 'offerte aanvragen',
   buttonLink: '/offerte',
 };
 

@@ -79,7 +79,7 @@ const whatWaitingForConfig: InfoCardProps = {
     </BodyText>,
   ],
   imgSrc: '/stofferen/reinigingsservice/reinigingsservice-8.png',
-  buttonText: 'Direct Offerte aanvragen',
+  buttonText: 'offerte aanvragen',
   buttonLink: '/offerte',
 };
 

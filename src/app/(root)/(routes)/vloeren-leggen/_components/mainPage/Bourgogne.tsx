@@ -19,7 +19,7 @@ const infoCardConfig: InfoCardProps = {
     </BodyTextBold>,
   ],
   title: 'Bourgogne',
-  secondBtnText: 'Direct Offerte aanvragen',
+  secondBtnText: 'offerte aanvragen',
   secondBtnLink: '/offerte',
 };
 

@@ -19,7 +19,7 @@ const infoCardConfig: InfoCardProps = {
     </BodyTextBold>,
   ],
   title: 'PVC leggen',
-  secondBtnText: 'Direct Offerte aanvragen',
+  secondBtnText: 'offerte aanvragen',
   secondBtnLink: '/offerte',
 };
 
