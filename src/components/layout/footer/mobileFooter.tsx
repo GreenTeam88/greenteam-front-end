@@ -85,8 +85,10 @@ export const BottomSection = () => {
           © 2024.
         </BodyTextBold>
         <BodyTextSemibold className="text-primaryDefault">
-          <a href="https://www.greenteam.nl/algemenevoorwaarden">Algemene Voorwaardenㆍ</a>
-          <a href="https://www.greenteam.nl/privacynpm rupolicy">Privacy Policy</a>
+          <Link href="/algemene-voorwaarden" className="hover:text-primaryDefault">
+            Algemene Voorwaardenㆍ
+          </Link>
+          <Link href="/privacynpm-rupolicy">Privacy Policy</Link>
         </BodyTextSemibold>
       </div>
     </div>

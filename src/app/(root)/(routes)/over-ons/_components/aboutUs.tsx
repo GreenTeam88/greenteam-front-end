@@ -9,7 +9,7 @@ const OurVisionCard = () => {
         <p className="text-[13px]">
           Bij Green Team hebben we een passie voor hout en duurzaamheid. Oorspronkelijk houtbewerkers, hebben wij ons
           gespecialiseerd in vloer en traprenovatie. Wij streven naar topkwaliteit en het{' '}
-          <span className="text-secondaryDefault"> overtreffen van verwachtingen.</span>
+          <span className="text-secondaryDefault font-bold"> overtreffen van verwachtingen.</span>
         </p>
         <p className="text-[13px]">
           Wij geven om mensen en het milieu, en blijven continu innoveren. Belangrijkste is dat je op Green Team kunt

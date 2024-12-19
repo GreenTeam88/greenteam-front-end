@@ -9,7 +9,9 @@ const config: InfoCardProps = {
   buttonLink: '/offerte',
   paragraphs: [
     <>
-      <span className="text-secondaryDefault">Indien nodig schakelen we hulp in van betrouwbare partners.</span>
+      <span className="text-secondaryDefault font-bold">
+        Indien nodig schakelen we hulp in van betrouwbare partners.
+      </span>
     </>,
     <>
       De vakmensen van GreenTeam denken graag mee met al je vragen. We werken al vele jaren samen met verschillende

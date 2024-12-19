@@ -48,7 +48,7 @@ const FAQs: FAQType[] = [
     answer: (
       <>
         Per categorie gelden andere garantievoorwaarden. Onze garantie voorwaarden zijn te vinden in onze{' '}
-        <Link onClick={() => alert('clicked')} href="/veelgestelde-vragen">
+        <Link href="/algemene-voorwaarden" className="hover:text-primaryDefault">
           algemene voorwaarden.
         </Link>
       </>
@@ -79,7 +79,7 @@ const ParagraphSection = () => {
   return (
     <div className="flex flex-col gap-[44px] lg:w-[488px]">
       <div className="flex flex-col gap-[11px]">
-        <H2 className="text-primaryDefault">Veelgestelde vragen</H2>
+        <H2 className="text-primaryDefault ">Veelgestelde vragen</H2>
         <p>
           Heb je vragen? Wij hebben de antwoorden! Staat je vraag er niet tussen? Neem dan even contact met ons op en we
           helpen je graag verder.

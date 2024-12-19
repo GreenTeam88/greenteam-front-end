@@ -29,7 +29,7 @@ const greenTeamDescriptionInfo: InfoCardProps = {
     </>,
     <>
       {' '}
-      <span className="text-secondaryDefault">
+      <span className="text-secondaryDefault font-bold">
         Wij bieden oplossingen voor kantoren, hotels, winkels, spa’s en meer.
       </span>
     </>,

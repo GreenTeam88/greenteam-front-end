@@ -48,7 +48,10 @@ const FAQs: FAQType[] = [
     answer: (
       <>
         Per categorie gelden andere garantievoorwaarden. Onze garantie voorwaarden zijn te vinden in onze{' '}
-        <Link href="/algemene-voorwaarden"> algemene voorwaarden.</Link>
+        <Link href="/algemene-voorwaarden" className="hover:text-primaryDefault">
+          {' '}
+          algemene voorwaarden.
+        </Link>
       </>
     ),
   },

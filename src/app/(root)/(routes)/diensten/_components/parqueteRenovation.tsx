@@ -22,7 +22,7 @@ const config: InfoCardProps = {
     </>,
     <>
       GreenTeam staat voor duurzaam en groen.{' '}
-      <span className="text-secondaryDefault">
+      <span className="text-secondaryDefault font-bold">
         Het is daarom ook een passie van ons om een houten vloer een tweede leven te kunnen geven.
       </span>{' '}
       Dat draagt niet alleen bij aan een beter leefklimaat, maar is ook nog eens een stuk goedkoper dan de aanschaf van
