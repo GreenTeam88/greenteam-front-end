@@ -1,5 +1,5 @@
 import { CheckedIcon } from '@/components/icons/check';
-import { PrimaryBtn, PrimaryBtnLink } from '@/components/theme/buttons';
+import { PrimaryBtnLink } from '@/components/theme/buttons';
 import { BodyText, H2 } from '@/components/theme/typography';
 
 const listItems: string[] = [
