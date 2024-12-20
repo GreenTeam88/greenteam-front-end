@@ -39,7 +39,7 @@ type SecondSectionProps = {
 
 export const SecondSection: React.FC<SecondSectionProps> = ({ image, pageName, sectionName }) => {
   return (
-    <div className="flex px-3 flex-col w-full items-center py-6 pb-[200px] gap-[100px]">
+    <div className="flex px-3 flex-col w-full items-center py-6 pb-[150px] gap-[100px]">
       <p className="text-primaryDefault font-normal">
         {sectionName + '  '} <span className="font-bold">- {pageName}</span>{' '}
       </p>
