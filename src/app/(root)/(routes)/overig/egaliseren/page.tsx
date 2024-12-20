@@ -111,7 +111,7 @@ const whatWaitingForConfig: InfoCardProps = {
     </BodyText>,
   ],
   imgSrc: '/overig/egaliseren/egaliseren-9.png',
-  buttonText: 'offerte aanvragen',
+  buttonText: 'Offerte aanvragen',
   buttonLink: '/offerte',
 };
 

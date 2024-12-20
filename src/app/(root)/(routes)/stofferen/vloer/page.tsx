@@ -96,7 +96,7 @@ const whatWaitingForConfig: InfoCardProps = {
     </BodyText>,
   ],
   imgSrc: '/stofferen/vloer/vloer-8.png',
-  buttonText: 'offerte aanvragen',
+  buttonText: 'Offerte aanvragen',
   buttonLink: '/offerte',
 };
 

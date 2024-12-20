@@ -83,7 +83,7 @@ const whatWaitingForConfig: InfoCardProps = {
     </BodyText>,
   ],
   imgSrc: '/vloeren-leggen/walvisgraat/walvisgraat-8.png',
-  buttonText: 'offerte aanvragen',
+  buttonText: 'Offerte aanvragen',
   buttonLink: '/offerte',
 };
 

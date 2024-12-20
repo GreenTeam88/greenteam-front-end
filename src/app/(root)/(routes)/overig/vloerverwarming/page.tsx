@@ -93,7 +93,7 @@ const whatWaitingForConfig: InfoCardProps = {
     </BodyText>,
   ],
   imgSrc: '/overig/vloerverwarming/vloerverwarming-8.png',
-  buttonText: 'offerte aanvragen',
+  buttonText: 'Offerte aanvragen',
   buttonLink: '/offerte',
 };
 

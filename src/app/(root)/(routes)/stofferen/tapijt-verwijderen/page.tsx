@@ -82,7 +82,7 @@ const whatWaitingForConfig: InfoCardProps = {
     </BodyText>,
   ],
   imgSrc: '/stofferen/tapijt-verwijderen/tapijt-verwijderen-8.png',
-  buttonText: 'offerte aanvragen',
+  buttonText: 'Offerte aanvragen',
   buttonLink: '/offerte',
 };
 

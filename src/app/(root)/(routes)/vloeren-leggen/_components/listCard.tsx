@@ -24,7 +24,7 @@ export const ListCard: React.FC<ListCardProps> = ({
   pageName,
 }) => {
   return (
-    <div className="flex px-3 flex-col w-full bg lg:items-center py-7 lg:py-6 lg:pb-[400px] gap-7 lg:gap-[100px] ">
+    <div className="flex px-3 flex-col w-full bg lg:items-center py-7 lg:py-6 lg:pb-[180px] gap-7 lg:gap-[100px] ">
       <p className="text-primaryDefault font-normal">
         {sectionName + '  '} <span className="font-bold">- {pageName}</span>{' '}
       </p>
