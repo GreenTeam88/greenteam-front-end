@@ -83,7 +83,10 @@ const HQUI: React.FC<HQLocation & { index: number }> = ({ left, top, type, index
       }}
       className="relative"
     >
+      {/* making some translate-x in order to put the icons at their origin positions */}
       <div className=" translate-x-[14px]">
+        {/* making the motion.div's width 1px so the animation animates at the top instead of the bottom  */}
+
         <motion.div
           className="w-[1px]  bg-red-400 relative"
           animate={{ rotate: [0, 30, -30, 15, -15, 0] }}
