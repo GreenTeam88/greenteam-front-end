@@ -168,7 +168,7 @@ const DesktopRating: React.FC = () => {
     // don't set the interval if the auto scrolling is stoped
     let animationIntervalId: NodeJS.Timeout;
     if (!autoScrollingStoped) {
-      animationIntervalId = setInterval(autoScroll, 1000);
+      animationIntervalId = setInterval(autoScroll, 4000);
     }
     return () => {
       clearInterval(animationIntervalId);

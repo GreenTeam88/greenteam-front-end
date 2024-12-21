@@ -13,7 +13,7 @@ const ServicesCarousel = () => {
   const [isAnimating, setIsAnimating] = useState(false);
 
   const handleNext = async () => {
-    if (isAnimating || currentIndex >= services.length - 4) return;
+    if (isAnimating || currentIndex >= services.length - 3) return;
     setIsAnimating(true);
     setCurrentIndex((prev) => prev + 1);
     setTimeout(() => setIsAnimating(false), 500);
@@ -38,7 +38,7 @@ const ServicesCarousel = () => {
 
         <div className="overflow-hidden ">
           <motion.div
-            className="flex w-[1400px] gap-6"
+            className="flex max-w-[1248px] gap-6"
             animate={{
               x: `-${currentIndex * (100 / 3)}%`,
             }}
@@ -52,7 +52,7 @@ const ServicesCarousel = () => {
             }}
           >
             {services.map((card) => (
-              <div key={card.title} className="w-full">
+              <div key={card.title} className="w-full lg:w-[400px] lg:min-w-[400px]">
                 <ServiceCard {...card} />
               </div>
             ))}
@@ -61,7 +61,7 @@ const ServicesCarousel = () => {
 
         <div
           onClick={handleNext}
-          className={clsx('hidden lg:block group cursor-pointer', { invisible: currentIndex >= services.length - 4 })}
+          className={clsx('hidden lg:block group cursor-pointer', { invisible: currentIndex >= services.length - 3 })}
         >
           <CarouselIcon />
         </div>
