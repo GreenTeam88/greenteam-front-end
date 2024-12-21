@@ -45,7 +45,7 @@ export const ListCard: React.FC<ListCardProps> = ({
             <PrimaryBtnLink href={btnLink}>{btnText}</PrimaryBtnLink>
           </div>
         </div>
-        <img src={imgSrc} />
+        <img className="rounded-[10px]" src={imgSrc} />
       </div>
     </div>
   );

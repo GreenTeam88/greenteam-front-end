@@ -27,8 +27,8 @@ const ImagesGallery: React.FC<StoreImagesInfo> = ({
   return (
     <div className="flex w-[90vw] lg:w-fit gap-[20px] flex-col relative  lg:px-0 lg:flex-row ">
       <div className="flex flex-col gap-[24px]  ">
-        <img className="w-full lg:w-fit" src={firstImg} />
-        <img className="w-full lg:w-fit" src={secondImg} />
+        <img className="w-full lg:w-fit rounded-[10px]" src={firstImg} />
+        <img className="w-full lg:w-fit rounded-[10px]" src={secondImg} />
       </div>
       <div className="relative w-fit h-fit">
         {thirdImgTopText && (
@@ -36,7 +36,7 @@ const ImagesGallery: React.FC<StoreImagesInfo> = ({
             {thirdImgTopText}
           </p>
         )}
-        <img src={thirdImg} />
+        <img src={thirdImg} className=" rounded-[10px]" />
         {thirdImgText && (
           <p className="font-bold leading-[20px] text-white absolute bottom-5 right-1/2 translate-x-1/2">
             {thirdImgText}
@@ -44,8 +44,8 @@ const ImagesGallery: React.FC<StoreImagesInfo> = ({
         )}
       </div>
       <div className="flex flex-col gap-[24px]">
-        <img className="w-full lg:w-fit" src={fourthImg} />
-        <img className="w-full lg:w-fit" src={fifthImg} />
+        <img className="w-full lg:w-fit rounded-[10px]" src={fourthImg} />
+        <img className="w-full lg:w-fit rounded-[10px]" src={fifthImg} />
       </div>
     </div>
   );
