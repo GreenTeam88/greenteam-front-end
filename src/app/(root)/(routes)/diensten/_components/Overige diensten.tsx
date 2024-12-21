@@ -4,8 +4,8 @@ const config: InfoCardProps = {
   title: 'Overige diensten',
   buttonText: 'Offerte aanvragen',
   buttonLink: '/offerte',
-  secondBtnText: 'Offerte aanvragen',
-  secondBtnLink: '/offerte',
+  secondBtnText: 'Meer informatie',
+  secondBtnLink: '/overig',
   imgSrc: [
     '/diensten/OverigeDiensten.png',
     '/diensten/crausel/crausel-1.png',

@@ -7,7 +7,7 @@ const config: InfoCardProps = {
   buttonText: 'Meer informatie',
   buttonLink: '/traprenovatie',
   secondBtnText: 'Offerte aanvragen',
-  secondBtnLink: '/offerte-berekenen',
+  secondBtnLink: '/offerte',
 
   paragraphs: [
     <>
