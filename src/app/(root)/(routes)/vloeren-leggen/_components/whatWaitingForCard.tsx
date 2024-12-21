@@ -1,5 +1,5 @@
 import { ImageCarousel } from '@/components/animations/imageCrausel';
-import { PrimaryBtn, PrimaryBtnLink } from '@/components/theme/buttons';
+import { PrimaryBtnLink } from '@/components/theme/buttons';
 import { BodyText, BodyTextBold } from '@/components/theme/typography';
 import { cn } from '@/lib/tailwind';
 import { InfoCardProps } from '../../diensten/_components/cards';
