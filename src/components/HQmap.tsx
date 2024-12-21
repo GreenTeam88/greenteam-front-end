@@ -83,9 +83,13 @@ const HQUI: React.FC<HQLocation & { index: number }> = ({ left, top, type, index
       }}
       className="relative"
     >
-      <div>
+      <div className=" translate-x-[14px]">
         <motion.div
-          animate={{ rotate: [0, 40, -40, 0] }}
+          className="w-[1px]  bg-red-400 relative"
+          animate={{ rotate: [0, 30, -30, 15, -15, 0] }}
+          style={{
+            transformOrigin: 'bottom',
+          }}
           transition={{
             duration: rotationDuration,
             repeat: Infinity,
@@ -94,10 +98,13 @@ const HQUI: React.FC<HQLocation & { index: number }> = ({ left, top, type, index
             ease: 'easeInOut',
           }}
         >
-          <motion.img src={type === 'bold' ? '/contact/mapHQBoldGreen.png' : '/contact/mapHQLightGreen.png'} />
+          <img
+            src={type === 'bold' ? '/contact/mapHQBoldGreen.png' : '/contact/mapHQLightGreen.png'}
+            className="min-w-[29px] z-10 -translate-x-1/2"
+          />
           <img
             src={type === 'bold' ? '/contact/mapHQBoldGreenCenterIcon.png' : '/contact/mapHQLightGreenCenterIcon.png'}
-            className="absolute left-1/2 -translate-x-1/2 top-[10px]"
+            className="absolute min-w-[16px] left-1/2 z-20  -translate-x-1/2 top-[10px]"
           />
         </motion.div>
       </div>
