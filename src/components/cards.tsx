@@ -42,7 +42,7 @@ export const OrangeInfoCard: React.FC<InfoCardProps> = ({
       {...props}
     >
       {typeof imgSrc === 'string' ? (
-        <img className={clsx('w-full lg:w-fit rounded-lg', imgClassName)} src={imgSrc} />
+        <img className={clsx('w-full lg:w-fit  rounded-lg ', imgClassName)} src={imgSrc} />
       ) : (
         <ImageCarousel images={imgSrc} />
       )}

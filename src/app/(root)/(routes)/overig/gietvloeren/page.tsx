@@ -1,6 +1,7 @@
 import { InfoCardProps } from '@/components/cards';
 import { CardsSection } from '@/components/cardsSection';
 import { FAQSection, FAQType } from '@/components/FAQSection';
+import { Hero } from '@/components/hero';
 import { ListCard } from '@/components/listCard';
 import { QuestionSection } from '@/components/question';
 import { RatingSection } from '@/components/ratingSection';
@@ -8,7 +9,6 @@ import { StoreSection } from '@/components/storeSection';
 import { BodyText } from '@/components/theme/typography';
 import { WhatWaitingForCard } from '@/components/whatWaitingForCard';
 import { WhyGreenTeam } from '../_components/whyGreenTeam';
-import { Hero } from '../../_components/hero';
 
 const thirdSectionCards: InfoCardProps[] = [
   {
@@ -16,7 +16,7 @@ const thirdSectionCards: InfoCardProps[] = [
     imgSrc: '/overig/gietvloeren/gietvloeren-2.png',
     paragraphs: [
       <div key="1">
-        Een gietvloer biedt een naadloze en stijlvolle oplossing voor elke ruimte. Dit is wat u kunt verwachten: é{' '}
+        Een gietvloer biedt een naadloze en stijlvolle oplossing voor elke ruimte. Dit is wat u kunt verwachten: {' '}
       </div>,
       <ul key="3" className="flex flex-col py-3 list-disc gap-4 list-inside">
         <li>Strakke uitstraling: Een naadloze vloer die een moderne en minimalistische sfeer creëert.  </li>
@@ -91,7 +91,7 @@ const whatWaitingForConfig: InfoCardProps = {
 export default function Home() {
   return (
     <div className="flex flex-col   relative z-0 items-center w-full">
-      <Hero />
+      <Hero imgSrc="/overig/hero.png" />
       <ListCard
         sectionName="Overig"
         pageName="Gietvloeren"

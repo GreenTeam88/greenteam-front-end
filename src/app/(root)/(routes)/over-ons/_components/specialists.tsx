@@ -15,7 +15,7 @@ const SpecialistCard: React.FC<SpecialistInfo> = ({ imgSrc, name, role }) => {
 
 export const SpecialistsSection = () => {
   return (
-    <div className="flex w-full items-center px-5 lg:px-0 gap-[55px] py-3 lg: flex-col">
+    <div className="flex w-full items-center px-5 lg:px-0 gap-[55px] py-3 lg:pb-40 flex-col">
       <H2 className="text-primaryDefault text-center lg:text-start">Maak kennis met onze specialisten</H2>
       <div className="flex max-w-[897px] justify-center w-full  flex-wrap gap-[18px]">
         {specialists.map((specialist) => (

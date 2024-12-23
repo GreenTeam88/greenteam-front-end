@@ -17,7 +17,11 @@ export const TermsConditionPageQuestion = () => {
         </SecondaryOutlinedBtn>
       </div>
       {infoUsefull !== null &&
-        (infoUsefull ? <BodyText>We zijn blij dat we je hebben kunnen helpen!</BodyText> : <BodyText>No</BodyText>)}
+        (infoUsefull ? (
+          <BodyText>We zijn blij dat we je hebben kunnen helpen!</BodyText>
+        ) : (
+          <BodyText>Neem alstublieft contact met ons op om het probleem te bespreken.</BodyText>
+        ))}
     </div>
   );
 };

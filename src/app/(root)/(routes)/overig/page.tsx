@@ -1,8 +1,8 @@
 import React from 'react';
 
+import { Hero } from '@/components/hero';
 import { QuestionSection } from '@/components/question';
 import { RatingSection } from '@/components/ratingSection';
-import { Hero } from '../_components/hero';
 import { Egaliseren } from './_components/egaliseren';
 import { Gietvloeren } from './_components/gietvloeren';
 import { NatuursteenBehandelen } from './_components/natuursteen-behandelen';
@@ -14,7 +14,7 @@ import { VloerVerwijderen } from './_components/vloer-verwijderen';
 function Page() {
   return (
     <div className="flex flex-col  relative z-0 items-center w-full">
-      <Hero />
+      <Hero imgSrc="/overig/hero.png" />
       <Overig />
       <Egaliseren />
       <Gietvloeren />

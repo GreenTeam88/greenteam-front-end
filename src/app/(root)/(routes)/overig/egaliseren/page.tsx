@@ -1,6 +1,7 @@
 import { InfoCardProps } from '@/components/cards';
 import { CardsSection } from '@/components/cardsSection';
 import { FAQSection, FAQType } from '@/components/FAQSection';
+import { Hero } from '@/components/hero';
 import { ListCard } from '@/components/listCard';
 import { QuestionSection } from '@/components/question';
 import { RatingSection } from '@/components/ratingSection';
@@ -8,7 +9,6 @@ import { StoreSection } from '@/components/storeSection';
 import { BodyText } from '@/components/theme/typography';
 import { WhatWaitingForCard } from '@/components/whatWaitingForCard';
 import { WhyGreenTeam } from '../_components/whyGreenTeam';
-import { Hero } from '../../_components/hero';
 
 const thirdSectionCards: InfoCardProps[] = [
   {
@@ -118,7 +118,7 @@ const whatWaitingForConfig: InfoCardProps = {
 export default function Home() {
   return (
     <div className="flex flex-col   relative z-0 items-center w-full">
-      <Hero />
+      <Hero imgSrc="/overig/hero.png" />
       <ListCard
         sectionName="Overig"
         pageName="Egaliseren"
