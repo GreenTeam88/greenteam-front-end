@@ -50,7 +50,7 @@ export const footerColumnsInfo: FooterColumnInfo[] = [
   },
   {
     title: 'Tegelen',
-    path: '/tegelen',
+    path: '/overig/tegelen',
     links: [
       { name: 'Vloer', path: '/tegelen/vloer' },
       { name: 'Wand', path: '/tegelen/wand' },

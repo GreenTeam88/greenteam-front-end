@@ -11,7 +11,7 @@ import { FooterColumnInfo, footerColumnsInfo, topFooterLinks } from './footerCon
 export const FooterColumn: React.FC<FooterColumnInfo> = ({ title, links, path }) => {
   return (
     <div className="flex flex-col w-[220px]  gap-[10px] ">
-      <Link href={path} className="text-primaryDefault font-bold">
+      <Link href={path} className="text-primaryDefault hover:text-secondaryDefault font-bold">
         {title}
       </Link>
       <div className="flex flex-col gap-2">
