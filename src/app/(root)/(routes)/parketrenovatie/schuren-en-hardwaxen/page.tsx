@@ -125,7 +125,7 @@ export default function Home() {
       />
       <WhatWaitingForCard {...whatWaitingForConfig} className="lg:py-28" />
       <FAQSection FAQs={FAQs} />
-      <QuestionSection />
+      <QuestionSection category="Parketrenovatie" />
       <RatingSection />
     </div>
   );
