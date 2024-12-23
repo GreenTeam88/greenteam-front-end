@@ -15,7 +15,7 @@ function OverOnsHero() {
     <div className="flex px-2 lg:px-0 flex-col w-full items-center relative bg-bgColor">
       <Hero />
       <AboutUs />
-      <QuestionSection />
+      <QuestionSection category="Parketrenovatie" />
       <SpecialistsSection />
       <OurServicesSection />
       <GreenSection />

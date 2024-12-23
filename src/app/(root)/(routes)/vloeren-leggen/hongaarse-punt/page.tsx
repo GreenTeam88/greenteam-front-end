@@ -136,7 +136,7 @@ export default function Home() {
         className="lg:py-28"
       />
       <FAQSection FAQs={FAQs} />
-      <QuestionSection />
+      <QuestionSection category="Parketrenovatie" />
       <RatingSection />
     </div>
   );

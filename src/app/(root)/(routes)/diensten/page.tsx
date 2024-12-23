@@ -22,7 +22,7 @@ function DienstenPage() {
       <Stoffren />
       <OverigeDiensten />
       <FAQSection />
-      <QuestionSection category="diensten" />
+      <QuestionSection category="Parketrenovatie" />
       <PhoneNumberSection />
     </div>
   );

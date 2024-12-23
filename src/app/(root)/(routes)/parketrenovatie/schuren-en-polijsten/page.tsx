@@ -128,7 +128,7 @@ export default function Home() {
       />
       <WhatWaitingForCard {...whatWaitingForConfig} />
       <FAQSection FAQs={FAQs} />
-      <QuestionSection />
+      <QuestionSection category="Parketrenovatie" />
       <RatingSection />
     </div>
   );
