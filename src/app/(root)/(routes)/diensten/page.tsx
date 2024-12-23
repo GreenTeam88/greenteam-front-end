@@ -22,7 +22,7 @@ function DienstenPage() {
       <Stoffren />
       <OverigeDiensten />
       <FAQSection />
-      <QuestionSection />
+      <QuestionSection category="diensten" />
       <PhoneNumberSection />
     </div>
   );
