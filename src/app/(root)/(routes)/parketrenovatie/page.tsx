@@ -1,5 +1,5 @@
+import { Hero } from '@/components/hero';
 import { RatingSection } from '@/components/ratingSection';
-import { Hero } from '../_components/hero';
 import { QuestionSection } from '../../../../components/animations/question';
 import { Drevelen } from './_components/drevelen';
 import { FifthSection } from './_components/fifthSection';
@@ -14,7 +14,7 @@ import { VgroefFrezen } from './_components/vgroefFrezen';
 export default function Home() {
   return (
     <div className="flex flex-col  relative z-0 items-center w-full">
-      <Hero />
+      <Hero imgSrc="/Parketrenovatie/hero.png" />
       <ParqueteRenovation />
       <ThirdSection />
       <FourthSection />

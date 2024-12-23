@@ -91,7 +91,7 @@ const whatWaitingForConfig: InfoCardProps = {
 export default function Home() {
   return (
     <div className="flex flex-col   relative z-0 items-center w-full">
-      <Hero />
+      <Hero imgSrc="/stofferen/hero.png" />
       <ListCard
         sectionName="Stofferen"
         pageName="Tapijttegels"
