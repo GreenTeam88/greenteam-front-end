@@ -345,7 +345,7 @@ const HeaderColumnItem: React.FC<
 const HeaderColumn: React.FC<HeaderColumnInfo & { index: number }> = ({ subPages, title, link }) => {
   return (
     <>
-      <div className="flex flex-col  gap-[11px]">
+      <div className="flex flex-col   gap-[11px]">
         <Link href={link} className="text-sm font-semibold hover:text-secondaryDefault text-primaryDefault ">
           {title}
         </Link>
@@ -365,7 +365,7 @@ const HeaderColumns: React.FC<{ hoveredLink: string }> = ({ hoveredLink }) => {
   const hoveredRouteColumns = hoveredRoute && 'columns' in hoveredRoute && hoveredRoute.columns;
   if (!hoveredRouteColumns) return null;
   return (
-    <div className="flex gap-[33px] py-[22px] px-[44px]">
+    <div className="flex  gap-[33px] py-[22px] px-[44px]">
       {hoveredRouteColumns.map((column, index) => (
         <HeaderColumn key={column.title} {...column} index={index} />
       ))}
@@ -460,7 +460,7 @@ const DropDownColumnLink: React.FC<
       <Link
         href={(page.path as string) || '/'}
         onClick={() => setOpenSubPages((val) => !val)}
-        className="text-sm flex items-center  hover:text-primaryDefault relative group w-full min-w-[160px] text-black text-opacity-80"
+        className="text-sm flex items-center   hover:text-primaryDefault relative group w-full min-w-[160px] text-black text-opacity-80"
       >
         {page.name}
         {pageSubpages && (
@@ -481,7 +481,7 @@ const DropDownColumnLink: React.FC<
             <Link
               href={subPage.path}
               key={subPage.name}
-              className="text-sm   hover:text-primaryDefault  w-full min-w-[160px] text-black text-opacity-80"
+              className="text-sm whitespace-nowrap   hover:text-primaryDefault  w-full min-w-[160px] text-black text-opacity-80"
             >
               {subPage.name}
             </Link>

@@ -5,6 +5,7 @@ import React, { useState } from 'react';
 import { PrimaryBtn, PrimaryBtnLink, SecondaryOutlinedBtnLink } from '@/components/theme/buttons';
 import { PrimaryInput, SelectInput } from '@/components/theme/inputs';
 import { BodyText, H2, HeadlineSemibold } from '@/components/theme/typography';
+import MultiStepForm from '../calculators/common/MultiStepForm';
 
 const QuestionForm: React.FC = () => {
   const [category, setCategory] = useState('');
@@ -104,10 +105,10 @@ const QuestionsParagraph = () => {
   );
 };
 
-export const QuestionSection = () => {
+export const QuestionSection: React.FC<{ category: string }> = ({ category }) => {
   return (
     <div className="flex w-full flex-col lg:flex-row items-center px-2 justify-center py-24 gap-[92px]">
-      <QuestionForm />
+      <MultiStepForm category={category} />
       <QuestionsParagraph />
     </div>
   );

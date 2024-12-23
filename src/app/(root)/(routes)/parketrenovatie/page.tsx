@@ -25,7 +25,7 @@ export default function Home() {
       <VgroefFrezen />
       <PlintenDeklijsten />
       <RatingSection />
-      <QuestionSection />
+      <QuestionSection category="Parketrenovatie" />
     </div>
   );
 }
