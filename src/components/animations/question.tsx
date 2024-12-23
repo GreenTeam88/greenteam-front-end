@@ -1,10 +1,9 @@
 'use client';
 
-import React, { useState } from 'react';
+import React from 'react';
 
-import { PrimaryBtn, PrimaryBtnLink, SecondaryOutlinedBtnLink } from '@/components/theme/buttons';
-import { PrimaryInput, SelectInput } from '@/components/theme/inputs';
-import { BodyText, H2, HeadlineSemibold } from '@/components/theme/typography';
+import { PrimaryBtnLink, SecondaryOutlinedBtnLink } from '@/components/theme/buttons';
+import { BodyText, H2 } from '@/components/theme/typography';
 import MultiStepForm from '../calculators/common/MultiStepForm';
 
 const QuestionsParagraph = () => {
