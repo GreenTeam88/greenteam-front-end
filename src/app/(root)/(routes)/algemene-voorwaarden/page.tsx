@@ -1,4 +1,4 @@
-import { Hero } from '../_components/hero';
+import { Hero } from '@/components/hero';
 import { PhoneNumberSection } from '../_components/phoneNumberSection';
 import { TermsConditionPageQuestion } from './_components/question';
 import { TermsConditions } from './_components/termsConditions';

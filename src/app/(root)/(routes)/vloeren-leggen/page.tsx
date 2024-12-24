@@ -1,7 +1,7 @@
 import React from 'react';
 
+import { Hero } from '@/components/hero';
 import { RatingSection } from '@/components/ratingSection';
-import { Hero } from '../_components/hero';
 import { QuestionSection } from '../../../../components/animations/question';
 import { Bourgogne } from './_components/mainPage/Bourgogne';
 import { Hexagon3D } from './_components/mainPage/Hexagon-&-3D';

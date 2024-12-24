@@ -5,14 +5,14 @@ import { PrimaryBtnLink, SecondaryOutlinedBtnLink } from '@/components/theme/but
 import { cn } from '@/lib/tailwind';
 
 type HeroProps = {
-  imgSrc: string;
+  imgSrc?: string;
   imgClassName?: string;
 };
 
 const ParagraphSection = () => {
   return (
     <div className="flex relative  items-center lg:items-start z-10 gap-[86px]">
-      <div className="flex flex-col items-center lg:items-start gap-[44px] max-w-[627px] ">
+      <div className="flex flex-col lg:items-center lg:items-start gap-[44px] max-w-[627px] ">
         <div className="flex flex-col w-full gap-[22px] ">
           <h5 className="font-bold text-primaryDefault text-[32px] lg:text-[40px]">
             <span className="underline"> Zorgeloos </span> een klus uitbesteden tegen een{' '}
@@ -22,7 +22,7 @@ const ParagraphSection = () => {
             Gedreven door vakmanschap gaan we samen op zoek naar een passende en duurzame oplossing voor jouw project.
           </p>
         </div>
-        <div className="flex gap-[22px] items-center">
+        <div className="flex gap-[22px]    items-center">
           <PrimaryBtnLink href="/offerte">Offerte aanvragen</PrimaryBtnLink>
           <SecondaryOutlinedBtnLink href="tel:+085 401 93 45">Direct bellen</SecondaryOutlinedBtnLink>
         </div>
@@ -34,7 +34,10 @@ const ParagraphSection = () => {
 export const Hero: React.FC<HeroProps> = ({ imgSrc, imgClassName }) => {
   return (
     <div className="relative px-2  w-full h-fit flex items-center justify-center ">
-      <img src={imgSrc} className={cn('absolute hidden lg:block w-full h-full top-0 left-0 z-0', imgClassName)} />
+      <img
+        src={imgSrc || '/hero.png'}
+        className={cn('absolute hidden lg:block w-full h-full top-0 left-0 z-0', imgClassName)}
+      />
 
       <div className=" relative flex-col lg:flex-row z-0 max-w-full lg:h-[420px] py-16 lg:py-0 gap-[86px]  lg:px-[120px] w-[1440px] flex items-center ">
         <ParagraphSection />

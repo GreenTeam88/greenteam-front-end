@@ -1,6 +1,6 @@
 import React from 'react';
 
-import { Hero } from '../_components/hero';
+import { Hero } from '@/components/hero';
 import { Deurmat } from './_components/deurmat';
 import { Droogloopmat } from './_components/droogloopmat';
 import { Meubels } from './_components/meubels';

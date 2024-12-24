@@ -1,7 +1,7 @@
 import React from 'react';
 
+import { Hero } from '@/components/hero';
 import { ContactSection } from '../_components/contactSection';
-import { Hero } from '../_components/hero';
 import { PhoneNumberSection } from '../_components/phoneNumberSection';
 import { FAQSection } from '../diensten/_components/faq';
 import { ContactFormSection } from './_components/contactFormSection';
