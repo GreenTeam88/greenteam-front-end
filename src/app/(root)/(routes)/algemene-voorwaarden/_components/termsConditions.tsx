@@ -1,17 +1,19 @@
+import Link from 'next/link';
+
 import { BodyTextSemibold, H1 } from '@/components/theme/typography';
 
 export const TermsConditions = () => {
   return (
-    <div className="flex gap-[44px] py-14 flex-col px-10  lg:flex-row ">
+    <div className="flex gap-[44px] py-14 flex-col-reverse px-10  lg:flex-row ">
       <div className="flex max-w-full lg:w-[901px] flex-col gap-[32px]">
         <div className="flex flex-col gap-[12px]">
           <H1 className="text-primaryDefault">Algemene voorwaarden</H1>
           <p className="text-[#13113599] text-opacity-60"></p>
         </div>
         <div className="boxClassname">
-          <h3 className="boxTitle"> 1. Definities</h3>
+          <h3 className="boxTitle">1. Definities</h3>
           <div className="listContainer">
-            <p className="listItem">
+            <p id="2" className="listItem">
               1.1. GreenTeam: de gebruiker van deze algemene voorwaarden, gevestigd te Capelle aan den IJssel onder
               KvK-nummer 76815889.
             </p>
@@ -28,7 +30,7 @@ export const TermsConditions = () => {
               1.5.Overeenkomst: iedere tussen GreenTeam en de opdrachtgever tot stand gekomen overeenkomst, waarmee
               GreenTeam zich verbindt tot het leveren van zaken en/of verrichten van werkzaamheden.
             </p>
-            <p className="listItem">
+            <p className="listItem" id="Definities">
               1.6. Schriftelijk: zowel traditionele schriftelijke communicatie als communicatie per e-mail.
             </p>
           </div>
@@ -41,7 +43,7 @@ export const TermsConditions = () => {
               2.1.Overeenkomst: iedere tussen GreenTeam en de opdrachtgever tot stand gekomen overeenkomst, waarmee
               GreenTeam zich verbindt tot het leveren van zaken en/of verrichten van werkzaamheden.
             </p>
-            <p className="listItem">
+            <p className="listItem" id="3">
               2.2.Afwijkingen op deze algemene voorwaarden zijn slechts geldig indien deze schriftelijk tussen GreenTeam
               en opdrachtgever zijn overeengekomen. Afwijkingen van deze algemene voorwaarden gelden slechts éénmalig en
               alleen voor de offerte of overeenkomst waarop de betreffende afwijking betrekking heeft.
@@ -72,7 +74,7 @@ export const TermsConditions = () => {
               3.2. De overeenkomst tussen GreenTeam en de opdrachtgever komt tot stand na ondertekening van de offerte
               door beide partijen of zodra GreenTeam een begin maakt met de uitvoering daarvan.
             </p>
-            <p className="listItem">
+            <p className="listItem" id="4">
               3.3. Indien aanvaarding van de offerte door opdrachtgever (op ondergeschikte punten) afwijkt van het in de
               offerte opgenomen aanbod is GreenTeam daaraan niet gebonden. De overeenkomst komt dan niet in
               overeenstemming met deze afwijkende aanvaarding tot stand, tenzij GreenTeam hiermee schriftelijk akkoord
@@ -124,7 +126,7 @@ export const TermsConditions = () => {
               te ontbinden indien de (kost)prijsverhoging door de opdrachtnemer wordt gewenst binnen 3 maanden nadat de
               overeenkomst tot stand is gekomen.
             </p>
-            <p className="listItem">
+            <p className="listItem" id="5">
               3.6. Elke opdrachtgever is in geval van een prijsstijging van het vaste honorarium of uurtarief van meer
               dan 10% gerechtigd de overeenkomst te ontbinden. De opdrachtgever is niet gerechtigd de overeenkomst te
               ontbinden, indien de bevoegdheid tot verhoging van het vaste honorarium of uurtarief voortvloeit uit een
@@ -175,13 +177,13 @@ export const TermsConditions = () => {
               een herinneringssommatie nog éénmaal een aanvullende betalingstermijn van 14 dagen worden gegund, zonder
               het verschuldigd worden van de buitengerechtelijke incassokosten.
             </p>
-            <p className="listItem">
+            <p className="listItem" id="Betalingen en betalingstermijnen">
               5.7.In geval van wettelijke schuldsanering, liquidatie, faillissement, beslag of surseance van betaling
               van de opdrachtgever zijn de vorderingen van GreenTeam op de Opdrachtgever onmiddellijk opeisbaar.
             </p>
           </div>
         </div>
-        <div className="boxClassname">
+        <div className="boxClassname" id="Verplichtingen van de opdrachtgever">
           <h3 className="boxTitle">6. Verplichtingen van de opdrachtgever</h3>
           <div className="listContainer">
             <p className="listItem">
@@ -234,7 +236,7 @@ export const TermsConditions = () => {
             </p>
           </div>
         </div>
-        <div className="boxClassname">
+        <div className="boxClassname" id="Uitvoering van de overeenkomst">
           <h3 className="boxTitle">7. Uitvoering van de overeenkomst</h3>
           <div className="listContainer">
             <p className="listItem">
@@ -260,7 +262,7 @@ export const TermsConditions = () => {
             </p>
           </div>
         </div>
-        <div className="boxClassname">
+        <div className="boxClassname" id="Wijziging van de overeenkomst">
           <h3 className="boxTitle"> 8. Wijziging van de overeenkomst</h3>
           <div className="listContainer">
             <p className="listItem">
@@ -598,11 +600,19 @@ export const TermsConditions = () => {
       </div>
       <div className="flex flex-col gap-[11px]">
         <BodyTextSemibold className="text-blackDark text-opacity-40">Inhoudsopgave</BodyTextSemibold>
-        <h3 className="text-blackDark text-sm">1. Definities</h3>
-        <h3 className="text-blackDark text-sm">2. Toepasselijkheid algemene voorwaarden</h3>
-        <h3 className="text-blackDark text-sm">3. Offertes en totstandkoming overeenkomst</h3>
-        <h3 className="text-blackDark text-sm">4. Prijzen en tarieven</h3>
-        <h3 className="text-blackDark text-sm">5. Betalingen en betalingstermijnen</h3>
+        <a className="text-blackDark cursor-pointer text-sm">1. Definities</a>
+        <a href="#2" className="text-blackDark text-sm">
+          2. Toepasselijkheid algemene voorwaarden
+        </a>
+        <a href="#3" className="text-blackDark text-sm">
+          3. Offertes en totstandkoming overeenkomst
+        </a>
+        <a href="#4" className="text-blackDark text-sm">
+          4. Prijzen en tarieven
+        </a>
+        <a href="#5" className="text-blackDark text-sm">
+          5. Betalingen en betalingstermijnen
+        </a>
       </div>
     </div>
   );

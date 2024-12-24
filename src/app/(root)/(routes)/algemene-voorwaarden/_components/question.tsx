@@ -1,5 +1,6 @@
 'use client';
 
+import Link from 'next/link';
 import { useState } from 'react';
 
 import { PrimaryBtn, SecondaryOutlinedBtn } from '@/components/theme/buttons';
@@ -20,7 +21,9 @@ export const TermsConditionPageQuestion = () => {
         (infoUsefull ? (
           <BodyText>We zijn blij dat we je hebben kunnen helpen!</BodyText>
         ) : (
-          <BodyText>Neem alstublieft contact met ons op om het probleem te bespreken.</BodyText>
+          <BodyText>
+            Neem alstublieft <Link href="/contact">contact</Link> met ons op om het probleem te bespreken.
+          </BodyText>
         ))}
     </div>
   );
