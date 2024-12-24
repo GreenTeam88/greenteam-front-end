@@ -77,7 +77,7 @@ const MultiStepForm: React.FC<MultiStepFormProps> = ({ category }) => {
 
     if (!StepComponent) {
       return (
-        <div className="w-[386px] h-[430px] flex flex-col items-center justify-center bg-gray-100 rounded-lg shadow-lg p-6">
+        <div className="w-full  lg:w-[386px] h-[430px] flex flex-col items-center justify-center bg-gray-100 rounded-lg shadow-lg p-6">
           <div className="animate-bounce rounded-full h-16 w-16 bg-green-300 mb-4 flex items-center justify-center">
             <span className="text-white font-bold text-lg">!</span>
           </div>
@@ -95,7 +95,7 @@ const MultiStepForm: React.FC<MultiStepFormProps> = ({ category }) => {
     return (
       <Suspense
         fallback={
-          <div className="w-[386px] h-[430px] flex flex-col items-center justify-center bg-gray-100 rounded-lg shadow-lg p-6">
+          <div className="w-full lg:w-[386px] h-[430px] flex flex-col items-center justify-center bg-gray-100 rounded-lg shadow-lg p-6">
             <div className="animate-pulse w-full mb-4 h-10 bg-gray-300 rounded"></div>
             <div className="animate-spin rounded-full h-16 w-16 border-t-4 border-primaryDefault border-opacity-50 mb-4"></div>
             <div className="w-3/4 h-6 bg-gray-300 rounded mb-2"></div>

@@ -1,5 +1,6 @@
 'use client';
 
+import { Hero } from '@/components/hero';
 import { PrimaryBtn } from '@/components/theme/buttons';
 import { HeadlineSemibold } from '@/components/theme/typography';
 
@@ -56,7 +57,7 @@ export const PageHeroSection = () => {
 
       <div className=" relative flex-col z-10 max-w-full lg:h-fit py-[10px]  gap-[40px] px-2 lg:px-[120px] w-[1440px] flex items-center ">
         {/* the form to calculate the price  */}
-        <FormSection />
+        <Hero imgSrc="/hero.png" />
       </div>
     </div>
   );

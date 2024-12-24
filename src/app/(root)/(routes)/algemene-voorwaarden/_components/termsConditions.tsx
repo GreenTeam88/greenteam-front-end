@@ -581,18 +581,18 @@ export const TermsConditions = () => {
         <div className="boxClassname">
           <h3 className="boxTitle">17. Geschillen en toepasselijk recht</h3>
           <div className="listContainer">
-            <p className="listContainer">
+            <p className="listItem">
               17.1. Op alle rechtsverhoudingen tussen GreenTeam en de opdrachtgever is uitsluitend Nederlands recht van
               toepassing.
             </p>
-            <p className="listContainer">
+            <p className="listItem">
               17.2. Alle geschillen die voortvloeien uit, dan wel verband houden met de rechtsverhoudingen tussen
               GreenTeam en de opdrachtgever waar deze algemene voorwaarden op van toepassing zijn, zullen uitsluitend
               worden voorgelegd aan de bevoegde rechter in het arrondissement waar GreenTeam gevestigd is, tenzij
               bepalingen van dwingend recht anders voorschrijven. Green Team heeft het recht van deze bevoegdheidsregel
               af te wijken en de wettelijke bevoegdheidsregels te hanteren.
             </p>
-            <p className="listContainer">
+            <p className="listItem">
               17.3. Partijen kunnen schriftelijk een andere vorm van geschillenbeslechting overeenkomen.
             </p>
           </div>

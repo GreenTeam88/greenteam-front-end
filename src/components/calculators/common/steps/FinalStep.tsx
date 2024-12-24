@@ -15,7 +15,7 @@ const FinalStep: React.FC = () => {
     <FormProvider {...form}>
       <form
         onSubmit={handleSubmit}
-        className="w-[386px] h-[400px] flex flex-col rounded-[4px] relative lg:px-0 z-10 shadow-lg"
+        className="w-full lg:w-[386px] h-[400px] flex flex-col rounded-[4px] relative lg:px-0 z-10 shadow-lg"
       >
         <div className="bg-primaryDefault rounded-t-[8px] flex items-center justify-center text-white py-[22px] w-full">
           <div className="text-center">

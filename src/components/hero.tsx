@@ -33,10 +33,10 @@ const ParagraphSection = () => {
 
 export const Hero: React.FC<HeroProps> = ({ imgSrc, imgClassName }) => {
   return (
-    <div className="relative w-full h-fit flex items-center justify-center ">
+    <div className="relative px-2  w-full h-fit flex items-center justify-center ">
       <img src={imgSrc} className={cn('absolute hidden lg:block w-full h-full top-0 left-0 z-0', imgClassName)} />
 
-      <div className=" relative flex-col lg:flex-row z-0 max-w-full lg:h-[680px] py-16 lg:py-0 gap-[86px] px-2 lg:px-[120px] w-[1440px] flex items-center ">
+      <div className=" relative flex-col lg:flex-row z-0 max-w-full lg:h-[420px] py-16 lg:py-0 gap-[86px]  lg:px-[120px] w-[1440px] flex items-center ">
         <ParagraphSection />
 
         <MultiStepForm category="Parketrenovatie" />
