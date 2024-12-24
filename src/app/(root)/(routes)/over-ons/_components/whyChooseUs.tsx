@@ -76,17 +76,24 @@ const IconCard: React.FC<TabInfo & { setCurrTab: Dispatch<SetStateAction<string>
 const TabsSection = () => {
   const [currTab, setCurrTab] = useState(tabsInfo[0].name);
   return (
-    <div className="flex flex-col items-center px-5 py-28 gap-[55px]">
-      <H2 className="text-primaryDefault">Waarom voor ons kiezen?</H2>
-      <div className="flex gap-[88px] max-w-full flex-wrap  w-full justify-center">
-        {tabsInfo.map((info) => (
-          <IconCard currTab={currTab} setCurrTab={setCurrTab} key={info.name} {...info} />
-        ))}
+    <>
+      {/* view for desktop */}
+      <div className="flex flex-col items-center px-5 py-28 gap-[55px]">
+        <H2 className="text-primaryDefault">Waarom voor ons kiezen?</H2>
+        <div className="flex gap-[88px] max-w-full flex-wrap  w-full justify-center">
+          {tabsInfo.map((info) => (
+            <IconCard currTab={currTab} setCurrTab={setCurrTab} key={info.name} {...info} />
+          ))}
+        </div>
+        <div className="flex flex-col px-3 lg:px-0 gap-8 lg:w-[798px]">
+          <BodyText className="text-[13px]">
+            {' '}
+            {tabsInfo.find((tabInfo) => tabInfo.name === currTab)?.paragraph}
+          </BodyText>
+        </div>
       </div>
-      <div className="flex flex-col px-3 lg:px-0 gap-8 lg:w-[798px]">
-        <BodyText className="text-[13px]"> {tabsInfo.find((tabInfo) => tabInfo.name === currTab)?.paragraph}</BodyText>
-      </div>
-    </div>
+      {/* view for mobile */}
+    </>
   );
 };
 
