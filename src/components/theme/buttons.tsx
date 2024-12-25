@@ -5,7 +5,7 @@ import { cn } from '@/lib/tailwind';
 
 export const PrimaryBtn: React.FC<HTMLAttributes<HTMLButtonElement>> = ({ children, className, ...props }) => {
   return (
-    <button className={cn('primaryBtn w-fit h-fit', className)} {...props}>
+    <button className={cn('primaryBtn text-center  w-fit h-fit', className)} {...props}>
       {children}{' '}
     </button>
   );
@@ -15,7 +15,7 @@ export const PrimaryOutlinedBtn: React.FC<HTMLAttributes<HTMLButtonElement>> = (
   return (
     <button
       className={cn(
-        'py-[10.69px] px-[17.81px] rounded-sm bg-white hover:bg-primaryDefault hover:text-white border hover:border-white text-primaryDefault text-[13px] font-bold w-fit h-fit',
+        'py-[10.69px] px-[17.81px] text-center  rounded-sm bg-white hover:bg-primaryDefault hover:text-white border hover:border-white text-primaryDefault text-[13px] font-bold w-fit h-fit',
         className
       )}
       {...props}
@@ -34,7 +34,7 @@ export const PrimaryOutlinedBtnLink: React.FC<{ className?: string; href: string
     <Link
       href={href}
       className={cn(
-        'py-[10.69px] px-[17.81px] rounded-sm bg-white hover:bg-primaryDefault hover:text-white border hover:border-white text-primaryDefault text-[13px] font-bold w-fit h-fit',
+        'py-[10.69px] px-[17.81px] text-center  rounded-sm bg-white hover:bg-primaryDefault hover:text-white border hover:border-white text-primaryDefault text-[13px] font-bold w-fit h-fit',
         className
       )}
     >
@@ -52,7 +52,7 @@ export const SecondaryOutlinedBtnLink: React.FC<{ className?: string; href: stri
     <Link
       href={href}
       className={cn(
-        'text-secondaryDefault  border hover:bg-secondaryDefault hover:text-white border-secondaryDefault rounded-sm font-bold text-[13px] px-[17.81px] py-[10.69px]',
+        'text-secondaryDefault text-center  border hover:bg-secondaryDefault hover:text-white border-secondaryDefault rounded-sm font-bold text-[13px] px-[17.81px] py-[10.69px]',
         className
       )}
     >
@@ -70,7 +70,7 @@ export const PrimaryBtnLink: React.FC<{ className?: string; href: string; childr
     <Link
       href={href}
       className={cn(
-        ' bg-primaryDefault hover:bg-transparent hover:text-primaryDefault border hover:border-primaryDefault rounded-sm text-[#fff] font-bold  py-[10.69px] px-[17.81px] text-[13px] w-fit h-fit',
+        ' bg-primaryDefault text-center  hover:bg-transparent hover:text-primaryDefault border hover:border-primaryDefault rounded-sm text-[#fff] font-bold  py-[10.69px] px-[17.81px] text-[13px] w-fit h-fit',
         className
       )}
     >
@@ -93,7 +93,7 @@ export const SecondaryBtnLink: React.FC<{ className?: string; href: string; chil
 
 export const SecondaryBtn: React.FC<HTMLAttributes<HTMLButtonElement>> = ({ children, className, ...props }) => {
   return (
-    <button className={cn('secondaryBtn  w-fit h-fit', className)} {...props}>
+    <button className={cn('secondaryBtn text-center  w-fit h-fit', className)} {...props}>
       {children}{' '}
     </button>
   );
@@ -105,7 +105,7 @@ export const SecondaryOutlinedBtn: React.FC<HTMLAttributes<HTMLButtonElement>> =
   ...props
 }) => {
   return (
-    <button className={cn('secondaryOutlinedBtn  w-fit h-fit', className)} {...props}>
+    <button className={cn('secondaryOutlinedBtn text-center  w-fit h-fit', className)} {...props}>
       {children}{' '}
     </button>
   );
@@ -117,7 +117,7 @@ export const SmallSecondaryOutlinedBtn: React.FC<HTMLAttributes<HTMLButtonElemen
   ...props
 }) => {
   return (
-    <button className={cn('smallSecondaryOutlinedBtn  w-fit h-fit', className)} {...props}>
+    <button className={cn('smallSecondaryOutlinedBtn text-center  w-fit h-fit', className)} {...props}>
       {children}{' '}
     </button>
   );
