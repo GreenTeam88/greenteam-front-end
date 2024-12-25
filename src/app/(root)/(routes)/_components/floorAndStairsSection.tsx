@@ -14,7 +14,7 @@ export const FloorAndStairs = () => {
         </span>
         <div className="flex flex-col lg:flex-row gap-[22px]">
           {floorStairsImages.map((img) => (
-            <img src={img} key={img} className=" lg:w-[385px]" />
+            <img src={img} key={img} className="rounded-lg lg:w-[385px]" />
           ))}
         </div>
         <span className="cursor-pointer hidden lg:inline">
