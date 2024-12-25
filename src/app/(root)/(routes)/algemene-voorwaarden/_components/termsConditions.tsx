@@ -1,5 +1,3 @@
-import Link from 'next/link';
-
 import { BodyTextSemibold, H1 } from '@/components/theme/typography';
 
 export const TermsConditions = () => {

@@ -102,7 +102,7 @@ const TabsSection = () => {
         <H2 className="text-primaryDefault text-center">Waarom voor ons kiezen?</H2>
 
         {tabsInfo.map((cardInfo) => (
-          <div className="flex flex-col py-3 gap-4 items-center">
+          <div key={cardInfo.name} className="flex flex-col py-3 gap-4 items-center">
             <IconCard {...cardInfo} />
             <BodyText className="text-center">{cardInfo.paragraph}</BodyText>
           </div>
