@@ -49,7 +49,7 @@ export const BodyTextSemibold: React.FC<HTMLAttributes<HTMLHeadingElement>> = ({
 
 export const BodyTextBold: React.FC<HTMLAttributes<HTMLHeadingElement>> = ({ className, children, ...props }) => {
   return (
-    <p className={cn(className, 'bodyTextBold')} {...props}>
+    <p className={cn('text-[13px] font-bold leading-[20px] tracking-[-2%]', className)} {...props}>
       {children}
     </p>
   );

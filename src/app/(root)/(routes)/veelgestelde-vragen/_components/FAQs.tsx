@@ -1318,7 +1318,7 @@ const FAQCategories: React.FC<{ selectedCategory: string; setSelectedCategory: D
   setSelectedCategory,
 }) => {
   return (
-    <div className="flex flex-col gap-[11px] w-full max-w-[198px]">
+    <div className="flex flex-col gap-[11px] w-fit lg:w-full  max-w-[198px]">
       <BodyTextSemibold className="text-black20 text-opacity-40">Filteren op</BodyTextSemibold>
       {faqs.map((item) => {
         return (
@@ -1326,13 +1326,15 @@ const FAQCategories: React.FC<{ selectedCategory: string; setSelectedCategory: D
             key={item.category}
             onClick={() => setSelectedCategory(item.category)}
             className={clsx(
-              'py-[11px] cursor-pointer px-[22px] border border-blackDark   rounded-[27px] border-opacity-20 ',
+              'py-[11px] cursor-pointer px-1 lg:px-[22px] border border-blackDark   rounded-[27px] border-opacity-20 ',
               {
                 'border-primaryDefault border-opacity-95 ': selectedCategory === item.category,
               }
             )}
           >
-            <BodyTextSemibold>{item.category}</BodyTextSemibold>
+            <BodyTextSemibold className="text-xs text-center lg:text-start lg:text-base">
+              {item.category}
+            </BodyTextSemibold>
           </div>
         );
       })}
@@ -1353,7 +1355,7 @@ export const AllFAQsUI = () => {
     );
 
   return (
-    <div className="flex flex-col py-24 w-full max-w-[1200px] gap-[44px]">
+    <div className="flex px-1 flex-col py-24 w-full max-w-[1200px] gap-[44px]">
       <div className="flex py-[21px] gap-3 px-[16px] bg-white ">
         <SearchIcon />
         <input
@@ -1363,7 +1365,7 @@ export const AllFAQsUI = () => {
           placeholder="Search anything here"
         ></input>
       </div>
-      <div className="flex gap-[107px] w-fit">
+      <div className="flex gap-1 lg:gap-[107px] w-fit">
         <FAQCategories selectedCategory={selectedCategory} setSelectedCategory={setSelectedCategory} />
         <div className="flex flex-col gap-[77px]">
           {selectedCategoryData &&

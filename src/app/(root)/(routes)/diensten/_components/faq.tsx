@@ -63,7 +63,7 @@ export const FAQCard: React.FC<FAQType> = ({ answer, question }) => {
     <div
       onClick={() => setIsOpened((currValue) => !currValue)}
       className={cn(
-        'flex cursor-pointer lg:w-[693px] flex-col px-5 rounded-lg border border-black20 border-opacity-20 py-[11px] gap-[11px]',
+        'flex cursor-pointer lg:w-[693px] flex-col px-3 lg:px-5 rounded-lg border border-black20 border-opacity-20 py-[11px] gap-[11px]',
         { 'border-primaryDefault border-opacity-100': isOpened }
       )}
     >
