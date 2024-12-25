@@ -21,7 +21,7 @@ const whyGreenTeamCardsInfo: WhyGreenTeamCardProps[] = [
   {
     title: 'Persoonlijk advies op maat',
     paragraphs: [
-      <BodyText>
+      <BodyText key="1">
         We begrijpen dat een traprenovatie een grote ingreep kan zijn en samen met u willen we naar het gewenste
         eindresultaat, wat u met trots kunt laten zien wanneer er bekenden over de vloer komen en zelf dagelijks van
         kunt genieten. Daarom komen wij graag langs met stalen om je een accuraat beeld te geven over het
