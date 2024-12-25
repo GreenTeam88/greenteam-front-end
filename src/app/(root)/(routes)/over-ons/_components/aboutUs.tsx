@@ -42,7 +42,7 @@ const OurMissionCard = () => {
 
 export const AboutUs = () => {
   return (
-    <div className="flex px-2 w-full flex-col py-24 gap-6 ">
+    <div className="flex px-2 w-full flex-col pb-24 lg:py-24 gap-6 ">
       <div className="flex flex-col w-full items-center gap-[11px]">
         <H2 className="text-primaryDefault">Over ons</H2>
         <BodyText className="pb-4">Ontdek onze drijfveren en toekomstvisie.</BodyText>
