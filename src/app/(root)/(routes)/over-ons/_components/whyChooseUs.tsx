@@ -50,26 +50,31 @@ const cardsInfos: StandardCardInfo[] = [
   },
 ];
 
-const IconCard: React.FC<TabInfo & { setCurrTab: Dispatch<SetStateAction<string>>; currTab: string }> = ({
+const IconCard: React.FC<TabInfo & { setCurrTab?: Dispatch<SetStateAction<string>>; currTab?: string }> = ({
   name,
   src,
   currTab,
   setCurrTab,
 }) => {
   return (
-    <div onMouseOver={() => setCurrTab(name)} className={'flex items-center flex-col gap-[22px] cursor-pointer'}>
+    <>
       <div
-        className={clsx(
-          'rounded-full border-black10 border-opacity-10   border-2 w-[120px] flex items-center justify-center h-[120px]',
-          {
-            'border-primaryDefault border-opacity-100': currTab == name,
-          }
-        )}
+        onMouseOver={() => setCurrTab && setCurrTab(name)}
+        className={'flex  items-center flex-col gap-2 lg:gap-[22px] cursor-pointer'}
       >
-        <img src={src} />
+        <div
+          className={clsx(
+            'rounded-full border-black10 border-opacity-10   border-2 w-[120px] flex items-center justify-center h-[120px]',
+            {
+              'border-primaryDefault border-opacity-100': currTab == name,
+            }
+          )}
+        >
+          <img src={src} />
+        </div>
+        <HeadlineSemibold>{name}</HeadlineSemibold>
       </div>
-      <HeadlineSemibold>{name}</HeadlineSemibold>
-    </div>
+    </>
   );
 };
 
@@ -78,7 +83,7 @@ const TabsSection = () => {
   return (
     <>
       {/* view for desktop */}
-      <div className="flex flex-col items-center px-5 py-28 gap-[55px]">
+      <div className="hidden lg:flex flex-col items-center px-5 py-28 gap-[55px]">
         <H2 className="text-primaryDefault">Waarom voor ons kiezen?</H2>
         <div className="flex gap-[88px] max-w-full flex-wrap  w-full justify-center">
           {tabsInfo.map((info) => (
@@ -93,13 +98,23 @@ const TabsSection = () => {
         </div>
       </div>
       {/* view for mobile */}
+      <div className=" flex lg:hidden flex-col  items-center gap-4 ">
+        <H2 className="text-primaryDefault text-center">Waarom voor ons kiezen?</H2>
+
+        {tabsInfo.map((cardInfo) => (
+          <div className="flex flex-col py-3 gap-4 items-center">
+            <IconCard {...cardInfo} />
+            <BodyText className="text-center">{cardInfo.paragraph}</BodyText>
+          </div>
+        ))}
+      </div>
     </>
   );
 };
 
 export const WhyChooseUs = () => {
   return (
-    <div className="flex flex-col items-center px-5 py-28 gap-[55px]">
+    <div className="flex flex-col items-center px-5 py-11 lg:py-28 gap-[55px]">
       <TabsSection />
       <div className="flex py-16 flex-col items-center gap-12 lg:gap-[34px]">
         {cardsInfos.map((cardInfo, index) => (

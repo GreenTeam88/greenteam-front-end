@@ -11,8 +11,8 @@ type HeroProps = {
 
 const ParagraphSection = () => {
   return (
-    <div className="flex relative  items-center lg:items-start z-10 gap-[86px]">
-      <div className="flex flex-col lg:items-center lg:items-start gap-[44px] max-w-[627px] ">
+    <div className="flex relative items-start z-10 gap-[86px]">
+      <div className="flex flex-col items-start gap-[44px] max-w-[627px] ">
         <div className="flex flex-col w-full gap-[22px] ">
           <h5 className="font-bold text-primaryDefault text-[32px] lg:text-[40px]">
             <span className="underline"> Zorgeloos </span> een klus uitbesteden tegen een{' '}
