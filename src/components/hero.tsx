@@ -33,7 +33,7 @@ const ParagraphSection = () => {
 
 export const Hero: React.FC<HeroProps> = ({ imgSrc, imgClassName }) => {
   return (
-    <div className="relative px-2  w-full h-fit flex items-center justify-center ">
+    <div className="relative px-2 py-6  w-full h-fit flex items-center justify-center ">
       <img
         src={imgSrc || '/hero.png'}
         className={cn('absolute hidden lg:block w-full h-full top-0 left-0 z-0', imgClassName)}
