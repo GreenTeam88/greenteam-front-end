@@ -3,8 +3,8 @@ import { BodyText, BodyTextBold } from '@/components/theme/typography';
 
 const infoCardConfig: InfoCardProps = {
   buttonText: 'Meer informatie',
-  buttonLink: '/traprenovaties/bekleden-hout',
-  imgSrc: '/traprenovaties/traprenovaties-3.png',
+  buttonLink: '/traprenovatie/bekleden-hout',
+  imgSrc: '/traprenovatie/traprenovatie-3.png',
   paragraphs: [
     <BodyText key="1">
       Onze trapbekleding van hoogwaardig hout tilt uw interieur naar een hoger niveau. Kies uit een breed scala aan

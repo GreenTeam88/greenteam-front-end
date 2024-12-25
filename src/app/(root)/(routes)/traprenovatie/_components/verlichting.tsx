@@ -3,8 +3,8 @@ import { BodyText, BodyTextBold } from '@/components/theme/typography';
 
 const infoCardConfig: InfoCardProps = {
   buttonText: 'Meer informatie',
-  buttonLink: '/traprenovaties/verlichting',
-  imgSrc: '/traprenovaties/traprenovaties-17.png',
+  buttonLink: '/traprenovatie/verlichting',
+  imgSrc: '/traprenovatie/traprenovatie-17.png',
   paragraphs: [
     <BodyText key="1">
       Onze trapverlichting combineert functionaliteit en stijl, waardoor uw trap niet alleen veiliger wordt, maar ook

@@ -3,8 +3,8 @@ import { BodyText, BodyTextBold } from '@/components/theme/typography';
 
 const infoCardConfig: InfoCardProps = {
   buttonText: 'Meer informatie',
-  buttonLink: '/traprenovaties/bekleden-linoleum',
-  imgSrc: '/traprenovaties/traprenovaties-5.png',
+  buttonLink: '/traprenovatie/bekleden-linoleum',
+  imgSrc: '/traprenovatie/traprenovatie-5.png',
   paragraphs: [
     <BodyText key="1">
       Linoleum is de perfecte keuze voor een trap die duurzaamheid, veiligheid en stijl combineert. Het is ecologisch

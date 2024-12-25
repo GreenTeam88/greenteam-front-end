@@ -3,8 +3,8 @@ import { BodyText, BodyTextBold } from '@/components/theme/typography';
 
 const infoCardConfig: InfoCardProps = {
   buttonText: 'Meer informatie',
-  buttonLink: '/traprenovaties/beton-ciré-acoustic',
-  imgSrc: '/traprenovaties/traprenovaties-14.png',
+  buttonLink: '/traprenovatie/beton-ciré-acoustic',
+  imgSrc: '/traprenovatie/traprenovatie-14.png',
   paragraphs: [
     <BodyText key="1">
       Acoustic BetonCiré is meer dan een vloer – het is een slimme combinatie van stijl en functionaliteit. Met zijn

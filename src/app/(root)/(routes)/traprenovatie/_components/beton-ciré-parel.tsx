@@ -3,8 +3,8 @@ import { BodyText, BodyTextBold } from '@/components/theme/typography';
 
 const infoCardConfig: InfoCardProps = {
   buttonText: 'Meer informatie',
-  buttonLink: '/traprenovaties/beton-ciré-parel',
-  imgSrc: '/traprenovaties/traprenovaties-11.png',
+  buttonLink: '/traprenovatie/beton-ciré-parel',
+  imgSrc: '/traprenovatie/traprenovatie-11.png',
   paragraphs: [
     <BodyText key="1">
       Wilt u uw interieur een stabiele en luxueuze uitstraling geven? BetonCiré Parel biedt een naadloze, glanzende

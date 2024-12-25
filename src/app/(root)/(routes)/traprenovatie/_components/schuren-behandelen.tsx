@@ -3,8 +3,8 @@ import { BodyText, BodyTextBold } from '@/components/theme/typography';
 
 const infoCardConfig: InfoCardProps = {
   buttonText: 'Meer informatie',
-  buttonLink: '/traprenovaties/schuren-behandelen',
-  imgSrc: '/traprenovaties/traprenovaties-6.png',
+  buttonLink: '/traprenovatie/schuren-behandelen',
+  imgSrc: '/traprenovatie/traprenovatie-6.png',
   paragraphs: [
     <BodyText key="1">
       Dagelijks wordt er gelopen op een houten vloer. Het is dan ook logisch dat op een gegeven moment gebruikssporen

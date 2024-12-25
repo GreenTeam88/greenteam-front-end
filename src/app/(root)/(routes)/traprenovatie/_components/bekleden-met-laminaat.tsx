@@ -3,8 +3,8 @@ import { BodyText, BodyTextBold } from '@/components/theme/typography';
 
 const infoCardConfig: InfoCardProps = {
   buttonText: 'Meer informatie',
-  buttonLink: '/traprenovaties/bekleden-laminaat',
-  imgSrc: '/traprenovaties/traprenovaties-2.png',
+  buttonLink: '/traprenovatie/bekleden-met-laminaat',
+  imgSrc: '/traprenovatie/traprenovatie-2.png',
   paragraphs: [
     <BodyText key="1">
       Geef uw trap een nieuwe look met laminaat, de ideale keuze voor wie stijl, functionaliteit en betaalbaarheid

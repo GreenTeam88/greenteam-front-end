@@ -3,8 +3,8 @@ import { BodyText, BodyTextBold } from '@/components/theme/typography';
 
 const infoCardConfig: InfoCardProps = {
   buttonText: 'Meer informatie',
-  buttonLink: '/traprenovaties/open-trap',
-  imgSrc: '/traprenovaties/traprenovaties-15.png',
+  buttonLink: '/traprenovatie/open-trap',
+  imgSrc: '/traprenovatie/traprenovatie-15.png',
   paragraphs: [
     <BodyText key="1">
       Een open trap voegt charme en licht toe aan uw woning, maar soms is een update nodig. Wat kunt u van ons

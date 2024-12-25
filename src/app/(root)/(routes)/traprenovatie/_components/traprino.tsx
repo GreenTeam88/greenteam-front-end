@@ -3,8 +3,8 @@ import { BodyText, BodyTextBold, H2 } from '@/components/theme/typography';
 
 const infoCardConfig: InfoCardProps = {
   buttonText: 'Meer informatie',
-  buttonLink: '/traprenovaties/trap',
-  imgSrc: '/traprenovaties/traprenovaties-1.png',
+  buttonLink: '/traprenovatie/bekleden-met-pvc',
+  imgSrc: '/traprenovatie/traprenovatie-1.png',
   paragraphs: [
     <BodyText key="1">
       PVC trapbekleding is de perfecte keuze voor een trap die zowel mooi als functioneel moet zijn. Met een ruime keuze

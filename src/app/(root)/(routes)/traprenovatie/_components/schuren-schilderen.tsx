@@ -3,8 +3,8 @@ import { BodyText, BodyTextBold } from '@/components/theme/typography';
 
 const infoCardConfig: InfoCardProps = {
   buttonText: 'Meer informatie',
-  buttonLink: '/traprenovaties/schuren-schilderen',
-  imgSrc: '/traprenovaties/traprenovaties-7.png',
+  buttonLink: '/traprenovatie/schuren-schilderen',
+  imgSrc: '/traprenovatie/traprenovatie-7.png',
   paragraphs: [
     <BodyText key="1">
       Onze schuur- en behandelingsservice brengt uw trap terug in topconditie. We beginnen met grondig schuren, zodat uw

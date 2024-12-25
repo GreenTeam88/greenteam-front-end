@@ -3,8 +3,8 @@ import { BodyText, BodyTextBold } from '@/components/theme/typography';
 
 const infoCardConfig: InfoCardProps = {
   buttonText: 'Meer informatie',
-  buttonLink: '/traprenovaties/beton-ciré-brut',
-  imgSrc: '/traprenovaties/traprenovaties-10.png',
+  buttonLink: '/traprenovatie/beton-ciré-brut',
+  imgSrc: '/traprenovatie/traprenovatie-10.png',
   paragraphs: [
     <BodyText key="1">
       Wilt u uw interieur een moderne, industriële upgrade geven? BetonCiré Brut is de perfecte keuze voor een unieke

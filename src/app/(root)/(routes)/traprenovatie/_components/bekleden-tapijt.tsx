@@ -3,8 +3,8 @@ import { BodyText, BodyTextBold } from '@/components/theme/typography';
 
 const infoCardConfig: InfoCardProps = {
   buttonText: 'Meer informatie',
-  buttonLink: '/traprenovaties/bekleden-laminaat',
-  imgSrc: '/traprenovaties/traprenovaties-4.png',
+  buttonLink: '/traprenovatie/bekleden-laminaat',
+  imgSrc: '/traprenovatie/traprenovatie-4.png',
   paragraphs: [
     <BodyText key="1">
       Met onze professionele trapstoffering geeft u uw oude trap niet alleen een frisse uitstraling, maar verbetert u

@@ -3,8 +3,8 @@ import { BodyText, BodyTextBold } from '@/components/theme/typography';
 
 const infoCardConfig: InfoCardProps = {
   buttonText: 'Meer informatie',
-  buttonLink: '/traprenovaties/beton-ciré-croco',
-  imgSrc: '/traprenovaties/traprenovaties-12.png',
+  buttonLink: '/traprenovatie/beton-ciré-croco',
+  imgSrc: '/traprenovatie/traprenovatie-12.png',
   paragraphs: [
     <BodyText key="1">
       Bent u op zoek naar een interieurafwerking die indruk maakt? BetonCiré Croco combineert de ruwe kracht van beton

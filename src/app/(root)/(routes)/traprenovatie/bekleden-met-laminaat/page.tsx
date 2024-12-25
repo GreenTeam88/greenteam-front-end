@@ -13,7 +13,7 @@ import { WhyGreenTeam } from '../_components/whyGreenTeam';
 const thirdSectionCards: InfoCardProps[] = [
   {
     title: 'Bekleden met laminaat - stijlvol en duurzaam',
-    imgSrc: '/traprenovaties/bekleden-laminaat/bekleden-laminaat-2.png',
+    imgSrc: '/traprenovatie/bekleden-laminaat/bekleden-laminaat-2.png',
     paragraphs: [
       <div key="1">
         Geef uw trap een nieuwe look met laminaat, de ideale keuze voor wie op zoek is naar een combinatie van stijl,
@@ -36,7 +36,7 @@ const thirdSectionCards: InfoCardProps[] = [
   },
   {
     title: 'Verlichting',
-    imgSrc: '/traprenovaties/bekleden-laminaat/bekleden-laminaat-3.png',
+    imgSrc: '/traprenovatie/bekleden-laminaat/bekleden-laminaat-3.png',
     paragraphs: [
       <div key="1">
         Onze trapverlichting combineert functionaliteit en stijl, waardoor uw trap niet alleen veiliger wordt, maar ook
@@ -63,7 +63,7 @@ const thirdSectionCards: InfoCardProps[] = [
   },
   {
     title: 'Hout look',
-    imgSrc: '/traprenovaties/bekleden-laminaat/bekleden-laminaat-4.png',
+    imgSrc: '/traprenovatie/bekleden-laminaat/bekleden-laminaat-4.png',
     paragraphs: [
       <div key="1">
         Onze houten look trapbekleding combineert de natuurlijke schoonheid van hout met het gemak van moderne
@@ -141,7 +141,7 @@ const whatWaitingForConfig: InfoCardProps = {
       uitbesteed. {' '}
     </BodyText>,
   ],
-  imgSrc: '/traprenovaties/bekleden-laminaat/bekleden-laminaat-10.png',
+  imgSrc: '/traprenovatie/bekleden-laminaat/bekleden-laminaat-10.png',
   buttonText: 'Offerte aanvragen',
   buttonLink: '/offerte',
 };
@@ -149,7 +149,7 @@ const whatWaitingForConfig: InfoCardProps = {
 export default function Home() {
   return (
     <div className="flex flex-col   relative z-0 items-center w-full">
-      <Hero imgSrc="/traprenovaties/hero.png" />
+      <Hero imgSrc="/traprenovatie/hero.png" />
       <ListCard
         sectionName="Traprenovaties"
         pageName="Bekleden met laminaat"
@@ -162,7 +162,7 @@ export default function Home() {
         ]}
         btnLink="/offerte"
         btnText="Offerte aanvragen"
-        imgSrc="/traprenovaties/bekleden-laminaat/bekleden-laminaat-1.png"
+        imgSrc="/traprenovatie/bekleden-laminaat/bekleden-laminaat-1.png"
         orangeText="Geen zorgen, wij transformeren uw trap!"
       />
       <CardsSection
@@ -177,11 +177,11 @@ export default function Home() {
         title="Wat hebben wij voor u in petto"
         description="Zoals al eerder vermeld hebben wij al 20 jaar aan ervaring en hebben wij parketteurs die super veel kennis en ervaring met zich meebrengen om zo uw trap weer de gewenste uitstraling te geven!"
         btnText="Bereken uw trap"
-        firstImg={'/traprenovaties/bekleden-laminaat/bekleden-laminaat-5.png'}
-        secondImg="/traprenovaties/bekleden-laminaat/bekleden-laminaat-6.png"
-        thirdImg="/traprenovaties/bekleden-laminaat/bekleden-laminaat-7.png"
-        fourthImg="/traprenovaties/bekleden-laminaat/bekleden-laminaat-8.png"
-        fifthImg="/traprenovaties/bekleden-laminaat/bekleden-laminaat-9.png"
+        firstImg={'/traprenovatie/bekleden-laminaat/bekleden-laminaat-5.png'}
+        secondImg="/traprenovatie/bekleden-laminaat/bekleden-laminaat-6.png"
+        thirdImg="/traprenovatie/bekleden-laminaat/bekleden-laminaat-7.png"
+        fourthImg="/traprenovatie/bekleden-laminaat/bekleden-laminaat-8.png"
+        fifthImg="/traprenovatie/bekleden-laminaat/bekleden-laminaat-9.png"
       />
       <WhatWaitingForCard
         orangeText=" Ik wil dat de trappenspecialist langskomt!"

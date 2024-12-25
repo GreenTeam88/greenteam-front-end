@@ -3,8 +3,8 @@ import { BodyText, BodyTextBold } from '@/components/theme/typography';
 
 const infoCardConfig: InfoCardProps = {
   buttonText: 'Meer informatie',
-  buttonLink: '/traprenovaties/beton-ciré-glamour-stuc',
-  imgSrc: '/traprenovaties/traprenovaties-9.png',
+  buttonLink: '/traprenovatie/beton-ciré-glamour-stuc',
+  imgSrc: '/traprenovatie/traprenovatie-9.png',
   paragraphs: [
     <BodyText key="1">
       Wilt u uw interieur een moderne en verfijnde uitstraling geven? BetonCiré Glamour Stuc combineert de stoere look

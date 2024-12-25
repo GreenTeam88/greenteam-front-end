@@ -3,8 +3,8 @@ import { BodyText, BodyTextBold } from '@/components/theme/typography';
 
 const infoCardConfig: InfoCardProps = {
   buttonText: 'Meer informatie',
-  buttonLink: '/traprenovaties/dichte-trap',
-  imgSrc: '/traprenovaties/traprenovaties-16.png',
+  buttonLink: '/traprenovatie/dichte-trap',
+  imgSrc: '/traprenovatie/traprenovatie-16.png',
   paragraphs: [
     <BodyText key="1">
       Een dichte trap biedt niet alleen praktische voordelen, maar zorgt ook voor een strakke en complete uitstraling in

@@ -3,8 +3,8 @@ import { BodyText, BodyTextBold } from '@/components/theme/typography';
 
 const infoCardConfig: InfoCardProps = {
   buttonText: 'Meer informatie',
-  buttonLink: '/traprenovaties/bekleden-laminaat',
-  imgSrc: '/traprenovaties/beton-ciré-metal-stuc-8.png',
+  buttonLink: '/traprenovatie/beton-ciré-metal-stuc',
+  imgSrc: '/traprenovatie/traprenovatie-8.png',
   paragraphs: [
     <BodyText key="1">
       Op zoek naar een interieur dat opvalt? BetonCiré Metal Stuc combineert de robuuste, naadloze look van BetonCiré

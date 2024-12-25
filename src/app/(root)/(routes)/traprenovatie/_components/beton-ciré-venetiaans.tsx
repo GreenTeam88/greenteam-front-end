@@ -3,8 +3,8 @@ import { BodyText, BodyTextBold } from '@/components/theme/typography';
 
 const infoCardConfig: InfoCardProps = {
   buttonText: 'Meer informatie',
-  buttonLink: '/traprenovaties/beton-ciré-venetiaans',
-  imgSrc: '/traprenovaties/traprenovaties-13.png',
+  buttonLink: '/traprenovatie/beton-ciré-venetiaans',
+  imgSrc: '/traprenovatie/traprenovatie-13.png',
   paragraphs: [
     <BodyText key="1">
       Breng de klassieke elegantie van Italiaanse interieurs in uw woning met Beton Cire Venetiaans. Dit exclusieve

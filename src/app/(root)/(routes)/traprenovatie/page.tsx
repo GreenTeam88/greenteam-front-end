@@ -18,17 +18,18 @@ import { DichteTrap } from './_components/dichte-trap';
 import { OpenTrap } from './_components/open-trap';
 import { SchurenBehandelen } from './_components/schuren-behandelen';
 import { SchurenSchilderen } from './_components/schuren-schilderen';
+import { Traprenovaties } from './_components/traprino';
 import { Verlichting } from './_components/verlichting';
 
 function Page() {
   return (
     <div className="flex flex-col  relative z-0 items-center w-full">
       <Hero />
+      <Traprenovaties />
       <BekledenLaminaat />
       <BekledenHout />
       <BekledenTapijt />
       <BekledenLinoleum />
-      <BekledenTapijt />
       <SchurenBehandelen />
       <SchurenSchilderen />
       <BetonMetal />
