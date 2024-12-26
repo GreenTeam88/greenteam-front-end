@@ -122,7 +122,7 @@ const MultiStepForm: React.FC<MultiStepFormProps> = ({ category }) => {
     );
   };
 
-  return <div className="multi-step-form w-full">{renderStep()}</div>;
+  return <div className="multi-step-form lg:w-fit w-full">{renderStep()}</div>;
 };
 
 export default MultiStepForm;
