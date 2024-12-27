@@ -13,13 +13,13 @@ import { WhyGreenTeam } from '../_components/whyGreenTeam';
 const thirdSectionCards: InfoCardProps[] = [
   {
     title: 'Trapverlichting - stijlvol, veilig en sfeervol',
-    imgSrc: '/traprenovatie/verlichting/verlichting-3.png',
+    imgSrc: '/traprenovatie/verlichting/verlichting-2.png',
     paragraphs: [
       <BodyText key="1">
         Onze trapverlichting combineert functionaliteit en stijl, waardoor uw trap niet alleen veiliger wordt, maar ook
         een echte blikvanger in uw woning. Wat kunt u van ons verwachten?
       </BodyText>,
-      <ul>
+      <ul className="list list-disc list-inside flex flex-col gap-2">
         <li>
           Perfect geplaatste verlichting: We bepalen nauwkeurig de beste locaties voor LED-verlichting om elke trede
           optimaal te verlichting. 
@@ -27,7 +27,7 @@ const thirdSectionCards: InfoCardProps[] = [
         <li>
           Naadloze installatie: De LED-strips worden zorgvuldig gemonteerd, zodat ze perfect passen bij uw trapdesign. 
         </li>
-        <li>Sfeervolle uitstraling: Onze verlichting voegt een warme, moderne uitstraling toe aan uw interieur. </li> ,
+        <li>Sfeervolle uitstraling: Onze verlichting voegt een warme, moderne uitstraling toe aan uw interieur. </li>
         <li>Energiezuinig en duurzaam: LED-verlichting is milieuvriendelijk en gaat lang mee.  </li>
       </ul>,
       <BodyText>
@@ -88,7 +88,7 @@ const whatWaitingForConfig: InfoCardProps = {
       ons uitbesteed.{' '}
     </BodyText>,
   ],
-  imgSrc: '/traprenovatie/verlichting/verlichting-9.png',
+  imgSrc: '/traprenovatie/verlichting/verlichting-8.png',
   buttonText: 'Offerte aanvragen',
   buttonLink: '/offerte',
 };
@@ -110,7 +110,7 @@ export default function Home() {
         btnLink="/offerte"
         btnText="Offerte aanvragen"
         imgSrc="/traprenovatie/verlichting/verlichting-1.png"
-        orangeText=" Geen zorgen, wij hebben de perfecte oplossing!"
+        orangeText="Geen zorgen, wij hebben de perfecte oplossing!"
       />
       <CardsSection
         bottomText="Tijd om uw trap te verlichten?"
@@ -124,11 +124,11 @@ export default function Home() {
         title="Wat hebben wij voor u in petto?"
         description="Bekijk de resultaten van onze traprenovaties en ontdek hoe we versleten of verouderde trappen transformeren tot stijlvolle en moderne eyecatchers. Vele tevreden klanten gingen u voor, dus uw trap kan de volgende zijn!"
         btnText="Bereken uw trap"
-        firstImg={'/traprenovatie/verlichting/verlichting-4.png'}
-        secondImg="/traprenovatie/verlichting/verlichting-5.png"
-        thirdImg="/traprenovatie/verlichting/verlichting-6.png"
-        fourthImg="/traprenovatie/verlichting/verlichting-7.png"
-        fifthImg="/traprenovatie/verlichting/verlichting-8.png"
+        firstImg={'/traprenovatie/verlichting/verlichting-3.png'}
+        secondImg="/traprenovatie/verlichting/verlichting-4.png"
+        thirdImg="/traprenovatie/verlichting/verlichting-5.png"
+        fourthImg="/traprenovatie/verlichting/verlichting-6.png"
+        fifthImg="/traprenovatie/verlichting/verlichting-7.png"
       />
       <WhatWaitingForCard
         orangeText=" Ik wil dat de trappenspecialist langskomt!"

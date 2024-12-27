@@ -11,6 +11,7 @@ import { cn } from '@/lib/tailwind';
 import { DropDownIcon } from '../icons/arrows';
 import { InstagramLogo, TikTokIcon } from '../icons/homePageIcons';
 import { SecondaryBtnLink } from '../theme/buttons';
+import { BodyText } from '../theme/typography';
 import { TitleCarousel } from './header/titleCrausel';
 
 // types needed for the header
@@ -98,13 +99,13 @@ const headerRoutes: HeaderRoute[] = [
           {
             name: 'Beton Ciré',
             subPages: [
-              { name: 'Beton Ciré Metal stuc', path: '/traprenovatie/beton-cire/betonCiré-metal-stuc' },
-              { name: 'Beton Ciré Glamour stuc', path: '/traprenovatie/beton-cire/betonCiré-glamour-stuc' },
-              { name: 'Beton Ciré Brut', path: '/traprenovatie/beton-cire/betonCiré-brut' },
-              { name: 'Beton Ciré Parel', path: '/traprenovatie/beton-cire/betonCiré-parel' },
-              { name: 'Beton Ciré Croco', path: '/traprenovatie/beton-cire/betonCiré-croco' },
-              { name: 'Beton Ciré Venetiaans', path: '/traprenovatie/beton-cire/betonCiré-venetiaans' },
-              { name: 'Beton Ciré Acoustic', path: '/traprenovatie/beton-cire/betonCiré-acoustic' },
+              { name: 'Beton Ciré Metal stuc', path: '/traprenovatie/beton-cire/metal-stuc' },
+              { name: 'Beton Ciré Glamour stuc', path: '/traprenovatie/beton-cire/glamour-stuc' },
+              { name: 'Beton Ciré Brut', path: '/traprenovatie/beton-cire/brut' },
+              { name: 'Beton Ciré Parel', path: '/traprenovatie/beton-cire/parel' },
+              { name: 'Beton Ciré Croco', path: '/traprenovatie/beton-cire/croco' },
+              { name: 'Beton Ciré Venetiaans', path: '/traprenovatie/beton-cire/venetiaans' },
+              { name: 'Beton Ciré Acoustic', path: '/traprenovatie/beton-cire/acoustic' },
             ],
           },
           { name: 'Open trap', path: '/traprenovatie/open-trap' },
@@ -219,13 +220,13 @@ const headerRoutes: HeaderRoute[] = [
           {
             name: 'Beton Ciré',
             subPages: [
-              { name: 'Beton Ciré Metal stuc', path: '/traprenovatie/beton-cire/betonCiré-metal-stuc' },
-              { name: 'Beton Ciré Glamour stuc', path: '/traprenovatie/beton-cire/betonCiré-glamour-stuc' },
-              { name: 'Beton Ciré Brut', path: '/traprenovatie/beton-cire/betonCiré-brut' },
-              { name: 'Beton Ciré Parel', path: '/traprenovatie/beton-cire/betonCiré-parel' },
-              { name: 'Beton Ciré Croco', path: '/traprenovatie/beton-cire/betonCiré-croco' },
-              { name: 'Beton Ciré Venetiaans', path: '/traprenovatie/beton-cire/betonCiré-venetiaans' },
-              { name: 'Beton Ciré Acoustic', path: '/traprenovatie/betonCiré/betonCiré-acoustic' },
+              { name: 'Beton Ciré Metal stuc', path: '/traprenovatie/beton-cire/metal-stuc' },
+              { name: 'Beton Ciré Glamour stuc', path: '/traprenovatie/beton-cire/glamour-stuc' },
+              { name: 'Beton Ciré Brut', path: '/traprenovatie/beton-cire/brut' },
+              { name: 'Beton Ciré Parel', path: '/traprenovatie/beton-cire/parel' },
+              { name: 'Beton Ciré Croco', path: '/traprenovatie/beton-cire/croco' },
+              { name: 'Beton Ciré Venetiaans', path: '/traprenovatie/beton-cire/venetiaans' },
+              { name: 'Beton Ciré Acoustic', path: '/traprenovatie/beton-cire/acoustic' },
             ],
           },
           { name: 'Open trap', path: '/traprenovatie/open-trap' },
@@ -365,7 +366,7 @@ const HeaderColumns: React.FC<{ hoveredLink: string }> = ({ hoveredLink }) => {
   const hoveredRouteColumns = hoveredRoute && 'columns' in hoveredRoute && hoveredRoute.columns;
   if (!hoveredRouteColumns) return null;
   return (
-    <div className="flex  gap-[33px] py-[22px] px-[44px]">
+    <div className="flex  gap-[33px] py-[22px]  px-[44px]">
       {hoveredRouteColumns.map((column, index) => (
         <HeaderColumn key={column.title} {...column} index={index} />
       ))}
@@ -457,24 +458,44 @@ const DropDownColumnLink: React.FC<
   const pageSubpages = 'subPages' in page && page.subPages;
   return (
     <div className="flex flex-col relative  gap-1">
-      <Link
-        href={(page.path as string) || '/'}
-        onClick={() => setOpenSubPages((val) => !val)}
-        className="text-sm flex items-center   hover:text-primaryDefault relative group w-full min-w-[160px] text-black text-opacity-80"
-      >
-        {page.name}
-        {pageSubpages && (
-          // <span className={cn('mx-2 inline')}>
-          <div className={cn('mx-2', { 'rotate-180 ': openSubPages })}>
-            <DropDownIcon
-              className={cn('group-hover:stroke-primaryDefault   block mx-2', {
-                'stroke-primaryDefault': openSubPages,
-              })}
-            />
-          </div>
-          // </span>
-        )}
-      </Link>
+      {page.path ? (
+        <Link
+          href={(page.path as string) || '/'}
+          onClick={() => setOpenSubPages((val) => !val)}
+          className="text-sm flex items-center   hover:text-primaryDefault relative group w-full min-w-[160px] text-black text-opacity-80"
+        >
+          {page.name}
+          {pageSubpages && (
+            // <span className={cn('mx-2 inline')}>
+            <div className={cn('mx-2', { 'rotate-180 ': openSubPages })}>
+              <DropDownIcon
+                className={cn('group-hover:stroke-primaryDefault   block mx-2', {
+                  'stroke-primaryDefault': openSubPages,
+                })}
+              />
+            </div>
+            // </span>
+          )}
+        </Link>
+      ) : (
+        <BodyText
+          onClick={() => setOpenSubPages((val) => !val)}
+          className="text-sm flex items-center   hover:text-primaryDefault relative group w-full min-w-[160px] text-black text-opacity-80"
+        >
+          {page.name}
+          {pageSubpages && (
+            // <span className={cn('mx-2 inline')}>
+            <div className={cn('mx-2', { 'rotate-180 ': openSubPages })}>
+              <DropDownIcon
+                className={cn('group-hover:stroke-primaryDefault   block mx-2', {
+                  'stroke-primaryDefault': openSubPages,
+                })}
+              />
+            </div>
+            // </span>
+          )}
+        </BodyText>
+      )}
       {pageSubpages && openSubPages && (
         <div className="flex flex-col px-2 gap-1">
           {pageSubpages.map((subPage) => (
@@ -540,7 +561,7 @@ export const HeaderLink: React.FC<{
       <div
         onMouseLeave={() => setShowDropDown(false)}
         onMouseOver={() => setShowDropDown(true)}
-        className="flex relative min-h-[30px] items-center cursor-pointer"
+        className="flex relative min-h-[30px] items-center cursor-pointer "
       >
         <Link
           href={route.path || '/'}

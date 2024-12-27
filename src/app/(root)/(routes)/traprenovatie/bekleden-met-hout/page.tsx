@@ -29,7 +29,11 @@ const thirdSectionCards: InfoCardProps[] = [
         </li>
         <li>Karakter en warmte: Geef uw trap een uitstraling die uw woning weer laat stralen. </li>
       </ul>,
-      <div key="5">
+      <BodyText>
+        Met ons vakmanschap zorgen wij ervoor dat uw trap een echte blikvanger wordt, passend bij uw unieke smaak en
+        stijl.
+      </BodyText>,
+      <div key="5" className="mt-6">
         <BodyText className="text-secondaryDefault font-bold">
           Met ons vakmanschap zorgen wij ervoor dat uw trap een echte blikvanger wordt, passend bij uw unieke smaak en
           stijl. {' '}

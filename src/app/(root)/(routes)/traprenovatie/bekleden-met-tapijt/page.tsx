@@ -22,7 +22,7 @@ const thirdSectionCards: InfoCardProps[] = [
       <div key="2">
         * Zorgvuldige voorbereiding: We meten de trap nauwkeurig in en verwijderen eventuele oude bekleding. 
       </div>,
-      <ul key="3" className="flex flex-col py-3 list-disc gap-4 list-inside">
+      <ul key="3" className="flex flex-col py-3 list-disc gap-4 list-inside lg:pl-5">
         <li>Hoogwaardige materialen: Kies uit een breed scala aan stoffen die passen bij uw interieur.  </li>
         <li>Strakke afwerking: Onze vakmensen zorgen voor een naadloos en duurzaam eindresultaat. </li>
         <li>
@@ -45,7 +45,7 @@ const thirdSectionCards: InfoCardProps[] = [
         Een open trap brengt charme en licht in uw woning, maar soms is het tijd voor een update. Wat kunt u van ons
         verwachten? 
       </div>,
-      <ul key="3" className="flex flex-col py-3 list-disc gap-4 list-inside">
+      <ul key="3" className="flex flex-col py-3 list-disc list-inside  gap-4 lg:pl-5">
         <li>Nieuwe bekleding: Kies uit tapijt, PVC of andere materialen die passen bij uw stijl en behoeften. </li>
         <li>Schuren en lakken: Voor een frisse, vernieuwde uitstraling zonder grote aanpassingen.  </li>
         <li>Ruimte en licht: Behoud de openheid en het lichte karakter van uw trap met onze naadloze afwerking. </li>

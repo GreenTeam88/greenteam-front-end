@@ -98,11 +98,11 @@ const whatWaitingForConfig: InfoCardProps = {
   title: 'Waar wacht u nog op!',
   paragraphs: [
     <BodyText key="1">
-      Droomt u al langere tijd van een stijlvolle afwerking met Beton Ciré Metal Stuc? Bereken via de knop hieronder wat
+      Droomt u al langere tijd van een exclusieve vloer met Beton Cire Venetiaans?. Bereken via de knop hieronder wat
       het kost en neem contact met ons op voor een afspraak. Als je de specialist langs laat komen gaan we bespreken wat
       voor soort hout u heeft, wat de mogelijkheden zijn, ons advies en we komen met de kleurstalen zodat u zeker weet
       dat u de juiste beslissing maakt. Deze afspraak kost eenmalig 50,- euro en deze wordt in mindering gebracht
-      wanneer u de klus aan ons uitbesteed. In heel veel gevallen is deze afspraak niet nodig, en is advies via mail
+      wanneer u de klus aan ons uitbesteed. In heel veel gevallen is deze afspraak niet nodig en is advies via mail
       contact met foto’s voldoende.
     </BodyText>,
   ],

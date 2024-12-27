@@ -59,19 +59,24 @@ const thirdSectionCards: InfoCardProps[] = [
 
 const FAQs: FAQType[] = [
   {
-    question: 'Wat zijn de voordelen van houten bekleding?',
+    question: 'Hoe vaak moet ik mijn houten vloeren schuren en behandelen?',
     answer:
       'Houten bekleding biedt een warme uitstraling, duurzaamheid en natuurlijke isolatie. Het kan ook de waarde van een woning verhogen.',
   },
   {
-    question: 'Is het onderhoud van houten bekleding moeilijk?',
-    answer:
-      'Houten bekleding vereist regelmatig onderhoud, zoals reinigen en afwerken met olie of lak om slijtage en veroudering te voorkomen.',
+    question: 'Welke behandelingen zijn beschikbaar na het schuren van mijn vloer?',
+    answer: (
+      <BodyText>
+        U kunt de vloer laten oliën, hardwaxen of laten lakken.
+        <br />
+        Elk heeft zijn eigen uitstraling en eigenschappen.
+      </BodyText>
+    ),
   },
   {
-    question: 'Kan ik houten bekleding zelf aanbrengen?',
+    question: 'Kan ik zelf schuren en behandelen, of moet ik een professional inschakelen?',
     answer:
-      ' het is belangrijk om de juiste technieken en gereedschappen te gebruiken voor een mooi resultaat. Onze specialisten beschikken over alle correcte apparatuur en machines om de klus goed uit te kunnen voeren.',
+      'Wij raden aan om hier niet zelf aan te beginnen wij beschikken over alle machines en apparatuur om dit professioneel te kunnen uitvoeren.',
   },
   {
     question: 'Kunnen jullie eerst langskomen?',
@@ -102,7 +107,7 @@ const whatWaitingForConfig: InfoCardProps = {
       voldoende.
     </BodyText>,
   ],
-  imgSrc: '/traprenovatie/schuren-en-behandelen/schuren-en-behandelen-8.png',
+  imgSrc: '/traprenovatie/schuren-en-behandelen/schuren-en-behandelen-9.png',
   buttonText: 'Offerte aanvragen',
   buttonLink: '/offerte',
 };
@@ -138,11 +143,11 @@ export default function Home() {
         title="Wat hebben wij voor u in petto?"
         description="Bekijk de resultaten van onze traprenovaties en ontdek hoe we versleten of verouderde trappen transformeren tot stijlvolle en moderne eyecatchers. Vele tevreden klanten gingen u voor, dus uw trap kan de volgende zijn!"
         btnText="Bereken uw trap"
-        firstImg={'/traprenovatie/schuren-en-behandelen/schuren-en-behandelen-3.png'}
-        secondImg="/traprenovatie/schuren-en-behandelen/schuren-en-behandelen-4.png"
-        thirdImg="/traprenovatie/schuren-en-behandelen/schuren-en-behandelen-5.png"
-        fourthImg="/traprenovatie/schuren-en-behandelen/schuren-en-behandelen-6.png"
-        fifthImg="/traprenovatie/schuren-en-behandelen/schuren-en-behandelen-7.png"
+        firstImg={'/traprenovatie/schuren-en-behandelen/schuren-en-behandelen-4.png'}
+        secondImg="/traprenovatie/schuren-en-behandelen/schuren-en-behandelen-5.png"
+        thirdImg="/traprenovatie/schuren-en-behandelen/schuren-en-behandelen-6.png"
+        fourthImg="/traprenovatie/schuren-en-behandelen/schuren-en-behandelen-7.png"
+        fifthImg="/traprenovatie/schuren-en-behandelen/schuren-en-behandelen-8.png"
       />
       <WhatWaitingForCard
         orangeText=" Ik wil dat de trappenspecialist langskomt!"

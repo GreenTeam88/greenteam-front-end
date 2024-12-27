@@ -13,24 +13,22 @@ import { WhyGreenTeam } from '../_components/whyGreenTeam';
 const thirdSectionCards: InfoCardProps[] = [
   {
     title: 'Dichte trap - functionaliteit en stijl gecombineerd',
-    imgSrc: '/traprenovatie/dichte-trap/dichte-trap-3.png',
+    imgSrc: '/traprenovatie/dichte-trap/dichte-trap-2.png',
     paragraphs: [
       <BodyText key="1">
         Een dichte trap biedt meer dan alleen praktische voordelen; het zorgt voor een strakke en complete uitstraling
         in uw woning. Wat mag u van ons verwachten? 
       </BodyText>,
-      <ul>
+      <ul className="list list-disc list-inside">
         <li>
           Ombouwen van open naar dicht: Wij monteren stootborden met precisie, zodat uw trap een naadloze transformatie
           ondergaat.
         </li>
         <li>Stabiliteit en veiligheid: Elke trap wordt stevig en duurzaam afgewerkt voor een langdurig resultaat. </li>{' '}
-        ,
         <li>
           Aanpasbaar aan uw stijl: Maak uw trap helemaal af met een bekleding naar keuze, zoals PVC, tapijt of
           laminaat. 
         </li>{' '}
-        ,
         <li>
           Vakmanschap en zorg: Wij combineren expertise met aandacht voor elk detail om uw visie tot leven te brengen. 
         </li>
@@ -105,14 +103,14 @@ const whatWaitingForConfig: InfoCardProps = {
   title: 'Waar wacht u nog op!',
   paragraphs: [
     <BodyText key="1">
-      Droomt u al langere tijd van een perfect afgewerkte open trap in uw woning? Bereken via de knop hieronder wat het
-      kost en neem contact met ons op voor een afspraak. Als je de specialist langs laat komen gaan we bespreken wat
-      voor soort trap u heeft, wat de mogelijkheden zijn, ons advies en we komen met stalen zodat je zeker weten de
-      juiste beslissing maakt. Deze afspraak kost eenmalig €50,- euro en deze wordt in mindering gebracht wanneer u de
-      klus aan ons uitbesteed.
+      Droomt u al langere tijd van een perfect afgewerkte dichte trap? Bereken via de knop hieronder wat het kost en
+      neem contact met ons op voor een afspraak. Als je de specialist langs laat komen gaan we bespreken wat voor soort
+      trap u heeft, wat de mogelijkheden zijn, ons advies en we komen met stalen zodat je zeker weten de juiste
+      beslissing maakt. Deze afspraak kost eenmalig €50,- euro en deze wordt in mindering gebracht wanneer u de klus aan
+      ons uitbesteed
     </BodyText>,
   ],
-  imgSrc: '/traprenovatie/dichte-trap/dichte-trap-9.png',
+  imgSrc: '/traprenovatie/dichte-trap/dichte-trap-8.png',
   buttonText: 'Offerte aanvragen',
   buttonLink: '/offerte',
 };
@@ -148,11 +146,11 @@ export default function Home() {
         title="Wat hebben wij voor u in petto?"
         description="Bekijk de resultaten van onze traprenovaties en ontdek hoe we versleten of verouderde trappen transformeren tot stijlvolle en moderne eyecatchers. Vele tevreden klanten gingen u voor, dus uw trap kan de volgende zijn!"
         btnText="Bereken uw trap"
-        firstImg={'/traprenovatie/dichte-trap/dichte-trap-4.png'}
-        secondImg="/traprenovatie/dichte-trap/dichte-trap-5.png"
-        thirdImg="/traprenovatie/dichte-trap/dichte-trap-6.png"
-        fourthImg="/traprenovatie/dichte-trap/dichte-trap-7.png"
-        fifthImg="/traprenovatie/dichte-trap/dichte-trap-8.png"
+        firstImg={'/traprenovatie/dichte-trap/dichte-trap-3.png'}
+        secondImg="/traprenovatie/dichte-trap/dichte-trap-4.png"
+        thirdImg="/traprenovatie/dichte-trap/dichte-trap-5.png"
+        fourthImg="/traprenovatie/dichte-trap/dichte-trap-6.png"
+        fifthImg="/traprenovatie/dichte-trap/dichte-trap-7.png"
       />
       <WhatWaitingForCard
         orangeText=" Ik wil dat de trappenspecialist langskomt!"
