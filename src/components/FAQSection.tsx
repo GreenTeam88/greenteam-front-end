@@ -22,7 +22,7 @@ const FAQCard: React.FC<FAQType> = ({ answer, question }) => {
       )}
     >
       <div className="w-full flex justify-between">
-        <BodyTextSemibold>{question}</BodyTextSemibold>
+        <BodyTextSemibold className={cn({ 'text-primaryDefault': isOpened })}>{question}</BodyTextSemibold>
         <img src={isOpened ? '/icons/greenDropDownArrow.svg' : '/icons/blackDropDownArrow.svg'} />
       </div>
       {isOpened && (React.isValidElement(answer) ? <>{answer}</> : <BodyText>{answer}</BodyText>)}

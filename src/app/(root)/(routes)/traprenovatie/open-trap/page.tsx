@@ -39,7 +39,7 @@ const thirdSectionCards: InfoCardProps[] = [
   },
   {
     title: 'Wat zijn de mogelijkheden?',
-    imgSrc: '/traprenovatie/open-trap/open-trap-2.png',
+    imgSrc: '/traprenovatie/open-trap/open-trap-3.png',
     paragraphs: [
       <BodyText key="1">
         Een open trap biedt talloze mogelijkheden om deze volledig naar jouw smaak en stijl te personaliseren. Of je nu
@@ -69,6 +69,26 @@ const thirdSectionCards: InfoCardProps[] = [
           diverse stijlen.
         </BodyText>
       </div>,
+    ],
+    pagesLinksContainerClassName: 'max-w-[589px]',
+    pagesLinks: [
+      { name: 'Bekleden met PVC', path: '/traprenovatie/bekleden-met-pvc' },
+      { name: 'Bekleden met laminaat', path: '/traprenovatie/bekleden-met-laminaat' },
+      { name: 'Bekleden met hout', path: '/traprenovatie/bekleden-met-hout' },
+      { name: 'Bekleden met tapijt', path: '/traprenovatie/bekleden-met-tapijt' },
+      { name: 'Bekleden met linoleum', path: '/traprenovatie/bekleden-met-linoleum' },
+      { name: 'Schuren en behandelen', path: '/traprenovatie/schuren-en-behandelen' },
+      { name: 'Schuren en schilderen', path: '/traprenovatie/schuren-en-schilderen' },
+      { name: 'Beton Ciré Metal stuc', path: '/traprenovatie/beton-cire/betonCiré-metal-stuc' },
+      { name: 'Beton Ciré Glamour stuc', path: '/traprenovatie/beton-cire/betonCiré-glamour-stuc' },
+      { name: 'Beton Ciré Brut', path: '/traprenovatie/beton-cire/betonCiré-brut' },
+      { name: 'Beton Ciré Parel', path: '/traprenovatie/beton-cire/betonCiré-parel' },
+      { name: 'Beton Ciré Croco', path: '/traprenovatie/beton-cire/betonCiré-croco' },
+      { name: 'Beton Ciré Venetiaans', path: '/traprenovatie/beton-cire/betonCiré-venetiaans' },
+      { name: 'Beton Ciré Acoustic', path: '/traprenovatie/beton-cire/betonCiré-acoustic' },
+      { name: 'Open trap', path: '/traprenovatie/open-trap' },
+      { name: 'Dichte trap', path: '/traprenovatie/dichte-trap' },
+      { name: 'Verlichting', path: '/traprenovatie/verlichting' },
     ],
   },
 ];

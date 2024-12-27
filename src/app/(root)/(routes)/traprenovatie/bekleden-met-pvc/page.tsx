@@ -149,34 +149,34 @@ const thirdSectionCards: InfoCardProps[] = [
 
 const FAQs: FAQType[] = [
   {
-    question: 'Wat zijn de voordelen van schuren en polijsten bij parketrenovatie?',
+    question: 'Wat zijn de voordelen van PVC vloerbedekking?',
     answer:
-      'Schuren verwijdert oneffenheden en beschadigde lagen, terwijl polijsten een glad en glanzend oppervlak oplevert, wat de duurzaamheid en uitstraling van het gerenoveerde parket verbetert',
+      'PVC is duurzaam, waterbestendig en gemakkelijk te onderhouden. Het is ook verkrijgbaar in verschillende stijlen en kleuren, waardoor het geschikt is voor diverse interieurontwerpen.',
   },
   {
-    question: 'Wat zijn de voordelen van schuren en polijsten bij parketrenovatie?',
+    question: 'Kan ik PVC zelf leggen of heb ik professionele hulp nodig?',
     answer:
-      'Schuren verwijdert oneffenheden en beschadigde lagen, terwijl polijsten een glad en glanzend oppervlak oplevert, wat de duurzaamheid en uitstraling van het gerenoveerde parket verbetert',
+      'Hoewel het mogelijk is om PVC zelf te leggen, kan professionele installatie zorgen voor een betere afwerking en duurzaamheid. Dit is vooral belangrijk bij ingewikkelde patronen.',
   },
   {
-    question: 'Wat zijn de voordelen van schuren en polijsten bij parketrenovatie?',
+    question: 'Hoe onderhoud ik een PVC vloer?',
     answer:
-      'Schuren verwijdert oneffenheden en beschadigde lagen, terwijl polijsten een glad en glanzend oppervlak oplevert, wat de duurzaamheid en uitstraling van het gerenoveerde parket verbetert',
+      'PVC vloeren vereisen minimaal onderhoud; regelmatig stofzuigen en af en toe dweilen met een mild schoonmaakmiddel is meestal voldoende om ze in topconditie te houden.',
   },
   {
-    question: 'Wat zijn de voordelen van schuren en polijsten bij parketrenovatie?',
+    question: 'Kunnen jullie eerst langskomen?',
     answer:
-      'Schuren verwijdert oneffenheden en beschadigde lagen, terwijl polijsten een glad en glanzend oppervlak oplevert, wat de duurzaamheid en uitstraling van het gerenoveerde parket verbetert',
+      'In bepaalde gevallen komen we graag eerst bij u langs. Bijvoorbeeld wanneer u een tapijt voor uw trap wilt uitkiezen, of wanneer we stalen moeten laten zien en de ruimte moeten opmeten, is een bezoek ter plaatse noodzakelijk.',
   },
   {
-    question: 'Wat zijn de voordelen van schuren en polijsten bij parketrenovatie?',
+    question: 'Hoe kan ik bij jullie betalen?',
     answer:
-      'Schuren verwijdert oneffenheden en beschadigde lagen, terwijl polijsten een glad en glanzend oppervlak oplevert, wat de duurzaamheid en uitstraling van het gerenoveerde parket verbetert',
+      'Er zijn verschillende betaalmogelijkheden beschikbaar. Na afronding van de werkzaamheden ontvangt u altijd een factuur met de gebruikelijke online betaalopties. Daarnaast kunt u ook eenvoudig een bankoverschrijving doen of, indien gewenst, contant betalen. Op dit moment is het helaas nog niet mogelijk om op locatie te pinnen, maar we streven ernaar dit in de nabije toekomst aan te bieden.',
   },
   {
-    question: 'Wat zijn de voordelen van schuren en polijsten bij parketrenovatie?',
+    question: 'Welke voorbereidingen moet ik treffen?',
     answer:
-      'Schuren verwijdert oneffenheden en beschadigde lagen, terwijl polijsten een glad en glanzend oppervlak oplevert, wat de duurzaamheid en uitstraling van het gerenoveerde parket verbetert',
+      'Voor aanvang van de werkzaamheden vragen wij u altijd de te behandelen oppervlakken leeg en schoon te maken, zodat onze specialisten direct aan de slag kunnen. Bij een parketrenovatie betekent dit dat de gehele vloer vrij moet zijn. Het is ook belangrijk dat de ruimte goed toegankelijk is, omdat we vaak werken met zware professionele machines die naar de werkplek gebracht moeten worden.',
   },
 ];
 

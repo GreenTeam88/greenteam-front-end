@@ -1,4 +1,5 @@
 import clsx from 'clsx';
+import Link from 'next/link';
 import { isValidElement } from 'react';
 
 import { PrimaryBtn, PrimaryBtnLink } from '@/components/theme/buttons';
@@ -17,18 +18,22 @@ export type InfoCardProps = {
   buttonLink?: string;
   secondBtnLink?: string;
   secondBtnText?: string;
+  pagesLinks?: { path: string; name: string }[];
+  pagesLinksContainerClassName?: string;
 } & JSX.IntrinsicElements['div'];
 
 export const OrangeInfoCard: React.FC<InfoCardProps> = ({
   title,
   imgSrc,
   mainTitle,
+  pagesLinksContainerClassName,
   paragraphs,
   imgClassName,
   buttonLink,
   secondBtnLink,
   contentContainerClassName,
   buttonText,
+  pagesLinks,
   secondBtnText,
   className,
   ...props
@@ -41,11 +46,23 @@ export const OrangeInfoCard: React.FC<InfoCardProps> = ({
       )}
       {...props}
     >
-      {typeof imgSrc === 'string' ? (
-        <img className={clsx('w-full lg:w-fit  rounded-lg ', imgClassName)} src={imgSrc} />
-      ) : (
-        <ImageCarousel images={imgSrc} />
-      )}
+      <div className="flex w-fit flex-col ">
+        {typeof imgSrc === 'string' ? (
+          <img className={clsx('w-full lg:w-fit  rounded-lg ', imgClassName)} src={imgSrc} />
+        ) : (
+          <ImageCarousel images={imgSrc} />
+        )}
+        <div className={cn('flex max-w-full mt-[33px] flex-wrap', pagesLinksContainerClassName)}>
+          {pagesLinks?.map(({ name, path }) => (
+            <div className="text-[#1C1C1C] text-opacity-40 text-[13px] leading-[20px] flex gap-2 pr-2">
+              <Link className="hover:text-primaryDefault" href={path}>
+                {name}
+              </Link>
+              <div>|</div>
+            </div>
+          ))}
+        </div>
+      </div>
       <div className={clsx('flex flex-col   px-3 lg:px-0 max-w-[508px]  gap-[33px] ', contentContainerClassName)}>
         <div className="flex flex-col gap-[11px] ">
           <div className="flex flex-col gap-4">
