@@ -18,7 +18,7 @@ const thirdSectionCards: InfoCardProps[] = [
       <div key="1">
         Onze trapbekleding van hoogwaardig hout tilt uw interieur naar een hoger niveau. Wat maakt onze service uniek? {' '}
       </div>,
-      <ul key="3" className="flex flex-col py-3 list-disc gap-4 list-inside">
+      <ul key="2" className="flex flex-col py-3 list-disc gap-4 list-inside">
         <li>
           Hoogwaardige materialen: Kies uit een breed scala aan houtsoorten, zoals klassiek eiken of modern walnoot. {' '}
         </li>
@@ -29,7 +29,7 @@ const thirdSectionCards: InfoCardProps[] = [
         </li>
         <li>Karakter en warmte: Geef uw trap een uitstraling die uw woning weer laat stralen. </li>
       </ul>,
-      <BodyText>
+      <BodyText key="3">
         Met ons vakmanschap zorgen wij ervoor dat uw trap een echte blikvanger wordt, passend bij uw unieke smaak en
         stijl.
       </BodyText>,

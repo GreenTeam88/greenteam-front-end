@@ -19,7 +19,7 @@ const thirdSectionCards: InfoCardProps[] = [
         Onze trapverlichting combineert functionaliteit en stijl, waardoor uw trap niet alleen veiliger wordt, maar ook
         een echte blikvanger in uw woning. Wat kunt u van ons verwachten?
       </BodyText>,
-      <ul className="list list-disc list-inside flex flex-col gap-2">
+      <ul className="list list-disc list-inside flex flex-col gap-2" key="2">
         <li>
           Perfect geplaatste verlichting: We bepalen nauwkeurig de beste locaties voor LED-verlichting om elke trede
           optimaal te verlichting. 
@@ -30,7 +30,7 @@ const thirdSectionCards: InfoCardProps[] = [
         <li>Sfeervolle uitstraling: Onze verlichting voegt een warme, moderne uitstraling toe aan uw interieur. </li>
         <li>Energiezuinig en duurzaam: LED-verlichting is milieuvriendelijk en gaat lang mee.  </li>
       </ul>,
-      <BodyText>
+      <BodyText key="3">
         Met onze trapverlichting krijgt uw trap niet alleen een praktische upgrade, maar wordt het ook een stijlvolle
         toevoeging aan uw woning
       </BodyText>,

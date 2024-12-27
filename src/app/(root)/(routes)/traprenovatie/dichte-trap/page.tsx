@@ -19,7 +19,7 @@ const thirdSectionCards: InfoCardProps[] = [
         Een dichte trap biedt meer dan alleen praktische voordelen; het zorgt voor een strakke en complete uitstraling
         in uw woning. Wat mag u van ons verwachten? 
       </BodyText>,
-      <ul className="list list-disc list-inside">
+      <ul className="list list-disc list-inside" key="2">
         <li>
           Ombouwen van open naar dicht: Wij monteren stootborden met precisie, zodat uw trap een naadloze transformatie
           ondergaat.
@@ -33,7 +33,7 @@ const thirdSectionCards: InfoCardProps[] = [
           Vakmanschap en zorg: Wij combineren expertise met aandacht voor elk detail om uw visie tot leven te brengen. 
         </li>
       </ul>,
-      <BodyText>
+      <BodyText key="4">
         Een dichte trap zorgt niet alleen voor meer veiligheid en geluidsisolatie, maar geeft uw interieur ook een
         moderne en afgewerkte uitstraling.
       </BodyText>,

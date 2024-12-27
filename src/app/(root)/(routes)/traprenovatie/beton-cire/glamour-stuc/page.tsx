@@ -50,7 +50,7 @@ const thirdSectionCards: InfoCardProps[] = [
         <li>Moderne elegante: Creëer een verfijnde sfeer met een vleugje glamour.  </li>
         <li>Veelzijdig toepasbaar: Geschikt voor vloeren, wanden en meubels in elke stijl. </li>
       </ul>,
-      <div>
+      <div key="4">
         Transformeer uw interieur met Beton Ciré Glamour Stuc en geniet van een stijlvolle en duurzame afwerking die uw
         woning een verfijnde uitstraling geeft!
       </div>,

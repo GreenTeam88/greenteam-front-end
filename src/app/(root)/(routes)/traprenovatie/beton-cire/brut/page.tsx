@@ -47,7 +47,7 @@ const thirdSectionCards: InfoCardProps[] = [
         <li>Waterbestendig: Geen zorgen over vocht, perfect voor natte ruimtes. </li>
         <li>Veelzijdigheid: Geschikt voor elke stijl, van minimalistisch tot luxueus. </li>
       </ul>,
-      <div>
+      <div key="4">
         Creëer een tijdloze, luxe look met Beton Ciré Brut en combineer stijl met functionaliteit in uw woning.
       </div>,
       <div key="5">

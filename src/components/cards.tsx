@@ -54,7 +54,7 @@ export const OrangeInfoCard: React.FC<InfoCardProps> = ({
         )}
         <div className={cn('flex max-w-full mt-[33px] flex-wrap', pagesLinksContainerClassName)}>
           {pagesLinks?.map(({ name, path }) => (
-            <div className="text-[#1C1C1C] text-opacity-40 text-[13px] leading-[20px] flex gap-2 pr-2">
+            <div key={path} className="text-[#1C1C1C] text-opacity-40 text-[13px] leading-[20px] flex gap-2 pr-2">
               <Link className="hover:text-primaryDefault" href={path}>
                 {name}
               </Link>

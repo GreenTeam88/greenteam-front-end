@@ -25,7 +25,7 @@ const thirdSectionCards: InfoCardProps[] = [
         <li>Ruimte en licht: Behoud de openheid en het lichte karakter van uw trap met onze naadloze afwerking. </li>
         <li>Vakmanschap: Ons team zorgt voor een professionele en duurzame oplossing. </li>
       </ul>,
-      <div>
+      <div key="4">
         Met onze aanpak blijft uw open trap een echte eyecatcher, maar dan wel met een moderne en strakke uitstraling!
       </div>,
 

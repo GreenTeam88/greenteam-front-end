@@ -46,7 +46,7 @@ const thirdSectionCards: InfoCardProps[] = [
         <li>Gedurfde elegantie: Een look die meteen aandacht trekt en uw interieur naar een hoger niveau tilt.  </li>
         <li>Naadloze perfectie: Sterk, onderhoudsvriendelijk en geschikt voor diverse toepassingen. </li>
       </ul>,
-      <div>
+      <div key="4">
         Creëer een gedurfde, stijlvolle ambiance in uw woning met Beton Ciré Croco - perfect voor wie houdt van luxe en
         originaliteit!
       </div>,
