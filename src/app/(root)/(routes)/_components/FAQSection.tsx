@@ -62,15 +62,15 @@ const FAQCard: React.FC<FAQType> = ({ answer, question }) => {
     <div
       onClick={() => setIsOpened((currValue) => !currValue)}
       className={cn(
-        'flex cursor-pointer lg:w-[693px] flex-col px-5 rounded-lg border border-black20 border-opacity-20 py-[11px] gap-[11px]',
-        { 'border-primaryDefault border-opacity-100': isOpened }
+        'flex cursor-pointer lg:w-[693px] flex-col px-5  rounded-lg border border-black20 border-opacity-20 py-[11px] gap-[11px]',
+        { 'border-primaryDefault border-opacity-100 text-primaryDefault ': isOpened }
       )}
     >
       <div className="w-full flex justify-between">
         <BodyTextSemibold>{question}</BodyTextSemibold>
         <img src={isOpened ? '/icons/greenDropDownArrow.svg' : '/icons/blackDropDownArrow.svg'} />
       </div>
-      {isOpened && <BodyText>{answer}</BodyText>}
+      {isOpened && <BodyText className="text-black">{answer}</BodyText>}
     </div>
   );
 };

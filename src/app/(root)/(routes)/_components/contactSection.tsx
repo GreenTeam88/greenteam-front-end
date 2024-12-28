@@ -77,8 +77,8 @@ export const ContactInfo = () => {
 
 export const ContactSection = () => {
   return (
-    <div className="lg:py-24 flex items-center px-3 lg:px-0 justify-center ">
-      <div className="flex flex-col gap-14 lg:gap-0 lg:flex-row lg:w-[1199px] max-w-full justify-between">
+    <div className="pt-10 lg:py-24 flex items-center px-3 lg:px-0 justify-center ">
+      <div className="flex flex-col gap-14 lg:gap-0 lg:flex-row  lg:w-[1199px] max-w-full justify-between">
         {/* the contact info section includes email , phone , location and opening times */}
         <ContactInfo />
         <HQMap />
