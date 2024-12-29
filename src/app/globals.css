@@ -37,7 +37,7 @@
   @apply text-[13px] font-bold leading-[20px] tracking-[-2%];
 }
 .H2 {
-  @apply font-bold text-[30px] leading-[37px] tracking-[-2%];
+  @apply font-bold text-[22px] lg:text-[30px] leading-[37px] tracking-[-2%];
 }
 
 .bodyTextSemibold {

@@ -13,8 +13,8 @@ export const CardsSection: React.FC<{
   btnText?: string;
 }> = ({ cards, title, bottomText, btnText, description, btnLink }) => {
   return (
-    <div className="flex w-full gap-[88px] py-[99px] px-3 lg:px-0 bg-secondaryLight flex-col items-center">
-      <div className="flex gap-3 flex-col items-center">
+    <div className="flex w-full gap-10 lg:gap-[88px] py-[48px]  lg:py-[99px] px-3 lg:px-0 bg-secondaryLight flex-col items-center">
+      <div className="flex gap-1 lg:gap-3 flex-col lg:items-center">
         <H2 className="text-primaryDefault">{title}</H2>
         <BodyText>{description}</BodyText>
       </div>
@@ -28,8 +28,8 @@ export const CardsSection: React.FC<{
         ))}
       </div>
       {bottomText && (
-        <div className="flex gap-5 p-[22px] border border-black10 border-opacity-10 rounded-[10px] items-center">
-          <HeadlineSemibold>{bottomText}</HeadlineSemibold>
+        <div className="flex gap-5 p-[22px] flex-col lg:flex-row border border-black10 border-opacity-10 rounded-[10px] items-center">
+          <HeadlineSemibold className="text-center lg:text-start">{bottomText}</HeadlineSemibold>
           <PrimaryBtnLink href={btnLink || '/'}>{btnText}</PrimaryBtnLink>
         </div>
       )}

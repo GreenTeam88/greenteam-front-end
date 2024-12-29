@@ -41,7 +41,7 @@ export const OrangeInfoCard: React.FC<InfoCardProps> = ({
   return (
     <div
       className={cn(
-        'flex   w-full p-7 lg:p-0 lg:py-[99px] flex-col lg:flex-row bg-secondaryLight items-center justify-center gap-7 lg:gap-[57px]',
+        'flex   w-full  lg:py-[99px] flex-col lg:flex-row bg-secondaryLight items-center justify-center gap-6 lg:gap-[57px]',
         className
       )}
       {...props}
@@ -52,7 +52,9 @@ export const OrangeInfoCard: React.FC<InfoCardProps> = ({
         ) : (
           <ImageCarousel images={imgSrc} />
         )}
-        <div className={cn('flex max-w-full mt-[33px] flex-wrap', pagesLinksContainerClassName)}>
+        <div
+          className={cn('flex max-w-full mt-[33px] flex-wrap', pagesLinksContainerClassName, { hidden: !pagesLinks })}
+        >
           {pagesLinks?.map(({ name, path }) => (
             <div key={path} className="text-[#1C1C1C] text-opacity-40 text-[13px] leading-[20px] flex gap-2 pr-2">
               <Link className="hover:text-primaryDefault" href={path}>

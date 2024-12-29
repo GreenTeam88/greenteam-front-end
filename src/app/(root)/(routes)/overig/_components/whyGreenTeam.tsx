@@ -36,7 +36,7 @@ const whyGreenTeamCardsInfo: WhyGreenTeamCardProps[] = [
 
 const BottomSection = () => {
   return (
-    <div className="flex items-center gap-[22px] p-[22px] ">
+    <div className="flex items-center  gap-2 lg:gap-[22px] flex-col lg:flex-row   p-4 lg:p-[22px] ">
       <HeadlineSemibold>Ik heb een specialist nodig!</HeadlineSemibold>
       <SecondaryOutlinedBtnLink href="/contact">Praat met een specialist</SecondaryOutlinedBtnLink>
     </div>
