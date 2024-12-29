@@ -77,7 +77,7 @@ const FAQCard: React.FC<FAQType> = ({ answer, question }) => {
 
 const ParagraphSection = () => {
   return (
-    <div className="flex flex-col gap-[44px] lg:w-[488px]">
+    <div className="flex flex-col gap-3 lg:gap-[44px] lg:w-[488px]">
       <div className="flex flex-col gap-[11px]">
         <H2 className="text-primaryDefault ">Veelgestelde vragen</H2>
         <p>
@@ -104,7 +104,7 @@ const AllQuestions = () => {
 };
 export const FAQSection = () => {
   return (
-    <div className="flex px-4 py-[88px] w-full items-center flex-col lg:flex-row justify-center gap-7 bg-secondaryLight">
+    <div className="flex px-4  py-14 lg:py-[88px] w-full items-center flex-col lg:flex-row justify-center gap-7 bg-secondaryLight">
       {/* the paragraph section includes the title , the paragraph and the buttons */}
       <ParagraphSection />
       {/* the AllQuestions component includes all the faq in a list */}

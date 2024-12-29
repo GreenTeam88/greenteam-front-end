@@ -100,7 +100,7 @@ const ContactForm = () => {
 
 export const ContactFormSection = () => {
   return (
-    <div className="flex flex-col py-28 px-5 gap-20">
+    <div className="flex flex-col py-4 lg:py-28 px-5 gap-20">
       <TopSection />
       <div className="flex gap-12 w-full flex-col lg:flex-row justify-between max-w-[1400px]">
         <ContactInfo />
