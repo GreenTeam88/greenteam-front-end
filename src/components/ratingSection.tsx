@@ -242,7 +242,7 @@ const MobileRating = () => {
 
 export const RatingSection = () => {
   return (
-    <div className="w-full relative px-3 lg:px-0 bg-lightOrange gap-[60px] max-w-full flex items-center py-[122px] justify-center">
+    <div className="w-full relative px-3 lg:px-0 bg-lightOrange gap-[60px] max-w-full flex items-center py-[60px] lg:py-[122px] justify-center">
       <div className="flex flex-col z-10 relative max-w-[1440px] gap-[44px] items-center justify-center">
         {/* top section includes title and ratings on google */}
         <RatingTopSection />
