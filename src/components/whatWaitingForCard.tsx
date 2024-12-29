@@ -19,7 +19,7 @@ export const WhatWaitingForCard: React.FC<InfoCardProps & { orangeText: string }
   return (
     <div
       className={cn(
-        'flex w-full py-[99px] p-3 lg:py-[120px] flex-col lg:flex-row  items-center justify-center gap-[57px]',
+        'flex w-full  py-[49px] px-3 lg:py-[120px] flex-col lg:flex-row  items-center justify-center gap-[27px] lg:gap-[57px]',
         className
       )}
     >

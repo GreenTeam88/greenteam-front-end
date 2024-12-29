@@ -32,7 +32,7 @@ const FAQCard: React.FC<FAQType> = ({ answer, question }) => {
 
 const ParagraphSection = () => {
   return (
-    <div className="flex flex-col gap-[44px] lg:w-[488px]">
+    <div className="flex flex-col gap-5 lg:gap-[44px] lg:w-[488px]">
       <div className="flex flex-col gap-[11px]">
         <H2 className="text-primaryDefault">Vragen over deze dienst?</H2>
         <p>
@@ -40,12 +40,16 @@ const ParagraphSection = () => {
           graag verder.{' '}
         </p>
       </div>
-      <div className="flex flex-col gap-[22px] ">
+      <div className="flex flex-col gap-2  lg:gap-[22px] ">
         <BodyTextBold className="text-secondaryDefault">Geen vraag is te gek.</BodyTextBold>
-        <div className="flex gap-[22px] items-center">
-          <PrimaryBtnLink href="/veelgestelde-vragen">Veelgestelde vragen</PrimaryBtnLink>
+        <div className="flex gap-1  lg:gap-[22px] items-center flex-col lg:flex-row">
+          <PrimaryBtnLink className="w-full lg:w-fit" href="/veelgestelde-vragen">
+            Veelgestelde vragen
+          </PrimaryBtnLink>
           <BodyText>of</BodyText>
-          <SecondaryOutlinedBtnLink href="/contact">Contact opnemen</SecondaryOutlinedBtnLink>
+          <SecondaryOutlinedBtnLink className="w-full lg:w-fit" href="/contact">
+            Contact opnemen
+          </SecondaryOutlinedBtnLink>
         </div>
       </div>
     </div>
@@ -63,7 +67,7 @@ const AllQuestions: React.FC<{ FAQs: FAQType[] }> = ({ FAQs }) => {
 };
 export const FAQSection: React.FC<{ FAQs: FAQType[] }> = ({ FAQs }) => {
   return (
-    <div className="flex px-4 py-[88px] w-full items-center flex-col lg:flex-row justify-center gap-7 bg-secondaryLight">
+    <div className="flex px-4 py-[44px] lg:py-[88px] w-full items-center flex-col lg:flex-row justify-center gap-7 bg-secondaryLight">
       {/* the paragraph  section includes the title , the paragraph and the buttons */}
       <ParagraphSection />
       {/* the AllQuestions component includes all the faq in a list */}
