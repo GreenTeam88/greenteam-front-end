@@ -701,15 +701,28 @@ const MobileBoldLinkColumnSubpage: React.FC<
   const subPages = 'subPages' in subPage && subPage.subPages;
   return (
     <div className="flex flex-col ">
-      <p
-        onClick={() => setIsSubpagesOpened((val) => !val)}
-        className="text-lg   cursor-pointerflex flex items-center tracking-[-2%]"
-      >
-        {subPage.name}
-        {subPages && (
-          <img src="/icons/dropDown.svg" className={cn('mx-4 w-[16px]', { 'rotate-180': isSubpagesOpened })} />
-        )}
-      </p>
+      {'path' in subPage && !subPages ? (
+        <Link
+          href={subPage.path}
+          onClick={() => setIsSubpagesOpened((val) => !val)}
+          className="text-lg   cursor-pointerflex flex items-center  tracking-[-2%]"
+        >
+          {subPage.name}
+          {subPages && (
+            <img src="/icons/dropDown.svg" className={cn('mx-4 w-[16px]', { 'rotate-180': isSubpagesOpened })} />
+          )}
+        </Link>
+      ) : (
+        <p
+          onClick={() => setIsSubpagesOpened((val) => !val)}
+          className="text-lg   cursor-pointerflex flex items-center  tracking-[-2%]"
+        >
+          {subPage.name}
+          {subPages && (
+            <img src="/icons/dropDown.svg" className={cn('mx-4 w-[16px]', { 'rotate-180': isSubpagesOpened })} />
+          )}
+        </p>
+      )}
       {subPages && isSubpagesOpened && (
         <div className="flex px-2 flex-col ">
           {subPages.map((subPage) => (
@@ -736,7 +749,7 @@ const MobileBoldLinkColumn: React.FC<HeaderColumnInfo> = ({ subPages, title }) =
         )}{' '}
       </h4>
       {subPages && isSubpagesOpened && (
-        <div className="flex flex-col px-2 gap-1">
+        <div className="flex flex-col px-2  gap-1">
           {subPages.map((subPage) => (
             <MobileBoldLinkColumnSubpage key={subPage.name} {...subPage} />
           ))}
@@ -750,7 +763,7 @@ export const MobileMenuBoldLink: React.FC<HeaderRoute> = (headerRoute) => {
   const columns = 'columns' in headerRoute && headerRoute.columns;
   const path = 'path' in headerRoute && headerRoute.path;
   return (
-    <div className="flex  flex-col">
+    <div className="flex   flex-col">
       {columns && (
         <h4
           onClick={() => setIsColumnsOpened((val) => !val)}
@@ -769,7 +782,7 @@ export const MobileMenuBoldLink: React.FC<HeaderRoute> = (headerRoute) => {
         </Link>
       )}
       {columns && isColumnsOpened && (
-        <div className="flex px-2 flex-col">
+        <div className="flex px-2  flex-col">
           {columns.map((column) => (
             <MobileBoldLinkColumn key={column.title} {...column} />
           ))}
