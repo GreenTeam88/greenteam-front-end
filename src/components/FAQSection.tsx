@@ -11,7 +11,7 @@ export interface FAQType {
   answer: string | JSX.Element;
 }
 
-const FAQCard: React.FC<FAQType> = ({ answer, question }) => {
+export const FAQCard: React.FC<FAQType> = ({ answer, question }) => {
   const [isOpened, setIsOpened] = useState(false);
   return (
     <div
