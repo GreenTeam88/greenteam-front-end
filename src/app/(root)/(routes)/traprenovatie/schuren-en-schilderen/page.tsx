@@ -113,10 +113,10 @@ export default function Home() {
       />
       <WhyGreenTeam />
       <StoreSection
-       TraprenovatieWhyGreenTeamhebben wij voor u in petto?"
+        title="Wat hebben wij voor u in petto?"
         description="Bekijk de resultaten van onze traprenovaties en ontdek hoe we versleten of verouderde trappen transformeren tot stijlvolle en moderne eyecatchers. Vele tevreden klanten gingen u voor, dus uw trap kan de volgende zijn!"
         btnText="Bereken uw trap"
-        firstImg={'/traprenovatie/schuren-en-schilderen/schuren-en-schilderen-3.png'}
+        firstImg="/traprenovatie/schuren-en-schilderen/schuren-en-schilderen-3.png"
         secondImg="/traprenovatie/schuren-en-schilderen/schuren-en-schilderen-4.png"
         thirdImg="/traprenovatie/schuren-en-schilderen/schuren-en-schilderen-5.png"
         fourthImg="/traprenovatie/schuren-en-schilderen/schuren-en-schilderen-6.png"
