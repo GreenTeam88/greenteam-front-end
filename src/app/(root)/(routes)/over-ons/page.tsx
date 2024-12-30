@@ -1,8 +1,8 @@
 import React from 'react';
 
 import { Hero } from '@/components/hero';
+import { PhoneNumberSection } from '@/components/phoneNumberSection';
 import { RatingSection } from '@/components/ratingSection';
-import { PhoneNumberSection } from '../_components/phoneNumberSection';
 import { QuestionSection } from '../../../../components/animations/question';
 import { AboutUs } from './_components/aboutUs';
 import { GreenSection } from './_components/greenSection';

@@ -1,9 +1,9 @@
 import React from 'react';
 
 import { Hero } from '@/components/hero';
-import { PhoneNumberSection } from '../_components/phoneNumberSection';
-import { QuestionSection } from '../../../../components/animations/question';
-import { FAQSection } from './_components/faq';
+import { PhoneNumberSection } from '@/components/phoneNumberSection';
+import { QuestionSection } from '@/components/question';
+import { DienstenFAQSection } from './_components/faq';
 import { OverigeDiensten } from './_components/Overige diensten';
 import { ParaqueteRenovation } from './_components/parqueteRenovation';
 import { DienstenSecondSection } from './_components/secondSection';
@@ -21,8 +21,8 @@ function DienstenPage() {
       <Vloerenleggen />
       <Stoffren />
       <OverigeDiensten />
-      <FAQSection />
-      <QuestionSection category="Parketrenovatie" />
+      <DienstenFAQSection />
+      <QuestionSection />
       <PhoneNumberSection />
     </div>
   );

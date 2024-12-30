@@ -1,5 +1,5 @@
 import { Hero } from '@/components/hero';
-import { PhoneNumberSection } from '../_components/phoneNumberSection';
+import { PhoneNumberSection } from '@/components/phoneNumberSection';
 import { AllFAQsUI } from './_components/FAQs';
 import { ProblemSolvedQuestion } from './_components/problemSolvedQuestion';
 

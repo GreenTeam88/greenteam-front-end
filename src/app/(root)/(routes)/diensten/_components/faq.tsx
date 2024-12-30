@@ -3,6 +3,7 @@
 import Link from 'next/link';
 import { useState } from 'react';
 
+import { FAQSection } from '@/components/FAQSection';
 import { SecondaryOutlinedBtnLink } from '@/components/theme/buttons';
 import { BodyText, BodyTextSemibold, H2 } from '@/components/theme/typography';
 import { cn } from '@/lib/tailwind';
@@ -57,35 +58,7 @@ const FAQs: FAQType[] = [
   },
 ];
 
-export const FAQCard: React.FC<FAQType> = ({ answer, question }) => {
-  const [isOpened, setIsOpened] = useState(false);
-  return (
-    <div
-      onClick={() => setIsOpened((currValue) => !currValue)}
-      className={cn(
-        'flex cursor-pointer lg:w-[693px] flex-col px-3 lg:px-5 rounded-lg border border-black20 border-opacity-20 py-[11px] gap-[11px]',
-        { 'border-primaryDefault border-opacity-100': isOpened }
-      )}
-    >
-      <div className="w-full flex justify-between">
-        <BodyTextSemibold className={cn({ 'text-primaryDefault': isOpened })}>{question}</BodyTextSemibold>
-        <img src={isOpened ? '/icons/greenDropDownArrow.svg' : '/icons/blackDropDownArrow.svg'} />
-      </div>
-      {isOpened && <BodyText>{answer}</BodyText>}
-    </div>
-  );
-};
-
-const AllQuestions = () => {
-  return (
-    <div className="flex  flex-col gap-[11px] ">
-      {FAQs.map((FAQ) => (
-        <FAQCard key={FAQ.question} {...FAQ} />
-      ))}
-    </div>
-  );
-};
-export const FAQSection = () => {
+export const DienstenFAQSection = () => {
   return (
     <div className="flex px-4 py-[88px w-full items-center flex-col gap-[55px] justify-center py-36">
       <div className="flex items-center flex-col gap-3">
@@ -95,7 +68,7 @@ export const FAQSection = () => {
         </BodyText>
       </div>
       {/* the AllQuestions component includes all the faq in a list */}
-      <AllQuestions />
+      <FAQSection FAQs={FAQs} />
       <SecondaryOutlinedBtnLink href="/veelgestelde-vragen">Alles bekijken</SecondaryOutlinedBtnLink>
     </div>
   );
