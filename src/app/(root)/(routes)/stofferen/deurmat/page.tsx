@@ -8,7 +8,7 @@ import { RatingSection } from '@/components/ratingSection';
 import { StoreSection } from '@/components/storeSection';
 import { BodyText } from '@/components/theme/typography';
 import { WhatWaitingForCard } from '@/components/whatWaitingForCard';
-import { WhyGreenTeam } from '../_components/whyGreenTeam';
+import { WhyGreenTeamBasicPages } from '../_components/whyGreenTeam';
 
 const thirdSectionCards: InfoCardProps[] = [
   {
@@ -109,7 +109,7 @@ export default function Home() {
         cards={thirdSectionCards}
         btnText="Bereken uw deurmat"
       />
-      <WhyGreenTeam />
+      <WhyGreenTeamBasicPages />
       <StoreSection
         title="Wat hebben wij voor u in petto?"
         description="Bekijk de resultaten van onze deurmatten en ontdek hoe we verouderde en versleten matten transformeren tot stijlvolle en functionele toegangspunten. Veel tevreden klanten zijn enthousiast over de kwaliteit en uitstraling van onze deurmatten, en uw entree kan de volgende zijn!"

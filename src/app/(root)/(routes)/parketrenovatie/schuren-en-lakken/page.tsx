@@ -6,7 +6,7 @@ import { FAQSection, FAQType } from '../_components/FAQSection';
 import { SecondSection } from '../_components/secondSection';
 import { StoreSection } from '../_components/store';
 import { WhatWaitingForCard } from '../_components/whatWaitingForSection';
-import { WhyGreenTeam } from '../_components/whyGreenTeam';
+import { ParketrenovatieWhyGreenTeam } from '../_components/whyGreenTeam';
 import { QuestionSection } from '../../../../../components/animations/question';
 import { InfoCardProps } from '../../diensten/_components/cards';
 
@@ -115,7 +115,7 @@ export default function Home() {
         cards={thirdSectionCards}
         title="Hoe gaat schuren en lakken in zijn werk?"
       />
-      <WhyGreenTeam />
+      <ParketrenovatieWhyGreenTeam />
       <StoreSection
         firstImg={'/Parketrenovatie/schuren-en-lakken-4.png'}
         secondImg="/Parketrenovatie/schuren-en-lakken-5.png"

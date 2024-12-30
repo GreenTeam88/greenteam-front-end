@@ -66,7 +66,7 @@ const BottomSection = () => {
     </div>
   );
 };
-export const WhyGreenTeam = () => {
+export const ParketrenovatieWhyGreenTeam = () => {
   return (
     <div className="flex px-2 flex-col  py-32 gap-4 items-center">
       <H2 className="text-primaryDefault">Waarom kies ik voor GreenTeam?</H2>

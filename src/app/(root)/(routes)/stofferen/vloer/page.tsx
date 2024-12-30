@@ -8,7 +8,7 @@ import { RatingSection } from '@/components/ratingSection';
 import { StoreSection } from '@/components/storeSection';
 import { BodyText } from '@/components/theme/typography';
 import { WhatWaitingForCard } from '@/components/whatWaitingForCard';
-import { WhyGreenTeam } from '../_components/whyGreenTeam';
+import { WhyGreenTeamBasicPages } from '../_components/whyGreenTeam';
 
 const thirdSectionCards: InfoCardProps[] = [
   {
@@ -127,7 +127,7 @@ export default function Home() {
         btnText="Bereken uw vloer"
         btnLink="/offerte"
       />
-      <WhyGreenTeam />
+      <WhyGreenTeamBasicPages />
       <StoreSection
         title="Wat hebben wij voor u in petto?"
         description="Bekijk de resultaten van onze vloerstoffeerservice en ontdek hoe we verouderde en versleten vloeren omtoveren tot sfeervolle en comfortabele ruimtes. Onze tevreden klanten zijn enthousiast over onze kwaliteit, en uw vloer kan de volgende zijn!"

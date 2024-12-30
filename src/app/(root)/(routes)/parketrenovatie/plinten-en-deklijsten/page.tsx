@@ -6,7 +6,7 @@ import { FAQSection, FAQType } from '../_components/FAQSection';
 import { SecondSection } from '../_components/secondSection';
 import { StoreSection } from '../_components/store';
 import { WhatWaitingForCard } from '../_components/whatWaitingForSection';
-import { WhyGreenTeam } from '../_components/whyGreenTeam';
+import { ParketrenovatieWhyGreenTeam } from '../_components/whyGreenTeam';
 import { QuestionSection } from '../../../../../components/animations/question';
 import { InfoCardProps } from '../../diensten/_components/cards';
 
@@ -114,7 +114,7 @@ export default function Home() {
         cards={thirdSectionCards}
         bottomText="Onafgewerkte vloer? Wij helpen u graag!"
       />
-      <WhyGreenTeam />
+      <ParketrenovatieWhyGreenTeam />
       <StoreSection
         firstImg={'/Parketrenovatie/plinten-en-deklijsten-4.png'}
         secondImg="/Parketrenovatie/plinten-en-deklijsten-5.png"

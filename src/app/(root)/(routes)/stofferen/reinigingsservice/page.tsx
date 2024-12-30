@@ -8,7 +8,7 @@ import { RatingSection } from '@/components/ratingSection';
 import { StoreSection } from '@/components/storeSection';
 import { BodyText } from '@/components/theme/typography';
 import { WhatWaitingForCard } from '@/components/whatWaitingForCard';
-import { WhyGreenTeam } from '../_components/whyGreenTeam';
+import { WhyGreenTeamBasicPages } from '../_components/whyGreenTeam';
 
 const thirdSectionCards: InfoCardProps[] = [
   {
@@ -110,7 +110,7 @@ export default function Home() {
         btnText="Bereken jouw vloer"
         btnLink="/offerte"
       />
-      <WhyGreenTeam />
+      <WhyGreenTeamBasicPages />
       <StoreSection
         title="Wat hebben wij voor u in petto?"
         description="Bekijk de resultaten van onze reinigingsservice voor tapijten en banken en ontdek hoe we verouderde en vervuilde meubels weer tot leven brengen. Veel tevreden klanten zijn enthousiast over de kwaliteit en effectiviteit van onze diensten, en uw tapijten en/of banken kunnen de volgende zijn!"

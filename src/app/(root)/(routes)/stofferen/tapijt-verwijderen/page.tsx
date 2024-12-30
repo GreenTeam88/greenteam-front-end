@@ -8,7 +8,7 @@ import { RatingSection } from '@/components/ratingSection';
 import { StoreSection } from '@/components/storeSection';
 import { BodyText } from '@/components/theme/typography';
 import { WhatWaitingForCard } from '@/components/whatWaitingForCard';
-import { WhyGreenTeam } from '../_components/whyGreenTeam';
+import { WhyGreenTeamBasicPages } from '../_components/whyGreenTeam';
 
 const thirdSectionCards: InfoCardProps[] = [
   {
@@ -113,7 +113,7 @@ export default function Home() {
         btnText="Bereken jouw vloer"
         btnLink="/offerte"
       />
-      <WhyGreenTeam />
+      <WhyGreenTeamBasicPages />
       <StoreSection
         title="Wat hebben wij voor u in petto?"
         description="Bekijk de resultaten van onze service voor het verwijderen van vloeren en trappen en ontdek hoe we verouderde en versleten materialen snel en efficiënt verwijderen. Veel tevreden klanten zijn enthousiast over de kwaliteit en professionaliteit van onze diensten, uw vloeren en trappen kunnen de volgende zijn!"

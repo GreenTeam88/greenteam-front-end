@@ -8,7 +8,7 @@ import { RatingSection } from '@/components/ratingSection';
 import { StoreSection } from '@/components/storeSection';
 import { BodyText } from '@/components/theme/typography';
 import { WhatWaitingForCard } from '@/components/whatWaitingForCard';
-import { WhyGreenTeam } from '../_components/whyGreenTeam';
+import { WhyGreenTeamBasicPages } from '../_components/whyGreenTeam';
 
 const thirdSectionCards: InfoCardProps[] = [
   {
@@ -119,7 +119,7 @@ export default function Home() {
         cards={thirdSectionCards}
         btnText="Bereken uw trap"
       />
-      <WhyGreenTeam />
+      <WhyGreenTeamBasicPages />
       <StoreSection
         title="Wat hebben wij voor u in petto?"
         description="Bekijk de transformaties van onze stoffeerservice voor trappen en zie hoe we oude en versleten trappen vernieuwen met prachtige en duurzame stoffen. Onze tevreden klanten zijn lovend over onze vakmanschap, en uw trap kan de volgende zijn!"

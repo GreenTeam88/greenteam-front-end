@@ -4,6 +4,7 @@ import { HeartIcon } from '@/components/icons/heart';
 import { StarIcon } from '@/components/icons/star';
 import { SecondaryOutlinedBtnLink } from '@/components/theme/buttons';
 import { H2, HeadlineSemibold } from '@/components/theme/typography';
+import { WhyGreenTeam } from '@/components/whyGreenTeam';
 
 const whyGreenTeamCardsInfo: WhyGreenTeamCardProps[] = [
   {
@@ -37,16 +38,14 @@ const BottomSection = () => {
     </div>
   );
 };
-export const WhyGreenTeam = () => {
+export const WhyGreenTeamBasicPages = () => {
   return (
-    <div className="flex px-2 flex-col  py-32 gap-4 items-center">
-      <H2 className="text-primaryDefault">Waarom kiest u voor GreenTeam?</H2>
-      <div className="flex relative flex-col lg:flex-row items-center lg:items-start gap-[21px]">
-        {whyGreenTeamCardsInfo.map((cardInfo) => (
-          <WhyGreenTeamCard key={cardInfo.title} {...cardInfo} />
-        ))}
-      </div>
-      <BottomSection />
-    </div>
+    <WhyGreenTeam
+      title="Waarom kiest u voor GreenTeam"
+      bottomSectionBtnLink="/contact"
+      bottomSectionText="Ik heb een specialist nodig!"
+      bottomSectionBtnText="Praat met een specialist"
+      cards={whyGreenTeamCardsInfo}
+    />
   );
 };

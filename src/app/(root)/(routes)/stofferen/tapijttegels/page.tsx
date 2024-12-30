@@ -8,7 +8,7 @@ import { RatingSection } from '@/components/ratingSection';
 import { StoreSection } from '@/components/storeSection';
 import { BodyText } from '@/components/theme/typography';
 import { WhatWaitingForCard } from '@/components/whatWaitingForCard';
-import { WhyGreenTeam } from '../_components/whyGreenTeam';
+import { WhyGreenTeamBasicPages } from '../_components/whyGreenTeam';
 
 const thirdSectionCards: InfoCardProps[] = [
   {
@@ -115,7 +115,7 @@ export default function Home() {
         btnText="Bereken uw vloer"
         btnLink="/offerte"
       />
-      <WhyGreenTeam />
+      <WhyGreenTeamBasicPages />
       <StoreSection
         title="Wat hebben wij voor u in petto?"
         description="Bekijk de resultaten van onze tapijttegels en ontdek hoe we verouderde en versleten vloeren transformeren tot stijlvolle en comfortabele ruimtes. Veel tevreden klanten zijn enthousiast over de kwaliteit en uitstraling van onze tapijttegels, uw vloer kan de volgende zijn!"

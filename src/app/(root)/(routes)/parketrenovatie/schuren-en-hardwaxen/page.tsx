@@ -6,7 +6,7 @@ import { FAQSection, FAQType } from '../_components/FAQSection';
 import { SecondSection } from '../_components/secondSection';
 import { StoreSection } from '../_components/store';
 import { WhatWaitingForCard } from '../_components/whatWaitingForSection';
-import { WhyGreenTeam } from '../_components/whyGreenTeam';
+import { ParketrenovatieWhyGreenTeam } from '../_components/whyGreenTeam';
 import { QuestionSection } from '../../../../../components/animations/question';
 import { InfoCardProps } from '../../diensten/_components/cards';
 
@@ -116,7 +116,7 @@ export default function Home() {
         title="Hoe gaat schuren en hardwaxen in zijn werk?"
         cards={thirdSectionCards}
       />
-      <WhyGreenTeam />
+      <ParketrenovatieWhyGreenTeam />
       <StoreSection
         firstImg={'/Parketrenovatie/schuren-en-hardwaxen-4.png'}
         secondImg="/Parketrenovatie/schuren-en-hardwaxen-5.png"
