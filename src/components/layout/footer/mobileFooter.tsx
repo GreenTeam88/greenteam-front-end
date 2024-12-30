@@ -46,7 +46,7 @@ const FooterColumn: React.FC<FooterColumnInfo> = ({ links, title }) => {
       {isColumnOpen && (
         <div className="flex flex-col px-2">
           {links.map((link) => (
-            <Link key={link.name} href={link.path}>
+            <Link className="active:text-primaryDefault" key={link.name} href={link.path}>
               {link.name}
             </Link>
           ))}

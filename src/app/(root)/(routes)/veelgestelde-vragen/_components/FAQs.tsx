@@ -1362,7 +1362,7 @@ export const AllFAQsUI = () => {
           value={searchedText}
           onChange={(e) => setSearchedText(e.target.value)}
           className="outline-none w-full focus:outline-none "
-          placeholder="Search anything here"
+          placeholder="Zoeken"
         ></input>
       </div>
       <div className="flex gap-1 lg:gap-[107px] w-fit">
