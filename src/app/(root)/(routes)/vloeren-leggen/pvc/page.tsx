@@ -6,7 +6,7 @@ import { StoreSection } from '@/components/storeSection';
 import { BodyText } from '@/components/theme/typography';
 import { ListCard } from '../_components/listCard';
 import { WhatWaitingForCard } from '../_components/whatWaitingForCard';
-import { WhyGreenTeam } from '../_components/whyGreenTeam';
+import { VloerenleggenWhyGreenTeam } from '../_components/whyGreenTeam';
 import { QuestionSection } from '../../../../../components/animations/question';
 import { InfoCardProps } from '../../diensten/_components/cards';
 
@@ -117,7 +117,7 @@ export default function Home() {
         description="Stapsgewijs naar een perfect resultaat"
         cards={thirdSectionCards}
       />
-      <WhyGreenTeam />
+      <VloerenleggenWhyGreenTeam />
       <StoreSection
         title="Wat hebben wij in petto? Uw vloer weer laten stralen!"
         description="Bekijk de resultaten van onze vloerenlegservice en ontdek hoe we verouderde of beschadigde vloeren omtoveren tot prachtige, moderne ruimtes. Vele tevreden klanten gingen u voor, dus uw vloer kan de volgende zijn!"

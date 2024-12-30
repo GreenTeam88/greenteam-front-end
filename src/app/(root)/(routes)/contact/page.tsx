@@ -1,7 +1,7 @@
+import { FAQSection } from '@/components/FAQSection';
 import { Hero } from '@/components/hero';
 import { PhoneNumberSection } from '@/components/phoneNumberSection';
 import { ContactSection } from '../_components/contactSection';
-import { FAQSection } from '../_components/FAQSection';
 import { ContactFormSection } from './_components/contactFormSection';
 
 function DienstenPage() {

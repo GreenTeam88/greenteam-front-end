@@ -3,6 +3,7 @@ import { HeartIcon } from '@/components/icons/heart';
 import { StarIcon } from '@/components/icons/star';
 import { SecondaryOutlinedBtnLink } from '@/components/theme/buttons';
 import { BodyText, H2, HeadlineSemibold } from '@/components/theme/typography';
+import { WhyGreenTeam } from '@/components/whyGreenTeam';
 
 type WhyGreenTeamCardProps = {
   title: string;
@@ -35,40 +36,14 @@ const whyGreenTeamCardsInfo: WhyGreenTeamCardProps[] = [
   },
 ];
 
-const WhyGreenTeamCard: React.FC<WhyGreenTeamCardProps> = ({ icon, paragraphs, title }) => {
+export const VloerenleggenWhyGreenTeam = () => {
   return (
-    <div className="flex lg:min-h-[350px] flex-col py-[33px] h-full gap-[11px] px-[22px] rounded-[10px]  border-2 border-black10 border-opacity-10 max-w-[387px] ">
-      <div className="flex gap-3 items-center">
-        {icon}
-        <HeadlineSemibold className="text-primaryDefault">{title}</HeadlineSemibold>
-      </div>
-      <div className="flex flex-col gap-8">
-        {paragraphs.map((paragraph) => (
-          <BodyText key={paragraph}>{paragraph}</BodyText>
-        ))}
-      </div>
-    </div>
-  );
-};
-
-const BottomSection = () => {
-  return (
-    <div className="flex items-center gap-[22px] p-[22px] ">
-      <HeadlineSemibold>Ik heb een specialist nodig!</HeadlineSemibold>
-      <SecondaryOutlinedBtnLink href="/contact">Praat met een specialist</SecondaryOutlinedBtnLink>
-    </div>
-  );
-};
-export const WhyGreenTeam = () => {
-  return (
-    <div className="flex px-2 flex-col  py-32 gap-4 items-center">
-      <H2 className="text-primaryDefault">Waarom kies ik voor GreenTeam?</H2>
-      <div className="flex relative flex-col lg:flex-row items-center lg:items-start gap-[21px]">
-        {whyGreenTeamCardsInfo.map((cardInfo) => (
-          <WhyGreenTeamCard key={cardInfo.title} {...cardInfo} />
-        ))}
-      </div>
-      <BottomSection />
-    </div>
+    <WhyGreenTeam
+      title="Waarom kies ik voor GreenTeam?"
+      bottomSectionText="Ik heb een specialist nodig!"
+      bottomSectionBtnText="Praat met een specialist"
+      bottomSectionBtnLink="/contact"
+      cards={whyGreenTeamCardsInfo}
+    />
   );
 };

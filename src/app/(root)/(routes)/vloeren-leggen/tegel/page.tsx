@@ -6,7 +6,7 @@ import { StoreSection } from '@/components/storeSection';
 import { BodyText } from '@/components/theme/typography';
 import { ListCard } from '../_components/listCard';
 import { WhatWaitingForCard } from '../_components/whatWaitingForCard';
-import { WhyGreenTeam } from '../_components/whyGreenTeam';
+import { VloerenleggenWhyGreenTeam } from '../_components/whyGreenTeam';
 import { QuestionSection } from '../../../../../components/animations/question';
 import { InfoCardProps } from '../../diensten/_components/cards';
 
@@ -119,7 +119,7 @@ export default function Home() {
         cards={thirdSectionCards}
         btnText="Bereken jouw vloer"
       />
-      <WhyGreenTeam />
+      <VloerenleggenWhyGreenTeam />
       <StoreSection
         btnLink="/offerte"
         title="Wat hebben wij in petto? Uw vloer weer laten stralen!"

@@ -1,16 +1,12 @@
 import { isValidElement } from 'react';
 
+import { WhyGreenTeamCardProps } from '@/components/cards';
 import { GameIcon } from '@/components/icons/game';
 import { HeartIcon } from '@/components/icons/heart';
 import { StarIcon } from '@/components/icons/star';
 import { SecondaryOutlinedBtnLink } from '@/components/theme/buttons';
 import { BodyText, H2, HeadlineSemibold } from '@/components/theme/typography';
-
-type WhyGreenTeamCardProps = {
-  title: string;
-  paragraphs: string[] | JSX.Element;
-  icon: React.ReactNode;
-};
+import { WhyGreenTeam } from '@/components/whyGreenTeam';
 
 const whyGreenTeamCardsInfo: WhyGreenTeamCardProps[] = [
   {
@@ -23,13 +19,13 @@ const whyGreenTeamCardsInfo: WhyGreenTeamCardProps[] = [
   },
   {
     title: 'Persoonlijk advies op maat',
-    paragraphs: (
+    paragraphs: [
       <BodyText>
         We begrijpen dat het een grote ingreep is en samen willen we naar het gewenste eindresultaat, wat u met trots
         laat zien wanneer er bekende over de vloer komen. <br /> Daarom komen wij graag langs met kleurstalen om je een
         accuraat beeld te geven over het eindresultaat.
-      </BodyText>
-    ),
+      </BodyText>,
+    ],
 
     icon: <GameIcon />,
   },
@@ -58,24 +54,14 @@ const WhyGreenTeamCard: React.FC<WhyGreenTeamCardProps> = ({ icon, paragraphs, t
   );
 };
 
-const BottomSection = () => {
-  return (
-    <div className="flex items-center gap-[22px] p-[22px] ">
-      <HeadlineSemibold>Ik heb een specialist nodig!</HeadlineSemibold>
-      <SecondaryOutlinedBtnLink href="/contact">Praat met een specialist</SecondaryOutlinedBtnLink>
-    </div>
-  );
-};
 export const ParketrenovatieWhyGreenTeam = () => {
   return (
-    <div className="flex px-2 flex-col  py-32 gap-4 items-center">
-      <H2 className="text-primaryDefault">Waarom kies ik voor GreenTeam?</H2>
-      <div className="flex relative flex-col lg:flex-row items-center lg:items-start gap-[21px]">
-        {whyGreenTeamCardsInfo.map((cardInfo) => (
-          <WhyGreenTeamCard key={cardInfo.title} {...cardInfo} />
-        ))}
-      </div>
-      <BottomSection />
-    </div>
+    <WhyGreenTeam
+      bottomSectionBtnText="Praat met een specialist"
+      bottomSectionText="heb een specialist nodig!"
+      bottomSectionBtnLink="/contact"
+      cards={whyGreenTeamCardsInfo}
+      title="Waarom kies ik voor GreenTeam?"
+    />
   );
 };

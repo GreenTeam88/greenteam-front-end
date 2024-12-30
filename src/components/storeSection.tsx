@@ -53,7 +53,7 @@ const ImagesGallery: React.FC<StoreImagesInfo> = ({
 
 export const StoreSection: React.FC<StoreImagesInfo> = (imagesInfo) => {
   return (
-    <div className="flex  py-20 items-center flex-col gap-[55px] max-w-[1440px]  w-full px-2 lg:px-[120px] lg:items-center relative">
+    <div className="flex  py-20 items-center flex-col gap-[28px] lg:gap-[55px] max-w-[1440px]  w-full px-2 lg:px-[120px] lg:items-center relative">
       <div className="flex flex-col gap-[11px] items-center ">
         <H2 className="text-primaryDefault text-center">{imagesInfo.title}</H2>
         <BodyText className="max-w-[794px] text-center">{imagesInfo.description}</BodyText>
