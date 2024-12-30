@@ -8,7 +8,7 @@ import { RatingSection } from '@/components/ratingSection';
 import { StoreSection } from '@/components/storeSection';
 import { BodyText } from '@/components/theme/typography';
 import { WhatWaitingForCard } from '@/components/whatWaitingForCard';
-import { WhyGreenTeam } from '../_components/whyGreenTeam';
+import { OverigWhyGreenTeam } from '../_components/whyGreenTeam';
 
 const thirdSectionCards: InfoCardProps[] = [
   {
@@ -118,7 +118,7 @@ export default function Home() {
         cards={thirdSectionCards}
         btnText="Bereken uw opslag behoefte"
       />
-      <WhyGreenTeam />
+      <OverigWhyGreenTeam />
 
       <StoreSection
         title="Wat hebben wij in petto? Jouw vloer weer laten stralen!"

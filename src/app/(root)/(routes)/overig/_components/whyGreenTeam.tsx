@@ -4,6 +4,7 @@ import { HeartIcon } from '@/components/icons/heart';
 import { StarIcon } from '@/components/icons/star';
 import { SecondaryOutlinedBtnLink } from '@/components/theme/buttons';
 import { BodyText, H2, HeadlineSemibold } from '@/components/theme/typography';
+import { WhyGreenTeam } from '@/components/whyGreenTeam';
 
 const whyGreenTeamCardsInfo: WhyGreenTeamCardProps[] = [
   {
@@ -34,24 +35,14 @@ const whyGreenTeamCardsInfo: WhyGreenTeamCardProps[] = [
   },
 ];
 
-const BottomSection = () => {
+export const OverigWhyGreenTeam = () => {
   return (
-    <div className="flex items-center  gap-2 lg:gap-[22px] flex-col lg:flex-row   p-4 lg:p-[22px] ">
-      <HeadlineSemibold>Ik heb een specialist nodig!</HeadlineSemibold>
-      <SecondaryOutlinedBtnLink href="/contact">Praat met een specialist</SecondaryOutlinedBtnLink>
-    </div>
-  );
-};
-export const WhyGreenTeam = () => {
-  return (
-    <div className="flex px-2 flex-col  py-32 gap-4 items-center">
-      <H2 className="text-primaryDefault">Waarom kies ik voor GreenTeam?</H2>
-      <div className="flex relative flex-col lg:flex-row items-center lg:items-start gap-[21px]">
-        {whyGreenTeamCardsInfo.map((cardInfo) => (
-          <WhyGreenTeamCard key={cardInfo.title} {...cardInfo} />
-        ))}
-      </div>
-      <BottomSection />
-    </div>
+    <WhyGreenTeam
+      cards={whyGreenTeamCardsInfo}
+      title="Waarom kies ik voor GreenTeam?"
+      bottomSectionBtnLink="/contact"
+      bottomSectionBtnText="Praat met een specialist"
+      bottomSectionText="Ik heb een specialist nodig!"
+    />
   );
 };
