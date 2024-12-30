@@ -7,7 +7,7 @@ import { H2, HeadlineSemibold } from '@/components/theme/typography';
 
 const BottomSection: React.FC<{ text: string; btnText: string; btnLink: string }> = ({ btnLink, btnText, text }) => {
   return (
-    <div className="flex items-center flex-col lg:flex-row gap-4 lg:gap-[22px] p-[22px] ">
+    <div className="flex items-center flex-col  lg:flex-row gap-4 lg:gap-[22px] p-[22px] ">
       <HeadlineSemibold>{text}</HeadlineSemibold>
       <SecondaryOutlinedBtnLink href={btnLink}>{btnText}</SecondaryOutlinedBtnLink>
     </div>

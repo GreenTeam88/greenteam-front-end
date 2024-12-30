@@ -8,7 +8,7 @@ import { RatingSection } from '@/components/ratingSection';
 import { StoreSection } from '@/components/storeSection';
 import { BodyText } from '@/components/theme/typography';
 import { WhatWaitingForCard } from '@/components/whatWaitingForCard';
-import { WhyGreenTeam } from '../_components/whyGreenTeam';
+import { TraprenovatieWhyGreenTeam } from '../_components/whyGreenTeam';
 
 const thirdSectionCards: InfoCardProps[] = [
   {
@@ -222,7 +222,7 @@ export default function Home() {
         cards={thirdSectionCards}
         btnText="Bereken uw trap"
       />
-      <WhyGreenTeam />
+      <TraprenovatieWhyGreenTeam />
       <StoreSection
         title="Wat hebben wij voor u in petto?"
         description="Zoals al eerder vermeld hebben wij al 20 jaar aan ervaring en hebben wij parketteurs die super veel kennis en ervaring met zich meebrengen om zo uw trap weer de gewenste uitstraling te geven!"
