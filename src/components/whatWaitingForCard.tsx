@@ -23,10 +23,10 @@ export const WhatWaitingForCard: React.FC<InfoCardProps & { orangeText: string }
         className
       )}
     >
-      <div className="flex flex-col max-w-[508px]  px-4 lg:px-0 gap-[33px] ">
+      <div className="flex flex-col max-w-[508px]  px-4 lg:px-0 gap-4 lg:gap-[33px] ">
         <div className="flex flex-col gap-[11px] ">
           <h3 className="text-[24px] text-primaryDefault font-semibold leading-[25px] ">{title}</h3>
-          <div className="flex flex-col gap-3">
+          <div className="flex flex-col gap-2 lg:gap-3">
             {paragraphs.map((paragraph, index) => (
               <BodyText key={String(index)}>{paragraph}</BodyText>
             ))}
