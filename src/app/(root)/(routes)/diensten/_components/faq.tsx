@@ -1,12 +1,10 @@
 'use client';
 
 import Link from 'next/link';
-import { useState } from 'react';
 
 import { FAQSection } from '@/components/FAQSection';
 import { SecondaryOutlinedBtnLink } from '@/components/theme/buttons';
-import { BodyText, BodyTextSemibold, H2 } from '@/components/theme/typography';
-import { cn } from '@/lib/tailwind';
+import { BodyText, H2 } from '@/components/theme/typography';
 
 interface FAQType {
   question: string;

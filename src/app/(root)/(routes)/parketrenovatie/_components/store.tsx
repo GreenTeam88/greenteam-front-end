@@ -1,7 +1,4 @@
-import { CardsSection } from '@/components/cardsSection';
 import { StoreSection } from '@/components/storeSection';
-import { PrimaryBtnLink } from '@/components/theme/buttons';
-import { BodyText, H2 } from '@/components/theme/typography';
 
 type StoreImagesInfo = {
   firstImg: string;
@@ -57,16 +54,5 @@ export const ParketrenovatieStoreSection: React.FC<StoreImagesInfo> = (imagesInf
       description="Bekijk hier de resultaten van onze renovaties en ontdek hoe wij parketvloeren, of ze nu beschadigd zijn of gewoon toe aan vernieuwing, transformeren tot ware meesterwerken. Uw vloer kan de volgende zijn!"
       btnText="Bereken jouw vloer"
     />
-    // <div className="flex  py-20 items-center flex-col gap-[55px] max-w-[1440px]  w-full px-[120px] lg:items-center relative">
-    //   <div className="flex flex-col gap-[11px] items-center ">
-    //     <H2 className="text-primaryDefault text-center">Wat hebben wij in petto? Uw vloer weer laten stralen!</H2>
-    //     <BodyText className="max-w-[794px] text-center">
-    //       Bekijk hier de resultaten van onze renovaties en ontdek hoe wij parketvloeren, of ze nu beschadigd zijn of
-    //       gewoon toe aan vernieuwing, transformeren tot ware meesterwerken. Uw vloer kan de volgende zijn!
-    //     </BodyText>
-    //   </div>
-    //   <ImagesGallery {...imagesInfo} />
-    //   <PrimaryBtnLink href="/offerte">Bereken jouw vloer</PrimaryBtnLink>
-    // </div>
   );
 };
