@@ -28,7 +28,7 @@ export const CardsSection: React.FC<{
         ))}
       </div>
       {bottomText && (
-        <div className="flex gap-5 p-[22px] flex-col lg:flex-row border border-black10 border-opacity-10 rounded-[10px] items-center">
+        <div className="flex gap-3 lg:gap-5 py-[16px] px-[6px] lg:py-[22^px] lg:px-[22px] lg:p-[22px] flex-col lg:flex-row border border-black10 border-opacity-10 rounded-[10px] items-center">
           <HeadlineSemibold className="text-center lg:text-start">{bottomText}</HeadlineSemibold>
           <PrimaryBtnLink href={btnLink || '/'}>{btnText}</PrimaryBtnLink>
         </div>

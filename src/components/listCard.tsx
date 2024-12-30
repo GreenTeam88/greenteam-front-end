@@ -1,6 +1,7 @@
 import { CheckedIcon } from '@/components/icons/check';
 import { PrimaryBtnLink } from '@/components/theme/buttons';
 import { BodyText, H2 } from '@/components/theme/typography';
+import { cn } from '@/lib/tailwind';
 
 type ListCardProps = {
   sectionName: string;
@@ -47,7 +48,7 @@ export const ListCard: React.FC<ListCardProps> = ({
             <PrimaryBtnLink href={btnLink}>{btnText}</PrimaryBtnLink>
           </div>
         </div>
-        <img src={imgSrc} className={imgClassName} />
+        <img src={imgSrc} className={cn('rounded-lg', imgClassName)} />
       </div>
     </div>
   );
