@@ -111,7 +111,7 @@ export default function Home() {
         cards={thirdSectionCards}
         btnText="Bereken uw trap"
       />
-      <WhyGreenTeam />
+      <TraprenovatieWhyGreenTeam />
       <StoreSection
         title="Wat hebben wij voor u in petto?"
         description="Bekijk de resultaten van onze traprenovaties en ontdek hoe we versleten of verouderde trappen transformeren tot stijlvolle en moderne eyecatchers. Vele tevreden klanten gingen u voor, dus uw trap kan de volgende zijn!"
