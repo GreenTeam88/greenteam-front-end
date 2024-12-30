@@ -23,11 +23,15 @@ export const TopSection = () => {
         </div>
       </div>
       <div className="flex py-4 flex-col">
-        {topFooterLinks.map((link) => (
-          <Link href={link.path} key={link.name} className="text-lg  font-semibold">
-            {link.name}
-          </Link>
-        ))}
+        {topFooterLinks.map((link) =>
+          link.path ? (
+            <Link href={link.path} key={link.name} className="text-lg  active:text-primaryDefault font-semibold">
+              {link.name}
+            </Link>
+          ) : (
+            <BodyText>{link.name}</BodyText>
+          )
+        )}
       </div>
     </div>
   );
@@ -36,7 +40,7 @@ export const TopSection = () => {
 const FooterColumn: React.FC<FooterColumnInfo> = ({ links, title }) => {
   const [isColumnOpen, setIsColumnOpen] = useState(false);
   return (
-    <div className="flex flex-col">
+    <div className="flex flex-col ">
       <h3 className="text-lg flex items-center font-semibold" onClick={() => setIsColumnOpen((val) => !val)}>
         {title}{' '}
         <span className={cn('inline mx-2', { 'rotate-180': isColumnOpen })}>
@@ -45,11 +49,15 @@ const FooterColumn: React.FC<FooterColumnInfo> = ({ links, title }) => {
       </h3>
       {isColumnOpen && (
         <div className="flex flex-col px-2">
-          {links.map((link) => (
-            <Link className="active:text-primaryDefault" key={link.name} href={link.path}>
-              {link.name}
-            </Link>
-          ))}
+          {links.map((link) =>
+            link.path ? (
+              <Link className="active:text-primaryDefault" key={link.name} href={link.path}>
+                {link.name}
+              </Link>
+            ) : (
+              <BodyText> {link.name}</BodyText>
+            )
+          )}
         </div>
       )}
     </div>

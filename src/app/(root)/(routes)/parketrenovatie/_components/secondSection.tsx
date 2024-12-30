@@ -1,7 +1,4 @@
-import { CheckedIcon } from '@/components/icons/check';
 import { ListCard } from '@/components/listCard';
-import { PrimaryBtnLink } from '@/components/theme/buttons';
-import { BodyText, H2 } from '@/components/theme/typography';
 
 const listItems: string[] = [
   'Slijtage van overmatig gebruik',

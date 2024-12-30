@@ -38,7 +38,7 @@ const TabsSection = () => {
         {tabs.slice(0, 2).map((tab) => (
           <div
             key={tab.title}
-            className="flex flex-col  max-w-[200px] lg:max-w-full w-fit lg:w-full items-center gap-[11px] "
+            className="flex flex-col  lg:h-[180px] max-w-[200px] lg:max-w-full w-fit lg:w-full items-center gap-[11px] "
           >
             <img src={tab.iconSrc} />
             <HeadlineSemibold className="text-center">{tab.title}</HeadlineSemibold>
@@ -48,7 +48,10 @@ const TabsSection = () => {
       </div>
       <div className="flex flex-col lg:w-[139px]  gap-8 lg:gap-[55px] ">
         {tabs.slice(2).map((tab) => (
-          <div key={tab.title} className="flex max-w-[200px] lg:max-w-full flex-col gap-[11px] items-center ">
+          <div
+            key={tab.title}
+            className="flex max-w-[200px]  lg:h-[180px] lg:max-w-full flex-col gap-[11px] items-center "
+          >
             <img src={tab.iconSrc} />
             <HeadlineSemibold className="text-center">{tab.title}</HeadlineSemibold>
             <DetailsTypography className="text-center">{tab.description}</DetailsTypography>

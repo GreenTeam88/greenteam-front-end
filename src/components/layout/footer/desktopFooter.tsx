@@ -11,15 +11,23 @@ import { FooterColumnInfo, footerColumnsInfo, topFooterLinks } from './footerCon
 export const FooterColumn: React.FC<FooterColumnInfo> = ({ title, links, path }) => {
   return (
     <div className="flex flex-col w-[220px]  gap-[10px] ">
-      <Link href={path} className="text-primaryDefault hover:text-secondaryDefault font-bold">
-        {title}
-      </Link>
+      {path ? (
+        <Link href={path} className="text-primaryDefault hover:text-secondaryDefault font-bold">
+          {title}
+        </Link>
+      ) : (
+        <p className="text-primaryDefault  font-bold ">{title}</p>
+      )}
       <div className="flex flex-col gap-2">
-        {links.map((link) => (
-          <Link href={link.path} className="hover:text-primaryDefault cursor-pointer" key={link.name}>
-            {link.name}
-          </Link>
-        ))}
+        {links.map((link) =>
+          link.path ? (
+            <Link href={link.path} className="hover:text-primaryDefault cursor-pointer" key={link.name}>
+              {link.name}
+            </Link>
+          ) : (
+            <p>{link.name}</p>
+          )
+        )}
       </div>
     </div>
   );
@@ -32,11 +40,15 @@ export const FooterTopSection = () => {
         <img src={appConfig.logoSrcImg} />
       </Link>
       <div className="flex gap-4 px-6">
-        {topFooterLinks.map((link) => (
-          <HeadlineSemiboldLink href={link.path} className="hover:text-primaryDefault" key={link.name}>
-            {link.name}
-          </HeadlineSemiboldLink>
-        ))}
+        {topFooterLinks.map((link) =>
+          link.path ? (
+            <HeadlineSemiboldLink href={link.path} className="hover:text-primaryDefault" key={link.name}>
+              {link.name}
+            </HeadlineSemiboldLink>
+          ) : (
+            <p>{link.name}</p>
+          )
+        )}
         <div className="flex gap-[22px] items-center  px-6">
           <div className="cursor-pointer" onClick={() => window.open(appConfig.instagramAccount, '_blank')}>
             <InstagramLogo />

@@ -705,7 +705,7 @@ const MobileBoldLinkColumnSubpage: React.FC<
         <Link
           href={subPage.path}
           onClick={() => setIsSubpagesOpened((val) => !val)}
-          className="text-lg   cursor-pointerflex flex items-center  tracking-[-2%]"
+          className="text-lg   cursor-pointerflex flex items-center active:text-primaryDefault tracking-[-2%]"
         >
           {subPage.name}
           {subPages && (
@@ -776,7 +776,10 @@ export const MobileMenuBoldLink: React.FC<HeaderRoute> = (headerRoute) => {
         </h4>
       )}
       {path && !columns && (
-        <Link className="text-xl font-semibold cursor-pointer  flex items-center tracking-[-2%]" href={path}>
+        <Link
+          className="text-xl font-semibold cursor-pointer active:text-primaryDefault  flex items-center tracking-[-2%]"
+          href={path}
+        >
           {' '}
           {headerRoute.name}{' '}
         </Link>

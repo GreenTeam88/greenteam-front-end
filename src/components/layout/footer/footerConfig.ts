@@ -1,11 +1,11 @@
 export interface LinkInfo {
   name: string;
-  path: string;
+  path?: string;
 }
 
 export interface FooterColumnInfo {
   title: string;
-  path: string;
+  path?: string;
   links: LinkInfo[];
 }
 
@@ -103,14 +103,14 @@ export const footerColumnsInfo: FooterColumnInfo[] = [
     ],
   },
   {
-    path: '/gietvloeren',
+    path: '/overig/gietvloeren',
     title: 'Gietvloeren',
     links: [
-      { name: 'Epoxy', path: '/gietvloeren/epoxy' },
-      { name: 'PU', path: '/gietvloeren/pu' },
-      { name: 'Woonbeton', path: '/gietvloeren/woonbeton' },
-      { name: 'Beton', path: '/gietvloeren/beton' },
-      { name: 'Beton Ciré', path: '/gietvloeren/betoncire' },
+      { name: 'Epoxy', path: '/overig/gietvloeren' },
+      { name: 'PU', path: '/overig/gietvloeren' },
+      { name: 'Woonbeton', path: '/overig/gietvloeren' },
+      { name: 'Beton', path: '/overig/gietvloeren' },
+      { name: 'Beton Ciré', path: '/overig/gietvloeren' },
     ],
   },
   {
@@ -130,17 +130,17 @@ export const footerColumnsInfo: FooterColumnInfo[] = [
   },
   {
     title: 'Natuursteen behandelen',
-    path: '/natuursteen-behandelen',
+    path: '/overig/tegelen',
     links: [
-      { name: 'Marmer', path: '/natuursteen-behandelen/marmer' },
-      { name: 'Hardsteen', path: '/natuursteen-behandelen/hardsteen' },
-      { name: 'Travertin', path: '/natuursteen-behandelen/travertin' },
-      { name: 'Leisteen', path: '/natuursteen-behandelen/leisteen' },
-      { name: 'Graniet', path: '/natuursteen-behandelen/graniet' },
-      { name: 'Granito', path: '/natuursteen-behandelen/granito' },
-      { name: 'Terrazzo', path: '/natuursteen-behandelen/terrazzo' },
-      { name: 'Natuursteen', path: '/natuursteen-behandelen/natuursteen' },
-      { name: 'Basalt', path: '/natuursteen-behandelen/basalt' },
+      { name: 'Marmer', path: '/overig/tegelen' },
+      { name: 'Hardsteen', path: '/overig/tegelen' },
+      { name: 'Travertin', path: '/overig/tegelen' },
+      { name: 'Leisteen', path: '/overig/tegelen' },
+      { name: 'Graniet', path: '/overig/tegelen' },
+      { name: 'Granito', path: '/overig/tegelen' },
+      { name: 'Terrazzo', path: '/overig/tegelen' },
+      { name: 'Natuursteen', path: '/overig/tegelen' },
+      { name: 'Basalt', path: '/overig/tegelen' },
     ],
   },
   {
@@ -173,16 +173,15 @@ export const footerColumnsInfo: FooterColumnInfo[] = [
   },
   {
     title: 'Mogelijke locaties',
-    path: '/mogelijke-locaties',
     links: [
-      { name: 'Badkamer', path: '/vloeren-leggen' },
-      { name: 'Woonkamer', path: '/vloeren-leggen' },
-      { name: 'Horecavloer', path: '/vloeren-leggen' },
-      { name: 'Sportvloer', path: '/vloeren-leggen' },
-      { name: 'Winkelvloer', path: '/vloeren-leggen' },
-      { name: 'Bedrijfsvloer', path: '/vloeren-leggen' },
-      { name: 'Bedrijfshal', path: '/vloeren-leggen' },
-      { name: 'Muren', path: '/vloeren-leggen' },
+      { name: 'Badkamer' },
+      { name: 'Woonkamer' },
+      { name: 'Horecavloer' },
+      { name: 'Sportvloer' },
+      { name: 'Winkelvloer' },
+      { name: 'Bedrijfsvloer' },
+      { name: 'Bedrijfshal' },
+      { name: 'Muren' },
     ],
   },
 ];

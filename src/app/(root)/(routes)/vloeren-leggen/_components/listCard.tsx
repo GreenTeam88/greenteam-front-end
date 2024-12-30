@@ -13,7 +13,7 @@ type ListCardProps = {
   btnLink: string;
 };
 
-export const ListCard: React.FC<ListCardProps> = ({
+export const VloerenleggenListCar: React.FC<ListCardProps> = ({
   sectionName,
   btnLink,
   btnText,
