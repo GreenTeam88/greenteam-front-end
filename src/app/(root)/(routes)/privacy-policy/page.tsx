@@ -1,5 +1,5 @@
 import { Hero } from '@/components/hero';
-import { PhoneNumberSection } from '../_components/phoneNumberSection';
+import { PhoneNumberSection } from '@/components/phoneNumberSection';
 import { TermsConditionPageQuestion } from '../algemene-voorwaarden/_components/question';
 import { PrivacyPolicyText } from './_component/privacyPolicyText';
 
