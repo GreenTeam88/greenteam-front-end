@@ -37,22 +37,6 @@ const whyGreenTeamCardsInfo: WhyGreenTeamCardProps[] = [
   },
 ];
 
-const WhyGreenTeamCard: React.FC<WhyGreenTeamCardProps> = ({ icon, paragraphs, title }) => {
-  return (
-    <div className="flex lg:min-h-[350px] flex-col py-[33px] h-full gap-[11px] px-[22px] rounded-[10px]  border-2 border-black10 border-opacity-10 max-w-[387px] ">
-      <div className="flex gap-3 items-center">
-        {icon}
-        <HeadlineSemibold className="text-primaryDefault">{title}</HeadlineSemibold>
-      </div>
-      <div className="flex flex-col gap-8">
-        {isValidElement(paragraphs)
-          ? paragraphs
-          : (paragraphs as string[]).map((paragraph) => <BodyText key={paragraph}>{paragraph}</BodyText>)}
-      </div>
-    </div>
-  );
-};
-
 export const ParketrenovatieWhyGreenTeam = () => {
   return (
     <WhyGreenTeam

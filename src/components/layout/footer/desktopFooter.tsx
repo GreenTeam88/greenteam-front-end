@@ -25,7 +25,7 @@ export const FooterColumn: React.FC<FooterColumnInfo> = ({ title, links, path })
               {link.name}
             </Link>
           ) : (
-            <p>{link.name}</p>
+            <p key={link.name}>{link.name}</p>
           )
         )}
       </div>
@@ -46,7 +46,7 @@ export const FooterTopSection = () => {
               {link.name}
             </HeadlineSemiboldLink>
           ) : (
-            <p>{link.name}</p>
+            <p key={link.name}>{link.name}</p>
           )
         )}
         <div className="flex gap-[22px] items-center  px-6">
