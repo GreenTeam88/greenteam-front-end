@@ -83,7 +83,7 @@ const TabsSection = () => {
   return (
     <>
       {/* view for desktop */}
-      <div className="hidden lg:flex flex-col items-center px-5 py-28 gap-[55px]">
+      <div className="hidden lg:flex flex-col items-center px-5 py-11  gap-[55px]">
         <H2 className="text-primaryDefault">Waarom voor ons kiezen?</H2>
         <div className="flex gap-[88px] max-w-full flex-wrap  w-full justify-center">
           {tabsInfo.map((info) => (
@@ -114,9 +114,9 @@ const TabsSection = () => {
 
 export const WhyChooseUs = () => {
   return (
-    <div className="flex flex-col items-center px-5 py-11 lg:py-28 gap-[55px]">
+    <div className="flex flex-col items-center px-5 py-11 gap-[55px]">
       <TabsSection />
-      <div className="flex py-16 flex-col items-center gap-12 lg:gap-[34px]">
+      <div className="flex py-16 lg:py-11 flex-col items-center gap-12 lg:gap-[34px]">
         {cardsInfos.map((cardInfo, index) => (
           <div
             key={cardInfo.title}
