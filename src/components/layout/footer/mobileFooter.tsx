@@ -29,7 +29,7 @@ export const TopSection = () => {
               {link.name}
             </Link>
           ) : (
-            <BodyText>{link.name}</BodyText>
+            <BodyText key={link.name}>{link.name}</BodyText>
           )
         )}
       </div>
@@ -55,7 +55,7 @@ const FooterColumn: React.FC<FooterColumnInfo> = ({ links, title }) => {
                 {link.name}
               </Link>
             ) : (
-              <BodyText> {link.name}</BodyText>
+              <BodyText key={link.name}> {link.name}</BodyText>
             )
           )}
         </div>

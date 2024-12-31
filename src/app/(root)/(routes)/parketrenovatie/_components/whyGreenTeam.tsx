@@ -1,10 +1,8 @@
-import { isValidElement } from 'react';
-
 import { WhyGreenTeamCardProps } from '@/components/cards';
 import { GameIcon } from '@/components/icons/game';
 import { HeartIcon } from '@/components/icons/heart';
 import { StarIcon } from '@/components/icons/star';
-import { BodyText, HeadlineSemibold } from '@/components/theme/typography';
+import { BodyText } from '@/components/theme/typography';
 import { WhyGreenTeam } from '@/components/whyGreenTeam';
 
 const whyGreenTeamCardsInfo: WhyGreenTeamCardProps[] = [
