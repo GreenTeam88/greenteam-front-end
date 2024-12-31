@@ -75,3 +75,23 @@ export const FAQSection: React.FC<{ FAQs: FAQType[] }> = ({ FAQs }) => {
     </div>
   );
 };
+
+export const WhiteBgFAQSection: React.FC<{ FAQs: FAQType[] }> = ({ FAQs }) => {
+  return (
+    <div className="flex px-4  w-full items-center flex-col gap-[55px] justify-center py-8 lg:py-36">
+      <div className="flex items-center flex-col gap-3">
+        <H2 className="text-primaryDefault text-center">Veelgestelde vragen</H2>
+        <BodyText className="text-center">
+          We hebben een breed scala aan vragen en wij hebben de antwoorden op een rijtje gezet!
+        </BodyText>
+      </div>
+      {/* the AllQuestions component includes all the faq in a list */}
+      <div className="flex  flex-col gap-[11px] ">
+        {FAQs.map((FAQ) => (
+          <FAQCard key={FAQ.question} {...FAQ} />
+        ))}
+      </div>{' '}
+      <SecondaryOutlinedBtnLink href="/veelgestelde-vragen">Alles bekijken</SecondaryOutlinedBtnLink>
+    </div>
+  );
+};

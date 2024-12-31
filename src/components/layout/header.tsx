@@ -828,7 +828,9 @@ const MobileHeader = () => {
   }, [currPathname]);
   return (
     <div className="flex z-50 bg-white w-full px-3 sticky top-0   lg:hidden  py-3 justify-between">
-      <img src={appConfig.logoSrcImg} width={120} />
+      <Link href="/">
+        <img src={appConfig.logoSrcImg} width={120} />
+      </Link>
       <i className="bi bi-list text-5xl font-bold" onClick={() => setIsMenuOpened((val) => !val)}></i>
       {isMenuOpened && <MobileMenu setIsMenuOpened={setIsMenuOpened} />}
     </div>

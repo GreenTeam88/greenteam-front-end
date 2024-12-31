@@ -2,7 +2,7 @@
 
 import Link from 'next/link';
 
-import { FAQSection } from '@/components/FAQSection';
+import { FAQSection, WhiteBgFAQSection } from '@/components/FAQSection';
 import { SecondaryOutlinedBtnLink } from '@/components/theme/buttons';
 import { BodyText, H2 } from '@/components/theme/typography';
 
@@ -57,17 +57,5 @@ const FAQs: FAQType[] = [
 ];
 
 export const DienstenFAQSection = () => {
-  return (
-    <div className="flex px-4 py-[88px w-full items-center flex-col gap-[55px] justify-center py-36">
-      <div className="flex items-center flex-col gap-3">
-        <H2 className="text-primaryDefault text-center">Veelgestelde vragen</H2>
-        <BodyText className="text-center">
-          We hebben een breed scala aan vragen en wij hebben de antwoorden op een rijtje gezet!
-        </BodyText>
-      </div>
-      {/* the AllQuestions component includes all the faq in a list */}
-      <FAQSection FAQs={FAQs} />
-      <SecondaryOutlinedBtnLink href="/veelgestelde-vragen">Alles bekijken</SecondaryOutlinedBtnLink>
-    </div>
-  );
+  return <WhiteBgFAQSection FAQs={FAQs} />;
 };

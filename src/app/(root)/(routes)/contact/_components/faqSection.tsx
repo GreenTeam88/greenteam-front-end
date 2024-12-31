@@ -1,6 +1,6 @@
 import { Link } from 'lucide-react';
 
-import { FAQSection, FAQType } from '@/components/FAQSection';
+import { FAQSection, FAQType, WhiteBgFAQSection } from '@/components/FAQSection';
 
 const FAQs: FAQType[] = [
   {
@@ -47,4 +47,4 @@ const FAQs: FAQType[] = [
   },
 ];
 
-export const ContactFAQs = () => <FAQSection FAQs={FAQs} />;
+export const ContactFAQs = () => <WhiteBgFAQSection FAQs={FAQs} />;
