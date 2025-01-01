@@ -1,7 +1,8 @@
 import { PrimaryBtnLink } from '@/components/theme/buttons';
 import { BodyText, H2 } from '@/components/theme/typography';
+import { cn } from '@/lib/tailwind';
 
-type StoreImagesInfo = {
+export type StoreImagesInfo = {
   title: string;
   description: string;
   firstImg: string;
@@ -13,6 +14,11 @@ type StoreImagesInfo = {
   fifthImg: string;
   btnText: string;
   btnLink?: string;
+  firstImgClassName?: string;
+  secondImgClassName?: string;
+  thirdImgClassName?: string;
+  fourthImgClassName?: string;
+  fifthImgClassName?: string;
 };
 
 const ImagesGallery: React.FC<StoreImagesInfo> = ({
@@ -23,12 +29,23 @@ const ImagesGallery: React.FC<StoreImagesInfo> = ({
   thirdImgText,
   fourthImg,
   fifthImg,
+  firstImgClassName,
+  secondImgClassName,
+  thirdImgClassName,
+  fourthImgClassName,
+  fifthImgClassName,
 }) => {
   return (
     <div className="flex w-[90vw] lg:w-fit gap-[20px] flex-col relative  lg:px-0 lg:flex-row ">
       <div className="flex flex-col gap-[24px]  ">
-        <img className="w-full  rounded-[10px] lg:w-[285px] lg:[h-[213px] " src={firstImg} />
-        <img className="w-full  rounded-[10px] lg:w-[285px] lg:[h-[326px]" src={secondImg} />
+        <img
+          className={cn('w-full object-contain   rounded-[10px] lg:w-[285px] lg:[h-[213px] ', firstImgClassName)}
+          src={firstImg}
+        />
+        <img
+          className={cn('w-full object-contain   rounded-[10px] lg:w-[285px] lg:[h-[326px]', secondImgClassName)}
+          src={secondImg}
+        />
       </div>
       <div className="relative w-fit h-fit">
         {thirdImgTopText && (
@@ -36,7 +53,7 @@ const ImagesGallery: React.FC<StoreImagesInfo> = ({
             {thirdImgTopText}
           </p>
         )}
-        <img src={thirdImg} className=" rounded-[10px]  lg:w-[386px] lg:[h-[564px]" />
+        <img src={thirdImg} className={cn(' rounded-[10px]  lg:w-[386px] lg:[h-[564px]', thirdImgClassName)} />
         {thirdImgText && (
           <p className="font-bold leading-[20px] text-white absolute bottom-5 right-1/2 translate-x-1/2">
             {thirdImgText}
@@ -44,8 +61,8 @@ const ImagesGallery: React.FC<StoreImagesInfo> = ({
         )}
       </div>
       <div className="flex flex-col gap-[24px]">
-        <img className="w-full  rounded-[10px] lg:w-[483px] lg:h-[333px] " src={fourthImg} />
-        <img className="w-full rounded-[10px] lg:w-[483px] lg:h-[208px]" src={fifthImg} />
+        <img className={cn('w-full  rounded-[10px] lg:w-[483px] lg:h-[333px] ', fourthImgClassName)} src={fourthImg} />
+        <img className={cn('w-full rounded-[10px] lg:w-[483px] lg:h-[208px]', fifthImgClassName)} src={fifthImg} />
       </div>
     </div>
   );

@@ -1,16 +1,8 @@
-import { StoreSection } from '@/components/storeSection';
+import { StoreImagesInfo, StoreSection } from '@/components/storeSection';
 
-type StoreImagesInfo = {
-  firstImg: string;
-  secondImg: string;
-  thirdImgText?: string;
-  thirdImgTopText?: string;
-  thirdImg: string;
-  fourthImg: string;
-  fifthImg: string;
-};
-
-export const ParketrenovatieStoreSection: React.FC<StoreImagesInfo> = (imagesInfo) => {
+export const ParketrenovatieStoreSection: React.FC<Omit<StoreImagesInfo, 'title' | 'description' | 'btnText'>> = (
+  imagesInfo
+) => {
   return (
     <StoreSection
       {...imagesInfo}

@@ -78,7 +78,7 @@ export const FAQSection: React.FC<{ FAQs: FAQType[] }> = ({ FAQs }) => {
 
 export const WhiteBgFAQSection: React.FC<{ FAQs: FAQType[] }> = ({ FAQs }) => {
   return (
-    <div className="flex px-4  w-full items-center flex-col gap-[55px] justify-center py-8 lg:py-36">
+    <div className="flex px-4  w-full items-center flex-col gap-[55px] justify-center py-8  lg:py-10">
       <div className="flex items-center flex-col gap-3">
         <H2 className="text-primaryDefault text-center">Veelgestelde vragen</H2>
         <BodyText className="text-center">
