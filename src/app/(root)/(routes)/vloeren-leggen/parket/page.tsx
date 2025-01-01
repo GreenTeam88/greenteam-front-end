@@ -7,7 +7,7 @@ import { StoreSection } from '@/components/storeSection';
 import { BodyText } from '@/components/theme/typography';
 import { WhatWaitingForCard } from '@/components/whatWaitingForCard';
 import { VloerenleggenWhyGreenTeam } from '../_components/whyGreenTeam';
-import { QuestionSection } from '../../../../../components/animations/question';
+import { QuestionSection } from '../../../../../components/question';
 import { InfoCardProps } from '../../diensten/_components/cards';
 
 const thirdSectionCards: InfoCardProps[] = [

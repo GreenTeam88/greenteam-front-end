@@ -1,5 +1,7 @@
 'use client';
 
+import React from 'react';
+
 import { PrimaryBtnLink, SecondaryOutlinedBtnLink } from '@/components/theme/buttons';
 import { BodyText, H2 } from '@/components/theme/typography';
 import MultiStepForm from './calculators/common/MultiStepForm';
@@ -23,10 +25,10 @@ const QuestionsParagraph = () => {
   );
 };
 
-export const QuestionSection = () => {
+export const QuestionSection: React.FC<{ category?: string }> = ({ category }) => {
   return (
-    <div className="flex w-full flex-col lg:flex-row items-center px-2 justify-center py-5 lg:py-24 gap-[92px]">
-      <MultiStepForm category="Parketrenovatie" />
+    <div className="flex w-full flex-col lg:flex-row items-center px-2 justify-center py-5  lg:py-24 gap-[92px]">
+      <MultiStepForm category={category || 'Parketrenovatie'} />
       <QuestionsParagraph />
     </div>
   );

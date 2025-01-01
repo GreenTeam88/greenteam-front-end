@@ -7,7 +7,7 @@ import { SecondSection } from '../_components/secondSection';
 import { ParketrenovatieStoreSection } from '../_components/store';
 import { WhatWaitingForCard } from '../_components/whatWaitingForSection';
 import { ParketrenovatieWhyGreenTeam } from '../_components/whyGreenTeam';
-import { QuestionSection } from '../../../../../components/animations/question';
+import { QuestionSection } from '../../../../../components/question';
 import { InfoCardProps } from '../../diensten/_components/cards';
 
 const whatWaitingForConfig: InfoCardProps = {

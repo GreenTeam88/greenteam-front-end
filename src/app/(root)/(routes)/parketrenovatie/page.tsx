@@ -1,6 +1,6 @@
 import { Hero } from '@/components/hero';
 import { RatingSection } from '@/components/ratingSection';
-import { QuestionSection } from '../../../../components/animations/question';
+import { QuestionSection } from '../../../../components/question';
 import { Drevelen } from './_components/drevelen';
 import { FifthSection } from './_components/fifthSection';
 import { FourthSection } from './_components/fourthSection';
