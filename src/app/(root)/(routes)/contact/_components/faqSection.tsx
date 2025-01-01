@@ -1,6 +1,6 @@
 import { Link } from 'lucide-react';
 
-import { FAQSection, FAQType, WhiteBgFAQSection } from '@/components/FAQSection';
+import { FAQType, WhiteBgFAQSection } from '@/components/FAQSection';
 
 const FAQs: FAQType[] = [
   {
