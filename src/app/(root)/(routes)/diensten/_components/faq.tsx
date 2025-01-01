@@ -2,9 +2,7 @@
 
 import Link from 'next/link';
 
-import { FAQSection, WhiteBgFAQSection } from '@/components/FAQSection';
-import { SecondaryOutlinedBtnLink } from '@/components/theme/buttons';
-import { BodyText, H2 } from '@/components/theme/typography';
+import { WhiteBgFAQSection } from '@/components/FAQSection';
 
 interface FAQType {
   question: string;
