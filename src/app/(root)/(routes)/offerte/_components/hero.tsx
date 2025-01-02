@@ -1,7 +1,6 @@
 'use client';
 
 import MultiStepForm from '@/components/calculators/common/MultiStepForm';
-import { Hero } from '@/components/hero';
 import { BodyText, H2 } from '@/components/theme/typography';
 
 export const PageHeroSection = () => {
