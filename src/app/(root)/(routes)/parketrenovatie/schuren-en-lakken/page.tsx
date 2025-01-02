@@ -24,7 +24,7 @@ const thirdSectionCards: InfoCardProps[] = [
       </>,
       <>
         <BodyText className="text-secondaryDefault font-bold">
-          Ligt jouw vloer er al 10 tot 20 jaar dan is het de hoogste tijd om daar wat aan te doen!{' '}
+          Ligt uw vloer er al 10 tot 20 jaar dan is het de hoogste tijd om daar wat aan te doen!{' '}
         </BodyText>
       </>,
     ],
@@ -41,7 +41,9 @@ const thirdSectionCards: InfoCardProps[] = [
         </BodyText>{' '}
       </>,
       <>
-        <BodyText className="text-secondaryDefault font-bold">Dit gebeurt standaard na het lakken.</BodyText>{' '}
+        <BodyText className="text-secondaryDefault font-bold">
+          Ligt uw vloer er al 10 tot 20 jaar dan is het de hoogste tijd om daar wat aan te doen!
+        </BodyText>{' '}
       </>,
     ],
   },
