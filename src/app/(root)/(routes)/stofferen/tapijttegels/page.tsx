@@ -79,8 +79,8 @@ const whatWaitingForConfig: InfoCardProps = {
   title: 'Waar wacht u nog op!',
   paragraphs: [
     <BodyText key="1">
-      Droomt u al langere tijd van de perfecte vloer? . Bereken via de knop hieronder wat het kost en neem contact met
-      ons op voor een afspraak.{' '}
+      Droomt u al langere tijd van de perfecte vloer? Bereken via de knop hieronder wat het kost en neem contact met ons
+      op voor een afspraak.{' '}
     </BodyText>,
   ],
   imgSrc: '/stofferen/tapijttegels/tapijttegels-8.png',

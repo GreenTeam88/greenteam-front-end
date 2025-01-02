@@ -111,7 +111,7 @@ export default function Home() {
         title="Hoe gaat het in zijn werk?"
         description="Stapsgewijs naar een perfect resultaat"
         cards={thirdSectionCards}
-        btnText="Bereken jouw vloer"
+        btnText="Bereken uw vloer"
         btnLink="/offerte"
       />
       <OverigWhyGreenTeam />
@@ -119,7 +119,7 @@ export default function Home() {
       <StoreSection
         title="Wat hebben wij in petto? Jouw vloer weer laten stralen!"
         description="Bekijk de resultaten van onze natuursteenbehandeling en ontdek de ongeëvenaarde kwaliteit en afwerking voor jouw vloer. Wij zorgen voor een zorgvuldige behandeling die de schoonheid en duurzaamheid van jouw natuursteen versterkt. Veel tevreden klanten hebben al gekozen voor onze natuursteenbehandeling, en u kunt de volgende zijn!"
-        btnText="Bereken jouw vloer"
+        btnText="Bereken uw vloer"
         btnLink="/offerte"
         firstImg={'/overig/natuursteen-behandelen/natuursteen-behandelen-3.png'}
         secondImg="/overig/natuursteen-behandelen/natuursteen-behandelen-4.png"

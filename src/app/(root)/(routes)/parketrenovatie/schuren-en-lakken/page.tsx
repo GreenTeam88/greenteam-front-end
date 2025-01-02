@@ -109,7 +109,7 @@ export default function Home() {
       />
       <CardsSection
         description="Stapsgewijs naar een perfect resultaat"
-        btnText="Bereken jouw vloer"
+        btnText="Bereken uw vloer"
         btnLink="/offerte"
         bottomText="Mijn vloer verdient een nieuwe laklaag!"
         cards={thirdSectionCards}

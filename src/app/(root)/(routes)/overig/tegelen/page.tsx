@@ -119,7 +119,7 @@ export default function Home() {
         title="Hoe gaat het in zijn werk?"
         description="Stapsgewijs naar een perfect resultaat"
         cards={thirdSectionCards}
-        btnText="Bereken jouw vloer"
+        btnText="Bereken uw vloer"
         btnLink="/offerte"
       />
       <OverigWhyGreenTeam />
@@ -127,7 +127,7 @@ export default function Home() {
       <StoreSection
         title="Wat hebben wij in petto? Jouw vloer weer laten stralen!"
         description="Bekijk de resultaten van onze tegeldiensten en ontdek de ongeëvenaarde kwaliteit en afwerking voor jouw ruimtes. Wij zorgen voor een duurzame en stijlvolle tegelvloer die bijdraagt aan een unieke uitstraling in elke kamer. Veel tevreden klanten hebben al gekozen voor onze tegeldiensten, en u kunt de volgende zijn!"
-        btnText="Bereken jouw vloer"
+        btnText="Bereken uw vloer"
         btnLink="/offerte"
         firstImg={'/overig/tegelen/tegelen-3.png'}
         secondImg="/overig/tegelen/tegelen-4.png"

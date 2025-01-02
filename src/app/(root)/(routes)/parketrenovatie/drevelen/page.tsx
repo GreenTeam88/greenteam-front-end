@@ -105,7 +105,7 @@ export default function Home() {
       <SecondSection sectionName="Parket Renovatie" image="/Parketrenovatie/drevelen-1.png" pageName="Drevelen" />
       <CardsSection
         description="Stapsgewijs naar een perfect resultaat"
-        btnText="Bereken jouw vloer"
+        btnText="Bereken uw vloer"
         btnLink="/offerte"
         bottomText="Spijkers en schroeven zat? Wij helpen u graag!"
         title="Hoe gaat drevelen in zijn werk?"

@@ -112,7 +112,7 @@ export default function Home() {
         title="Hoe gaat het in zijn werk?"
         description="Stapsgewijs naar een perfect resultaat"
         cards={thirdSectionCards}
-        btnText="Bereken jouw vloer"
+        btnText="Bereken uw vloer"
         btnLink="/offerte"
       />
       <OverigWhyGreenTeam />
@@ -120,7 +120,7 @@ export default function Home() {
       <StoreSection
         title="Wat hebben wij in petto? Jouw vloer weer laten stralen!"
         description="Bekijk de resultaten van onze gietvloeren en ontdek de ongeëvenaarde kwaliteit en afwerking voor jouw huis. Wij zorgen voor een duurzame en stijlvolle vloer die bijdraagt aan een unieke uitstraling in elke ruimte. Veel tevreden klanten hebben al gekozen voor onze gietvloeren, en u kunt de volgende zijn!"
-        btnText="Bereken jouw vloer"
+        btnText="Bereken uw vloer"
         btnLink="/offerte"
         firstImg={'/overig/gietvloeren/gietvloeren-3.png'}
         secondImg="/overig/gietvloeren/gietvloeren-4.png"

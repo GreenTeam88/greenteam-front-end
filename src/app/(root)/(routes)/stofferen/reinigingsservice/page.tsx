@@ -107,14 +107,14 @@ export default function Home() {
         title=" Hoe wij uw tapijt weer laten stralen"
         description="Stapsgewijs naar een perfect resultaat"
         cards={thirdSectionCards}
-        btnText="Bereken jouw vloer"
+        btnText="Bereken uw vloer"
         btnLink="/offerte"
       />
       <WhyGreenTeamBasicPages />
       <StoreSection
         title="Wat hebben wij voor u in petto?"
         description="Bekijk de resultaten van onze reinigingsservice voor tapijten en banken en ontdek hoe we verouderde en vervuilde meubels weer tot leven brengen. Veel tevreden klanten zijn enthousiast over de kwaliteit en effectiviteit van onze diensten, en uw tapijten en/of banken kunnen de volgende zijn!"
-        btnText="Bereken jouw vloer"
+        btnText="Bereken uw vloer"
         btnLink="/offerte"
         firstImg={'/stofferen/reinigingsservice/reinigingsservice-3.png'}
         secondImg="/stofferen/reinigingsservice/reinigingsservice-4.png"

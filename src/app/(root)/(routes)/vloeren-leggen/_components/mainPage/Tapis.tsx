@@ -3,7 +3,7 @@ import { InfoCardProps, WhiteInfoCard } from '../../../diensten/_components/card
 
 const infoCardConfig: InfoCardProps = {
   buttonText: 'Meer informatie',
-  buttonLink: '/traprenovatie',
+  buttonLink: '/vloeren-leggen/tapis',
 
   imgSrc: '/vloeren-leggen/vloeren-leggen-13.png',
   paragraphs: [

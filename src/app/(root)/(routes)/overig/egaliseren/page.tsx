@@ -147,7 +147,7 @@ export default function Home() {
       <StoreSection
         title="Wat hebben wij in petto? Jouw vloer weer laten stralen!"
         description="Bekijk de resultaten van onze egalisatiediensten en ontdek de ongeëvenaarde kwaliteit en afwerking voor jouw vloer. Wij zorgen voor een perfecte ondergrond, wat bijdraagt aan een duurzaam en aantrekkelijk resultaat. Veel tevreden klanten hebben al gekozen voor onze egalisatie, en u kunt de volgende zijn!"
-        btnText="Bereken jouw vloer"
+        btnText="Bereken uw vloer"
         btnLink="/offerte"
         firstImg={'/overig/egaliseren/egaliseren-4.png'}
         secondImg="/overig/egaliseren/egaliseren-5.png"

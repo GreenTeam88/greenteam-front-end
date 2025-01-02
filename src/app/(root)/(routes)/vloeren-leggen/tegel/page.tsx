@@ -117,14 +117,14 @@ export default function Home() {
         title="Hoe gaat het in zijn werk?"
         description="Stapsgewijs naar een perfect resultaat"
         cards={thirdSectionCards}
-        btnText="Bereken jouw vloer"
+        btnText="Bereken uw vloer"
       />
       <VloerenleggenWhyGreenTeam />
       <StoreSection
         btnLink="/offerte"
         title="Wat hebben wij in petto? Uw vloer weer laten stralen!"
         description="Bekijk de resultaten van onze vloerenlegservice en ontdek hoe we verouderde of beschadigde vloeren omtoveren tot prachtige, moderne ruimtes. Vele tevreden klanten gingen u voor, dus uw vloer kan de volgende zijn!"
-        btnText="Bereken jouw vloer"
+        btnText="Bereken uw vloer"
         firstImg={'/vloeren-leggen/tegel/tegel-3.jpg'}
         secondImg="/vloeren-leggen/tegel/tegel-4.png"
         thirdImg="/vloeren-leggen/tegel/tegel-5.png"

@@ -109,12 +109,14 @@ export default function Home() {
         description="Stapsgewijs naar een perfect resultaat"
         cards={thirdSectionCards}
         btnText="Bereken uw trap"
+        btnLink="/offerte"
       />
       <TraprenovatieWhyGreenTeam />
       <StoreSection
         title="Wat hebben wij in petto? Uw trap weer laten stralen!"
         description="Bekijk de resultaten van onze traprenovaties en ontdek hoe we versleten of verouderde trappen transformeren tot stijlvolle en moderne eyecatchers. Vele tevreden klanten gingen u voor, dus uw trap kan de volgende zijn!"
         btnText="Bereken uw trap"
+        btnLink="/offerte"
         firstImg={'/traprenovatie/bekleden-met-linoleum/bekleden-met-linoleum-3.png'}
         secondImg="/traprenovatie/bekleden-met-linoleum/bekleden-met-linoleum-4.png"
         thirdImg="/traprenovatie/bekleden-met-linoleum/bekleden-met-linoleum-5.png"

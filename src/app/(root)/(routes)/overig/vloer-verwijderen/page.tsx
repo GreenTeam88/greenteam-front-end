@@ -126,7 +126,7 @@ export default function Home() {
         title="Hoe gaat het in zijn werk?"
         description="Stapsgewijs naar een perfect resultaat"
         cards={thirdSectionCards}
-        btnText="Bereken jouw vloer"
+        btnText="Bereken uw vloer"
         btnLink="/offerte"
       />
       <OverigWhyGreenTeam />
@@ -134,7 +134,7 @@ export default function Home() {
       <StoreSection
         title="Wat hebben wij in petto? Jouw vloer weer laten stralen!"
         description="Bekijk de resultaten van onze vloerverwijdering en ontdek de ongeëvenaarde kwaliteit en efficiëntie van onze service. Wij zorgen voor een snelle en zorgvuldige verwijdering van jouw oude vloer, zodat je snel kunt genieten van een nieuwe uitstraling in elke ruimte. Veel tevreden klanten hebben al gekozen voor onze vloerverwijdering, en jij kunt de volgende zijn!"
-        btnText="Bereken jouw vloer"
+        btnText="Bereken uw vloer"
         btnLink="/offerte"
         firstImg={'/overig/vloer-verwijderen/vloer-verwijderen-3.png'}
         secondImg="/overig/vloer-verwijderen/vloer-verwijderen-4.png"

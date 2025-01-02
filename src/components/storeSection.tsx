@@ -39,11 +39,17 @@ const ImagesGallery: React.FC<StoreImagesInfo> = ({
     <div className="flex w-[90vw] lg:w-fit gap-[20px] flex-col relative  lg:px-0 lg:flex-row ">
       <div className="flex flex-col gap-[24px]  ">
         <img
-          className={cn('w-full object-contain   rounded-[10px] lg:w-[285px] lg:[h-[213px] ', firstImgClassName)}
+          className={cn(
+            'w-full object-contain   rounded-[10px] xl:min-w-[285px] xl:min-[h-[213px] ',
+            firstImgClassName
+          )}
           src={firstImg}
         />
         <img
-          className={cn('w-full object-contain   rounded-[10px] lg:w-[285px] lg:[h-[326px]', secondImgClassName)}
+          className={cn(
+            'w-full object-contain   rounded-[10px] xl:min-w-[285px] xl:min-[h-[326px]',
+            secondImgClassName
+          )}
           src={secondImg}
         />
       </div>
@@ -53,7 +59,7 @@ const ImagesGallery: React.FC<StoreImagesInfo> = ({
             {thirdImgTopText}
           </p>
         )}
-        <img src={thirdImg} className={cn(' rounded-[10px]  lg:w-[386px] lg:[h-[564px]', thirdImgClassName)} />
+        <img src={thirdImg} className={cn(' rounded-[10px]  xl:min-w-[386px] xl:min-[h-[564px]', thirdImgClassName)} />
         {thirdImgText && (
           <p className="font-bold leading-[20px] text-white absolute bottom-5 right-1/2 translate-x-1/2">
             {thirdImgText}
@@ -61,8 +67,14 @@ const ImagesGallery: React.FC<StoreImagesInfo> = ({
         )}
       </div>
       <div className="flex flex-col gap-[24px]">
-        <img className={cn('w-full  rounded-[10px] lg:w-[483px] lg:h-[333px] ', fourthImgClassName)} src={fourthImg} />
-        <img className={cn('w-full rounded-[10px] lg:w-[483px] lg:h-[208px]', fifthImgClassName)} src={fifthImg} />
+        <img
+          className={cn('w-full  rounded-[10px] xl:min-w-[483px] xl:min-h-[333px] ', fourthImgClassName)}
+          src={fourthImg}
+        />
+        <img
+          className={cn('w-full rounded-[10px] xl:min-w-[483px] xl:min-h-[208px]', fifthImgClassName)}
+          src={fifthImg}
+        />
       </div>
     </div>
   );

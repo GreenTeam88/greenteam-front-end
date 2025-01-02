@@ -3,7 +3,7 @@ import { InfoCardProps, OrangeInfoCard } from '../../../diensten/_components/car
 
 const infoCardConfig: InfoCardProps = {
   buttonText: 'Meer informatie',
-  buttonLink: '/traprenovatie',
+  buttonLink: '/vloeren-leggen/laminaat',
 
   imgSrc: '/vloeren-leggen/vloeren-leggen-2.png',
   paragraphs: [

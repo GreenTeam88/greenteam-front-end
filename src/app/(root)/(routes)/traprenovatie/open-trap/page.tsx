@@ -167,12 +167,14 @@ export default function Home() {
         description="Stapsgewijs naar een perfect resultaat"
         cards={thirdSectionCards}
         btnText="Bereken uw trap"
+        btnLink="/offerte"
       />
       <TraprenovatieWhyGreenTeam />
       <StoreSection
         title=" Wat hebben wij voor u in petto?"
         description="Zoals al eerder vermeld hebben wij al 20 jaar aan ervaring en hebben wij parketteurs die super veel kennis en ervaring met zich meebrengen om zo uw vloer weer zo goed als nieuw te maken!"
         btnText="Bereken uw trap"
+        btnLink="/offerte"
         firstImg={'/traprenovatie/open-trap/open-trap-4.png'}
         secondImg="/traprenovatie/open-trap/open-trap-5.png"
         thirdImg="/traprenovatie/open-trap/open-trap-6.png"

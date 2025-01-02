@@ -121,7 +121,7 @@ export default function Home() {
         title="Hoe gaat het in zijn werk?"
         description="Stapsgewijs naar een perfect resultaat"
         cards={thirdSectionCards}
-        btnText="Bereken jouw vloer"
+        btnText="Bereken uw vloer"
         btnLink="/offerte"
       />
       <OverigWhyGreenTeam />
@@ -129,7 +129,7 @@ export default function Home() {
       <StoreSection
         title="Warmte, comfort en luxe met vloerverwarming"
         description="Bekijk de resultaten van onze vloerverwarming en ontdek de ongeëvenaarde warmte, comfort en luxe voor jouw huis. Onze systemen zorgen voor een gelijkmatige temperatuurverdeling en zijn energiezuinig, wat bijdraagt aan een aangename sfeer. Veel tevreden klanten hebben al gekozen voor onze vloerverwarming, en u kunt de volgende zijn!"
-        btnText="Bereken jouw vloer"
+        btnText="Bereken uw vloer"
         btnLink="/offerte"
         firstImg={'/overig/vloerverwarming/vloerverwarming-3.png'}
         secondImg="/overig/vloerverwarming/vloerverwarming-4.png"

@@ -221,12 +221,14 @@ export default function Home() {
         description="Stapsgewijs naar een perfect resultaat"
         cards={thirdSectionCards}
         btnText="Bereken uw trap"
+        btnLink="/offerte"
       />
       <TraprenovatieWhyGreenTeam />
       <StoreSection
         title="Wat hebben wij voor u in petto?"
         description="Zoals al eerder vermeld hebben wij al 20 jaar aan ervaring en hebben wij parketteurs die super veel kennis en ervaring met zich meebrengen om zo uw trap weer de gewenste uitstraling te geven!"
         btnText="Bereken uw trap"
+        btnLink="/offerte"
         firstImg={'/traprenovatie/bekleden-pvc/bekleden-pvc-7.png'}
         secondImg="/traprenovatie/bekleden-pvc/bekleden-pvc-8.png"
         thirdImg="/traprenovatie/bekleden-pvc/bekleden-pvc-9.png"

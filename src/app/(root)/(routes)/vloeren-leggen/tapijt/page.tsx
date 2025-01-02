@@ -110,7 +110,7 @@ export default function Home() {
         title="Hoe gaan we te werk?"
         description="Stapsgewijs naar een perfect resultaat"
         bottomText="Help, mijn oude vloer is aan vervanging toe!"
-        btnText="Bereken jouw vloer"
+        btnText="Bereken uw vloer"
         btnLink="/offerte"
         cards={thirdSectionCards}
       />
@@ -118,7 +118,7 @@ export default function Home() {
       <StoreSection
         title="Wat hebben wij in petto? Uw vloer weer laten stralen!"
         description="Bekijk de resultaten van onze vloerenlegservice en ontdek hoe we verouderde of beschadigde vloeren omtoveren tot prachtige, moderne ruimtes. Vele tevreden klanten gingen u voor, dus uw vloer kan de volgende zijn!"
-        btnText="Bereken jouw vloer"
+        btnText="Bereken uw vloer"
         btnLink="/offerte"
         firstImg={'/vloeren-leggen/tapijt-leggen/tapijt-leggen-3.png'}
         secondImg="/vloeren-leggen/tapijt-leggen/tapijt-leggen-4.png"

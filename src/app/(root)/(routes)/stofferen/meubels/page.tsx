@@ -120,7 +120,7 @@ export default function Home() {
         title="Hoe wij uw meubels vernieuwen"
         description="Stapsgewijs naar een perfect resultaat"
         cards={thirdSectionCards}
-        btnText="Bereken jouw vloer"
+        btnText="Bereken uw vloer"
         btnLink="/offerte"
       />
       <WhyGreenTeamBasicPages />

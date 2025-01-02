@@ -134,12 +134,14 @@ export default function Home() {
         description="Stapsgewijs naar een perfect resultaat"
         cards={thirdSectionCards}
         btnText="Bereken uw trap"
+        btnLink="/offerte"
       />
       <TraprenovatieWhyGreenTeam />
       <StoreSection
         title="Wat hebben wij voor u in petto?"
         description="Bekijk de resultaten van onze traprenovaties en ontdek hoe we versleten of verouderde trappen transformeren tot stijlvolle en moderne eyecatchers. Vele tevreden klanten gingen u voor, dus uw trap kan de volgende zijn!"
         btnText="Bereken uw trap"
+        btnLink="/offerte"
         firstImg={'/traprenovatie/bekleden-met-tapijt/bekleden-met-tapijt-4.png'}
         secondImg="/traprenovatie/bekleden-met-tapijt/bekleden-met-tapijt-5.png"
         thirdImg="/traprenovatie/bekleden-met-tapijt/bekleden-met-tapijt-6.png"

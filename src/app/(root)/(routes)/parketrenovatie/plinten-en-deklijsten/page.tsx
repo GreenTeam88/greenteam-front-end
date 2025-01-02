@@ -108,7 +108,7 @@ export default function Home() {
       />
       <CardsSection
         description="Stapsgewijs naar een perfect resultaat"
-        btnText="Bereken jouw vloer"
+        btnText="Bereken uw vloer"
         btnLink="/offerte"
         title="Hoe gaat plinten en deklijsten in zijn werk?"
         cards={thirdSectionCards}

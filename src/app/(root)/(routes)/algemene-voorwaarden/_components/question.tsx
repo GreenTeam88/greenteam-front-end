@@ -11,18 +11,24 @@ export const TermsConditionPageQuestion = () => {
   return (
     <div className="flex flex-col items-center gap-[22px] py-[55px] bg-lightOrange w-full">
       <HeadlineSemibold className="text-primaryDefault">Hebben we je probleem kunnen oplossen?</HeadlineSemibold>
-      <div className="flex gap-[22px]">
-        <PrimaryBtn onClick={() => setInfoUsefull(true)}>Ja, het was nuttig voor mij</PrimaryBtn>
-        <SecondaryOutlinedBtn onClick={() => setInfoUsefull(false)}>
+      <div className="flex px-2 lg:px-0 flex-col lg:flex-row gap-3 lg:gap-[22px]">
+        <PrimaryBtn className="w-full lg:w-fit" onClick={() => setInfoUsefull(true)}>
+          Ja, het was nuttig voor mij
+        </PrimaryBtn>
+        <SecondaryOutlinedBtn className="w-full lg:w-fit" onClick={() => setInfoUsefull(false)}>
           Nee, het was niet nuttig voor mij
         </SecondaryOutlinedBtn>
       </div>
       {infoUsefull !== null &&
         (infoUsefull ? (
-          <BodyText>We zijn blij dat we je hebben kunnen helpen!</BodyText>
+          <BodyText className="text-center">We zijn blij dat we je hebben kunnen helpen!</BodyText>
         ) : (
-          <BodyText>
-            Neem alstublieft <Link href="/contact">contact</Link> met ons op om het probleem te bespreken.
+          <BodyText className="text-center">
+            Neem alstublieft{' '}
+            <Link className="hover:text-primaryDefault active:text-primaryDefault" href="/contact">
+              contact
+            </Link>{' '}
+            met ons op om het probleem te bespreken.
           </BodyText>
         ))}
     </div>
