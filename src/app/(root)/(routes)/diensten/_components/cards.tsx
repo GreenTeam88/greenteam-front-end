@@ -35,7 +35,7 @@ export const OrangeInfoCard: React.FC<InfoCardProps> = ({
   return (
     <div
       className={cn(
-        'flex   w-full p-7 lg:p-0 lg:py-[99px] flex-col-reverse lg:flex-row bg-secondaryLight items-center justify-center gap-4 lg:gap-[57px]',
+        'flex   w-full p-7 lg:p-0 lg:py-[80px] flex-col-reverse lg:flex-row bg-secondaryLight items-center justify-center gap-4 lg:gap-[57px]',
         { 'items-start ': typeof imgSrc !== 'string' },
         className
       )}
@@ -95,8 +95,13 @@ export const WhiteInfoCard: React.FC<InfoCardProps> = ({
 }) => {
   return (
     <div
+      // className={cn(
+      //   'flex w-full  lg:py-[80px] p-3 lg:p-0 flex-col lg:flex-row  items-center justify-center gap-4 lg:gap-[57px]',
+      //   className
+      // )}
       className={cn(
-        'flex w-full py-[99px] p-3 lg:p-0 flex-col lg:flex-row  items-center justify-center gap-4 lg:gap-[57px]',
+        'flex   w-full p-7 lg:p-0 lg:py-[80px] flex-col lg:flex-row  items-center justify-center gap-4 lg:gap-[57px]',
+        { 'items-start ': typeof imgSrc !== 'string' },
         className
       )}
     >
