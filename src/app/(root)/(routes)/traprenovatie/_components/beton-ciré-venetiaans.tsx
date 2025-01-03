@@ -3,7 +3,7 @@ import { BodyText, BodyTextBold } from '@/components/theme/typography';
 
 const infoCardConfig: InfoCardProps = {
   buttonText: 'Meer informatie',
-  buttonLink: '/traprenovatie/beton-ciré-venetiaans',
+  buttonLink: '/traprenovatie/beton-cire/venetiaans',
   imgSrc: '/traprenovatie/traprenovatie-13.png',
   paragraphs: [
     <BodyText key="1">

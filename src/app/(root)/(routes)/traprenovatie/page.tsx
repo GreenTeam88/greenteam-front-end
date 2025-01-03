@@ -24,7 +24,7 @@ import { Verlichting } from './_components/verlichting';
 function Page() {
   return (
     <div className="flex flex-col  relative z-0 items-center w-full">
-      <Hero />
+      <Hero imgSrc="/traprenovatie/hero.png" />
       <Traprenovaties />
       <BekledenLaminaat />
       <BekledenHout />
