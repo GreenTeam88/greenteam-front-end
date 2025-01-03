@@ -60,18 +60,22 @@ export const OrangeInfoCard: React.FC<InfoCardProps> = ({
             ))}
           </div>
         </div>
-        <div className="flex gap-3">
+        <div className="flex flex-col lg:flex-row gap-3">
           {buttonText &&
             (buttonLink ? (
-              <PrimaryBtnLink href={buttonLink}>{buttonText}</PrimaryBtnLink>
+              <PrimaryBtnLink className="w-full lg:w-fit" href={buttonLink}>
+                {buttonText}
+              </PrimaryBtnLink>
             ) : (
-              <PrimaryBtn>{buttonText}</PrimaryBtn>
+              <PrimaryBtn className="w-full lg:w-fit">{buttonText}</PrimaryBtn>
             ))}
           {secondBtnText &&
             (secondBtnLink ? (
-              <PrimaryBtnLink href={secondBtnLink}>{secondBtnText}</PrimaryBtnLink>
+              <PrimaryBtnLink className="w-full lg:w-fit" href={secondBtnLink}>
+                {secondBtnText}
+              </PrimaryBtnLink>
             ) : (
-              <PrimaryBtn>{secondBtnText}</PrimaryBtn>
+              <PrimaryBtn className="w-full lg:w-fit">{secondBtnText}</PrimaryBtn>
             ))}
         </div>
       </div>
@@ -105,18 +109,22 @@ export const WhiteInfoCard: React.FC<InfoCardProps> = ({
             ))}
           </div>
         </div>
-        <div className="flex gap-3">
+        <div className="flex flex-col lg:flex-row gap-3">
           {buttonText &&
             (buttonLink ? (
-              <PrimaryBtnLink href={buttonLink}>{buttonText}</PrimaryBtnLink>
+              <PrimaryBtnLink className="w-full lg:w-fit" href={buttonLink}>
+                {buttonText}
+              </PrimaryBtnLink>
             ) : (
-              <PrimaryBtn>{buttonText}</PrimaryBtn>
+              <PrimaryBtn className="w-full lg:w-fit">{buttonText}</PrimaryBtn>
             ))}
           {secondBtnText &&
             (secondBtnLink ? (
-              <PrimaryBtnLink href={secondBtnLink}>{secondBtnText}</PrimaryBtnLink>
+              <PrimaryBtnLink className="w-full lg:w-fit" href={secondBtnLink}>
+                {secondBtnText}
+              </PrimaryBtnLink>
             ) : (
-              <PrimaryBtn>{secondBtnText}</PrimaryBtn>
+              <PrimaryBtn className="w-full lg:w-fit">{secondBtnText}</PrimaryBtn>
             ))}
         </div>
       </div>
