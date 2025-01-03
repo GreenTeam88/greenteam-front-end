@@ -66,3 +66,7 @@
 .listContainer {
   @apply flex flex-col gap-3;
 }
+
+.preventZoom {
+  transform: scale(calc(1 / var(--zoom-level)));
+}
