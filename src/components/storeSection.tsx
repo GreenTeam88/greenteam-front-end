@@ -1,7 +1,7 @@
 import { PrimaryBtnLink } from '@/components/theme/buttons';
 import { BodyText, H2 } from '@/components/theme/typography';
 
-type StoreImagesInfo = {
+export type StoreImagesInfo = {
   title: string;
   description: string;
   firstImg: string;
