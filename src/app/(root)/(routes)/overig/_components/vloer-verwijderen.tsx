@@ -23,5 +23,5 @@ const infoCardConfig: InfoCardProps = {
 };
 
 export const VloerVerwijderen = () => {
-  return <WhiteInfoCard className="lg:flex-row-reverse h-[542px]" {...infoCardConfig} />;
+  return <WhiteInfoCard className="lg:flex-row-reverse lg:h-[542px]" {...infoCardConfig} />;
 };

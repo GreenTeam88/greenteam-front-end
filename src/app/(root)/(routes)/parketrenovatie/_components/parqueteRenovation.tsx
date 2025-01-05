@@ -27,8 +27,8 @@ const infoCardConfig: InfoCardProps = {
 
 export const ParqueteRenovation = () => {
   return (
-    <div className="flex flex-col gap-20  py-28 bg-white  relative z-0 items-center w-full">
-      <div className="flex flex-col gap-[11px] items-center">
+    <div className="flex flex-col gap-5 bg-white px-2 lg:px-0 lg:gap-20 py-5 lg:py-28   relative z-0 lg:items-center w-full">
+      <div className="flex flex-col gap-[11px]  lg:items-center">
         <H2 className="text-primaryDefault">Parketrenovatie</H2>
         <BodyText className="text-black">Breng uw parketvloer weer tot leven met professionele renovatie</BodyText>
       </div>

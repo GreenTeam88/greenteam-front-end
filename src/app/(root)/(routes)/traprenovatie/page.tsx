@@ -18,7 +18,7 @@ import { DichteTrap } from './_components/dichte-trap';
 import { OpenTrap } from './_components/open-trap';
 import { SchurenBehandelen } from './_components/schuren-behandelen';
 import { SchurenSchilderen } from './_components/schuren-schilderen';
-import { Traprenovaties } from './_components/traprino';
+import { Traprenovaties } from './_components/traprenovaties';
 import { Verlichting } from './_components/verlichting';
 
 function Page() {
