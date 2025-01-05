@@ -19,8 +19,8 @@ interface StepFiveProps {
 }
 
 const schema = z.object({
-  desiredExecutionTimeframe: z.string().nonempty({ message: 'Please select at least one timeframe' }),
-  subsequentActions: z.string().nonempty({ message: 'Please select at least one action' }),
+  desiredTimeframe: z.string().nonempty({ message: 'Please select at least one timeframe' }),
+  nextStep: z.string().nonempty({ message: 'Please select at least one action' }),
 });
 
 const StepFive: React.FC<StepFiveProps> = ({
@@ -52,8 +52,8 @@ const StepFive: React.FC<StepFiveProps> = ({
     mode: 'onChange',
   });
 
-  const watchDesiredExecutionTimeframe = form.watch('desiredExecutionTimeframe');
-  const watchSubsequentActions = form.watch('subsequentActions');
+  const watchDesiredExecutionTimeframe = form.watch('desiredTimeframe');
+  const watchSubsequentActions = form.watch('nextStep');
 
   // Ensure `totalCost` is a number or default to `0`
   const totalCost = typeof formData.totalCost === 'number' ? formData.totalCost : 0;
@@ -74,16 +74,13 @@ const StepFive: React.FC<StepFiveProps> = ({
 
   return (
     <FormProvider {...form}>
-      <form
-        onSubmit={handleSubmit}
-        className="w-full lg:w-[386px] h-[400px] flex rounded-[4px] relative lg:px-0 z-10 flex-col shadow-lg"
-      >
+      <form onSubmit={handleSubmit} className="w-[386px]  flex rounded-[4px] relative lg:px-0 z-10 flex-col ">
         <div className="bg-primaryDefault rounded-t-[8px] flex items-center justify-center text-white py-[22px] w-full">
           <div className="text-center">
             <HeadlineSemibold className="w-full">Snel uw prijs berekenen!</HeadlineSemibold>
           </div>
         </div>
-        <div className="bg-white w-full rounded-b-[8px] flex flex-col px-[22px] gap-y-3 py-[22px]">
+        <div className="bg-white w-full rounded-b-[8px] flex flex-col px-[22px] gap-y-3 py-[22px] shadow-lg">
           <div className="flex flex-row items-center justify-between">
             <div
               className="flex items-center gap-[5px] cursor-pointer hover:text-green-700 transition-all"
@@ -101,20 +98,20 @@ const StepFive: React.FC<StepFiveProps> = ({
           <div className="flex flex-col gap-[11px]">
             <SingleSelectDropdown
               data={categoryOptions}
-              name="desiredExecutionTimeframe"
+              name="desiredTimeframe"
               label="Gewenste termijn voor uitvoeren?"
               placeholder="Kies er een"
-              onChange={(value) => updateFormData({ desiredExecutionTimeframe: value })}
+              onChange={(value) => updateFormData({ desiredTimeframe: value })}
             />
           </div>
 
           <div className="flex flex-col gap-[11px]">
             <SingleSelectDropdown
               data={offersOptions}
-              name="subsequentActions"
+              name="nextStep"
               label="De vervolgstap"
               placeholder="Kies er een"
-              onChange={(value) => updateFormData({ subsequentActions: value })}
+              onChange={(value) => updateFormData({ nextStep: value })}
             />
           </div>
           <div className="flex items-center gap-[5px] mb-1">

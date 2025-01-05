@@ -15,7 +15,7 @@ interface StepProps {
   onNext: () => void;
   formData: {
     selectedFloors?: string[];
-    stofferenSqaremeterStep2?: string;
+    stoffSquareMeters?: string;
     stepCosts: Record<string, number>;
     totalCost?: number;
     isOnRequest?: boolean;
@@ -26,7 +26,7 @@ interface StepProps {
 
 const schema = z.object({
   selectedFloors: z.array(z.string()).min(1, 'Please select at least one floor'),
-  stofferenSqaremeterStep2: z
+  stoffSquareMeters: z
     .string()
     .nonempty({ message: 'Please enter the area in m²' })
     .regex(/^\d+$/, 'Enter a valid number'),
@@ -46,7 +46,7 @@ const StepTwo: React.FC<StepProps> = ({ onPrevious, onNext, formData, updateForm
     resolver: zodResolver(schema),
     defaultValues: {
       selectedFloors: formData.selectedFloors || [],
-      stofferenSqaremeterStep2: formData.stofferenSqaremeterStep2 || '',
+      stoffSquareMeters: formData.stoffSquareMeters || '',
     },
     mode: 'onChange',
   });
@@ -55,13 +55,13 @@ const StepTwo: React.FC<StepProps> = ({ onPrevious, onNext, formData, updateForm
 
   // Watch inputs
   const selectedFloors = useWatch({ control, name: 'selectedFloors', defaultValue: [] });
-  const stofferenSqaremeterStep2 = useWatch({ control, name: 'stofferenSqaremeterStep2', defaultValue: '' });
+  const stoffSquareMeters = useWatch({ control, name: 'stoffSquareMeters', defaultValue: '' });
 
   // Calculate the cost for this step
   const calculateStepCost = () => {
     if (formData.isOnRequest) return 0;
 
-    const area = parseInt(stofferenSqaremeterStep2 || '0', 10);
+    const area = parseInt(stoffSquareMeters || '0', 10);
     if (isNaN(area)) return 0;
 
     const floorLevelCost = selectedFloors.reduce((totalCost: number, floor: string) => {
@@ -82,14 +82,14 @@ const StepTwo: React.FC<StepProps> = ({ onPrevious, onNext, formData, updateForm
     updateFormData({
       ...formData,
       selectedFloors,
-      stofferenSqaremeterStep2,
+      stoffSquareMeters,
       stepCosts: {
         ...formData.stepCosts,
         step2: stepCost,
       },
       totalCost: Object.values(formData.stepCosts || {}).reduce((acc, cost) => acc + cost, 0),
     });
-  }, [selectedFloors, stofferenSqaremeterStep2]);
+  }, [selectedFloors, stoffSquareMeters]);
 
   const handleSubmit = (event: React.FormEvent) => {
     event.preventDefault();
@@ -113,18 +113,17 @@ const StepTwo: React.FC<StepProps> = ({ onPrevious, onNext, formData, updateForm
     })();
   };
 
-  const isButtonDisabled =
-    !selectedFloors.length || !(stofferenSqaremeterStep2 && /^[0-9]+$/.test(stofferenSqaremeterStep2));
+  const isButtonDisabled = !selectedFloors.length || !(stoffSquareMeters && /^[0-9]+$/.test(stoffSquareMeters));
 
   return (
     <FormProvider {...form}>
-      <form onSubmit={handleSubmit} className="w-[386px] h-[400px] flex rounded-[4px] relative lg:px-0 z-10 flex-col">
+      <form onSubmit={handleSubmit} className="w-[386px]  flex rounded-[4px] relative lg:px-0 z-10 flex-col">
         <div className="bg-primaryDefault rounded-t-[8px] flex items-center justify-center text-white py-[22px] w-full">
           <div className="text-center">
             <HeadlineSemibold className="w-full">Snel uw prijs berekenen!</HeadlineSemibold>
           </div>
         </div>
-        <div className="bg-white w-full rounded-b-[8px] flex flex-col px-[22px] gap-y-3 py-[22px]">
+        <div className="bg-white w-full rounded-b-[8px] flex flex-col px-[22px] gap-y-3 py-[22px] shadow-lg">
           <div className="flex flex-row items-center justify-between">
             <div
               className="flex items-center gap-[5px] cursor-pointer hover:text-green-700 transition-all"
@@ -150,7 +149,7 @@ const StepTwo: React.FC<StepProps> = ({ onPrevious, onNext, formData, updateForm
           <div className="flex flex-col gap-[11px]">
             <InputGetter
               form={form}
-              name="stofferenSqaremeterStep2"
+              name="stoffSquareMeters"
               label="Aantal m2"
               placeholder="Voer het aantal m2 in"
               type="text"

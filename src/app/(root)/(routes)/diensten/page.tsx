@@ -3,6 +3,7 @@ import React from 'react';
 import { Hero } from '@/components/hero';
 import { PhoneNumberSection } from '@/components/phoneNumberSection';
 import { QuestionSection } from '@/components/question';
+// import { Hero } from '../_components/hero';
 import { DienstenFAQSection } from './_components/faq';
 import { OverigeDiensten } from './_components/Overige diensten';
 import { ParaqueteRenovation } from './_components/parqueteRenovation';

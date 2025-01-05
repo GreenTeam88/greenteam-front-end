@@ -1,8 +1,8 @@
 export const HeartFlowerIcon = () => {
   return (
     <svg width="141" height="141" viewBox="0 0 141 141" fill="none" xmlns="http://www.w3.org/2000/svg">
-      <circle cx="70.5" cy="70.6296" r="68.8797" stroke="#1C1C1C" stroke-opacity="0.1" stroke-width="2.32469" />
-      <g clip-path="url(#clip0_1169_1431)">
+      <circle cx="70.5" cy="70.6296" r="68.8797" stroke="#1C1C1C" stroke-opacity="0.1" strokeWidth="2.32469" />
+      <g clipPath="url(#clip0_1169_1431)">
         <path
           d="M89.8742 82.0558C89.7231 82.0558 89.575 82.0137 89.4464 81.9343C89.3179 81.8549 89.214 81.7412 89.1464 81.606C89.0789 81.4709 89.0503 81.3196 89.0638 81.1691C89.0774 81.0186 89.1326 80.8749 89.2233 80.754C89.7001 80.1112 90.1695 79.4473 90.6178 78.7826C90.7401 78.6076 90.9262 78.4877 91.1361 78.4487C91.3459 78.4097 91.5627 78.4547 91.7396 78.5741C91.9166 78.6934 92.0396 78.8775 92.0821 79.0866C92.1246 79.2958 92.0832 79.5133 91.9668 79.6922C91.5055 80.3773 91.0214 81.0607 90.5291 81.7263C90.4534 81.8286 90.3546 81.9118 90.2409 81.969C90.1271 82.0262 90.0015 82.056 89.8742 82.0558Z"
           fill="#217946"
@@ -18,30 +18,30 @@ export const HeartFlowerIcon = () => {
         <path
           d="M71.1102 72.9883C67.6408 67.2049 72.2667 61.4225 82.0978 62.0007C82.6815 71.8318 76.8937 76.4577 71.1102 72.9883Z"
           stroke="#217946"
-          stroke-width="1.461"
-          stroke-linecap="round"
-          stroke-linejoin="round"
+          strokeWidth="1.461"
+          strokeLinecap="round"
+          strokeLinejoin="round"
         />
         <path
           d="M65.6682 74.1849C68.1464 70.0547 64.8422 65.9244 57.8196 66.3364C57.4066 73.3589 61.5379 76.6631 65.6682 74.1849Z"
           stroke="#217946"
-          stroke-width="1.461"
-          stroke-linecap="round"
-          stroke-linejoin="round"
+          strokeWidth="1.461"
+          strokeLinecap="round"
+          strokeLinejoin="round"
         />
         <path
           d="M62.1396 70.6558L69.0959 77.612"
           stroke="#217946"
-          stroke-width="1.461"
-          stroke-linecap="round"
-          stroke-linejoin="round"
+          strokeWidth="1.461"
+          strokeLinecap="round"
+          strokeLinejoin="round"
         />
         <path
           d="M77.791 66.3081L71.1337 72.9654C70.4876 73.6114 69.975 74.3783 69.6254 75.2224C69.2757 76.0664 69.0957 76.9711 69.0957 77.8848V81.0901"
           stroke="#217946"
-          stroke-width="1.461"
-          stroke-linecap="round"
-          stroke-linejoin="round"
+          strokeWidth="1.461"
+          strokeLinecap="round"
+          strokeLinejoin="round"
         />
       </g>
       <defs>

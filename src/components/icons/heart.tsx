@@ -1,7 +1,7 @@
 export const HeartIcon = () => {
   return (
     <svg width="37" height="37" viewBox="0 0 37 37" fill="none" xmlns="http://www.w3.org/2000/svg">
-      <g clip-path="url(#clip0_1436_6592)">
+      <g clipPath="url(#clip0_1436_6592)">
         <path
           d="M31.0629 24.5295C30.966 24.5295 30.871 24.5025 30.7885 24.4516C30.7061 24.4006 30.6395 24.3277 30.5961 24.241C30.5528 24.1543 30.5344 24.0573 30.5431 23.9608C30.5518 23.8642 30.5872 23.772 30.6454 23.6945C30.9512 23.2822 31.2523 22.8563 31.5399 22.43C31.6183 22.3178 31.7377 22.2408 31.8723 22.2158C32.0069 22.1908 32.1459 22.2197 32.2594 22.2962C32.373 22.3728 32.4518 22.4908 32.4791 22.625C32.5064 22.7592 32.4798 22.8987 32.4052 23.0134C32.1093 23.4529 31.7988 23.8912 31.483 24.3181C31.4344 24.3838 31.3711 24.4371 31.2981 24.4738C31.2251 24.5105 31.1446 24.5296 31.0629 24.5295Z"
           fill="#217946"
@@ -17,21 +17,21 @@ export const HeartIcon = () => {
         <path
           d="M19.0276 18.7121C16.8023 15.0024 19.7694 11.2935 26.0754 11.6644C26.4498 17.9703 22.7373 20.9375 19.0276 18.7121Z"
           stroke="#217946"
-          stroke-linecap="round"
-          stroke-linejoin="round"
+          strokeLinecap="round"
+          strokeLinejoin="round"
         />
         <path
           d="M15.537 19.4803C17.1266 16.831 15.0072 14.1818 10.5027 14.446C10.2378 18.9504 12.8877 21.0698 15.537 19.4803Z"
           stroke="#217946"
-          stroke-linecap="round"
-          stroke-linejoin="round"
+          strokeLinecap="round"
+          strokeLinejoin="round"
         />
-        <path d="M13.2734 17.2168L17.7353 21.6787" stroke="#217946" stroke-linecap="round" stroke-linejoin="round" />
+        <path d="M13.2734 17.2168L17.7353 21.6787" stroke="#217946" strokeLinecap="round" strokeLinejoin="round" />
         <path
           d="M23.3118 14.4277L19.0416 18.6979C18.6271 19.1123 18.2984 19.6042 18.0741 20.1456C17.8498 20.687 17.7344 21.2673 17.7344 21.8533V23.9093"
           stroke="#217946"
-          stroke-linecap="round"
-          stroke-linejoin="round"
+          strokeLinecap="round"
+          strokeLinejoin="round"
         />
       </g>
       <defs>

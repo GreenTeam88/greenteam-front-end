@@ -15,7 +15,7 @@ interface StepFourProps {
   onNext: () => void;
   formData: {
     newBaseboardsNeeded?: string;
-    stepFourMeters?: string; // Unique field for square meters in StepFour
+    BaseboardsMeters?: string; // Unique field for square meters in StepFour
     stepCosts: Record<string, number>;
     totalCost?: number;
   };
@@ -24,7 +24,7 @@ interface StepFourProps {
 
 const schema = z.object({
   newBaseboardsNeeded: z.string().nonempty({ message: 'Please select at least one option' }),
-  stepFourMeters: z
+  BaseboardsMeters: z
     .string()
     .regex(/^\d*$/, 'Enter a valid number') // Allow only digits or empty
     .optional(),
@@ -34,8 +34,8 @@ const StepFour: React.FC<StepFourProps> = ({ onPrevious, onNext, formData, updat
   const form = useForm({
     resolver: zodResolver(schema),
     defaultValues: {
-      newBaseboardsNeeded: formData.newBaseboardsNeeded || '',
-      stepFourMeters: formData.stepFourMeters || '', // Use the new unique field
+      newBaseboardsNeeded: '',
+      BaseboardsMeters: '',
     },
     mode: 'onChange',
   });
@@ -44,7 +44,7 @@ const StepFour: React.FC<StepFourProps> = ({ onPrevious, onNext, formData, updat
 
   // Watch fields
   const watchNewBaseboards = useWatch({ control, name: 'newBaseboardsNeeded' });
-  const stepFourMeters = useWatch({ control, name: 'stepFourMeters' }); // Unique name for this step
+  const BaseboardsMeters = useWatch({ control, name: 'BaseboardsMeters' }); // Unique name for this step
 
   const baseboardOptions: Option[] = [
     { value: 'Ja, lage', label: 'Ja, lage', imageUrl: '/images/lage-plinten.svg' },
@@ -56,7 +56,7 @@ const StepFour: React.FC<StepFourProps> = ({ onPrevious, onNext, formData, updat
   const calculateStepCost = () => {
     if (watchNewBaseboards === 'Nee') return 0;
 
-    const meters = parseInt(stepFourMeters || '0', 10);
+    const meters = parseInt(BaseboardsMeters || '0', 10);
     if (watchNewBaseboards === 'Ja, lage') {
       return meters * 6; // Flat Plinth (€6/m)
     } else if (watchNewBaseboards === 'Ja, hoge') {
@@ -74,7 +74,7 @@ const StepFour: React.FC<StepFourProps> = ({ onPrevious, onNext, formData, updat
       updateFormData({
         ...formData,
         newBaseboardsNeeded: watchNewBaseboards,
-        stepFourMeters,
+        BaseboardsMeters,
         stepCosts: {
           ...formData.stepCosts,
           step4: currentStepCost, // StepFour-specific cost
@@ -85,7 +85,7 @@ const StepFour: React.FC<StepFourProps> = ({ onPrevious, onNext, formData, updat
         }).reduce((acc, cost) => acc + cost, 0), // Total across all steps
       });
     }
-  }, [watchNewBaseboards, stepFourMeters]);
+  }, [watchNewBaseboards, BaseboardsMeters]);
 
   const handleSubmit = (event: React.FormEvent) => {
     event.preventDefault();
@@ -95,17 +95,17 @@ const StepFour: React.FC<StepFourProps> = ({ onPrevious, onNext, formData, updat
   };
 
   const isButtonDisabled =
-    !watchNewBaseboards || (watchNewBaseboards !== 'Nee' && !(stepFourMeters && /^[0-9]+$/.test(stepFourMeters)));
+    !watchNewBaseboards || (watchNewBaseboards !== 'Nee' && !(BaseboardsMeters && /^[0-9]+$/.test(BaseboardsMeters)));
 
   return (
     <FormProvider {...form}>
-      <form onSubmit={handleSubmit} className="w-[386px] h-[400px] flex rounded-[4px] relative lg:px-0 z-10 flex-col">
+      <form onSubmit={handleSubmit} className="w-[386px]  flex rounded-[4px] relative lg:px-0 z-10 flex-col">
         <div className="bg-primaryDefault rounded-t-[8px] flex items-center justify-center text-white py-[22px] w-full">
           <div className="text-center">
             <HeadlineSemibold className="w-full">Snel uw prijs berekenen!</HeadlineSemibold>
           </div>
         </div>
-        <div className="bg-white w-full rounded-b-[8px] flex flex-col px-[22px] gap-y-3 py-[22px] shadow-lg">
+        <div className="bg-white w-full rounded-b-[8px] flex flex-col px-[22px] gap-y-3 py-[22px] shadow-md">
           <div className="flex flex-row items-center justify-between">
             <ChevronLeft className="cursor-pointer" onClick={onPrevious} />
             <span className="text-gray-400 font-sans text-sm">Niet verplicht, wel handig om te weten</span>
@@ -126,7 +126,7 @@ const StepFour: React.FC<StepFourProps> = ({ onPrevious, onNext, formData, updat
           {watchNewBaseboards && watchNewBaseboards !== 'Nee' && (
             <InputGetter
               form={form}
-              name="stepFourMeters" // Use unique name
+              name="BaseboardsMeters" // Use unique name
               label="Aantal meter?"
               placeholder="Voer het aantal meters in"
               type="text"
