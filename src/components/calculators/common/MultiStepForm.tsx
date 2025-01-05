@@ -545,7 +545,7 @@ const MultiStepForm: React.FC<MultiStepFormProps> = ({ category }) => {
     });
 
     try {
-      const response = await fetch('https://api.greenteam.nl/api/v1/emails/calculator', {
+      const response = await fetch(`${process.env.NEXT_PUBLIC_API_URL}`, {
         method: 'POST',
         body: customFormData,
       });
