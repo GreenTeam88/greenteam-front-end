@@ -10,10 +10,10 @@ export const ArrowIcon = () => {
       />
       <path
         d="M15.6162 12.3779L20.7377 17.4995L15.6162 22.621"
-        stroke-width="1.5"
-        stroke-linecap="round"
+        strokeWidth="1.5"
+        strokeLinecap="round"
         className="stroke-secondaryDefault group-hover:stroke-white"
-        stroke-linejoin="round"
+        strokeLinejoin="round"
       />
     </svg>
   );
@@ -58,20 +58,20 @@ export const TikTokIcon: React.FC<{ width?: number; height?: number }> = ({ heig
 export const ForwardArrow = () => {
   return (
     <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
-      <g clip-path="url(#clip0_1135_19956)">
+      <g clipPath="url(#clip0_1135_19956)">
         <path
           d="M2.41711 8.03625H13.0521"
           className="stroke-primaryDefault group-hover:stroke-secondaryDefault"
-          stroke-width="1.4"
-          stroke-linecap="round"
-          stroke-linejoin="round"
+          strokeWidth="1.4"
+          strokeLinecap="round"
+          strokeLinejoin="round"
         />
         <path
           d="M8.70142 3.68555L13.0521 8.03624L8.70142 12.3869"
           className="stroke-primaryDefault group-hover:stroke-secondaryDefault"
-          stroke-width="1.4"
-          stroke-linecap="round"
-          stroke-linejoin="round"
+          strokeWidth="1.4"
+          strokeLinecap="round"
+          strokeLinejoin="round"
         />
       </g>
       <defs>

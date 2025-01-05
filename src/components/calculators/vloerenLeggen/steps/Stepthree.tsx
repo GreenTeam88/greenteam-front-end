@@ -18,7 +18,7 @@ interface StepProps {
   formData: {
     selectedService?: string;
     subService?: string;
-    VlorenStep3squareMeters?: string; // Unique name for square meters input in Step 3
+    SquareMeteer?: string; // Unique name for square meters input in Step 3
     stepCosts: Record<string, number>;
     totalCost?: number;
   };
@@ -27,7 +27,7 @@ interface StepProps {
 
 const schema = z.object({
   subService: z.string().nonempty({ message: 'Please select a sub-service' }),
-  VlorenStep3squareMeters: z.string().regex(/^\d+$/, { message: 'Enter a valid number' }).optional(),
+  SquareMeteer: z.string().regex(/^\d+$/, { message: 'Enter a valid number' }).optional(),
 });
 
 const StepThree: React.FC<StepProps> = ({ onPrevious, onNext, onUploadClick, formData, updateFormData }) => {
@@ -37,7 +37,7 @@ const StepThree: React.FC<StepProps> = ({ onPrevious, onNext, onUploadClick, for
     resolver: zodResolver(schema),
     defaultValues: {
       subService: formData.subService || '',
-      VlorenStep3squareMeters: formData.VlorenStep3squareMeters || '',
+      SquareMeteer: formData.SquareMeteer || '',
     },
     mode: 'onChange',
   });
@@ -46,7 +46,7 @@ const StepThree: React.FC<StepProps> = ({ onPrevious, onNext, onUploadClick, for
 
   // Watch inputs
   const selectedSubService = useWatch({ control, name: 'subService' });
-  const VlorenStep3squareMeters = useWatch({ control, name: 'VlorenStep3squareMeters' });
+  const SquareMeteer = useWatch({ control, name: 'SquareMeteer' });
 
   // Generate sub-service options dynamically
   const subServiceOptions: Option[] = React.useMemo(() => {
@@ -62,7 +62,7 @@ const StepThree: React.FC<StepProps> = ({ onPrevious, onNext, onUploadClick, for
     if (!selectedSubService) return 0; // No cost until sub-service is selected
 
     const subServicePrice = vloerenLeggenSubServices[selectedService]?.[selectedSubService] || 0;
-    const area = parseInt(VlorenStep3squareMeters || '0', 10);
+    const area = parseInt(SquareMeteer || '0', 10);
     return area * subServicePrice;
   };
 
@@ -73,7 +73,7 @@ const StepThree: React.FC<StepProps> = ({ onPrevious, onNext, onUploadClick, for
     updateFormData({
       ...formData,
       subService: selectedSubService,
-      VlorenStep3squareMeters,
+      SquareMeteer,
       stepCosts: {
         ...formData.stepCosts,
         step3: currentStepCost, // Update cost for Step 3
@@ -83,7 +83,7 @@ const StepThree: React.FC<StepProps> = ({ onPrevious, onNext, onUploadClick, for
         step3: currentStepCost, // Ensure Step 3 cost is included
       }).reduce((acc, cost) => acc + cost, 0),
     });
-  }, [selectedSubService, VlorenStep3squareMeters]);
+  }, [selectedSubService, SquareMeteer]);
 
   const handleSubmit = (event: React.FormEvent) => {
     event.preventDefault();
@@ -107,21 +107,17 @@ const StepThree: React.FC<StepProps> = ({ onPrevious, onNext, onUploadClick, for
     })();
   };
 
-  const isButtonDisabled =
-    !selectedSubService || !(VlorenStep3squareMeters && /^[0-9]+$/.test(VlorenStep3squareMeters));
+  const isButtonDisabled = !selectedSubService || !(SquareMeteer && /^[0-9]+$/.test(SquareMeteer));
 
   return (
     <FormProvider {...form}>
-      <form
-        onSubmit={handleSubmit}
-        className="w-[386px] h-[400px] flex rounded-[4px] relative lg:px-0 z-10 flex-col shadow-lg"
-      >
+      <form onSubmit={handleSubmit} className="w-[386px]  flex rounded-[4px] relative lg:px-0 z-10 flex-col shadow-lg">
         <div className="bg-primaryDefault rounded-t-[8px] flex items-center justify-center text-white py-[22px] w-full">
           <div className="text-center">
             <HeadlineSemibold className="w-full">Snel uw prijs berekenen!</HeadlineSemibold>
           </div>
         </div>
-        <div className="bg-white w-full rounded-b-[8px] flex flex-col px-[22px] gap-y-3 py-[22px] h-full">
+        <div className="bg-white w-full rounded-b-[8px] flex flex-col px-[22px] gap-y-3 py-[22px] shadow-md">
           <div className="flex flex-row items-center justify-between">
             <div
               className="flex items-center gap-[5px] cursor-pointer hover:text-green-700 transition-all"
@@ -142,8 +138,8 @@ const StepThree: React.FC<StepProps> = ({ onPrevious, onNext, onUploadClick, for
             <SingleSelectDropdown
               data={subServiceOptions}
               name="subService"
-              label="Welke sub-service wilt u?"
-              placeholder="Kies een sub-service"
+              label="Wat voor soort vloer?"
+              placeholder="Maak een keuze"
             />
           </div>
 
@@ -167,7 +163,7 @@ const StepThree: React.FC<StepProps> = ({ onPrevious, onNext, onUploadClick, for
           <div className="flex flex-col gap-[11px]">
             <InputGetter
               form={form}
-              name="VlorenStep3squareMeters"
+              name="SquareMeteer"
               label="Aantal m2"
               placeholder="Voer het aantal m2 in"
               type="text"

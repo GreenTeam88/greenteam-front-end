@@ -1,6 +1,7 @@
 import { Hero } from '@/components/hero';
 import { PhoneNumberSection } from '@/components/phoneNumberSection';
 import { RatingSection } from '@/components/ratingSection';
+// import { Hero } from '../(routes)/_components/hero';
 import { ContactSection } from './_components/contactSection';
 import { FAQSection } from './_components/FAQSection';
 import { FloorAndStairs } from './_components/floorAndStairsSection';

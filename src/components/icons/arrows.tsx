@@ -3,13 +3,13 @@ import { cn } from '@/lib/tailwind';
 export const DropDownIcon: React.FC<{ className?: string }> = ({ className }) => {
   return (
     <svg width="15" height="14" viewBox="0 0 15 14" fill="none" xmlns="http://www.w3.org/2000/svg">
-      <g clip-path="url(#clip0_1498_6381)">
+      <g clipPath="url(#clip0_1498_6381)">
         <path
           d="M11.8187 5.25L7.44373 9.625L3.06873 5.25"
           className={cn('stroke-black', className)}
-          stroke-width="1.7"
-          stroke-linecap="round"
-          stroke-linejoin="round"
+          strokeWidth="1.7"
+          strokeLinecap="round"
+          strokeLinejoin="round"
         />
       </g>
       <defs>
@@ -40,9 +40,9 @@ export const CarouselIcon = () => {
       <path
         d="M15.616 12.3999L20.7375 17.5214L15.616 22.643"
         className="stroke-secondaryDefault group-hover:stroke-[#fff]"
-        stroke-width="1.5"
-        stroke-linecap="round"
-        stroke-linejoin="round"
+        strokeWidth="1.5"
+        strokeLinecap="round"
+        strokeLinejoin="round"
       />
     </svg>
   );

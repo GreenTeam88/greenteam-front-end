@@ -17,23 +17,20 @@ const CommentStep: React.FC<StepOneProps> = ({ onPrevious, onComment }) => {
 
   const handleSubmit = (event: React.FormEvent) => {
     event.preventDefault();
-    // Trigger comment submission logic
-    const formData = form.getValues();
+    const formData = form?.getValues();
     onComment(formData);
+    onPrevious();
   };
 
   return (
     <FormProvider {...form}>
-      <form
-        onSubmit={handleSubmit}
-        className="w-full lg:w-[386px] h-[400px] flex rounded-[4px] relative lg:px-0 z-10 flex-col shadow-lg"
-      >
+      <form onSubmit={handleSubmit} className="w-[386px]  flex rounded-[4px] relative lg:px-0 z-10 flex-col shadow-lg">
         <div className="bg-primaryDefault rounded-t-[8px] flex items-center justify-center text-white py-[22px] w-full">
           <div className="text-center">
             <HeadlineSemibold className="w-full">Snel uw prijs berekenen!</HeadlineSemibold>
           </div>
         </div>
-        <div className="bg-white w-full flex-1 rounded-b-[8px] flex flex-col px-[22px] py-[22px] gap-[20px]">
+        <div className="bg-white w-full flex-1 rounded-b-[8px] flex flex-col px-[22px] py-[22px] gap-y-3 shadow-md">
           <div
             className="flex flex-row items-center gap-[5px] cursor-pointer hover:text-green-700 transition-all "
             onClick={onPrevious}

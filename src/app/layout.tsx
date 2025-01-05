@@ -37,7 +37,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
       <body className={cn(inter.className, 'flex lg:pt-[220px] px-0 flex-col  items-center')}>
         {/* header is fixed so we need to have a padding top  */}
         <Header />
-        <div className="w-full z-30">{children}</div>
+        {children}
         <Footer />
         {/* google manager code      */}
         <noscript>
