@@ -21,7 +21,7 @@ const ratings: RatingInfo[] = [
     stars: 5,
     description:
       'Top ervaring gehad met Green Team, kende ze niet, maar kwamen met een scherpe offerte. Samen met de persoon die het kwam leggen een mooi passend tapijt uitgezocht voor onze 2 trappen en overloop. Het ligt er super strak in/op en ziet er geweldig uit!',
-    images: ['/reviews/tim-Barendregt/img1.png', '/reviews/tim-Barendregt/img2.png'],
+    images: ['/reviews/tim-barendregt/img1.png', '/reviews/tim-barendregt/img2.png'],
     date: '11/09/2024',
     name: 'Tim Barendregt',
   },
@@ -29,7 +29,7 @@ const ratings: RatingInfo[] = [
     stars: 5,
     description:
       'Ik ben ontzettend blij met het werk dat Greenteam heeft geleverd aan mijn trap. Ze hebben mijn trap opnieuw gestoffeerd en het ziet er werkelijk prachtig uit. Het team was zeer professioneel, vriendelijk en efficiënt!',
-    images: ['/reviews/Veronica-Miraza/img1.png', '/reviews/Veronica-Miraza/img2.png'],
+    images: ['/reviews/veronica-miraza/img1.png', '/reviews/veronica-miraza/img2.png'],
     date: '23/09/2024',
     name: 'Veronica Miraza ',
   },
@@ -54,7 +54,7 @@ const ratings: RatingInfo[] = [
     stars: 5,
     description:
       'Onlangs de hulp ingeschakeld van het Greenteam..en ik ben dik tevreden! Mijn laminaat kon wel een opknapbeurt gebruiken, en het resultaat mag er wezen. Medewerkers zijn prettig in de omgang, het is betaalbaar en ik kom zeker is terug!',
-    images: ['/reviews/steffen-de-Back/img1.png'],
+    images: ['/reviews/steffen-de-back/img1.png'],
 
     date: '02/05/2023',
     name: 'Steffen de Back',
