@@ -22,5 +22,5 @@ const infoCardConfig: InfoCardProps = {
 };
 
 export const Vloer = () => {
-  return <OrangeInfoCard className="lg:flex-row-reverse h-[542px] " {...infoCardConfig} />;
+  return <OrangeInfoCard className="lg:flex-row-reverse  flex-col-reverse   lg:min-h-[542px] " {...infoCardConfig} />;
 };
