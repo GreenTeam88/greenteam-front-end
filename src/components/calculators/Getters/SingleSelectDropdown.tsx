@@ -15,20 +15,8 @@ interface SingleSelectDropdownProps {
   placeholderTextClassName?: string;
   menuItemsClassName?: string;
   menuClassName?: string;
-  onChange?: (value: string) => void; // Optional callback for parent updates
-}
-
-interface SingleSelectDropdownProps {
-  data: Option[];
-  name: string;
-  label: string;
-  placeholder?: string;
-  buttonClassName?: string;
-  placeholderTextClassName?: string;
-  menuItemsClassName?: string;
-  menuClassName?: string;
   onChange?: (value: string) => void;
-  disabled?: boolean; // Add this prop
+  disabled?: boolean; // if true => entire dropdown is disabled
 }
 
 export default function SingleSelectDropdown({
@@ -83,7 +71,7 @@ export default function SingleSelectDropdown({
                     onChange(value);
                   }
                 }}
-                disabled={disabled} // Pass it here
+                disabled={disabled}
               />
             </div>
           </FormControl>

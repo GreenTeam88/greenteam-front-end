@@ -1,5 +1,6 @@
 import { Hero } from '@/components/hero';
 import { PhoneNumberSection } from '@/components/phoneNumberSection';
+// import { Hero } from '../_components/hero';
 import { TermsConditionPageQuestion } from './_components/question';
 import { TermsConditions } from './_components/termsConditions';
 

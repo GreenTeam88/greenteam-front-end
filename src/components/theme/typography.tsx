@@ -54,16 +54,16 @@ export const BodyTextBold: React.FC<HTMLAttributes<HTMLHeadingElement>> = ({ cla
     </p>
   );
 };
-
+// yahya : i changed p to div to avoid the errors
 export const BodyText: React.FC<HTMLAttributes<HTMLHeadingElement> & { key?: string }> = ({
   className,
   children,
   ...props
 }) => {
   return (
-    <p className={cn(className, 'bodyText')} {...props}>
+    <div className={cn(className, 'bodyText')} {...props}>
       {children}
-    </p>
+    </div>
   );
 };
 

@@ -17,13 +17,14 @@ interface StepFourProps {
     stepCosts: { [key: string]: number };
     totalCost: number;
     [key: string]: any;
+    numberOfMetersBaseboard?: string;
   }; // Centralized form data passed down
   updateFormData: (data: any) => void; // Function to update the centralized state
 }
 
 const schema = z.object({
   newBaseboardsNeeded: z.string().nonempty({ message: 'Please select at least one option' }),
-  numberOfMeters: z
+  numberOfMetersBaseboard: z
     .string()
     .regex(/^\d*$/, 'Enter a valid number') // Allow only digits or empty
     .optional(),
@@ -49,13 +50,13 @@ const StepFour: React.FC<StepFourProps> = ({ onPrevious, onNext, formData, updat
     defaultValues: {
       ...formData,
       newBaseboardsNeeded: formData.newBaseboardsNeeded || '',
-      numberOfMeters: formData.numberOfMeters || '',
+      numberOfMetersBaseboard: formData.numberOfMetersBaseboard || '',
     },
     mode: 'onChange',
   });
 
   const watchNewBaseboards = form.watch('newBaseboardsNeeded');
-  const watchMeters = form.watch('numberOfMeters');
+  const watchMeters = form.watch('numberOfMetersBaseboard');
 
   // Calculate the cost for this step
   const calculateStepCost = () => {
@@ -111,7 +112,7 @@ const StepFour: React.FC<StepFourProps> = ({ onPrevious, onNext, formData, updat
 
   return (
     <FormProvider {...form}>
-      <form onSubmit={handleSubmit} className="w-[386px] h-[400px] flex rounded-[4px] relative lg:px-0 z-10 flex-col">
+      <form onSubmit={handleSubmit} className="w-[386px]  flex rounded-[4px] relative lg:px-0 z-10 flex-col">
         <div className="bg-primaryDefault rounded-t-[8px] flex items-center justify-center text-white py-[22px] w-full">
           <div className="text-center">
             <HeadlineSemibold className="w-full">Snel uw prijs berekenen!</HeadlineSemibold>
@@ -148,7 +149,7 @@ const StepFour: React.FC<StepFourProps> = ({ onPrevious, onNext, formData, updat
             <div className="flex flex-col gap-[11px]">
               <InputGetter
                 form={form}
-                name="numberOfMeters"
+                name="numberOfMetersBaseboard"
                 label="Aantal meter (excl. plinten)"
                 placeholder="Voer het aantal meters in"
                 type="text"

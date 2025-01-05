@@ -13,7 +13,7 @@ interface CustomSingleSelectProps {
   menuClassName?: string;
   menuItemsClassName?: string;
   placeholderTextClassName?: string;
-  disabled?: boolean; // Add disabled prop
+  disabled?: boolean; // If true => entire dropdown is disabled
 }
 
 export default function CustomSingleSelect({
@@ -25,11 +25,11 @@ export default function CustomSingleSelect({
   menuClassName,
   menuItemsClassName,
   placeholderTextClassName,
-  disabled = false, // Default to false
+  disabled = false,
 }: CustomSingleSelectProps) {
   return (
     <SingleSelectFormField
-      variant={'inverted'}
+      variant="inverted"
       btnClassName={cn(buttonClassName)}
       menuClassName={cn(menuClassName)}
       menuListItemsClassName={cn(menuItemsClassName)}
@@ -38,7 +38,7 @@ export default function CustomSingleSelect({
       options={options}
       placeholder={placeholder}
       defaultValue={selectedValue}
-      disabled={disabled} // Pass disabled down
+      disabled={disabled} // pass entire dropdown disable to single-select
     />
   );
 }

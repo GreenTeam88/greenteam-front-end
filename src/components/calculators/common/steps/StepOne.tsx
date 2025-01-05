@@ -1,35 +1,64 @@
 import { zodResolver } from '@hookform/resolvers/zod';
 import React, { useEffect, useMemo } from 'react';
-import { FormProvider, useForm } from 'react-hook-form';
+import { FormProvider, useForm, useWatch } from 'react-hook-form';
 import { z } from 'zod';
 
 import SingleSelectDropdown from '@/components/calculators/Getters/SingleSelectDropdown';
 import CreateButton from '@/components/custom/CreateButton';
 import { HeadlineSemibold } from '@/components/theme/typography';
-import { servicesConfig } from '@/lib/servicesConfig';
+import categoryConfig from '@/lib/categoryConfig';
+import { servicesConfig, trapRenovatieConfig } from '@/lib/servicesConfig';
 import { Option } from '@/types';
 
 interface StepOneProps {
-  onNext: (nextStep?: number) => void;
+  onNext: () => void; // Called when user does normal flow
+  onSkip: () => void; // Called if skip scenario (e.g. "Ben ik nog niet over uit")
   formData: any;
   updateFormData: (data: any) => void;
-  onCategoryChange: (category: string) => void;
-  onSkip: () => void;
 }
 
+// Zod schema for StepOne
 const schema = z.object({
-  selectedCategory: z.string().nonempty({ message: 'Please select a category' }),
-  selectedService: z.string().nonempty({ message: 'Select at least one service' }),
+  selectedCategory: z.string().nonempty('Please select a category'),
+  selectedService: z.string().nonempty('Select at least one service'),
 });
 
-const StepOne: React.FC<StepOneProps> = ({ onNext, formData, updateFormData, onCategoryChange, onSkip }) => {
+const skipServices = ['Ben ik nog niet over uit', 'Ik wil graag advies'];
+
+function buildSteps(category: string, service: string): string[] {
+  // If skip => StepOne -> StepFive -> ContactInfoStep -> FinalStep
+  if (skipServices.includes(service)) {
+    return ['StepOne', 'StepFive', 'ContactInfoStep', 'FinalStep'];
+  }
+
+  // If Traprenovatie
+  if (category === 'Traprenovatie') {
+    const cfg = trapRenovatieConfig[service];
+    if (cfg?.applicableSteps?.length) {
+      return ['StepOne', ...cfg.applicableSteps, 'StepFive', 'ContactInfoStep', 'FinalStep'];
+    } else {
+      // fallback
+      return categoryConfig['Traprenovatie'].steps;
+    }
+  }
+
+  // Other categories
+  // If you want skip to apply in any category, you already handled it above.
+  // So here we just do normal steps
+  return categoryConfig[category]?.steps || [];
+}
+
+const StepOne: React.FC<StepOneProps> = ({ onNext, onSkip, formData, updateFormData }) => {
+  // Get all categories from your servicesConfig
   const categories = Object.keys(servicesConfig);
 
-  const categoryOptions: Option[] = categories.map((category) => ({
-    value: category,
-    label: category,
+  // Build <option> array for category dropdown
+  const categoryOptions: Option[] = categories.map((cat) => ({
+    value: cat,
+    label: cat,
   }));
 
+  // Set up react-hook-form
   const form = useForm({
     resolver: zodResolver(schema),
     defaultValues: {
@@ -37,109 +66,107 @@ const StepOne: React.FC<StepOneProps> = ({ onNext, formData, updateFormData, onC
       selectedService: formData.selectedService || '',
     },
   });
+  const { handleSubmit, setValue, control } = form;
 
-  const selectedCategory = form.watch('selectedCategory');
-  const selectedService = form.watch('selectedService');
-  // const [totalCost, setTotalCost] = useState<number>(formData.totalCost || 0);
+  // Real-time watchers
+  const selectedCategory = useWatch({ control, name: 'selectedCategory' }) || '';
+  const selectedService = useWatch({ control, name: 'selectedService' }) || '';
 
-  // Dynamic services based on selected category
+  // Build service dropdown
   const serviceOptions: Option[] = useMemo(() => {
     if (!selectedCategory) return [];
     const services = servicesConfig[selectedCategory] || {};
 
-    return Object.entries(services).map(([service, price]) => {
+    return Object.entries(services).map(([svcName, price]) => {
       let label;
-
       if (selectedCategory === 'Vloeren leggen' || selectedCategory === 'Traprenovatie') {
-        label = service; // Only display service name without price
+        label = svcName;
       } else if (price === 0.0) {
-        label = `${service} - Gratis`;
+        label = `${svcName} - Gratis`;
       } else if (price === null) {
-        label = `${service} - Op aanvraag`;
+        label = `${svcName} - Op aanvraag`;
       } else {
-        label = `${service} - €${price.toFixed(2)}`;
+        label = `${svcName} - €${price.toFixed(2)}`;
       }
-
-      return {
-        value: service,
-        label,
-      };
+      return { value: svcName, label };
     });
   }, [selectedCategory]);
 
-  // Automatically select the first service when a category is selected
+  // Disable service if no category
+  const isServiceDisabled = !selectedCategory;
+
+  // Auto-select first service if category changes
   useEffect(() => {
     if (selectedCategory) {
       const services = servicesConfig[selectedCategory] || {};
-      const firstService = Object.keys(services)[0]; // Get the first service in the category
-      if (firstService) {
-        form.setValue('selectedService', firstService); // Auto-select the first service
-      } else {
-        form.setValue('selectedService', ''); // Reset if no services exist
-      }
+      const firstSvc = Object.keys(services)[0] || '';
+      setValue('selectedService', firstSvc);
     } else {
-      form.setValue('selectedService', ''); // Reset if no category is selected
+      setValue('selectedService', '');
     }
-  }, [selectedCategory]);
+  }, [selectedCategory, setValue]);
 
-  // Dynamic watch for "isOnRequest" services
-  // const isOnRequest = useMemo(() => {
-  //   return selectedCategory !== 'Vloeren leggen' && servicesConfig[selectedCategory]?.[selectedService] === null;
-  // }, [selectedCategory, selectedService]);
+  // isOnRequest logic
   const isOnRequest = useMemo(() => {
-    return (
-      selectedCategory !== 'Vloeren leggen' &&
-      selectedCategory !== 'Traprenovatie' &&
-      servicesConfig[selectedCategory]?.[selectedService] === null
-    );
+    if (!selectedCategory || !selectedService) return false;
+    const price = servicesConfig[selectedCategory]?.[selectedService];
+    return selectedCategory !== 'Vloeren leggen' && selectedCategory !== 'Traprenovatie' && price === null;
   }, [selectedCategory, selectedService]);
 
-  // Update total cost whenever selectedCategory or selectedService changes
-  // useEffect(() => {
-  //   const price = servicesConfig[selectedCategory]?.[selectedService] || 0;
-  //   if (!isOnRequest) {
-  //     // setTotalCost(price);
-  //   }
-  // }, [selectedCategory, selectedService, isOnRequest]);
-
-  // Notify MultiStepForm when the category changes
+  // Re-build steps in real-time
   useEffect(() => {
-    if (selectedCategory) {
-      onCategoryChange(selectedCategory); // Notify parent
+    if (!selectedCategory) {
+      // No category => default to StepOne only
+      updateFormData({
+        ...formData,
+        selectedCategory: '',
+        selectedService: '',
+        customSteps: ['StepOne'],
+      });
+      return;
     }
-  }, [selectedCategory, onCategoryChange]);
 
-  const handleSubmit = form.handleSubmit((data) => {
-    const selectedServicePrice = servicesConfig[selectedCategory]?.[data.selectedService] || 0;
+    // We have a category => build full steps
+    const finalSteps = buildSteps(selectedCategory, selectedService);
+
+    // For price
+    const basePrice = servicesConfig[selectedCategory]?.[selectedService] || 0;
 
     updateFormData({
       ...formData,
-      ...data,
+      selectedCategory,
+      selectedService,
+      selectedServicePrice: basePrice,
+      totalCost: isOnRequest ? null : basePrice,
       isOnRequest,
-      selectedService: data.selectedService,
-      selectedServicePrice,
-      totalCost: isOnRequest ? null : selectedServicePrice,
+      customSteps: finalSteps,
     });
+  }, [selectedCategory, selectedService]);
 
-    if (data.selectedService === 'Ben ik nog niet over uit' || data.selectedService === 'Ik wil graag advies') {
-      onSkip(); // Navigate directly to StepFive
+  // When user clicks "Volgende"
+  const onSubmit = handleSubmit(() => {
+    // If skip
+    if (skipServices.includes(selectedService)) {
+      // console.log('Skip service selected:', selectedService);
+      onSkip();
     } else {
-      onNext(); // Proceed normally
+      // console.log('Regular service selected:', selectedService);
+      onNext();
     }
   });
 
+  // Old UI design
   const isButtonDisabled = !selectedCategory || !selectedService;
 
   return (
     <FormProvider {...form}>
-      <form
-        onSubmit={handleSubmit}
-        className="w-full lg:w-[386px] h-[400px] flex rounded-[4px] relative lg:px-0 z-10 flex-col"
-      >
+      <form onSubmit={onSubmit} className="w-[386px]  flex rounded-[4px] relative lg:px-0 z-10 flex-col">
         <div className="bg-primaryDefault rounded-t-[8px] flex items-center justify-center text-white py-[22px] w-full">
           <HeadlineSemibold>Snel uw prijs berekenen!</HeadlineSemibold>
         </div>
-        <div className="bg-white w-full rounded-b-[8px] flex flex-col px-[22px] gap-y-3 py-[22px]  shadow-lg">
+
+        <div className="bg-white w-full rounded-b-[8px] flex flex-col px-[22px] gap-y-3 py-[22px] shadow-lg">
+          {/* Title row */}
           <div className="flex flex-row items-center justify-between">
             <span className="text-gray-400 font-sans text-sm">Waar kunnen we u mee helpen?</span>
             {(selectedCategory || selectedService) && (
@@ -148,6 +175,8 @@ const StepOne: React.FC<StepOneProps> = ({ onNext, formData, updateFormData, onC
               </div>
             )}
           </div>
+
+          {/* Category dropdown */}
           <div className="flex flex-col gap-[11px]">
             <SingleSelectDropdown
               data={categoryOptions}
@@ -156,15 +185,19 @@ const StepOne: React.FC<StepOneProps> = ({ onNext, formData, updateFormData, onC
               placeholder="Kies er een"
             />
           </div>
+
+          {/* Service dropdown */}
           <div className="flex flex-col gap-[11px]">
             <SingleSelectDropdown
               data={serviceOptions}
               name="selectedService"
               label="Wat wilt u gedaan hebben?"
               placeholder="Kies er een"
-              disabled={!selectedCategory}
+              disabled={isServiceDisabled}
             />
           </div>
+
+          {/* Price or on request */}
           <div className="flex flex-col space-y-2">
             {isOnRequest ? (
               <div className="flex justify-center items-center h-full">
@@ -173,7 +206,6 @@ const StepOne: React.FC<StepOneProps> = ({ onNext, formData, updateFormData, onC
             ) : (
               <div className="flex justify-between items-center">
                 <span className="font-semibold text-lg text-green-700">Totaal incl. btw.</span>
-                {/* <span className="font-semibold text-lg text-green-700">€{totalCost.toFixed(2)}</span> */}
                 <span className="font-semibold text-lg text-green-700">€ 0.00</span>
               </div>
             )}

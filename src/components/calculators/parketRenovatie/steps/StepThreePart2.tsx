@@ -24,17 +24,17 @@ interface StepProps {
 
 const schema = z.object({
   additionalSurfaces: z.array(z.string()).min(1, { message: 'Please select at least one surface' }).optional(),
-  numberOfTraptredesOpstapjes: z.string().optional(),
-  numberOfDrempelsDorpels: z.string().optional(),
+  numberOfSteps: z.string().optional(),
+  numberOfBumps: z.string().optional(),
   tableArea: z
     .string()
     .regex(/^\d+(\.\d+)?$/, { message: 'Please enter a valid number for table area' })
     .optional(),
-  vensterbankenMeters: z
+  windowsSillsMeters: z
     .string()
     .regex(/^\d+(\.\d+)?$/, { message: 'Please enter a valid number for vensterbanken meters' })
     .optional(),
-  plankenMeters: z
+  planksMeters: z
     .string()
     .regex(/^\d+(\.\d+)?$/, { message: 'Please enter a valid number for planken meters' })
     .optional(),
@@ -85,11 +85,11 @@ const StepThreePart2: React.FC<StepProps> = ({ onPrevious, onNext, formData, upd
   });
 
   const watchSurfaces = useWatch({ control: form.control, name: 'additionalSurfaces' }) || [];
-  const watchVensterbankenMeters = parseFloat(form.watch('vensterbankenMeters') || '0');
-  const watchPlankenMeters = parseFloat(form.watch('plankenMeters') || '0');
+  const watchVensterbankenMeters = parseFloat(form.watch('windowsSillsMeters') || '0');
+  const watchPlankenMeters = parseFloat(form.watch('planksMeters') || '0');
   const watchTableArea = parseFloat(form.watch('tableArea') || '0');
-  const watchNumberOfTraptredesOpstapjes = parseFloat(form.watch('numberOfTraptredesOpstapjes') || '0');
-  const watchNumberOfDrempelsDorpels = parseFloat(form.watch('numberOfDrempelsDorpels') || '0');
+  const watchNumberOfTraptredesOpstapjes = parseFloat(form.watch('numberOfSteps') || '0');
+  const watchNumberOfDrempelsDorpels = parseFloat(form.watch('numberOfBumps') || '0');
 
   // Calculate step cost using memoization
   const stepCost = useMemo(() => {
@@ -157,7 +157,7 @@ const StepThreePart2: React.FC<StepProps> = ({ onPrevious, onNext, formData, upd
 
   return (
     <FormProvider {...form}>
-      <form onSubmit={handleSubmit} className="w-[386px] h-[550px] flex rounded-[4px] relative lg:px-0 z-10 flex-col">
+      <form onSubmit={handleSubmit} className="w-[386px]  flex rounded-[4px] relative lg:px-0 z-10 flex-col">
         <div className="bg-primaryDefault rounded-t-[8px] flex items-center justify-center text-white py-[22px] w-full">
           <div className="text-center">
             <HeadlineSemibold className="w-full">Snel uw prijs berekenen!</HeadlineSemibold>
@@ -174,6 +174,9 @@ const StepThreePart2: React.FC<StepProps> = ({ onPrevious, onNext, formData, upd
             <span className="flex-1 text-gray-400 font-sans text-sm whitespace-nowrap">
               Waar kunnen we u mee helpen?
             </span>
+            <div className="flex w-[25%] h-[6px] bg-gray-300 rounded-full ml-4">
+              <div className="w-[55%] h-full bg-green-700 rounded-full"></div>
+            </div>
           </div>
 
           <div className="flex flex-col">
@@ -190,7 +193,7 @@ const StepThreePart2: React.FC<StepProps> = ({ onPrevious, onNext, formData, upd
             {(watchSurfaces.includes('Traptredes') || watchSurfaces.includes('Opstapjes')) && (
               <SingleSelectDropdown
                 data={surfaces}
-                name="numberOfTraptredesOpstapjes"
+                name="numberOfSteps"
                 label="Traptrede(s)/opstapje(s)"
                 placeholder="Kies er een"
               />
@@ -198,7 +201,7 @@ const StepThreePart2: React.FC<StepProps> = ({ onPrevious, onNext, formData, upd
             {(watchSurfaces.includes('Drempels') || watchSurfaces.includes('Dorpels')) && (
               <SingleSelectDropdown
                 data={surfaces}
-                name="numberOfDrempelsDorpels"
+                name="numberOfBumps"
                 label="Drempel(s)/dorpel(s)"
                 placeholder="Kies er een"
               />
@@ -209,7 +212,7 @@ const StepThreePart2: React.FC<StepProps> = ({ onPrevious, onNext, formData, upd
             {watchSurfaces.includes('Vensterbanken') && (
               <InputGetter
                 form={form}
-                name="vensterbankenMeters"
+                name="windowsSillsMeters"
                 label="Vensterbank(en)"
                 placeholder="Aantal meter(s)"
                 type="text"
@@ -218,7 +221,7 @@ const StepThreePart2: React.FC<StepProps> = ({ onPrevious, onNext, formData, upd
             {watchSurfaces.includes('Planken/Plateaus') && (
               <InputGetter
                 form={form}
-                name="plankenMeters"
+                name="planksMeters"
                 label="Plank(en)/Plateau(s)"
                 placeholder="Aantal meter(s)"
                 type="text"

@@ -14,7 +14,7 @@ interface StepProps {
   onPrevious: () => void;
   onNext: () => void;
   formData: {
-    selectedFloors?: string[];
+    ParketrenovatieselectedFloors?: string[];
     squareMeters?: string;
     selectedServicePrice?: number;
     stepCosts: Record<string, number>; // Explicit type for stepCosts
@@ -24,7 +24,7 @@ interface StepProps {
 }
 
 const schema = z.object({
-  selectedFloors: z.array(z.string()).min(1, 'Please select at least one floor'),
+  ParketrenovatieselectedFloors: z.array(z.string()).min(1, 'Please select at least one floor'),
   squareMeters: z.string().nonempty({ message: 'Please enter the area in m²' }).regex(/^\d+$/, 'Enter a valid number'),
 });
 
@@ -41,7 +41,7 @@ const StepTwo: React.FC<StepProps> = ({ onPrevious, onNext, formData, updateForm
   const form = useForm({
     resolver: zodResolver(schema),
     defaultValues: {
-      selectedFloors: formData.selectedFloors || [],
+      ParketrenovatieselectedFloors: formData.ParketrenovatieselectedFloors || [],
       squareMeters: formData.squareMeters || '',
     },
     mode: 'onChange',
@@ -50,7 +50,7 @@ const StepTwo: React.FC<StepProps> = ({ onPrevious, onNext, formData, updateForm
   const { control } = form;
 
   // Watch inputs
-  const selectedFloors = useWatch({ control, name: 'selectedFloors' }) || [];
+  const ParketrenovatieselectedFloors = useWatch({ control, name: 'ParketrenovatieselectedFloors' }) || [];
   const squareMeters = useWatch({ control, name: 'squareMeters' }) || '';
 
   // Calculate the cost for this step
@@ -58,7 +58,7 @@ const StepTwo: React.FC<StepProps> = ({ onPrevious, onNext, formData, updateForm
     const area = parseInt(squareMeters, 10) || 0;
 
     // Calculate floor cost
-    const floorLevelCost = selectedFloors.reduce((totalCost: number, floor: string) => {
+    const floorLevelCost = ParketrenovatieselectedFloors.reduce((totalCost: number, floor: string) => {
       const floorNumber = parseInt(floor.split(' ')[0], 10); // Extract the floor number
       if (!isNaN(floorNumber) && floorNumber > 0) {
         totalCost += FLOOR_COST;
@@ -82,12 +82,13 @@ const StepTwo: React.FC<StepProps> = ({ onPrevious, onNext, formData, updateForm
 
     updateFormData({
       ...formData,
-      selectedFloors,
+      ParketrenovatieselectedFloors,
       squareMeters,
+
       stepCosts: updatedStepCosts,
       totalCost: Object.values(updatedStepCosts).reduce((acc: number, cost: number) => acc + cost, 0),
     });
-  }, [selectedFloors, squareMeters]);
+  }, [ParketrenovatieselectedFloors, squareMeters]);
 
   const handleSubmit = (event: React.FormEvent) => {
     event.preventDefault();
@@ -102,7 +103,7 @@ const StepTwo: React.FC<StepProps> = ({ onPrevious, onNext, formData, updateForm
 
       updateFormData({
         ...formData,
-        selectedFloors,
+        ParketrenovatieselectedFloors,
         squareMeters,
         stepCosts: updatedStepCosts,
         totalCost: Object.values(updatedStepCosts).reduce((acc: number, cost: number) => acc + cost, 0),
@@ -112,20 +113,17 @@ const StepTwo: React.FC<StepProps> = ({ onPrevious, onNext, formData, updateForm
     })();
   };
 
-  const isButtonDisabled = !selectedFloors.length || !squareMeters;
+  const isButtonDisabled = !ParketrenovatieselectedFloors.length || !squareMeters;
 
   return (
     <FormProvider {...form}>
-      <form
-        onSubmit={handleSubmit}
-        className="w-[386px] h-[400px] flex rounded-[4px] relative lg:px-0 z-10 flex-col shadow-lg"
-      >
+      <form onSubmit={handleSubmit} className="w-[386px]  flex rounded-[4px] relative lg:px-0 z-10 flex-col shadow-lg">
         <div className="bg-primaryDefault rounded-t-[8px] flex items-center justify-center text-white py-[22px] w-full">
           <div className="text-center">
             <HeadlineSemibold className="w-full">Snel uw prijs berekenen!</HeadlineSemibold>
           </div>
         </div>
-        <div className="bg-white w-full rounded-b-[8px] flex flex-col px-[22px] gap-y-3 py-[22px] h-full">
+        <div className="bg-white w-full rounded-b-[8px] flex flex-col px-[22px] gap-y-3 py-[22px] shadow-lg">
           <div className="flex flex-row items-center justify-between">
             <div
               className="flex items-center gap-[5px] cursor-pointer hover:text-green-700 transition-all"
@@ -143,7 +141,7 @@ const StepTwo: React.FC<StepProps> = ({ onPrevious, onNext, formData, updateForm
           <div className="flex flex-col gap-[11px]">
             <MultiSelectDropdown
               data={dataOptions}
-              name="selectedFloors"
+              name="ParketrenovatieselectedFloors"
               label="Welke verdieping(en)?"
               placeholder="Kies er een"
             />

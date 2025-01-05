@@ -39,7 +39,7 @@ export const Hero: React.FC<HeroProps> = ({ imgSrc, imgClassName }) => {
         className={cn('absolute hidden lg:block w-full h-full top-0 left-0 z-0', imgClassName)}
       />
 
-      <div className=" relative flex-col  lg:flex-row z-0 max-w-full lg:h-[420px] py-16 lg:py-0 gap-[86px]  lg:px-[120px] w-[1440px] flex items-center ">
+      <div className=" relative flex-col lg:flex-row z-0 max-w-full lg:h-[570px] py-16 lg:py-0 gap-[86px] px-2 lg:px-[120px] w-[1440px] flex items-center ">
         <ParagraphSection />
 
         <MultiStepForm category="Parketrenovatie" />

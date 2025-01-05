@@ -4,6 +4,7 @@ import { Hero } from '@/components/hero';
 import { PhoneNumberSection } from '@/components/phoneNumberSection';
 import { QuestionSection } from '@/components/question';
 import { RatingSection } from '@/components/ratingSection';
+// import { Hero } from '../_components/hero';
 import { AboutUs } from './_components/aboutUs';
 import { GreenSection } from './_components/greenSection';
 import { OurServicesSection } from './_components/ourServices';
