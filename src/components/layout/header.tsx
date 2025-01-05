@@ -418,12 +418,16 @@ export const HeaderBoldLink: React.FC<{
   const columns = 'columns' in route && route.columns;
   return (
     <>
-      <div
-        onMouseOver={() => !hoveredLink && setHoveredLink(route.name)}
-        className={cn('flex  items-center  cursor-pointer', { 'text-secondaryDefault': hoveredLink === route.name })}
-      >
+      <div className={cn('flex  items-center  cursor-pointer')}>
         {path ? (
-          <Link href={route.path as string} className="font-bold flex  group items-center text-[16px]">
+          <Link
+            onMouseLeave={() => setHoveredLink('')}
+            onMouseOver={() => setHoveredLink(route.name)}
+            href={route.path as string}
+            className={cn('font-bold flex w-fit group items-center text-[16px]', {
+              'text-secondaryDefault': hoveredLink === route.name,
+            })}
+          >
             {route.name}
 
             {/* {columns && <img width={15} src="/icons/dropDown.svg" className="inline mx-2" />} */}
@@ -434,7 +438,12 @@ export const HeaderBoldLink: React.FC<{
             )}
           </Link>
         ) : (
-          <h3 className="font-bold text-[16px]">
+          <h3
+            onMouseOver={() => setHoveredLink(route.name)}
+            className={cn('font-bold w-fit text-[16px]', {
+              'text-secondaryDefault': hoveredLink === route.name,
+            })}
+          >
             {route.name}
             {columns && <img width={15} src="/icons/dropDown.svg" className="inline mx-2" />}
           </h3>

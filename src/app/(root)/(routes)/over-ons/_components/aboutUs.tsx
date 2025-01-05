@@ -3,7 +3,7 @@ import { BodyText, H2 } from '@/components/theme/typography';
 const OurVisionCard = () => {
   return (
     <div className="flex gap-3 lg:gap-[52px] flex-col-reverse  lg:flex-row items-center">
-      <img src="/aboutUs/itTeam.png" className="w-full  lg:w-fit" />
+      <img src="/aboutUs/it-team.png" className="w-full  lg:w-fit" />
       <div className="flex px-2 flex-col  max-w-[488px] gap-[11px]">
         <h3 className="font-medium text-[25px] leading-[37px] tracking-[-2%] text-primaryDefault">Onze visie</h3>
         <p className="text-[13px]">
@@ -23,7 +23,7 @@ const OurVisionCard = () => {
 const OurMissionCard = () => {
   return (
     <div className="flex gap-3 lg:gap-[52px]  flex-col-reverse lg:flex-row items-center">
-      <img className="w-full lg:w-fit" src="/aboutUs/ourMission.png" />
+      <img className="w-full lg:w-fit" src="/aboutUs/our-mission.png" />
       <div className="flex flex-col px-3 max-w-[488px] gap-[11px]">
         <h3 className="font-medium text-[25px] leading-[37px] tracking-[-2%] text-primaryDefault">Onze missie</h3>
         <p className="text-[13px]">

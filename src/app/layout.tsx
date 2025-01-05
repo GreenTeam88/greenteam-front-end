@@ -12,10 +12,15 @@ import 'bootstrap-icons/font/bootstrap-icons.css';
 import { Footer } from '@/components/layout/footer/foooter';
 
 const inter = Inter({ subsets: ['latin'] });
-
 export const metadata: Metadata = {
-  title: `Green Team`,
-  description: `Green Team ...`,
+  title: 'Green Team',
+  description: 'Green Team',
+  openGraph: {
+    title: 'Green Team',
+    description: 'Green Team',
+    url: 'Green Team',
+    images: 'https://www.greenteam.nl//favicon.ico',
+  },
 };
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {

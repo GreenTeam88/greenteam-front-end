@@ -17,7 +17,7 @@ export const HeadlineSemiboldLink: React.FC<{ className?: string; href: string; 
   ...props
 }) => {
   return (
-    <Link className={cn(className, 'link')} {...props}>
+    <Link className={cn('font-bold text-[16px] leading-[20px] tracking-[-2%]', className)} {...props}>
       {children}
     </Link>
   );

@@ -192,7 +192,7 @@ const DesktopRating: React.FC = () => {
       <div className="relative w-full laptop:mr-[41px]  max-w-[1220px] mx-auto">
         <div className="relative z-10  overflow-hidden">
           <motion.div
-            className="flex z-40 overflow-visible  relative"
+            className="flex z-40 overflow-visible   relative"
             animate={{
               x: `-${currentIndex * (100 / 3)}%`,
             }}
@@ -208,7 +208,7 @@ const DesktopRating: React.FC = () => {
               <div
                 key={index}
                 className={cn('min-w-[33.333%]  p-2', {
-                  ' pl-[45px]': currentIndex === index,
+                  '': currentIndex === index,
                 })}
               >
                 <RatingCard {...item} />
