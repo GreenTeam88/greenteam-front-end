@@ -22,14 +22,14 @@ const infoCardConfig: InfoCardProps = {
   secondBtnLink: '/offerte',
 };
 
-export const Parketleggen = () => {
+export const Vloerenleggen = () => {
   return (
-    <div className="flex flex-col gap-20  py-28 bg-white  relative z-0 items-center w-full">
-      <div className="flex flex-col gap-[11px] items-center">
+    <div className="flex flex-col gap-5 lg:gap-20 py-5 lg:py-28 px-2 bg-white  relative z-0 lg:items-center w-full">
+      <div className="flex flex-col gap-[11px]  lg:items-center">
         <H2 className="text-primaryDefault">Vloeren leggen</H2>
         <BodyText className="text-black">Breng uw parketvloer weer tot leven met professionele renovatie</BodyText>
       </div>
-      <WhiteInfoCard className="lg:flex-row-reverse" {...infoCardConfig} />
+      <WhiteInfoCard className="lg:flex-row-reverse w-full" {...infoCardConfig} />
     </div>
   );
 };

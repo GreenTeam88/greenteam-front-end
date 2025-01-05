@@ -100,7 +100,7 @@ export const WhiteInfoCard: React.FC<InfoCardProps> = ({
       //   className
       // )}
       className={cn(
-        'flex   w-full p-7 lg:p-0 lg:py-[80px] flex-col lg:flex-row  items-center justify-center gap-4 lg:gap-[57px]',
+        'flex   w-full px-2 py-6 lg:p-0 lg:py-[80px] flex-col  lg:flex-row  items-center justify-center gap-4 lg:gap-[57px]',
         { 'items-start ': typeof imgSrc !== 'string' },
         className
       )}

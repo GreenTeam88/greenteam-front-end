@@ -22,5 +22,5 @@ const infoCardConfig: InfoCardProps = {
 };
 
 export const Tapijttegels = () => {
-  return <WhiteInfoCard className="lg:flex-row-reverse   lg:h-[542px]" {...infoCardConfig} />;
+  return <WhiteInfoCard className="lg:flex-row-reverse    lg:h-[542px]" {...infoCardConfig} />;
 };
