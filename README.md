@@ -6,11 +6,20 @@ We care about people and the environment and continuously strive for innovation.
 
 ## Getting Started 🚀
 
+<<<<<<< HEAD
 These instructions will get you a copy of the project up and running on your local machine for development and testing purposes. See deployment for notes on how to deploy the project on a live system.
 
 For the
 
 # Client🌟
+
+=======
+These instructions will get you a copy of the project up and running on your local machine for development and testing purposes. See deployment for notes on how to deploy the project on a live system
+For the
+
+# Client🌟
+
+> > > > > > > origin/main
 
 ```
 git clone https://github.com/GreenTeam88/Green-Team-Front-end-new.git
