@@ -30,7 +30,7 @@ const schema = z.object({
 });
 
 const StepThree: React.FC<StepProps> = ({ onPrevious, onNext, onUploadClick, formData, updateFormData }) => {
-  const additionalSurfaces = ['Traptredes', 'Entrée', 'Opstapjes', 'Overloop'];
+  const additionalSurfaces = ['Traptredes', 'Entrée', 'Opstapjes', 'Overloop', 'Nee, geen andere oppervlakte(s)'];
   const currentSurfaces = [
     'Beton',
     'Geegaliseerd',
@@ -173,6 +173,7 @@ const StepThree: React.FC<StepProps> = ({ onPrevious, onNext, onUploadClick, for
               name="additionalSurfaceType"
               label="Zijn er nog andere oppervlaktes?"
               placeholder="Maak een keuze"
+              exclusiveOption="Nee, geen andere oppervlakte(s)"
             />
           </div>
 
