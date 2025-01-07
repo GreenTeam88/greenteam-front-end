@@ -61,67 +61,12 @@ const ContactInfoStep: React.FC<ContactInfoStepProps> = ({
     setIsButtonDisabled(!allFieldsValid); // Disable button if any required field is missing
   }, [watchEmail, watchPhoneNumber, watchLastName, watchPostcode, watchStreetAndHouseNumber, watchCity]);
 
-  // const handleSubmit = (event: React.FormEvent) => {
-  //   event.preventDefault();
-  //   form.handleSubmit((data) => {
-  //     updateFormData(data); // Update centralized state with this step's data
-  //     onSubmit(); // Handle the final submission
-  //     onNext(); // Navigate to the Thank You step
-  //   })();
-  // };
-  // const handleSubmit = (event: React.FormEvent) => {
-  //   event.preventDefault();
-  //   form.handleSubmit((data) => {
-  //     updateFormData({
-  //       ...formData, // Preserve existing form data
-  //       ...data, // Merge new contact information
-  //     });
-  //     console.log('Updated FormData:', { ...formData, ...data }); // Debugging purpose
-  //     onSubmit();
-  //     onNext();
-  //   })();
-  // };
-
-  // const handleSubmit = (event: React.FormEvent) => {
-  //   event.preventDefault();
-
-  //   form.handleSubmit((data) => {
-  //     updateFormData((prevFormData: any) => {
-  //       const updatedData = { ...prevFormData, ...data };
-  //       return updatedData;
-  //     });
-
-  //     setTimeout(() => {
-  //       onSubmit();
-  //       onNext();
-  //     }, 2); // Ensure the state has time to update
-  //   })();
-  // };
-
-  // const handleSubmit = (event: React.FormEvent) => {
-  //   event.preventDefault();
-
-  //   form.handleSubmit((data) => {
-  //     // Create a fully updated formData
-  //     const updatedFormData = { ...formData, ...data };
-
-  //     // Call updateFormData to persist the latest form data
-  //     updateFormData(updatedFormData);
-
-  //     // Trigger the final submission handler
-  //     onSubmit();
-
-  //     // Proceed to the next step
-  //     onNext();
-  //   })();
-  // };
-
   const handleSubmit = (event: React.FormEvent) => {
     event.preventDefault();
 
     form.handleSubmit((data) => {
       // Merge current form data with contact info
-      const updatedFormData = { ...formData, ...data };
+      const updatedFormData = { ...formData, ...data, isFinalSubmission: true };
 
       // Persist the updated form data in state
       updateFormData(updatedFormData);
