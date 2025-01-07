@@ -13,12 +13,14 @@ import { Footer } from '@/components/layout/footer/foooter';
 
 const inter = Inter({ subsets: ['latin'] });
 export const metadata: Metadata = {
-  title: 'Green Team',
-  description: 'Green Team',
+  title: 'GreenTeam - Duurzame Vloeren en Trappen',
+  description:
+    'GreenTeam is gepassioneerd over vloeren en trappen, met een sterke focus op duurzaamheid. Oorspronkelijk houtbewerkers, hebben we ons gespecialiseerd in het renoveren van vloeren en trappen, waarbij kwaliteit en klanttevredenheid altijd centraal staan. Wij combineren vakmanschap met milieuvriendelijke innovaties, en leveren elke keer weer een resultaat dat onze beloftes overtreft. Bij GreenTeam draait alles om betrouwbaarheid, duurzaamheid, en het respect voor zowel mensen als het milieu.',
   openGraph: {
-    title: 'Green Team',
-    description: 'Green Team',
-    url: 'Green Team',
+    title: 'GreenTeam - Duurzame Vloeren en Trappen',
+    description:
+      'GreenTeam is gepassioneerd over vloeren en trappen, met een sterke focus op duurzaamheid. Oorspronkelijk houtbewerkers, hebben we ons gespecialiseerd in het renoveren van vloeren en trappen, waarbij kwaliteit en klanttevredenheid altijd centraal staan. Wij combineren vakmanschap met milieuvriendelijke innovaties, en leveren elke keer weer een resultaat dat onze beloftes overtreft. Bij GreenTeam draait alles om betrouwbaarheid, duurzaamheid, en het respect voor zowel mensen als het milieu.',
+    url: 'https://www.greenteam.nl',
     images: 'https://www.greenteam.nl//favicon.ico',
   },
 };
