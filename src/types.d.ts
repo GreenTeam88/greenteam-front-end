@@ -11,3 +11,9 @@ export interface FormData {
   service: string;
   squareMeters: number;
 }
+
+declare global {
+  interface Window {
+    dataLayer: Record<string, any>[];
+  }
+}

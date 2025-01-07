@@ -153,27 +153,21 @@ const MultiStepForm: React.FC<MultiStepFormProps> = ({ category }) => {
     }
   };
 
-  // console.log('Steps array:', steps);
-  // console.log('Current step index (before skip):', currentStepIndex);
-  // console.log('Current step index (before next):', currentStepIndex);
-  // console.log('Returning to step:', steps[currentStepIndex], 'at index:', currentStepIndex);
-
-  // console.log('Last visited step index:', lastVisitedStep);
-
   const goToOptionalStep = (stepName: string) => {
-    // console.log('Navigating to optional step:', stepName);
-    // console.log('Current step index before navigating:', currentStepIndex);
-
     // Save the current step index before navigating to the optional step
     setLastVisitedStep(currentStepIndex);
-    // console.log('Saved last visited step:', currentStepIndex);
 
     // Navigate to the optional step
     setOptionalStep(stepName);
   };
 
   const handleFinalSubmit = async (finalData: any) => {
-    console.log('Final Form Data:', finalData);
+    // console.log('Final Form Data:', finalData);
+
+    if (!finalData.isFinalSubmission) {
+      console.error('Submission blocked: isFinalSubmission flag is missing or false.');
+      return;
+    }
 
     // Fields required for the special services
     const specialServiceFields = [
@@ -539,10 +533,18 @@ const MultiStepForm: React.FC<MultiStepFormProps> = ({ category }) => {
     });
 
     // Log customFormData for verification
-    console.log('Custom FormData before sending:');
-    customFormData.forEach((value, key) => {
-      console.log(`${key}:`, value);
+    // console.log('Custom FormData before sending:');
+    // customFormData.forEach((value, key) => {
+    //   console.log(`${key}:`, value);
+    // });
+
+    // Trigger GTM event
+    window.dataLayer = window.dataLayer || [];
+    window.dataLayer.push({
+      event: 'form_submit',
+      formData: customFormData, // Send the final form data to GTM
     });
+    console.log('GTM event triggered with form data:', customFormData);
 
     try {
       const response = await fetch(`${process.env.NEXT_PUBLIC_API_URL}`, {
