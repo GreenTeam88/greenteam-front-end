@@ -174,14 +174,14 @@ export const footerColumnsInfo: FooterColumnInfo[] = [
   {
     title: 'Mogelijke locaties',
     links: [
-      { name: 'Badkamer' },
-      { name: 'Woonkamer' },
-      { name: 'Horecavloer' },
-      { name: 'Sportvloer' },
-      { name: 'Winkelvloer' },
-      { name: 'Bedrijfsvloer' },
-      { name: 'Bedrijfshal' },
-      { name: 'Muren' },
+      { name: 'Badkamer', path: '/vloeren-leggen' },
+      { name: 'Woonkamer', path: '/vloeren-leggen' },
+      { name: 'Horecavloer', path: '/vloeren-leggen' },
+      { name: 'Sportvloer', path: '/vloeren-leggen' },
+      { name: 'Winkelvloer', path: '/vloeren-leggen' },
+      { name: 'Bedrijfsvloer', path: '/vloeren-leggen' },
+      { name: 'Bedrijfshal', path: '/vloeren-leggen' },
+      { name: 'Muren', path: '/vloeren-leggen' },
     ],
   },
 ];
