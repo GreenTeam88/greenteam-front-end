@@ -29,7 +29,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
   return (
     <html lang="en">
       <head>
-        {/* google manager code  */}
+        {/* google tags manager code  */}
         <script
           id="google-tag-manager"
           dangerouslySetInnerHTML={{
@@ -42,10 +42,6 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         />
       </head>
       <body className={cn(inter.className, 'flex lg:pt-[220px] px-0 flex-col  items-center')}>
-        {/* header is fixed so we need to have a padding top  */}
-        <Header />
-        {children}
-        <Footer />
         {/* google manager code      */}
         <noscript>
           <iframe
@@ -55,6 +51,11 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
             style={{ display: 'none', visibility: 'hidden' }}
           ></iframe>
         </noscript>
+
+        {/* header is fixed so we need to have a padding top  */}
+        <Header />
+        {children}
+        <Footer />
       </body>
     </html>
   );
