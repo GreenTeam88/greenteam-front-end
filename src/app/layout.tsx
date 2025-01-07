@@ -10,6 +10,7 @@ import { cn } from '@/lib/tailwind';
 import 'bootstrap-icons/font/bootstrap-icons.css';
 
 import { Footer } from '@/components/layout/footer/foooter';
+import { AppProviders } from '@/providers';
 
 const inter = Inter({ subsets: ['latin'] });
 export const metadata: Metadata = {
@@ -51,11 +52,13 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
             style={{ display: 'none', visibility: 'hidden' }}
           ></iframe>
         </noscript>
-
-        {/* header is fixed so we need to have a padding top  */}
-        <Header />
-        {children}
-        <Footer />
+        {/* wraping all the app logic inside a component that has all the other wrapers such as react query  */}
+        <AppProviders>
+          {/* header is fixed so we need to have a padding top  */}
+          <Header />
+          {children}
+          <Footer />
+        </AppProviders>
       </body>
     </html>
   );

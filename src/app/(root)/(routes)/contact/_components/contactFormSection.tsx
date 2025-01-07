@@ -1,9 +1,15 @@
 'use client';
 
+import axios from 'axios';
+import { useForm } from 'react-hook-form';
+import { useMutation } from 'react-query';
+import { toast } from 'sonner';
+
 import { PrimaryBtn, SecondaryOutlinedBtnLink } from '@/components/theme/buttons';
 import { PrimaryInput, PrimaryTextArea } from '@/components/theme/inputs';
 import { BodyText, BodyTextSemibold, H1, LinkTypography } from '@/components/theme/typography';
 import { appConfig } from '@/config';
+import { cn } from '@/lib/tailwind';
 
 export const ContactInfo = () => {
   return (
@@ -85,16 +91,132 @@ const TopSection = () => {
   );
 };
 
+type ContactFormData = {
+  firstName: string;
+  lastName: string;
+  email: string;
+  phone: string;
+  message: string;
+};
+
 const ContactForm = () => {
+  const {
+    register,
+    handleSubmit,
+    clearErrors,
+    reset,
+    formState: { errors },
+  } = useForm<ContactFormData>({
+    defaultValues: { firstName: '', lastName: '', email: '', phone: '', message: '' },
+  });
+  const { mutate, isLoading, isError, isSuccess } = useMutation({
+    mutationFn: async (data: ContactFormData) => {
+      const response = await axios.post(`${process.env.NEXT_PUBLIC_BACKEND_URL}/emails/phone`, data);
+      console.log('response', response);
+    },
+    onSuccess() {
+      toast.success('Bedankt! Je bericht is verzonden!');
+    },
+    onError() {
+      toast.error('er is iets misgegaan! Probeer het opnieuw');
+    },
+    onSettled() {
+      clearErrors();
+      reset();
+    },
+  });
   return (
-    <div className="flex flex-col bg-white border border-black20 border-opacity-20 rounded-lg p-[22px] gap-[32px] max-w-full lg:w-[488px] ">
-      <PrimaryInput labelText="Voornaam" />
-      <PrimaryInput labelText="Achternaam" />
-      <PrimaryInput labelText="E-mailadres" />
-      <PrimaryInput labelText="Telefoonnummer" />
-      <PrimaryTextArea labelText="Opmerking" />
-      <PrimaryBtn className="w-full">Verzenden</PrimaryBtn>
-    </div>
+    <form
+      onSubmit={handleSubmit((formData) => mutate(formData))}
+      className="flex flex-col bg-white border border-black20 border-opacity-20 rounded-lg p-[22px] gap-[32px] max-w-full lg:w-[488px] "
+    >
+      {/* the succuss message  */}
+      <div className={cn('w-full flex items-center justify-center py-2', { invisible: !isSuccess })}>
+        <BodyText className="text-green-500">Bedankt! Je bericht is verzonden! </BodyText>
+      </div>
+      {/* the error message  */}
+      <div className={cn('w-full flex items-center justify-center py-2', { invisible: !isError })}>
+        <BodyText className="text-green-500">Er is iets misgegaan! Probeer het opnieuw </BodyText>
+      </div>
+
+      <PrimaryInput
+        error={errors.firstName?.message}
+        {...register('firstName', {
+          required: 'First name is required',
+          minLength: {
+            value: 2,
+            message: 'First name is too small',
+          },
+          pattern: {
+            value: /^[a-zA-Z\s]+$/,
+            message: 'First name cannot contain numbers or symbols',
+          },
+        })}
+        labelText="Voornaam"
+        placeholder="Voornaam"
+      />
+
+      <PrimaryInput
+        error={errors.lastName?.message}
+        {...register('lastName', {
+          required: 'Last name is required',
+          minLength: {
+            value: 2,
+            message: 'Last name is too small',
+          },
+          pattern: {
+            value: /^[a-zA-Z\s]+$/,
+            message: 'Last name cannot contain numbers or symbols',
+          },
+        })}
+        labelText="Achternaam"
+        placeholder="Achternaam"
+      />
+
+      <PrimaryInput
+        error={errors.email?.message}
+        type="email"
+        {...register('email', {
+          required: 'Email is required',
+          pattern: {
+            value: /^[^\s@]+@[^\s@]+\.[^\s@]+$/,
+            message: 'Please enter a valid email address',
+          },
+        })}
+        labelText="E-mailadres"
+        placeholder="E-mailadres"
+      />
+
+      <PrimaryInput
+        error={errors.phone?.message}
+        type="number"
+        {...register('phone', {
+          required: 'Phone number is required',
+          pattern: {
+            value: /^\+?[\d\s\-]{7,15}$/,
+            message: 'Please enter a valid phone number',
+          },
+        })}
+        labelText="Telefoonnummer"
+        placeholder="Telefoonnummer"
+      />
+
+      <PrimaryTextArea
+        {...register('message', {
+          required: 'Message is required',
+          minLength: {
+            value: 3,
+            message: 'Message is too short',
+          },
+        })}
+        labelText="Opmerking"
+        placeholder="Opmerking"
+      />
+
+      <PrimaryBtn type="submit" isLoading={isLoading} className="w-full">
+        Verzenden
+      </PrimaryBtn>
+    </form>
   );
 };
 

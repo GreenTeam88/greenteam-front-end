@@ -80,35 +80,45 @@ export const SelectInput: React.FC<{
   );
 };
 
-export const PrimaryInput = forwardRef<HTMLInputElement, PrimaryInputProps>(({ value, labelText, ...props }, ref) => {
-  return (
-    <div onClick={(e) => e.stopPropagation()} className="flex flex-col gap-[11px] w-full relative">
-      {labelText && (
-        <label className="bodyText">
-          {labelText}
-          {props['aria-required'] && <span className="text-secondaryDefault">*</span>}
-        </label>
-      )}
-      <input
-        ref={ref}
-        className="px-[20px] w-full border-black20 border border-opacity-20 rounded-lg py-[12px]"
-        value={value}
-        {...props}
-      />
-    </div>
-  );
-});
+export const PrimaryInput = forwardRef<HTMLInputElement, PrimaryInputProps>(
+  ({ value, error, labelText, ...props }, ref) => {
+    return (
+      <div onClick={(e) => e.stopPropagation()} className="flex flex-col gap-[5px] w-full relative">
+        <div className="flex w-full items-center justify-between">
+          {' '}
+          {labelText && (
+            <label className="bodyText">
+              {labelText}
+              {props['aria-required'] && <span className="text-secondaryDefault">*</span>}
+            </label>
+          )}
+          {error && <p className="text-red-500 text-xs">{error}</p>}
+        </div>
+
+        <input
+          ref={ref}
+          className="px-[20px] w-full border-black20 border border-opacity-20 rounded-lg py-[12px]"
+          value={value}
+          {...props}
+        />
+      </div>
+    );
+  }
+);
 
 export const PrimaryTextArea = forwardRef<HTMLTextAreaElement, PrimaryTextAreaProps>(
-  ({ value, labelText, ...props }, ref) => {
+  ({ value, labelText, error, ...props }, ref) => {
     return (
       <div onClick={(e) => e.stopPropagation()} className="flex flex-col gap-[11px] w-full relative">
-        {labelText && (
-          <label className="bodyText">
-            {labelText}
-            {props['aria-required'] && <span className="text-secondaryDefault">*</span>}
-          </label>
-        )}
+        <div className="flex justify-between">
+          {labelText && (
+            <label className="bodyText">
+              {labelText}
+              {props['aria-required'] && <span className="text-secondaryDefault">*</span>}
+            </label>
+          )}
+          {error && <p className="text-red-500 text-xs">{error}</p>}
+        </div>
         <textarea
           ref={ref}
           className="px-[20px] w-full border-black20 border-opacity-20 border rounded-lg py-[12px]"

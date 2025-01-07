@@ -1,17 +1,50 @@
 import Link from 'next/link';
-import { HTMLAttributes } from 'react';
+import { ButtonHTMLAttributes, HTMLAttributes } from 'react';
 
 import { cn } from '@/lib/tailwind';
 
-export const PrimaryBtn: React.FC<HTMLAttributes<HTMLButtonElement>> = ({ children, className, ...props }) => {
+export const PrimaryBtn: React.FC<ButtonHTMLAttributes<HTMLButtonElement> & { isLoading?: boolean }> = ({
+  children,
+  className,
+  isLoading = false,
+  ...props
+}) => {
   return (
-    <button className={cn('primaryBtn text-center  w-fit h-fit', className)} {...props}>
-      {children}{' '}
+    <button
+      className={cn(
+        'primaryBtn text-center  w-fit h-fit',
+        {
+          'opacity-50 cursor-not-allowed': isLoading, // Styles for loading state
+        },
+        className
+      )}
+      disabled={isLoading} // Disable button when loading
+      {...props}
+    >
+      {isLoading ? (
+        <span className="flex w-full justify-center text-white group  hover:text-black items-center">
+          <svg
+            className="animate-spin h-5 w-5 mr-3 text-white group-hover:text-black" // Loading spinner
+            xmlns="http://www.w3.org/2000/svg"
+            fill="none"
+            viewBox="0 0 24 24"
+          >
+            <circle className="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="4" />
+            <path className="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8v2a6 6 0 100 12v2a8 8 0 01-8-8z" />
+          </svg>
+          Loading...
+        </span>
+      ) : (
+        children // Display children when not loading
+      )}
     </button>
   );
 };
-
-export const PrimaryOutlinedBtn: React.FC<HTMLAttributes<HTMLButtonElement>> = ({ children, className, ...props }) => {
+export const PrimaryOutlinedBtn: React.FC<ButtonHTMLAttributes<HTMLButtonElement>> = ({
+  children,
+  className,
+  ...props
+}) => {
   return (
     <button
       className={cn(
