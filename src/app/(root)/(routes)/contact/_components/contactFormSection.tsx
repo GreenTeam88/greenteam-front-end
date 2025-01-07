@@ -131,12 +131,12 @@ const ContactForm = () => {
       className="flex flex-col bg-white border border-black20 border-opacity-20 rounded-lg p-[22px] gap-[32px] max-w-full lg:w-[488px] "
     >
       {/* the succuss message  */}
-      <div className={cn('w-full flex items-center justify-center py-2', { invisible: !isSuccess })}>
+      <div className={cn('w-full  items-center justify-center py-2 hidden', { flex: isSuccess && !isError })}>
         <BodyText className="text-green-500">Bedankt! Je bericht is verzonden! </BodyText>
       </div>
       {/* the error message  */}
-      <div className={cn('w-full flex items-center justify-center py-2', { invisible: !isError })}>
-        <BodyText className="text-green-500">Er is iets misgegaan! Probeer het opnieuw </BodyText>
+      <div className={cn('w-full  items-center justify-center py-2 hidden', { flex: isError })}>
+        <BodyText className="text-red-500">Er is iets misgegaan! Probeer het opnieuw </BodyText>
       </div>
 
       <PrimaryInput
