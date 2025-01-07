@@ -104,7 +104,7 @@ export default function Home() {
         ]}
         btnLink="/offerte"
         btnText="Offerte aanvragen"
-        imgSrc="/stofferen/Tapijttegels/Tapijttegels-1.png"
+        imgSrc="/stofferen/tapijttegels/tapijttegels-1.png"
         orangeText="Geen zorgen, wij hebben dé oplossing!"
       />
       <CardsSection
