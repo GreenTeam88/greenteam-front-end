@@ -667,7 +667,7 @@
 
 "@next/swc-darwin-arm64@14.2.13":
   version "14.2.13"
-  resolved "https://registry.yarnpkg.com/@next/swc-darwin-arm64/-/swc-darwin-arm64-14.2.13.tgz#76f08d78360c4d27d444df7f35a56f59a48f4808"
+  resolved "https://registry.npmjs.org/@next/swc-darwin-arm64/-/swc-darwin-arm64-14.2.13.tgz"
   integrity sha512-IkAmQEa2Htq+wHACBxOsslt+jMoV3msvxCn0WFSfJSkv/scy+i/EukBKNad36grRxywaXUYJc9mxEGkeIs8Bzg==
 
 "@next/swc-darwin-x64@14.2.13":
@@ -707,7 +707,7 @@
 
 "@next/swc-win32-x64-msvc@14.2.13":
   version "14.2.13"
-  resolved "https://registry.npmjs.org/@next/swc-win32-x64-msvc/-/swc-win32-x64-msvc-14.2.13.tgz"
+  resolved "https://registry.yarnpkg.com/@next/swc-win32-x64-msvc/-/swc-win32-x64-msvc-14.2.13.tgz#5a920eea82a58affa6146192586716cec6c87fed"
   integrity sha512-WwzOEAFBGhlDHE5Z73mNU8CO8mqMNLqaG+AO9ETmzdCQlJhVtWZnOl2+rqgVQS+YHunjOWptdFmNfbpwcUuEsw==
 
 "@nodelib/fs.scandir@2.1.5":
@@ -2558,7 +2558,7 @@ fs.realpath@^1.0.0:
 
 fsevents@~2.3.2:
   version "2.3.3"
-  resolved "https://registry.yarnpkg.com/fsevents/-/fsevents-2.3.3.tgz#cac6407785d03675a2a5e1a5305c697b347d90d6"
+  resolved "https://registry.npmjs.org/fsevents/-/fsevents-2.3.3.tgz"
   integrity sha512-5xoDfX+fL7faATnagmWPpbFtwh/R77WmMMqqHGS65C3vvB0YHrgF+B1YmZ3441tMj5n63k0212XNoJwzlhffQw==
 
 function-bind@^1.1.2:
