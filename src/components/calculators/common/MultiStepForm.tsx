@@ -1,6 +1,9 @@
 'use client';
 
+import { usePathname } from 'next/navigation';
 import React, { Suspense, useEffect, useState } from 'react';
+
+import { BodyText } from '@/components/theme/typography';
 
 interface MultiStepFormProps {
   category: string;
@@ -77,7 +80,7 @@ const MultiStepForm: React.FC<MultiStepFormProps> = ({ category }) => {
   const [optionalStep, setOptionalStep] = useState<string | null>(null);
   const [lastVisitedStep, setLastVisitedStep] = useState<number>(currentStepIndex);
   const steps = formData.customSteps && formData.customSteps.length > 0 ? formData.customSteps : ['StepOne'];
-
+  const pathname = usePathname();
   // If StepOne changes category
   useEffect(() => {
     if (formData.selectedCategory && formData.selectedCategory !== currentCategory) {
@@ -571,6 +574,24 @@ const MultiStepForm: React.FC<MultiStepFormProps> = ({ category }) => {
   const stepName = optionalStep || steps[currentStepIndex];
   const StepComponent = stepComponents[stepName];
 
+  // if we are on the thank you page , we want to display the thank you UI
+  if (pathname === '/bedankt')
+    return (
+      <form className="w-[386px] bg-white flex rounded-[4px] relative lg:px-0 z-10 flex-col">
+        <div className="bg-primaryDefault rounded-t-[8px] flex items-center justify-center text-white py-[22px] w-full">
+          Snel uw prijs berekenen!
+        </div>
+        <div className="flex flex-col gap-2 min-h-[379px] justify-center items-center">
+          <h3 className="text-[22px] text-primaryDefault items-center font-semibold">Bedankt!</h3>
+          <div className="flex flex-col gap-4 max-w-[248px] items-center">
+            <BodyText className="text-center">
+              We hebben uw aanvraag ontvangen en nemen binnen 6 uur tijdens onze reguliere werktijden contact met u op!
+            </BodyText>
+            <BodyText className="text-center">Met vriendelijke groet, GreenTeam</BodyText>
+          </div>
+        </div>
+      </form>
+    );
   if (!StepComponent) {
     // same fallback as old snippet
     return (

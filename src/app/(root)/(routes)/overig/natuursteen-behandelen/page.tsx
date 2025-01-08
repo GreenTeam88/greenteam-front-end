@@ -92,7 +92,7 @@ const whatWaitingForConfig: InfoCardProps = {
   buttonLink: '/offerte',
 };
 
-export default function Home() {
+export default function OverigNatuursteenbehandelenPage() {
   return (
     <div className="flex flex-col   relative z-0 items-center w-full">
       <Hero imgSrc="/overig/hero.png" />

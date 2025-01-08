@@ -11,7 +11,7 @@ import { Overig } from './_components/overig';
 import { Tegelen } from './_components/tegelen';
 import { VloerVerwijderen } from './_components/vloer-verwijderen';
 
-function Page() {
+function OverigPage() {
   return (
     <div className="flex flex-col  relative z-0 items-center w-full">
       <Hero imgSrc="/overig/hero.png" />
@@ -28,4 +28,4 @@ function Page() {
   );
 }
 
-export default Page;
+export default OverigPage;

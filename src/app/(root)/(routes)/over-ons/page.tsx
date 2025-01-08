@@ -11,7 +11,7 @@ import { OurServicesSection } from './_components/ourServices';
 import { SpecialistsSection } from './_components/specialists';
 import { WhyChooseUs } from './_components/whyChooseUs';
 
-function OverOnsHero() {
+function OverOnsPage() {
   return (
     <div className="flex  lg:px-0 flex-col w-full items-center relative bg-bgColor">
       <Hero />
@@ -27,4 +27,4 @@ function OverOnsHero() {
   );
 }
 
-export default OverOnsHero;
+export default OverOnsPage;

@@ -1,8 +1,8 @@
+import { pagesMap } from '@/config/pages';
 import TraprenovatiesPage from '../traprenovatie/page';
 
 function ThankYouPage({ searchParams }: { searchParams: { [key: string]: string } }) {
-  console.log('search params', searchParams);
-  return <TraprenovatiesPage />;
+  return pagesMap[searchParams.page];
 }
 
 export default ThankYouPage;
