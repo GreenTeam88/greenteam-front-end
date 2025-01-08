@@ -4,7 +4,7 @@ import './globals.css';
 
 import { Inter } from 'next/font/google';
 
-import { Header } from '@/components/layout/header';
+import { Header } from '@/components/layout/header/header';
 import { cn } from '@/lib/tailwind';
 
 import 'bootstrap-icons/font/bootstrap-icons.css';

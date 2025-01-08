@@ -21,7 +21,7 @@ import { SchurenSchilderen } from './_components/schuren-schilderen';
 import { Traprenovaties } from './_components/traprenovaties';
 import { Verlichting } from './_components/verlichting';
 
-function Page() {
+function TraprenovatiesPage() {
   return (
     <div className="flex flex-col  relative z-0 items-center w-full">
       <Hero imgSrc="/traprenovatie/hero.png" />
@@ -48,4 +48,4 @@ function Page() {
   );
 }
 
-export default Page;
+export default TraprenovatiesPage;

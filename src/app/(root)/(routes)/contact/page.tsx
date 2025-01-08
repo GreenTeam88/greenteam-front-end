@@ -5,7 +5,7 @@ import { ContactSection } from '../_components/contactSection';
 import { ContactFormSection } from './_components/contactFormSection';
 import { ContactFAQs } from './_components/faqSection';
 
-function DienstenPage() {
+function ContactPage() {
   return (
     <div className="flex w-full bg-bgColor items-center flex-col">
       <Hero />
@@ -17,4 +17,4 @@ function DienstenPage() {
   );
 }
 
-export default DienstenPage;
+export default ContactPage;

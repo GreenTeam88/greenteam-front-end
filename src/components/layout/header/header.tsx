@@ -8,11 +8,11 @@ import React, { Dispatch, SetStateAction, useEffect, useRef, useState } from 're
 
 import { appConfig } from '@/config';
 import { cn } from '@/lib/tailwind';
-import { DropDownIcon } from '../icons/arrows';
-import { InstagramLogo, TikTokIcon } from '../icons/homePageIcons';
-import { SecondaryBtnLink } from '../theme/buttons';
-import { BodyText } from '../theme/typography';
-import { TitleCarousel } from './header/titleCrausel';
+import { DropDownIcon } from '../../icons/arrows';
+import { InstagramLogo, TikTokIcon } from '../../icons/homePageIcons';
+import { SecondaryBtnLink } from '../../theme/buttons';
+import { BodyText } from '../../theme/typography';
+import { TitleCarousel } from './titleCrausel';
 
 // types needed for the header
 
@@ -421,11 +421,10 @@ export const HeaderBoldLink: React.FC<{
       <div className={cn('flex  items-center  cursor-pointer')}>
         {path ? (
           <Link
-            onMouseLeave={() => setHoveredLink('')}
             onMouseOver={() => setHoveredLink(route.name)}
             href={route.path as string}
-            className={cn('font-bold flex w-fit group items-center text-[16px]', {
-              'text-secondaryDefault': hoveredLink === route.name,
+            className={cn('font-bold flex w-fit group items-center text-[16px] ', {
+              'text-secondaryDefault ': hoveredLink === route.name,
             })}
           >
             {route.name}
@@ -433,7 +432,11 @@ export const HeaderBoldLink: React.FC<{
             {/* {columns && <img width={15} src="/icons/dropDown.svg" className="inline mx-2" />} */}
             {columns && (
               <div className={cn('mx-2')}>
-                <DropDownIcon className={cn('group-hover:stroke-secondaryDefault   block mx-2')} />
+                <DropDownIcon
+                  className={cn(' block mx-2', {
+                    'stroke-secondaryDefault  ': hoveredLink === route.name,
+                  })}
+                />
               </div>
             )}
           </Link>
