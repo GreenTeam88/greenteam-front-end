@@ -1,6 +1,6 @@
 # GREENTEAM FRONT ✨
 
-At Green Team, we have a passion for wood and sustainability. Originally woodworkers, we have specialized in floor and staircase renovation. Our goal is to deliver top quality and exceed expectations.
+At GreenTeam, we have a passion for wood and sustainability. Originally woodworkers, we have specialized in floor and staircase renovation. Our goal is to deliver top quality and exceed expectations.
 
 We care about people and the environment and continuously strive for innovation. Most importantly, you can count on Green Team – a promise made is a promise kept.
 
@@ -163,5 +163,3 @@ Example commit command message
 ```
 git commit -m "fix(code cleaning): fix typecheck and lint errors" -m "This update fixes errors related to types and lint." -m "Related to issue #001"
 ```
-
-removethiscommentjustopush
