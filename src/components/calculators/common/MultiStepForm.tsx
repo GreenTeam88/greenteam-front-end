@@ -497,7 +497,6 @@ const MultiStepForm: React.FC<MultiStepFormProps> = ({ category }) => {
       Stofferen: StofferenFields,
       Traprenovatie: trapRenovatieFieldMapping,
     };
-    const pathname = usePathname();
     const { selectedCategory, selectedService } = finalData;
     let requiredFields: string[] = [];
 
@@ -550,11 +549,11 @@ const MultiStepForm: React.FC<MultiStepFormProps> = ({ category }) => {
     console.log('GTM event triggered with form data:', customFormData);
 
     try {
-      const response = await fetch(`${process.env.NEXT_PUBLIC_API_URL}`, {
+      const response = await fetch(`${process.env.NEXT_PUBLIC_BACKEND_URL}/emails/calculator`, {
         method: 'POST',
         body: customFormData,
       });
-
+      console.log('response', response);
       if (response.ok) {
         const result = await response.json();
         console.log('Form submitted successfully:', result);
