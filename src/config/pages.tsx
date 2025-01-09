@@ -29,6 +29,23 @@ import StofferenTapijtVerwijderenPage from '@/app/(root)/(routes)/stofferen/tapi
 import StofferenTapijttegelsPage from '@/app/(root)/(routes)/stofferen/tapijttegels/page';
 import TrapPage from '@/app/(root)/(routes)/stofferen/trap/page';
 import StofferenVloerPage from '@/app/(root)/(routes)/stofferen/vloer/page';
+import TraprenovatieBekledenMetHout from '@/app/(root)/(routes)/traprenovatie/bekleden-met-hout/page';
+import TraprenovatieBekledenMetLaminaat from '@/app/(root)/(routes)/traprenovatie/bekleden-met-laminaat/page';
+import TraprenovatieBekledenMetLinoleum from '@/app/(root)/(routes)/traprenovatie/bekleden-met-linoleum/page';
+import TraprenovatieBekledenMetPVC from '@/app/(root)/(routes)/traprenovatie/bekleden-met-pvc/page';
+import TraprenovatieBekledenMetTapijt from '@/app/(root)/(routes)/traprenovatie/bekleden-met-tapijt/page';
+import TraprenovatieBetonCireAcoustic from '@/app/(root)/(routes)/traprenovatie/beton-cire/acoustic/page';
+import TraprenovatieBetonCireBrut from '@/app/(root)/(routes)/traprenovatie/beton-cire/brut/page';
+import TraprenovatieBetonCireCroco from '@/app/(root)/(routes)/traprenovatie/beton-cire/croco/page';
+import TraprenovatieBetonCireGlamourStucPage from '@/app/(root)/(routes)/traprenovatie/beton-cire/glamour-stuc/page';
+import TraprenovatieBetonCireMetalStuc from '@/app/(root)/(routes)/traprenovatie/beton-cire/metal-stuc/page';
+import TraprenovatieBetonCireVenetiaans from '@/app/(root)/(routes)/traprenovatie/beton-cire/venetiaans/page';
+import TraprenovatieDichteTrap from '@/app/(root)/(routes)/traprenovatie/dichte-trap/page';
+import TraprenovatieOpenTrap from '@/app/(root)/(routes)/traprenovatie/open-trap/page';
+import TraprenovatiesPage from '@/app/(root)/(routes)/traprenovatie/page';
+import TraprenovatieSchurenEnBehandelen from '@/app/(root)/(routes)/traprenovatie/schuren-en-behandelen/page';
+import TraprenovatieSchurenEnSchilderen from '@/app/(root)/(routes)/traprenovatie/schuren-en-schilderen/page';
+import TraprenovatieVerlichting from '@/app/(root)/(routes)/traprenovatie/verlichting/page';
 import VloerenLeggenBourgognePage from '@/app/(root)/(routes)/vloeren-leggen/bourgogne/page';
 import VloerenLeggenHexagonEn3DPage from '@/app/(root)/(routes)/vloeren-leggen/hexagon-&-3d/page';
 import VloerenLeggenHongaarsePuntPage from '@/app/(root)/(routes)/vloeren-leggen/hongaarse-punt/page';
@@ -93,22 +110,26 @@ export const pagesMap: PagesMapType = {
   '/vloeren-leggen/hexagon-&-3d': <VloerenLeggenHexagonEn3DPage />,
   '/vloeren-leggen/tapis': <VloerenLeggenTapisPage />,
   '/vloeren-leggen/bourgogne': <VloerenLeggenBourgognePage />,
-   '/traprenovatie/bekleden-met-pvc' :,
-   '/traprenovatie/bekleden-met-laminaat' :,
-   '/traprenovatie/bekleden-met-hout' :,
-   '/traprenovatie/bekleden-met-tapijt' :,
-   '/traprenovatie/bekleden-met-linoleum' :,
-   '/traprenovatie/schuren-en-behandelen' :,
-   '/traprenovatie/schuren-en-schilderen' :,
-       '/traprenovatie/beton-cire/metal-stuc' },
-       '/traprenovatie/beton-cire/glamour-stuc' },
-       '/traprenovatie/beton-cire/brut' },
-       '/traprenovatie/beton-cire/parel' },
-       '/traprenovatie/beton-cire/croco' },
-       '/traprenovatie/beton-cire/venetiaans' },
-       '/traprenovatie/beton-cire/acoustic' },
-   '/traprenovatie/open-trap' },
-   '/traprenovatie/dichte-trap' },
-   '/traprenovatie/verlichting' },
-
+  '/traprenovatie/bekleden-met-pvc': <TraprenovatieBekledenMetPVC />,
+  '/traprenovatie/bekleden-met-laminaat': <TraprenovatieBekledenMetLaminaat />,
+  '/traprenovatie/bekleden-met-hout': <TraprenovatieBekledenMetHout />,
+  '/traprenovatie/bekleden-met-tapijt': <TraprenovatieBekledenMetTapijt />,
+  '/traprenovatie/bekleden-met-linoleum': <TraprenovatieBekledenMetLinoleum />,
+  '/traprenovatie/schuren-en-behandelen': <TraprenovatieSchurenEnBehandelen />,
+  '/traprenovatie/schuren-en-schilderen': <TraprenovatieSchurenEnSchilderen />,
+  '/traprenovatie/beton-cire/metal-stuc': <TraprenovatieBetonCireMetalStuc />,
+  '/traprenovatie/beton-cire/glamour-stuc': <TraprenovatieBetonCireGlamourStucPage />,
+  '/traprenovatie/beton-cire/brut': <TraprenovatieBetonCireBrut />,
+  '/traprenovatie/beton-cire/parel': <TraprenovatieBetonCireCroco />,
+  '/traprenovatie/beton-cire/croco': <TraprenovatieBetonCireVenetiaans />,
+  '/traprenovatie/beton-cire/venetiaans': <TraprenovatieBetonCireVenetiaans />,
+  '/traprenovatie/beton-cire/acoustic': <TraprenovatieBetonCireAcoustic />,
+  '/traprenovatie/open-trap': <TraprenovatieOpenTrap />,
+  '/traprenovatie/dichte-trap': <TraprenovatieDichteTrap />,
+  '/traprenovatie/verlichting': <TraprenovatieVerlichting />,
+  '/traprenovatie': <TraprenovatiesPage />,
+  '/parketrenovatie': <ParketrenovatieVGroefFrezenPage />,
+  '/over-ons': <OverOnsPage />,
+  '/algemene-voorwaarden': <AlgemeneVoorwaarden />,
+  '/offerte': <OffertePage />,
 };

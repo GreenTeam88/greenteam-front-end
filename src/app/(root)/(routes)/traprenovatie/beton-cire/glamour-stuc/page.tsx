@@ -114,7 +114,7 @@ const whatWaitingForConfig: InfoCardProps = {
   buttonLink: '/offerte',
 };
 
-export default function TraprenovatieGlamourStuc() {
+export default function TraprenovatieBetonCireGlamourStucPage() {
   return (
     <div className="flex flex-col   relative z-0 items-center w-full">
       <Hero imgSrc="/traprenovatie/hero.png" />
