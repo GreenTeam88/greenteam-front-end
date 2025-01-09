@@ -72,6 +72,7 @@ const stepComponents: { [key: string]: React.LazyExoticComponent<React.Component
 };
 
 const MultiStepForm: React.FC<MultiStepFormProps> = ({ category }) => {
+  const pathname = usePathname();
   const skipServices = ['Ben ik nog niet over uit', 'Ik wil graag advies'];
   const [currentCategory, setCurrentCategory] = useState<string>(category);
   const [formData, setFormData] = useState<FormData>({});
@@ -80,7 +81,6 @@ const MultiStepForm: React.FC<MultiStepFormProps> = ({ category }) => {
   const [optionalStep, setOptionalStep] = useState<string | null>(null);
   const [lastVisitedStep, setLastVisitedStep] = useState<number>(currentStepIndex);
   const steps = formData.customSteps && formData.customSteps.length > 0 ? formData.customSteps : ['StepOne'];
-  const pathname = usePathname();
   // If StepOne changes category
   useEffect(() => {
     if (formData.selectedCategory && formData.selectedCategory !== currentCategory) {
@@ -559,8 +559,10 @@ const MultiStepForm: React.FC<MultiStepFormProps> = ({ category }) => {
         const result = await response.json();
         console.log('Form submitted successfully:', result);
         alert('Form submitted successfully!');
-        // Redirect to /bedankt according to the current page in order to maintain the ui of the page
-        window.location.href = `/bedankt/${pathname.slice(1)}`;
+        // // Redirect to /bedankt
+        // window.location.href = '/bedankt';
+        // Redirect to bedankt with current path
+        window.location.href = `/bedankt?page=${pathname}`;
       } else {
         console.error('Failed to submit form:', response.statusText);
         alert('Error submitting form. Please try again.');
