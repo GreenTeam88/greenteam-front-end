@@ -1,5 +1,6 @@
 'use client';
 
+import { usePathname } from 'next/navigation';
 import React, { Suspense, useEffect, useState } from 'react';
 
 interface MultiStepFormProps {
@@ -69,6 +70,7 @@ const stepComponents: { [key: string]: React.LazyExoticComponent<React.Component
 };
 
 const MultiStepForm: React.FC<MultiStepFormProps> = ({ category }) => {
+  const pathname = usePathname();
   const skipServices = ['Ben ik nog niet over uit', 'Ik wil graag advies'];
   const [currentCategory, setCurrentCategory] = useState<string>(category);
   const [formData, setFormData] = useState<FormData>({});
@@ -556,8 +558,10 @@ const MultiStepForm: React.FC<MultiStepFormProps> = ({ category }) => {
         const result = await response.json();
         console.log('Form submitted successfully:', result);
         alert('Form submitted successfully!');
-        // Redirect to /bedankt
-        window.location.href = '/bedankt';
+        // // Redirect to /bedankt
+        // window.location.href = '/bedankt';
+        // Redirect to bedankt with current path
+        window.location.href = `/bedankt?page=${pathname}`;
       } else {
         console.error('Failed to submit form:', response.statusText);
         alert('Error submitting form. Please try again.');
