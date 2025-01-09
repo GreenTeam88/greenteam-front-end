@@ -112,13 +112,13 @@ const whatWaitingForConfig: InfoCardProps = {
   buttonLink: '/offerte',
 };
 
-export default function Home() {
+export default function VloerenLeggenHexagonEn3DPage() {
   return (
     <div className="flex flex-col   relative z-0 items-center w-full">
       <Hero imgSrc="/vloeren-leggen/hero.png" />
       <ListCard
         sectionName="Vloeren leggen"
-        pageName=" Hexagon en 3D"
+        pageName="Hexagon en 3D"
         listTitle="Herkenbaar?"
         listItems={['Verouderde uitstraling', 'Hardnekkige vlekken', 'Achterstallig onderhoud', 'Doffe plekken']}
         btnLink="/offerte"

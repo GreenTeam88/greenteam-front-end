@@ -109,7 +109,7 @@ const whatWaitingForConfig: InfoCardProps = {
   buttonLink: '/offerte',
 };
 
-export default function Home() {
+export default function TraprenovatieBetonCireMetalStuc() {
   return (
     <div className="flex flex-col   relative z-0 items-center w-full">
       <Hero imgSrc="/traprenovatie/hero.png" />

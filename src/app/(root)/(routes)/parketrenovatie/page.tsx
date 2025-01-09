@@ -11,7 +11,7 @@ import { Reparatie } from './_components/reparatie';
 import { ThirdSection } from './_components/thirdSection';
 import { VgroefFrezen } from './_components/vgroefFrezen';
 
-export default function Home() {
+export default function ParketrenovatieVGroefFrezenPage() {
   return (
     <div className="flex flex-col  relative z-0 items-center w-full">
       <Hero imgSrc="/Parketrenovatie/hero.png" />

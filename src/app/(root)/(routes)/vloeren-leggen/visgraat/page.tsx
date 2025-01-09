@@ -89,7 +89,7 @@ const whatWaitingForConfig: InfoCardProps = {
   buttonLink: '/offerte',
 };
 
-export default function Home() {
+export default function VloerenLeggenVisgraatPage() {
   return (
     <div className="flex flex-col   relative z-0 items-center w-full">
       <Hero imgSrc="/vloeren-leggen/hero.png" />

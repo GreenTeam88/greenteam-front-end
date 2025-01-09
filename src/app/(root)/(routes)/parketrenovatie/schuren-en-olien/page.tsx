@@ -99,7 +99,7 @@ const whatWaitingForConfig: InfoCardProps = {
   buttonText: 'Offerte aanvragen',
   buttonLink: '/offerte',
 };
-export default function Home() {
+export default function ParketrenovatieSchurenEnOlienPage() {
   return (
     <div className="flex flex-col  relative z-0 items-center w-full bg-bgColor">
       <Hero imgSrc="/Parketrenovatie/hero.png" />{' '}

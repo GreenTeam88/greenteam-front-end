@@ -119,7 +119,7 @@ const MultiStepForm: React.FC<MultiStepFormProps> = ({ category }) => {
       console.error('StepFive not found in steps array');
     }
   };
-
+  console.log('pathname', pathname);
   const goToPreviousStep = () => {
     if (optionalStep) {
       // Exit optional step and return to the last visited step
@@ -497,7 +497,7 @@ const MultiStepForm: React.FC<MultiStepFormProps> = ({ category }) => {
       Stofferen: StofferenFields,
       Traprenovatie: trapRenovatieFieldMapping,
     };
-
+    const pathname = usePathname();
     const { selectedCategory, selectedService } = finalData;
     let requiredFields: string[] = [];
 
@@ -559,8 +559,8 @@ const MultiStepForm: React.FC<MultiStepFormProps> = ({ category }) => {
         const result = await response.json();
         console.log('Form submitted successfully:', result);
         alert('Form submitted successfully!');
-        // Redirect to /bedankt
-        window.location.href = '/bedankt';
+        // Redirect to /bedankt according to the current page in order to maintain the ui of the page
+        window.location.href = `/bedankt/${pathname.slice(1)}`;
       } else {
         console.error('Failed to submit form:', response.statusText);
         alert('Error submitting form. Please try again.');
