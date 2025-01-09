@@ -11,6 +11,7 @@ import OverigPage from '@/app/(root)/(routes)/overig/page';
 import OverigTegelenPage from '@/app/(root)/(routes)/overig/tegelen/page';
 import OverigVloerverwijderenPage from '@/app/(root)/(routes)/overig/vloer-verwijderen/page';
 import OverigVloerverwarmingPage from '@/app/(root)/(routes)/overig/vloerverwarming/page';
+import Home from '@/app/(root)/(routes)/page';
 import ParketrenovatieAanhelenUitbreidenPage from '@/app/(root)/(routes)/parketrenovatie/aanhelen-uitbreiden/page';
 import ParketrenovatieDrevelenPage from '@/app/(root)/(routes)/parketrenovatie/drevelen/page';
 import ParketrenovatieVGroefFrezenPage from '@/app/(root)/(routes)/parketrenovatie/page';
@@ -65,8 +66,9 @@ type PagesMapType = {
 };
 
 export const pagesMap: PagesMapType = {
+  '/': <Home />,
   'algemene-voorwaarden': <AlgemeneVoorwaarden />,
-  contact: <ContactPage />,
+  '/contact': <ContactPage />,
   diensten: <DienstenPage />,
   offerte: <OffertePage />,
   'over-ons': <OverOnsPage />,
