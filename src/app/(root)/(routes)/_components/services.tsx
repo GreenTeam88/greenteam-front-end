@@ -45,7 +45,7 @@ export const services: ServiceInfo[] = [
     thumbnailSrc: '/home/overigeDiensten.png',
     description:
       'Bij Green Team hebben we een passie voor vloeren en duurzaamheid. Oorspronkelijk houtbewerkers, hebben wij ons ges',
-    link: '/overige-diensten',
+    link: '/overig',
   },
 ];
 
@@ -80,8 +80,8 @@ const AllServices = () => {
 
 export const ServicesSection = () => {
   return (
-    <div className="flex flex-col px-5 lg:px-0 items-center justify-center py-20 lg:py-52">
-      <div className="flex flex-col items-center gap-[55px]">
+    <div className="flex flex-col px-5 lg:px-0 items-center justify-center py-10 lg:py-28">
+      <div className="flex flex-col items-center gap-[20px] lg:gap-[55px]">
         <H2 className="text-primaryDefault">Onze diensten</H2>
         <AllServices />
       </div>
