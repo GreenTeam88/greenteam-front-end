@@ -10,6 +10,7 @@ import { PrimaryInput, PrimaryTextArea } from '@/components/theme/inputs';
 import { BodyText, BodyTextSemibold, H1, LinkTypography } from '@/components/theme/typography';
 import { appConfig } from '@/config';
 import { cn } from '@/lib/tailwind';
+import { contactFormErrors } from '../config';
 
 export const ContactInfo = () => {
   return (
@@ -142,14 +143,14 @@ const ContactForm = () => {
       <PrimaryInput
         error={errors.firstName?.message}
         {...register('firstName', {
-          required: 'First name is required',
+          required: contactFormErrors.firstNameRequired,
           minLength: {
             value: 2,
-            message: 'First name is too small',
+            message: contactFormErrors.firstNameSmall,
           },
           pattern: {
             value: /^[a-zA-Z\s]+$/,
-            message: 'First name cannot contain numbers or symbols',
+            message: contactFormErrors.firstNameSymbols,
           },
         })}
         labelText="Voornaam"
@@ -159,14 +160,14 @@ const ContactForm = () => {
       <PrimaryInput
         error={errors.lastName?.message}
         {...register('lastName', {
-          required: 'Last name is required',
+          required: contactFormErrors.lastNameRequired,
           minLength: {
             value: 2,
-            message: 'Last name is too small',
+            message: contactFormErrors.lastNameSmall,
           },
           pattern: {
             value: /^[a-zA-Z\s]+$/,
-            message: 'Last name cannot contain numbers or symbols',
+            message: contactFormErrors.lastNameSymbols,
           },
         })}
         labelText="Achternaam"
@@ -177,10 +178,10 @@ const ContactForm = () => {
         error={errors.email?.message}
         type="email"
         {...register('email', {
-          required: 'Email is required',
+          required: contactFormErrors.emailRequired,
           pattern: {
             value: /^[^\s@]+@[^\s@]+\.[^\s@]+$/,
-            message: 'Please enter a valid email address',
+            message: contactFormErrors.emailAddressNotValid,
           },
         })}
         labelText="E-mailadres"
@@ -191,10 +192,10 @@ const ContactForm = () => {
         error={errors.phone?.message}
         type="number"
         {...register('phone', {
-          required: 'Phone number is required',
+          required: contactFormErrors.phoneNumberRequired,
           pattern: {
             value: /^\+?[\d\s\-]{7,15}$/,
-            message: 'Please enter a valid phone number',
+            message: contactFormErrors.phoneNumberNotValid,
           },
         })}
         labelText="Telefoonnummer"
@@ -203,10 +204,10 @@ const ContactForm = () => {
 
       <PrimaryTextArea
         {...register('message', {
-          required: 'Message is required',
+          required: contactFormErrors.messageRequied,
           minLength: {
             value: 3,
-            message: 'Message is too short',
+            message: contactFormErrors.messageShort,
           },
         })}
         labelText="Opmerking"
