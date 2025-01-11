@@ -558,8 +558,6 @@ const MultiStepForm: React.FC<MultiStepFormProps> = ({ category }) => {
         console.log('Form submitted successfully:', result);
         alert('Form submitted successfully!');
         // // Redirect to /bedankt
-        // window.location.href = '/bedankt';
-        // Redirect to bedankt with current path
         window.location.href = `/bedankt?page=${pathname}`;
       } else {
         console.error('Failed to submit form:', response.statusText);
