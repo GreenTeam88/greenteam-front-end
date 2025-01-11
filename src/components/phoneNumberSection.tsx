@@ -7,7 +7,7 @@ export const PhoneNumberSection = () => {
     <div className="pb-6 lg:py-16 px-7 lg:px-0">
       <div className="flex flex-col lg:flex-row gap-[27px] p-5 items-center rounded-[10px] bg-lightGray border border-black20 border-opacity-20 ">
         <BodyTextSemibold className="text-center lg:text-start">
-          Liever teruggebeld worden? Laat je telefoonnummer achter.
+          Liever teruggebeld worden? Laat uw telefoonnummer achter.
         </BodyTextSemibold>
         <input
           className="bg-white border-black20 border-opacity-20 px-[20px] py-[12px] rounded-[8px]"
