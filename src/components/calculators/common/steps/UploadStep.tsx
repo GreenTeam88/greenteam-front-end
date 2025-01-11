@@ -58,7 +58,7 @@ const UploadStep: React.FC<UploadStepProps> = ({ onPrevious, formData, updateFor
   };
   return (
     <FormProvider {...form}>
-      <form onSubmit={handleSubmit} className="w-[386px] flex flex-col rounded-[4px] relative lg:px-0 z-10 shadow-lg">
+      <form className="w-[386px] flex flex-col rounded-[4px] relative lg:px-0 z-10 shadow-lg">
         <div className="bg-primaryDefault rounded-t-[8px] flex items-center justify-center text-white py-[22px] w-full">
           <div className="text-center">
             <HeadlineSemibold className="w-full">Snel uw prijs berekenen!</HeadlineSemibold>
@@ -81,7 +81,8 @@ const UploadStep: React.FC<UploadStepProps> = ({ onPrevious, formData, updateFor
           </div>
           <CreateButton
             className="bg-primaryDefault border border-transparent hover:bg-white hover:text-green-700 hover:border-green-700 transition-all duration-300 w-full mt-auto"
-            type="submit"
+            type="button"
+            onClick={handleSubmit}
           >
             Uploaden
           </CreateButton>
