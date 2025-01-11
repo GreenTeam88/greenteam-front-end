@@ -118,7 +118,7 @@ const StepThree: React.FC<StepProps> = ({ onPrevious, onNext, onUploadClick, for
 
   return (
     <FormProvider {...form}>
-      <form onSubmit={handleSubmit} className="w-[386px]  flex rounded-[4px] relative lg:px-0 z-10 flex-col">
+      <form className="w-[386px]  flex rounded-[4px] relative lg:px-0 z-10 flex-col">
         <div className="bg-primaryDefault rounded-t-[8px] flex items-center justify-center text-white py-[22px] w-full">
           <div className="text-center">
             <HeadlineSemibold className="w-full">Snel uw prijs berekenen!</HeadlineSemibold>
@@ -192,8 +192,9 @@ const StepThree: React.FC<StepProps> = ({ onPrevious, onNext, onUploadClick, for
 
             <CreateButton
               className={`w-full ${isButtonDisabled ? 'bg-gray-500' : 'bg-primaryDefault border'}`}
-              type="submit"
+              type="button"
               disabled={isButtonDisabled}
+              onClick={handleSubmit}
             >
               Volgende
             </CreateButton>
