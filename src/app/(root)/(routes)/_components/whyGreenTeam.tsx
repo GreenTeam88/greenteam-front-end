@@ -14,15 +14,16 @@ const tabs: Tab[] = [
     description: ' Van eenmanszaak naar landelijke specialist',
     iconSrc: '/home/starIcon.svg',
   },
-  {
-    title: 'Kwaliteit',
-    description: 'Wij geven om kwaliteitswerk',
-    iconSrc: '/home/trueIcon.svg',
-  },
+
   {
     title: 'Duurzaam',
     description: 'Renovatie is beter dan vervanging',
     iconSrc: '/home/heartIcon.svg',
+  },
+  {
+    title: 'Kwaliteit',
+    description: 'Wij geven om kwaliteitswerk',
+    iconSrc: '/home/trueIcon.svg',
   },
   {
     title: 'Op maat',
