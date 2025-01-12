@@ -119,7 +119,6 @@ const MultiStepForm: React.FC<MultiStepFormProps> = ({ category }) => {
       console.error('StepFive not found in steps array');
     }
   };
-  console.log('pathname', pathname);
   const goToPreviousStep = () => {
     if (optionalStep) {
       // Exit optional step and return to the last visited step
@@ -546,7 +545,7 @@ const MultiStepForm: React.FC<MultiStepFormProps> = ({ category }) => {
       event: 'form_submit',
       formData: customFormData, // Send the final form data to GTM
     });
-    console.log('GTM event triggered with form data:', customFormData);
+    // console.log('GTM event triggered with form data:', window.dataLayer);
 
     try {
       const response = await fetch(`${process.env.NEXT_PUBLIC_BACKEND_URL}/emails/calculator`, {
@@ -559,8 +558,6 @@ const MultiStepForm: React.FC<MultiStepFormProps> = ({ category }) => {
         console.log('Form submitted successfully:', result);
         alert('Form submitted successfully!');
         // // Redirect to /bedankt
-        // window.location.href = '/bedankt';
-        // Redirect to bedankt with current path
         window.location.href = `/bedankt?page=${pathname}`;
       } else {
         console.error('Failed to submit form:', response.statusText);

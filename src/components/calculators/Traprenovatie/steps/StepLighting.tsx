@@ -152,13 +152,7 @@ const StepLighting: React.FC<StepProps> = ({ onPrevious, onNext, onUploadClick, 
 
   return (
     <FormProvider {...form}>
-      <form
-        onSubmit={(e) => {
-          e.preventDefault();
-          handleSubmit(onSubmitForm)();
-        }}
-        className="w-[386px]  flex rounded-[4px] relative lg:px-0 z-10 flex-col"
-      >
+      <form className="w-[386px]  flex rounded-[4px] relative lg:px-0 z-10 flex-col">
         <div className="bg-primaryDefault rounded-t-[8px] flex items-center justify-center text-white py-[22px] w-full">
           <div className="text-center">
             <HeadlineSemibold className="w-full">Snel uw prijs berekenen!</HeadlineSemibold>
@@ -238,8 +232,9 @@ const StepLighting: React.FC<StepProps> = ({ onPrevious, onNext, onUploadClick, 
                   ? 'bg-gray-500'
                   : 'bg-primaryDefault border border-transparent hover:bg-white hover:text-green-700 hover:border-green-700 transition-all duration-300'
               }`}
-              type="submit"
+              type="button"
               disabled={isButtonDisabled}
+              onClick={handleSubmit(onSubmitForm)}
             >
               Volgende
             </CreateButton>

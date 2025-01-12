@@ -1,3 +1,5 @@
+'use client';
+
 import { cva } from 'class-variance-authority';
 import { CheckIcon, ChevronDown } from 'lucide-react';
 import Image from 'next/image';
@@ -9,6 +11,15 @@ import { Popover, PopoverContent, PopoverTrigger } from '@/components/ui/popover
 import { cn } from '@/lib/utils';
 
 import type { VariantProps } from 'class-variance-authority';
+
+// The shape of each item in the dropdown
+export interface SingleSelectOption {
+  label: string;
+  value: string;
+  icon?: React.ComponentType<{ className?: string }>;
+  imageUrl?: string;
+  disabled?: boolean; // <--- Per-item disabling
+}
 
 const singleSelectVariants = cva(
   'm-1 transition ease-in-out delay-150 hover:-translate-y-1 hover:scale-110 duration-300',
@@ -31,14 +42,9 @@ interface SingleSelectFormFieldProps
   extends React.ButtonHTMLAttributes<HTMLButtonElement>,
     VariantProps<typeof singleSelectVariants> {
   asChild?: boolean;
-  options: {
-    label: string;
-    value: string;
-    icon?: React.ComponentType<{ className?: string }>;
-    imageUrl?: string;
-  }[];
+  options: SingleSelectOption[];
   defaultValue?: string;
-  disabled?: boolean; // Add disabled prop
+  disabled?: boolean; // If true => entire dropdown is disabled
   placeholder: string;
   btnClassName?: string;
   menuClassName?: string;
@@ -58,7 +64,7 @@ const SingleSelectFormField = React.forwardRef<HTMLButtonElement, SingleSelectFo
       defaultValue,
       onValueChange,
       placeholder,
-      disabled = false, // Default disabled to false
+      disabled = false, // Default false
       ...props
     },
     ref
@@ -71,6 +77,7 @@ const SingleSelectFormField = React.forwardRef<HTMLButtonElement, SingleSelectFo
     }, [defaultValue]);
 
     const handleOptionSelect = (value: string) => {
+      // If entire select is disabled, do nothing
       if (disabled) return;
       setSelectedValue(value);
       onValueChange(value);
@@ -108,7 +115,7 @@ const SingleSelectFormField = React.forwardRef<HTMLButtonElement, SingleSelectFo
             )}
           </Button>
         </PopoverTrigger>
-        {!disabled && ( // Only render dropdown if not disabled
+        {!disabled && ( // If entire select is not disabled, show the popover
           <PopoverContent
             className={cn('z-10 absolute w-[200px] p-0 drop-shadow-sm', menuClassName)}
             align="start"
@@ -119,17 +126,22 @@ const SingleSelectFormField = React.forwardRef<HTMLButtonElement, SingleSelectFo
                 <CommandGroup>
                   {options.map((option) => {
                     const isSelected = selectedValue === option.value;
+                    const itemDisabled = option.disabled === true; // per-item disable
+
                     return (
                       <CommandItem
                         key={option.value}
-                        onSelect={() => handleOptionSelect(option.value)}
+                        onSelect={() => {
+                          if (!itemDisabled) {
+                            handleOptionSelect(option.value);
+                          }
+                        }}
                         style={{
-                          pointerEvents: 'auto',
-                          opacity: 1,
+                          pointerEvents: itemDisabled ? 'none' : 'auto',
+                          opacity: itemDisabled ? 0.5 : 1,
                         }}
                         className={cn(
-                          'cursor-pointer px-3 py-1.5',
-                          'hover:bg-green-50',
+                          'cursor-pointer px-3 py-1.5 hover:bg-green-50',
                           menuListItemsClassName,
                           isSelected ? 'bg-green-50 font-bold text-green-900' : ''
                         )}
@@ -139,7 +151,7 @@ const SingleSelectFormField = React.forwardRef<HTMLButtonElement, SingleSelectFo
                             <div
                               className={cn(
                                 'mr-2 rounded-[2px] !outline-transparent !ring-transparent flex h-4 w-4 items-center justify-center border border-green-100',
-                                isSelected ? 'bg-green-600 text-white rounded-s-sm' : 'opacity-50 [&_svg]:invisible'
+                                isSelected ? 'bg-green-600 text-white' : 'opacity-50 [&_svg]:invisible'
                               )}
                             >
                               <CheckIcon className={`h-4 w-4 ${isSelected ? 'text-white' : ''}`} />
