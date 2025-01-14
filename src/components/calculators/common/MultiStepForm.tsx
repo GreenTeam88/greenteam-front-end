@@ -1,8 +1,9 @@
 'use client';
 
-import { usePathname } from 'next/navigation';
+import { usePathname, useRouter, useSearchParams } from 'next/navigation';
 import React, { Suspense, useEffect, useState } from 'react';
 
+import { PrimaryBtn, PrimaryBtnLink } from '@/components/theme/buttons';
 import { BodyText } from '@/components/theme/typography';
 
 interface MultiStepFormProps {
@@ -78,6 +79,8 @@ const MultiStepForm: React.FC<MultiStepFormProps> = ({ category }) => {
   const [formData, setFormData] = useState<FormData>({});
   const [currentStepIndex, setCurrentStepIndex] = useState(0);
   const [history, setHistory] = useState<number[]>([]);
+  const searchParams = useSearchParams();
+  const router = useRouter();
   const [optionalStep, setOptionalStep] = useState<string | null>(null);
   const [lastVisitedStep, setLastVisitedStep] = useState<number>(currentStepIndex);
   const steps = formData.customSteps && formData.customSteps.length > 0 ? formData.customSteps : ['StepOne'];
@@ -583,10 +586,11 @@ const MultiStepForm: React.FC<MultiStepFormProps> = ({ category }) => {
           <h3 className="text-[22px] text-primaryDefault items-center font-semibold">Bedankt!</h3>
           <div className="flex flex-col gap-4 max-w-[248px] items-center">
             <BodyText className="text-center">
-              We hebben uw aanvraag ontvangen en nemen binnen 6 uur tijdens onze reguliere werktijden contact met u op!
+              We hebben uw aanvraag ontvangen en nemen binnen 6 uur tijdens onze reguliere werktijden contact met u op!{' '}
             </BodyText>
             <BodyText className="text-center">Met vriendelijke groet, GreenTeam</BodyText>
           </div>
+          <PrimaryBtnLink href={searchParams.get('page') || '/'}>Nieuwe prijs berekenen</PrimaryBtnLink>
         </div>
       </form>
     );
