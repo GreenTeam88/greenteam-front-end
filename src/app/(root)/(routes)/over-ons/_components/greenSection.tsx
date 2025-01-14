@@ -11,7 +11,7 @@ export const GreenSection = () => {
             20 jaar ervaring in trap en vloerrenovatie.
             <br />
             Van eenmanszaak naar
-            <span className="font-semibold">landelijke specialist. </span>{' '}
+            <span className="font-semibold"> landelijke specialist. </span>{' '}
           </h3>
           <BodyText className="text-white text-center lg:text-start max-w-full">
             Bij GreenTeam zetten we ons al 20 jaar lang dag in dag uit in om vloeren en trappen een tweede leven te
