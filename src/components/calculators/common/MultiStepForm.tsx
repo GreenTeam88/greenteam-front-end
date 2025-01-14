@@ -1,6 +1,6 @@
 'use client';
 
-import { usePathname, useRouter, useSearchParams } from 'next/navigation';
+import { usePathname, useSearchParams } from 'next/navigation';
 import React, { Suspense, useEffect, useState } from 'react';
 
 import { PrimaryBtnLink } from '@/components/theme/buttons';
