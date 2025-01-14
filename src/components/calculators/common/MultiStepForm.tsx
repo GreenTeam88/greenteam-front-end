@@ -3,7 +3,7 @@
 import { usePathname, useRouter, useSearchParams } from 'next/navigation';
 import React, { Suspense, useEffect, useState } from 'react';
 
-import { PrimaryBtn, PrimaryBtnLink } from '@/components/theme/buttons';
+import { PrimaryBtnLink } from '@/components/theme/buttons';
 import { BodyText } from '@/components/theme/typography';
 
 interface MultiStepFormProps {
@@ -80,7 +80,6 @@ const MultiStepForm: React.FC<MultiStepFormProps> = ({ category }) => {
   const [currentStepIndex, setCurrentStepIndex] = useState(0);
   const [history, setHistory] = useState<number[]>([]);
   const searchParams = useSearchParams();
-  const router = useRouter();
   const [optionalStep, setOptionalStep] = useState<string | null>(null);
   const [lastVisitedStep, setLastVisitedStep] = useState<number>(currentStepIndex);
   const steps = formData.customSteps && formData.customSteps.length > 0 ? formData.customSteps : ['StepOne'];

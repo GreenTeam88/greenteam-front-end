@@ -20,7 +20,7 @@ export const PhoneNumberSection = () => {
     reset,
     handleSubmit,
   } = useForm<{ phoneNumber: number }>();
-  const { mutate, data, isLoading } = useMutation({
+  const { mutate, isLoading } = useMutation({
     mutationFn: async ({ phoneNumber }: { phoneNumber: number }) => {
       const apiResponse = await axios.post(`${process.env.NEXT_PUBLIC_BACKEND_URL}/emails/phone`, {
         phone: phoneNumber,
