@@ -2,6 +2,7 @@ import Link from 'next/link';
 import { ButtonHTMLAttributes, HTMLAttributes } from 'react';
 
 import { cn } from '@/lib/tailwind';
+import { LoadingIcon } from '../icons/loading';
 
 export const PrimaryBtn: React.FC<ButtonHTMLAttributes<HTMLButtonElement> & { isLoading?: boolean }> = ({
   children,
@@ -144,14 +145,24 @@ export const SecondaryOutlinedBtn: React.FC<HTMLAttributes<HTMLButtonElement>> =
   );
 };
 
-export const SmallSecondaryOutlinedBtn: React.FC<HTMLAttributes<HTMLButtonElement>> = ({
+export const SmallSecondaryOutlinedBtn: React.FC<ButtonHTMLAttributes<HTMLButtonElement> & { isLoading?: boolean }> = ({
   children,
   className,
+  isLoading,
+  disabled,
   ...props
 }) => {
   return (
-    <button className={cn('smallSecondaryOutlinedBtn text-center  w-fit h-fit', className)} {...props}>
-      {children}{' '}
+    <button
+      className={cn(
+        ' text-secondaryDefault border flex gap-2 hover:bg-secondaryDefault hover:text-white border-secondaryDefault rounded-sm font-bold text-[11px] px-[15px] py-[9px] text-center  w-fit h-fit',
+        { 'text-opacity-80 cursor-not-allowed hover:text-secondaryDefault hover:bg-white': isLoading },
+        className
+      )}
+      disabled={disabled !== undefined ? disabled : isLoading}
+      {...props}
+    >
+      {children} {isLoading && <LoadingIcon />}
     </button>
   );
 };

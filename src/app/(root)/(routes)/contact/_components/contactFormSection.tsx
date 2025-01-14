@@ -133,7 +133,7 @@ const ContactForm = () => {
     >
       {/* the succuss message  */}
       <div className={cn('w-full  items-center justify-center py-2 hidden', { flex: isSuccess && !isError })}>
-        <BodyText className="text-green-500">Bedankt! Je bericht is verzonden! </BodyText>
+        <BodyText className="text-green-500">Bedankt Het terugbelverzoek is verzonden! </BodyText>
       </div>
       {/* the error message  */}
       <div className={cn('w-full  items-center justify-center py-2 hidden', { flex: isError })}>
