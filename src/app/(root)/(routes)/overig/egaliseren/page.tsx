@@ -101,7 +101,7 @@ const FAQs: FAQType[] = [
 ];
 
 const whatWaitingForConfig: InfoCardProps = {
-  title: 'Waar wacht je op!',
+  title: 'Waar wacht u nog op!',
   paragraphs: [
     <BodyText key="1">
       Droomt u al jaren van een nieuwe egale vloer?Bereken via de knop hieronder wat het kost en neem contact met ons op

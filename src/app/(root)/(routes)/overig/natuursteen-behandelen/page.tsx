@@ -79,7 +79,7 @@ const FAQs: FAQType[] = [
 ];
 
 const whatWaitingForConfig: InfoCardProps = {
-  title: 'Waar wacht je op!',
+  title: 'Waar wacht u nog op!',
   paragraphs: [
     <BodyText key="1">
       Droomt u al jaren van een perfect nieuw uitziende vloer? Bereken direct de kosten via de knop hieronder en plan
