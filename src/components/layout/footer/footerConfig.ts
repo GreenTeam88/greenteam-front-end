@@ -13,9 +13,9 @@ export const topFooterLinks: LinkInfo[] = [
   { name: 'Home', path: '/' },
   { name: 'Over ons', path: '/over-ons' },
   { name: 'Diensten', path: '/diensten' },
-  { name: 'Zakelijk', path: '/' },
-  { name: 'Veelgestelde vragen', path: '/' },
-  { name: 'Contact', path: '/' },
+  { name: 'Zakelijk', path: '/zakelijk' },
+  { name: 'Veelgestelde vragen', path: '/veelgestelde-vragen' },
+  { name: 'Contact', path: '/contact' },
 ];
 export const footerColumnsInfo: FooterColumnInfo[] = [
   {
