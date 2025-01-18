@@ -1,5 +1,6 @@
 import { Hero } from '@/components/hero';
 import { PhoneNumberSection } from '@/components/phoneNumberSection';
+import { TermsConditionPageQuestion } from '../algemene-voorwaarden/_components/question';
 import { AllFAQsUI } from './_components/FAQs';
 import { ProblemSolvedQuestion } from './_components/problemSolvedQuestion';
 
@@ -9,7 +10,8 @@ export default function Home() {
       <Hero />
       <AllFAQsUI />
       <PhoneNumberSection />
-      <ProblemSolvedQuestion />
+      <TermsConditionPageQuestion />
+      {/* <ProblemSolvedQuestion /> */}
     </div>
   );
 }
