@@ -187,7 +187,7 @@ const StepTwo: React.FC<StepProps> = ({ onPrevious, onNext, formData, updateForm
               <SingleSelectDropdown
                 data={OpenStairsStepsCountOption}
                 name="selectedOpenStairSteps"
-                label="Aantal treden in de open trap(pen)"
+                label="Aantal totale treden in de open trap(pen)"
                 placeholder="Maak een keuze"
               />
               {errors.selectedOpenStairSteps && (

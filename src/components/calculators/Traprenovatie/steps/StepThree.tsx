@@ -184,7 +184,7 @@ const StepThree: React.FC<StepProps> = ({ onPrevious, onNext, formData, updateFo
               <SingleSelectDropdown
                 data={CloseStairsStepsCountOption}
                 name="selectedCloseStairSteps"
-                label="Aantal treden in de dichte trap(pen)"
+                label="Aantal totale treden in de dichte trap(pen)"
                 placeholder="Maak een keuze"
                 disabled={selectedCloseStairs === '0 (geen dichte trappen)'}
               />
