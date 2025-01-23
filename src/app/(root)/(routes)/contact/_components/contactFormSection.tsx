@@ -160,7 +160,7 @@ const ContactForm = () => {
       <PrimaryInput
         error={errors.lastName?.message}
         {...register('lastName', {
-          required: contactFormErrors.lastNameRequired,
+          required: false,
           minLength: {
             value: 2,
             message: contactFormErrors.lastNameSmall,
