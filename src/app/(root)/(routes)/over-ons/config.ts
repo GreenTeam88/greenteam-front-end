@@ -7,32 +7,32 @@ export type SpecialistInfo = {
 export const specialists: SpecialistInfo[] = [
   {
     name: 'Moustafa',
-    role: 'Egalisatie specialist',
+    role: 'Stoffeerder',
     imgSrc: '/team/Moustafa.png',
   },
   {
     name: 'Wesley',
-    role: 'Parketspecialist',
+    role: 'Stoffeerder',
     imgSrc: '/team/Wesley.png',
   },
   {
     name: 'Max',
-    role: 'Tapijtspecialist',
+    role: 'Parketteur',
     imgSrc: '/team/Max.png',
   },
   {
     name: 'Arie',
-    role: 'Vloeren + Linoleum',
+    role: 'Parketteur',
     imgSrc: '/team/Arie.png',
   },
   {
     name: 'Saber',
-    role: 'Parketspecialist',
+    role: 'Verwarmingsmonteur',
     imgSrc: '/team/Saber.png',
   },
   {
     name: 'Vincent',
-    role: 'Parketspecialist',
+    role: 'Traprenoveerder',
     imgSrc: '/team/Vincent.png',
   },
 ];
