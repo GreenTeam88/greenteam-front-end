@@ -1,4 +1,4 @@
-import { Link } from 'lucide-react';
+import Link from 'next/link';
 
 import { FAQType, WhiteBgFAQSection } from '@/components/FAQSection';
 
@@ -41,7 +41,6 @@ const FAQs: FAQType[] = [
         <Link href="/algemene-voorwaarden" className="hover:text-primaryDefault">
           algemene voorwaarden
         </Link>
-        .
       </>
     ),
   },
