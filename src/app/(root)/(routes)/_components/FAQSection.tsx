@@ -81,8 +81,8 @@ const ParagraphSection = () => {
       <div className="flex flex-col gap-[11px]">
         <H2 className="text-primaryDefault ">Veelgestelde vragen</H2>
         <p>
-          Heb je vragen? Wij hebben de antwoorden! Staat je vraag er niet tussen? Neem dan even contact met ons op en we
-          helpen je graag verder.
+          Heeft u vragen? Wij hebben de antwoorden! Staat uw vraag er niet tussen? Neem dan even contact met ons op en
+          we helpen u graag verder.
         </p>
       </div>
       <div className="flex gap-[22px]">
