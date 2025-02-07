@@ -69,8 +69,7 @@ const ParagraphSection = () => {
     <div className="flex flex-col  gap-[44px]">
       <div className="flex flex-col lg:w-[585px] gap-[11px]">
         <H2 className="text-primaryDefault">
-          Daarom kies jij
-          <br />
+          Daarom kiest u <br />
           voor GreenTeam
         </H2>
         <div className="flex flex-col gap-5">

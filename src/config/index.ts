@@ -19,6 +19,7 @@ export const appConfig = {
   email: 'info@greenteam.nl',
   phoneNumber: '085 401 93 45',
   openingTimes,
+  googleTagManagerId: 'GTM-TXKVLDJ',
   instagramAccount: 'https://www.instagram.com/greenteam.nl',
   tiktokAccount: 'https://www.tiktok.com/@greenteam.nl',
 };

@@ -44,7 +44,7 @@ export const PhoneNumberSection = () => {
         className="flex flex-col lg:flex-row gap-[27px] p-5 items-center rounded-[10px] bg-lightGray border border-black20 border-opacity-20 "
       >
         <BodyTextSemibold className="text-center lg:text-start">
-          Liever teruggebeld worden? Laat uw telefoonnummer achter.
+          Liever teruggebeld worden? Laat uw telefoonnummer achter.{' '}
         </BodyTextSemibold>
         <div className="flex flex-col gap-1">
           {errors.phoneNumber && <p className="text-sm text-red-500">{errors.phoneNumber.message}</p>}

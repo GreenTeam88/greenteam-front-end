@@ -91,7 +91,7 @@ export const footerColumnsInfo: FooterColumnInfo[] = [
     links: [
       { name: 'Parket', path: '/overig/vloer-verwijderen' },
       { name: 'PVC', path: '/overig/vloer-verwijderen' },
-      { name: 'Hout', path: '/vloer-verwijderen/hout' },
+      { name: 'Hout', path: '/vloer-verwijderen/vloer-verwijderen' },
       { name: 'Linoleum', path: '/overig/vloer-verwijderen' },
       { name: 'Kurk', path: '/overig/vloer-verwijderen' },
       { name: 'Tegels', path: '/overig/vloer-verwijderen' },
