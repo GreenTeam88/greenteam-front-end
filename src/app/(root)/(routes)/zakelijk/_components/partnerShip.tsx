@@ -5,7 +5,7 @@ export const PartnerShipSection = () => {
     <OrangeInfoCard
       contentContainerClassName="max-w-[392px]"
       className="lg:flex-row-reverse"
-      title="Green Team als dé groene zakenpartner voor jouw bedrijf"
+      title="Green Team als dé groene zakenpartner voor uw bedrijf"
       buttonText="Offerte aanvragen"
       buttonLink="/offerte"
       imgSrc="/zakelijk/partnership.png"

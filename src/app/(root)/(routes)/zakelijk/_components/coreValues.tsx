@@ -9,12 +9,12 @@ const coreValuesInfo: CoreValueCardProps[] = [
   {
     title: 'Betrouwbaar en redelijk',
     paragraph:
-      'Je kunt van ons altijd een duidelijke, betrouwbare en redelijke offerte en opdrachtbeschrijving verwachten. Zodat de opdrachtbeschrijving duidelijk is voor beide partijen, zonder onverwachte kosten achteraf.',
+      'U kunt van ons altijd een duidelijke, betrouwbare en redelijke offerte en opdrachtbeschrijving verwachten. Zodat de opdrachtbeschrijving duidelijk is voor beide partijen, zonder onverwachte kosten achteraf.',
   },
   {
     title: 'Klantgericht',
     paragraph:
-      'Wij vinden duidelijkheid en transparantie tijdens het proces erg belangrijk. Daarom krijgt elke klant van ons een duidelijke planning voordat gestart wordt met de werkzaamheden. Zo weet je precies wanneer we aan het werk zijn en hoe lang de werkzaamheden zullen duren. Na afloop bespreken we de uitgevoerde werkzaamheden met bijbehorend advies voor de toekomst en eventueel onderhoud.',
+      'Wij vinden duidelijkheid en transparantie tijdens het proces erg belangrijk. Daarom krijgt elke klant van ons een duidelijke planning voordat gestart wordt met de werkzaamheden. Zo weet u precies wanneer we aan het werk zijn en hoe lang de werkzaamheden zullen duren. Na afloop bespreken we de uitgevoerde werkzaamheden met bijbehorend advies voor de toekomst en eventueel onderhoud.',
   },
   {
     title: 'Duurzaam',

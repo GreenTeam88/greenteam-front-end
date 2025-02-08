@@ -18,23 +18,23 @@ const config: InfoCardProps = {
   ],
   paragraphs: [
     <>
-      Bij GreenTeam bieden we een breed scala aan diensten die de functionaliteit en uitstraling van je interieur
+      Bij GreenTeam bieden we een breed scala aan diensten die de functionaliteit en uitstraling van uw interieur
       verbeteren. Of het nu gaat om het installeren van vloerverwarming voor een comfortabele en efficiënte verwarming,
-      of het egaliseren van je vloer voor een perfecte basis, wij zorgen altijd voor een hoogwaardige afwerking.
+      of het egaliseren van uw vloer voor een perfecte basis, wij zorgen altijd voor een hoogwaardige afwerking.
     </>,
     <>
-      <span className="text-secondaryDefault font-bold">
+      <span className="text-secondaryDefault">
         {' '}
         Daarnaast zijn wij gespecialiseerd in gietvloeren, die een moderne, naadloze uitstraling geven aan elke ruimte.
       </span>{' '}
-      Of je nu kiest voor een strakke designvloer of een vloer die gemakkelijk te onderhouden is, wij bieden de beste
-      oplossingen voor jouw interieur. Ook het behandelen van natuursteen behoort tot onze expertise, zodat jouw stenen
+      Of u nu kiest voor een strakke designvloer of een vloer die gemakkelijk te onderhouden is, wij bieden de beste
+      oplossingen voor uw interieur. Ook het behandelen van natuursteen behoort tot onze expertise, zodat uw stenen
       vloeren en oppervlakken langdurig mooi blijven en optimaal beschermd zijn.
     </>,
     <>
-      Tot slot bieden wij veilige opslagoplossingen voor je spullen, zodat je zonder zorgen kunt verbouwen of
-      vernieuwen. Met onze jarenlange ervaring en vakmanschap zorgen wij voor het beste resultaat, zodat jouw woning
-      zowel functioneel als stijlvol is.{' '}
+      Tot slot bieden wij veilige opslagoplossingen voor uw spullen, zodat u zonder zorgen kunt verbouwen of vernieuwen.
+      Met onze jarenlange ervaring en vakmanschap zorgen wij voor het beste resultaat, zodat uw woning zowel functioneel
+      als stijlvol is.
     </>,
   ],
 };

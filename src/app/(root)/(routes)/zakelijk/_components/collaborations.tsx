@@ -2,7 +2,7 @@ import { InfoCardProps, OrangeInfoCard } from '../../diensten/_components/cards'
 
 const config: InfoCardProps = {
   mainTitle: 'Samenwerkingen',
-  title: 'De vakmensen van GreenTeam denken graag mee met al je vragen. ',
+  title: 'De vakmensen van GreenTeam denken graag mee met al uw vragen.  ',
   imgSrc: '/zakelijk/construction-team-working-blueprint-new-project.png',
   buttonText: 'Offerte aanvragen',
   imgClassName: 'max-w-[598px]',
@@ -14,7 +14,7 @@ const config: InfoCardProps = {
       </span>
     </>,
     <>
-      De vakmensen van GreenTeam denken graag mee met al je vragen. We werken al vele jaren samen met verschillende
+      De vakmensen van GreenTeam denken graag mee met al uw vragen. We werken al vele jaren samen met verschillende
       partijen voor wat we niet zelf kunnen doen. Zo geldt het ook omgekeerd. Dat is waarom ons brede netwerk bestaat
       uit partners als: architecten, aannemers, vastgoedontwikkelaars en woningbeheerders.
     </>,
