@@ -18,7 +18,7 @@ export const ContactInfo = () => {
       <div className="flex flex-col ">
         <H1 className="text-primaryDefault">Wij staan voor u klaar </H1>
         <BodyText className="max-w-[383px]">
-          Heb je vragen of wil je meer informatie? Neem gerust contact met ons op, we helpen je graag verder!
+          Heeft u vragen of wilt u meer informatie? Neem gerust contact met ons op, we helpen u graag verder!{' '}
         </BodyText>
       </div>
       <div className="flex flex-col gap-[40px]">
@@ -85,7 +85,7 @@ const TopSection = () => {
   return (
     <div className="flex w-full gap-[11px] flex-col lg:flex-row items-center justify-center">
       <BodyText className="text-center lg:text-start">
-        Misschien is je vraag al beantwoord in onze veelgestelde vragen.
+        Misschien is uw vraag al beantwoord in onze veelgestelde vragen.
       </BodyText>
       <SecondaryOutlinedBtnLink href="/veelgestelde-vragen">Veelgestelde vragen</SecondaryOutlinedBtnLink>
     </div>
