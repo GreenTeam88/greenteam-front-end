@@ -12,7 +12,7 @@ const OurVisionCard = () => {
           <span className="text-secondaryDefault font-bold"> overtreffen van verwachtingen.</span>
         </p>
         <p className="text-[13px]">
-          Wij geven om mensen en het milieu, en blijven continu innoveren. Belangrijkste is dat je op Green Team kunt
+          Wij geven om mensen en het milieu, en blijven continu innoveren. Belangrijkste is dat u op Green Team kunt
           vertrouwen; een afspraak is afspraak.
         </p>
       </div>
