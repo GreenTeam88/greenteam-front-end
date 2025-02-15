@@ -94,8 +94,8 @@ const StepFour: React.FC<StepProps> = ({ onPrevious, onNext, formData, updateFor
 
   const closeStairsServices = [
     {
-      value: 'Overzettreden',
-      label: 'Overzettreden',
+      value: 'Doorlopend',
+      label: 'Doorlopend',
       imageUrl: '/images/parketrenovatieSvgs/MetProfile__Overzettreden/Overzettreden.svg',
     },
     {
