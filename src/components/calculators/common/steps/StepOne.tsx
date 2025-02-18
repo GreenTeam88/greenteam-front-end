@@ -183,6 +183,7 @@ const StepOne: React.FC<StepOneProps> = ({ onNext, onSkip, formData, updateFormD
               name="selectedCategory"
               label="Categorie"
               placeholder="Kies er een"
+              alertLabelText="*"
             />
           </div>
 

@@ -28,6 +28,7 @@ const stepComponents: { [key: string]: React.LazyExoticComponent<React.Component
   parketRenovatieStepTwo: React.lazy(() => import('../parketRenovatie/steps/StepTwo')),
   parketRenovatieStepThreePart1: React.lazy(() => import('../parketRenovatie/steps/StepThreePart1')),
   parketRenovatieStepThreePart2: React.lazy(() => import('../parketRenovatie/steps/StepThreePart2')),
+  parketRenovatieStepThreePart3: React.lazy(() => import('../parketRenovatie/steps/StepThreePart3')),
   parketRenovatieStepFour: React.lazy(() => import('../parketRenovatie/steps/StepFour')),
 
   StepFive: React.lazy(() => import('./steps/StepFive')),
@@ -70,6 +71,12 @@ const stepComponents: { [key: string]: React.LazyExoticComponent<React.Component
   //BetonCire
   trapRenovatieStepFourBetonCire: React.lazy(() => import('../Traprenovatie/steps/BetonCire/StepFour')),
   trapRenovatieStepFiveBetonCire: React.lazy(() => import('../Traprenovatie/steps/BetonCire/StepFive')),
+
+  //Traploper
+  trapRenovatieStepTwoTraploper: React.lazy(() => import('../Traprenovatie/steps/Traploper/StepTwo')),
+  trapRenovatieStepThreeTraploper: React.lazy(() => import('../Traprenovatie/steps/Traploper/StepThree')),
+  trapRenovatieStepFourTraploper: React.lazy(() => import('../Traprenovatie/steps/Traploper/StepFour')),
+  trapRenovatieStepFiveTraploper: React.lazy(() => import('../Traprenovatie/steps/Traploper/StepFive')),
 };
 
 const MultiStepForm: React.FC<MultiStepFormProps> = ({ category }) => {
@@ -166,7 +173,7 @@ const MultiStepForm: React.FC<MultiStepFormProps> = ({ category }) => {
   };
 
   const handleFinalSubmit = async (finalData: any) => {
-    // console.log('Final Form Data:', finalData);
+    console.log('Final Form Data:', finalData);
 
     if (!finalData.isFinalSubmission) {
       console.error('Submission blocked: isFinalSubmission flag is missing or false.');
@@ -202,7 +209,11 @@ const MultiStepForm: React.FC<MultiStepFormProps> = ({ category }) => {
       'numberOfSteps',
       'numberOfBumps',
       'tableArea',
+      'selectedSurfaces2',
       'windowsSillsMeters',
+      'convectorSchurenCount',
+      'achterConvectorCount',
+      'witteVloerArea',
       'planksMeters',
       'newBaseboardsNeeded',
       'numberOfMetersBaseboard',
@@ -392,6 +403,33 @@ const MultiStepForm: React.FC<MultiStepFormProps> = ({ category }) => {
         'comment',
         'files',
       ],
+      'Bekleden met traploper': [
+        'selectedCategory',
+        'selectedService',
+        'selectedCloseStairs',
+        'selectedCloseStairSteps',
+        'TrapType',
+        'TrapLong',
+        'TapijtType',
+        'AfwerkingType',
+        'ondertapijt',
+        'loperFormaat',
+        'overloopSelection',
+        'entreeSelection',
+        'currentUpholstery',
+        'DemontageTapijt',
+        'desiredTimeframe',
+        'nextStep',
+        'lastName',
+        'Email',
+        'PhoneNumber',
+        'Postcode',
+        'city',
+        'streetAndHouseNumber',
+        'totalCost',
+        'comment',
+        'files',
+      ],
       'Bekleden met linoleum': [
         'selectedCategory',
         'selectedService',
@@ -535,12 +573,6 @@ const MultiStepForm: React.FC<MultiStepFormProps> = ({ category }) => {
       }
     });
 
-    // Log customFormData for verification
-    // console.log('Custom FormData before sending:');
-    // customFormData.forEach((value, key) => {
-    //   console.log(`${key}:`, value);
-    // });
-
     // Trigger GTM event
     window.dataLayer = window.dataLayer || [];
     window.dataLayer.push({
@@ -549,26 +581,26 @@ const MultiStepForm: React.FC<MultiStepFormProps> = ({ category }) => {
     });
     // console.log('GTM event triggered with form data:', window.dataLayer);
 
-    try {
-      const response = await fetch(`${process.env.NEXT_PUBLIC_BACKEND_URL}/emails/calculator`, {
-        method: 'POST',
-        body: customFormData,
-      });
-      console.log('response', response);
-      if (response.ok) {
-        const result = await response.json();
-        console.log('Form submitted successfully:', result);
-        alert('Form submitted successfully!');
-        // // Redirect to /bedankt
-        window.location.href = `/bedankt?page=${pathname}`;
-      } else {
-        console.error('Failed to submit form:', response.statusText);
-        alert('Error submitting form. Please try again.');
-      }
-    } catch (error) {
-      console.error('Network error:', error);
-      alert('A network error occurred. Please check your connection and try again.');
-    }
+    // try {
+    //   const response = await fetch(`${process.env.NEXT_PUBLIC_BACKEND_URL}/emails/calculator`, {
+    //     method: 'POST',
+    //     body: customFormData,
+    //   });
+    //   console.log('response', response);
+    //   if (response.ok) {
+    //     const result = await response.json();
+    //     console.log('Form submitted successfully:', result);
+    //     alert('Form submitted successfully!');
+    //     // // Redirect to /bedankt
+    //     window.location.href = `/bedankt?page=${pathname}`;
+    //   } else {
+    //     console.error('Failed to submit form:', response.statusText);
+    //     alert('Error submitting form. Please try again.');
+    //   }
+    // } catch (error) {
+    //   console.error('Network error:', error);
+    //   alert('A network error occurred. Please check your connection and try again.');
+    // }
   };
 
   const stepName = optionalStep || steps[currentStepIndex];

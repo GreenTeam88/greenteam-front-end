@@ -19,6 +19,7 @@ export const servicesConfig: Record<string, Record<string, number | null>> = {
     'Bekleden met laminaat': null,
     'Bekleden met hout': null,
     'Bekleden met tapijt': null,
+    'Bekleden met traploper': null,
     'Bekleden met linoleum': null,
     'Schuren en behandelen': null,
     'Schuren en schilderen': null,
@@ -110,6 +111,11 @@ type TraprenovatieConfigType = {
       closedStairs?: {
         Overzettrede?: number;
         'Met profiel'?: number;
+        JobaTapijt?: number;
+        Sisal?: number;
+        Wol?: number;
+        Tapijt?: number;
+        Synthetisch?: number;
       };
       additionalOptions?: {
         stootborden?: number;
@@ -120,10 +126,17 @@ type TraprenovatieConfigType = {
         ondertapijt?: number;
         demontage?: number;
         ookDeZijkanten?: number;
+        Gefestonneerd?: number; // No extra per step
+        EnkelGebandeerd?: number;
+        DubbelGebandeerd?: number;
       };
       extraServices?: {
         overloop?: number;
         entree?: number;
+        ExtraWidth80cm?: number;
+        ExtraWidth90cm?: number;
+        ExtraWidth100cm?: number;
+        ExtraWidth70cm?: number;
       };
     };
     applicableSteps: string[];
@@ -250,6 +263,40 @@ export const trapRenovatieConfig: TraprenovatieConfigType = {
       'trapRenovatieSteapDemontreTapijit',
     ],
   },
+  'Bekleden met traploper': {
+    pricing: {
+      closedStairs: {
+        JobaTapijt: 115.0,
+        Sisal: 110.0,
+        Wol: 160.0,
+        Tapijt: 110.0,
+        Synthetisch: 110.0,
+      },
+      additionalOptions: {
+        Gefestonneerd: 0.0, // No extra per step
+        EnkelGebandeerd: 10.0,
+        DubbelGebandeerd: 15.0,
+        ondertapijt: 10.0,
+      },
+      extraServices: {
+        ExtraWidth70cm: 0.0,
+        ExtraWidth80cm: 25.0,
+        ExtraWidth90cm: 35.0,
+        ExtraWidth100cm: 45.0,
+        overloop: 130.0,
+        entree: 130.0,
+      },
+    },
+    applicableSteps: [
+      'trapRenovatieStepTwoTraploper',
+      'trapRenovatieStepThreeTraploper',
+      'trapRenovatieStepFourTraploper',
+      'trapRenovatieStepFiveTraploper',
+      'trapRenovatieStepOverlopen',
+      'trapRenovatieSteapDemontreTapijit',
+    ],
+  },
+
   'Bekleden met linoleum': {
     pricing: {
       openStairs: {

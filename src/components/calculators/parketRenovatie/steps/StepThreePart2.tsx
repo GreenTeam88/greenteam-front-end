@@ -48,25 +48,9 @@ const UNIT_PRICES: Record<string, number> = {
   Vensterbanken: 45,
   'Planken/Plateaus': 45,
   'Salontafels/Eettafels': 50,
-  'Bovenkant convectorput schuren': 50,
-  'Achter convectorput schuren': 50,
-  'Schuren witte vloer (tijd + materiaal)': 250,
 };
 
 const StepThreePart2: React.FC<StepProps> = ({ onPrevious, onNext, formData, updateFormData }) => {
-  // const surfaceTypes = [
-  //   'Nee',
-  //   'Traptredes',
-  //   'Opstapjes',
-  //   'Drempels',
-  //   'Dorpels',
-  //   'Vensterbanken',
-  //   'Planken/Plateaus',
-  //   'Salontafels/Eettafels',
-  //   'Bovenkant convectorput schuren',
-  //   'Achter convectorput schuren',
-  //   'Schuren witte vloer (tijd + materiaal)',
-  // ];
   const surfaceTypes = [
     { value: 'Nee', label: 'Nee', imageUrl: '/images/lage-plinten.svg' },
     { value: 'Traptredes', label: 'Traptredes', imageUrl: '/images/lage-plinten.svg' },
@@ -76,38 +60,11 @@ const StepThreePart2: React.FC<StepProps> = ({ onPrevious, onNext, formData, upd
     { value: 'Vensterbanken', label: 'Vensterbanken', imageUrl: '/images/lage-plinten.svg' },
     { value: 'Planken/Plateaus', label: 'Planken/Plateaus', imageUrl: '/images/lage-plinten.svg' },
     { value: 'Salontafels/Eettafels', label: 'Salontafels/Eettafels', imageUrl: '/images/lage-plinten.svg' },
-    {
-      value: 'Bovenkant convectorput schuren',
-      label: 'Bovenkant convectorput schuren',
-      imageUrl: '/images/lage-plinten.svg',
-    },
-    {
-      value: 'Achter convectorput schuren',
-      label: 'Achter convectorput schuren',
-      imageUrl: '/images/lage-plinten.svg',
-    },
-    {
-      value: 'Schuren witte vloer (tijd + materiaal)',
-      label: 'Schuren witte vloer (tijd + matériau)',
-      imageUrl: '/images/lage-plinten.svg',
-    },
   ];
 
   const numberOptions = ['1', '2', '3', '4', '5', '6', '7', '8', '9', '10+'];
   const surfaces: Option[] = numberOptions.map((surface) => ({ value: surface, label: surface }));
-  // const surfaceTypeOptions: Option[] = surfaceTypes.map((surface) => ({
-  //   value: surface,
-  //   label:
-  //     surface === 'Nee'
-  //       ? surface
-  //       : `${surface} - €${UNIT_PRICES[surface]}${
-  //           surface === 'Salontafels/Eettafels'
-  //             ? ' per m²'
-  //             : surface === 'Vensterbanken' || surface === 'Planken/Plateaus'
-  //               ? ' per m'
-  //               : ''
-  //         }`,
-  // }));
+
   const surfaceTypeOptions: Option[] = surfaceTypes.map((surface) => ({
     value: surface.value,
     label:
