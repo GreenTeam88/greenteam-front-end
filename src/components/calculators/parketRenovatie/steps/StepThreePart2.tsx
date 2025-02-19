@@ -52,14 +52,26 @@ const UNIT_PRICES: Record<string, number> = {
 
 const StepThreePart2: React.FC<StepProps> = ({ onPrevious, onNext, formData, updateFormData }) => {
   const surfaceTypes = [
-    { value: 'Nee', label: 'Nee', imageUrl: '/images/lage-plinten.svg' },
-    { value: 'Traptredes', label: 'Traptredes', imageUrl: '/images/lage-plinten.svg' },
-    { value: 'Opstapjes', label: 'Opstapjes', imageUrl: '/images/lage-plinten.svg' },
-    { value: 'Drempels', label: 'Drempels', imageUrl: '/images/lage-plinten.svg' },
-    { value: 'Dorpels', label: 'Dorpels', imageUrl: '/images/lage-plinten.svg' },
-    { value: 'Vensterbanken', label: 'Vensterbanken', imageUrl: '/images/lage-plinten.svg' },
-    { value: 'Planken/Plateaus', label: 'Planken/Plateaus', imageUrl: '/images/lage-plinten.svg' },
-    { value: 'Salontafels/Eettafels', label: 'Salontafels/Eettafels', imageUrl: '/images/lage-plinten.svg' },
+    { value: 'Nee', label: 'Nee' },
+    { value: 'Traptredes', label: 'Traptredes', imageUrl: '/images/parketrenovatieSepThee/part2/Traptredes.webp' },
+    { value: 'Opstapjes', label: 'Opstapjes', imageUrl: '/images/parketrenovatieSepThee/part2/Opstapjes.webp' },
+    { value: 'Drempels', label: 'Drempels', imageUrl: '/images/parketrenovatieSepThee/part2/Drempels.webp' },
+    { value: 'Dorpels', label: 'Dorpels', imageUrl: '/images/parketrenovatieSepThee/part2/Dorpels.webp' },
+    {
+      value: 'Vensterbanken',
+      label: 'Vensterbanken',
+      imageUrl: '/images/parketrenovatieSepThee/part2/Vensterbanken.webp',
+    },
+    {
+      value: 'Planken/Plateaus',
+      label: 'Planken/Plateaus',
+      imageUrl: '/images/parketrenovatieSepThee/part2/Planken - Plateaus.webp',
+    },
+    {
+      value: 'Salontafels/Eettafels',
+      label: 'Salontafels/Eettafels',
+      imageUrl: '/images/parketrenovatieSepThee/part2/Salontafels - Eettafels.webp',
+    },
   ];
 
   const numberOptions = ['1', '2', '3', '4', '5', '6', '7', '8', '9', '10+'];

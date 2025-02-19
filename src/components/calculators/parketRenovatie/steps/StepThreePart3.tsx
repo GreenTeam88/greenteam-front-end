@@ -17,6 +17,11 @@ interface StepProps {
   formData: {
     stepCosts: { [key: string]: number };
     totalCost: number;
+    selectedSurfaces2?: string[];
+    witteVloerArea?: number;
+    convectorSchurenCount?: number;
+    achterConvectorCount?: number;
+    radiatorSchurenCount?: number;
     [key: string]: any;
   };
   updateFormData: (data: any) => void;
@@ -28,6 +33,7 @@ const schema = z.object({});
 const UNIT_PRICES: Record<string, number> = {
   'Bovenkant convectorput schuren': 50,
   'Achter convectorput schuren': 50,
+  'Onderkant en achter radiator schuren': 50,
   'Schuren witte vloer (tijd + materiaal)': 250,
 };
 
@@ -36,18 +42,23 @@ const surfaceTypes: Option[] = [
   { value: 'Nee', label: 'Nee', imageUrl: '/images/lage-plinten.svg' },
   {
     value: 'Bovenkant convectorput schuren',
-    label: 'Bovenkant convectorput schuren',
-    imageUrl: '/images/lage-plinten.svg',
+    label: `Bovenkant convectorput schuren - €${UNIT_PRICES['Bovenkant convectorput schuren']}`,
+    imageUrl: '/images/parketrenovatieSepThee/part3/Bovenkant convectorput schuren.webp',
   },
   {
     value: 'Achter convectorput schuren',
-    label: 'Achter convectorput schuren',
-    imageUrl: '/images/lage-plinten.svg',
+    label: `Achter convectorput schuren - €${UNIT_PRICES['Achter convectorput schuren']}`,
+    imageUrl: '/images/parketrenovatieSepThee/part3/Achter convectorput schuren.webp',
+  },
+  {
+    value: 'Onderkant en achter radiator schuren',
+    label: `Onderkant en achter radiator schuren - €${UNIT_PRICES['Onderkant en achter radiator schuren']}`,
+    imageUrl: '/images/parketrenovatieSepThee/part3/Onderkant en achter radiator schuren.webp',
   },
   {
     value: 'Schuren witte vloer (tijd + materiaal)',
-    label: 'Schuren witte vloer (tijd + materiaal)',
-    imageUrl: '/images/lage-plinten.svg',
+    label: `Schuren witte vloer - €${UNIT_PRICES['Schuren witte vloer (tijd + materiaal)']} per m²`,
+    imageUrl: '/images/parketrenovatieSepThee/part3/Schuren witte vloer.webp',
   },
 ];
 
@@ -58,15 +69,23 @@ const numberSelectionOptions: Option[] = numberOptions.map((n) => ({ value: n, l
 const StepThreePart3: React.FC<StepProps> = ({ onPrevious, onNext, formData, updateFormData }) => {
   const form = useForm({
     resolver: zodResolver(schema),
-    defaultValues: formData,
+    defaultValues: {
+      selectedSurfaces2: formData.selectedSurfaces2 || [],
+      witteVloerArea: formData.witteVloerArea || 0,
+      convectorSchurenCount: formData.convectorSchurenCount || 0,
+      achterConvectorCount: formData.achterConvectorCount || 0,
+      radiatorSchurenCount: formData.radiatorSchurenCount || 0,
+      ...formData,
+    },
     mode: 'onChange',
   });
 
   // Watch selected options
-  const watchSurfaces = useWatch({ control: form.control, name: 'selectedSurfaces' }) || [];
-  const watchConvectorSchurenCount = parseFloat(form.watch('convectorSchurenCount') || '0');
-  const watchAchterConvectorCount = parseFloat(form.watch('achterConvectorCount') || '0');
-  const watchWitteVloerArea = parseFloat(form.watch('witteVloerArea') || '0');
+  const watchSurfaces = useWatch({ control: form.control, name: 'selectedSurfaces2' }) || [];
+  const watchConvectorSchurenCount = form.watch('convectorSchurenCount') || '0';
+  const watchAchterConvectorCount = form.watch('achterConvectorCount') || '0';
+  const watchRadiatorSchurenCount = form.watch('radiatorSchurenCount') || '0';
+  const watchWitteVloerArea = form.watch('witteVloerArea') || '0';
 
   // Compute cost dynamically
   const stepCost = useMemo(() => {
@@ -78,17 +97,25 @@ const StepThreePart3: React.FC<StepProps> = ({ onPrevious, onNext, formData, upd
     watchSurfaces.forEach((surface: string) => {
       if (surface in UNIT_PRICES) {
         if (surface === 'Schuren witte vloer (tijd + materiaal)') {
-          cost += watchWitteVloerArea * UNIT_PRICES[surface];
+          cost += Number(watchWitteVloerArea) * UNIT_PRICES[surface];
         } else if (surface === 'Bovenkant convectorput schuren') {
-          cost += watchConvectorSchurenCount * UNIT_PRICES[surface];
+          cost += Number(watchConvectorSchurenCount) * UNIT_PRICES[surface];
         } else if (surface === 'Achter convectorput schuren') {
-          cost += watchAchterConvectorCount * UNIT_PRICES[surface];
+          cost += Number(watchAchterConvectorCount) * UNIT_PRICES[surface];
+        } else if (surface === 'Onderkant en achter radiator schuren') {
+          cost += Number(watchRadiatorSchurenCount) * UNIT_PRICES[surface];
         }
       }
     });
 
     return cost;
-  }, [watchSurfaces, watchWitteVloerArea, watchConvectorSchurenCount, watchAchterConvectorCount]);
+  }, [
+    watchSurfaces,
+    watchWitteVloerArea,
+    watchConvectorSchurenCount,
+    watchAchterConvectorCount,
+    watchRadiatorSchurenCount,
+  ]);
 
   // Update formData when stepCost changes
   useEffect(() => {
@@ -109,21 +136,29 @@ const StepThreePart3: React.FC<StepProps> = ({ onPrevious, onNext, formData, upd
 
   const handleSubmit = (event: React.FormEvent) => {
     event.preventDefault();
-    form.handleSubmit((data) => {
-      updateFormData({
+
+    form.handleSubmit(() => {
+      // Explicitly add missing fields
+      const updatedData = {
         ...formData,
-        ...data,
+        selectedSurfaces2: watchSurfaces || [], // Ensure it's always included
+        witteVloerArea: watchWitteVloerArea || 0,
+        convectorSchurenCount: watchConvectorSchurenCount || 0,
+        achterConvectorCount: watchAchterConvectorCount || 0,
+        radiatorSchurenCount: watchRadiatorSchurenCount || 0,
         stepCosts: {
           ...formData.stepCosts,
-          step3Part3: stepCost,
+          step3Part3: stepCost, // Only update this step’s cost
         },
-      });
+      };
 
+      console.log('Updated formData:', updatedData); // Debugging log
+
+      updateFormData(updatedData);
       onNext();
     })();
   };
 
-  // Allow "Nee" selection to continue
   const isButtonDisabled = watchSurfaces.length === 0;
 
   return (
@@ -157,10 +192,29 @@ const StepThreePart3: React.FC<StepProps> = ({ onPrevious, onNext, formData, upd
             <MultiSelectDropdown
               data={surfaceTypes}
               name="selectedSurfaces2"
-              label="Welke extra schuurwerken?"
-              placeholder="Maak een keuze"
+              label="Zijn er nog andere oppervlaktes?"
+              placeholder="Kies er een"
               exclusiveOption="Nee"
             />
+          </div>
+          <div className="grid grid-cols-2 gap-x-4">
+            {watchSurfaces.includes('Bovenkant convectorput schuren') && (
+              <SingleSelectDropdown
+                data={numberSelectionOptions}
+                name="convectorSchurenCount"
+                label="Aantal keer schuren"
+                placeholder="Kies een aantal"
+              />
+            )}
+
+            {watchSurfaces.includes('Achter convectorput schuren') && (
+              <SingleSelectDropdown
+                data={numberSelectionOptions}
+                name="achterConvectorCount"
+                label="Aantal keer schuren"
+                placeholder="Kies een aantal"
+              />
+            )}
           </div>
 
           {/* Inputs for selected services */}
@@ -174,19 +228,10 @@ const StepThreePart3: React.FC<StepProps> = ({ onPrevious, onNext, formData, upd
             />
           )}
 
-          {watchSurfaces.includes('Bovenkant convectorput schuren') && (
+          {watchSurfaces.includes('Onderkant en achter radiator schuren') && (
             <SingleSelectDropdown
               data={numberSelectionOptions}
-              name="convectorSchurenCount"
-              label="Aantal keer schuren"
-              placeholder="Kies een aantal"
-            />
-          )}
-
-          {watchSurfaces.includes('Achter convectorput schuren') && (
-            <SingleSelectDropdown
-              data={numberSelectionOptions}
-              name="achterConvectorCount"
+              name="radiatorSchurenCount"
               label="Aantal keer schuren"
               placeholder="Kies een aantal"
             />
