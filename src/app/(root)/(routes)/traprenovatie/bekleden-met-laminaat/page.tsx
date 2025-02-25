@@ -149,7 +149,7 @@ const whatWaitingForConfig: InfoCardProps = {
 export default function TraprenovatieBekledenMetLaminaat() {
   return (
     <div className="flex flex-col   relative z-0 items-center w-full">
-      <Hero imgSrc="/traprenovatie/hero.png" />
+      <Hero imgSrc="/traprenovatie/bekleden-laminaat/hero.png" />
       <ListCard
         sectionName="Traprenovaties"
         pageName="Bekleden met laminaat"
