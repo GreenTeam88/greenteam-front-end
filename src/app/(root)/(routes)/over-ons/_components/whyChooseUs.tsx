@@ -114,7 +114,7 @@ const TabsSection = () => {
 
 export const WhyChooseUs = () => {
   return (
-    <div className="flex flex-col items-center px-5 py-11 gap-[55px]">
+    <div className="flex flex-col items-center px-5 py-9 gap-[55px]">
       <TabsSection />
       <div className="flex py-16 lg:py-11 flex-col items-center gap-12 lg:gap-[34px]">
         {cardsInfos.map((cardInfo, index) => (

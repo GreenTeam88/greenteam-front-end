@@ -27,7 +27,7 @@ const QuestionsParagraph = () => {
 
 export const QuestionSection: React.FC<{ category?: string }> = ({ category }) => {
   return (
-    <div className="flex w-full flex-col lg:flex-row items-center px-2 justify-center py-5  lg:py-24 gap-[92px]">
+    <div className="flex w-full flex-col lg:flex-row items-center px-2 justify-center py-5  lg:py-20 gap-[92px]">
       <MultiStepForm category={category || 'Parketrenovatie'} />
       <QuestionsParagraph />
     </div>

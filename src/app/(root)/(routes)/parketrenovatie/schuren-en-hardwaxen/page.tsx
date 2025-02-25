@@ -101,7 +101,7 @@ const whatWaitingForConfig: InfoCardProps = {
 export default function ParketrenovatieSchurenEnHardwaxenPage() {
   return (
     <div className="flex flex-col  relative z-0 items-center w-full">
-      <Hero imgSrc="/Parketrenovatie/hero.png" />
+      <Hero imgSrc="/Parketrenovatie/schuren-en-hardwaxen-hero.png" />
 
       <SecondSection
         sectionName="Parket Renovatie"

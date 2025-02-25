@@ -102,7 +102,7 @@ const FAQs: FAQType[] = [
 export default function ParketrenovatieSchurenEnPolijstenPage() {
   return (
     <div className="flex flex-col  relative z-0 items-center w-full">
-      <Hero imgSrc="/Parketrenovatie/hero.png" />{' '}
+      <Hero imgSrc="/Parketrenovatie/schuren-en-polijsten-hero.png" />{' '}
       <SecondSection
         sectionName="Parket Renovatie"
         image="/Parketrenovatie/image11.png"

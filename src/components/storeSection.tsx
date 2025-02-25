@@ -1,5 +1,7 @@
 import { PrimaryBtnLink } from '@/components/theme/buttons';
 import { BodyText, H2 } from '@/components/theme/typography';
+import { cn } from '@/lib/tailwind';
+import { CarouselIcon } from './icons/arrows';
 
 export type StoreImagesInfo = {
   title: string;
@@ -25,7 +27,10 @@ const ImagesGallery: React.FC<StoreImagesInfo> = ({
   fifthImg,
 }) => {
   return (
-    <div className="flex preventZoom w-[90vw] lg:w-fit gap-[20px] flex-col relative  lg:px-0 lg:flex-row ">
+    <div className="flex preventZoom w-[90vw] lg:w-fit items-center gap-[20px] flex-col relative  lg:px-0 lg:flex-row ">
+      <div className={cn('hidden rotate-180 lg:block group cursor-pointer')}>
+        <CarouselIcon />
+      </div>
       <div className="flex flex-col gap-[24px]  ">
         <img className="w-full  rounded-[10px]    lg:min-h-[213px] lg:max-h-[213px] " src={firstImg} />
         <img className="w-full  rounded-[10px]    lg:min-h-[326px] lg:max-h-[326px] " src={secondImg} />
@@ -46,6 +51,9 @@ const ImagesGallery: React.FC<StoreImagesInfo> = ({
       <div className="flex gap-[24px] flex-col">
         <img className="w-full  rounded-[10px]  lg:h-[333px] " src={fourthImg} />
         <img className="w-full rounded-[10px]  lg:h-[208px]" src={fifthImg} />
+      </div>
+      <div className={cn('hidden lg:block group cursor-pointer')}>
+        <CarouselIcon />
       </div>
     </div>
   );

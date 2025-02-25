@@ -101,7 +101,7 @@ const whatWaitingForConfig: InfoCardProps = {
 export default function ParketrenovatieDrevelenPage() {
   return (
     <div className="flex flex-col  relative z-0 items-center w-full">
-      <Hero imgSrc="/Parketrenovatie/hero.png" />{' '}
+      <Hero imgSrc="/Parketrenovatie/drevelen-hero.png" />{' '}
       <SecondSection sectionName="Parket Renovatie" image="/Parketrenovatie/drevelen-1.png" pageName="Drevelen" />
       <CardsSection
         description="Stapsgewijs naar een perfect resultaat"
