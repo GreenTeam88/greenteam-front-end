@@ -13,7 +13,7 @@ import { InfoCardProps } from '../../diensten/_components/cards';
 const thirdSectionCards: InfoCardProps[] = [
   {
     title: 'PVC Tegels',
-    imgSrc: '/vloeren-leggen/tegel/tegel-2.png',
+    imgSrc: '/vloeren-leggen/pvc-tegels/tegel-2.png',
     paragraphs: [
       <div key="1">
         Met tegels geeft u uw woonkamer een stijlvolle, frisse uitstraling. Of u nu kiest voor natuursteen of keramische
@@ -88,7 +88,7 @@ const whatWaitingForConfig: InfoCardProps = {
       heel veel gevallen is deze afspraak niet nodig, en is advies via mailcontact met foto’s voldoende.{' '}
     </BodyText>,
   ],
-  imgSrc: '/vloeren-leggen/tegel/tegel-8.png',
+  imgSrc: '/vloeren-leggen/pvc-tegels/tegel-8.png',
   buttonText: 'Offerte aanvragen',
   buttonLink: '/offerte',
 };
@@ -108,7 +108,7 @@ export default function VloerenLeggenPVCTegelsPage() {
         ]}
         btnLink="/offerte"
         btnText="Offerte aanvragen"
-        imgSrc="/vloeren-leggen/tegel/tegel-1.png"
+        imgSrc="/vloeren-leggen/pvc-tegels/tegel-1.png"
         orangeText="Herkenbaar? Geen zorgen, wij lossen het op!"
       />
       <CardsSection
@@ -125,11 +125,11 @@ export default function VloerenLeggenPVCTegelsPage() {
         title="Wat hebben wij in petto? Uw vloer weer laten stralen!"
         description="Bekijk de resultaten van onze vloerenlegservice en ontdek hoe we verouderde of beschadigde vloeren omtoveren tot prachtige, moderne ruimtes. Vele tevreden klanten gingen u voor, dus uw vloer kan de volgende zijn!"
         btnText="Bereken uw vloer"
-        firstImg={'/vloeren-leggen/tegel/tegel-3.jpg'}
-        secondImg="/vloeren-leggen/tegel/tegel-4.png"
-        thirdImg="/vloeren-leggen/tegel/tegel-5.png"
-        fourthImg="/vloeren-leggen/tegel/tegel-6.png"
-        fifthImg="/vloeren-leggen/tegel/tegel-7.png"
+        firstImg={'/vloeren-leggen/pvc-tegels/tegel-3.jpg'}
+        secondImg="/vloeren-leggen/pvc-tegels/tegel-4.png"
+        thirdImg="/vloeren-leggen/pvc-tegels/tegel-5.png"
+        fourthImg="/vloeren-leggen/pvc-tegels/tegel-6.png"
+        fifthImg="/vloeren-leggen/pvc-tegels/tegel-7.png"
       />
       <WhatWaitingForCard
         orangeText="Ik wil dat de parketteur langskomt!"

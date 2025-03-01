@@ -107,7 +107,7 @@ export const pagesMap: PagesMapType = {
   '/vloeren-leggen/walvisgraat': <VloerenLeggenWalvisgraatPage />,
   '/vloeren-leggen/hongaarse-punt': <VloerenLeggenHongaarsePuntPage />,
   '/vloeren-leggen/weense-punt': <VloerenLeggenWeensePuntPage />,
-  '/vloeren-leggen/tegel': <VloerenLeggenMozaiekEnPatroonPage />,
+  '/vloeren-leggen/pvc-tegels': <VloerenLeggenMozaiekEnPatroonPage />,
   '/vloeren-leggen/mozaiek-of-patroon': <VloerenLeggenMozaiekEnPatroonPage />,
   '/vloeren-leggen/hexagon-&-3d': <VloerenLeggenHexagonEn3DPage />,
   '/vloeren-leggen/tapis': <VloerenLeggenTapisPage />,

@@ -78,7 +78,7 @@ export const footerColumnsInfo: FooterColumnInfo[] = [
       { name: 'Walvisgraat', path: '/vloeren-leggen/walvisgraat' },
       { name: 'Hongaarse punt', path: '/vloeren-leggen/hongaarse-punt' },
       { name: 'Weense punt', path: '/vloeren-leggen/weense-punt' },
-      { name: 'Tegel', path: '/vloeren-leggen/tegel' },
+      { name: 'Tegel', path: '/vloeren-leggen/pvc-tegels' },
       { name: 'Mozaïek of patroon', path: '/vloeren-leggen/mozaiek-of-patroon' },
       { name: 'Hexagon & 3D', path: '/vloeren-leggen/hexagon-&-3d' },
       { name: 'Tapis', path: '/vloeren-leggen/tapis' },
