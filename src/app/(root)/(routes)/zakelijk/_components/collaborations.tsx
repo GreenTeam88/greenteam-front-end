@@ -2,7 +2,7 @@ import { InfoCardProps, OrangeInfoCard } from '../../diensten/_components/cards'
 
 const config: InfoCardProps = {
   mainTitle: 'Samenwerkingen',
-  title: 'De vakmensen van GreenTeam denken graag mee met al uw vragen.  ',
+  title: 'De vakmensen van GreenTeam denken graag mee met al uw vragen.',
   imgSrc: '/zakelijk/construction-team-working-blueprint-new-project.png',
   buttonText: 'Offerte aanvragen',
   imgClassName: 'max-w-[598px]',
@@ -16,12 +16,12 @@ const config: InfoCardProps = {
     <>
       De vakmensen van GreenTeam denken graag mee met al uw vragen. We werken al vele jaren samen met verschillende
       partijen voor wat we niet zelf kunnen doen. Zo geldt het ook omgekeerd. Dat is waarom ons brede netwerk bestaat
-      uit partners als: architecten, aannemers, vastgoedontwikkelaars en woningbeheerders.
+      uit partners als: architecten, aannemers, vastgoedontwikkelaars en woningbeheerders.{' '}
     </>,
     <>
-      Wij staan altijd open voor nieuwe samenwerkingen. Dus kan jij iets wat wij niet kunnen of heb jij geen verstand
-      van vloeren, maar wel van andere (onderhouds)klussen in bedrijfspanden of woningen? Dan kijken we graag of we
-      samen kunnen werken! Neem contact met ons op om de mogelijkheden te bespreken.
+      Wij staan altijd open voor nieuwe samenwerkingen. Dus kunt u iets wat wij niet kunnen of heeft u geen verstand van
+      vloeren, maar wel van andere (onderhouds)klussen in bedrijfspanden of woningen? Dan kijken we graag of we samen
+      kunnen werken! Neem contact met ons op om de mogelijkheden te bespreken.
     </>,
   ],
 };
