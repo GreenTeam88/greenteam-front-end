@@ -31,7 +31,7 @@ const CrauselCardUI: React.FC<CrauselCardInfo> = ({ btnPath, buttonText, icon, t
 
 export const CrauselSection = () => {
   return (
-    <div className="flex justify-center w-full px-4 items-center py-24 gap-[84px] ">
+    <div className="flex justify-center w-full px-4 items-center py-16 gap-[84px] ">
       <div className="hidden lg:block rotate-180">
         <ArrowIcon />
       </div>

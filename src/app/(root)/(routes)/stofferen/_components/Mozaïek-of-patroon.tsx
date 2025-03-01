@@ -18,7 +18,7 @@ const infoCardConfig: InfoCardProps = {
       Ligt jouw vloer er al 10 tot 20 jaar dan is het de hoogste tijd om daar wat aan te doen!{' '}
     </BodyTextBold>,
   ],
-  title: 'Mozaïek of patroon',
+  title: 'Mozaïek en patroon',
   secondBtnText: 'Offerte aanvragen',
   secondBtnLink: '/offerte',
 };

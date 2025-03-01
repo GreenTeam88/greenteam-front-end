@@ -38,7 +38,7 @@ export const PhoneNumberSection = () => {
     },
   });
   return (
-    <div className="pb-6 lg:py-16 px-7  lg:px-0">
+    <div className="pb-6 pt-16 px-7 gap-5 flex flex-col  lg:px-0">
       <form
         onSubmit={handleSubmit((data) => mutate(data))}
         className="flex flex-col lg:flex-row gap-[27px] p-5 items-center rounded-[10px] bg-lightGray border border-black20 border-opacity-20 "
@@ -63,7 +63,7 @@ export const PhoneNumberSection = () => {
         <SmallSecondaryOutlinedBtn isLoading={isLoading}>Verzenden</SmallSecondaryOutlinedBtn>
       </form>
       <div className="flex w-full flex-col lg:flex-row  lg:items-center justify-center gap-[34px]">
-        <div className="flex gap-6 lg:gap-12 flex-col lg:flex-row  py-8 lg:items-center">
+        <div className="flex gap-6 lg:gap-12 flex-col lg:flex-row   lg:items-center">
           <div className="flex items-center gap-3">
             <img src="/icons/email.png" />
             <LinkTypography className="pr-3 border-r border-r-black20 border-opacity-20 text-[13px]">

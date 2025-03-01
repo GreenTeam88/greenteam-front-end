@@ -3,7 +3,7 @@ import { InfoCardProps, WhiteInfoCard } from '../../../diensten/_components/card
 
 const infoCardConfig: InfoCardProps = {
   buttonText: 'Meer informatie',
-  buttonLink: '/vloeren-leggen/mozaiek-of-patroon',
+  buttonLink: '/vloeren-leggen/mozaiek-en-patroon',
 
   imgSrc: '/vloeren-leggen/vloeren-leggen-11.png',
   paragraphs: [
@@ -18,7 +18,7 @@ const infoCardConfig: InfoCardProps = {
       Ligt jouw vloer er al 10 tot 20 jaar dan is het de hoogste tijd om daar wat aan te doen!{' '}
     </BodyTextBold>,
   ],
-  title: 'Mozaïek of patroon',
+  title: 'Mozaïek en patroon',
   secondBtnText: 'Offerte aanvragen',
   secondBtnLink: '/offerte',
 };

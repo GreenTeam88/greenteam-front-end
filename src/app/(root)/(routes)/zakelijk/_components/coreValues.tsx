@@ -39,7 +39,7 @@ const CoreValueCard: React.FC<CoreValueCardProps> = ({ title, paragraph }) => {
 
 export const CoreValues = () => {
   return (
-    <div className="flex flex-col w-full gap-10 py-24 items-center justify-center">
+    <div className="flex flex-col w-full gap-10 py-14 items-center justify-center">
       <H2 className="text-primaryDefault">Onze Kernwaarden</H2>
       <div className="flex flex-col lg:flex-row gap-5 px-7">
         {coreValuesInfo.map((coreInfo) => (

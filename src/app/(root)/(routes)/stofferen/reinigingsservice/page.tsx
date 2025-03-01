@@ -13,7 +13,7 @@ import { WhyGreenTeamBasicPages } from '../_components/whyGreenTeam';
 const thirdSectionCards: InfoCardProps[] = [
   {
     title: 'Reinigingsservice - voor een brandschoon resultaat',
-    imgSrc: '/stofferen/meubels/meubels-2.png',
+    imgSrc: '/stofferen/reinigingsservice/reinigingsservice-2.png',
     paragraphs: [
       <div key="1">
         Met onze professionele reinigings service krijgt uw tapijt de zorg en aandacht die het verdient. Waarom kiezen

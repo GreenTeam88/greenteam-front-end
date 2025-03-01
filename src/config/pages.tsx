@@ -52,7 +52,7 @@ import VloerenLeggenHexagonEn3DPage from '@/app/(root)/(routes)/vloeren-leggen/h
 import VloerenLeggenHongaarsePuntPage from '@/app/(root)/(routes)/vloeren-leggen/hongaarse-punt/page';
 import VloerenLeggenLaminaatPage from '@/app/(root)/(routes)/vloeren-leggen/laminaat/page';
 import VloerenLeggenLinoleumPage from '@/app/(root)/(routes)/vloeren-leggen/linoleum/page';
-import VloerenLeggenMozaiekEnPatroonPage from '@/app/(root)/(routes)/vloeren-leggen/mozaiek-of-patroon/page';
+import VloerenLeggenMozaiekEnPatroonPage from '@/app/(root)/(routes)/vloeren-leggen/mozaiek-en-patroon/page';
 import VloerenLeggenParketPage from '@/app/(root)/(routes)/vloeren-leggen/parket/page';
 import VloerenLeggenPVCPage from '@/app/(root)/(routes)/vloeren-leggen/pvc/page';
 import VloerenLeggenTapijtPage from '@/app/(root)/(routes)/vloeren-leggen/tapijt/page';
@@ -108,7 +108,7 @@ export const pagesMap: PagesMapType = {
   '/vloeren-leggen/hongaarse-punt': <VloerenLeggenHongaarsePuntPage />,
   '/vloeren-leggen/weense-punt': <VloerenLeggenWeensePuntPage />,
   '/vloeren-leggen/pvc-tegels': <VloerenLeggenMozaiekEnPatroonPage />,
-  '/vloeren-leggen/mozaiek-of-patroon': <VloerenLeggenMozaiekEnPatroonPage />,
+  '/vloeren-leggen/mozaiek-en-patroon': <VloerenLeggenMozaiekEnPatroonPage />,
   '/vloeren-leggen/hexagon-&-3d': <VloerenLeggenHexagonEn3DPage />,
   '/vloeren-leggen/tapis': <VloerenLeggenTapisPage />,
   '/vloeren-leggen/bourgogne': <VloerenLeggenBourgognePage />,

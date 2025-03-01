@@ -73,7 +73,7 @@ const ZakelijkCard: React.FC<CardConfig> = ({ img: imgSrc, name }) => {
 
 export const ZakelijkCardsSection = () => {
   return (
-    <div className="flex items-center flex-col gap-[17px] pb-24 lg:pb-32 px-1">
+    <div className="flex items-center flex-col gap-[17px] pb-24 lg:pb-14 px-1">
       <H2 className="text-primaryDefault text-center ">Geschikt voor locaties zoals...</H2>
       <div className="flex  max-w-[1256px] flex-wrap gap-8">
         {cardsConfig.map((cardConfig) => (

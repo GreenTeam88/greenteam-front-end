@@ -79,7 +79,7 @@ export const footerColumnsInfo: FooterColumnInfo[] = [
       { name: 'Hongaarse punt', path: '/vloeren-leggen/hongaarse-punt' },
       { name: 'Weense punt', path: '/vloeren-leggen/weense-punt' },
       { name: 'Tegel', path: '/vloeren-leggen/pvc-tegels' },
-      { name: 'Mozaïek of patroon', path: '/vloeren-leggen/mozaiek-of-patroon' },
+      { name: 'Mozaïek en patroon', path: '/vloeren-leggen/mozaiek-en-patroon' },
       { name: 'Hexagon & 3D', path: '/vloeren-leggen/hexagon-&-3d' },
       { name: 'Tapis', path: '/vloeren-leggen/tapis' },
       { name: 'Bourgogne', path: '/vloeren-leggen/bourgogne' },
@@ -91,7 +91,7 @@ export const footerColumnsInfo: FooterColumnInfo[] = [
     links: [
       { name: 'Parket', path: '/overig/vloer-verwijderen' },
       { name: 'PVC', path: '/overig/vloer-verwijderen' },
-      { name: 'Hout', path: '/vloer-verwijderen/vloer-verwijderen' },
+      { name: 'Hout', path: '/overig/vloer-verwijderen' },
       { name: 'Linoleum', path: '/overig/vloer-verwijderen' },
       { name: 'Kurk', path: '/overig/vloer-verwijderen' },
       { name: 'Tegels', path: '/overig/vloer-verwijderen' },

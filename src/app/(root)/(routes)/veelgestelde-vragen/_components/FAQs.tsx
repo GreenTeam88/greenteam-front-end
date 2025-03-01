@@ -762,7 +762,7 @@ const faqs: FAQCategory[] = [
   //       ],
   //     },
   //     {
-  //       subCategory: 'Mozaïek of Patroon',
+  //       subCategory: 'Mozaïek en patroon',
   //       FAQs: [
   //         {
   //           question: 'Wat zijn de voordelen van mozaïekvloeren?',
@@ -1355,7 +1355,7 @@ export const AllFAQsUI = () => {
     );
 
   return (
-    <div className="flex px-1 flex-col py-24 w-full max-w-[1200px] gap-[44px]">
+    <div className="flex px-1 flex-col  py-24 w-full max-w-[1200px] gap-[44px]">
       <div className="flex py-[21px] gap-3 px-[16px] bg-white ">
         <SearchIcon />
         <input
