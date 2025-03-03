@@ -18,9 +18,9 @@ const thirdSectionCards: InfoCardProps[] = [
       <>
         Dagelijks wordt er gelopen op een houten vloer. Het is dan ook logisch dat op een gegeven moment gebruikssporen
         zoals krasjes, oneffenheden en vlekjes te zien zijn. Elke houten vloer zal daarom op een gegeven moment
-        onderhouden moeten worden en worden geschuurd. Op deze manier kan je alle gebruikssporen laten verdwijnen en is
-        je houten vloer weer zo goed als nieuw. Ligt jouw vloer er al 10 tot 20 jaar dan is het de hoogste tijd om daar
-        wat aan te doen!{' '}
+        onderhouden moeten worden en worden geschuurd. Op deze manier kunt u alle gebruikssporen laten verdwijnen en is
+        uw houten vloer weer zo goed als nieuw. Ligt uw vloer er al 10 tot 20 jaar dan is het de hoogste tijd om daar
+        wat aan te doen!
       </>,
       <>
         <BodyText className="text-secondaryDefault font-bold">
@@ -86,9 +86,9 @@ const whatWaitingForConfig: InfoCardProps = {
   title: 'Waar wacht u nog op!',
   paragraphs: [
     <BodyText key="1">
-      Als dit is wat je wilt, waar wacht je dan op. Bereken via de knop hieronder wat het kost en neem contact met ons
-      op voor een afspraak. Als je de specialist langs laat komen gaan we bespreken wat voor soort hout u heeft, wat de
-      mogelijkheden zijn, ons advies en we komen met de kleurstalen zodat je zeker weten de juiste beslissing maakt.
+      Als dit is wat u wilt, waar wacht u dan op. Bereken via de knop hieronder wat het kost en neem contact met ons op
+      voor een afspraak. Als u de specialist langs laat komen gaan we bespreken wat voor soort hout u heeft, wat de
+      mogelijkheden zijn, ons advies en we komen met de kleurstalen zodat u zeker weten de juiste beslissing maakt.
     </BodyText>,
     <BodyText key="2">
       Deze afspraak kost eenmalig 50,- euro en deze wordt in mindering gebracht wanneer u de klus aan ons uitbesteed. In

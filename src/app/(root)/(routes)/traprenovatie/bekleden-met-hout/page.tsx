@@ -81,11 +81,10 @@ const whatWaitingForConfig: InfoCardProps = {
   paragraphs: [
     <BodyText key="1">
       Droomt u al langere tijd van een perfect afgewerkte trap?. Bereken via de knop hieronder wat het kost en neem
-      contact met ons op voor een afspraak. Als je de specialist langs laat komen gaan we bespreken wat voor soort hout
-      u heeft, wat de mogelijkheden zijn, ons advies en we komen met kleurstalen zodat je zeker weten de juiste
-      beslissing maakt. Deze afspraak kost eenmalig 50,- euro en deze wordt in mindering gebracht wanneer u de klus aan
-      ons uitbesteed. In heel veel gevallen is deze afspraak niet nodig, en is advies via mail contact met foto’s
-      voldoende.
+      contact met ons op voor een afspraak. Als u de specialist langs laat komen gaan we bespreken wat voor soort hout u
+      heeft, wat de mogelijkheden zijn, ons advies en we komen met kleurstalen zodat u zeker weten de juiste beslissing
+      maakt. Deze afspraak kost eenmalig 50,- euro en deze wordt in mindering gebracht wanneer u de klus aan ons
+      uitbesteed. In heel veel gevallen is deze afspraak niet nodig, en is advies via mail contact met foto’s voldoende.
     </BodyText>,
   ],
   imgSrc: '/traprenovatie/bekleden-met-hout/bekleden-met-hout-8.png',

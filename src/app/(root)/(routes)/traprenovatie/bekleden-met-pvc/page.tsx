@@ -87,8 +87,8 @@ const thirdSectionCards: InfoCardProps[] = [
       </ul>,
       <div key="5">
         <BodyText className="text-secondaryDefault font-bold">
-          Heeft u nog geen houten look voor je trap? Dan is het tijd om de uitstraling en sfeer te verbeteren met een
-          warme, natuurlijke houtafwerking!{' '}
+          Heeft u nog geen houten look voor uw trap? Dan is het tijd om de uitstraling en sfeer te verbeteren met een
+          warme, natuurlijke houtafwerking!
         </BodyText>
       </div>,
     ],
@@ -114,8 +114,8 @@ const thirdSectionCards: InfoCardProps[] = [
       </ul>,
       <div key="5">
         <BodyText className="text-secondaryDefault font-bold">
-          Heeft u nog geen betonlook voor je trap? Dan is het tijd om een stoere, industriële uitstraling te creëren met
-          een stijlvolle betonafwerking!{' '}
+          Heeft u nog geen betonlook voor uw trap? Dan is het tijd om een stoere, industriële uitstraling te creëren met
+          een stijlvolle betonafwerking!
         </BodyText>
       </div>,
     ],
@@ -139,8 +139,8 @@ const thirdSectionCards: InfoCardProps[] = [
       </ul>,
       <div key="5">
         <BodyText className="text-secondaryDefault font-bold">
-          Heeft u nog geen marmerlook voor je trap? Dan is het tijd om een luxe en elegante uitstraling te geven met een
-          verfijnde marmerafwerking!{' '}
+          Heeft u nog geen marmerlook voor uw trap? Dan is het tijd om een luxe en elegante uitstraling te geven met een
+          verfijnde marmerafwerking!
         </BodyText>
       </div>,
     ],
@@ -185,10 +185,10 @@ const whatWaitingForConfig: InfoCardProps = {
   paragraphs: [
     <BodyText key="1">
       Droomt u al langere tijd van een perfect afgewerkte trap? Bereken via de knop hieronder wat het kost en neem
-      contact met ons op voor een afspraak. Als je de specialist langs laat komen gaan we bespreken wat voor soort trap
-      u heeft, wat de mogelijkheden zijn, ons advies en we komen met stalen zodat u zeker weten de juiste beslissing
+      contact met ons op voor een afspraak. Als u de specialist langs laat komen gaan we bespreken wat voor soort trap u
+      heeft, wat de mogelijkheden zijn, ons advies en we komen met stalen zodat u zeker weten de juiste beslissing
       maakt. Deze afspraak kost eenmalig €50,- euro en deze wordt in mindering gebracht wanneer u de klus aan ons
-      uitbesteed. {' '}
+      uitbesteed.
     </BodyText>,
   ],
   imgSrc: '/traprenovatie/bekleden-pvc/bekleden-pvc-12.png',

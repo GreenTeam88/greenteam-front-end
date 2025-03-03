@@ -23,7 +23,8 @@ const thirdSectionCards: InfoCardProps[] = [
       </>,
       <>
         <BodyText className="text-secondaryDefault font-bold">
-          Ligt uw vloer er al 10 tot 20 jaar dan is het de hoogste tijd om daar wat aan te doen!{' '}
+          Ligt uw vloer er al 10 tot 20 jaar, dan zijn nieuwe deklijsten de ideale manier om uw ruimte weer compleet en
+          stijlvol af te werken!
         </BodyText>
       </>,
     ],
@@ -83,9 +84,9 @@ const whatWaitingForConfig: InfoCardProps = {
   title: 'Waar wacht u nog op!',
   paragraphs: [
     <BodyText key="1">
-      Als dit is wat je wilt, waar wacht je dan op. Bereken via de knop hieronder wat het kost en neem contact met ons
-      op voor een afspraak. Als je de specialist langs laat komen gaan we bespreken wat voor soort hout u heeft, wat de
-      mogelijkheden zijn, ons advies en we komen met de kleurstalen zodat je zeker weten de juiste beslissing maakt.{' '}
+      Als dit is wat u wilt, waar wacht u dan op. Bereken via de knop hieronder wat het kost en neem contact met ons op
+      voor een afspraak. Als u de specialist langs laat komen gaan we bespreken wat voor soort hout u heeft, wat de
+      mogelijkheden zijn, ons advies en we komen met de kleurstalen zodat u zeker weten de juiste beslissing maakt.{' '}
     </BodyText>,
     <BodyText key="2">
       Deze afspraak kost eenmalig 50,- euro en deze wordt in mindering gebracht wanneer u de klus aan ons uitbesteed. In

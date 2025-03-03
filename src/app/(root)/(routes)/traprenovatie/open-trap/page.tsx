@@ -42,26 +42,26 @@ const thirdSectionCards: InfoCardProps[] = [
     imgSrc: '/traprenovatie/open-trap/open-trap-3.png',
     paragraphs: [
       <BodyText key="1">
-        Een open trap biedt talloze mogelijkheden om deze volledig naar jouw smaak en stijl te personaliseren. Of je nu
-        op zoek bent naar een moderne, strakke uitstraling of juist een warme, klassieke sfeer, er zijn opties voor
-        iedere wens.
+        Een open trap biedt talloze mogelijkheden om deze volledig naar uw smaak en stijl te personaliseren. Of u nu op
+        zoek bent naar een moderne, strakke uitstraling of juist een warme, klassieke sfeer, er zijn opties voor iedere
+        wens.
       </BodyText>,
       <BodyText key="2">
-        Je kunt jouw open trap laten bekleden met verschillende materialen, zoals PVC, laminaat, hout, tapijt of
-        linoleum. Elk materiaal heeft zijn eigen unieke voordelen; PVC en laminaat zijn duurzaam en
-        onderhoudsvriendelijk, terwijl hout en tapijt zorgen voor een warme, natuurlijke uitstraling. Voor een
-        eigentijdse en luxe look kun je kiezen voor een afwerking met Beton Ciré, verkrijgbaar in diverse stijlen zoals
-        Metal Stuc, Glamour Stuc, Brut, Parel, Croco, Venetiaans, en Acoustic. Elke Beton Ciré-afwerking heeft een eigen
-        karakter, van stoer en robuust tot verfijnd en elegant.
+        U kunt uw open trap laten bekleden met verschillende materialen, zoals PVC, laminaat, hout, tapijt of linoleum.
+        Elk materiaal heeft zijn eigen unieke voordelen; PVC en laminaat zijn duurzaam en onderhoudsvriendelijk, terwijl
+        hout en tapijt zorgen voor een warme, natuurlijke uitstraling. Voor een eigentijdse en luxe look kunt u kiezen
+        voor een afwerking met Beton Ciré, verkrijgbaar in diverse stijlen zoals Metal Stuc, Glamour Stuc, Brut, Parel,
+        Croco, Venetiaans, en Acoustic. Elke Beton Ciré-afwerking heeft een eigen karakter, van stoer en robuust tot
+        verfijnd en elegant.
       </BodyText>,
       <BodyText key="3">
-        Daarnaast kun je jouw open trap laten schuren en behandelen voor een vernieuwd uiterlijk, of laten schilderen
-        voor een frisse, moderne uitstraling. Als je meer functionaliteit wilt toevoegen, kun je overwegen om je open
-        trap te transformeren in een dichte trap of verlichting te integreren. Deze aanpassingen kunnen niet alleen de
-        esthetiek verbeteren, maar ook de veiligheid en sfeer van jouw trap verhogen.
+        Daarnaast kunt u uw open trap laten schuren en behandelen voor een vernieuwd uiterlijk, of laten schilderen voor
+        een frisse, moderne uitstraling. Als u meer functionaliteit wilt toevoegen, kunt u overwegen om uw open trap te
+        transformeren in een dichte trap of verlichting te integreren. Deze aanpassingen kunnen niet alleen de esthetiek
+        verbeteren, maar ook de veiligheid en sfeer van uw trap verhogen.
         <br />
-        Met al deze mogelijkheden maak je van je open trap een echte blikvanger die perfect aansluit bij jouw interieur
-        en stijl!
+        Met al deze mogelijkheden maakt u van uw open trap een echte blikvanger die perfect aansluit bij uw interieur en
+        stijl!
       </BodyText>,
       <div key="5">
         <BodyText className="text-secondaryDefault font-bold">
@@ -131,10 +131,10 @@ const whatWaitingForConfig: InfoCardProps = {
   paragraphs: [
     <BodyText key="1">
       Droomt u al langere tijd van een perfect afgewerkte open trap in uw woning? Bereken via de knop hieronder wat het
-      kost en neem contact met ons op voor een afspraak. Als je de specialist langs laat komen gaan we bespreken wat
-      voor soort trap u heeft, wat de mogelijkheden zijn, ons advies en we komen met stalen zodat je zeker weten de
-      juiste beslissing maakt. Deze afspraak kost eenmalig €50,- euro en deze wordt in mindering gebracht wanneer u de
-      klus aan ons uitbesteed.
+      kost en neem contact met ons op voor een afspraak. Als u de specialist langs laat komen gaan we bespreken wat voor
+      soort trap u heeft, wat de mogelijkheden zijn, ons advies en we komen met stalen zodat u zeker weten de juiste
+      beslissing maakt. Deze afspraak kost eenmalig €50,- euro en deze wordt in mindering gebracht wanneer u de klus aan
+      ons uitbesteed.
     </BodyText>,
   ],
   imgSrc: '/traprenovatie/open-trap/open-trap-9.png',
