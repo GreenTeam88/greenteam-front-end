@@ -14,7 +14,7 @@ const infoCardConfig: InfoCardProps = {
       vloer een unieke uitstraling en een stijlvol accent geeft, perfect passend in elke ruimte.
     </BodyText>,
     <BodyTextBold key="2" className="text-secondaryDefault">
-      Ligt jouw vloer er al 10 tot 20 jaar dan is het de hoogste tijd om daar wat aan te doen!{' '}
+      Ligt uw vloer er al 10 tot 20 jaar dan is het de hoogste tijd om daar wat aan te doen!{' '}
     </BodyTextBold>,
   ],
   title: 'V-groef frezen',

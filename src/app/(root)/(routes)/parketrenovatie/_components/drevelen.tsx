@@ -14,7 +14,7 @@ const infoCardConfig: InfoCardProps = {
       krassen werken we tegelijkertijd bij, wat resulteert in een prachtig glad en verzorgd eindresultaat.
     </BodyText>,
     <BodyTextBold key="2" className="text-secondaryDefault">
-      Ligt jouw vloer er al 10 tot 20 jaar dan is het de hoogste tijd om daar wat aan te doen!{' '}
+      Ligt uw vloer er al 10 tot 20 jaar dan is het de hoogste tijd om daar wat aan te doen!{' '}
     </BodyTextBold>,
   ],
   title: 'Drevelen',

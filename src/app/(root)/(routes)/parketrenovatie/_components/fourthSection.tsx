@@ -18,7 +18,7 @@ const infoCardConfig: InfoCardProps = {
       ter plekke kunt kiezen. Ons team adviseert u graag voor het beste resultaat.
     </BodyText>,
     <BodyTextBold key="2" className="text-secondaryDefault">
-      Ligt jouw vloer er al 10 tot 20 jaar dan is het de hoogste tijd om daar wat aan te doen!{' '}
+      Ligt uw vloer er al 10 tot 20 jaar dan is het de hoogste tijd om daar wat aan te doen!{' '}
     </BodyTextBold>,
   ],
   title: 'Schuren en oliën',
