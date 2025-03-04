@@ -31,7 +31,7 @@ const thirdSectionCards: InfoCardProps[] = [
       </p>,
       <div key="5">
         <BodyText className="text-secondaryDefault font-bold">
-          Ligt jouw vloer er al 10 tot 20 jaar dan is het de hoogste tijd om daar wat aan te doen!{' '}
+          Ligt uw vloer er al 10 tot 20 jaar dan is het de hoogste tijd om daar wat aan te doen!{' '}
         </BodyText>
       </div>,
     ],
@@ -72,7 +72,7 @@ const FAQs: FAQType[] = [
 ];
 
 const whatWaitingForConfig: InfoCardProps = {
-  title: 'Waar wacht u op!',
+  title: 'Waar wacht u nog op!',
   paragraphs: [
     <BodyText key="1">
       Als dit is wat u wilt, waar wacht u dan op. Bereken via de knop hieronder wat het kost en neem contact met ons op

@@ -118,7 +118,7 @@ export default function VloerenLeggenHexagonEn3DPage() {
       <Hero imgSrc="/vloeren-leggen/hero.png" />
       <ListCard
         sectionName="Vloeren leggen"
-        pageName="Hexagon en 3D"
+        pageName="Hexagon & 3D"
         listTitle="Herkenbaar?"
         listItems={['Verouderde uitstraling', 'Hardnekkige vlekken', 'Achterstallig onderhoud', 'Doffe plekken']}
         btnLink="/offerte"

@@ -20,7 +20,7 @@ const thirdSectionCards: InfoCardProps[] = [
         uitstraling. Waar visgraatvloeren een hoek van 90 graden hebben, bieden Hongaarse punt-vloeren een speelser en
         eleganter effect door de planken in een hoek van 45 of 60 graden te plaatsen. {' '}
       </div>,
-      <div key="2">Met de Hongaarse punt kies je voor: </div>,
+      <div key="2">Met de Hongaarse punt kiest u voor:</div>,
       <ul key="3" className="flex flex-col py-3 list-disc gap-4 list-inside">
         <li>Strakke lijnen en symmetrie: Een vloer waarbij de planken perfect tegen elkaar aansluiten. </li>
         <li>
@@ -35,7 +35,7 @@ const thirdSectionCards: InfoCardProps[] = [
       </p>,
       <div key="5">
         <BodyText className="text-secondaryDefault font-bold">
-          Ligt jouw vloer er al 10 tot 20 jaar dan is het de hoogste tijd om daar wat aan te doen!{' '}
+          Ligt uw vloer er al 10 tot 20 jaar dan is het de hoogste tijd om daar wat aan te doen!{' '}
         </BodyText>
       </div>,
     ],
@@ -74,7 +74,7 @@ const FAQs: FAQType[] = [
 ];
 
 const whatWaitingForConfig: InfoCardProps = {
-  title: 'Waar wacht u op!',
+  title: 'Waar wacht u nog op!',
   paragraphs: [
     <BodyText key="1">
       Als dit is wat u wilt, waar wacht u dan op. Bereken via de knop hieronder wat het kost en neem contact met ons op

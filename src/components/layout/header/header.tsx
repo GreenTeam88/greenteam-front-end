@@ -66,7 +66,7 @@ const headerRoutes: HeaderRoute[] = [
       },
 
       {
-        link: 'vloeren-leggen',
+        link: '/vloeren-leggen',
         title: 'Vloeren leggen',
         subPages: [
           { name: 'Parket', path: '/vloeren-leggen/parket' },

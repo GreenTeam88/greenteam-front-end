@@ -53,13 +53,13 @@ const thirdSectionCards: InfoCardProps[] = [
       { name: 'Bekleden met linoleum', path: '/traprenovatie/bekleden-met-linoleum' },
       { name: 'Schuren en behandelen', path: '/traprenovatie/schuren-en-behandelen' },
       { name: 'Schuren en schilderen', path: '/traprenovatie/schuren-en-schilderen' },
-      { name: 'Beton Ciré Metal stuc', path: '/traprenovatie/beton-cire/betonCiré-metal-stuc' },
-      { name: 'Beton Ciré Glamour stuc', path: '/traprenovatie/beton-cire/betonCiré-glamour-stuc' },
-      { name: 'Beton Ciré Brut', path: '/traprenovatie/beton-cire/betonCiré-brut' },
-      { name: 'Beton Ciré Parel', path: '/traprenovatie/beton-cire/betonCiré-parel' },
-      { name: 'Beton Ciré Croco', path: '/traprenovatie/beton-cire/betonCiré-croco' },
-      { name: 'Beton Ciré Venetiaans', path: '/traprenovatie/beton-cire/betonCiré-venetiaans' },
-      { name: 'Beton Ciré Acoustic', path: '/traprenovatie/beton-cire/betonCiré-acoustic' },
+      { name: 'Beton Ciré Metal stuc', path: '/traprenovatie/beton-cire/metal-stuc' },
+      { name: 'Beton Ciré Glamour stuc', path: '/traprenovatie/beton-cire/glamour-stuc' },
+      { name: 'Beton Ciré Brut', path: '/traprenovatie/beton-cire/brut' },
+      { name: 'Beton Ciré Parel', path: '/traprenovatie/beton-cire/parel' },
+      { name: 'Beton Ciré Croco', path: '/traprenovatie/beton-cire/croco' },
+      { name: 'Beton Ciré Venetiaans', path: '/traprenovatie/beton-cire/venetiaans' },
+      { name: 'Beton Ciré Acoustic', path: '/traprenovatie/beton-cire/acoustic' },
       { name: 'Open trap', path: '/traprenovatie/dichte-trap' },
       { name: 'Dichte trap', path: '/traprenovatie/dichte-trap' },
       { name: 'Verlichting', path: '/traprenovatie/verlichting' },
@@ -104,10 +104,10 @@ const whatWaitingForConfig: InfoCardProps = {
   paragraphs: [
     <BodyText key="1">
       Droomt u al langere tijd van een perfect afgewerkte dichte trap? Bereken via de knop hieronder wat het kost en
-      neem contact met ons op voor een afspraak. Als je de specialist langs laat komen gaan we bespreken wat voor soort
-      trap u heeft, wat de mogelijkheden zijn, ons advies en we komen met stalen zodat je zeker weten de juiste
+      neem contact met ons op voor een afspraak. Als u de specialist langs laat komen gaan we bespreken wat voor soort
+      trap u heeft, wat de mogelijkheden zijn, ons advies en we komen met stalen zodat u zeker weten de juiste
       beslissing maakt. Deze afspraak kost eenmalig €50,- euro en deze wordt in mindering gebracht wanneer u de klus aan
-      ons uitbesteed
+      ons uitbesteed.
     </BodyText>,
   ],
   imgSrc: '/traprenovatie/dichte-trap/dichte-trap-8.png',

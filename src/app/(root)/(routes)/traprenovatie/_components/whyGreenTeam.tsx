@@ -41,7 +41,7 @@ const whyGreenTeamCardsInfo: WhyGreenTeamCardProps[] = [
 export const TraprenovatieWhyGreenTeam = () => {
   return (
     <WhyGreenTeam
-      title="Waarom kies ik voor GreenTeam?"
+      title="Waarom kiest u voor GreenTeam?"
       bottomSectionBtnLink="/contact"
       bottomSectionText="Praat met een specialist"
       bottomSectionBtnText="Ik heb een specialist nodig!"

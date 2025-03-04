@@ -27,7 +27,7 @@ const thirdSectionCards: InfoCardProps[] = [
         <li>
           Onderhoudsvriendelijk: Geen gedoe met lastige schoonmaak of reparaties - PVC is eenvoudig schoon te houden. 
         </li>
-        <li>Krasbestendig: In tegenstelling tot houten vloeren, heb je minder snel last van krassen.  </li>
+        <li>Krasbestendig: In tegenstelling tot houten vloeren, heeft u minder snel last van krassen. </li>
         <li>
           Perfect gelegd: Onze ervaren parketteurs zorgen voor een strak en professioneel resultaat, van voorbereiding
           tot afwerking. 
@@ -38,7 +38,7 @@ const thirdSectionCards: InfoCardProps[] = [
       </p>,
       <div key="5">
         <BodyText className="text-secondaryDefault font-bold ">
-          Ligt jouw vloer er al 10 tot 20 jaar dan is het de hoogste tijd om daar wat aan te doen!{' '}
+          Ligt uw vloer er al 10 tot 20 jaar dan is het de hoogste tijd om daar wat aan te doen!{' '}
         </BodyText>
       </div>,
     ],
@@ -76,7 +76,7 @@ const FAQs: FAQType[] = [
 ];
 
 const whatWaitingForConfig: InfoCardProps = {
-  title: 'Waar wacht u op!',
+  title: 'Waar wacht u nog op!',
   paragraphs: [
     <BodyText key="1">
       Als dit is wat u wilt, waar wacht u dan op. Bereken via de knop hieronder wat het kost en neem contact met ons op
@@ -100,7 +100,7 @@ export default function VloerenLeggenPVCPage() {
       <ListCard
         sectionName="Vloeren leggen"
         pageName="PVC"
-        listTitle="Ervaar jij ook de volgende problemen met uw vloer?"
+        listTitle="Ervaart u ook de volgende problemen met uw vloer?"
         listItems={[
           'Geen vloer die jarenlang meegaat',
           'Een vloer die oud en onverzorgd oogt',

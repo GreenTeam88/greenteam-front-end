@@ -14,14 +14,14 @@ const whyGreenTeamCardsInfo: WhyGreenTeamCardProps[] = [
     title: 'Specialisten',
     icon: <StarIcon />,
     paragraphs: [
-      'Een houten vloer laten schuren is een specialistische klus. GreenTeam is al ruim 20 jaar specialist in parketrenovatie. Onze parketteurs hebben alle kennis en ervaring van verschillende houtsoorten. ',
-      'Wij schuren de houten vloer volledig egaal met hoogwaardige en professionele machines en zorgen ervoor dat er geen rand of hoek wordt overgeslagen. Zo ben je verzekerd van het beste eindresultaat. ',
+      'Een houten vloer laten schuren is een specialistische klus. GreenTeam is al ruim 20 jaar specialist in parketrenovatie. Onze parketteurs hebben alle kennis en ervaring van verschillende houtsoorten.   ',
+      'Wij schuren de houten vloer volledig egaal met hoogwaardige en professionele machines en zorgen ervoor dat er geen rand of hoek wordt overgeslagen. Zo bent u verzekerd van het beste eindresultaat. ',
     ],
   },
   {
     title: 'Persoonlijk advies op maat',
     paragraphs: [
-      'We begrijpen dat het een grote ingreep is en samen willen we naar het gewenste eindresultaat, wat u met trots laat zien wanneer er bekende over de vloer komen. Daarom komen wij graag langs met kleurstalen om je een accuraat beeld te geven over het eindresultaat. ',
+      'We begrijpen dat het een grote ingreep is en samen willen we naar het gewenste eindresultaat, wat u met trots laat zien wanneer er bekende over de vloer komen. Daarom komen wij graag langs met kleurstalen om u een accuraat beeld te geven over het eindresultaat. ',
     ],
     icon: <GameIcon />,
   },

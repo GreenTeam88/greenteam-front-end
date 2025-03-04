@@ -27,12 +27,12 @@ const thirdSectionCards: InfoCardProps[] = [
         <li>Stijlvol veelzijdig: geschikt voor zowel moderne als klassieke interieurs </li>
       </ul>,
       <p key="4" className="mb-9">
-        Met een Bourgogne vloer geeft u uw huis niet alleen karakter, maar ook een warme, uitnodigende sfeer waar je
-        elke dag van geniet.{' '}
+        Met een Bourgogne vloer geeft u uw huis niet alleen karakter, maar ook een warme, uitnodigende sfeer waar u elke
+        dag van geniet.{' '}
       </p>,
       <div key="5">
         <BodyText className="text-secondaryDefault font-bold">
-          Ligt jouw vloer er al 10 tot 20 jaar dan is het de hoogste tijd om daar wat aan te doen!
+          Ligt uw vloer er al 10 tot 20 jaar dan is het de hoogste tijd om daar wat aan te doen!
         </BodyText>
       </div>,
     ],
@@ -73,7 +73,7 @@ const FAQs: FAQType[] = [
 ];
 
 const whatWaitingForConfig: InfoCardProps = {
-  title: 'Waar wacht u op!',
+  title: 'Waar wacht u nog op!',
   paragraphs: [
     <BodyText key="1">
       Als dit is wat u wilt, waar wacht u dan op. Bereken via de knop hieronder wat het kost en neem contact met ons op

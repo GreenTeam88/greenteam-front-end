@@ -15,7 +15,7 @@ const infoCardConfig: InfoCardProps = {
       aan te doen!{' '}
     </BodyText>,
     <BodyTextBold key="2" className="text-secondaryDefault">
-      Ligt jouw vloer er al 10 tot 20 jaar dan is het de hoogste tijd om daar wat aan te doen!{' '}
+      Ligt uw vloer er al 10 tot 20 jaar dan is het de hoogste tijd om daar wat aan te doen!{' '}
     </BodyTextBold>,
   ],
   title: 'Tapijt leggen',
