@@ -28,7 +28,7 @@ const thirdSectionCards: InfoCardProps[] = [
       </ul>,
       <div key="5">
         <BodyText className="text-secondaryDefault font-bold">
-          Ligt uw vloer er al 10 tot 20 jaar dan is het de hoogste tijd om daar wat aan te doen!{' '}
+          Ligt uw droogloopmat er al 10 tot 20 jaar dan is het de hoogste tijd om daar wat aan te doen!{' '}
         </BodyText>
       </div>,
     ],
@@ -110,8 +110,8 @@ export default function StofferenDroogloopmatPage() {
       <WhyGreenTeamBasicPages />
       <StoreSection
         title="Wat hebben wij voor u in petto?"
-        description="Help, mijn rode loper is aan vervanging toe!"
-        btnText="Help, mijn rode loper is aan vervanging toe!"
+        description="Help, mijn droogloopmat is aan vervanging toe!"
+        btnText="Help, mijn droogloopmat is aan vervanging toe!"
         firstImg={'/stofferen/droogloopmat/droogloopmat-3.png'}
         secondImg="/stofferen/droogloopmat/droogloopmat-4.png"
         thirdImg="/stofferen/droogloopmat/droogloopmat-5.png"

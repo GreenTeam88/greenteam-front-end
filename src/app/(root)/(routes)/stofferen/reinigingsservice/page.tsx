@@ -107,7 +107,7 @@ export default function StofferenReinigingsservicePage() {
         title=" Hoe wij uw tapijt weer laten stralen"
         description="Stapsgewijs naar een perfect resultaat"
         cards={thirdSectionCards}
-        btnText="Bereken uw vloer"
+        btnText="Bereken uw banken en/of tapijten"
         btnLink="/offerte"
       />
       <WhyGreenTeamBasicPages />

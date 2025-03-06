@@ -16,7 +16,7 @@ const thirdSectionCards: InfoCardProps[] = [
     imgSrc: '/stofferen/meubels/meubels-2.png',
     paragraphs: [
       <div key="1">
-        Met onze meubelstoffering service zorgen wij ervoor dat jouw meubels weer een blikvanger in uw woning worden:{' '}
+        Met onze meubelstoffering service zorgen wij ervoor dat uw meubels weer een blikvanger in uw woning worden:{' '}
       </div>,
       <ul key="3" className="flex flex-col py-3 list-disc gap-4 list-inside">
         <li>Inspectie en advies: We beoordelen de staat van uw meubels en adviseren over de beste oplossing. </li>
@@ -29,11 +29,11 @@ const thirdSectionCards: InfoCardProps[] = [
         <li>Reiniging: Ook reinigen van meubels behoort tot de mogelijkheden van een fris eindresultaat. </li>
       </ul>,
       <p key="4" className="mb-9">
-        éMet onze deskundige aanpak krijgen uw meubels niet alleen een nieuwe look, maar ook een nieuw leven!{' '}
+        Met onze deskundige aanpak krijgen uw meubels niet alleen een nieuwe look, maar ook een nieuw leven!{' '}
       </p>,
       <div key="5">
         <BodyText className="text-secondaryDefault font-bold">
-          Ligt uw vloer er al 10 tot 20 jaar dan is het de hoogste tijd om daar wat aan te doen!{' '}
+          Staan uw meubels al 10 tot 20 jaar in huis? Dan is het de hoogste tijd om ze een frisse, nieuwe look te geven!{' '}
         </BodyText>
       </div>,
     ],

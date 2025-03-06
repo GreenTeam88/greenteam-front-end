@@ -78,10 +78,10 @@ const whatWaitingForConfig: InfoCardProps = {
   paragraphs: [
     <BodyText key="1">
       Droomt u al langere tijd van een luxueuze rode loper?. Bereken via de knop hieronder wat het kost en neem contact
-      met ons op voor een afspraak. Als je de specialist langs laat komen gaan we bespreken wat voor soort tapijt u wilt
+      met ons op voor een afspraak. Als u de specialist langs laat komen gaan we bespreken wat voor soort tapijt u wilt
       laten plaatsen, wat de mogelijkheden zijn, ons advies en we komen met de kleurstalen zodat u zeker weet dat u de
       juiste beslissing maakt. Deze afspraak kost eenmalig 50,- euro en deze wordt in mindering gebracht wanneer u de
-      klus aan ons uitbesteed
+      klus aan ons uitbesteed.
     </BodyText>,
   ],
   imgSrc: '/stofferen/rode-loper/rode-loper-8.png',

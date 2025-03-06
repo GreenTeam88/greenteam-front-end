@@ -106,18 +106,18 @@ export default function StofferenTapijtVerwijderenPage() {
         orangeText="Geen zorgen, wij maken uw vloer weer als nieuw!"
       />
       <CardsSection
-        bottomText="Help, mijn oude vloer is aan vervanging toe!"
+        bottomText="Help, mijn oude tapijt is aan vervanging toe!"
         title="Hoe werken wij aan uw vloer?"
         description="Stapsgewijs naar een perfect resultaat"
         cards={thirdSectionCards}
-        btnText="Bereken uw vloer"
+        btnText="Bereken uw tapijt"
         btnLink="/offerte"
       />
       <WhyGreenTeamBasicPages />
       <StoreSection
         title="Wat hebben wij voor u in petto?"
         description="Bekijk de resultaten van onze service voor het verwijderen van vloeren en trappen en ontdek hoe we verouderde en versleten materialen snel en efficiënt verwijderen. Veel tevreden klanten zijn enthousiast over de kwaliteit en professionaliteit van onze diensten, uw vloeren en trappen kunnen de volgende zijn!"
-        btnText="Bereken uw vloer"
+        btnText="Bereken uw tapijt"
         btnLink="/offerte"
         firstImg={'/stofferen/tapijt-verwijderen/tapijt-verwijderen-3.png'}
         secondImg="/stofferen/tapijt-verwijderen/tapijt-verwijderen-4.png"
