@@ -118,8 +118,8 @@ export default function OverigGietvloerenPage() {
       <OverigWhyGreenTeam />
 
       <StoreSection
-        title="Wat hebben wij in petto? Jouw vloer weer laten stralen!"
-        description="Bekijk de resultaten van onze gietvloeren en ontdek de ongeëvenaarde kwaliteit en afwerking voor jouw huis. Wij zorgen voor een duurzame en stijlvolle vloer die bijdraagt aan een unieke uitstraling in elke ruimte. Veel tevreden klanten hebben al gekozen voor onze gietvloeren, en u kunt de volgende zijn!"
+        title="Wat hebben wij in petto? Uw vloer weer laten stralen!"
+        description="Bekijk de resultaten van onze gietvloeren en ontdek de ongeëvenaarde kwaliteit en afwerking voor uw huis. Wij zorgen voor een duurzame en stijlvolle vloer die bijdraagt aan een unieke uitstraling in elke ruimte. Veel tevreden klanten hebben al gekozen voor onze gietvloeren, en u kunt de volgende zijn!"
         btnText="Bereken uw vloer"
         btnLink="/offerte"
         firstImg={'/overig/gietvloeren/gietvloeren-3.png'}

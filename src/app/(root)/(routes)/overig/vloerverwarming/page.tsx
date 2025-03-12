@@ -20,12 +20,7 @@ const thirdSectionCards: InfoCardProps[] = [
         leefruimte. Hoe wij te werk gaan:{' '}
       </div>,
       <ul key="3" className="flex flex-col py-3 list-disc gap-4 list-inside">
-        <li>
-          Advies op maat: We bekijken je ruimte en adviseren welk systeem het beste bij uw woning en wensen past. 
-        </li>
-        <li>
-          Efficiënte installatie: Onze experts installeren het systeem met precisie en zorgen voor een perfecte
-          warmteverdeling. {' '}
+        <li>Advies op maat: We bekijken uw ruimte en adviseren welk systeem het beste bij uw woning en wensen past.
         </li>
         <li>
           Geschikt voor elke ruimte: Of het nu gaat om de woonkamer, badkamer of keuken, vloerverwarming past overal en
@@ -128,7 +123,7 @@ export default function OverigVloerverwarmingPage() {
 
       <StoreSection
         title="Warmte, comfort en luxe met vloerverwarming"
-        description="Bekijk de resultaten van onze vloerverwarming en ontdek de ongeëvenaarde warmte, comfort en luxe voor jouw huis. Onze systemen zorgen voor een gelijkmatige temperatuurverdeling en zijn energiezuinig, wat bijdraagt aan een aangename sfeer. Veel tevreden klanten hebben al gekozen voor onze vloerverwarming, en u kunt de volgende zijn!"
+        description="Bekijk de resultaten van onze vloerverwarming en ontdek de ongeëvenaarde warmte, comfort en luxe voor uw huis. Onze systemen zorgen voor een gelijkmatige temperatuurverdeling en zijn energiezuinig, wat bijdraagt aan een aangename sfeer. Veel tevreden klanten hebben al gekozen voor onze vloerverwarming, en u kunt de volgende zijn!"
         btnText="Bereken uw vloer"
         btnLink="/offerte"
         firstImg={'/overig/vloerverwarming/vloerverwarming-3.png'}

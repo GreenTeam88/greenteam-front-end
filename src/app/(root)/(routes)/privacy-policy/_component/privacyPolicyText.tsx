@@ -99,13 +99,13 @@ export const PrivacyPolicyText = () => {
               op de gegeven toestemming. U kunt bij ons een verzoek indienen om persoonsgegevens die wij van u
               beschikken in een computerbestand naar u of een ander, door u genoemde organisatie, te sturen. U kunt een
               verzoek tot inzage correctie, verwijdering, gegevensoverdraging van uw persoonsgegevens of verzoek tot
-              intrekking van jouw toestemming of bezwaar op de verwerking van de persoonsgegevens sturen naar
+              intrekking van uw toestemming of bezwaar op de verwerking van de persoonsgegevens sturen naar
               info@greenteam.nl. Om er zeker van te zijn dat het verzoek tot inzage door u is gedaan, vragen wij om een
-              kopie van je identiteitsbewijs met het verzoek mee te sturen. Maak in deze kopie uw pasfoto, MRZ (machine
-              readable zone – de strook met nummers onderaan het paspoort), paspoortnummer en Burgerservicenummer (BSN)
-              zwart. Dit ter bescherming van uw privacy. We reageren zo snel mogelijk, maar binnen vier weken, op uw
-              verzoek. Green Team wil u er tevens op wijzen dat u de mogelijkheid heeft om een klacht in te dienen bij
-              de nationale toezichthouder, de Autoriteit Persoonsgegevens. Meer informatie vindt u op de volgende
+              kopie van uw identiteitsbewijs met het verzoek mee te sturen. Maak in deze kopie uw pasfoto, MRZ (machine
+              readable zone â€“ de strook met nummers onderaan het paspoort), paspoortnummer en Burgerservicenummer
+              (BSN) zwart. Dit ter bescherming van uw privacy. We reageren zo snel mogelijk, maar binnen vier weken, op
+              uw verzoek. Green Team wil u er tevens op wijzen dat u de mogelijkheid heeft om een klacht in te dienen
+              bij de nationale toezichthouder, de Autoriteit Persoonsgegevens. Meer informatie vindt u op de volgende
               website:
             </p>
             <p className="listItem">

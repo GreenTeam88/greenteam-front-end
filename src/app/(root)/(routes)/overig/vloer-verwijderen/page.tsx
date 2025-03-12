@@ -132,8 +132,8 @@ export default function OverigVloerverwijderenPage() {
       <OverigWhyGreenTeam />
 
       <StoreSection
-        title="Wat hebben wij in petto? Jouw vloer weer laten stralen!"
-        description="Bekijk de resultaten van onze vloerverwijdering en ontdek de ongeëvenaarde kwaliteit en efficiëntie van onze service. Wij zorgen voor een snelle en zorgvuldige verwijdering van jouw oude vloer, zodat je snel kunt genieten van een nieuwe uitstraling in elke ruimte. Veel tevreden klanten hebben al gekozen voor onze vloerverwijdering, en jij kunt de volgende zijn!"
+        title="Wat hebben wij in petto? Uw vloer weer laten stralen!"
+        description="Bekijk de resultaten van onze vloerverwijdering en ontdek de ongeëvenaarde kwaliteit en efficiëntie van onze service. Wij zorgen voor een snelle en zorgvuldige verwijdering van uw oude vloer, zodat u snel kunt genieten van een nieuwe uitstraling in elke ruimte. Veel tevreden klanten hebben al gekozen voor onze vloerverwijdering, en u kan de volgende zijn!"
         btnText="Bereken uw vloer"
         btnLink="/offerte"
         firstImg={'/overig/vloer-verwijderen/vloer-verwijderen-3.png'}

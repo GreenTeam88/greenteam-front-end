@@ -52,11 +52,7 @@ const thirdSectionCards: InfoCardProps[] = [
     imgSrc: '/overig/egaliseren/egaliseren-3.png',
     paragraphs: [
       <div key="1">
-        Op zoek naar de mogelijkheden voor het egaliseren in een bedrijfsruimte, kantoorpand, hotel, winkel, spa of
-        sportzaal? Green Team is een betrouwbare en geschikte partner voor jouw zakelijke project. Hierbij zorgen we
-        niet alleen voor een correcte levering en plaatsing of renovatie van de vloer, we geven ook advies voor de beste
-        vloer voor jouw bedrijfsruimte en zorgen uiteraard voor een vakkundige afwerking van de vloer.{' '}
-      </div>,
+Op zoek naar de mogelijkheden voor het egaliseren in een bedrijfsruimte, kantoorpand, hotel, winkel, spa of sportzaal? Green Team is een betrouwbare en geschikte partner voor uw zakelijke project. Hierbij zorgen we niet alleen voor een correcte levering en plaatsing of renovatie van de vloer, we geven ook advies voor de beste vloer voor uw bedrijfsruimte en zorgen uiteraard voor een vakkundige afwerking van de vloer.      </div>,
 
       <div key="5">
         <BodyText className="text-secondaryDefault font-bold">Bespreek met ons de mogelijkheden </BodyText>
@@ -145,8 +141,8 @@ export default function OverigEgaliserenPage() {
       <OverigWhyGreenTeam />
 
       <StoreSection
-        title="Wat hebben wij in petto? Jouw vloer weer laten stralen!"
-        description="Bekijk de resultaten van onze egalisatiediensten en ontdek de ongeëvenaarde kwaliteit en afwerking voor jouw vloer. Wij zorgen voor een perfecte ondergrond, wat bijdraagt aan een duurzaam en aantrekkelijk resultaat. Veel tevreden klanten hebben al gekozen voor onze egalisatie, en u kunt de volgende zijn!"
+        title="Wat hebben wij in petto? Uw vloer weer laten stralen!"
+        description="Bekijk de resultaten van onze egalisatiediensten en ontdek de ongeëvenaarde kwaliteit en afwerking voor uw vloer. Wij zorgen voor een perfecte ondergrond, wat bijdraagt aan een duurzaam en aantrekkelijk resultaat. Veel tevreden klanten hebben al gekozen voor onze egalisatie, en u kunt de volgende zijn!"
         btnText="Bereken uw vloer"
         btnLink="/offerte"
         firstImg={'/overig/egaliseren/egaliseren-4.png'}

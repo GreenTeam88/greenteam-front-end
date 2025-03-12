@@ -117,8 +117,8 @@ export default function OverigNatuursteenbehandelenPage() {
       <OverigWhyGreenTeam />
 
       <StoreSection
-        title="Wat hebben wij in petto? Jouw vloer weer laten stralen!"
-        description="Bekijk de resultaten van onze natuursteenbehandeling en ontdek de ongeëvenaarde kwaliteit en afwerking voor jouw vloer. Wij zorgen voor een zorgvuldige behandeling die de schoonheid en duurzaamheid van jouw natuursteen versterkt. Veel tevreden klanten hebben al gekozen voor onze natuursteenbehandeling, en u kunt de volgende zijn!"
+        title="Wat hebben wij in petto? Uw vloer weer laten stralen!"
+        description="Bekijk de resultaten van onze natuursteenbehandeling en ontdek de ongeëvenaarde kwaliteit en afwerking voor uw vloer. Wij zorgen voor een zorgvuldige behandeling die de schoonheid en duurzaamheid van uw natuursteen versterkt. Veel tevreden klanten hebben al gekozen voor onze natuursteenbehandeling, en u kunt de volgende zijn!"
         btnText="Bereken uw vloer"
         btnLink="/offerte"
         firstImg={'/overig/natuursteen-behandelen/natuursteen-behandelen-3.png'}

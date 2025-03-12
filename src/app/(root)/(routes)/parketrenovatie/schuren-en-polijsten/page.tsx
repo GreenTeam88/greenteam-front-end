@@ -119,12 +119,20 @@ export default function ParketrenovatieSchurenEnPolijstenPage() {
       <ParketrenovatieWhyGreenTeam />
       <ParketrenovatieStoreSection
         firstImg={'/Parketrenovatie/store1.png'}
+        firstImgBottomText="Oudegracht, Utrecht"
+        firstImgTopText="Schuren"
         secondImg="/Parketrenovatie/store2.png"
+        secondImgBottomText="Lange Hezelstraat, Nijmegen"
+        secondImgTopText="Polijsten"
         thirdImgTopText="Schuren"
-        thirdImgText="Peeloerdijk, Assen"
+        thirdImgBottomText="Peeloerdijk, Assen"
         thirdImg="/Parketrenovatie/store3.png"
         fourthImg="/Parketrenovatie/store4.png"
+        fourthImgTopText="Polijsten"
+        fourthImgBottomText="Abeelstraat, Dordrecht"
         fifthImg="/Parketrenovatie/store5.png"
+        fifthImgTopText="Schuren"
+        fifthImgBottomText="Jansstraat, Arnhem"
       />
       <WhatWaitingForCard {...whatWaitingForConfig} />
       <FAQSection FAQs={FAQs} />

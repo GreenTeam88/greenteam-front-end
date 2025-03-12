@@ -125,8 +125,8 @@ export default function OverigTegelenPage() {
       <OverigWhyGreenTeam />
 
       <StoreSection
-        title="Wat hebben wij in petto? Jouw vloer weer laten stralen!"
-        description="Bekijk de resultaten van onze tegeldiensten en ontdek de ongeëvenaarde kwaliteit en afwerking voor jouw ruimtes. Wij zorgen voor een duurzame en stijlvolle tegelvloer die bijdraagt aan een unieke uitstraling in elke kamer. Veel tevreden klanten hebben al gekozen voor onze tegeldiensten, en u kunt de volgende zijn!"
+        title="Wat hebben wij in petto? Uw vloer weer laten stralen!"
+        description="Bekijk de resultaten van onze tegeldiensten en ontdek de ongeëvenaarde kwaliteit en afwerking voor uw ruimtes. Wij zorgen voor een duurzame en stijlvolle tegelvloer die bijdraagt aan een unieke uitstraling in elke kamer. Veel tevreden klanten hebben al gekozen voor onze tegeldiensten, en u kunt de volgende zijn!"
         btnText="Bereken uw vloer"
         btnLink="/offerte"
         firstImg={'/overig/tegelen/tegelen-3.png'}
