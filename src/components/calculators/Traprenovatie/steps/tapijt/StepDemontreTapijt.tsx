@@ -150,7 +150,7 @@ const StepDemontreTapijt: React.FC<StepProps> = ({ onPrevious, onNext, formData,
               Niet verplicht, wel handig om te weten
             </span>
             <div className="flex w-[25%] h-[6px] bg-gray-300 rounded-full ml-4">
-              <div className="w-[30%] h-full bg-green-700 rounded-full"></div>
+              <div className="w-[85%] h-full bg-green-700 rounded-full"></div>
             </div>
           </div>
 

@@ -1,13 +1,16 @@
 export const servicesConfig: Record<string, Record<string, number | null>> = {
   Parketrenovatie: {
-    'Schuren + polijsten + (zonder behandeling)': 17.5,
+    'Schuren + polijsten + (zonder behandeling)': 20.0,
     'Schuren + polijsten + oliën naturel': 30.0,
-    'Schuren + polijsten + oliën in kleur': 32.5,
-    'Schuren + polijsten + lakken in naturel': 36.0,
-    'Schuren + polijsten + lakken in kleur': 46.0,
-    'Schuren + polijsten + hardwax naturel': 30.0,
-    'Schuren + polijsten + hardwax in kleur': 35.0,
-    'Schuren + polijsten + lakken met Skylt': 35.0,
+    'Schuren + polijsten + oliën in kleur': 35.0,
+    'Schuren + polijsten + hardwax naturel': 35.0,
+    'Schuren + polijsten + hardwax in kleur': 37.5,
+    'Schuren + polijsten + lakken in naturel': 40.0,
+    'Schuren + polijsten + lakken in kleur': 46.5,
+    'Schuren + polijsten + lakken met Skylt': 42.5,
+    'Schuren + polijsten + olie + lak': 47.5,
+    'Schuren + polijsten + lak zwartmat': 65.0,
+    'Schuren + polijsten + lak wit mat': 65.0,
     'Ben ik nog niet over uit': 0.0,
     'Ik wil graag advies': 0.0,
   },
@@ -16,6 +19,7 @@ export const servicesConfig: Record<string, Record<string, number | null>> = {
     'Bekleden met laminaat': null,
     'Bekleden met hout': null,
     'Bekleden met tapijt': null,
+    'Bekleden met traploper': null,
     'Bekleden met linoleum': null,
     'Schuren en behandelen': null,
     'Schuren en schilderen': null,
@@ -107,6 +111,11 @@ type TraprenovatieConfigType = {
       closedStairs?: {
         Overzettrede?: number;
         'Met profiel'?: number;
+        JobaTapijt?: number;
+        Sisal?: number;
+        Wol?: number;
+        Tapijt?: number;
+        Synthetisch?: number;
       };
       additionalOptions?: {
         stootborden?: number;
@@ -117,10 +126,17 @@ type TraprenovatieConfigType = {
         ondertapijt?: number;
         demontage?: number;
         ookDeZijkanten?: number;
+        'Gefestonneerd (standaard)'?: number; // No extra per step
+        'Enkel gebandeerd (+€10,-per trede)'?: number;
+        'Dubbel gebandeerd (+€15,-per trede)'?: number;
       };
       extraServices?: {
         overloop?: number;
         entree?: number;
+        '80cm breed (+€25,-per trede)'?: number;
+        '90cm breed (+€35,-per trede)'?: number;
+        '100cm breed (+€45,-per trede)'?: number;
+        '70cm breed (standaard)'?: number;
       };
     };
     applicableSteps: string[];
@@ -247,6 +263,40 @@ export const trapRenovatieConfig: TraprenovatieConfigType = {
       'trapRenovatieSteapDemontreTapijit',
     ],
   },
+  'Bekleden met traploper': {
+    pricing: {
+      closedStairs: {
+        JobaTapijt: 115.0,
+        Sisal: 110.0,
+        Wol: 160.0,
+        Tapijt: 110.0,
+        Synthetisch: 110.0,
+      },
+      additionalOptions: {
+        'Gefestonneerd (standaard)': 0.0, // No extra per step
+        'Enkel gebandeerd (+€10,-per trede)': 10.0,
+        'Dubbel gebandeerd (+€15,-per trede)': 15.0,
+        ondertapijt: 10.0,
+      },
+      extraServices: {
+        '70cm breed (standaard)': 0.0,
+        '80cm breed (+€25,-per trede)': 25.0,
+        '90cm breed (+€35,-per trede)': 35.0,
+        '100cm breed (+€45,-per trede)': 45.0,
+        overloop: 130.0,
+        entree: 130.0,
+      },
+    },
+    applicableSteps: [
+      'trapRenovatieStepTwoTraploper',
+      'trapRenovatieStepThreeTraploper',
+      'trapRenovatieStepFourTraploper',
+      'trapRenovatieStepFiveTraploper',
+      'trapRenovatieStepOverloopen',
+      'trapRenovatieSteapDemontreTapijit',
+    ],
+  },
+
   'Bekleden met linoleum': {
     pricing: {
       openStairs: {

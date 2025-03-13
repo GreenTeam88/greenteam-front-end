@@ -14,6 +14,7 @@ const categoryConfig: CategoryConfigType = {
       'parketRenovatieStepTwo',
       'parketRenovatieStepThreePart1',
       'parketRenovatieStepThreePart2',
+      'parketRenovatieStepThreePart3',
       'parketRenovatieStepFour',
       'StepFive',
       'ContactInfoStep',
