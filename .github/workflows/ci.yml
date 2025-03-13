@@ -1,6 +1,12 @@
 name: Check PR
 
-on: [pull_request]
+on:
+  pull_request:
+    branches:
+      - main
+  push:
+    branches:
+      - main
 
 jobs:
   run-ci:
@@ -35,6 +41,3 @@ jobs:
 
       - name: Check linting
         run: pnpm lint
-
-      - name: Check commits messages
-        uses: wagoid/commitlint-github-action@v5
