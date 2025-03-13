@@ -10,6 +10,8 @@ import { HeadlineSemibold } from '@/components/theme/typography';
 import { trapRenovatieConfig } from '@/lib/servicesConfig';
 import { Option } from '@/types';
 
+// added comment for push
+
 interface StepProps {
   onPrevious: () => void;
   onNext: (step?: number) => void;
@@ -37,10 +39,10 @@ const StepFive: React.FC<StepProps> = ({ onPrevious, onNext, formData, updateFor
   ];
 
   const loperFormaatOptions: Option[] = [
-    { value: 'ExtraWidth70cm', label: '70cm breed (standaard)' },
-    { value: 'ExtraWidth80cm', label: '80cm breed' },
-    { value: 'ExtraWidth90cm', label: '90cm breed' },
-    { value: 'ExtraWidth100cm', label: '100cm breed' },
+    { value: '70cm breed (standaard)', label: '70cm breed (standaard)' },
+    { value: '80cm breed (+€25,-per trede)', label: '80cm breed (+€25,-per trede)' },
+    { value: '90cm breed (+€35,-per trede)', label: '90cm breed (+€35,-per trede)' },
+    { value: '100cm breed (+€45,-per trede)', label: '100cm breed (+€45,-per trede)' },
   ];
 
   const form = useForm({

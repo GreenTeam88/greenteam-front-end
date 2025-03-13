@@ -40,9 +40,9 @@ const StepFour: React.FC<StepProps> = ({ onPrevious, onNext, formData, updateFor
   ];
 
   const AfwerkingTypeOptions: Option[] = [
-    { value: 'Gefestonneerd', label: 'Gefestonneerd' },
-    { value: 'EnkelGebandeerd', label: 'Enkel gebandeerd' },
-    { value: 'DubbelGebandeerd', label: 'Dubbel gebandeerd' },
+    { value: 'Gefestonneerd (standaard)', label: 'Gefestonneerd (standaard)' },
+    { value: 'Enkel gebandeerd (+€10,-per trede)', label: 'Enkel gebandeerd (+€10,-per trede)' },
+    { value: 'Dubbel gebandeerd (+€15,-per trede)', label: 'Dubbel gebandeerd (+€15,-per trede)' },
   ];
 
   const form = useForm({

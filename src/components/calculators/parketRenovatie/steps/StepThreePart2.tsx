@@ -46,7 +46,7 @@ const UNIT_PRICES: Record<string, number> = {
   Drempels: 25,
   Dorpels: 25,
   Vensterbanken: 45,
-  'Planken/Plateaus': 45,
+  'Planken/Plateaus': 50,
   'Salontafels/Eettafels': 50,
 };
 
@@ -197,7 +197,7 @@ const StepThreePart2: React.FC<StepProps> = ({ onPrevious, onNext, formData, upd
             <MultiSelectDropdown
               data={surfaceTypeOptions}
               name="additionalSurfaces"
-              label="Zijn er nog andere oppervlaktes?"
+              label="Zijn er nog andere oppervlaktes?(1/2)"
               placeholder="Kies er een"
               exclusiveOption="Nee"
             />
@@ -278,3 +278,5 @@ const StepThreePart2: React.FC<StepProps> = ({ onPrevious, onNext, formData, upd
 };
 
 export default StepThreePart2;
+
+//adding a comment to push

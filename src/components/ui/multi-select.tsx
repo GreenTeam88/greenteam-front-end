@@ -178,9 +178,9 @@ const MultiSelectFormField = React.forwardRef<HTMLButtonElement, MultiSelectForm
                         <Image
                           src={option.imageUrl}
                           alt={option.label}
-                          width={40}
-                          height={40}
-                          className="rounded-sm transition-transform duration-200 ease-in-out hover:scale-130"
+                          width={55}
+                          height={55}
+                          className="ml-2 rounded-sm transition-transform duration-200 ease-in-out hover:scale-130"
                         />
                       )}
                     </CommandItem>

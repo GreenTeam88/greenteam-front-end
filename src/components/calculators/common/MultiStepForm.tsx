@@ -77,6 +77,7 @@ const stepComponents: { [key: string]: React.LazyExoticComponent<React.Component
   trapRenovatieStepThreeTraploper: React.lazy(() => import('../Traprenovatie/steps/Traploper/StepThree')),
   trapRenovatieStepFourTraploper: React.lazy(() => import('../Traprenovatie/steps/Traploper/StepFour')),
   trapRenovatieStepFiveTraploper: React.lazy(() => import('../Traprenovatie/steps/Traploper/StepFive')),
+  trapRenovatieStepOverloopen: React.lazy(() => import('../Traprenovatie/steps/Traploper/StepOverlopen')),
 };
 
 const MultiStepForm: React.FC<MultiStepFormProps> = ({ category }) => {

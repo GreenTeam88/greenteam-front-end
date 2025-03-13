@@ -39,7 +39,7 @@ const UNIT_PRICES: Record<string, number> = {
 
 // Service options
 const surfaceTypes: Option[] = [
-  { value: 'Nee', label: 'Nee', imageUrl: '/images/lage-plinten.svg' },
+  { value: 'Nee', label: 'Nee' },
   {
     value: 'Bovenkant convectorput schuren',
     label: `Bovenkant convectorput schuren - €${UNIT_PRICES['Bovenkant convectorput schuren']}`,
@@ -192,7 +192,7 @@ const StepThreePart3: React.FC<StepProps> = ({ onPrevious, onNext, formData, upd
             <MultiSelectDropdown
               data={surfaceTypes}
               name="selectedSurfaces2"
-              label="Zijn er nog andere oppervlaktes?"
+              label="Zijn er nog andere oppervlaktes?(2/2)"
               placeholder="Kies er een"
               exclusiveOption="Nee"
             />

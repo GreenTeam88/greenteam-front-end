@@ -153,7 +153,7 @@ const StepLighting: React.FC<StepProps> = ({ onPrevious, onNext, formData, updat
             <SingleSelectDropdown
               data={TrapLongOptions}
               name="TrapLong"
-              label="Lengte trap?"
+              label="Heeft u ook een plateau in uw trap?"
               placeholder="Maak een keuze"
             />
             {errors.TrapLong && <span className="text-red-500 text-sm">{errors.TrapLong.message}</span>}
