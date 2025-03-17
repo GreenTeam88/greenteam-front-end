@@ -17,6 +17,7 @@ interface SingleSelectDropdownProps {
   menuClassName?: string;
   onChange?: (value: string) => void;
   disabled?: boolean; // if true => entire dropdown is disabled
+  alertLabelText?: string;
 }
 
 export default function SingleSelectDropdown({
@@ -30,6 +31,7 @@ export default function SingleSelectDropdown({
   menuClassName,
   onChange,
   disabled = false,
+  alertLabelText = '*',
 }: SingleSelectDropdownProps) {
   const form = useFormContext();
   if (!form || !form.control) {
@@ -44,7 +46,7 @@ export default function SingleSelectDropdown({
         <FormItem className="flex flex-col gap-y-1">
           <FormLabel className="font-normal text-textBlack80 text-sm">
             {label}
-            <span className="text-red-500">*</span>
+            <span className="text-red-500">{alertLabelText}</span>
           </FormLabel>
 
           <FormControl>

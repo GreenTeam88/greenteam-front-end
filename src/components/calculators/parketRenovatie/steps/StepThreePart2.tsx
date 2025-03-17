@@ -46,36 +46,50 @@ const UNIT_PRICES: Record<string, number> = {
   Drempels: 25,
   Dorpels: 25,
   Vensterbanken: 45,
-  'Planken/Plateaus': 45,
+  'Planken/Plateaus': 50,
   'Salontafels/Eettafels': 50,
 };
 
 const StepThreePart2: React.FC<StepProps> = ({ onPrevious, onNext, formData, updateFormData }) => {
   const surfaceTypes = [
-    'Nee',
-    'Traptredes',
-    'Opstapjes',
-    'Drempels',
-    'Dorpels',
-    'Vensterbanken',
-    'Planken/Plateaus',
-    'Salontafels/Eettafels',
+    { value: 'Nee', label: 'Nee' },
+    { value: 'Traptredes', label: 'Traptredes', imageUrl: '/images/parketrenovatieSepThee/part2/Traptredes.webp' },
+    { value: 'Opstapjes', label: 'Opstapjes', imageUrl: '/images/parketrenovatieSepThee/part2/Opstapjes.webp' },
+    { value: 'Drempels', label: 'Drempels', imageUrl: '/images/parketrenovatieSepThee/part2/Drempels.webp' },
+    { value: 'Dorpels', label: 'Dorpels', imageUrl: '/images/parketrenovatieSepThee/part2/Dorpels.webp' },
+    {
+      value: 'Vensterbanken',
+      label: 'Vensterbanken',
+      imageUrl: '/images/parketrenovatieSepThee/part2/Vensterbanken.webp',
+    },
+    {
+      value: 'Planken/Plateaus',
+      label: 'Planken/Plateaus',
+      imageUrl: '/images/parketrenovatieSepThee/part2/Planken - Plateaus.webp',
+    },
+    {
+      value: 'Salontafels/Eettafels',
+      label: 'Salontafels/Eettafels',
+      imageUrl: '/images/parketrenovatieSepThee/part2/Salontafels - Eettafels.webp',
+    },
   ];
 
   const numberOptions = ['1', '2', '3', '4', '5', '6', '7', '8', '9', '10+'];
   const surfaces: Option[] = numberOptions.map((surface) => ({ value: surface, label: surface }));
+
   const surfaceTypeOptions: Option[] = surfaceTypes.map((surface) => ({
-    value: surface,
+    value: surface.value,
     label:
-      surface === 'Nee'
-        ? surface
-        : `${surface} - €${UNIT_PRICES[surface]}${
-            surface === 'Salontafels/Eettafels'
+      surface.value === 'Nee'
+        ? surface.label
+        : `${surface.label} - €${UNIT_PRICES[surface.value]}${
+            surface.value === 'Salontafels/Eettafels'
               ? ' per m²'
-              : surface === 'Vensterbanken' || surface === 'Planken/Plateaus'
+              : surface.value === 'Vensterbanken' || surface.value === 'Planken/Plateaus'
                 ? ' per m'
                 : ''
           }`,
+    imageUrl: surface.imageUrl,
   }));
 
   const form = useForm({
@@ -183,7 +197,7 @@ const StepThreePart2: React.FC<StepProps> = ({ onPrevious, onNext, formData, upd
             <MultiSelectDropdown
               data={surfaceTypeOptions}
               name="additionalSurfaces"
-              label="Zijn er nog andere oppervlaktes?"
+              label="Zijn er nog andere oppervlaktes?(1/2)"
               placeholder="Kies er een"
               exclusiveOption="Nee"
             />
@@ -264,3 +278,5 @@ const StepThreePart2: React.FC<StepProps> = ({ onPrevious, onNext, formData, upd
 };
 
 export default StepThreePart2;
+
+//adding a comment to push

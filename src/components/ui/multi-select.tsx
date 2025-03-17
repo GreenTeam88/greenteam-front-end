@@ -1,5 +1,6 @@
 import { cva } from 'class-variance-authority';
 import { CheckIcon, ChevronDown, WandSparkles, XIcon } from 'lucide-react';
+import Image from 'next/image';
 import * as React from 'react';
 
 import { Button } from '@/components/ui/button';
@@ -36,6 +37,7 @@ interface MultiSelectFormFieldProps
     value: string;
     disabled?: boolean;
     icon?: React.ComponentType<{ className?: string }>;
+    imageUrl?: string;
   }[];
   defaultValue?: string[];
   disabled?: boolean;
@@ -153,22 +155,34 @@ const MultiSelectFormField = React.forwardRef<HTMLButtonElement, MultiSelectForm
                         opacity: option.disabled ? 0.5 : 1,
                       }}
                       className={cn(
-                        'cursor-pointer px-3 py-1.5',
+                        'cursor-pointer px-3 py-1.5 flex items-center justify-between w-full',
                         'hover:bg-green-50',
                         menuListItemsClassName,
                         isSelected ? 'bg-green-50 font-bold text-green-900' : ''
                       )}
                     >
-                      <div
-                        className={cn(
-                          'mr-2 rounded-[2px] !outline-transparent !ring-transparent flex h-4 w-4 items-center justify-center border border-green-100',
-                          isSelected ? 'bg-green-600 text-white rounded-s-sm' : 'opacity-50 [&_svg]:invisible'
-                        )}
-                      >
-                        <CheckIcon className={`h-4 w-4 ${isSelected ? 'text-white' : ''}`} />
+                      <div className="flex items-center">
+                        <div
+                          className={cn(
+                            'mr-2 rounded-[2px] !outline-transparent !ring-transparent flex h-4 w-4 items-center justify-center border border-green-100',
+                            isSelected ? 'bg-green-600 text-white rounded-s-sm' : 'opacity-50 [&_svg]:invisible'
+                          )}
+                        >
+                          <CheckIcon className={`h-4 w-4 ${isSelected ? 'text-white' : ''}`} />
+                        </div>
+                        {option.icon && <option.icon className="mr-2 h-4 w-4 text-muted-foreground" />}
+                        <span>{option.label}</span>
                       </div>
-                      {option.icon && <option.icon className="mr-2 h-4 w-4 text-muted-foreground" />}
-                      <span>{option.label}</span>
+
+                      {option.imageUrl && (
+                        <Image
+                          src={option.imageUrl}
+                          alt={option.label}
+                          width={55}
+                          height={55}
+                          className="ml-2 rounded-sm transition-transform duration-200 ease-in-out hover:scale-130"
+                        />
+                      )}
                     </CommandItem>
                   );
                 })}
