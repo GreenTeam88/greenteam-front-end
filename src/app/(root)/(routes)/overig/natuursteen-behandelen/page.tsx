@@ -126,6 +126,16 @@ export default function OverigNatuursteenbehandelenPage() {
         thirdImg="/overig/natuursteen-behandelen/natuursteen-behandelen-5.png"
         fourthImg="/overig/natuursteen-behandelen/natuursteen-behandelen-6.png"
         fifthImg="/overig/natuursteen-behandelen/natuursteen-behandelen-7.png"
+        firstImgTopText="Natuursteen behandeling"
+        firstImgBottomText="Spechtstraat, Rotterdam"
+        secondImgTopText="Natuursteen behandeling"
+        secondImgBottomText="Moerbeipad, Zoetermeer"
+        thirdImgTopText="Natuursteen behandeling"
+        thirdImgBottomText="Blauweweg, Westland"
+        fourthImgTopText="Natuursteen behandeling"
+        fourthImgBottomText="Esdoornhof, Helmond"
+        fifthImgTopText="Natuursteen behandeling"
+        fifthImgBottomText="Akkerwinde, Oss"
       />
       <WhatWaitingForCard
         orangeText="Geen verrassing, afspraak is afspraak!"

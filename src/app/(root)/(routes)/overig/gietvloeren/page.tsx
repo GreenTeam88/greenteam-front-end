@@ -127,6 +127,16 @@ export default function OverigGietvloerenPage() {
         thirdImg="/overig/gietvloeren/gietvloeren-5.png"
         fourthImg="/overig/gietvloeren/gietvloeren-6.png"
         fifthImg="/overig/gietvloeren/gietvloeren-7.png"
+        firstImgTopText="Gietvloer"
+        firstImgBottomText="Koekoekstraat, Amsterdam"
+        secondImgTopText="Gietvloer"
+        secondImgBottomText="Meeuwenhof, Rotterdam"
+        thirdImgTopText="Gietvloer"
+        thirdImgBottomText="Shellerweg, Zwolle"
+        fourthImgTopText="Gietvloer"
+        fourthImgBottomText="Biesbos, Alkmaar"
+        fifthImgTopText="Gietvloer"
+        fifthImgBottomText="Klinkstraat, Maastricht"
       />
       <WhatWaitingForCard
         orangeText="Geen verrassing, afspraak is afspraak!"

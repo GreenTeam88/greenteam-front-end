@@ -117,6 +117,16 @@ export default function StofferenDroogloopmatPage() {
         thirdImg="/stofferen/droogloopmat/droogloopmat-5.png"
         fourthImg="/stofferen/droogloopmat/droogloopmat-6.png"
         fifthImg="/stofferen/droogloopmat/droogloopmat-7.png"
+        firstImgTopText="Droogloopmat"
+        firstImgBottomText="Ruigoord, Rotterdam"
+        secondImgTopText="Droogloopmat"
+        secondImgBottomText="Oude havenkade, Rotterdam"
+        thirdImgTopText="Droogloopmat"
+        thirdImgBottomText="Acaciaplein, Gouda"
+        fourthImgTopText="Droogloopmat"
+        fourthImgBottomText="Abeelstraat, Dordrecht"
+        fifthImgTopText="Droogloopmat"
+        fifthImgBottomText="Billderdijkstraat, Amsterdam"
       />
       <WhatWaitingForCard
         orangeText=" Ik wil dat de parketteur langskomt!"

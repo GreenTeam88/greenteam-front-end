@@ -119,6 +119,16 @@ export default function StofferenDeurmatPage() {
         thirdImg="/stofferen/deurmat/deurmat-5.png"
         fourthImg="/stofferen/deurmat/deurmat-6.png"
         fifthImg="/stofferen/deurmat/deurmat-7.png"
+        firstImgTopText="Deurmat"
+        firstImgBottomText="Emerparklaan, Breda"
+        secondImgTopText="Deurmat"
+        secondImgBottomText="Kottendijk, Enschede"
+        thirdImgTopText="Deurmat"
+        thirdImgBottomText="Middelstegracht, Leiden"
+        fourthImgTopText="Deurmat"
+        fourthImgBottomText="Lankforst, Nijmegen"
+        fifthImgTopText="Deurmat"
+        fifthImgBottomText="Lisven, Eindhoven"
       />
       <WhatWaitingForCard
         orangeText=" Ik wil dat de parketteur langskomt!"

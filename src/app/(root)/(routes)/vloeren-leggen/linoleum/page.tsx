@@ -135,6 +135,16 @@ export default function VloerenLeggenLinoleumPage() {
         thirdImg="/vloeren-leggen/linoleum-leggen/linoleum-leggen-5.png"
         fourthImg="/vloeren-leggen/linoleum-leggen/linoleum-leggen-6.png"
         fifthImg="/vloeren-leggen/linoleum-leggen/linoleum-leggen-7.png"
+        firstImgTopText="Linoleum"
+        firstImgBottomText="Afrikaweg, Zoetermeer"
+        secondImgTopText="Linoleum"
+        secondImgBottomText="Zoeterwoudsesingel, Leiden"
+        thirdImgTopText="Linoleum"
+        thirdImgBottomText="Schenkelweg, Spijkenisse"
+        fourthImgTopText="Linoleum"
+        fourthImgBottomText="Lindenlaan, Zeist"
+        fifthImgTopText="Linoleum"
+        fifthImgBottomText="Driehuizerkerkweg, Velsen"
       />
       <WhatWaitingForCard
         orangeText=" Ik wil dat de parketteur langskomt!"

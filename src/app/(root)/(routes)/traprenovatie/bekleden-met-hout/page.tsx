@@ -126,10 +126,20 @@ export default function TraprenovatieBekledenMetHout() {
         btnText="Bereken uw trap"
         btnLink="/offerte"
         firstImg={'/traprenovatie/bekleden-met-hout/bekleden-met-hout-3.png'}
+        firstImgTopText="Bekleden met hout"
+        firstImgBottomText="Kleine haag, Amersfoort"
         secondImg="/traprenovatie/bekleden-met-hout/bekleden-met-hout-4.png"
+        secondImgBottomText="Turfsingel, Groningen"
+        secondImgTopText="Bekleden met hout"
         thirdImg="/traprenovatie/bekleden-met-hout/bekleden-met-hout-5.png"
+        thirdImgBottomText="Postjeskade, Amsterdam"
+        thirdImgTopText="Bekleden met hout"
         fourthImg="/traprenovatie/bekleden-met-hout/bekleden-met-hout-6.png"
+        fourthImgBottomText="Steenstraat, Venlo"
+        fourthImgTopText="Bekleden met hout"
         fifthImg="/traprenovatie/bekleden-met-hout/bekleden-met-hout-7.png"
+        fifthImgTopText="Bekleden met hout"
+        fifthImgBottomText="Hazenweg, Almere"
       />
       <WhatWaitingForCard
         orangeText=" Ik wil dat de trappenspecialist langskomt!"

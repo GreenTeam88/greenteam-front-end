@@ -121,6 +121,16 @@ export default function StofferenReinigingsservicePage() {
         thirdImg="/stofferen/reinigingsservice/reinigingsservice-5.png"
         fourthImg="/stofferen/reinigingsservice/reinigingsservice-6.png"
         fifthImg="/stofferen/reinigingsservice/reinigingsservice-7.png"
+        firstImgTopText="Reinigingsservice"
+        firstImgBottomText="Bovensteweg, Oosterhout"
+        secondImgTopText="Reinigingsservice"
+        secondImgBottomText="Over de Vesten, Schiedam"
+        thirdImgTopText="Reinigingsservice"
+        thirdImgBottomText="Rivierenlaan, Lelystad"
+        fourthImgTopText="Reinigingsservice"
+        fourthImgBottomText="Nieuwstad, Weesp"
+        fifthImgTopText="Reinigingsservice"
+        fifthImgBottomText="Venloseweg, Roermond"
       />
       <WhatWaitingForCard
         orangeText="Ik wil dat de parketteur langskomt!"

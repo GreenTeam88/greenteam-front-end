@@ -83,11 +83,13 @@ const whatWaitingForConfig: InfoCardProps = {
   title: 'Waar wacht u nog op!',
   paragraphs: [
     <BodyText key="1">
-      Als dit is wat u wilt, waar wacht u dan op. Bereken via de knop hieronder wat het kost en neem contact met ons op voor een afspraak. Als u de specialist langs laat komen gaan we bespreken wat voor soort hout u heeft, wat de mogelijkheden zijn, ons advies en we komen met de kleurstalen zodat u zeker weten de juiste beslissing maakt.
-
+      Als dit is wat u wilt, waar wacht u dan op. Bereken via de knop hieronder wat het kost en neem contact met ons op
+      voor een afspraak. Als u de specialist langs laat komen gaan we bespreken wat voor soort hout u heeft, wat de
+      mogelijkheden zijn, ons advies en we komen met de kleurstalen zodat u zeker weten de juiste beslissing maakt.
     </BodyText>,
     <BodyText key="2">
-Deze afspraak kost eenmalig 50,- euro en deze wordt in mindering gebracht wanneer u de klus aan ons uitbesteed. In heel veel gevallen is deze afspraak niet nodig, en is advies via mailcontact met foto’s voldoende.
+      Deze afspraak kost eenmalig 50,- euro en deze wordt in mindering gebracht wanneer u de klus aan ons uitbesteed. In
+      heel veel gevallen is deze afspraak niet nodig, en is advies via mailcontact met foto’s voldoende.
     </BodyText>,
   ],
   imgSrc: '/overig/opslag/opslag-8.png',
@@ -128,6 +130,16 @@ export default function OverigOpslagPage() {
         thirdImg="/overig/opslag/opslag-5.png"
         fourthImg="/overig/opslag/opslag-6.png"
         fifthImg="/overig/opslag/opslag-7.png"
+        firstImgTopText="Opslag"
+        firstImgBottomText="Schaapsweg, Delft"
+        secondImgTopText="Opslag"
+        secondImgBottomText="Paardenweg, Barendrecht"
+        thirdImgTopText="Opslag"
+        thirdImgBottomText="Wilgenlaan, Ridderkerk"
+        fourthImgTopText="Opslag"
+        fourthImgBottomText="Herbergstraat, Alkmaar"
+        fifthImgTopText="Opslag"
+        fifthImgBottomText="Drakensteyn, Alphen aan den Rijn"
       />
       <WhatWaitingForCard
         orangeText=" Ik wil dat de parketteur langskomt!"

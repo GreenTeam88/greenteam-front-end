@@ -131,6 +131,16 @@ export default function VloerenLeggenWeensePuntPage() {
         thirdImg="/vloeren-leggen/weense-punt/weense-punt-5.png"
         fourthImg="/vloeren-leggen/weense-punt/weense-punt-6.png"
         fifthImg="/vloeren-leggen/weense-punt/weense-punt-7.png"
+        firstImgTopText="Weense punt"
+        firstImgBottomText="Doelenplein, Delft"
+        secondImgTopText="Weense punt"
+        secondImgBottomText="Venuslaan, Groningen"
+        thirdImgTopText="Weense punt"
+        thirdImgBottomText="Zaaierstraat, Enschede"
+        fourthImgTopText="Weense punt"
+        fourthImgBottomText="Boterweg, Apeldoorn"
+        fifthImgTopText="Weense punt"
+        fifthImgBottomText="Herfstakker, Dordrecht"
       />
       <WhatWaitingForCard
         orangeText="Ik wil dat de parketteur langskomt!"

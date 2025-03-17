@@ -145,6 +145,16 @@ export default function TraprenovatieBetonCireMetalStuc() {
         thirdImg="/traprenovatie/parel/parel-6.png"
         fourthImg="/traprenovatie/parel/parel-7.png"
         fifthImg="/traprenovatie/parel/parel-8.png"
+        firstImgTopText="Venetiaans"
+        firstImgBottomText="Rotterdamsedijk, Schiedam"
+        secondImgTopText="Metal stuk"
+        secondImgBottomText="Javastraat, Den Haag"
+        thirdImgTopText="Croco"
+        thirdImgBottomText="Engelandlaan, Zoetermeer"
+        fourthImgTopText="Venetiaans"
+        fourthImgBottomText="Van Hogendorplaan, Vlaardingen"
+        fifthImgTopText=""
+        fifthImgBottomText="Diezerstraat, Zwolle"
       />
       <WhatWaitingForCard
         orangeText="Ik wil dat de trappenspecialist langskomt!"

@@ -147,6 +147,16 @@ export default function TraprenovatieBetonCireVenetiaans() {
         thirdImg="/traprenovatie/venetiaans/venetiaans-6.png"
         fourthImg="/traprenovatie/venetiaans/venetiaans-7.png"
         fifthImg="/traprenovatie/venetiaans/venetiaans-8.png"
+        firstImgTopText="Venetiaans"
+        firstImgBottomText="A.J. Ernststraat, Amsterdam"
+        secondImgTopText="Metal stuk"
+        secondImgBottomText="Meerhuizen, Amersfoort"
+        thirdImgTopText="Croco"
+        thirdImgBottomText="Esmoreitstraat, Rotterdam"
+        fourthImgTopText="Venetiaans"
+        fourthImgBottomText="Korianderstraat, Tilburg"
+        fifthImgTopText=""
+        fifthImgBottomText="Hennepweg, Almere"
       />
       <WhatWaitingForCard
         orangeText="Ik wil dat de trappenspecialist langskomt!"

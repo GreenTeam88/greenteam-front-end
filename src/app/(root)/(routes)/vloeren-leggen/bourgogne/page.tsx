@@ -128,6 +128,16 @@ export default function VloerenLeggenBourgognePage() {
         thirdImg="/vloeren-leggen/bourgogne/bourgogne-5.png"
         fourthImg="/vloeren-leggen/bourgogne/bourgogne-6.png"
         fifthImg="/vloeren-leggen/bourgogne/bourgogne-7.png"
+        firstImgTopText="Bourgogne"
+        firstImgBottomText="Poortstraat, Utrecht"
+        secondImgTopText="Bourgogne"
+        secondImgBottomText="Zestienhovensekade, Rotterdam"
+        thirdImgTopText="Bourgogne"
+        thirdImgBottomText="Binnensingel, Vlaardingen"
+        fourthImgTopText="Bourgogne"
+        fourthImgBottomText="Azalealaan, Helmond"
+        fifthImgTopText="Bourgogne"
+        fifthImgBottomText="Parkhaven, Lelystad"
       />
       <WhatWaitingForCard
         orangeText=" Ik wil dat de parketteur langskomt!"

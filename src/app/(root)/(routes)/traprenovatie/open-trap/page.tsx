@@ -180,6 +180,16 @@ export default function TraprenovatieOpenTrap() {
         thirdImg="/traprenovatie/open-trap/open-trap-6.png"
         fourthImg="/traprenovatie/open-trap/open-trap-7.png"
         fifthImg="/traprenovatie/open-trap/open-trap-8.png"
+        firstImgTopText="Open trap"
+        firstImgBottomText="Onderlangs, Arnhem"
+        secondImgTopText="Open trap"
+        secondImgBottomText="Kamperstraat, Zwolle"
+        thirdImgTopText="Open trap"
+        thirdImgBottomText="Lage Barakken, Maastricht"
+        fourthImgTopText="Open trap"
+        fourthImgBottomText="Buitenhaven, Den Bosch"
+        fifthImgTopText="Open trap"
+        fifthImgBottomText="Industrieweg, Assen"
       />
       <WhatWaitingForCard
         orangeText=" Ik wil dat de trappenspecialist langskomt!"

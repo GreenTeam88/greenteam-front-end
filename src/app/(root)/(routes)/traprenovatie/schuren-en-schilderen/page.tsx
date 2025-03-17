@@ -45,7 +45,7 @@ const FAQs: FAQType[] = [
   {
     question: 'Hoeveel tijd is nodig voor het drogen na het schuren voordat ik kan beginnen met schilderen?',
     answer:
-      'Nadat de specialist klaar is, dient u minimaal rekening te houden met 24 uur niet betreden van de ruimte of trap.  ',
+      'Nadat de specialist klaar is, dient u minimaal rekening te houden met 24 uur niet betreden van de ruimte of trap.',
   },
   {
     question: 'Kan ik mijn trap laten schilderen in alle kleuren van de regenboog?',
@@ -119,10 +119,20 @@ export default function TraprenovatieSchurenEnSchilderen() {
         btnText="Bereken uw trap"
         btnLink="/offerte"
         firstImg="/traprenovatie/schuren-en-schilderen/schuren-en-schilderen-3.png"
+        firstImgTopText="Schilderen"
+        firstImgBottomText="Zaagmolenstraat, Rotterdam"
         secondImg="/traprenovatie/schuren-en-schilderen/schuren-en-schilderen-4.png"
+        secondImgBottomText="Grote Beer, Veendaal"
+        secondImgTopText="Schilderen"
         thirdImg="/traprenovatie/schuren-en-schilderen/schuren-en-schilderen-5.png"
+        thirdImgTopText="Schilderen"
+        thirdImgBottomText="Gevers Deynootweg, Den Haag"
         fourthImg="/traprenovatie/schuren-en-schilderen/schuren-en-schilderen-6.png"
+        fourthImgTopText="Schilderen"
+        fourthImgBottomText="Bleijenhoek, Dordrecht"
         fifthImg="/traprenovatie/schuren-en-schilderen/schuren-en-schilderen-7.png"
+        fifthImgTopText="Schilderen"
+        fifthImgBottomText="Veemkade, Amsterdam"
       />
       <WhatWaitingForCard
         orangeText=" Ik wil dat de trappenspecialist langskomt!"

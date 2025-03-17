@@ -129,6 +129,16 @@ export default function StofferenTrapPage() {
         thirdImg="/stofferen/trap/trap-5.png"
         fourthImg="/stofferen/trap/trap-6.png"
         fifthImg="/stofferen/trap/trap-7.png"
+        firstImgTopText="Trap stofferen"
+        firstImgBottomText="Klaproosweg, Lisse"
+        secondImgTopText="Trap stofferen"
+        secondImgBottomText="Bronsbergenstraat, Arnhem"
+        thirdImgTopText="Trap stofferen"
+        thirdImgBottomText="Zijlpoort, Leiden"
+        fourthImgTopText="Trap stofferen"
+        fourthImgBottomText="Schagelstraat, Alkmaar"
+        fifthImgTopText="Trap stofferen"
+        fifthImgBottomText="Kruizemuntweg, Tilburg"
       />
       <WhatWaitingForCard
         orangeText=" Ik wil dat de parketteur langskomt!"

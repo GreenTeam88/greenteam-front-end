@@ -128,6 +128,16 @@ export default function VloerenLeggenParketPage() {
         thirdImg="/vloeren-leggen/parket-leggen/parket-leggen-5.png"
         fourthImg="/vloeren-leggen/parket-leggen/parket-leggen-6.png"
         fifthImg="/vloeren-leggen/parket-leggen/parket-leggen-7.png"
+        firstImgTopText="Parket"
+        firstImgBottomText="Herbergstraat, Alkmaar"
+        secondImgTopText="Parket"
+        secondImgBottomText="Fijnstraat, Montfoort"
+        thirdImgTopText="Parket"
+        thirdImgBottomText="Bomenpad, Wageningen"
+        fourthImgTopText="Parket"
+        fourthImgBottomText="Zeezichtweg, Ijmuiden"
+        fifthImgTopText="Parket"
+        fifthImgBottomText="Veldweg, Schoorl"
       />
       <WhatWaitingForCard
         orangeText=" Ik wil dat de parketteur langskomt!"

@@ -153,6 +153,16 @@ export default function TraprenovatieDichteTrap() {
         thirdImg="/traprenovatie/dichte-trap/dichte-trap-5.png"
         fourthImg="/traprenovatie/dichte-trap/dichte-trap-6.png"
         fifthImg="/traprenovatie/dichte-trap/dichte-trap-7.png"
+        firstImgTopText="Dichte trap"
+        firstImgBottomText="Seissingel, Middelburg"
+        secondImgTopText="Dichte trap"
+        secondImgBottomText="Oude Warmeerweg, Emmen"
+        thirdImgTopText="Dichte trap"
+        thirdImgBottomText="Slaperdijk, Veenendaal"
+        fourthImgTopText="Dichte trap"
+        fourthImgBottomText="Roerdomplaan, Capelle aan den ijssel"
+        fifthImgTopText="Dichte trap"
+        fifthImgBottomText="P. van Vlietlaan, Rijswijk"
       />
       <WhatWaitingForCard
         orangeText=" Ik wil dat de trappenspecialist langskomt!"

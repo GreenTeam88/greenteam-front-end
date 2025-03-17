@@ -20,8 +20,7 @@ const thirdSectionCards: InfoCardProps[] = [
         leefruimte. Hoe wij te werk gaan:{' '}
       </div>,
       <ul key="3" className="flex flex-col py-3 list-disc gap-4 list-inside">
-        <li>Advies op maat: We bekijken uw ruimte en adviseren welk systeem het beste bij uw woning en wensen past.
-        </li>
+        <li>Advies op maat: We bekijken uw ruimte en adviseren welk systeem het beste bij uw woning en wensen past.</li>
         <li>
           Geschikt voor elke ruimte: Of het nu gaat om de woonkamer, badkamer of keuken, vloerverwarming past overal en
           is compatibel met diverse vloerbedekkingen zoals tegels, PVC en parket. 
@@ -131,6 +130,16 @@ export default function OverigVloerverwarmingPage() {
         thirdImg="/overig/vloerverwarming/vloerverwarming-5.png"
         fourthImg="/overig/vloerverwarming/vloerverwarming-6.png"
         fifthImg="/overig/vloerverwarming/vloerverwarming-7.png"
+        firstImgTopText="Vloerverwarming"
+        firstImgBottomText="Kommel, Maastricht"
+        secondImgTopText="Vloerverwarming"
+        secondImgBottomText="Eekhoornbos, Almere"
+        thirdImgTopText="Vloerverwarming"
+        thirdImgBottomText="Smidspad, Tilburg"
+        fourthImgTopText="Vloerverwarming"
+        fourthImgBottomText="Hertgang, Eindhoven"
+        fifthImgTopText="Vloerverwarming"
+        fifthImgBottomText="Goffertpad, Nijmegen"
       />
       <WhatWaitingForCard
         orangeText="Ik wil dat de specialist langs komt!"

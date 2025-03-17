@@ -120,6 +120,16 @@ export default function Home() {
         thirdImg="/Parketrenovatie/v-groef-frezen-6.png"
         fourthImg="/Parketrenovatie/v-groef-frezen-7.png"
         fifthImg="/Parketrenovatie/v-groef-frezen-8.png"
+        firstImgTopText="V-groef frezen"
+        secondImgTopText="V-groef frezen"
+        thirdImgTopText="V-groef frezen"
+        fourthImgTopText="V-groef frezen"
+        fifthImgTopText="V-groef frezen"
+        firstImgBottomText="Oude Delft, Delft"
+        secondImgBottomText="Saroleastraat, Heerlen"
+        thirdImgBottomText="Wijnstraat, Dordrecht"
+        fourthImgBottomText="Appelhaven, Hoorn"
+        fifthImgBottomText="Telefoonweg, Ede"
       />
       <WhatWaitingForCard {...whatWaitingForConfig} className="lg:py-28" />
       <FAQSection FAQs={FAQs} />

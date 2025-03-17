@@ -145,10 +145,20 @@ export default function TraprenovatieSchurenEnBehandelen() {
         btnText="Bereken uw trap"
         btnLink="/offerte"
         firstImg={'/traprenovatie/schuren-en-behandelen/schuren-en-behandelen-4.png'}
+        firstImgTopText="Schuren"
+        firstImgBottomText="Vechtstraat, Zwolle"
         secondImg="/traprenovatie/schuren-en-behandelen/schuren-en-behandelen-5.png"
+        secondImgTopText="Schuren"
+        secondImgBottomText="Kleiweg, Rotterdam"
         thirdImg="/traprenovatie/schuren-en-behandelen/schuren-en-behandelen-6.png"
+        thirdImgTopText="Schuren"
+        thirdImgBottomText="Schansstraat, Emmen"
         fourthImg="/traprenovatie/schuren-en-behandelen/schuren-en-behandelen-7.png"
+        fourthImgTopText="Schuren"
+        fourthImgBottomText="Bleeklaan, Leeuwarden"
         fifthImg="/traprenovatie/schuren-en-behandelen/schuren-en-behandelen-8.png"
+        fifthImgTopText="Schuren"
+        fifthImgBottomText="Amstelveenseweg, Amsterdam"
       />
       <WhatWaitingForCard
         orangeText=" Ik wil dat de trappenspecialist langskomt!"

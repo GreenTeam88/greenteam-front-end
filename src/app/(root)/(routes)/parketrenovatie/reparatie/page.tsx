@@ -97,10 +97,20 @@ export default function ParketrenovatieReparatiePage() {
       <ParketrenovatieWhyGreenTeam />
       <ParketrenovatieStoreSection
         firstImg={'/Parketrenovatie/reparatie-4.png'}
+        firstImgTopText="Reparatie"
+        firstImgBottomText="Archipel, Lelystad"
         secondImg="/Parketrenovatie/reparatie-5.png"
+        secondImgTopText="Reparatie"
+        secondImgBottomText="Pelikaanstraat, Assen"
         thirdImg="/Parketrenovatie/reparatie-6.png"
+        thirdImgBottomText="Koepoortstraat, Middelburg"
+        thirdImgTopText="Reparatie"
         fourthImg="/Parketrenovatie/reparatie-7.png"
+        fourthImgTopText="Reparatie"
+        fourthImgBottomText="Graafseweg, Den Bosch"
         fifthImg="/Parketrenovatie/reparatie-8.png"
+        fifthImgBottomText="IJburglaan, Amsterdam"
+        fifthImgTopText="Reparatie"
       />
       <WhatWaitingForCard {...whatWaitingForConfig} className="lg:py-28" />
       <FAQSection FAQs={FAQs} />

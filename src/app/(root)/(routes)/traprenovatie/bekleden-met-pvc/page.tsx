@@ -230,10 +230,20 @@ export default function TraprenovatieBekledenMetPVC() {
         btnText="Bereken uw trap"
         btnLink="/offerte"
         firstImg={'/traprenovatie/bekleden-pvc/bekleden-pvc-7.png'}
+        firstImgTopText="PVC"
+        firstImgBottomText="Lunterseweg, Ede"
         secondImg="/traprenovatie/bekleden-pvc/bekleden-pvc-8.png"
+        secondImgTopText="PVC"
+        secondImgBottomText="Sloterbeekstraat,Venlo"
         thirdImg="/traprenovatie/bekleden-pvc/bekleden-pvc-9.png"
+        thirdImgBottomText="Capucijnenstraat, Maastricht"
+        thirdImgTopText="PVC"
         fourthImg="/traprenovatie/bekleden-pvc/bekleden-pvc-10.png"
+        fourthImgTopText="PVC"
+        fourthImgBottomText="Griftstraat, Apeldoorn"
         fifthImg="/traprenovatie/bekleden-pvc/bekleden-pvc-11.png"
+        fifthImgTopText="PVC"
+        fifthImgBottomText="Noordeinde, Leiden"
       />
       <WhatWaitingForCard
         orangeText=" Ik wil dat de trappenspecialist langskomt!"

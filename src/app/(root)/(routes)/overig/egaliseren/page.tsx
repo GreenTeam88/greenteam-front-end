@@ -52,7 +52,11 @@ const thirdSectionCards: InfoCardProps[] = [
     imgSrc: '/overig/egaliseren/egaliseren-3.png',
     paragraphs: [
       <div key="1">
-Op zoek naar de mogelijkheden voor het egaliseren in een bedrijfsruimte, kantoorpand, hotel, winkel, spa of sportzaal? Green Team is een betrouwbare en geschikte partner voor uw zakelijke project. Hierbij zorgen we niet alleen voor een correcte levering en plaatsing of renovatie van de vloer, we geven ook advies voor de beste vloer voor uw bedrijfsruimte en zorgen uiteraard voor een vakkundige afwerking van de vloer.      </div>,
+        Op zoek naar de mogelijkheden voor het egaliseren in een bedrijfsruimte, kantoorpand, hotel, winkel, spa of
+        sportzaal? Green Team is een betrouwbare en geschikte partner voor uw zakelijke project. Hierbij zorgen we niet
+        alleen voor een correcte levering en plaatsing of renovatie van de vloer, we geven ook advies voor de beste
+        vloer voor uw bedrijfsruimte en zorgen uiteraard voor een vakkundige afwerking van de vloer.{' '}
+      </div>,
 
       <div key="5">
         <BodyText className="text-secondaryDefault font-bold">Bespreek met ons de mogelijkheden </BodyText>
@@ -150,6 +154,16 @@ export default function OverigEgaliserenPage() {
         thirdImg="/overig/egaliseren/egaliseren-6.png"
         fourthImg="/overig/egaliseren/egaliseren-7.png"
         fifthImg="/overig/egaliseren/egaliseren-8.png"
+        firstImgTopText="Egaliseren"
+        firstImgBottomText="Liesboslaan, Breda"
+        secondImgTopText="Egaliseren"
+        secondImgBottomText="Tijgerhaai, Almere"
+        thirdImgTopText="Egaliseren"
+        thirdImgBottomText="Wakkerendijk, Utrecht"
+        fourthImgTopText="Egaliseren"
+        fourthImgBottomText="Gestelsestraat, Eindhoven"
+        fifthImgTopText="Egaliseren"
+        fifthImgBottomText="Koudenhorn, Haarlem"
       />
       <WhatWaitingForCard
         orangeText=" Ik wil dat de specialist langs komt!"

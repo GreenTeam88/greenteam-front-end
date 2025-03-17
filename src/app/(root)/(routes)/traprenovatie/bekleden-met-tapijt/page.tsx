@@ -143,10 +143,20 @@ export default function TraprenovatieBekledenMetTapijt() {
         btnText="Bereken uw trap"
         btnLink="/offerte"
         firstImg={'/traprenovatie/bekleden-met-tapijt/bekleden-met-tapijt-4.png'}
+        firstImgTopText="Hazenweg, Almere"
+        firstImgBottomText="Dalweg, Arnhem"
         secondImg="/traprenovatie/bekleden-met-tapijt/bekleden-met-tapijt-5.png"
+        secondImgBottomText="Smitshoekse Baan, Barendrecht"
+        secondImgTopText="Bekleden met tapijt"
         thirdImg="/traprenovatie/bekleden-met-tapijt/bekleden-met-tapijt-6.png"
+        thirdImgBottomText="Vrouwesteeg, Gouda"
+        thirdImgTopText="Bekleden met tapijt"
         fourthImg="/traprenovatie/bekleden-met-tapijt/bekleden-met-tapijt-7.png"
+        fourthImgTopText="Bekleden met tapijt"
+        fourthImgBottomText="Vechtstraat, Zwolle"
         fifthImg="/traprenovatie/bekleden-met-tapijt/bekleden-met-tapijt-8.png"
+        fifthImgTopText="Bekleden met tapijt"
+        fifthImgBottomText="Het Overslag, Veenendaal"
       />
       <WhatWaitingForCard
         orangeText=" Ik wil dat de trappenspecialist langskomt!"

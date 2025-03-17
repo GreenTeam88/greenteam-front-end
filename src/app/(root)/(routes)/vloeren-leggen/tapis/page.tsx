@@ -124,6 +124,16 @@ export default function VloerenLeggenTapisPage() {
         thirdImg="/vloeren-leggen/tapis/tapis-5.png"
         fourthImg="/vloeren-leggen/tapis/tapis-6.png"
         fifthImg="/vloeren-leggen/tapis/tapis-7.png"
+        firstImgTopText="Tapis"
+        firstImgBottomText="Ruigoord, Rotterdam "
+        secondImgTopText="Tapis"
+        secondImgBottomText="Oude havenkade, Rotterdam "
+        thirdImgTopText="Tapis"
+        thirdImgBottomText="Acaciaplein, Gouda"
+        fourthImgTopText="Tapis"
+        fourthImgBottomText="Abeelstraat, Dordrecht "
+        fifthImgTopText="Tapis"
+        fifthImgBottomText="Billderdijkstraat, Amsterdam "
       />
       <WhatWaitingForCard
         orangeText="Ik wil dat de parketteur langskomt!"

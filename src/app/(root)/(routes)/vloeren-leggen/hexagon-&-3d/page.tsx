@@ -145,6 +145,16 @@ export default function VloerenLeggenHexagonEn3DPage() {
         thirdImg="/vloeren-leggen/hexagon-&-3d/hexagon-&-3d-6.png"
         fourthImg="/vloeren-leggen/hexagon-&-3d/hexagon-&-3d-7.png"
         fifthImg="/vloeren-leggen/hexagon-&-3d/hexagon-&-3d-8.png"
+        firstImgTopText="Hexagon"
+        firstImgBottomText="Eemnesserweg, Hilversum"
+        secondImgTopText="Hexagon"
+        secondImgBottomText="Duinweg, Velsen"
+        thirdImgTopText="Hexagon"
+        thirdImgBottomText="Akerstraat, Heerlen"
+        fourthImgTopText="Hexagon"
+        fourthImgBottomText="Papenstraat, Zwolle"
+        fifthImgTopText="Hexagon"
+        fifthImgBottomText="Kalmoesstraat, Apeldoorn"
       />
       <WhatWaitingForCard
         orangeText="Ik wil dat de parketteur langskomt!"

@@ -134,6 +134,16 @@ export default function OverigTegelenPage() {
         thirdImg="/overig/tegelen/tegelen-5.png"
         fourthImg="/overig/tegelen/tegelen-6.png"
         fifthImg="/overig/tegelen/tegelen-7.png"
+        firstImgTopText="Tegelen"
+        firstImgBottomText="Heliconstraat, Zoetermeer"
+        secondImgTopText="Tegelen"
+        secondImgBottomText="Zonneveld, Leiden"
+        thirdImgTopText="Tegelen"
+        thirdImgBottomText="Dennenbosweg, Ede"
+        fourthImgTopText="Tegelen"
+        fourthImgBottomText="Patrijzenpad, Dordrecht"
+        fifthImgTopText="Tegelen"
+        fifthImgBottomText="Verloren Kost, Gouda"
       />
       <WhatWaitingForCard
         orangeText="Geen verrassing, afspraak is afspraak!"

@@ -122,6 +122,16 @@ export default function ParketrenovatiePlintenEnDeklijstenPage() {
         thirdImg="/Parketrenovatie/plinten-en-deklijsten-6.png"
         fourthImg="/Parketrenovatie/plinten-en-deklijsten-7.png"
         fifthImg="/Parketrenovatie/plinten-en-deklijsten-8.png"
+        firstImgTopText="Plinten"
+        secondImgTopText="Deklijsten"
+        thirdImgTopText="Plinten"
+        fourthImgTopText="Deklijsten"
+        fifthImgTopText="Plinten"
+        firstImgBottomText="Hooigracht, Leiden"
+        secondImgBottomText="Molenstraat, Roosendaal"
+        thirdImgBottomText="Ameidewal, Helmond"
+        fourthImgBottomText="Appelhaven, Hoorn"
+        fifthImgBottomText="Voorstraat, Dordrecht"
       />
       <WhatWaitingForCard {...whatWaitingForConfig} className="lg:py-28" />
       <FAQSection FAQs={FAQs} />

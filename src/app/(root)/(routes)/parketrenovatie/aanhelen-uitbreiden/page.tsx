@@ -128,10 +128,20 @@ export default function ParketrenovatieAanhelenUitbreidenPage() {
       <ParketrenovatieWhyGreenTeam />
       <ParketrenovatieStoreSection
         firstImg={'/Parketrenovatie/aanhelen-uitbreiden-4.png'}
+        firstImgBottomText="Groest, Hilversum"
+        firstImgTopText="Uitbreiden"
         secondImg="/Parketrenovatie/aanhelen-uitbreiden-5.png"
+        secondImgTopText="Aanhelen"
+        secondImgBottomText="Vismarkt, Groningen"
         thirdImg="/Parketrenovatie/aanhelen-uitbreiden-6.png"
+        thirdImgTopText="Uitbreiden"
+        thirdImgBottomText="Rijnstraat, Arnhem"
         fourthImg="/Parketrenovatie/aanhelen-uitbreiden-7.png"
+        fourthImgTopText="Aanhelen"
+        fourthImgBottomText="Rembrandtweg, Amstelveen"
         fifthImg="/Parketrenovatie/aanhelen-uitbreiden-8.png"
+        fifthImgTopText="Uitbreiden"
+        fifthImgBottomText="Dorpsstraat, Zoetermeer"
       />
       <WhatWaitingForCard {...whatWaitingForConfig} className="lg:py-28" />
       <FAQSection FAQs={FAQs} />

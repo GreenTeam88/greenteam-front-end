@@ -128,6 +128,16 @@ export default function VloerenLeggenLaminaatPage() {
         thirdImg="/vloeren-leggen/laminaat-leggen/laminaat-leggen-5.png"
         fourthImg="/vloeren-leggen/laminaat-leggen/laminaat-leggen-6.png"
         fifthImg="/vloeren-leggen/laminaat-leggen/laminaat-leggen-7.png"
+        firstImgTopText="Laminaat"
+        firstImgBottomText="Sluisweg, Deventer"
+        secondImgTopText="Laminaat"
+        secondImgBottomText="Van Oldenbarneveltstraat, Rotterdam"
+        thirdImgTopText="Laminaat"
+        thirdImgBottomText="Kilweg, Barendrecht"
+        fourthImgTopText="Laminaat"
+        fourthImgBottomText="Koestraat, Middelburg"
+        fifthImgTopText="Laminaat"
+        fifthImgBottomText="‘t Loo, Hilversum"
       />
       <WhatWaitingForCard
         orangeText="Ik wil dat de parketteur langskomt!"

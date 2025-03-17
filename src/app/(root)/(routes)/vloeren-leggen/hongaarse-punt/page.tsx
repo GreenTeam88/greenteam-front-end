@@ -129,6 +129,16 @@ export default function VloerenLeggenHongaarsePuntPage() {
         thirdImg="/vloeren-leggen/hongaarse-punt/hongaarse-punt-5.png"
         fourthImg="/vloeren-leggen/hongaarse-punt/hongaarse-punt-6.png"
         fifthImg="/vloeren-leggen/hongaarse-punt/hongaarse-punt-7.png"
+        firstImgTopText="Hongarse punt"
+        firstImgBottomText="Hertog Eduardstraat, Nijmegen"
+        secondImgTopText="Hongarse punt"
+        secondImgBottomText="Zilverstraat, Eindhoven"
+        thirdImgTopText="Hongarse punt"
+        thirdImgBottomText="Lagelandsterweg, Groningen"
+        fourthImgTopText="Hongarse punt"
+        fourthImgBottomText="Romboutstraat, Breda"
+        fifthImgTopText="Hongarse punt"
+        fifthImgBottomText="Zomertaling, Amersfoort"
       />
       <WhatWaitingForCard
         orangeText=" Ik wil dat de parketteur langskomt!"

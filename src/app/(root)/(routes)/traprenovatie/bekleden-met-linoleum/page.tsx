@@ -118,10 +118,20 @@ export default function TraprenovatieBekledenMetLinoleum() {
         btnText="Bereken uw trap"
         btnLink="/offerte"
         firstImg={'/traprenovatie/bekleden-met-linoleum/bekleden-met-linoleum-3.png'}
+        firstImgTopText="Bekleden met linoleum"
+        firstImgBottomText="Oostwal, Oss"
         secondImg="/traprenovatie/bekleden-met-linoleum/bekleden-met-linoleum-4.png"
+        secondImgTopText="Bekleden met linoleum"
+        secondImgBottomText="Europaweg, Assen"
         thirdImg="/traprenovatie/bekleden-met-linoleum/bekleden-met-linoleum-5.png"
+        thirdImgTopText="Bekleden met linoleum"
+        thirdImgBottomText="Blekerssingel, Gouda"
         fourthImg="/traprenovatie/bekleden-met-linoleum/bekleden-met-linoleum-6.png"
+        fourthImgTopText="Bekleden met linoleum"
+        fourthImgBottomText="Hondsrugweg, Emmen"
         fifthImg="/traprenovatie/bekleden-met-linoleum/bekleden-met-linoleum-7.png"
+        fifthImgTopText="Bekleden met linoleum"
+        fifthImgBottomText="Schoepenweg, Lelystad"
       />
       <WhatWaitingForCard
         orangeText=" Ik wil dat de trappenspecialist langskomt!"

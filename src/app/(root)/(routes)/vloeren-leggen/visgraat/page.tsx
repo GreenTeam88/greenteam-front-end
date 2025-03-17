@@ -127,6 +127,16 @@ export default function VloerenLeggenVisgraatPage() {
         thirdImg="/vloeren-leggen/visgraat/visgraat-5.png"
         fourthImg="/vloeren-leggen/visgraat/visgraat-6.png"
         fifthImg="/vloeren-leggen/visgraat/visgraat-7.png"
+        firstImgTopText="Visgraat"
+        firstImgBottomText="Talmaweg, Barendrecht"
+        secondImgTopText="Visgraat"
+        secondImgBottomText="Colijnlaan, Rijswijk"
+        thirdImgTopText="Visgraat"
+        thirdImgBottomText="Breed, Hoorn"
+        fourthImgTopText="Visgraat"
+        fourthImgBottomText="Groen van Prinstererlaan, Amstelveen"
+        fifthImgTopText="Visgraat"
+        fifthImgBottomText="Postelse Hoeflaan, Tilburg"
       />
       <WhatWaitingForCard
         orangeText="Ik wil dat de parketteur langskomt!"

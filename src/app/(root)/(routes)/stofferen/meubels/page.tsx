@@ -133,6 +133,16 @@ export default function StofferenMeubelsPage() {
         thirdImg="/stofferen/meubels/meubels-5.png"
         fourthImg="/stofferen/meubels/meubels-6.png"
         fifthImg="/stofferen/meubels/meubels-7.png"
+        firstImgTopText="Meubels stofferen "
+        firstImgBottomText="Meester Gorisweg, Heerde"
+        secondImgTopText="Meubels stofferen "
+        secondImgBottomText="Lange Slagen, Gorinchem"
+        thirdImgTopText="Meubels stofferen "
+        thirdImgBottomText="Vuurdoornstraat, Aalsmeer"
+        fourthImgTopText="Meubels stofferen "
+        fourthImgBottomText="Vlierstraat, Breda"
+        fifthImgTopText="Meubels stofferen "
+        fifthImgBottomText="Mossenhof, Ede"
       />
       <WhatWaitingForCard
         orangeText="Ik wil dat de parketteur langskomt!"

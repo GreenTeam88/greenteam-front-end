@@ -118,6 +118,16 @@ export default function ParketrenovatieDrevelenPage() {
         thirdImg="/Parketrenovatie/drevelen-6.png"
         fourthImg="/Parketrenovatie/drevelen-7.png"
         fifthImg="/Parketrenovatie/drevelen-8.png"
+        firstImgTopText="Drevelen"
+        secondImgTopText="Drevelen"
+        thirdImgTopText="Drevelen"
+        fourthImgTopText="Drevelen"
+        fifthImgTopText="Drevelen"
+        firstImgBottomText="Markt, Sittard"
+        secondImgBottomText="Herenstraat, Nieuwegein"
+        thirdImgBottomText="Middenbaan, Barendrecht"
+        fourthImgBottomText="Kasteel Traverse, Helmond"
+        fifthImgBottomText="Gedempte Gracht, Zaanstad"
       />
       <WhatWaitingForCard {...whatWaitingForConfig} className="lg:py-28" />
       <FAQSection FAQs={FAQs} />

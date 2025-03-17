@@ -125,6 +125,16 @@ export default function StofferenRodeloperPage() {
         thirdImg="/stofferen/rode-loper/rode-loper-5.png"
         fourthImg="/stofferen/rode-loper/rode-loper-6.png"
         fifthImg="/stofferen/rode-loper/rode-loper-7.png"
+        firstImgTopText="Rode loper"
+        firstImgBottomText="Binnenlandse Baan, Barendrecht"
+        secondImgTopText="Rode loper"
+        secondImgBottomText="Postelstraat, Helmond"
+        thirdImgTopText="Rode loper"
+        thirdImgBottomText="Sint Aagtendijk, Beverwijk"
+        fourthImgTopText="Rode loper"
+        fourthImgBottomText="Kerkstraat, Soest"
+        fifthImgTopText="Rode loper"
+        fifthImgBottomText="Konijnenlaan, Wassenaar"
       />
       <WhatWaitingForCard
         orangeText=" Ik wil dat de parketteur langskomt!"

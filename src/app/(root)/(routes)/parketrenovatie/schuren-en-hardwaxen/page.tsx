@@ -119,10 +119,20 @@ export default function ParketrenovatieSchurenEnHardwaxenPage() {
       <ParketrenovatieWhyGreenTeam />
       <ParketrenovatieStoreSection
         firstImg={'/Parketrenovatie/schuren-en-hardwaxen-4.png'}
+        firstImgTopText="Schuren"
+        firstImgBottomText="Stadshart, Zoetermeer"
         secondImg="/Parketrenovatie/schuren-en-hardwaxen-5.png"
+        secondImgTopText="Hardwaxen"
+        secondImgBottomText="Oostersingel, Assen"
         thirdImg="/Parketrenovatie/schuren-en-hardwaxen-6.png"
+        thirdImgTopText="Hardwaxen"
+        thirdImgBottomText="Limbrichterstraat, Sittard"
         fourthImg="/Parketrenovatie/schuren-en-hardwaxen-7.png"
+        fourthImgTopText="Hardwaxen"
+        fourthImgBottomText="Breestraat, Leiden"
         fifthImg="/Parketrenovatie/schuren-en-hardwaxen-8.png"
+        fifthImgBottomText="Bachlaan, Barendrecht"
+        fifthImgTopText="Bachlaan, Barendrecht"
       />
       <WhatWaitingForCard {...whatWaitingForConfig} className="lg:py-28" />
       <FAQSection FAQs={FAQs} />

@@ -146,6 +146,16 @@ export default function TraprenovatieBetonCireBrut() {
         thirdImg="/traprenovatie/brut/brut-6.png"
         fourthImg="/traprenovatie/brut/brut-7.png"
         fifthImg="/traprenovatie/brut/brut-8.png"
+        firstImgTopText="Venetiaans"
+        firstImgBottomText="Lange Poten, Den Haag"
+        secondImgTopText="Metal stuk"
+        secondImgBottomText="Krovelplein, Tilburg"
+        thirdImgTopText="Croco"
+        thirdImgBottomText="Geleenstraat, Heerlen"
+        fourthImgTopText="Venetiaans"
+        fourthImgBottomText="Hinthamerstraat, Den Bosch"
+        fifthImgTopText=""
+        fifthImgBottomText="Grote Noord, Hoorn"
       />
       <WhatWaitingForCard
         orangeText="Ik wil dat de trappenspecialist langskomt!"

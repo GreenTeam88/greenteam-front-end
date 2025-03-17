@@ -124,6 +124,16 @@ export default function StofferenTapijtVerwijderenPage() {
         thirdImg="/stofferen/tapijt-verwijderen/tapijt-verwijderen-5.png"
         fourthImg="/stofferen/tapijt-verwijderen/tapijt-verwijderen-6.png"
         fifthImg="/stofferen/tapijt-verwijderen/tapijt-verwijderen-7.png"
+        firstImgTopText="Hexagon"
+        firstImgBottomText="Achtmaalseweg, Zundert"
+        secondImgTopText="Hexagon"
+        secondImgBottomText="Tulpenpad, Zeewolde"
+        thirdImgTopText="Hexagon"
+        thirdImgBottomText="Koningsspil, Rhoon"
+        fourthImgTopText="Hexagon"
+        fourthImgBottomText="Tjaardaflats, Drachten"
+        fifthImgTopText="Hexagon"
+        fifthImgBottomText="Europalaan, Kaatsheuvel"
       />
       <WhatWaitingForCard
         orangeText="Ik wil dat de parketteur langskomt!"

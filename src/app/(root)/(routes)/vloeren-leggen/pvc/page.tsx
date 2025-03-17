@@ -128,6 +128,16 @@ export default function VloerenLeggenPVCPage() {
         thirdImg="/vloeren-leggen/pvc-leggen/pvc-leggen-5.png"
         fourthImg="/vloeren-leggen/pvc-leggen/pvc-leggen-6.png"
         fifthImg="/vloeren-leggen/pvc-leggen/pvc-leggen-7.png"
+        firstImgTopText="PVC"
+        firstImgBottomText="Koninginneweg, Hilversum"
+        secondImgTopText="PVC"
+        secondImgBottomText="Vroesenlaan, Rotterdam"
+        thirdImgTopText="PVC"
+        thirdImgBottomText="Laat, Alkmaar"
+        fourthImgTopText="PVC"
+        fourthImgBottomText="Vijfsprong, Tilburg"
+        fifthImgTopText="PVC"
+        fifthImgBottomText="Czaar Peterstraat, Amsterdam"
       />
       <WhatWaitingForCard
         orangeText="Ik wil dat de parketteur langskomt!"

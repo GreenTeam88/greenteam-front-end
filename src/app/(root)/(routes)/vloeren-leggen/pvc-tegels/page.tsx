@@ -130,6 +130,16 @@ export default function VloerenLeggenPVCTegelsPage() {
         thirdImg="/vloeren-leggen/pvc-tegels/tegel-5.png"
         fourthImg="/vloeren-leggen/pvc-tegels/tegel-6.png"
         fifthImg="/vloeren-leggen/pvc-tegels/tegel-7.png"
+        firstImgTopText="PVC Tegels"
+        firstImgBottomText="Sint-jobskade, Rotterdam"
+        secondImgTopText="PVC Tegels"
+        secondImgBottomText="Voorstraat, Spijkenisse"
+        thirdImgTopText="PVC Tegels"
+        thirdImgBottomText="Raadhuislaan, Oss"
+        fourthImgTopText="PVC Tegels"
+        fourthImgBottomText="Kerkstraat, Tiel"
+        fifthImgTopText="PVC Tegels"
+        fifthImgBottomText="Haagweg, Rijswijk"
       />
       <WhatWaitingForCard
         orangeText="Ik wil dat de parketteur langskomt!"

@@ -131,6 +131,16 @@ export default function TraprenovatieVerlichting() {
         thirdImg="/traprenovatie/verlichting/verlichting-5.png"
         fourthImg="/traprenovatie/verlichting/verlichting-6.png"
         fifthImg="/traprenovatie/verlichting/verlichting-7.png"
+        firstImgTopText="Verlichting"
+        firstImgBottomText="Dr. Struyckenplein, Breda"
+        secondImgTopText="Verlichting"
+        secondImgBottomText="Heemraadssingel, Rotterdam"
+        thirdImgTopText="Verlichting"
+        thirdImgBottomText="Dapperstraat, Amsterdam"
+        fourthImgTopText="Verlichting"
+        fourthImgBottomText="Oldegalileën, Leeuwarden"
+        fifthImgTopText="Verlichting"
+        fifthImgBottomText="Maaskade, Venlo"
       />
       <WhatWaitingForCard
         orangeText=" Ik wil dat de trappenspecialist langskomt!"

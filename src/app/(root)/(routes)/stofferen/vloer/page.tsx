@@ -138,6 +138,16 @@ export default function StofferenVloerPage() {
         thirdImg="/stofferen/vloer/vloer-5.png"
         fourthImg="/stofferen/vloer/vloer-6.png"
         fifthImg="/stofferen/vloer/vloer-7.png"
+        firstImgTopText="Vloer stofferen"
+        firstImgBottomText="Boomgaardpad, Zoetermeer"
+        secondImgTopText="Vloer stofferen"
+        secondImgBottomText="Tuinkade, Zaandam"
+        thirdImgTopText="Vloer stofferen"
+        thirdImgBottomText="Geulstraat, Veenendaal"
+        fourthImgTopText="Vloer stofferen"
+        fourthImgBottomText="Maroastraat, Utrecht"
+        fifthImgTopText="Vloer stofferen"
+        fifthImgBottomText="Hoogwoud, Alkmaar"
       />
       <WhatWaitingForCard
         orangeText=" Ik wil dat de parketteur langskomt!"

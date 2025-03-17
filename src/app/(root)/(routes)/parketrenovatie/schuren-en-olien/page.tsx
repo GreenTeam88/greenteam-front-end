@@ -118,10 +118,20 @@ export default function ParketrenovatieSchurenEnOlienPage() {
       <ParketrenovatieWhyGreenTeam />
       <ParketrenovatieStoreSection
         firstImg={'/Parketrenovatie/schuren-en-oliën-4.png'}
+        firstImgTopText="Oliën"
+        firstImgBottomText="Heuvelstraat, Tilburg"
         secondImg="/Parketrenovatie/schuren-en-oliën-5.png"
+        secondImgBottomText="Dreef, Zeist"
+        secondImgTopText="Oliën"
         thirdImg="/Parketrenovatie/schuren-en-oliën-6.png"
+        thirdImgBottomText="Punterweg, Lelystad"
+        thirdImgTopText="Schuren"
         fourthImg="/Parketrenovatie/schuren-en-oliën-7.png"
+        fourthImgBottomText="Uitstraat, Spijkenisse"
+        fourthImgTopText="Oliën"
         fifthImg="/Parketrenovatie/schuren-en-oliën-8.png"
+        fifthImgBottomText="Boslaan, Emmen"
+        fifthImgTopText="Schuren"
       />
       <WhatWaitingForCard {...whatWaitingForConfig} className="lg:py-28" />
       <FAQSection FAQs={FAQs} />

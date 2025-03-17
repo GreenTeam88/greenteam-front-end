@@ -180,10 +180,20 @@ export default function TraprenovatieBekledenMetLaminaat() {
         btnText="Bereken uw trap"
         btnLink="/offerte"
         firstImg={'/traprenovatie/bekleden-laminaat/bekleden-laminaat-5.png'}
+        firstImgTopText="Laminaat"
+        firstImgBottomText="Zilvermeeuw, Almere"
         secondImg="/traprenovatie/bekleden-laminaat/bekleden-laminaat-6.png"
+        secondImgBottomText="Westeinde, Den Haag"
+        secondImgTopText="Laminaat"
         thirdImg="/traprenovatie/bekleden-laminaat/bekleden-laminaat-7.png"
+        thirdImgBottomText="Emmastraat, Oss"
+        thirdImgTopText="Laminaat"
         fourthImg="/traprenovatie/bekleden-laminaat/bekleden-laminaat-8.png"
+        fourthImgBottomText="Sint Pieterstraat, Maastricht"
+        fourthImgTopText="Laminaat"
         fifthImg="/traprenovatie/bekleden-laminaat/bekleden-laminaat-9.png"
+        fifthImgTopText="Laminaat"
+        fifthImgBottomText="Zwaluwlaan, Vlaardingen"
       />
       <WhatWaitingForCard
         orangeText=" Ik wil dat de trappenspecialist langskomt!"

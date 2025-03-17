@@ -141,6 +141,16 @@ export default function OverigVloerverwijderenPage() {
         thirdImg="/overig/vloer-verwijderen/vloer-verwijderen-5.png"
         fourthImg="/overig/vloer-verwijderen/vloer-verwijderen-6.png"
         fifthImg="/overig/vloer-verwijderen/vloer-verwijderen-7.png"
+        firstImgTopText="Vloer verwijderen"
+        firstImgBottomText="Roefpad, Lelystad"
+        secondImgTopText="Vloer verwijderen"
+        secondImgBottomText="Appelgaard, Schiedam"
+        thirdImgTopText="Vloer verwijderen"
+        thirdImgBottomText="Jufferpad, Zeist"
+        fourthImgTopText="Vloer verwijderen"
+        fourthImgBottomText="Berkenhof, Goes"
+        fifthImgTopText="Vloer verwijderen"
+        fifthImgBottomText="Overrijnsepad, Katwijk"
       />
       <WhatWaitingForCard
         orangeText=" Ik wil dat de specialist langs komt!"

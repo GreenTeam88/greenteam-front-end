@@ -150,6 +150,16 @@ export default function TraprenovatieBetonCireGlamourStucPage() {
         thirdImg="/traprenovatie/glamour-stuc/glamour-stuc-6.png"
         fourthImg="/traprenovatie/glamour-stuc/glamour-stuc-7.png"
         fifthImg="/traprenovatie/glamour-stuc/glamour-stuc-8.png"
+        firstImgTopText="Venetiaans"
+        firstImgBottomText="Brink, Deventer"
+        secondImgTopText="Metal stuk"
+        secondImgBottomText="Grote Noord, Hoorn"
+        thirdImgTopText="Croco"
+        thirdImgBottomText="Breestraat, Leiden"
+        fourthImgTopText="Venetiaans"
+        fourthImgBottomText="Laat, Alkmaar"
+        fifthImgTopText=""
+        fifthImgBottomText="Parade, Venlo"
       />
       <WhatWaitingForCard
         orangeText=" Ik wil dat de trappenspecialist langskomt!"

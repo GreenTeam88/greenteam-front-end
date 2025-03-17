@@ -124,6 +124,16 @@ export default function VloerenLeggenWalvisgraatPage() {
         thirdImg="/vloeren-leggen/walvisgraat/walvisgraat-5.png"
         fourthImg="/vloeren-leggen/walvisgraat/walvisgraat-6.png"
         fifthImg="/vloeren-leggen/walvisgraat/walvisgraat-7.png"
+        firstImgTopText="Walvisgraat"
+        firstImgBottomText="Lindenlaan, Zeist"
+        secondImgTopText="Walvisgraat"
+        secondImgBottomText="Korte Koornmarkt, Tiel"
+        thirdImgTopText="Walvisgraat"
+        thirdImgBottomText="Schoener, Lelystad"
+        fourthImgTopText="Walvisgraat"
+        fourthImgBottomText="Gorslaan, Purmerend"
+        fifthImgTopText="Walvisgraat"
+        fifthImgBottomText="Billderdijkstraat, Amsterdam"
       />
       <WhatWaitingForCard
         orangeText="Ik wil dat de parketteur langskomt!"

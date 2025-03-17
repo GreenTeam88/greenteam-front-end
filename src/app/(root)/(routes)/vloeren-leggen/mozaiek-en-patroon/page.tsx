@@ -145,6 +145,16 @@ export default function VloerenLeggenMozaiekEnPatroonPage() {
         thirdImg="/vloeren-leggen/mozaïek-en-patroon/mozaïek-en-patroon-6.png"
         fourthImg="/vloeren-leggen/mozaïek-en-patroon/mozaïek-en-patroon-7.png"
         fifthImg="/vloeren-leggen/mozaïek-en-patroon/mozaïek-en-patroon-8.png"
+        firstImgTopText="Mozaïek"
+        firstImgBottomText="Kooltuin, Alkmaar"
+        secondImgTopText="Mozaïek"
+        secondImgBottomText="Wipstraat, Groningen"
+        thirdImgTopText="Mozaïek"
+        thirdImgBottomText="Trompstraat, Den Haag"
+        fourthImgTopText="Mozaïek"
+        fourthImgBottomText="Dordsestraat, Emmen"
+        fifthImgTopText="Mozaïek"
+        fifthImgBottomText="Rietveld, Delft"
       />
       <WhatWaitingForCard
         orangeText=" Ik wil dat de parketteur langskomt!"

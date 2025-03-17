@@ -125,6 +125,16 @@ export default function VloerenLeggenTapijtPage() {
         thirdImg="/vloeren-leggen/tapijt-leggen/tapijt-leggen-5.png"
         fourthImg="/vloeren-leggen/tapijt-leggen/tapijt-leggen-6.png"
         fifthImg="/vloeren-leggen/tapijt-leggen/tapijt-leggen-7.png"
+        firstImgTopText="Tapijt"
+        firstImgBottomText="Rielerweg, Deventer"
+        secondImgTopText="Tapijt"
+        secondImgBottomText="Frederiklaan, Eindhoven"
+        thirdImgTopText="Tapijt"
+        thirdImgBottomText="Zandbergweg, Breda"
+        fourthImgTopText="Tapijt"
+        fourthImgBottomText="Elandsgracht, Amsterdam"
+        fifthImgTopText="Tapijt"
+        fifthImgBottomText="Scharlo, Alkmaar"
       />
       <WhatWaitingForCard
         orangeText=" Ik wil dat de parketteur langskomt!"

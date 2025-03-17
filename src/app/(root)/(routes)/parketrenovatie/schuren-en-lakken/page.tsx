@@ -121,11 +121,19 @@ export default function ParketrenovatieSchurenEnLakkenPage() {
       <ParketrenovatieStoreSection
         firstImg={'/Parketrenovatie/schuren-en-lakken-4.png'}
         secondImg="/Parketrenovatie/schuren-en-lakken-5.png"
-        thirdImgText="Ameidewal, Helmond"
         thirdImgTopText="Lakken"
         thirdImg="/Parketrenovatie/schuren-en-lakken-6.png"
         fourthImg="/Parketrenovatie/schuren-en-lakken-7.png"
         fifthImg="/Parketrenovatie/schuren-en-lakken-8.png"
+        firstImgTopText="Schuren"
+        secondImgTopText="Schuren"
+        fourthImgTopText="Lakken"
+        fifthImgTopText="Schuren"
+        firstImgBottomText="Hooigracht, Leiden"
+        secondImgBottomText="Molenstraat, Roosendaal"
+        thirdImgBottomText="Ameidewal, Helmond"
+        fourthImgBottomText="Appelhaven, Hoorn"
+        fifthImgBottomText="Voorstraat, Dordrecht"
       />
       <WhatWaitingForCard {...whatWaitingForConfig} className="lg:py-28" />
       <FAQSection FAQs={FAQs} />

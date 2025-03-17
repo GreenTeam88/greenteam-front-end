@@ -145,6 +145,16 @@ export default function TraprenovatieBetonCireCroco() {
         thirdImg="/traprenovatie/croco/croco-6.png"
         fourthImg="/traprenovatie/croco/croco-7.png"
         fifthImg="/traprenovatie/croco/croco-8.png"
+        firstImgTopText="Venetiaans"
+        firstImgBottomText="Hoefijzerlaan, Bergen op Zoom"
+        secondImgTopText="Metal stuk"
+        secondImgBottomText="Achterom, Delft"
+        thirdImgTopText="Croco"
+        thirdImgBottomText="Cinemadreef, Almere"
+        fourthImgTopText="Venetiaans"
+        fourthImgBottomText="Bergschild, Deventer"
+        fifthImgTopText=""
+        fifthImgBottomText="Zanderijweg, Apeldoorn"
       />
       <WhatWaitingForCard
         orangeText="Ik wil dat de trappenspecialist langskomt!"

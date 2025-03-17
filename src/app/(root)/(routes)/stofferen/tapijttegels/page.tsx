@@ -126,6 +126,16 @@ export default function StofferenTapijttegelsPage() {
         thirdImg="/stofferen/tapijttegels/tapijttegels-5.png"
         fourthImg="/stofferen/tapijttegels/tapijttegels-6.png"
         fifthImg="/stofferen/tapijttegels/tapijttegels-7.png"
+        firstImgTopText="Tapijttegel"
+        firstImgBottomText="Genooierhof, Venlo"
+        secondImgTopText="Tapijttegel"
+        secondImgBottomText="Beekpoort, Weert"
+        thirdImgTopText="Tapijttegel"
+        thirdImgBottomText="Waterhoenlaan, Zeist"
+        fourthImgTopText="Tapijttegel"
+        fourthImgBottomText="Rembrandtlaan, Vlissingen"
+        fifthImgTopText="Tapijttegel"
+        fifthImgBottomText="Nieuwe Schoolweg, Enschede"
       />
       <WhatWaitingForCard
         orangeText=" Ik wil dat de parketteur langskomt!"
