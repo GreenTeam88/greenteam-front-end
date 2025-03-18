@@ -47,9 +47,9 @@ const ImagesGallery: React.FC<StoreImagesInfo> = ({
       <div className={cn('hidden rotate-180 lg:block group cursor-pointer')}>
         <CarouselIcon />
       </div>
-      <div className="flex flex-col gap-[24px]  ">
+      <div className="flex w-full lg:w-fit flex-col gap-[24px]  ">
         {/* first image  */}
-        <div className="relative w-fit h-fit">
+        <div className="relative w-full lg:w-fit h-fit">
           <div className="storeImageShadow"></div>
           <img src={firstImg} className="w-full  rounded-[10px]    lg:min-h-[213px] lg:max-h-[213px]" />
           <p className=" text-center w-full font-bold leading-[20px] text-white absolute top-5 right-1/2 translate-x-1/2">
@@ -60,7 +60,7 @@ const ImagesGallery: React.FC<StoreImagesInfo> = ({
           </p>
         </div>
         {/* second image  */}
-        <div className="relative w-fit h-fit">
+        <div className="relative w-full lg:w-fit h-fit">
           <div className="storeImageShadow"></div>
           <img src={secondImg} className="w-full  rounded-[10px]    lg:min-h-[326px] lg:max-h-[326px] " />
           <p className="  text-center w-full font-bold leading-[20px] text-white absolute top-5 right-1/2 translate-x-1/2">
