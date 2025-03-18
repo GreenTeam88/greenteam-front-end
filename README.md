@@ -154,6 +154,8 @@ Fixes #123
 
 Example commit command message
 
+Removecommentjustforcommit
+
 ```
 
 
