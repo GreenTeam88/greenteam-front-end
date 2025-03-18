@@ -18,8 +18,10 @@ const whyGreenTeamCardsInfo: WhyGreenTeamCardProps[] = [
     title: 'Persoonlijk advies op maat',
     paragraphs: [
       <BodyText key="2">
-We begrijpen dat het een grote ingreep is en samen willen we naar het gewenste eindresultaat, wat u met trots laat zien wanneer er bekende over de vloer komen. <br/>
-Daarom komen wij graag langs met kleurstalen om u een accuraat beeld te geven over het eindresultaat.      </BodyText>,
+        We begrijpen dat het een grote ingreep is en samen willen we naar het gewenste eindresultaat, wat u met trots
+        laat zien wanneer er bekende over de vloer komen. <br />
+        Daarom komen wij graag langs met kleurstalen om u een accuraat beeld te geven over het eindresultaat.{' '}
+      </BodyText>,
     ],
     icon: <GameIcon />,
   },
