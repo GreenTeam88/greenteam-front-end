@@ -10,6 +10,7 @@ import { cn } from '@/lib/tailwind';
 import 'bootstrap-icons/font/bootstrap-icons.css';
 
 import { GoogleTagManager } from '@next/third-parties/google';
+import Script from 'next/script';
 
 import { Footer } from '@/components/layout/footer/foooter';
 import { AppProviders } from '@/providers';
@@ -52,6 +53,14 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
           {children}
           <Footer />
         </AppProviders>
+        <Script
+          async
+          id="roomvoAssistant"
+          type="text/javascript"
+          data-locale="nl-nl"
+          data-position="bottom-right"
+          src="https://www.roomvo.com/static/scripts/b2b/common/assistant.js"
+        ></Script>
       </body>
     </html>
   );

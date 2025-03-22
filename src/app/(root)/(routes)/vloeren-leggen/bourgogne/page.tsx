@@ -1,3 +1,5 @@
+import Script from 'next/script';
+
 import { CardsSection } from '@/components/cardsSection';
 import { FAQSection, FAQType } from '@/components/FAQSection';
 import { Hero } from '@/components/hero';
