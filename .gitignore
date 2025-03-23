@@ -10,8 +10,6 @@
 
 # testing
 /coverage
-/public/traprenovatie/brut
-/public/traprenovatie/venetiaans
 # next.js
 /.next/
 /out/
