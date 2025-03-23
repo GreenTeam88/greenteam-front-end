@@ -152,8 +152,6 @@ Adds OAuth2 support to the authentication module to allow more flexible token ma
 Fixes #123
 ```
 
-Example commit command message
-
 ```
 
 
