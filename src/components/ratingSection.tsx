@@ -21,7 +21,7 @@ const ratings: RatingInfo[] = [
     stars: 5,
     description:
       'Top ervaring gehad met Green Team, kende ze niet, maar kwamen met een scherpe offerte. Samen met de persoon die het kwam leggen een mooi passend tapijt uitgezocht voor onze 2 trappen en overloop. Het ligt er super strak in/op en ziet er geweldig uit!',
-    images: ['/reviews/tim-barendregt/img1.png', '/reviews/tim-barendregt/img2.png'],
+    images: ['/reviews/tim-barendregt/img1.webp', '/reviews/tim-barendregt/img2.webp'],
     date: '11/09/2024',
     name: 'Tim Barendregt',
   },
@@ -29,7 +29,7 @@ const ratings: RatingInfo[] = [
     stars: 5,
     description:
       'Ik ben ontzettend blij met het werk dat Greenteam heeft geleverd aan mijn trap. Ze hebben mijn trap opnieuw gestoffeerd en het ziet er werkelijk prachtig uit. Het team was zeer professioneel, vriendelijk en efficiënt!',
-    images: ['/reviews/veronica-miraza/img1.png', '/reviews/veronica-miraza/img2.png'],
+    images: ['/reviews/veronica-miraza/img1.webp', '/reviews/veronica-miraza/img2.webp'],
     date: '23/09/2024',
     name: 'Veronica Miraza ',
   },
@@ -37,7 +37,7 @@ const ratings: RatingInfo[] = [
     stars: 5,
     description:
       'Wij hebben onze eiken parketvloer laten schuren en in de olie laten zetten door Greenteam. We zijn erg tevreden met het resultaat, de vloer is weer als nieuw. Bedankt!',
-    images: ['/reviews/jac/img1.png', '/reviews/jac/img2.png', '/reviews/jac/img3.png'],
+    images: ['/reviews/jac/img1.webp', '/reviews/jac/img2.webp', '/reviews/jac/img3.webp'],
     date: '14/02/2024',
     name: 'Jac',
   },
@@ -45,7 +45,7 @@ const ratings: RatingInfo[] = [
     stars: 5,
     description:
       'Vanaf het eerste contact met Greenteam was het duidelijk dat ze zeer professioneel en deskundig waren. Ze kwamen op tijd aan en werkten efficiënt om de klus snel te klaren zonder afbreuk te doen aan de kwaliteit van het werk.',
-    images: ['/reviews/bouchra/img1.png'],
+    images: ['/reviews/bouchra/img1.webp'],
 
     date: '01/07/2024',
     name: 'Bouchra',
@@ -54,7 +54,7 @@ const ratings: RatingInfo[] = [
     stars: 5,
     description:
       'Onlangs de hulp ingeschakeld van het Greenteam..en ik ben dik tevreden! Mijn laminaat kon wel een opknapbeurt gebruiken, en het resultaat mag er wezen. Medewerkers zijn prettig in de omgang, het is betaalbaar en ik kom zeker is terug!',
-    images: ['/reviews/steffen-de-back/img1.png'],
+    images: ['/reviews/steffen-de-back/img1.webp'],
 
     date: '02/05/2023',
     name: 'Steffen de Back',
@@ -69,7 +69,7 @@ const ratings: RatingInfo[] = [
         top uit!
       </p>
     ),
-    images: ['/reviews/npg-games/img1.png'],
+    images: ['/reviews/npg-games/img1.webp'],
     name: 'Npg Games',
     date: '20/04/2023',
   },
@@ -77,7 +77,7 @@ const ratings: RatingInfo[] = [
     stars: 5,
     description:
       "Als je je ruimte wilt verheffen met een vloeroptie die elegantie en duurzaamheid uitstraalt, is investeren in houten vloeren een uitstekende beslissing waar je geen spijt van zult krijgen en die investering is dit bedrijf dubbel en dwars waard! Nog nooit zo'n goede service gehad ",
-    images: ['/reviews/thomas/img1.png'],
+    images: ['/reviews/thomas/img1.webp'],
 
     date: '01/07/2024',
     name: 'thomas',
@@ -86,7 +86,7 @@ const ratings: RatingInfo[] = [
     stars: 5,
     description:
       'Top ervaring gehad met Green Team, kende ze niet, maar kwamen met een scherpe offerte. Samen met de persoon die het kwam leggen een mooi passend tapijt uitgezocht voor onze 2 trappen en overloop. Het ligt er super strak in/op en ziet er geweldig uit!',
-    images: ['/reviews/tim/img1.png'],
+    images: ['/reviews/tim/img1.webp'],
 
     date: '13/09/2024',
     name: 'Tim',
