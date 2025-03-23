@@ -121,7 +121,7 @@ const RatingCard: React.FC<RatingInfo> = ({ stars, date: birthDate, description,
 const RatingTopSection = () => {
   return (
     <div className="flex flex-col gap-7 items-center relative justify-center  w-[90%] ">
-      <H2 className="text-primaryDefault text-center lg:text-start">Duizenden mensen gingen u voor!</H2>
+      <H2 className="text-primaryDefault text-center lg:text-start">1.000+ mensen gingen u voor!</H2>
       <img src="/home/googleRating.png" className="lg:absolute  lg:top-1/2 lg:-translate-y-1/2 lg:right-0" />
     </div>
   );
