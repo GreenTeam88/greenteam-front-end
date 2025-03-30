@@ -22,9 +22,9 @@ const thirdSectionCards: InfoCardProps[] = [
         zodat u nergens omkijken naar heeft.{' '}
       </>,
       <>
-        <BodyText className="text-secondaryDefault font-bold">
-          Ligt uw vloer er al 10 tot 20 jaar, dan zijn nieuwe deklijsten de ideale manier om uw ruimte weer compleet en
-          stijlvol af te werken!
+        <BodyText className="text-secondaryDefault font-bold mt-6">
+          Ligt uw vloer er al 10 tot 20 jaar, dan zijn nieuwe plinten de perfecte manier om uw interieur een frisse
+          uitstraling te geven!{' '}
         </BodyText>
       </>,
     ],
@@ -41,7 +41,10 @@ const thirdSectionCards: InfoCardProps[] = [
         </BodyText>{' '}
       </>,
       <>
-        <BodyText className="text-secondaryDefault font-bold">Dit gebeurt standaard na het hardwaxen.</BodyText>{' '}
+        <BodyText className="text-secondaryDefault font-bold">
+          Ligt uw vloer er al 10 tot 20 jaar, dan zijn nieuwe deklijsten de ideale manier om uw ruimte weer compleet en
+          stijlvol af te werken!
+        </BodyText>{' '}
       </>,
     ],
   },
