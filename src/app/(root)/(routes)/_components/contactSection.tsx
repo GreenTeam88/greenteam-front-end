@@ -6,7 +6,7 @@ import { appConfig } from '@/config';
 
 export const ContactInfo = () => {
   return (
-    <div className="flex max-w-full flex-col gap-[40px] pr-[22px]">
+    <div className="flex max-w-full  flex-col gap-[40px] pr-[22px]">
       <div className="flex flex-col lg:flex-row items-start lg:items-center gap-3 lg:gap-[33px] ">
         <h4 className="text-[25px] text-primaryDefault  tracking-[-2%] font-semibold lg:w-[313px]">
           Geen vraag is te gek, we helpen u graag verder!{' '}
@@ -77,7 +77,7 @@ export const ContactInfo = () => {
 
 export const ContactSection = () => {
   return (
-    <div className="pt-10  lg:py-24 flex items-center px-3 lg:px-0 justify-center ">
+    <div className="pt-10    flex items-center px-3 lg:px-0 justify-center ">
       <div className="flex flex-col gap-14 lg:gap-0 lg:flex-row  lg:w-[1199px] max-w-full justify-between">
         {/* the contact info section includes email , phone , location and opening times */}
         <ContactInfo />
