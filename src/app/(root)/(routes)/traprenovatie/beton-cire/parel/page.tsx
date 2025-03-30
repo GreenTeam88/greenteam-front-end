@@ -48,7 +48,10 @@ const thirdSectionCards: InfoCardProps[] = [
         </li>
         <li>Stijlvol en functioneel: combineert decoratieve schoonheid met praktische voordelen. </li>
       </ul>,
-
+      <BodyText className="mb-3 lg:mb-7 ">
+        Met Beton Ciré Parel creëert u een strakke, stijlvolle sfeer die elke ruimte transformeert tot een elegant
+        pronkstuk.
+      </BodyText>,
       <div key="5">
         <BodyText className="text-secondaryDefault font-bold">
           Ligt uw trap er al 10 tot 20 jaar, dan is het tijd om deze een moderne en luxueuze upgrade te geven met een

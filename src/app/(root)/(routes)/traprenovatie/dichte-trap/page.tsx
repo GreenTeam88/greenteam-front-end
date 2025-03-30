@@ -60,7 +60,7 @@ const thirdSectionCards: InfoCardProps[] = [
       { name: 'Beton Ciré Croco', path: '/traprenovatie/beton-cire/croco' },
       { name: 'Beton Ciré Venetiaans', path: '/traprenovatie/beton-cire/venetiaans' },
       { name: 'Beton Ciré Acoustic', path: '/traprenovatie/beton-cire/acoustic' },
-      { name: 'Open trap', path: '/traprenovatie/dichte-trap' },
+      { name: 'Open trap', path: '/traprenovatie/open-trap' },
       { name: 'Dichte trap', path: '/traprenovatie/dichte-trap' },
       { name: 'Verlichting', path: '/traprenovatie/verlichting' },
     ],
