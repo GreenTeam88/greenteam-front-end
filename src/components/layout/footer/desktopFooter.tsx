@@ -97,10 +97,10 @@ const FooterBottomSection = () => {
       </div>
       <div className="flex justify-between">
         <BodyTextBold className="text-primaryDefault">
-          GreenTeam is ontwikkeld door
+          GreenTeam is ontwikkeld door{' '}
           <a href="https://www.achieve.nl/" className="hover:text-secondaryDefault" target="_blank">
             Achieve.nl
-          </a>
+          </a>{' '}
           © {new Date().getFullYear()}.
         </BodyTextBold>
         <BodyTextSemibold className="text-primaryDefault">
