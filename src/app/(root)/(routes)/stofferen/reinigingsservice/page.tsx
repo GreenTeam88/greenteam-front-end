@@ -26,7 +26,7 @@ const thirdSectionCards: InfoCardProps[] = [
         <li>Ervaren specialisten: Ons team zorgt ervoor dat zelfs de kleinste details worden aangepakt. </li>
       </ul>,
       <p key="4" className="mb-9">
-        éMet onze deskundige aanpak krijgen uw meubels niet alleen een nieuwe look, maar ook een nieuw leven!{' '}
+        Met onze deskundige aanpak krijgen uw meubels niet alleen een nieuwe look, maar ook een nieuw leven!{' '}
       </p>,
       <div key="5">
         <BodyText className="text-secondaryDefault font-bold">

@@ -18,7 +18,7 @@ const thirdSectionCards: InfoCardProps[] = [
       <div key="1">
         Met onze meubelstoffering service zorgen wij ervoor dat uw meubels weer een blikvanger in uw woning worden:{' '}
       </div>,
-      <ul key="3" className="flex flex-col py-3 list-disc gap-4 list-inside">
+      <ul key="3" className="flex flex-col py-3 list-disc gap-4 list-outside">
         <li>Inspectie en advies: We beoordelen de staat van uw meubels en adviseren over de beste oplossing. </li>
         <li>Reparatie: Eventuele gebreken worden professioneel hersteld.  </li>
         <li>
