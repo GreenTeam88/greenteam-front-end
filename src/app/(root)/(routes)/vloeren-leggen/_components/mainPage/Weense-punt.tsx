@@ -8,11 +8,11 @@ const infoCardConfig: InfoCardProps = {
   imgSrc: '/vloeren-leggen/vloeren-leggen-9.png',
   paragraphs: [
     <BodyText key="1">
-      Dagelijks wordt er gelopen op een houten vloer. Het is dan ook logisch dat op een gegeven moment gebruikssporen
-      zoals krasjes, oneffenheden en vlekjes te zien zijn. Elke houten vloer zal daarom op een gegeven moment
-      onderhouden moeten worden en worden geschuurd. Op deze manier kan je alle gebruikssporen laten verdwijnen en is je
-      houten vloer weer zo goed als nieuw. Ligt jouw vloer er al 10 tot 20 jaar dan is het de hoogste tijd om daar wat
-      aan te doen!
+      De Weense punt is een verfijnd vloerpatroon dat, met zijn zachtere hoeken van 135 graden, een tijdloze en serene
+      uitstraling aan uw interieur geeft. Dit elegante design combineert de charme van visgraat met een subtiele,
+      harmonieuze twist. Het patroon laat vloeren ruimer lijken, waardoor het perfect is voor zowel grote als kleine
+      ruimtes. Bovendien past de Weense punt moeiteloos in zowel moderne als klassieke interieurs. Met deze stijlvolle
+      keuze brengt u niet alleen rust en ruimte, maar ook een vleugje verfijning in uw woning.
     </BodyText>,
     <BodyTextBold key="2" className="text-secondaryDefault">
       Ligt uw vloer er al 10 tot 20 jaar dan is het de hoogste tijd om daar wat aan te doen!{' '}

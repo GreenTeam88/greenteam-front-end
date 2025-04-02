@@ -8,11 +8,11 @@ const infoCardConfig: InfoCardProps = {
   imgSrc: '/vloeren-leggen/vloeren-leggen-12.png',
   paragraphs: [
     <BodyText key="1">
-      Dagelijks wordt er gelopen op een houten vloer. Het is dan ook logisch dat op een gegeven moment gebruikssporen
-      zoals krasjes, oneffenheden en vlekjes te zien zijn. Elke houten vloer zal daarom op een gegeven moment
-      onderhouden moeten worden en worden geschuurd. Op deze manier kan je alle gebruikssporen laten verdwijnen en is je
-      houten vloer weer zo goed als nieuw. Ligt jouw vloer er al 10 tot 20 jaar dan is het de hoogste tijd om daar wat
-      aan te doen!{' '}
+      Geef uw interieur een unieke uitstraling met opvallende vloeropties zoals hexagonale tegels en 3D-vloeren.
+      Hexagonale tegels creëren een modern honingraatpatroon dat direct karakter toevoegt aan elke ruimte, van een
+      stijlvolle keuken tot een trendy badkamer. Met een ruime keuze aan kleuren en texturen biedt deze duurzame optie
+      een speelse, artistieke look. Voor wie echt durft op te vallen, is een 3D-vloer dé keuze. Dit innovatieve ontwerp
+      voegt visuele diepte toe en creëert een meeslepend effect dat uw interieur een persoonlijke en unieke touch geeft.
     </BodyText>,
     <BodyTextBold key="2" className="text-secondaryDefault">
       Ligt uw vloer er al 10 tot 20 jaar dan is het de hoogste tijd om daar wat aan te doen!{' '}

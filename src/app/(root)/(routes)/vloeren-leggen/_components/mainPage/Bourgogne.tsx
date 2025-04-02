@@ -8,11 +8,12 @@ const infoCardConfig: InfoCardProps = {
   imgSrc: '/vloeren-leggen/vloeren-leggen-14.png',
   paragraphs: [
     <BodyText key="1">
-      Dagelijks wordt er gelopen op een houten vloer. Het is dan ook logisch dat op een gegeven moment gebruikssporen
-      zoals krasjes, oneffenheden en vlekjes te zien zijn. Elke houten vloer zal daarom op een gegeven moment
-      onderhouden moeten worden en worden geschuurd. Op deze manier kan je alle gebruikssporen laten verdwijnen en is je
-      houten vloer weer zo goed als nieuw. Ligt jouw vloer er al 10 tot 20 jaar dan is het de hoogste tijd om daar wat
-      aan te doen!
+      Een Bourgogne vloer is meer dan alleen een vloer; het is een kunstwerk uit de Franse regio Bourgondië. Deze
+      massief eikenhouten planken, verkrijgbaar in diverse breedtes en lengtes, creëren een unieke en warme uitstraling
+      die perfect in elke ruimte past. Met authentieke charme en vakmanschap biedt de vloer duurzame kwaliteit dankzij
+      geolied hout dat jarenlang meegaat. Of u nu een modern of klassiek interieur heeft, de Bourgogne vloer voegt stijl
+      en veelzijdigheid toe aan uw woning. Creëer een warme, uitnodigende sfeer die karakter en schoonheid uitstraalt in
+      uw huis.
     </BodyText>,
     <BodyTextBold key="2" className="text-secondaryDefault">
       Ligt uw vloer er al 10 tot 20 jaar dan is het de hoogste tijd om daar wat aan te doen!{' '}

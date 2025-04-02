@@ -7,11 +7,11 @@ const infoCardConfig: InfoCardProps = {
   imgSrc: '/vloeren-leggen/vloeren-leggen-1.png',
   paragraphs: [
     <BodyText key="1">
-      Dagelijks wordt er gelopen op een houten vloer. Het is dan ook logisch dat op een gegeven moment gebruikssporen
-      zoals krasjes, oneffenheden en vlekjes te zien zijn. Elke houten vloer zal daarom op een gegeven moment
-      onderhouden moeten worden en worden geschuurd. Op deze manier kan je alle gebruikssporen laten verdwijnen en is je
-      houten vloer weer zo goed als nieuw. Ligt jouw vloer er al 10 tot 20 jaar dan is het de hoogste tijd om daar wat
-      aan te doen!
+      Bij GreenTeam komt uw parketvloer pas echt tot zijn recht door vakmanschap en aandacht voor detail. Onze ervaren
+      parketteurs leggen de vloeren met precisie, afgestemd op uw ruimte en wensen. We bieden deskundig advies om de
+      perfecte parketvloer te kiezen die past bij uw stijl en behoeften. Bovendien leveren we alleen parketvloeren uit
+      duurzame bronnen, voorzien van PEFC- en/of FSC-keurmerken, zodat u kiest voor zowel kwaliteit als een
+      verantwoorde, milieuvriendelijke optie.
     </BodyText>,
     <BodyTextBold key="2" className="text-secondaryDefault">
       Ligt uw vloer er al 10 tot 20 jaar dan is het de hoogste tijd om daar wat aan te doen!{' '}

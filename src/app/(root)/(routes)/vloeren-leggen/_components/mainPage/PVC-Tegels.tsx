@@ -8,11 +8,11 @@ const infoCardConfig: InfoCardProps = {
   imgSrc: '/vloeren-leggen/vloeren-leggen-10.png',
   paragraphs: [
     <BodyText key="1">
-      Dagelijks wordt er gelopen op een houten vloer. Het is dan ook logisch dat op een gegeven moment gebruikssporen
-      zoals krasjes, oneffenheden en vlekjes te zien zijn. Elke houten vloer zal daarom op een gegeven moment
-      onderhouden moeten worden en worden geschuurd. Op deze manier kan je alle gebruikssporen laten verdwijnen en is je
-      houten vloer weer zo goed als nieuw. Ligt jouw vloer er al 10 tot 20 jaar dan is het de hoogste tijd om daar wat
-      aan te doen!
+      PVC Tegels geven uw woonkamer een stijlvolle en frisse uitstraling, met een perfecte balans tussen luxe en
+      duurzaamheid. Of u nu kiest voor gepolijste natuursteen voor een elegante look of keramische grestegels voor een
+      praktische en duurzame optie, tegels passen moeiteloos in elke interieurstijl. Ze zijn slijtvast,
+      onderhoudsvriendelijk en brengen tijdloze schoonheid in uw woning. Maak van uw vloer een statement met pcv tegels
+      die design en functionaliteit combineren!
     </BodyText>,
     <BodyTextBold key="2" className="text-secondaryDefault">
       Ligt uw vloer er al 10 tot 20 jaar dan is het de hoogste tijd om daar wat aan te doen!{' '}

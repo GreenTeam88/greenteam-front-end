@@ -103,7 +103,7 @@ export default function VloerenLeggenWeensePuntPage() {
         pageName="Weense punt"
         listTitle="Herkent u dit?"
         listItems={[
-          ' Een gedateerde vloer die niet meer bij u past',
+          'Een gedateerde vloer die niet meer bij u past',
           'Beschadigingen door slijtage die steeds zichtbaarder worden',
           'Een saaie uitstraling waar u op uitgekeken bent',
         ]}

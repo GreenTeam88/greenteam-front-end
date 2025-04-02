@@ -8,11 +8,12 @@ const infoCardConfig: InfoCardProps = {
   imgSrc: '/vloeren-leggen/vloeren-leggen-13.png',
   paragraphs: [
     <BodyText key="1">
-      Dagelijks wordt er gelopen op een houten vloer. Het is dan ook logisch dat op een gegeven moment gebruikssporen
-      zoals krasjes, oneffenheden en vlekjes te zien zijn. Elke houten vloer zal daarom op een gegeven moment
-      onderhouden moeten worden en worden geschuurd. Op deze manier kan je alle gebruikssporen laten verdwijnen en is je
-      houten vloer weer zo goed als nieuw. Ligt jouw vloer er al 10 tot 20 jaar dan is het de hoogste tijd om daar wat
-      aan te doen!
+      Een tapisvloer is meer dan alleen een vloer; het is een investering in tijdloze kwaliteit, comfort en schoonheid.
+      Deze massief houten vloer voegt direct elegantie en stijl toe aan elke ruimte, terwijl het vakmanschap zorgt voor
+      een naadloze uitstraling. Dankzij de duurzaamheid gaat een tapisvloer generaties mee en behoudt het zijn charme,
+      zelfs bij intensief gebruik. De natuurlijke uitstraling van het hout creëert een warme en uitnodigende sfeer in uw
+      woning. Met een tapisvloer kiest u voor een duurzame, stijlvolle oplossing die uw interieur naar een hoger niveau
+      tilt.
     </BodyText>,
     <BodyTextBold key="2" className="text-secondaryDefault">
       Ligt uw vloer er al 10 tot 20 jaar dan is het de hoogste tijd om daar wat aan te doen!{' '}

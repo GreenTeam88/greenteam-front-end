@@ -8,11 +8,12 @@ const infoCardConfig: InfoCardProps = {
   imgSrc: '/vloeren-leggen/vloeren-leggen-2.png',
   paragraphs: [
     <BodyText key="1">
-      Dagelijks wordt er gelopen op een houten vloer. Het is dan ook logisch dat op een gegeven moment gebruikssporen
-      zoals krasjes, oneffenheden en vlekjes te zien zijn. Elke houten vloer zal daarom op een gegeven moment
-      onderhouden moeten worden en worden geschuurd. Op deze manier kan je alle gebruikssporen laten verdwijnen en is je
-      houten vloer weer zo goed als nieuw. Ligt jouw vloer er al 10 tot 20 jaar dan is het de hoogste tijd om daar wat
-      aan te doen!{' '}
+      Laminaat is de ideale keuze voor wie een stijlvolle vloer wil zonder in te leveren op gebruiksgemak. Het biedt de
+      luxe uitstraling van hout tegen een betaalbare prijs, met minimale onderhoudseisen. Laminaat is veelzijdig,
+      geschikt voor rechte planken, visgraat- of tegelpatronen, en kan perfect worden afgestemd op uw smaak. Het is
+      onderhoudsvriendelijk, waardoor u weinig tijd kwijt bent aan schoonmaken, maar altijd een stralend resultaat
+      heeft. Onze ervaren parketteurs zorgen voor een professionele afwerking, zodat uw vloer er altijd strak uitziet.
+      Met laminaat haalt u een functionele en prachtige vloer in huis, die ideaal is voor elk interieur.
     </BodyText>,
     <BodyTextBold key="2" className="text-secondaryDefault">
       Ligt uw vloer er al 10 tot 20 jaar dan is het de hoogste tijd om daar wat aan te doen!{' '}
