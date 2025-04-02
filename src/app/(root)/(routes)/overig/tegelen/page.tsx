@@ -5,7 +5,7 @@ import { Hero } from '@/components/hero';
 import { ListCard } from '@/components/listCard';
 import { QuestionSection } from '@/components/question';
 import { RatingSection } from '@/components/ratingSection';
-import { StoreSection } from '@/components/storeSection';
+import { MultiStoreSection, StoreSection } from '@/components/storeSection';
 import { BodyText } from '@/components/theme/typography';
 import { WhatWaitingForCard } from '@/components/whatWaitingForCard';
 import { OverigWhyGreenTeam } from '../_components/whyGreenTeam';
@@ -124,26 +124,47 @@ export default function OverigTegelenPage() {
       />
       <OverigWhyGreenTeam />
 
-      <StoreSection
+      <MultiStoreSection
         title="Wat hebben wij in petto? Uw vloer weer laten stralen!"
         description="Bekijk de resultaten van onze tegeldiensten en ontdek de ongeëvenaarde kwaliteit en afwerking voor uw ruimtes. Wij zorgen voor een duurzame en stijlvolle tegelvloer die bijdraagt aan een unieke uitstraling in elke kamer. Veel tevreden klanten hebben al gekozen voor onze tegeldiensten, en u kunt de volgende zijn!"
         btnText="Bereken uw vloer"
         btnLink="/offerte"
-        firstImg={'/overig/tegelen/tegelen-3.png'}
-        secondImg="/overig/tegelen/tegelen-4.png"
-        thirdImg="/overig/tegelen/tegelen-5.png"
-        fourthImg="/overig/tegelen/tegelen-6.png"
-        fifthImg="/overig/tegelen/tegelen-7.png"
-        firstImgTopText="Tegelen"
-        firstImgBottomText="Heliconstraat, Zoetermeer"
-        secondImgTopText="Tegelen"
-        secondImgBottomText="Zonneveld, Leiden"
-        thirdImgTopText="Tegelen"
-        thirdImgBottomText="Dennenbosweg, Ede"
-        fourthImgTopText="Tegelen"
-        fourthImgBottomText="Patrijzenpad, Dordrecht"
-        fifthImgTopText="Tegelen"
-        fifthImgBottomText="Verloren Kost, Gouda"
+        images={[
+          {
+            firstImg: '/overig/tegelen/tegelen-3.png',
+            secondImg: '/overig/tegelen/tegelen-4.png',
+            thirdImg: '/overig/tegelen/tegelen-5.png',
+            fourthImg: '/overig/tegelen/tegelen-6.png',
+            fifthImg: '/overig/tegelen/tegelen-7.png',
+            firstImgTopText: 'Tegelen',
+            firstImgBottomText: 'Heliconstraat, Zoetermeer',
+            secondImgTopText: 'Tegelen',
+            secondImgBottomText: 'Zonneveld, Leiden',
+            thirdImgTopText: 'Tegelen',
+            thirdImgBottomText: 'Dennenbosweg, Ede',
+            fourthImgTopText: 'Tegelen',
+            fourthImgBottomText: 'Patrijzenpad, Dordrecht',
+            fifthImgTopText: 'Tegelen',
+            fifthImgBottomText: 'Verloren Kost, Gouda',
+          },
+          {
+            firstImg: '/overig/tegelen/tegelen-9.png',
+            secondImg: '/overig/tegelen/tegelen-10.png',
+            thirdImg: '/overig/tegelen/tegelen-11.png',
+            fourthImg: '/overig/tegelen/tegelen-12.png',
+            fifthImg: '/overig/tegelen/tegelen-13.png',
+            firstImgTopText: 'Tegelen',
+            firstImgBottomText: 'Jarusalemlaan, Eindhoven',
+            secondImgTopText: 'Tegelen',
+            secondImgBottomText: 'Jarusalemlaan, Eindhoven',
+            thirdImgTopText: 'Tegelen',
+            thirdImgBottomText: 'Jarusalemlaan, Eindhoven',
+            fourthImgTopText: 'Tegelen',
+            fourthImgBottomText: 'Jarusalemlaan, Eindhoven',
+            fifthImgTopText: 'Tegelen',
+            fifthImgBottomText: 'Jarusalemlaan, Eindhoven',
+          },
+        ]}
       />
       <WhatWaitingForCard
         orangeText="Geen verrassing, afspraak is afspraak!"
