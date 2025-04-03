@@ -61,12 +61,12 @@ const FAQs: FAQType[] = [
   {
     question: 'Wat moet ik doen met eventuele lijmresten na het verwijderen van de vloer?',
     answer:
-      'Lijmresten kunnen het beste worden verwijderd met een speciale schuurmachine. Zo zorgen we ervoor dat de ondergrond schoon en glad is voordat je een nieuwe vloer legt.',
+      'Lijmresten kunnen het beste worden verwijderd met een speciale schuurmachine. Zo zorgen we ervoor dat de ondergrond schoon en glad is voordat u een nieuwe vloer legt.',
   },
   {
     question: 'Kan ik mijn vloer zelf verwijderen, of is het beter om een professional in te schakelen?',
     answer:
-      'Dit hangt af van je ervaring en de complexiteit van de vloer. Voor eenvoudige vloeren kun je het zelf doen, maar bij moeilijkere vloeren of grote oppervlakken is het verstandig om een professional in te huren',
+      'Dit hangt af van uw ervaring en de complexiteit van de vloer. Voor eenvoudige vloeren kunt u het zelf doen, maar bij moeilijkere vloeren of grote oppervlakken is het verstandig om een professional in te huren.',
   },
   {
     question: 'Kunnen jullie eerst langskomen?',
@@ -111,7 +111,7 @@ export default function OverigVloerverwijderenPage() {
         listTitle="Herkenbaar?"
         imgClassName="max-w-[590px]"
         listItems={[
-          'Geen idee waar je moet beginnen',
+          'Geen idee waar u moet beginnen',
           'Geen professionele machines',
           'Rugklachten door zwaar werk',
           'Geen tijd',

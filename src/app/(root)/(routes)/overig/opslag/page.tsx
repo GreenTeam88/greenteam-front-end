@@ -50,7 +50,7 @@ const FAQs: FAQType[] = [
   {
     question: 'Wat is de beste manier om meubels op te slaan?',
     answer:
-      'Zorg ervoor dat meubels schoon en droog zijn voordat je ze opbergt. Gebruik dekens of afdekzeilen om ze te beschermen tegen stof en krassen.',
+      'Zorg ervoor dat meubels schoon en droog zijn voordat u ze opbergt. Gebruik dekens of afdekzeilen om ze te beschermen tegen stof en krassen.',
   },
   {
     question: 'Hoelang kan ik mijn spullen veilig opslaan?',
@@ -83,9 +83,9 @@ const whatWaitingForConfig: InfoCardProps = {
   title: 'Waar wacht u nog op!',
   paragraphs: [
     <BodyText key="1">
-      Als dit is wat u wilt, waar wacht u dan op. Bereken via de knop hieronder wat het kost en neem contact met ons op
-      voor een afspraak. Als u de specialist langs laat komen gaan we bespreken wat voor soort hout u heeft, wat de
-      mogelijkheden zijn, ons advies en we komen met de kleurstalen zodat u zeker weten de juiste beslissing maakt.
+      Als dit is wat je wilt, waar wacht je dan op. Bereken via de knop hieronder wat het kost en neem contact met ons
+      op voor een afspraak. Als je de specialist langs laat komen gaan we bespreken wat voor soort hout u heeft, wat de
+      mogelijkheden zijn, ons advies en we komen met de kleurstalen zodat je zeker weten de juiste beslissing maakt.
     </BodyText>,
     <BodyText key="2">
       Deze afspraak kost eenmalig 50,- euro en deze wordt in mindering gebracht wanneer u de klus aan ons uitbesteed. In
