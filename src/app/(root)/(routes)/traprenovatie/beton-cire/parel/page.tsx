@@ -48,7 +48,7 @@ const thirdSectionCards: InfoCardProps[] = [
         </li>
         <li>Stijlvol en functioneel: combineert decoratieve schoonheid met praktische voordelen. </li>
       </ul>,
-      <BodyText className="mb-3 lg:mb-7 ">
+      <BodyText key="4" className="mb-3 lg:mb-7 ">
         Met Beton Ciré Parel creëert u een strakke, stijlvolle sfeer die elke ruimte transformeert tot een elegant
         pronkstuk.
       </BodyText>,
