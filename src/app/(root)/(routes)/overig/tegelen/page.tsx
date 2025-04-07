@@ -5,7 +5,7 @@ import { Hero } from '@/components/hero';
 import { ListCard } from '@/components/listCard';
 import { QuestionSection } from '@/components/question';
 import { RatingSection } from '@/components/ratingSection';
-import { MultiStoreSection, StoreSection } from '@/components/storeSection';
+import { MultiStoreSection } from '@/components/storeSection';
 import { BodyText } from '@/components/theme/typography';
 import { WhatWaitingForCard } from '@/components/whatWaitingForCard';
 import { OverigWhyGreenTeam } from '../_components/whyGreenTeam';
