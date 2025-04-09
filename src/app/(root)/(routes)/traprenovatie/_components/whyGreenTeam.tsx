@@ -23,8 +23,8 @@ const whyGreenTeamCardsInfo: WhyGreenTeamCardProps[] = [
     paragraphs: [
       <BodyText key="1">
         We begrijpen dat een traprenovatie een grote ingreep kan zijn en samen met u willen we naar het gewenste
-        eindresultaat, wat u met trots kunt laten zien wanneer er bekenden over de vloer komen. Daarom komen wij graag
-        langs met stalen om u een accuraat beeld te geven over het eindresultaat.
+        eindresultaat, wat u met trots kunt laten zien wanneer er bekenden over de vloer komen en zelf dagelijks van
+        kunt genieten. Daarom komen wij graag langs met stalen om u een accuraat beeld te geven over het eindresultaat.
       </BodyText>,
     ],
     icon: <GameIcon />,

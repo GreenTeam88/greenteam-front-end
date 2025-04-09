@@ -1,7 +1,7 @@
 'use client';
 
 import { AnimatePresence, motion } from 'framer-motion';
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 
 import { PrimaryBtnLink } from '@/components/theme/buttons';
 import { BodyText, H2 } from '@/components/theme/typography';
@@ -169,6 +169,22 @@ export const MultiImagesGallery: React.FC<{ images: StoreImageInfo[] }> = ({ ima
     setIndex((prevIndex) => (prevIndex - 1 + images.length) % images.length);
   };
 
+  // The preload function
+  const preloadImages = (imageSet: StoreImageInfo) => {
+    const urls = [imageSet.firstImg, imageSet.secondImg, imageSet.thirdImg, imageSet.fourthImg, imageSet.fifthImg];
+    urls.forEach((url) => {
+      const img = new Image();
+      img.src = url;
+    });
+  };
+
+  // Preload next and previous images whenever index changes
+  useEffect(() => {
+    const nextIndex = (index + 1) % images.length;
+    const prevIndex = (index - 1 + images.length) % images.length;
+    preloadImages(images[nextIndex]);
+    preloadImages(images[prevIndex]);
+  }, [index, images]);
   return (
     <div className="flex preventZoom w-[90vw] lg:w-fit items-center gap-[20px] flex-col relative lg:px-0 lg:flex-row">
       <div className="hidden rotate-180 lg:block group cursor-pointer" onClick={prevImage}>
