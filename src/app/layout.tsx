@@ -53,12 +53,13 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
           {children}
           <Footer />
         </AppProviders>
+        {/* the script for roomvo */}
         <Script
           async
           id="roomvoAssistant"
           type="text/javascript"
           data-locale="nl-nl"
-          data-position="bottom-right"
+          data-position="middle-right"
           src="https://www.roomvo.com/static/scripts/b2b/common/assistant.js"
         ></Script>
       </body>
