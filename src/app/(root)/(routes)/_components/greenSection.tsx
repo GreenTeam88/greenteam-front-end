@@ -5,7 +5,7 @@ export const GreenSection = () => {
     <>
       {/* desktop version */}
       <div className=" relative hidden lg:flex   bg-green-600 h-fit  py-5 lg:px-0 lg:py-0 px-4 flex-col lg:flex-row w-full">
-        <img src="/home/ITPersons.png" className=" w-[25vw] h-fit " />
+        <img src="/home/ITPersons.webp" className=" w-[25vw] h-fit " />
         <div style={{ width: '80vw' }} className="absolute top-0 right-0   overflow-visible  h-full lg:-ml-[7%]">
           <img className=" hidden w-full h-full  lg:block object-cover" src="/home/greenBg.svg" />
           <div className="lg:absolute py-4 lg:py-0 lg:top-1/2 items-center lg:items-start lg:-translate-y-1/2 lg:left-[20%] flex flex-col xl:gap-[33px] lg:gap-[8px]">

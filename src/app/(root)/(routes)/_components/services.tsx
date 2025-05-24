@@ -16,33 +16,33 @@ export const services: ServiceInfo[] = [
     title: 'Parketrenovatie',
     description:
       'Bij Green Team hebben we een passie voor vloeren en duurzaamheid. Oorspronkelijk houtbewerkers, hebben wij ons ges',
-    thumbnailSrc: '/home/parketrenovatie.png',
+    thumbnailSrc: '/home/parketrenovatie.webp',
     link: '/parketrenovatie',
   },
   {
     title: 'Traprenovatie',
-    thumbnailSrc: '/home/traprenovatie.png',
+    thumbnailSrc: '/home/traprenovatie.webp',
     description:
       'Bij Green Team hebben we een passie voor vloeren en duurzaamheid. Oorspronkelijk houtbewerkers, hebben wij ons ges',
     link: '/traprenovatie',
   },
   {
     title: 'Vloerenleggen',
-    thumbnailSrc: '/home/vloerenleggen.png',
+    thumbnailSrc: '/home/vloerenleggen.webp',
     description:
       'Bij Green Team hebben we een passie voor vloeren en duurzaamheid. Oorspronkelijk houtbewerkers, hebben wij ons ges',
     link: '/vloeren-leggen',
   },
   {
     title: 'Stofferen',
-    thumbnailSrc: '/home/grayStair.png',
+    thumbnailSrc: '/home/grayStair.webp',
     description:
       'Bij Green Team hebben we een passie voor vloeren en duurzaamheid. Oorspronkelijk houtbewerkers, hebben wij ons ges',
     link: '/stofferen',
   },
   {
     title: 'Overige diensten',
-    thumbnailSrc: '/home/overigeDiensten.png',
+    thumbnailSrc: '/home/overigeDiensten.webp',
     description:
       'Bij Green Team hebben we een passie voor vloeren en duurzaamheid. Oorspronkelijk houtbewerkers, hebben wij ons ges',
     link: '/overig',
