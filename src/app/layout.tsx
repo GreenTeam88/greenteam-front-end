@@ -13,6 +13,7 @@ import { GoogleTagManager } from '@next/third-parties/google';
 import Script from 'next/script';
 
 import { Footer } from '@/components/layout/footer/foooter';
+import DelayedRoomvoScriptLoader from '@/components/roomvoAssistantLoader';
 import { AppProviders } from '@/providers';
 
 const inter = Inter({ subsets: ['latin'] });
@@ -54,14 +55,8 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
           <Footer />
         </AppProviders>
         {/* the script for roomvo */}
-        <Script
-          id="roomvoAssistant"
-          type="text/javascript"
-          data-locale="nl-nl"
-          defer
-          data-position="middle-right"
-          src="https://www.roomvo.com/static/scripts/b2b/common/assistant.js"
-        ></Script>
+        {/* the script is delayed for 5 seconds in order to increase the load speed of the website  */}
+        <DelayedRoomvoScriptLoader />
       </body>
     </html>
   );
