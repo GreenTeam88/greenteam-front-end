@@ -1,4 +1,4 @@
-import { Collection } from '@shopify/hydrogen-react/storefront-api-types';
+import { Collection, Product } from '@shopify/hydrogen-react/storefront-api-types';
 
 import { storefrontClient } from './init';
 
@@ -102,19 +102,67 @@ const GET_ALL_PRODUCTS_QUERY = `
   }
 `;
 
-export async function getAllProducts() {
+export async function getAllProducts(): Promise<Product[]> {
   const response = await fetch(storefrontClient.getStorefrontApiUrl(), {
     body: JSON.stringify({
       query: `{
-      products(first: 3) {
-        edges {
-          node {
-            id
-            title
+  products(first: 3) {
+    edges {
+      node {
+        id
+        title
+        handle
+        description
+        descriptionHtml
+        vendor
+        productType
+        tags
+        createdAt
+        updatedAt
+        onlineStoreUrl
+        images(first: 10) {
+          edges {
+            node {
+              id
+              url
+              altText
+              width
+              height
+            }
+          }
+        }
+        variants(first: 10) {
+          edges {
+            node {
+              id
+              title
+              sku
+              price {
+                amount
+                currencyCode
+              }
+              availableForSale
+              quantityAvailable
+              image {
+                url
+              }
+            }
+          }
+        }
+        priceRange {
+          minVariantPrice {
+            amount
+            currencyCode
+          }
+          maxVariantPrice {
+            amount
+            currencyCode
           }
         }
       }
-    }`,
+    }
+  }
+}`,
     }),
     // Generate the headers using the private token. Additionally, you can pass in the buyer's IP address from the request object to help prevent bad actors from overloading your store.
     headers: storefrontClient.getPrivateTokenHeaders({ buyerIp: '...' }),
@@ -128,5 +176,5 @@ export async function getAllProducts() {
   const productsData = await response.json();
   const products = productsData.data.products.edges;
   console.log('products', products);
-  return products;
+  return products.map((product: { node: Product }) => product.node);
 }
