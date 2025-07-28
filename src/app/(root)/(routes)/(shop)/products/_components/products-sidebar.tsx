@@ -1,7 +1,9 @@
 'use client';
 
+import { Collection } from '@shopify/hydrogen-react/storefront-api-types';
 import { useRouter, useSearchParams } from 'next/navigation';
 
+import { colorsHexCodesMap } from '@/config/shop-config';
 import { cn } from '@/lib/tailwind';
 
 // sidebar section config
@@ -60,31 +62,31 @@ const params: { paramName: string; paramTitle: string; items: string[] }[] = [
 
 const Menu = () => {
   return (
-    <div className="flex pt-3 gap-4 flex-col w-full border-b-[#DFDFDF] border-b">
+    <div className="flex pt-3 gap-4 flex-col pb-5  w-full border-b-[#DFDFDF] border-b">
       <div className="flex w-full justify-between">
         <h3 className="text-lg font-bold ">Menu</h3>
         <div className="bg-[#575757]"></div>
       </div>
-      <p className="text-[#195B35]">Alle tapijten</p>
+      <p className="text-[#195B35] pl-4">Alle tapijten</p>
     </div>
   );
 };
 
-const Collections = ({ collections }: { collections: string[] }) => {
+const Collections = ({ collections }: { collections: Collection[] }) => {
   return (
-    <div className="flex pt-3 gap-4 flex-col w-full border-b-[#DFDFDF] border-b">
+    <div className="flex pt-3 gap-4 flex-col pb-5  w-full border-b-[#DFDFDF] border-b">
       <div className="flex w-full justify-between">
         <h3 className="text-lg font-bold ">Collecties</h3>
         <div className="bg-[#575757]"></div>
       </div>
       {collections.map((collection) => (
-        <p className="text-[#195B35]">Alle tapijten</p>
+        <p className="text-[#195B35] pl-4">{collection.title}</p>
       ))}
     </div>
   );
 };
 
-export const Color = ({ name, hexCode }: { name: string; hexCode: string }) => {
+export const ColorsOption = ({ name, hexCode }: { name: string; hexCode?: string }) => {
   const searchParams = useSearchParams();
   const searchParamsColors = searchParams.get('colors');
   const colors: string[] = searchParamsColors ? JSON.parse(decodeURIComponent(searchParamsColors)) : [];
@@ -112,12 +114,26 @@ export const Color = ({ name, hexCode }: { name: string; hexCode: string }) => {
           'border-[#195B35] border-8': isColorSelected,
         })}
       ></div>
-      <div className={`flex w-[20px] h-[20px] bg-[${hexCode}]`}></div>
+      {hexCode && <div style={{ backgroundColor: hexCode }} className={`flex w-[20px] h-[20px] `}></div>}
       <p className="capitalize text-[15px]">{name}</p>
     </div>
   );
 };
 
+export const ColorsSection = () => {
+  return (
+    <div className="flex pt-3 gap-4 flex-col pb-5  w-full border-b-[#DFDFDF] border-b">
+      <div className="flex w-full justify-between">
+        <h3 className="text-lg font-bold ">Kleuren</h3>
+        <div className="bg-[#575757]"></div>
+      </div>
+      <ColorsOption name="Alle kleuren" />
+      {Object.entries(colorsHexCodesMap).map(([name, hexCode]) => (
+        <ColorsOption hexCode={hexCode} name={name} />
+      ))}
+    </div>
+  );
+};
 const QueryItemUI = ({ itemName, paramName }: { itemName: string; paramName: string }) => {
   const searchParams = useSearchParams();
   const searchParamsString = searchParams.get(paramName);
@@ -139,7 +155,7 @@ const QueryItemUI = ({ itemName, paramName }: { itemName: string; paramName: str
     }
   };
   return (
-    <div className="flex gap-2">
+    <div className="flex items-center gap-2">
       <div
         onClick={toggleSelect}
         className={cn('bg-white border border-[#DEE2E6] rounded-sm w-[15px] h-[15px]', {
@@ -154,29 +170,34 @@ const QueryItemUI = ({ itemName, paramName }: { itemName: string; paramName: str
 const QuerySection = ({
   paramsValues,
   title,
-  paramTitle,
+  paramName,
 }: {
   paramsValues: string[];
   title: string;
-  paramTitle: string;
+  paramName: string;
 }) => {
   return (
-    <div className="flex pt-3 gap-4 flex-col w-full border-b-[#DFDFDF] border-b">
-      <div className="flex w-full justify-center">
+    <div className="flex pt-3 pb-7 gap-4 flex-col w-full border-b-[#DFDFDF] border-b">
+      <div className="flex w-full justify-start gap-6">
         <h3 className="text-lg font-bold ">{title}</h3>
         <p>Uitleg</p>
       </div>
       {paramsValues.map((param) => (
-        <p className="text-[#195B35]">Alle tapijten</p>
+        <QueryItemUI itemName={param} paramName={paramName} />
       ))}
     </div>
   );
 };
 
-export const ProductsSidebar = () => {
+export const ProductsSidebar = ({ collections }: { collections: Collection[] }) => {
   return (
-    <div className="w-[334px]  px-4 py-2 bg-[#F3F7F5] rounded-[13px] ">
+    <div className="min-w-[334px] w-fit  px-4   py-8 bg-[#F3F7F5] rounded-[13px] ">
       <Menu />
+      <Collections collections={collections} />
+      <ColorsSection />
+      {params.map((param) => (
+        <QuerySection paramName={param.paramName} paramsValues={param.items} title={param.paramTitle} />
+      ))}
     </div>
   );
 };

@@ -9,4 +9,4 @@ export const colorsHexCodesMap = {
   Rood: '#9E0000',
   Wit: '#EFEFEF',
   Zwart: '#EFEFEF',
-};
+} as const;

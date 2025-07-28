@@ -1,3 +1,5 @@
+import { Collection } from '@shopify/hydrogen-react/storefront-api-types';
+
 import { storefrontClient } from './init';
 
 export async function shopifyRequest<T>(query: string, variables: Record<string, any> = {}): Promise<T | null> {
@@ -23,7 +25,7 @@ export async function shopifyRequest<T>(query: string, variables: Record<string,
         ...headers,
         'Content-Type': 'application/json',
       },
-      body: JSON.stringify({ query, variables }),
+      body: JSON.stringify({ query }),
     });
 
     if (!response.ok) {
@@ -34,7 +36,7 @@ export async function shopifyRequest<T>(query: string, variables: Record<string,
     }
 
     const json = await response.json();
-
+    console.log('response json', json);
     if (json.errors) {
       console.error('❌ Shopify GraphQL Errors:', json.errors);
       return null;
@@ -46,7 +48,7 @@ export async function shopifyRequest<T>(query: string, variables: Record<string,
     return null;
   }
 }
-export const getShopifyCollections = async (): Promise<string[]> => {
+export const getShopifyCollections = async (): Promise<Collection[]> => {
   const GET_COLLECTIONS_QUERY = `
   query GetCollections($first: Int = 50) {
     collections(first: $first) {
@@ -64,5 +66,67 @@ export const getShopifyCollections = async (): Promise<string[]> => {
 `;
   const allCollections = await shopifyRequest<{ collections: { nodes: any[] } }>(GET_COLLECTIONS_QUERY, { first: 50 });
   console.log('all collections', allCollections);
-  return allCollections?.collections.nodes as string[];
+  return allCollections?.collections.nodes as Collection[];
 };
+
+const GET_ALL_PRODUCTS_QUERY = `
+  query GetAllProducts($first: Int = 100) {
+    products(first: $first) {
+      nodes {
+        id
+        title
+        handle
+        description
+        featuredImage {
+          url
+          altText
+        }
+        priceRange {
+          minVariantPrice {
+            amount
+            currencyCode
+          }
+        }
+        variants(first: 10) {
+          nodes {
+            id
+            title
+            price {
+              amount
+              currencyCode
+            }
+          }
+        }
+      }
+    }
+  }
+`;
+
+export async function getAllProducts() {
+  const response = await fetch(storefrontClient.getStorefrontApiUrl(), {
+    body: JSON.stringify({
+      query: `{
+      products(first: 3) {
+        edges {
+          node {
+            id
+            title
+          }
+        }
+      }
+    }`,
+    }),
+    // Generate the headers using the private token. Additionally, you can pass in the buyer's IP address from the request object to help prevent bad actors from overloading your store.
+    headers: storefrontClient.getPrivateTokenHeaders({ buyerIp: '...' }),
+    method: 'POST',
+  });
+
+  if (!response.ok) {
+    throw new Error(response.statusText);
+  }
+
+  const productsData = await response.json();
+  const products = productsData.data.products.edges;
+  console.log('products', products);
+  return products;
+}
