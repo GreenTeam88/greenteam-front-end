@@ -10,3 +10,8 @@ export const colorsHexCodesMap = {
   Wit: '#EFEFEF',
   Zwart: '#EFEFEF',
 } as const;
+
+export const variantsOptionsNames = {
+  size: 'size',
+  color: 'Color',
+};

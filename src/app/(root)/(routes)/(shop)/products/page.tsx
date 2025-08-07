@@ -7,7 +7,7 @@ import { SearchProducts } from './_components/search-products';
 export default async function Products() {
   const allCollections = await getShopifyCollections();
   const products = await getAllProducts();
-  console.log('products : ', products);
+  console.log('products : ', products.length);
   return (
     <div className="flex pt-5 max-w-[1440px] flex-col">
       <AllCarpetsHeader />

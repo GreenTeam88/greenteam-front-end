@@ -10,5 +10,5 @@ export const storefrontClient = createStorefrontClient({
   storeDomain: 'https://greenteamnl.myshopify.com',
   storefrontApiVersion: '2025-04',
   // publicStorefrontToken: '0d31741a2047be590698b7406e7cd920',
-  privateStorefrontToken: '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',
+  privateStorefrontToken: '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',
 });

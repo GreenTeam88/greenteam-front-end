@@ -49,7 +49,7 @@ export const ProductCard = ({ product }: { product: Product }) => {
         </p>
       </div>
       <Link
-        href={`/products/${product.id}`}
+        href={`/product/${encodeURIComponent(product.id)}`}
         className="w-[275px] bg-[#195B35] border-[3px] border-[#195B35] h-[42px] rounded-[10px] text-white flex items-center justify-center font-semibold"
       >
         Bekijk {'>'}
