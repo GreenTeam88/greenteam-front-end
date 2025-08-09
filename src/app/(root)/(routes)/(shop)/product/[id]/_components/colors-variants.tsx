@@ -1,22 +1,36 @@
 'use client';
 
-import { Product } from '@shopify/hydrogen-react/storefront-api-types';
+import { Product, ProductVariant } from '@shopify/hydrogen-react/storefront-api-types';
 import Link from 'next/link';
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 
 import { TickDropDownIcon } from '@/components/icons/arrows';
 import { colorsHexCodesMap, variantsOptionsNames } from '@/config/shop-config';
 import { cn } from '@/lib/tailwind';
 import { useSelectedVariants } from '@/store/selected-variants';
 
-export const ColorVariant: React.FC<{ color: string; img?: string }> = ({ color, img }) => {
+export const ColorVariant: React.FC<{ color: string; variant: ProductVariant; img?: string }> = ({
+  color,
+  img,
+  variant,
+}) => {
   const hexColor = colorsHexCodesMap[color as keyof typeof colorsHexCodesMap];
+  const { set, color: selectedColor } = useSelectedVariants();
+  const changeColor = () => {
+    set({ color, selectedVariantId: variant.id });
+  };
   return (
-    <div className="flex flex-col items-center gap-2">
+    <div onClick={changeColor} className="flex flex-col items-center gap-2 cursor-pointer">
       {img ? (
-        <img className="w-[62px] h-[62px] " src={img}></img>
+        <img
+          className={cn('w-[62px] h-[62px] ', { 'border-[#9A7DB9] border-[4px]': color === selectedColor })}
+          src={img}
+        ></img>
       ) : (
-        <div style={{ color: hexColor }} className="w-[62px] h-[62px] "></div>
+        <div
+          style={{ color: hexColor }}
+          className={cn('w-[62px] h-[62px] ', { 'border-[#9A7DB9] border-[4px]': color === selectedColor })}
+        ></div>
       )}
       <p className="text-[11px] text-[#212529]">{color}</p>
     </div>
@@ -24,19 +38,28 @@ export const ColorVariant: React.FC<{ color: string; img?: string }> = ({ color,
 };
 
 export const ColorsVariants = ({ product }: { product: Product }) => {
-  const colorsVariants = product.variants?.edges?.filter((edge) =>
-    edge.node.selectedOptions.find((selectedOption) => selectedOption.name === variantsOptionsNames.color)
+  const { size } = useSelectedVariants();
+
+  const colorsVariants = product.variants?.edges?.filter(
+    (edge) =>
+      edge.node.selectedOptions.find((selectedOption) => selectedOption.name === variantsOptionsNames.color) &&
+      edge.node.selectedOptions.some((option) => option.name === variantsOptionsNames.size && option.value === size)
   );
   const [boxOpened, setBoxOpened] = useState(true);
-  const { calculatedPrice, size, set } = useSelectedVariants();
-  const selectedSizeOption = product.variants.edges.find((edge) => {
-    edge.node.selectedOptions.find((option) => option.name === variantsOptionsNames.size);
-  });
   console.log('variants + size', size, product.variants);
+  const colorOptions = new Set(
+    colorsVariants
+      .map((variant) =>
+        variant.node.selectedOptions
+          .filter((option) => option.name === variantsOptionsNames.color)
+          .map((option) => option.value)
+      )
+      .flat()
+  );
 
   return (
     <>
-      {colorsVariants?.length && (
+      {colorOptions.size && (
         <div className="flex flex-col  py-3 gap-5 border-[#E0E0E0] border-b pb-5">
           <div className="flex w-full items-center justify-between">
             <div className="flex gap-3 w-full ">
@@ -55,16 +78,22 @@ export const ColorsVariants = ({ product }: { product: Product }) => {
           {boxOpened && (
             <>
               <div className="flex gap-2 px-2">
-                {colorsVariants
-                  .filter((variant) =>
-                    variant.node.selectedOptions.some(
-                      (option) => option.name === variantsOptionsNames.size && option.value === size
-                    )
-                  )
-                  .map((variant) => {
-                    const colorOption = variant.node.selectedOptions.find((option) => option.name === 'Color');
-                    return <ColorVariant color={colorOption?.value as string} img={variant.node.image?.url} />;
-                  })}
+                {Array.from(colorOptions).map((colorOption) => {
+                  const colorVariant = product.variants.edges.find(
+                    (edge) =>
+                      edge.node.selectedOptions.some(
+                        (option) => option.name === variantsOptionsNames.size && option.value === size
+                      ) &&
+                      edge.node.selectedOptions.some(
+                        (sizeOption) =>
+                          sizeOption.name === variantsOptionsNames.color && sizeOption.value === colorOption
+                      )
+                  );
+                  if (!colorVariant) throw new Error('can notge get the color variant');
+                  return (
+                    <ColorVariant variant={colorVariant.node} color={colorOption} img={colorVariant.node.image?.url} />
+                  );
+                })}
               </div>
               <div className="w-full flex-col gap-3 rounded-[10px] bg-[#217946] bg-opacity-[12%] h-[100px] flex items-center justify-center">
                 <h3 className="font-bold text-[#212529] leading-[24px]">Nog niet uit over de kleur?</h3>

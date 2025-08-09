@@ -3,7 +3,7 @@
 import { useMoney } from '@shopify/hydrogen-react';
 import { Product, ProductVariant } from '@shopify/hydrogen-react/storefront-api-types';
 import { Link } from 'lucide-react';
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 
 import { TickDropDownIcon } from '@/components/icons/arrows';
 import { variantsOptionsNames } from '@/config/shop-config';
@@ -39,8 +39,8 @@ export const SizeVariantBox = ({ option, variant }: { option: string; variant: P
 
 export const SizeVariants = ({ product }: { product: Product }) => {
   const [boxOpened, setBoxOpened] = useState(true);
-  const { selectedVariantId, color } = useSelectedVariants();
-  const variant = product.variants.edges.find((edge) => edge.node.id === selectedVariantId)?.node;
+  const { selectedVariantId, color, set } = useSelectedVariants();
+  // const variant = product.variants.edges.find((edge) => edge.node.id === selectedVariantId)?.node;
   const sizeVariants = product.variants.edges.filter((edge) =>
     edge.node.selectedOptions.find((selectedOption) => selectedOption.name === variantsOptionsNames.size)
   );
@@ -53,7 +53,17 @@ export const SizeVariants = ({ product }: { product: Product }) => {
       )
       .flat()
   );
-  if (!variant) throw new Error('can not get the current variant');
+
+  useEffect(() => {
+    const defaultVariant = product.variants.edges[0];
+    const defaultColor = defaultVariant.node.selectedOptions.find(
+      (option) => option.name === variantsOptionsNames.color
+    );
+    const defaultSize = defaultVariant.node.selectedOptions.find((option) => option.name === variantsOptionsNames.size);
+    set({ color: defaultColor?.value, size: defaultSize?.value, selectedVariantId: defaultVariant.node.id });
+  }, []);
+
+  // if (!variant) throw new Error('can not get the current variant');
   return (
     <>
       {sizeOptions.size && (
@@ -78,16 +88,17 @@ export const SizeVariants = ({ product }: { product: Product }) => {
           {boxOpened && (
             <div className="flex gap-3">
               {Array.from(sizeOptions).map((option) => {
-                const sizeVariant = product.variants.edges.find(
-                  (edge) =>
-                    edge.node.selectedOptions.some(
-                      (option) => option.name === variantsOptionsNames.color && option.value === color
-                    ) &&
-                    edge.node.selectedOptions.some(
-                      (sizeOption) => sizeOption.name === variantsOptionsNames.size && sizeOption.value === option
-                    )
-                );
-                if (!sizeVariant) throw new Error('can notge get the size variant');
+                const sizeVariant =
+                  product.variants.edges.find(
+                    (edge) =>
+                      edge.node.selectedOptions.some(
+                        (option) => option.name === variantsOptionsNames.color && option.value === color
+                      ) &&
+                      edge.node.selectedOptions.some(
+                        (sizeOption) => sizeOption.name === variantsOptionsNames.size && sizeOption.value === option
+                      )
+                  ) || product.variants.edges[0];
+                if (!sizeVariant) throw new Error('can not get the size variant');
                 return <SizeVariantBox variant={sizeVariant?.node} key={option} option={option} />;
               })}
             </div>

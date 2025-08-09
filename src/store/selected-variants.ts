@@ -5,6 +5,7 @@ type SelectedVariants = {
   color: string | null;
   selectedVariantId: string | null;
   set: SetSelectedVariants;
+  linearLength: number;
   calculatedPrice: string | null;
 };
 
@@ -23,6 +24,7 @@ export const useSelectedVariants = create<SelectedVariants>((set) => ({
   color: null,
   size: null,
   selectedVariantId: '',
+  linearLength: 0,
   set,
   calculatedPrice: null,
 }));
