@@ -25,7 +25,7 @@ export const SizeCalculation = ({ product }: { product: Product }) => {
 
   useEffect(calculateLinearLength, [length, width, size]);
   return (
-    <div className="flex flex-col  py-3 gap-5  border-[#E0E0E0] border-b pb-5">
+    <div className="flex flex-col  py-3 gap-5 pb-5">
       <div className="flex w-full justify-between items-center">
         <div className="flex gap-3 w-full items-center">
           <div className="flex items-center gap-3 ">

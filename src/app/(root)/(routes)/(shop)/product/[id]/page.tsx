@@ -1,10 +1,13 @@
 import { notFound } from 'next/navigation';
 
 import { getProductById } from '@/utils/shop/query-tools';
+import { AddToCartBtn } from './_components/add-to-cart-btn';
 import { ProductBasicInfo } from './_components/basic-info';
 import { CategorySection } from './_components/category';
 import { ColorsVariants } from './_components/colors-variants';
+import { FloorInstalation } from './_components/foor-instalation';
 import { ImagesSection } from './_components/images-section';
+import { NeedHelp } from './_components/need-help';
 import { SizeCalculation } from './_components/size-calculation';
 import { SizeVariants } from './_components/size-variants';
 
@@ -22,6 +25,9 @@ export default async function ProductPage({ params: { id } }: { params: { id: st
           <ColorsVariants product={product} />
           <SizeVariants product={product} />
           <SizeCalculation product={product} />
+          <AddToCartBtn />
+          <NeedHelp />
+          <FloorInstalation />
         </div>
       </div>
     </div>
