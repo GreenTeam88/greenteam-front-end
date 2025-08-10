@@ -12,6 +12,7 @@ import { DropDownIcon } from '../../icons/arrows';
 import { InstagramLogo, TikTokIcon } from '../../icons/homePageIcons';
 import { SecondaryBtnLink } from '../../theme/buttons';
 import { BodyText } from '../../theme/typography';
+import { basicRoutes } from './header';
 import { TitleCarousel } from './titleCrausel';
 
 // types needed for the header
@@ -35,248 +36,72 @@ type HeaderRoute = {
   path?: string;
   columns?: HeaderColumnInfo[];
 };
-
-// basic routes (on the top section of the header)
-export const basicRoutes: HeaderRoute[] = [
-  {
-    name: 'Home',
-    path: '/',
-  },
-  {
-    name: 'Over ons',
-    path: '/over-ons',
-  },
-  {
-    name: 'Diensten',
-    path: '/diensten',
-    columns: [
-      {
-        link: '/parketrenovatie',
-        title: 'Parketrenovatie',
-        subPages: [
-          { name: ' Schuren en polijsten', path: '/parketrenovatie/schuren-en-polijsten' },
-          { name: ' Schuren en lakken', path: '/parketrenovatie/schuren-en-lakken' },
-          { name: ' Schuren en oliën', path: '/parketrenovatie/schuren-en-olien' },
-          { name: ' Schuren en hardwaxen', path: '/parketrenovatie/schuren-en-hardwaxen' },
-          { name: ' Aanhelen / Uitbreiden', path: '/parketrenovatie/aanhelen-uitbreiden' },
-          { name: ' Reparatie', path: '/parketrenovatie/reparatie' },
-          { name: ' Drevelen', path: '/parketrenovatie/drevelen' },
-          { name: ' V-groef frezen', path: '/parketrenovatie/v-groef-frezen' },
-          { name: ' Plinten & Deklijsten', path: '/parketrenovatie/plinten-en-deklijsten' },
-        ],
-      },
-
-      {
-        link: '/vloeren-leggen',
-        title: 'Vloeren leggen',
-        subPages: [
-          { name: 'Parket', path: '/vloeren-leggen/parket' },
-          { name: 'Laminaat', path: '/vloeren-leggen/laminaat' },
-          { name: 'PVC', path: '/vloeren-leggen/pvc' },
-          { name: 'Tapijt', path: '/vloeren-leggen/tapijt' },
-          { name: 'Linoleum', path: '/vloeren-leggen/linoleum' },
-          { name: 'Visgraat', path: '/vloeren-leggen/visgraat' },
-          { name: 'Walvisgraat', path: '/vloeren-leggen/walvisgraat' },
-          { name: 'Hongaarse punt', path: '/vloeren-leggen/hongaarse-punt' },
-          { name: 'Weense punt', path: '/vloeren-leggen/weense-punt' },
-          { name: 'PVC Tegels', path: '/vloeren-leggen/pvc-tegels' },
-          { name: 'Mozaïek en patroon', path: '/vloeren-leggen/mozaiek-en-patroon' },
-          { name: 'Hexagon & 3D', path: '/vloeren-leggen/hexagon-&-3d' },
-          { name: 'Tapis', path: '/vloeren-leggen/tapis' },
-          { name: 'Bourgogne', path: '/vloeren-leggen/bourgogne' },
-        ],
-      },
-      {
-        link: '/traprenovatie',
-        title: 'Traprenovatie',
-        subPages: [
-          { name: 'Bekleden met PVC', path: '/traprenovatie/bekleden-met-pvc' },
-          { name: 'Bekleden met laminaat', path: '/traprenovatie/bekleden-met-laminaat' },
-          { name: 'Bekleden met hout', path: '/traprenovatie/bekleden-met-hout' },
-          { name: 'Bekleden met tapijt', path: '/traprenovatie/bekleden-met-tapijt' },
-          { name: 'Bekleden met linoleum', path: '/traprenovatie/bekleden-met-linoleum' },
-          { name: 'Schuren en behandelen', path: '/traprenovatie/schuren-en-behandelen' },
-          { name: 'Schuren en schilderen', path: '/traprenovatie/schuren-en-schilderen' },
-          {
-            name: 'Beton Ciré',
-            subPages: [
-              { name: 'Beton Ciré Metal stuc', path: '/traprenovatie/beton-cire/metal-stuc' },
-              { name: 'Beton Ciré Glamour stuc', path: '/traprenovatie/beton-cire/glamour-stuc' },
-              { name: 'Beton Ciré Brut', path: '/traprenovatie/beton-cire/brut' },
-              { name: 'Beton Ciré Parel', path: '/traprenovatie/beton-cire/parel' },
-              { name: 'Beton Ciré Croco', path: '/traprenovatie/beton-cire/croco' },
-              { name: 'Beton Ciré Venetiaans', path: '/traprenovatie/beton-cire/venetiaans' },
-              { name: 'Beton Ciré Acoustic', path: '/traprenovatie/beton-cire/acoustic' },
-            ],
-          },
-          { name: 'Open trap', path: '/traprenovatie/open-trap' },
-          { name: 'Dichte trap', path: '/traprenovatie/dichte-trap' },
-          { name: 'Verlichting', path: '/traprenovatie/verlichting' },
-        ],
-      },
-      {
-        link: '/stofferen',
-        title: 'Stofferen',
-        subPages: [
-          { name: 'Trap', path: '/stofferen/trap' },
-          { name: 'Vloer', path: '/stofferen/vloer' },
-          { name: 'Tapijttegels', path: '/stofferen/tapijttegels' },
-          { name: 'Meubels', path: '/stofferen/meubels' },
-          { name: 'Deurmat', path: '/stofferen/deurmat' },
-          { name: 'Droogloopmat', path: '/stofferen/droogloopmat' },
-          { name: 'Rode loper', path: '/stofferen/rode-loper' },
-          { name: 'Reinigingsservice', path: '/stofferen/reinigingsservice' },
-          { name: 'Tapijt verwijderen', path: '/stofferen/tapijt-verwijderen' },
-        ],
-      },
-      {
-        link: '/overig',
-        title: 'Overig',
-        subPages: [
-          { name: 'Vloerverwarming', path: '/overig/vloerverwarming' },
-          { name: 'Egaliseren', path: '/overig/egaliseren' },
-          { name: 'Gietvloeren', path: '/overig/gietvloeren' },
-          { name: 'Tegelen', path: '/overig/tegelen' },
-          { name: 'Vloer verwijderen', path: '/overig/vloer-verwijderen' },
-          { name: 'Natuursteen behandelen', path: '/overig/natuursteen-behandelen' },
-          { name: 'Opslag', path: '/overig/opslag' },
-        ],
-      },
-    ],
-  },
-  {
-    name: 'Zakelijk',
-    path: '/zakelijk',
-  },
-  {
-    name: 'Veelgestelde vragen',
-    path: '/veelgestelde-vragen',
-  },
-  {
-    name: 'Contact',
-    path: '/contact',
-  },
-];
 // all the routes for the header with all the menu and columns info
 const headerRoutes: HeaderRoute[] = [
   ...basicRoutes,
   {
-    name: 'Parketrenovatie',
-    path: '/parketrenovatie/',
+    name: 'Tapijt',
+    path: '',
     columns: [
       {
-        link: '',
-        title: '',
+        link: '/merken',
+        title: 'Merken',
         subPages: [
-          { name: ' Schuren en polijsten', path: '/parketrenovatie/schuren-en-polijsten' },
-          { name: ' Schuren en lakken', path: '/parketrenovatie/schuren-en-lakken' },
-          { name: ' Schuren en oliën', path: '/parketrenovatie/schuren-en-olien' },
-          { name: ' Schuren en hardwaxen', path: '/parketrenovatie/schuren-en-hardwaxen' },
-          { name: ' Aanhelen / Uitbreiden', path: '/parketrenovatie/aanhelen-uitbreiden' },
-          { name: ' Reparatie', path: '/parketrenovatie/reparatie' },
-          { name: ' Drevelen', path: '/parketrenovatie/drevelen' },
-          { name: ' V-groef frezen', path: '/parketrenovatie/v-groef-frezen' },
-          { name: ' Plinten & Deklijsten', path: '/parketrenovatie/plinten-en-deklijsten' },
+          { name: 'Ambiant', path: 'Ambiant' },
+          { name: 'Best Wool Carpets', path: '' },
+          { name: 'Belakos', path: 'Belakos' },
+          { name: 'Bonaparte', path: 'Bonaparte' },
+          { name: 'Desso', path: 'Desso' },
+          { name: 'Forbo', path: 'Forbo' },
+          { name: 'Gelasta', path: 'Gelasta' },
+          { name: 'Hamat', path: 'Hamat' },
+          { name: 'Interfloor', path: 'Interfloor' },
+          { name: 'Lano', path: 'Lano' },
+          { name: 'Parade', path: 'Parade' },
+          { name: 'Sfeervol Wonen', path: '' },
+          { name: 'Smartstrand', path: 'Smartstrand' },
+          { name: 'Tretford', path: 'Tretford' },
         ],
       },
-    ],
-  },
-  {
-    name: 'Vloeren leggen',
-    path: '/vloeren-leggen',
-    columns: [
       {
-        link: '',
-        title: '',
+        title: 'Materiaal',
+        link: 'Materiaal',
         subPages: [
-          { name: 'Parket', path: '/vloeren-leggen/parket' },
-          { name: 'Laminaat', path: '/vloeren-leggen/laminaat' },
-          { name: 'PVC', path: '/vloeren-leggen/pvc' },
-          { name: 'Tapijt', path: '/vloeren-leggen/tapijt' },
-          { name: 'Linoleum', path: '/vloeren-leggen/linoleum' },
-          { name: 'Visgraat', path: '/vloeren-leggen/visgraat' },
-          { name: 'Walvisgraat', path: '/vloeren-leggen/walvisgraat' },
-          { name: 'Hongaarse punt', path: '/vloeren-leggen/hongaarse-punt' },
-          { name: 'Weense punt', path: '/vloeren-leggen/weense-punt' },
-          { name: 'PVC Tegels', path: '/vloeren-leggen/pvc-tegels' },
-          { name: 'Mozaïek en patroon', path: '/vloeren-leggen/mozaiek-en-patroon' },
-          { name: 'Hexagon & 3D', path: '/vloeren-leggen/hexagon-&-3d' },
-          { name: 'Tapis', path: '/vloeren-leggen/tapis' },
-          { name: 'Bourgogne', path: '/vloeren-leggen/bourgogne' },
+          { name: 'Polyamide', path: 'Polyamide' },
+          { name: 'Polyester', path: 'Polyester' },
+          { name: 'Polypropyleen', path: 'Polypropyleen' },
+          { name: 'Wol', path: 'Wol' },
+          { name: 'Sisal', path: 'Sisal' },
         ],
       },
-    ],
-  },
-  {
-    path: '/traprenovatie',
-    name: 'Traprenovatie',
-    columns: [
       {
-        link: '',
-        title: '',
+        title: 'Stijl',
+        link: 'Stijl',
         subPages: [
-          { name: 'Bekleden met PVC', path: '/traprenovatie/bekleden-met-pvc' },
-          { name: 'Bekleden met laminaat', path: '/traprenovatie/bekleden-met-laminaat' },
-          { name: 'Bekleden met hout', path: '/traprenovatie/bekleden-met-hout' },
-          { name: 'Bekleden met tapijt', path: '/traprenovatie/bekleden-met-tapijt' },
-          { name: 'Bekleden met linoleum', path: '/traprenovatie/bekleden-met-linoleum' },
-          { name: 'Schuren en behandelen', path: '/traprenovatie/schuren-en-behandelen' },
-          { name: 'Schuren en schilderen', path: '/traprenovatie/schuren-en-schilderen' },
-          {
-            name: 'Beton Ciré',
-            subPages: [
-              { name: 'Beton Ciré Metal stuc', path: '/traprenovatie/beton-cire/metal-stuc' },
-              { name: 'Beton Ciré Glamour stuc', path: '/traprenovatie/beton-cire/glamour-stuc' },
-              { name: 'Beton Ciré Brut', path: '/traprenovatie/beton-cire/brut' },
-              { name: 'Beton Ciré Parel', path: '/traprenovatie/beton-cire/parel' },
-              { name: 'Beton Ciré Croco', path: '/traprenovatie/beton-cire/croco' },
-              { name: 'Beton Ciré Venetiaans', path: '/traprenovatie/beton-cire/venetiaans' },
-              { name: 'Beton Ciré Acoustic', path: '/traprenovatie/beton-cire/acoustic' },
-            ],
-          },
-          { name: 'Open trap', path: '/traprenovatie/open-trap' },
-          { name: 'Dichte trap', path: '/traprenovatie/dichte-trap' },
-          { name: 'Verlichting', path: '/traprenovatie/verlichting' },
+          { name: 'Patroon', path: 'Patroon' },
+          { name: 'Vintage', path: 'Vintage' },
+          { name: 'Effen', path: 'Effen' },
+          { name: 'Zachte tapijten', path: '' },
+          { name: 'Laagpolig', path: 'Laagpolig' },
+          { name: 'Hoogpolig', path: 'Hoogpolig' },
+          { name: 'Projecttapijt', path: 'Projecttapijt' },
+          { name: '500 cm breed', path: '' },
         ],
       },
-    ],
-  },
-  {
-    name: 'Stofferen',
-    path: '/stofferen',
-    columns: [
       {
-        link: '',
-        title: '',
+        title: 'Kleur',
+        link: 'Kleur',
         subPages: [
-          { name: 'Trap', path: '/stofferen/trap' },
-          { name: 'Vloer', path: '/stofferen/vloer' },
-          { name: 'Tapijttegels', path: '/stofferen/tapijttegels' },
-          { name: 'Meubels', path: '/stofferen/meubels' },
-          { name: 'Deurmat', path: '/stofferen/deurmat' },
-          { name: 'Droogloopmat', path: '/stofferen/droogloopmat' },
-          { name: 'Rode loper', path: '/stofferen/rode-loper' },
-          { name: 'Reinigingsservice', path: '/stofferen/reinigingsservice' },
-          { name: 'Tapijt verwijderen', path: '/stofferen/tapijt-verwijderen' },
-        ],
-      },
-    ],
-  },
-  {
-    path: '/overig',
-    name: 'Overig',
-    columns: [
-      {
-        link: '',
-        title: '',
-        subPages: [
-          { name: 'Vloerverwarming', path: '/overig/vloerverwarming' },
-          { name: 'Egaliseren', path: '/overig/egaliseren' },
-          { name: 'Gietvloeren', path: '/overig/gietvloeren' },
-          { name: 'Tegelen', path: '/overig/tegelen' },
-          { name: 'Vloer verwijderen', path: '/overig/vloer-verwijderen' },
-          { name: 'Natuursteen behandelen', path: '/overig/natuursteen-behandelen' },
-          { name: 'Opslag', path: '/overig/opslag' },
+          { name: 'Blauw', path: 'Blauw' },
+          { name: 'Bruin en beige', path: 'Bruin en beige' },
+          { name: 'Geel', path: 'Geel' },
+          { name: 'Grijs', path: 'Grijs' },
+          { name: 'Groen', path: 'Groen' },
+          { name: 'Paars', path: 'Paars' },
+          { name: 'Rood', path: 'Rood' },
+          { name: 'Oranje', path: 'Oranje' },
+          { name: 'Zwart', path: 'Zwart' },
+          { name: 'Wit', path: 'Wit' },
         ],
       },
     ],

@@ -1,18 +1,7 @@
 import { Metadata } from 'next';
-
-import './globals.css';
-
 import { Inter } from 'next/font/google';
 
-import { cn } from '@/lib/tailwind';
-
-import 'bootstrap-icons/font/bootstrap-icons.css';
-
-import { GoogleTagManager } from '@next/third-parties/google';
-
-import { Footer } from '@/components/layout/footer/foooter';
-import DelayedRoomvoScriptLoader from '@/components/roomvoAssistantLoader';
-import { AppProviders } from '@/providers';
+import { Header } from '@/components/layout/header/header';
 
 const inter = Inter({ subsets: ['latin'] });
 export const metadata: Metadata = {
@@ -30,31 +19,9 @@ export const metadata: Metadata = {
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
-    <html lang="en">
-      <head>
-        {/* google tags manager code  */}
-        <GoogleTagManager gtmId="GTM-TXKVLDJ" />
-      </head>
-      <body className={cn(inter.className, 'flex lg:pt-[220px] px-0 flex-col  items-center')}>
-        {/* google manager code      */}
-        <noscript>
-          <iframe
-            src="https://www.googletagmanager.com/ns.html?id=GTM-TXKVLDJ"
-            height="0"
-            width="0"
-            style={{ display: 'none', visibility: 'hidden' }}
-          ></iframe>
-        </noscript>{' '}
-        {/* wraping all the app logic inside a component that has all the other wrapers such as react query  */}
-        <AppProviders>
-          {/* header is fixed so we need to have a padding top  */}
-          {children}
-          <Footer />
-        </AppProviders>
-        {/* the script for roomvo */}
-        {/* the script is delayed for 5 seconds in order to increase the load speed of the website  */}
-        <DelayedRoomvoScriptLoader />
-      </body>
-    </html>
+    <>
+      <Header />
+      {children}
+    </>
   );
 }
