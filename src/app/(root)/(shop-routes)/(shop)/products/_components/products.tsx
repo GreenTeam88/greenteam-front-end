@@ -6,7 +6,7 @@ export const ProductsSection = ({ products }: { products: Product[] }) => {
   return (
     <div className="flex gap-4 flex-wrap w-full ">
       {products.map((product) => (
-        <ProductCard product={product} />
+        <ProductCard key={product.id} product={product} />
       ))}
     </div>
   );

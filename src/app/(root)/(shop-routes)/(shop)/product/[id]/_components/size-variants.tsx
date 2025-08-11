@@ -2,7 +2,6 @@
 
 import { useMoney } from '@shopify/hydrogen-react';
 import { Product, ProductVariant } from '@shopify/hydrogen-react/storefront-api-types';
-import { Link } from 'lucide-react';
 import { useEffect, useState } from 'react';
 
 import { TickDropDownIcon } from '@/components/icons/arrows';
@@ -39,7 +38,7 @@ export const SizeVariantBox = ({ option, variant }: { option: string; variant: P
 
 export const SizeVariants = ({ product }: { product: Product }) => {
   const [boxOpened, setBoxOpened] = useState(true);
-  const { selectedVariantId, color, set } = useSelectedVariants();
+  const { color, set } = useSelectedVariants();
   // const variant = product.variants.edges.find((edge) => edge.node.id === selectedVariantId)?.node;
   const sizeVariants = product.variants.edges.filter((edge) =>
     edge.node.selectedOptions.find((selectedOption) => selectedOption.name === variantsOptionsNames.size)

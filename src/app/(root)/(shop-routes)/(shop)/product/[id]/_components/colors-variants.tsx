@@ -2,7 +2,7 @@
 
 import { Product, ProductVariant } from '@shopify/hydrogen-react/storefront-api-types';
 import Link from 'next/link';
-import { useEffect, useState } from 'react';
+import { useState } from 'react';
 
 import { TickDropDownIcon } from '@/components/icons/arrows';
 import { colorsHexCodesMap, variantsOptionsNames } from '@/config/shop-config';
@@ -91,7 +91,12 @@ export const ColorsVariants = ({ product }: { product: Product }) => {
                   );
                   if (!colorVariant) throw new Error('can notge get the color variant');
                   return (
-                    <ColorVariant variant={colorVariant.node} color={colorOption} img={colorVariant.node.image?.url} />
+                    <ColorVariant
+                      key={colorVariant.node.id}
+                      variant={colorVariant.node}
+                      color={colorOption}
+                      img={colorVariant.node.image?.url}
+                    />
                   );
                 })}
               </div>

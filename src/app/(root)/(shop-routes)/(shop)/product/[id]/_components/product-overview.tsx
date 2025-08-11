@@ -10,11 +10,10 @@ import { cn } from '@/lib/tailwind';
 import { useSelectedVariants } from '@/store/selected-variants';
 
 export const ProductOverview = ({ product }: { product: Product }) => {
-  const { set, selectedVariantId, linearLength } = useSelectedVariants();
+  const { selectedVariantId, linearLength } = useSelectedVariants();
   const [boxOpened, setBoxOpened] = useState(true);
   const selectedVariantInfo = product.variants.edges.find((edge) => edge.node.id === selectedVariantId)?.node;
   const { amount: price, currencySymbol } = useMoney(selectedVariantInfo?.price as MoneyV2);
-  const totalPrice = Number(price) * linearLength;
   if (!selectedVariantInfo) return <></>;
   return (
     <div className="flex flex-col  py-3 gap-5 border-[#E0E0E0] border-b pb-5">

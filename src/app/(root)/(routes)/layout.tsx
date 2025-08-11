@@ -1,9 +1,7 @@
 import { Metadata } from 'next';
-import { Inter } from 'next/font/google';
 
 import { Header } from '@/components/layout/header/header';
 
-const inter = Inter({ subsets: ['latin'] });
 export const metadata: Metadata = {
   title: 'GreenTeam - Duurzame Vloeren en Trappen',
   description:

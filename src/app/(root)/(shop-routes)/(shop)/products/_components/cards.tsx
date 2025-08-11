@@ -32,7 +32,7 @@ export const ProductCard = ({ product }: { product: Product }) => {
         {Object.entries(colorsHexCodesMap)
           .slice(0, 5)
           .map(([color, hexCode]) => (
-            <div style={{ backgroundColor: hexCode }} className="w-[40px] h-[40px]"></div>
+            <div key={color} style={{ backgroundColor: hexCode }} className="w-[40px] h-[40px]"></div>
           ))}
       </div>
       <div className="flex gap-2 items-end ">

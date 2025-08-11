@@ -80,7 +80,9 @@ const Collections = ({ collections }: { collections: Collection[] }) => {
         <div className="bg-[#575757]"></div>
       </div>
       {collections.map((collection) => (
-        <p className="text-[#195B35] pl-4">{collection.title}</p>
+        <p key={collection.id} className="text-[#195B35] pl-4">
+          {collection.title}
+        </p>
       ))}
     </div>
   );
@@ -129,7 +131,7 @@ export const ColorsSection = () => {
       </div>
       <ColorsOption name="Alle kleuren" />
       {Object.entries(colorsHexCodesMap).map(([name, hexCode]) => (
-        <ColorsOption hexCode={hexCode} name={name} />
+        <ColorsOption key={hexCode} hexCode={hexCode} name={name} />
       ))}
     </div>
   );
@@ -183,7 +185,7 @@ const QuerySection = ({
         <p>Uitleg</p>
       </div>
       {paramsValues.map((param) => (
-        <QueryItemUI itemName={param} paramName={paramName} />
+        <QueryItemUI key={param} itemName={param} paramName={paramName} />
       ))}
     </div>
   );
@@ -196,7 +198,12 @@ export const ProductsSidebar = ({ collections }: { collections: Collection[] }) 
       <Collections collections={collections} />
       <ColorsSection />
       {params.map((param) => (
-        <QuerySection paramName={param.paramName} paramsValues={param.items} title={param.paramTitle} />
+        <QuerySection
+          key={param.paramName}
+          paramName={param.paramName}
+          paramsValues={param.items}
+          title={param.paramTitle}
+        />
       ))}
     </div>
   );

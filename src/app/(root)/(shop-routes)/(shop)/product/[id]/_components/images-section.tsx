@@ -9,7 +9,12 @@ export const ImagesSection: React.FC<{ images: string[] }> = ({ images }) => {
       <img src={selectedImage} className="w-full h-[534px] rounded-lg" />
       <div className="flex gap-2">
         {images.map((image) => (
-          <img onClick={() => setSelectedImage(image)} className="w-[63px] h-[63px] rounded-sm" src={image} />
+          <img
+            key={image}
+            onClick={() => setSelectedImage(image)}
+            className="w-[63px] h-[63px] rounded-sm"
+            src={image}
+          />
         ))}
       </div>
     </div>

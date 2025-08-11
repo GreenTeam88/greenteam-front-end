@@ -1,5 +1,4 @@
 import { DoneIcon } from '@/components/icons/done';
-import { cn } from '@/lib/tailwind';
 
 // type ListInstalationService = {
 //   service: string;

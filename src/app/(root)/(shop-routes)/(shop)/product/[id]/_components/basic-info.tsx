@@ -1,7 +1,7 @@
 'use client';
 
 import { useMoney } from '@shopify/hydrogen-react';
-import { MoneyV2, Product } from '@shopify/hydrogen-react/storefront-api-types';
+import { Product } from '@shopify/hydrogen-react/storefront-api-types';
 
 export const ProductBasicInfo = ({ product }: { product: Product }) => {
   const ratingsAverage = product.metafields?.find((metafield) => metafield?.key === 'ratings_average')?.value;
@@ -19,8 +19,8 @@ export const ProductBasicInfo = ({ product }: { product: Product }) => {
       {ratingsAverage && ratingsNumber && (
         <div className="flex gap-1">
           <div className="flex ">
-            {Array.from({ length: Math.round(parseFloat(ratingsAverage)) }).map((item) => (
-              <span>⭐</span>
+            {Array.from({ length: Math.round(parseFloat(ratingsAverage)) }).map((_, index) => (
+              <span key={index}>⭐</span>
             ))}
           </div>
           <p>({ratingsAverage}/5)</p>

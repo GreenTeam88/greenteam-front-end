@@ -8,7 +8,7 @@ import { CalculationIcon } from '@/components/icons/calculation';
 import { cn } from '@/lib/tailwind';
 import { useSelectedVariants } from '@/store/selected-variants';
 
-export const SizeCalculation = ({ product }: { product: Product }) => {
+export const SizeCalculation = ({}: { product: Product }) => {
   const [length, setLength] = useState(0);
   const [width, setWidth] = useState(1);
   const { set, linearLength } = useSelectedVariants();
