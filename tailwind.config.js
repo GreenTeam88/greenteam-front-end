@@ -17,6 +17,7 @@ module.exports = {
       bgColor: '#F9FBFA',
       primaryDefault: '#217946',
       primaryGreenD1: '#091F12',
+      paragraph: '#212529',
       black20: '#1C1C1C',
       black10: '#1C1C1C',
       lightGray: '#F3F7F5',

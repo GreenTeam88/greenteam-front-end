@@ -320,6 +320,16 @@ export const TermsConditions = () => {
               9.2. GreenTeam stelt de opdrachtgever zo spoedig mogelijk in kennis van het afronden van werkzaamheden ten
               behoeve van oplevering en inspectie. Het door GreenTeam verrichte werk wordt pas als opgeleverd beschouwd
               indien:
+              <ul className="list list-[lower-alpha] my-3 space-y-2 px-7">
+                <li>
+                  Het werk, al dan niet door ondertekening van een werkbon, door de opdrachtgever wordt goedgekeurd;
+                </li>
+                <li>
+                  De opdrachtgever GreenTeam niet binnen 10 dagen na kennisgeving van de oplevering voorziet van
+                  goedkeuring (stilzwijgende aanvaarding);
+                </li>
+                <li>Het werk door de opdrachtgever in gebruik is genomen.</li>
+              </ul>
             </p>
             <p className="listItem">
               9.3. Indien enige door GreenTeam opgegeven termijnen worden overschreden, is GreenTeam ter zake eerst in
@@ -430,7 +440,24 @@ export const TermsConditions = () => {
               aansprakelijkheid betrekking heeft. De aansprakelijkheid is te allen tijde beperkt tot maximaal het bedrag
               van de door de verzekering van GreenTeam in het voorkomende geval te verstrekken uitkering.
             </p>
-            <p className="listItem">12.3. Onder directe schade wordt uitsluitend verstaan:</p>
+            <p className="listItem">
+              12.3. Onder directe schade wordt uitsluitend verstaan:
+              <ul className="list list-[lower-alpha] px-7  space-y-2 my-3">
+                <li>
+                  De redelijke kosten ter vaststelling van de oorzaak en de omvang van de schade, voor zover de
+                  vaststelling betrekking heeft op schade in de zin van deze voorwaarden.
+                </li>
+                <li>
+                  De eventuele redelijke kosten gemaakt om de gebrekkige prestatie van GreenTeam aan de overeenkomst te
+                  laten beantwoorden, tenzij deze niet aan GreenTeam toegerekend kunnen worden.
+                </li>
+                <li>
+                  Redelijke kosten, gemaakt ter voorkoming of beperking van schade, voor zover ondernemer opdrachtgever
+                  aantoont dat deze kosten hebben geleid tot beperking van directe schade als bedoeld in deze algemene
+                  voorwaarden.
+                </li>
+              </ul>
+            </p>
             <p className="listItem">
               12.4. GreenTeam is niet aansprakelijk voor enige door de ondernemer opdrachtgever (of derden) geleden ofte
               lijden schade, van welke aard en/of omvang dan ook, samenhangend met of voortvloeiende uit de uitvoering
