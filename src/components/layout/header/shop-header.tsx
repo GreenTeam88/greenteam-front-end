@@ -41,7 +41,7 @@ const headerRoutes: HeaderRoute[] = [
   ...basicRoutes,
   {
     name: 'Tapijt',
-    path: '',
+    path: '/tapijt',
     columns: [
       {
         link: '/merken',
@@ -106,6 +106,15 @@ const headerRoutes: HeaderRoute[] = [
       },
     ],
   },
+  { name: 'Vinyl', path: 'Vinyl' },
+  { name: 'Vloerkleed op maat', path: '' },
+  { name: 'Tapijttegel', path: 'Tapijttegel' },
+  { name: 'PVC', path: 'PVC' },
+  { name: 'PVC Click', path: '' },
+  { name: 'Marmoleum', path: 'Marmoleum' },
+  { name: 'Ondervloer', path: 'Ondervloer' },
+  { name: 'Deurmat', path: 'Deurmat' },
+  { name: 'Meer  ', path: 'Meer' },
 ];
 
 // a single item in a colmun in the menu (the menu that apears when we hover over a certain link)
@@ -176,7 +185,7 @@ const HeaderColumnItem: React.FC<
 const HeaderColumn: React.FC<HeaderColumnInfo & { index: number }> = ({ subPages, title, link }) => {
   return (
     <>
-      <div className="flex flex-col   gap-[11px]">
+      <div className="flex flex-col  border-l px-11 max-w-[200px] border-l-[#1C1C1C] border-opacity-20   gap-[11px]">
         <Link href={link} className="text-sm font-semibold hover:text-secondaryDefault text-primaryDefault ">
           {title}
         </Link>
@@ -196,7 +205,7 @@ const HeaderColumns: React.FC<{ hoveredLink: string }> = ({ hoveredLink }) => {
   const hoveredRouteColumns = hoveredRoute && 'columns' in hoveredRoute && hoveredRoute.columns;
   if (!hoveredRouteColumns) return null;
   return (
-    <div className="flex  gap-[33px] py-[22px]  px-[44px]">
+    <div className="flex  gap-[33px] w-fit py-[22px]  px-[44px]">
       {hoveredRouteColumns.map((column, index) => (
         <HeaderColumn key={column.title} {...column} index={index} />
       ))}
@@ -431,10 +440,10 @@ export const HeaderLink: React.FC<{
 };
 
 // the links of the header including the first row (bold links)
-export const HeaderLinksSection = () => {
+export const HeaderLinksSection = ({ routes }: { routes: HeaderRoute[] }) => {
   const [hoveredLink, setHoveredLink] = useState('');
-  const hoveredLinkRouteIndex = headerRoutes.findIndex((route) => route.name === hoveredLink);
-  const hoveredRoute = headerRoutes[hoveredLinkRouteIndex];
+  const hoveredLinkRouteIndex = routes.findIndex((route) => route.name === hoveredLink);
+  const hoveredRoute = routes[hoveredLinkRouteIndex];
 
   return (
     <div
@@ -442,7 +451,7 @@ export const HeaderLinksSection = () => {
       className="flex   flex-col items-center    gap-[39px] relative  justify-center "
     >
       <div className="flex z-10   gap-[33px] py-1 w-full items-center ">
-        {headerRoutes.slice(0, 6).map((route, index) => (
+        {routes.slice(0, 6).map((route, index) => (
           <HeaderBoldLink
             hoveredLink={hoveredLink}
             key={route.name}
@@ -468,52 +477,96 @@ export const HeaderLinksSection = () => {
   );
 };
 
-export const HeaderDropDowns = () => {
-  const subHeaderHidingAnimation = useAnimation();
-  const [clientSide, setClientSide] = useState(false);
-  const lastScrollTop = useRef<number>(clientSide ? window.pageYOffset || document.documentElement.scrollTop : 0);
-  const hideSubHeader = async () => {
-    await subHeaderHidingAnimation.start({ y: -200 });
-  };
-
-  const displaySubHeader = () => {
-    subHeaderHidingAnimation.start({ y: 0, transition: { bounce: false } });
-  };
-
-  // setting the client side to true so we can use the window object (to avoid the error : window is not defiened)
-  useEffect(() => {
-    setClientSide(true);
-  }, []);
-
-  // writing the logic of the dropdowns hiding and displaying
-  useEffect(() => {
-    const handleScroll = async () => {
-      const currentScrollTop = clientSide ? window.pageYOffset || document.documentElement.scrollTop : 0;
-      //if the user scroll down we want to hide the dropdowns
-      if (currentScrollTop >= lastScrollTop.current) {
-        await hideSubHeader();
-      } else {
-        // if the user scroll up we want to display the dropdowns
-        displaySubHeader();
-      }
-      lastScrollTop.current = currentScrollTop;
-    };
-    // adding and removing events only on browser (client side)
-    if (clientSide) window.addEventListener('scroll', handleScroll);
-
-    return () => {
-      if (clientSide) window.removeEventListener('scroll', handleScroll);
-    };
-  }, [lastScrollTop, clientSide]);
+// a link inside the bottom dropdown
+export const DropDownLink: React.FC<{
+  route: HeaderRoute;
+  hoveredLink: string;
+  index: number;
+  setHoveredLink: Dispatch<SetStateAction<string>>;
+}> = ({ route, index, hoveredLink, setHoveredLink }) => {
+  const path = 'path' in route && route.path;
+  const columns = 'columns' in route && route.columns;
   return (
-    <motion.div
-      animate={subHeaderHidingAnimation}
-      className="flex  bg-white  w-full z-0 pb-5  gap-[50px] justify-center items-center"
+    <>
+      <div
+        className={cn('flex px-4  rounded-lg h-[39px]  items-center  cursor-pointer', {
+          'bg-[#217946] text-white': hoveredLink === route.name,
+        })}
+      >
+        {path ? (
+          <Link
+            onMouseOver={() => setHoveredLink(route.name)}
+            href={route.path as string}
+            className={cn('flex w-fit group items-center text-[16px] ', {
+              'text-white ': hoveredLink === route.name,
+            })}
+          >
+            {route.name}
+
+            {/* {columns && <img width={15} src="/icons/dropDown.svg" className="inline mx-2" />} */}
+            {columns && (
+              <div className={cn('mx-2')}>
+                <DropDownIcon
+                  className={cn('stroke-black block mx-2', {
+                    'stroke-white  ': hoveredLink === route.name,
+                  })}
+                />
+              </div>
+            )}
+          </Link>
+        ) : (
+          <h3
+            onMouseOver={() => setHoveredLink(route.name)}
+            className={cn(' w-fit text-[16px]', {
+              'text-white': hoveredLink === route.name,
+            })}
+          >
+            {route.name}
+            {columns && <img width={15} src="/icons/dropDown.svg" className="inline mx-2" />}
+          </h3>
+        )}
+      </div>
+    </>
+  );
+};
+
+export const HeaderDropdowns = ({ routes }: { routes: HeaderRoute[] }) => {
+  const [hoveredLink, setHoveredLink] = useState('');
+  const hoveredLinkRouteIndex = routes.findIndex((route) => route.name === hoveredLink);
+  const hoveredRoute = routes[hoveredLinkRouteIndex];
+
+  return (
+    <div
+      onMouseLeave={() => setHoveredLink('')}
+      className="flex   flex-col items-center  bg-white w-full   gap-[39px] relative  justify-center "
     >
-      {headerRoutes.slice(6).map((route, index) => (
-        <HeaderLink route={route} key={route.name} index={index} />
-      ))}
-    </motion.div>
+      <div className="flex z-10   gap-[33px] py-1 w-full justify-center items-center ">
+        {routes.map((route, index) => (
+          <DropDownLink
+            hoveredLink={hoveredLink}
+            key={route.name}
+            index={index}
+            route={route}
+            setHoveredLink={setHoveredLink}
+          />
+        ))}
+      </div>
+      {hoveredLink && hoveredRoute && 'columns' in hoveredRoute && hoveredRoute.columns && (
+        // the top is 30px if the hovered link at the first row (bold)
+        // the top is 88px if the hovered link at the second row
+        <div
+          className={cn(
+            'absolute top-[48px] flex items-center justify-center w-full z-10 border rounded-[10px] border-black20 border-opacity-20  max-w-[1400px] bg-white ',
+            {
+              // 'top-[88px]': hoveredLinkRouteIndex > 5,
+              // 'top-[30px]': hoveredLinkRouteIndex <= 5,
+            }
+          )}
+        >
+          <HeaderColumns hoveredLink={hoveredLink}></HeaderColumns>
+        </div>
+      )}
+    </div>
   );
 };
 
@@ -524,10 +577,10 @@ const DesktopHeader = () => {
         {/* the top section that includes the logo and the social links */}
         <HeaderTopSection />
         {/* the section that includes the bold links */}
-        <HeaderLinksSection />
+        <HeaderLinksSection routes={headerRoutes.slice(0, 6)} />
       </div>
       {/* a section for the dropdowns (last row) */}
-      <HeaderDropDowns />
+      <HeaderDropdowns routes={headerRoutes.slice(6)} />
     </div>
   );
 };
@@ -680,7 +733,7 @@ const MobileHeader = () => {
 };
 
 // the header element
-export const Header = () => {
+export const ShopHeader = () => {
   return (
     <>
       {/* header for desktop view */}
