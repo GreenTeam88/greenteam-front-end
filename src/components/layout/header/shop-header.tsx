@@ -1,7 +1,7 @@
 'use client';
 
 import clsx from 'clsx';
-import { motion, useAnimation } from 'framer-motion';
+import { motion } from 'framer-motion';
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
 import React, { Dispatch, SetStateAction, useEffect, useRef, useState } from 'react';
@@ -483,7 +483,7 @@ export const DropDownLink: React.FC<{
   hoveredLink: string;
   index: number;
   setHoveredLink: Dispatch<SetStateAction<string>>;
-}> = ({ route, index, hoveredLink, setHoveredLink }) => {
+}> = ({ route, hoveredLink, setHoveredLink }) => {
   const path = 'path' in route && route.path;
   const columns = 'columns' in route && route.columns;
   return (
