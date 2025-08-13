@@ -1,6 +1,6 @@
 import { PhoneIcon } from '@/components/icons/phone';
 
-export const ContactInfo = () => {
+export const ProductContactInfo = () => {
   return (
     <div className="flex w-full max-w-[1400px] gap-4 py-6">
       <div className="flex flex-col">
