@@ -29,9 +29,9 @@ export default async function ProductPage({ params: { id } }: { params: { id: st
           <AddToCartBtn />
           <NeedHelp />
           <FloorInstalation />
-          <ProductContactInfo />
         </div>
       </div>
+      <ProductContactInfo />
     </div>
   );
 }
