@@ -1,7 +1,7 @@
 'use client';
 
 import { Collection } from '@shopify/hydrogen-react/storefront-api-types';
-import { useRouter, useSearchParams } from 'next/navigation';
+import { usePathname, useRouter, useSearchParams } from 'next/navigation';
 
 import { colorsHexCodesMap } from '@/config/shop-config';
 import { cn } from '@/lib/tailwind';
@@ -88,12 +88,13 @@ const Collections = ({ collections }: { collections: Collection[] }) => {
   );
 };
 
-export const ColorsOption = ({ name, hexCode }: { name: string; hexCode?: string }) => {
+export const ColorOption = ({ name, hexCode }: { name: string; hexCode?: string }) => {
   const searchParams = useSearchParams();
   const searchParamsColors = searchParams.get('colors');
   const colors: string[] = searchParamsColors ? JSON.parse(decodeURIComponent(searchParamsColors)) : [];
   const isColorSelected = colors.includes(name);
   const router = useRouter();
+  const pathname = usePathname();
   const toggleColor = () => {
     const currSearchParams = new URLSearchParams(searchParams.toString());
 
@@ -102,17 +103,19 @@ export const ColorsOption = ({ name, hexCode }: { name: string; hexCode?: string
       updatedColors.length
         ? currSearchParams.set('colors', JSON.stringify(updatedColors))
         : currSearchParams.delete('colors');
-      router.push(`/?${currSearchParams.toString()}`);
+      console.log('pushing', `${pathname}/?${currSearchParams.toString()}`);
+      router.push(`${pathname}/?${currSearchParams.toString()}`);
     } else {
       currSearchParams.set('colors', JSON.stringify([...colors, name]));
-      router.push(`/?${currSearchParams.toString()}`);
+      console.log('pushing to :', `${pathname}/?${currSearchParams.toString()}`);
+
+      router.push(`${pathname}?${currSearchParams.toString()}`);
     }
   };
   return (
-    <div className="flex gap-2">
+    <div onClick={toggleColor} className="flex items-center gap-2 cursor-pointer">
       <div
-        onClick={toggleColor}
-        className={cn('bg-white border border-[#DEE2E6] rounded-full w-[15px] h-[15px]', {
+        className={cn('bg-white border border-[#DEE2E6]  rounded-full w-[15px] h-[15px]', {
           'border-[#195B35] border-8': isColorSelected,
         })}
       ></div>
@@ -129,9 +132,9 @@ export const ColorsSection = () => {
         <h3 className="text-lg font-bold ">Kleuren</h3>
         <div className="bg-[#575757]"></div>
       </div>
-      <ColorsOption name="Alle kleuren" />
+      <ColorOption name="Alle kleuren" />
       {Object.entries(colorsHexCodesMap).map(([name, hexCode]) => (
-        <ColorsOption key={hexCode} hexCode={hexCode} name={name} />
+        <ColorOption key={hexCode} hexCode={hexCode} name={name} />
       ))}
     </div>
   );

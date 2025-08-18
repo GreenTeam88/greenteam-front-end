@@ -1,9 +1,9 @@
 import { notFound } from 'next/navigation';
 
 import { getProductById } from '@/utils/shop/query-tools';
+import { CategorySection } from '../../_components/category';
 import { AddToCartBtn } from './_components/add-to-cart-btn';
 import { ProductBasicInfo } from './_components/basic-info';
-import { CategorySection } from './_components/category';
 import { ColorsVariants } from './_components/colors-variants';
 import { ProductContactInfo } from './_components/contact-info';
 import { FloorInstalation } from './_components/foor-instalation';

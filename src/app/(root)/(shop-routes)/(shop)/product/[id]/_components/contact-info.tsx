@@ -1,3 +1,5 @@
+import { useMoney } from '@shopify/hydrogen-react';
+
 import { EmailIcon } from '@/components/icons/emailIcon';
 import { PhoneIcon } from '@/components/icons/phone';
 
@@ -38,7 +40,7 @@ export const ProductContactInfo = () => {
         </div>
       </div>
       <div className="flex flex-col w-[486px] rounded-[15px] gap-2 bg-[#F7F7F7]">
-        <img className="w-full rounded-t-[15px]" src="/contact/greenteam-desk.jpg" />
+        <img className="w-full h-[279px] rounded-t-[15px]" src="/contact/greenteam-desk.jpg" />
         <div className="flex flex-col w-full  p-4 items-center gap-2">
           <h3 className="font-semibold leading-tight text-[24px] text-paragraph">
             Wij leveren en leggen

@@ -16,6 +16,40 @@ interface RatingInfo {
   date: string;
 }
 
+[
+  {
+    name: 'John Doe',
+    date: '2025-08-10',
+    images: ['https://example.com/review1.jpg', 'https://example.com/review2.jpg'],
+    stars: '5',
+    message: 'Fantastic product! Highly recommend.',
+  },
+  {
+    stars: 5,
+    message:
+      'Top ervaring gehad met Green Team, kende ze niet, maar kwamen met een scherpe offerte. Samen met de persoon die het kwam leggen een mooi passend tapijt uitgezocht voor onze 2 trappen en overloop. Het ligt er super strak in/op en ziet er geweldig uit!',
+    images: ['/reviews/tim-barendregt/img1.webp', '/reviews/tim-barendregt/img2.webp'],
+    date: '11/09/2024',
+    name: 'Tim Barendregt',
+  },
+  {
+    stars: 5,
+    description:
+      'Ik ben ontzettend blij met het werk dat Greenteam heeft geleverd aan mijn trap. Ze hebben mijn trap opnieuw gestoffeerd en het ziet er werkelijk prachtig uit. Het team was zeer professioneel, vriendelijk en efficiënt!',
+    images: ['/reviews/veronica-miraza/img1.webp', '/reviews/veronica-miraza/img2.webp'],
+    date: '23/09/2024',
+    name: 'Veronica Miraza ',
+  },
+  {
+    stars: 5,
+    description:
+      'Wij hebben onze eiken parketvloer laten schuren en in de olie laten zetten door Greenteam. We zijn erg tevreden met het resultaat, de vloer is weer als nieuw. Bedankt!',
+    images: ['/reviews/jac/img1.webp', '/reviews/jac/img2.webp', '/reviews/jac/img3.webp'],
+    date: '14/02/2024',
+    name: 'Jac',
+  },
+];
+
 const ratings: RatingInfo[] = [
   {
     stars: 5,
@@ -91,6 +125,39 @@ const ratings: RatingInfo[] = [
     date: '13/09/2024',
     name: 'Tim',
   },
+];
+
+[
+  {
+    value:
+      'Omdat deze vinyl vloer verkrijgbaar is in 200 cm, 300 cm en 400 cm, is de kans kleiner dat u restafval overhoudt.',
+    category: 'advantage',
+  },
+  {
+    value:
+      'In combinatie met de FloorFixx Fini ondervloer voldoet deze vinyl vloer aan de 10 dB eis van de Vereniging van eigenaren.',
+    category: 'advantage',
+  },
+  {
+    value:
+      'Dankzij de Aquagrip toplaag wordt de grip van de vloer niet beduidend minder wanneer er vloeistoffen op worden geknoeid.',
+    category: 'advantage',
+  },
+  { value: 'De Diamond Seal toplaag zorgt voor een goede bescherming tegen krassen en slijtage.', category: '' },
+  { value: 'Deze vinyl vloer is ftalaatvrij.  ', category: 'advantage' },
+
+  {
+    value:
+      'Bij een combinatie van verschillende breedtes dient u rekening te houden met mogelijk kleurverschil (iedere breedte 200 cm / 300 cm / 400 cm komt uit een eigen verfbad.',
+    category: 'disadvantage',
+  },
+  {
+    value:
+      'Deze vinyl vloer heeft een slijtlaag van 0,20 mm. Sommige andere vinyl vloeren uit ons assortiment hebben een dikkere slijtlaag.',
+    category: 'disadvantage',
+  },
+  { value: 'Voor het beste resultaat moet uw basisvloer eerst geëgaliseerd worden.', category: 'disadvantage' },
+  { value: 'Zware meubels kunnen een afdruk achterlaten in het vinyl. ', category: 'disadvantage' },
 ];
 
 const RatingCard: React.FC<RatingInfo> = ({ stars, date: birthDate, description, images, name }) => {

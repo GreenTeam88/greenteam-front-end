@@ -111,6 +111,11 @@ export async function getAllProducts(): Promise<Product[]> {
                 amount
                 currencyCode
               }
+              selectedOptions {
+                name
+                value
+              }
+
               availableForSale
               quantityAvailable
               image {
