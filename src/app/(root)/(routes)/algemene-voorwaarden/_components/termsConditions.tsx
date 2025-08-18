@@ -211,8 +211,8 @@ export const TermsConditions = () => {
             </p>{' '}
             <p className="listItem">
               6.5. Indien een opdrachtgever (consument of ondernemer) in verzuim is in de (tijdige) nakoming van zijn
-              verplichtingen, dan komen alle buitengerechtelijke kosten, die worden berekend volgens het 'Besluit
-              vergoeding voor buitengerechtelijke incassokosten 2012', voor rekening van voormelde opdrachtgever,
+              verplichtingen, dan komen alle buitengerechtelijke kosten, die worden berekend volgens het &apos;Besluit
+              vergoeding voor buitengerechtelijke incassokosten 2012&apos;, voor rekening van voormelde opdrachtgever,
               onverminderd de aan GreenTeam overigens toekomende rechten, zoals die op schadevergoeding of nakoming.
             </p>{' '}
             <p className="listItem">

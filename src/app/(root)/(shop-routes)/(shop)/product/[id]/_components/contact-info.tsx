@@ -1,5 +1,3 @@
-import { useMoney } from '@shopify/hydrogen-react';
-
 import { EmailIcon } from '@/components/icons/emailIcon';
 import { PhoneIcon } from '@/components/icons/phone';
 

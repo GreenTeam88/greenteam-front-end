@@ -1,6 +1,5 @@
 import { variantsOptionsNames } from '@/config/shop-config';
 import { getAllProducts, getShopifyCollections } from '@/utils/shop/query-tools';
-import { CategorySection } from '../_components/category';
 import { CollectionsSection } from './_components/collections';
 import { AllCarpetsHeader } from './_components/header';
 import { ProductsSection } from './_components/products';
