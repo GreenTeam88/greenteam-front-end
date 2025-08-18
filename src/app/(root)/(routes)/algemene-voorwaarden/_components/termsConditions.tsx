@@ -229,35 +229,35 @@ export const TermsConditions = () => {
 
         <div className="boxClassname" id="Verplichtingen van de opdrachtgever">
           <h3 id="6" className="boxTitle">
-            6. Verplichtingen van de opdrachtgever
+            7. Verplichtingen van de opdrachtgever
           </h3>
           <div className="listContainer">
             <p className="listItem">
-              6.1. De opdrachtgever is gehouden GreenTeam tijdig alle informatie te verstrekken, welke GreenTeam naar
+              7.1. De opdrachtgever is gehouden GreenTeam tijdig alle informatie te verstrekken, welke GreenTeam naar
               haar oordeel voor een correcte uitvoering van de overeenkomst nodig heeft of waarvan de opdrachtgever
               redelijkerwijs behoort te begrijpen dat deze noodzakelijk zijn voor het uitvoeren van de overeenkomst.{' '}
             </p>
             <p className="listItem">
-              6.2. Opdrachtgever staat in voor de juistheid, volledigheid en betrouwbaarheid van de aan GreenTeam
+              7.2. Opdrachtgever staat in voor de juistheid, volledigheid en betrouwbaarheid van de aan GreenTeam
               verstrekte informatie, ook indien deze van derden afkomstig is. GreenTeam is niet aansprakelijk voor
               schade, van welke aard ook, die veroorzaakt wordt doordat GreenTeam is uitgegaan van de door de
               opdrachtgever verstrekte onjuiste en/of onvolledige gegevens, tenzij deze onjuistheid of onvolledigheid
               voor GreenTeam kenbaar behoorde te zijn.{' '}
             </p>
             <p className="listItem">
-              6.3. Indien voor de uitvoering van de overeenkomst benodigde gegevens niet tijdig aan GreenTeam zijn
+              7.3. Indien voor de uitvoering van de overeenkomst benodigde gegevens niet tijdig aan GreenTeam zijn
               verstrekt, heeft GreenTeam het recht de uitvoering van de overeenkomst op te schorten en de uit de
               vertraging voortvloeiende kosten – volgens de gebruikelijke tarieven van GreenTeam – bij opdrachtgever in
               rekening te brengen.{' '}
             </p>
             <p className="listItem">
-              6.4. De opdrachtgever zal zorgen voor een juiste en tijdige afname en/of een juiste en tijdige uitvoering
+              7.4. De opdrachtgever zal zorgen voor een juiste en tijdige afname en/of een juiste en tijdige uitvoering
               van alle werkzaamheden en toeleveringen, noodzakelijk voor het plaatsen van en/of de juiste werking van
               het product na afronding van de werkzaamheden. Alle kosten die voortvloeien uit het niet nakomen van deze
               verplichtingen door de opdrachtgever, zijn voor rekening van de opdrachtgever.{' '}
             </p>
             <p className="listItem">
-              6.5. De opdrachtgever zal in ieder geval voor eigen risico en rekening stellen dat:{' '}
+              7.5. De opdrachtgever zal in ieder geval voor eigen risico en rekening stellen dat:{' '}
             </p>
             <div className="flex flex-col gap-4 px-3">
               <p className="listItem">
@@ -279,38 +279,38 @@ export const TermsConditions = () => {
         </div>
         <div className="boxClassname" id="Uitvoering van de overeenkomst">
           <h3 id="7" className="boxTitle">
-            7. Uitvoering van de overeenkomst
+            8. Uitvoering van de overeenkomst
           </h3>
 
           <div className="listContainer">
             <p className="listItem">
-              7.1. GreenTeam zal de overeenkomst naar beste inzicht en vermogen en in overeenstemming met de eisen van
+              8.1. GreenTeam zal de overeenkomst naar beste inzicht en vermogen en in overeenstemming met de eisen van
               goed vakmanschap uitvoeren.
             </p>{' '}
             <p className="listItem">
-              7.2. Voorafgaand aan de start van de werkzaamheden plannen partijen gezamenlijk een afspraak in voor een
+              8.2. Voorafgaand aan de start van de werkzaamheden plannen partijen gezamenlijk een afspraak in voor een
               inmeetbezoek. De uitvoering van de werkzaamheden vindt pas plaats nadat de vloer door de opdrachtnemer is
               ingemeten.
             </p>{' '}
             <p className="listItem">
-              7.3. Producten die door de opdrachtgever bij de opdrachtnemer zijn aangeschaft, worden door de
+              8.3. Producten die door de opdrachtgever bij de opdrachtnemer zijn aangeschaft, worden door de
               opdrachtnemer bij de opdrachtgever gelegd, geplaatst, geleverd en/of gemonteerd.
             </p>{' '}
             <p className="listItem">
-              7.4. De opdrachtgever dient aanwezig te zijn bij de levering van het product en/of bij de oplevering van
+              8.4. De opdrachtgever dient aanwezig te zijn bij de levering van het product en/of bij de oplevering van
               de overeengekomen diensten.
             </p>{' '}
             <p className="listItem">
-              7.5. Indien is overeengekomen dat de overeenkomst in fasen zal worden uitgevoerd, kan GreenTeam de
+              8.5. Indien is overeengekomen dat de overeenkomst in fasen zal worden uitgevoerd, kan GreenTeam de
               uitvoering van de onderdelen die tot een volgende fase behoren, opschorten totdat de opdrachtgever de
               resultaten van de daaraan voorafgaande fase schriftelijk heeft goedgekeurd.
             </p>{' '}
             <p className="listItem">
-              7.4. Indien en voor zover een goede uitvoering van de overeenkomst dit vereist, heeft GreenTeam het recht
+              8.4. Indien en voor zover een goede uitvoering van de overeenkomst dit vereist, heeft GreenTeam het recht
               bepaalde werkzaamheden te laten verrichten door derden.
             </p>{' '}
             <p className="listItem">
-              7.5. Opdrachtgever vrijwaart GreenTeam voor eventuele aanspraken van derden, die in verband met de
+              8.5. Opdrachtgever vrijwaart GreenTeam voor eventuele aanspraken van derden, die in verband met de
               uitvoering van de overeenkomst schade lijden en welke aan opdrachtgever toerekenbaar is.
             </p>
           </div>
@@ -318,11 +318,11 @@ export const TermsConditions = () => {
         <div className="boxClassname" id="Wijziging van de overeenkomst">
           <h3 id=" 8" className="boxTitle">
             {' '}
-            8. Wijziging van de overeenkomst
+            9. Wijziging van de overeenkomst
           </h3>
           <div className="listContainer">
             <p className="listItem">
-              8.1. Indien de opdrachtgever verlangt om wijzigingen in de (uitvoering van de) overeenkomst te brengen, na
+              9.1. Indien de opdrachtgever verlangt om wijzigingen in de (uitvoering van de) overeenkomst te brengen, na
               het verstrekken van de opdracht, respectievelijk het tot stand komen van de overeenkomst, dient
               opdrachtgever dit schriftelijk aan GreenTeam te melden, voordat GreenTeam een begin heeft gemaakt met de
               uitvoering van de overeenkomst. Deze wijzigingen worden pas onderdeel van de tussen GreenTeam en
@@ -330,20 +330,20 @@ export const TermsConditions = () => {
               met de uitvoering daarvan is begonnen.
             </p>{' '}
             <p className="listItem">
-              8.2. Indien de door de opdrachtgever gewenste wijzigingen naar oordeel van GreenTeam een deugdelijke
+              9.2. Indien de door de opdrachtgever gewenste wijzigingen naar oordeel van GreenTeam een deugdelijke
               uitvoering van de overeenkomst onmogelijk maken, is GreenTeam gerechtigd op deze grond de overeenkomst met
               de opdrachtgever buitengerechtelijk te ontbinden. GreenTeam is in dit geval niet aansprakelijk voor enige
               dientengevolge door de opdrachtgever geleden schade, van welke aard en omvang dan ook. Problemen,
               voortkomend uit de wijzigingen zijn altijd voor rekening en risico van de opdrachtgever.
             </p>{' '}
             <p className="listItem">
-              8.3. Indien GreenTeam de wijzigingen in de oorspronkelijke overeenkomst aanvaardt of met de uitvoering
+              9.3. Indien GreenTeam de wijzigingen in de oorspronkelijke overeenkomst aanvaardt of met de uitvoering
               daarvan is begonnen, is de opdrachtgever verplicht alle daaruit voortvloeiende (extra) kosten als kosten
               van meerwerk aan GreenTeam te voldoen, onverminderd de overige betalingsverplichtingen van de
               opdrachtgever ter zake de met GreenTeam gesloten overeenkomst.
             </p>{' '}
             <p className="listItem">
-              8.4. Indien GreenTeam tijdens de uitvoering van de overeenkomst erachter komt dat het voor een behoorlijke
+              9.4. Indien GreenTeam tijdens de uitvoering van de overeenkomst erachter komt dat het voor een behoorlijke
               uitvoering noodzakelijk is om de te verrichten werkzaamheden te wijzigen of aan te vullen, zal GreenTeam
               daarvan zo spoedig mogelijk schriftelijke mededeling doen aan de opdrachtgever. GreenTeam zal de
               opdrachtgever daarbij tevens een indicatie geven van de gevolgen voor de termijn van de voltooiing van de
@@ -352,13 +352,13 @@ export const TermsConditions = () => {
               GreenTeam kunnen worden toegerekend.
             </p>{' '}
             <p className="listItem">
-              8.5. Indien GreenTeam voor het overige meent dat er sprake is van meerwerk, zal hij daarvan zo spoedig
+              9.5. Indien GreenTeam voor het overige meent dat er sprake is van meerwerk, zal hij daarvan zo spoedig
               mogelijk schriftelijke mededeling doen aan de opdrachtgever. GreenTeam zal de opdrachtgever daarbij tevens
               een indicatie geven van de gevolgen voor de termijn van de voltooiing van de uitvoering van de
               overeenkomst, alsmede van de aan het meerwerk verbonden kosten.
             </p>{' '}
             <p className="listItem">
-              8.6. De partijen zullen tijdig en in onderling overleg de overeenkomst dienovereenkomstig aanpassen.
+              9.6. De partijen zullen tijdig en in onderling overleg de overeenkomst dienovereenkomstig aanpassen.
               Indien de opdrachtgever niet binnen zeven (7) werkdagen na ontvangst van de mededeling van GreenTeam heeft
               laten weten bezwaar te hebben tegen het meerwerk, wordt de opdrachtgever geacht dit meerwerk te hebben
               aanvaard en is de opdrachtgever verplicht de daaruit voortvloeiende (extra) kosten aan GreenTeam te
@@ -368,18 +368,18 @@ export const TermsConditions = () => {
         </div>
         <div className="boxClassname">
           <h3 id="9" className="boxTitle">
-            9. Levering en uitvoeringstermijn
+            10. Levering en uitvoeringstermijn
           </h3>
           <div className="listContainer">
             <p className="listItem">
-              9.1. Levering zal plaatsvinden op de dag vermeld in de orderbevestiging of in gemeenschappelijk overleg en
-              nadat de opdrachtgever aan haar verplichtingen heeft voldaan. De door GreenTeam opgegeven levertijden zijn
-              geen fatale termijn.
+              10.1. Levering zal plaatsvinden op de dag vermeld in de orderbevestiging of in gemeenschappelijk overleg
+              en nadat de opdrachtgever aan haar verplichtingen heeft voldaan. De door GreenTeam opgegeven levertijden
+              zijn geen fatale termijn.
             </p>{' '}
             <p className="listItem">
-              9.2. GreenTeam stelt de opdrachtgever zo spoedig mogelijk in kennis van het afronden van werkzaamheden ten
-              behoeve van oplevering en inspectie. Het door GreenTeam verrichte werk wordt pas als opgeleverd beschouwd
-              indien:
+              10.2. GreenTeam stelt de opdrachtgever zo spoedig mogelijk in kennis van het afronden van werkzaamheden
+              ten behoeve van oplevering en inspectie. Het door GreenTeam verrichte werk wordt pas als opgeleverd
+              beschouwd indien:
               <ul className="list list-[lower-alpha] my-3 space-y-2 px-7">
                 <li>
                   a. Het werk, al dan niet door ondertekening van een werkbon, door de opdrachtgever wordt goedgekeurd;
@@ -392,20 +392,20 @@ export const TermsConditions = () => {
               </ul>
             </p>
             <p className="listItem">
-              9.3. Indien enige door GreenTeam opgegeven termijnen worden overschreden, is GreenTeam ter zake eerst in
+              10.3. Indien enige door GreenTeam opgegeven termijnen worden overschreden, is GreenTeam ter zake eerst in
               verzuim nadat de opdrachtgever GreenTeam schriftelijk in gebreke heeft gesteld en GreenTeam een redelijke
               termijn heeft gegund om alsnog aan haar verplichtingen jegens de opdrachtgever te voldoen.
             </p>{' '}
             <p className="listItem">
-              9.4. De levertijd is gebaseerd op de werkomstandigheden die bekend waren op het moment van het sluiten van
-              de overeenkomst en op tijdige levering van de materialen die GreenTeam voor de uitvoering van de
+              10.4. De levertijd is gebaseerd op de werkomstandigheden die bekend waren op het moment van het sluiten
+              van de overeenkomst en op tijdige levering van de materialen die GreenTeam voor de uitvoering van de
               overeenkomst heeft besteld. Indien buiten de schuld van GreenTeam een vertraging op zou treden (i) als
               gevolg van een verandering in de bedoelde werkomstandigheden of (ii) als gevolg van een vertraging in de
               levering van materialen die tijdig voor de uitvoering van het werk zijn besteld, komen de opdrachtgever en
               GreenTeam reeds nu overeen dat de leveringstermijn wordt verlengd voor zover noodzakelijk.
             </p>{' '}
             <p className="listItem">
-              9.5. Het overschrijden van de leveringstermijn zal de opdrachtgever niet het recht geven om derden
+              10.5. Het overschrijden van de leveringstermijn zal de opdrachtgever niet het recht geven om derden
               opdracht te geven verplichtingen alsnog uit te voeren, zonder (i) de voorafgaande schriftelijke
               toestemming van GreenTeam dan wel (ii) het overleggen van een onherroepelijk vonnis dat hiertoe strekt.
             </p>{' '}
@@ -413,16 +413,16 @@ export const TermsConditions = () => {
         </div>
         <div className="boxClassname">
           <h3 id="10" className="boxTitle">
-            10. Garanties en overige aanspraken
+            11. Garanties en overige aanspraken
           </h3>
           <div className="listContainer">
             <p className="listItem">
-              10.1. Met inachtneming van onderstaande bepalingen garandeert de opdrachtnemer dat de gelegde vloeren
+              11.1. Met inachtneming van onderstaande bepalingen garandeert de opdrachtnemer dat de gelegde vloeren
               voldoen aan de in de offerte vastgelegde eigenschappen en specificaties en dat deze vrij zijn van
               materiaalfouten en fouten in de legwerkzaamheden.{' '}
             </p>
-            <p>
-              10.2. Deze garantie heeft betrekking op schade die de opdrachtgever lijdt als gevolg van materiaalfouten
+            <p className="listItem">
+              11.2. Deze garantie heeft betrekking op schade die de opdrachtgever lijdt als gevolg van materiaalfouten
               of gebreken in de legwerkzaamheden, met de volgende looptijden:
               <ul className="list list-[lower-alpha] my-3 space-y-2 px-7">
                 <li>10 jaar voor houten vloeren, PVC-vloeren, tegelvloeren en marmoleumvloeren; </li>
@@ -431,20 +431,20 @@ export const TermsConditions = () => {
               </ul>
             </p>
             <p className="listItem">
-              10.3. Het garantiebedrag wordt jaarlijks, vanaf het moment van oplevering, evenredig verminderd met een
+              11.3. Het garantiebedrag wordt jaarlijks, vanaf het moment van oplevering, evenredig verminderd met een
               vast percentage naar rato van het gebruik.{' '}
             </p>
             <p className="listItem">
-              10.4. Indien de opdrachtgever een beroep doet op deze garantie, dient de opdrachtnemer de gelegenheid te
+              11.4. Indien de opdrachtgever een beroep doet op deze garantie, dient de opdrachtnemer de gelegenheid te
               krijgen om de betreffende gebreken kosteloos te herstellen.{' '}
             </p>
-            <p className="listItem">10.5. Er wordt geen garantie verleend op metalen onderdelen van vloeren. </p>
+            <p className="listItem">11.5. Er wordt geen garantie verleend op metalen onderdelen van vloeren. </p>
             <p className="listItem">
-              10.6. Een beroep op de garantie is slechts mogelijk indien de opdrachtgever al zijn contractuele
+              11.6. Een beroep op de garantie is slechts mogelijk indien de opdrachtgever al zijn contractuele
               verplichtingen jegens de opdrachtnemer is nagekomen.{' '}
             </p>
             <p className="listItem">
-              10.7. De garantie vervalt indien de gebreken zijn ontstaan door:
+              11.7. De garantie vervalt indien de gebreken zijn ontstaan door:
               <ul className="list-disc">
                 <li>normale slijtage; </li>
                 <li>gebrekkig of niet uitgevoerd onderhoud; </li>
@@ -461,7 +461,7 @@ export const TermsConditions = () => {
               </ul>{' '}
             </p>
             <p className="listItem">
-              10.8. Er wordt geen garantie verstrekt op:{' '}
+              11.8. Er wordt geen garantie verstrekt op:{' '}
               <ul className="list-disc">
                 <li>producten die bij levering niet nieuw waren; </li>
                 <li>inspectie- of reparatiewerkzaamheden aan zaken van de opdrachtgever; </li>
@@ -469,49 +469,49 @@ export const TermsConditions = () => {
               </ul>
             </p>
             <p className="listItem">
-              10.9. De door de opdrachtnemer verstrekte garantie is persoonsgebonden en kan niet worden overgedragen aan
+              11.9. De door de opdrachtnemer verstrekte garantie is persoonsgebonden en kan niet worden overgedragen aan
               derden.
             </p>
           </div>
         </div>
         <div className="boxClassname">
           <h3 id="11" className="boxTitle">
-            11. Annulering
+            12. Annulering
           </h3>
           <div className="listContainer">
             <p className="listItem">
-              11.1. Wanneer de opdrachtgever na het aangaan van de overeenkomst besluit deze te annuleren, is hij een
+              12.1. Wanneer de opdrachtgever na het aangaan van de overeenkomst besluit deze te annuleren, is hij een
               vergoeding verschuldigd ter hoogte van 30% van het bedrag dat verschuldigd zou zijn geweest bij volledige
               uitvoering van de overeenkomst, tenzij vooraf schriftelijk andere afspraken zijn gemaakt.
             </p>{' '}
             <p className="listItem">
-              11.2. Indien de annulering plaatsvindt nadat materialen reeds zijn besteld of gereserveerd, de
+              12.2. Indien de annulering plaatsvindt nadat materialen reeds zijn besteld of gereserveerd, de
               werkzaamheden zijn ingepland of (gedeeltelijke) levering mogelijk is, bedraagt de vergoeding 50% van het
               overeengekomen bedrag.
             </p>{' '}
             <p className="listItem">
-              11.3. De in lid 1 en 2 genoemde percentages zijn bindend, tenzij de opdrachtnemer kan aantonen dat de
+              12.3. De in lid 1 en 2 genoemde percentages zijn bindend, tenzij de opdrachtnemer kan aantonen dat de
               daadwerkelijk geleden schade hoger is.
             </p>{' '}
             <p className="listItem">
-              11.4. Annulering dient schriftelijk door de opdrachtgever te worden gedaan en wordt pas van kracht zodra
+              12.4. Annulering dient schriftelijk door de opdrachtgever te worden gedaan en wordt pas van kracht zodra
               de bijbehorende annuleringskosten volledig zijn voldaan.
             </p>
           </div>
         </div>
         <div className="boxClassname">
           <h3 id="12" className="boxTitle">
-            12. Opschorting en ontbinding
+            13. Opschorting en ontbinding
           </h3>
           <div className="listContainer">
             <p className="listItem">
-              12.1. Indien de opdrachtgever één of meer van zijn verplichtingen jegens GreenTeam niet, niet tijdig of
+              13.1. Indien de opdrachtgever één of meer van zijn verplichtingen jegens GreenTeam niet, niet tijdig of
               niet behoorlijk nakomt, is GreenTeam gerechtigd – onverminderd alle overige aan GreenTeam toekomende
               rechten – de nakoming van zijn verplichtingen jegens de opdrachtgever op te schorten totdat de
               opdrachtgever alsnog volledig zijn verplichtingen jegens GreenTeam is nagekomen.{' '}
             </p>
             <p className="listItem">
-              12.2. Indien bij GreenTeam de gegronde vrees leeft dat de opdrachtgever zijn verplichtingen niet na zal
+              13.2. Indien bij GreenTeam de gegronde vrees leeft dat de opdrachtgever zijn verplichtingen niet na zal
               kunnen komen, is GreenTeam gerechtigd de op hem rustende verplichting op te schorten. In dat geval geeft
               GreenTeam de opdrachtgever de gelegenheid om door middel van een verklaring zekerheid te stellen omtrent
               de nakoming van de op de opdrachtgever rustende verplichting. Indien de opdrachtgever hier niet binnen 14
@@ -520,7 +520,7 @@ export const TermsConditions = () => {
             </p>
 
             <p className="listItem">
-              12.3. Voorts is GreenTeam bevoegd de overeenkomst te (doen) ontbinden, zonder voorafgaande
+              13.3. Voorts is GreenTeam bevoegd de overeenkomst te (doen) ontbinden, zonder voorafgaande
               ingebrekestelling of rechterlijke tussenkomst, door middel van een schriftelijke buitengerechtelijke
               verklaring, indien:
               <ul className="list list-[lower-alpha] my-3 space-y-2 px-7">
@@ -545,7 +545,7 @@ export const TermsConditions = () => {
             </p>
             <p className="listItem">
               <p className="listItem">
-                12.4. Indien de overeenkomst wordt ontbonden, zijn de vorderingen van GreenTeam op de opdrachtgever
+                13.4. Indien de overeenkomst wordt ontbonden, zijn de vorderingen van GreenTeam op de opdrachtgever
                 onmiddellijk opeisbaar.{' '}
               </p>
             </p>
@@ -553,24 +553,24 @@ export const TermsConditions = () => {
         </div>
         <div className="boxClassname">
           <h3 id="13" className="boxTitle">
-            13. Aansprakelijkheid
+            14. Aansprakelijkheid
           </h3>
           <div className="listContainer">
             <p className="listItem">
-              13.1. De aansprakelijkheid van de opdrachtnemer wegens een toerekenbare tekortkoming in de nakoming van
+              14.1. De aansprakelijkheid van de opdrachtnemer wegens een toerekenbare tekortkoming in de nakoming van
               verplichtingen uit de overeenkomst, of uit welke andere rechtsgrond dan ook, is beperkt tot de vergoeding
               van de directe schade tot maximaal 40% van het bedrag dat de opdrachtnemer voor de uitvoering van de
               overeenkomst aan de opdrachtgever in rekening heeft gebracht, tenzij sprake is van opzet of grove
               nalatigheid.{' '}
             </p>
             <p className="listItem">
-              13.2. De opdrachtnemer is niet aansprakelijk voor indirecte schade, waaronder begrepen maar niet beperkt
+              14.2. De opdrachtnemer is niet aansprakelijk voor indirecte schade, waaronder begrepen maar niet beperkt
               tot gevolgschade, gederfde winst, gemiste besparingen, verminderde goodwill, schade door bedrijfsstilstand
               en schade voortvloeiend uit aanspraken van afnemers van de opdrachtgever. Onder inrdirecte schade vallen
               tevens, maar niet uitsluitend, kosten voor verhuizing, verblijf en herinrichting van de opdrachtgever.{' '}
             </p>
             <p className="listItem">
-              13.3. Iedere aansprakelijkheid van de opdrachtnemer is uitgesloten voor schade aan vloeren die is
+              14.3. Iedere aansprakelijkheid van de opdrachtnemer is uitgesloten voor schade aan vloeren die is
               veroorzaakt door, of het gevolg is van:{' '}
             </p>
             <ul className="list list-[lower-alpha] my-3 space-y-2 px-7">
@@ -588,7 +588,7 @@ export const TermsConditions = () => {
               <li>diepgelegen restvocht in de ondervloer dat ten tijde van de meting niet detecteerbaar was. </li>
             </ul>
             <p className="listItem">
-              13.4. De in dit artikel opgenomen aansprakelijkheidsbeperkingen gelden eveneens indien de opdrachtnemer
+              14.4. De in dit artikel opgenomen aansprakelijkheidsbeperkingen gelden eveneens indien de opdrachtnemer
               voor de uitvoering van haar verplichtingen gebruik heeft gemaakt van personen die niet tot haar
               ondergeschikten behoren (artikel 6:171 BW) of van vertegenwoordigers (artikel 6:172 BW).
             </p>
@@ -597,39 +597,39 @@ export const TermsConditions = () => {
         <div className="boxClassname">
           <h3 id=" 14" className="boxTitle">
             {' '}
-            14. Overmacht
+            15. Overmacht
           </h3>
           <div className="listContainer">
             <p className="listItem">
-              14.1. Partijen zijn niet gehouden tot het nakomen van enige verplichting, indien zij daartoe gehinderd
+              15.1. Partijen zijn niet gehouden tot het nakomen van enige verplichting, indien zij daartoe gehinderd
               worden als gevolg van een omstandigheid die niet is te wijten aan schuld, en noch krachtens de wet, een
               rechtshandeling of in het verkeer geldende opvattingen voor hun rekening komt.
             </p>{' '}
             <p className="listItem">
-              14.2. Onder overmacht wordt in deze algemene voorwaarden verstaan naast hetgeen daaromtrent in de wet en
+              15.2. Onder overmacht wordt in deze algemene voorwaarden verstaan naast hetgeen daaromtrent in de wet en
               jurisprudentie wordt begrepen, alle van buiten komende oorzaken, voorzien of niet-voorzien, waarop
               GreenTeam geen invloed kan uitoefenen, doch waardoor GreenTeam niet in staat is de verplichtingen na te
               komen.
             </p>{' '}
             <p className="listItem">
-              14.3. GreenTeam heeft ook het recht zich op overmacht te beroepen, indien de omstandigheid die (verdere)
+              15.3. GreenTeam heeft ook het recht zich op overmacht te beroepen, indien de omstandigheid die (verdere)
               nakoming verhindert, intreedt nadat GreenTeam haar verplichtingen had moeten nakomen.
             </p>{' '}
             <p className="listItem">
-              14.4. Partijen kunnen gedurende de periode dat de overmacht voortduurt de verplichtingen uit de
+              15.4. Partijen kunnen gedurende de periode dat de overmacht voortduurt de verplichtingen uit de
               overeenkomst opschorten. Indien deze periode langer duurt dan 6 maanden is ieder der partijen gerechtigd
               de overeenkomst schriftelijk te ontbinden zonder verplichting tot vergoeding van schade aan de andere
               partij.
             </p>{' '}
             <p className="listItem">
-              14.5. Voor zover GreenTeam ten tijde van het intreden van overmacht inmiddels gedeeltelijk zijn
+              15.5. Voor zover GreenTeam ten tijde van het intreden van overmacht inmiddels gedeeltelijk zijn
               verplichtingen uit de overeenkomst is nagekomen of deze zal kunnen nakomen, en aan het nagekomen
               respectievelijk na te komen gedeelte zelfstandige waarde toekomt, is GreenTeam gerecht om het reed
               nagekomen respectievelijk na te komen gedeelte separaat te declareren. Opdrachtgever is gehouden deze
               declaratie te voldoen als ware het een afzonderlijke overeenkomst.
             </p>{' '}
             <p className="listItem">
-              14.6. Indien GreenTeam als gevolg van overmacht slechts gedeeltelijk aan verplichtingen kan voldoen, is
+              15.6. Indien GreenTeam als gevolg van overmacht slechts gedeeltelijk aan verplichtingen kan voldoen, is
               GreenTeam gerechtigd het wel uitgevoerde deel afzonderlijk te declareren als ware het een afzonderlijke
               overeenkomst en is opdrachtgever gehouden deze factuur te voldoen.
             </p>
@@ -638,15 +638,15 @@ export const TermsConditions = () => {
         <div className="boxClassname">
           <h3 id=" 15" className="boxTitle">
             {' '}
-            15. Eigendomsvoorbehoud
+            16. Eigendomsvoorbehoud
           </h3>
           <div className="listContainer">
             <p className="listItem">
-              15.1. Na oplevering van het werk blijft GreenTeam eigenaar van de geleverde zaken tot het moment waarop de
+              16.1. Na oplevering van het werk blijft GreenTeam eigenaar van de geleverde zaken tot het moment waarop de
               opdrachtgever de op hem rustende verplichtingen uit de overeenkomst volledig nakomt.
             </p>{' '}
             <p className="listItem">
-              15.2. Indien de opdrachtgever niet aan zijn verplichtingen voldoet, is GreenTeam gerechtigd de onder
+              16.2. Indien de opdrachtgever niet aan zijn verplichtingen voldoet, is GreenTeam gerechtigd de onder
               eigendomsvoorbehoud geleverde zaken bij de opdrachtgever op te halen. De opdrachtgever is verplicht
               GreenTeam toegang te verschaffen na het inroepen van het eigendomsvoorbehoud.
             </p>{' '}
@@ -654,22 +654,22 @@ export const TermsConditions = () => {
         </div>
         <div className="boxClassname">
           <h3 id="16" className="boxTitle">
-            16. Gebreken en klachten
+            17. Gebreken en klachten
           </h3>
           <div className="listContainer">
             <p className="listItem">
-              16.1. De opdrachtgever kan geen beroep meer doen op een gebrek in de prestatie indien hij niet binnen
+              17.1. De opdrachtgever kan geen beroep meer doen op een gebrek in de prestatie indien hij niet binnen
               veertien dagen, nadat hij het gebrek heeft ontdekt of redelijkerwijs had moeten ontdekken, hierover
               schriftelijk bij de opdrachtnemer heeft geklaagd.
             </p>{' '}
             <p className="listItem">
-              16.2. Klachten met betrekking tot het gefactureerde bedrag dienen, op straffe van verval van alle
+              17.2. Klachten met betrekking tot het gefactureerde bedrag dienen, op straffe van verval van alle
               aanspraken, binnen de geldende betalingstermijn schriftelijk bij de opdrachtnemer te worden ingediend.
               Indien de betalingstermijn langer is dan dertig dagen, geldt dat de klacht uiterlijk binnen dertig dagen
               na de factuurdatum schriftelijk moet zijn ontvangen.
             </p>{' '}
             <p className="listItem">
-              16.3. Kleine afwijkingen in afmetingen, kleur of structuur kunnen door de opdrachtgever niet worden
+              17.3. Kleine afwijkingen in afmetingen, kleur of structuur kunnen door de opdrachtgever niet worden
               aangevoerd als reden om de (op)levering van de diensten en/of producten te weigeren of om een klacht in te
               dienen bij de opdrachtnemer.
             </p>
@@ -677,22 +677,22 @@ export const TermsConditions = () => {
         </div>
         <div className="boxClassname">
           <h3 id="17" className="boxTitle">
-            17. Geschillen en toepasselijk recht
+            18. Geschillen en toepasselijk recht
           </h3>
           <div className="listContainer">
             <p className="listItem">
-              17.1. Op alle rechtsverhoudingen tussen GreenTeam en de opdrachtgever is uitsluitend Nederlands recht van
+              18.1. Op alle rechtsverhoudingen tussen GreenTeam en de opdrachtgever is uitsluitend Nederlands recht van
               toepassing.
             </p>{' '}
             <p className="listItem">
-              17.2. Alle geschillen die voortvloeien uit, dan wel verband houden met de rechtsverhoudingen tussen
+              18.2. Alle geschillen die voortvloeien uit, dan wel verband houden met de rechtsverhoudingen tussen
               GreenTeam en de opdrachtgever waar deze algemene voorwaarden op van toepassing zijn, zullen uitsluitend
               worden voorgelegd aan de bevoegde rechter in het arrondissement waar GreenTeam gevestigd is, tenzij
               bepalingen van dwingend recht anders voorschrijven. GreenTeam heeft het recht van deze bevoegdheidsregel
               af te wijken en de wettelijke bevoegdheidsregels te hanteren.
             </p>{' '}
             <p className="listItem">
-              17.3. Partijen kunnen schriftelijk een andere vorm van geschillenbeslechting overeenkomen.
+              18.3. Partijen kunnen schriftelijk een andere vorm van geschillenbeslechting overeenkomen.
             </p>{' '}
           </div>
         </div>
