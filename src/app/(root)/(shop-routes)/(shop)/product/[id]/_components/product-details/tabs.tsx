@@ -7,12 +7,6 @@ import { GoesWellWith } from './goes-well-with';
 import { ProsAndConsBody, ProsAndConsData } from './pros-and-cons';
 import { RelatedProducts } from './related-products';
 
-type ProductDetailsTab = {
-  name: string;
-  title: string;
-  body: JSX.Element;
-};
-
 //     {
 //       key: 'old_price',
 //       namespace: 'custom',
