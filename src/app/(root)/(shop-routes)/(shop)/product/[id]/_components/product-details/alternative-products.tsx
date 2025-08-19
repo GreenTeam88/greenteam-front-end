@@ -7,7 +7,7 @@ import { getProductById } from '@/utils/shop/query-tools';
 import { ProductCard } from '../../../../products/_components/cards';
 
 export const AlternativeProducts = ({ alternativeProducts }: { alternativeProducts: string[] }) => {
-  const { data: productsData } = useQuery<Product[]>({
+  const { data: productsData } = useQuery<Product[] | null>({
     queryFn: async () => {
       const data = await Promise.all(alternativeProducts.map((productId) => getProductById({ productId })));
       const products = data.filter((product) => product !== null);
