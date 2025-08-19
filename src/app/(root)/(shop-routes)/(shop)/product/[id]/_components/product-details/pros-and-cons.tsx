@@ -38,7 +38,7 @@ export const ProsAndConsBody = ({ prosAndConsData }: { prosAndConsData: ProsAndC
       <h3 className="text-paragraph text-[32px] font-medium ">Plus- en minpunten</h3>
       <div className="flex flex-col gap-1">
         {prosAndConsData.map((item) => (
-          <ProsAndConsItemUI {...item} />
+          <ProsAndConsItemUI key={item.category} {...item} />
         ))}
       </div>
     </div>

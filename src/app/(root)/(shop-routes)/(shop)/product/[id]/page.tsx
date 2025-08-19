@@ -9,6 +9,7 @@ import { ProductContactInfo } from './_components/contact-info';
 import { FloorInstalation } from './_components/foor-instalation';
 import { ImagesSection } from './_components/images-section';
 import { NeedHelp } from './_components/need-help';
+import { productDetailsTabs } from './_components/product-details/tabs';
 import { SizeCalculation } from './_components/size-calculation';
 import { SizeVariants } from './_components/size-variants';
 
@@ -29,6 +30,7 @@ export default async function ProductPage({ params: { id } }: { params: { id: st
           <SizeCalculation product={product} />
           <AddToCartBtn />
           <NeedHelp />
+          {productDetailsTabs[2].body({ photos: [] })}
           <FloorInstalation />
         </div>
       </div>

@@ -19,7 +19,9 @@ export const AlternativeProducts = ({ alternativeProducts }: { alternativeProduc
   return (
     <div className="flex flex-col gap-4">
       <h3 className="text-[32px] text-paragraph font-semi">Alternatieven</h3>
-      <div className="flex gap-2">{productsData?.map((product) => <ProductCard product={product} />)}</div>
+      <div className="flex gap-2">
+        {productsData?.map((product) => <ProductCard key={product.id} product={product} />)}
+      </div>
     </div>
   );
 };

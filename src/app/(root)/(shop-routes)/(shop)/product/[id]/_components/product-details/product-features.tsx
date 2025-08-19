@@ -30,7 +30,7 @@ const CategoryFeatureUI = ({ categoryFeature }: { categoryFeature: CategoryFeatu
       </div>
       <div className="flex flex-col ">
         {categoryFeature.features.map((feature) => (
-          <FeatureItemUI feature={feature} />
+          <FeatureItemUI key={feature.name} feature={feature} />
         ))}
       </div>
     </div>
@@ -43,7 +43,7 @@ export const AllFeatures = ({ allFeatures }: { allFeatures: CategoryFeature[] })
       <h3 className="text-[32px] text-paragraph font-semi">Gerelateerde producten</h3>
       <div className="flex flex-col">
         {allFeatures.map((feature) => (
-          <CategoryFeatureUI categoryFeature={feature} />
+          <CategoryFeatureUI key={feature.category} categoryFeature={feature} />
         ))}
       </div>
     </div>
