@@ -10,7 +10,7 @@ export const RelatedProducts = ({ relatedProducts }: { relatedProducts: string[]
   const { data: productsData } = useQuery<Product[]>({
     queryFn: async () => {
       const data = await Promise.all(relatedProducts.map((productId) => getProductById({ productId })));
-      const products = data.filter((product) => product !== null);
+      const products = data.filter((product): product is Product => product !== null);
       return products;
     },
   });
