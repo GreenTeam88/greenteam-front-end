@@ -63,7 +63,7 @@ export const GoesWellWith = ({ products }: { products: string[] }) => {
       <h3 className="text-[32px] text-paragraph font-semi">Gaat goed samen met</h3>
       <div className="flex gap-2">
         {products.map((productId) => (
-          <ProductCard productId={productId} />
+          <ProductCard key={productId} productId={productId} />
         ))}
       </div>
     </div>
