@@ -442,7 +442,7 @@ export const TermsConditions = () => {
             </p>
             <p className="listItem">
               11.7. De garantie vervalt indien de gebreken zijn ontstaan door:
-              <ul className="list-disc">
+              <ul className="list-disc list-inside">
                 <li>normale slijtage; </li>
                 <li>gebrekkig of niet uitgevoerd onderhoud; </li>
                 <li>onjuist of onoordeelkundig gebruik; </li>
@@ -459,7 +459,7 @@ export const TermsConditions = () => {
             </p>
             <p className="listItem">
               11.8. Er wordt geen garantie verstrekt op:
-              <ul className="list-disc">
+              <ul className="list-disc list-inside">
                 <li>producten die bij levering niet nieuw waren; </li>
                 <li>inspectie- of reparatiewerkzaamheden aan zaken van de opdrachtgever; </li>
                 <li>onderdelen waarop reeds fabrieksgarantie van toepassing is. </li>
@@ -569,21 +569,21 @@ export const TermsConditions = () => {
             <p className="listItem">
               14.3. Iedere aansprakelijkheid van de opdrachtnemer is uitgesloten voor schade aan vloeren die is
               veroorzaakt door, of het gevolg is van:
+              <ul className="list list-[lower-alpha] my-3  space-y-2 px-7">
+                <li>directe blootstelling aan zonlicht; </li>
+                <li>constructieve gebreken in het gebouw; </li>
+                <li>vochtwerking vanuit de ondergrond; </li>
+                <li>onjuiste samenstelling van de werkvloer indien deze niet door de opdrachtnemer is aangebracht; </li>
+                <li>aanwezigheid van onzichtbare leidingen in de ondergrond en/of werkvloer; </li>
+                <li>werking van de ondergrond en/of werkvloer; </li>
+                <li>osmose; </li>
+                <li>een te hoge of te lage luchtvochtigheid; </li>
+                <li>thermische belasting, waaronder vloerverwarming; </li>
+                <li>het gebruik van vloeistoffen door de opdrachtnemer; </li>
+                <li>krimpnaden en/of haarscheuren; </li>
+                <li>diepgelegen restvocht in de ondervloer dat ten tijde van de meting niet detecteerbaar was. </li>
+              </ul>
             </p>
-            <ul className="list list-[lower-alpha] my-3 space-y-2 px-7">
-              <li>directe blootstelling aan zonlicht; </li>
-              <li>constructieve gebreken in het gebouw; </li>
-              <li>vochtwerking vanuit de ondergrond; </li>
-              <li>onjuiste samenstelling van de werkvloer indien deze niet door de opdrachtnemer is aangebracht; </li>
-              <li>aanwezigheid van onzichtbare leidingen in de ondergrond en/of werkvloer; </li>
-              <li>werking van de ondergrond en/of werkvloer; </li>
-              <li>osmose; </li>
-              <li>een te hoge of te lage luchtvochtigheid; </li>
-              <li>thermische belasting, waaronder vloerverwarming; </li>
-              <li>het gebruik van vloeistoffen door de opdrachtnemer; </li>
-              <li>krimpnaden en/of haarscheuren; </li>
-              <li>diepgelegen restvocht in de ondervloer dat ten tijde van de meting niet detecteerbaar was. </li>
-            </ul>
             <p className="listItem">
               14.4. De in dit artikel opgenomen aansprakelijkheidsbeperkingen gelden eveneens indien de opdrachtnemer
               voor de uitvoering van haar verplichtingen gebruik heeft gemaakt van personen die niet tot haar

@@ -1,3 +1,5 @@
+'use server';
+
 import { Collection, Product } from '@shopify/hydrogen-react/storefront-api-types';
 
 import { storefrontClient } from './init';
@@ -163,7 +165,16 @@ export async function getProductById({ productId }: { productId: string }): Prom
         metafields(identifiers: [
           { namespace: "custom", key: "old_price" },
           { namespace: "custom", key: "ratings_number" },
-          { namespace: "custom", key: "ratings_average" }
+          { namespace: "custom", key: "ratings_average" },
+         { namespace: "custom", key: "pros_and_cons" },
+           { namespace: "custom", key: "all_features" },
+            { namespace: "custom", key: "product_reviews" },
+             { namespace: "custom", key: "related_products" },
+              { namespace: "custom", key: "goes_well_with" },
+               { namespace: "custom", key: "atmospheric_photos" },
+                { namespace: "custom", key: "description" },
+                 { namespace: "custom", key: "old-price" },
+                
         ]) {
           key
           namespace
