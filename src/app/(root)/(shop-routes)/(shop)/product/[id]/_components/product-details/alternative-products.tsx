@@ -7,11 +7,13 @@ import { getProductById } from '@/utils/shop/query-tools';
 import { ProductCard } from '../../../../products/_components/cards';
 
 export const AlternativeProducts = ({ alternativeProducts }: { alternativeProducts: string[] }) => {
-  const { data: productsData } = useQuery<Product[] | null>({
+  const { data: productsData } = useQuery<Product[]>({
+    queryKey: ['alternativeProducts', alternativeProducts], // ✅ required
     queryFn: async () => {
       const data = await Promise.all(alternativeProducts.map((productId) => getProductById({ productId })));
-      const products = data.filter((product) => product !== null);
-      return products;
+
+      // Filter out nulls, and assert as Product[]
+      return data.filter((product): product is Product => product !== null);
     },
   });
   return (
