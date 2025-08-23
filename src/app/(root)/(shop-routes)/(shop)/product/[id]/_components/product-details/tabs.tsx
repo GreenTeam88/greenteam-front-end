@@ -1,9 +1,15 @@
-// the config of the tabs
+'use client';
 
+import { Product } from '@shopify/hydrogen-react/storefront-api-types';
+import { useState } from 'react';
+import { useQuery } from 'react-query';
+
+import { cn } from '@/lib/tailwind';
 import { AlternativeProducts } from './alternative-products';
-import { AtmosphericPhotos } from './atmospheric-photos';
+import { AtmosphericPhotos, PhotoData } from './atmospheric-photos';
 import { DescriptionTab } from './description';
 import { GoesWellWith } from './goes-well-with';
+import { AllFeatures } from './product-features';
 import { ProsAndConsBody, ProsAndConsData } from './pros-and-cons';
 import { RelatedProducts } from './related-products';
 
@@ -94,35 +100,104 @@ import { RelatedProducts } from './related-products';
 //   }
 // }
 
+// the config of the tabs
+
 export const productDetailsTabs = [
   {
     title: 'Plus- en minpunten',
     name: 'pros-and-cons',
-    body: ({ data }: { data: ProsAndConsData }) => <ProsAndConsBody prosAndConsData={data} />,
+    body: ({ product }: { product: Product }) => {
+      const prosAndCons = JSON.parse(
+        product.metafields.find((metafield) => metafield?.key === 'pros_and_cons')?.value as string
+      ) as ProsAndConsData;
+      return <ProsAndConsBody prosAndConsData={prosAndCons} />;
+    },
   },
   {
     title: 'Productomschrijving',
     name: 'productomschrijving',
-    body: ({ description }: { description: string }) => <DescriptionTab description={description} />,
+    body: ({ product }: { product: Product }) => {
+      const description = product.metafields.find((metafield) => metafield?.key === 'description')?.value as string;
+      return <DescriptionTab description={description} />;
+    },
   },
   {
     title: "Sfeerfoto's",
     name: 'atmospheric-photos',
-    body: ({ photos }: { photos: string[] }) => <AtmosphericPhotos photos={photos} />,
+    body: ({ product }: { product: Product }) => {
+      const photos = JSON.parse(
+        product.metafields.find((metafield) => metafield?.key === 'atmospheric_photos')?.value as string
+      ) as PhotoData[];
+      return <AtmosphericPhotos photos={photos} />;
+    },
   },
   {
     title: 'Gaat goed samen met',
     name: 'goes-well-with',
-    body: ({ products }: { products: string[] }) => <GoesWellWith products={products} />,
+    body: ({ product }: { product: Product }) => {
+      const products = JSON.parse(
+        product.metafields.find((metafield) => metafield?.key === 'goes_well_with')?.value as string
+      ) as { 'product-id': string }[];
+      return <GoesWellWith products={products} />;
+    },
   },
   {
     title: 'Alternatieven',
-    name: 'alternatieven',
-    body: ({ alternatives }: { alternatives: string[] }) => <AlternativeProducts alternativeProducts={alternatives} />,
+    name: 'alternatives',
+    body: ({ product }: { product: Product }) => {
+      const alternatives = JSON.parse(
+        product.metafields.find((metafield) => metafield?.key === 'related_products')?.value as string
+      ) as { 'product-id': string }[];
+      return <AlternativeProducts alternativeProducts={alternatives} />;
+    },
   },
   {
     title: 'Gerelateerde producten',
+
     name: 'related-products',
-    body: ({ relatedProducts }: { relatedProducts: string[] }) => <RelatedProducts relatedProducts={relatedProducts} />,
+    body: ({ product }: { product: Product }) => {
+      const relatedProducts = JSON.parse(
+        product.metafields.find((metafield) => metafield?.key === 'related_products')?.value as string
+      ) as { ['product-id']: string }[];
+      return <RelatedProducts relatedProducts={relatedProducts} />;
+    },
+  },
+  {
+    title: 'Alle productkenmerken',
+    name: 'product-features',
+    body: ({ product }: { product: Product }) => {
+      const allFeatures = JSON.parse(
+        product.metafields.find((metafield) => metafield?.key === 'all_features')?.value as string
+      );
+      return <AllFeatures allFeatures={allFeatures} />;
+    },
   },
 ] as const;
+type TabName = (typeof productDetailsTabs)[number]['name'];
+
+export const ProductTabs = ({ product }: { product: Product }) => {
+  const [selectedTab, setSelectedTab] = useState<TabName>(productDetailsTabs[0].name);
+  const selectedTabConfig = productDetailsTabs.find((tab) => tab.name === selectedTab);
+
+  if (!selectedTabConfig) throw new Error('can not get the data of the selected tab!');
+  return (
+    <div className="flex flex-col w-full  lg:w-[1400px] pb-3">
+      <div className="flex gap-1 h-[81px] items-center   w-full bg-[#F9FBFA] ">
+        {productDetailsTabs.map((tab) => (
+          <div
+            key={tab.name}
+            className={cn('px-3 py-1  rounded-lg', {
+              'bg-[#195B35] cursor-cell  text-white': selectedTab === tab.name,
+              'text-paragraph cursor-pointer': selectedTab !== tab.name,
+            })}
+            onClick={() => setSelectedTab(tab.name)}
+          >
+            {' '}
+            {tab.title}
+          </div>
+        ))}
+      </div>
+      {selectedTabConfig.body({ product })}
+    </div>
+  );
+};

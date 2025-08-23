@@ -34,7 +34,7 @@ export const ProsAndConsItemUI: React.FC<ProsAndConsItemData> = ({ category, val
 
 export const ProsAndConsBody = ({ prosAndConsData }: { prosAndConsData: ProsAndConsData }) => {
   return (
-    <div className="flex flex-col py-7">
+    <div className="flex flex-col py-3 gap-5">
       <h3 className="text-paragraph text-[32px] font-medium ">Plus- en minpunten</h3>
       <div className="flex flex-col gap-1">
         {prosAndConsData.map((item) => (

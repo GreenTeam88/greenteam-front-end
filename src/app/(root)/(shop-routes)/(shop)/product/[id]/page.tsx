@@ -9,11 +9,12 @@ import { ProductContactInfo } from './_components/contact-info';
 import { FloorInstalation } from './_components/foor-instalation';
 import { ImagesSection } from './_components/images-section';
 import { NeedHelp } from './_components/need-help';
-import { productDetailsTabs } from './_components/product-details/tabs';
+import { productDetailsTabs, ProductTabs } from './_components/product-details/tabs';
 import { SizeCalculation } from './_components/size-calculation';
 import { SizeVariants } from './_components/size-variants';
 
 export default async function ProductPage({ params: { id } }: { params: { id: string } }) {
+  console.log('id is : ', decodeURIComponent(id));
   const product = await getProductById({ productId: decodeURIComponent(id) });
   console.log('product', product);
   if (!product) return notFound();
@@ -21,7 +22,7 @@ export default async function ProductPage({ params: { id } }: { params: { id: st
   return (
     <div className="flex pt-5 max-w-[1440px] flex-col">
       <CategorySection />
-      <div className="flex gap-3">
+      <div className="flex  gap-3">
         <ImagesSection images={productImages || []} />
         <div className="flex flex-col gap-3">
           <ProductBasicInfo product={product} />
@@ -30,10 +31,11 @@ export default async function ProductPage({ params: { id } }: { params: { id: st
           <SizeCalculation product={product} />
           <AddToCartBtn />
           <NeedHelp />
-          {productDetailsTabs[2].body({ photos: [] })}
           <FloorInstalation />
         </div>
       </div>
+      <ProductTabs product={product} />
+
       <ProductContactInfo />
     </div>
   );

@@ -88,3 +88,7 @@
     #131313 100%
   );
 }
+
+.skeleton {
+  @apply bg-gray-200 animate-pulse;
+}

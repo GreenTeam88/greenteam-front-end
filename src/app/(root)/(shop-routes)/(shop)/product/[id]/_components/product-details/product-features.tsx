@@ -12,12 +12,12 @@ type CategoryFeature = {
 
 const FeatureItemUI = ({ feature }: { feature: Feature }) => {
   return (
-    <div className="flex w-full border-b-[#F7F7F7] border-b    n         justify-between">
-      <div className="flex gap-1">
+    <div className="flex w-full py-3 items-center border-b-[#F7F7F7] border-b justify-between">
+      <div className="flex w-1/2 gap-1 items-center">
         <InformationIcon />
         <p className="text-black">{feature.name}</p>
       </div>
-      <p className="text-black">{feature.value || '-'}</p>
+      <p className="text-black  w-1/2   ">{feature.value || '-'}</p>
     </div>
   );
 };

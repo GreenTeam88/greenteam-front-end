@@ -57,3 +57,7 @@ export const ProductCard = ({ product }: { product: Product }) => {
     </div>
   );
 };
+
+export const ProductCardSkeleton = () => {
+  return <div className="skeleton w-[282px] h-[482px] "></div>;
+};
