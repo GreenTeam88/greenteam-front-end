@@ -15,3 +15,17 @@ export const GiftIcon = () => {
     </svg>
   );
 };
+
+export const ProductsBtnGiftIcon = () => {
+  return (
+    <svg width="15" height="15" viewBox="0 0 15 15" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <rect width="15" height="15" fill="url(#pattern0_6132_29252)" />
+      <defs>
+        <pattern id="pattern0_6132_29252" patternContentUnits="objectBoundingBox" width="1" height="1">
+          <use transform="scale(0.00195312)" />
+        </pattern>
+        <image id="image0_6132_29252" width="512" height="512" preserveAspectRatio="none" />
+      </defs>
+    </svg>
+  );
+};
