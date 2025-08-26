@@ -2,7 +2,6 @@
 
 import { Product } from '@shopify/hydrogen-react/storefront-api-types';
 import { useState } from 'react';
-import { useQuery } from 'react-query';
 
 import { cn } from '@/lib/tailwind';
 import { AlternativeProducts } from './alternative-products';

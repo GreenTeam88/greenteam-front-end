@@ -9,7 +9,7 @@ export default async function Page({ params: { category } }: { params: { categor
     <div className="flex flex-col gap-3">
       <PageHeader category={category} />
       {filteredProductsByCategory.map((product) => (
-        <StandardProductCard product={product} />
+        <StandardProductCard product={product} key={product.id} />
       ))}
     </div>
   );

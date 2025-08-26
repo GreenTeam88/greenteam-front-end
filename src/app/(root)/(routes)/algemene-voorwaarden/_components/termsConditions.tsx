@@ -2,7 +2,7 @@ import { BodyTextSemibold, H1 } from '@/components/theme/typography';
 
 export const TermsConditions = () => {
   return (
-    <div className="flex gap-[44px] py-14 flex-col-reverse px-10  lg:flex-row ">
+    <div className="flex gap-[44px] py-14 termsConditions flex-col-reverse px-10  lg:flex-row ">
       <div className="flex max-w-full lg:w-[901px] flex-col gap-[32px]">
         <div className="flex flex-col gap-[12px]">
           <H1 className="text-primaryDefault">Algemene voorwaarden</H1>

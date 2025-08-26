@@ -13,7 +13,6 @@ export const AlternativeProducts = ({ alternativeProducts }: { alternativeProduc
       const data = await Promise.all(
         alternativeProducts.map((product) => getProductById({ productId: product['product-id'] }))
       );
-      console.log('data is : ', data);
       // Filter out nulls, and assert as Product[]
       return data.filter((product): product is Product => product !== null);
     },
@@ -24,7 +23,7 @@ export const AlternativeProducts = ({ alternativeProducts }: { alternativeProduc
       <h3 className="text-[32px] text-paragraph font-semi">Alternatieven</h3>
       <div className="flex gap-2">
         {isLoadingProducts
-          ? Array.from({ length: alternativeProducts.length }).map((item) => <ProductCardSkeleton />)
+          ? Array.from({ length: alternativeProducts.length }).map((_, index) => <ProductCardSkeleton key={index} />)
           : productsData?.map((product) => <ProductCard key={product.id} product={product} />)}
       </div>
     </div>

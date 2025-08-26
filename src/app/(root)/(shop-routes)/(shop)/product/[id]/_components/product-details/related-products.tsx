@@ -24,7 +24,7 @@ export const RelatedProducts = ({ relatedProducts }: { relatedProducts: { ['prod
       <h3 className="text-[32px] text-paragraph font-semi">Gerelateerde producten</h3>
       <div className="flex gap-2">
         {isLoadingProducts
-          ? Array.from({ length: relatedProducts.length }).map((item) => <ProductCardSkeleton />)
+          ? Array.from({ length: relatedProducts.length }).map((_, index) => <ProductCardSkeleton key={index} />)
           : productsData?.map((product) => <ProductCard key={product.id} product={product} />)}
       </div>
     </div>

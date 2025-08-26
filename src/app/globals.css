@@ -93,23 +93,24 @@
   @apply bg-gray-200 animate-pulse;
 }
 
-#\31,
-#\32,
-#\33,
-#\34,
-#\35,
-#\36,
-#\37,
-#\38,
-#\39,
-#\31 0,
-#\31 1,
-#\31 2,
-#\31 3,
-#\31 4,
-#\31 5,
-#\31 6,
-#\31 7,
-#\31 8 {
+/* adding scroll margin top to the elements in the terms page in order not to have issues when the user clicks the element in the list (to scroll in the exact position )  */
+.termsConditions #\31,
+.termsConditions #\32,
+.termsConditions #\33,
+.termsConditions #\34,
+.termsConditions #\35,
+.termsConditions #\36,
+.termsConditions #\37,
+.termsConditions #\38,
+.termsConditions #\39,
+.termsConditions #\31 0,
+.termsConditions #\31 1,
+.termsConditions #\31 2,
+.termsConditions #\31 3,
+.termsConditions #\31 4,
+.termsConditions #\31 5,
+.termsConditions #\31 6,
+.termsConditions #\31 7,
+.termsConditions #\31 8 {
   scroll-margin-top: 200px;
 }

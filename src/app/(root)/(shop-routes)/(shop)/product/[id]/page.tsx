@@ -9,7 +9,7 @@ import { ProductContactInfo } from './_components/contact-info';
 import { FloorInstalation } from './_components/foor-instalation';
 import { ImagesSection } from './_components/images-section';
 import { NeedHelp } from './_components/need-help';
-import { productDetailsTabs, ProductTabs } from './_components/product-details/tabs';
+import { ProductTabs } from './_components/product-details/tabs';
 import { SizeCalculation } from './_components/size-calculation';
 import { SizeVariants } from './_components/size-variants';
 
