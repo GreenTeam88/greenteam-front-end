@@ -4,6 +4,10 @@ import { PageHeader } from './_components/page-header';
 
 export default async function Page({ params: { category } }: { params: { category: string } }) {
   const products = await getAllProducts();
+  console.log(
+    'products',
+    products.map((prod) => prod.productType)
+  );
   const filteredProductsByCategory = products.filter((product) => product.productType === category);
   return (
     <div className="flex flex-col gap-3">
