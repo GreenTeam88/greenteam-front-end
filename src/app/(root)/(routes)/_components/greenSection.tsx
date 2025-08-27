@@ -22,7 +22,7 @@ export const GreenSection = () => {
       </div>
       {/* mobile version */}
       <div className="flex relative  lg:hidden  bg-green-600 h-fit  pb-5 lg:px-0 lg:py-0  flex-col lg:flex-row w-full">
-        <img src="/home/ITPersons.png" className="  h-fit " />
+        <img src="/home/ITPersons.webp" className="  h-fit " />
         <div className="  h-full ">
           <div className="py-4  items-center  flex flex-col gap-[33px] ">
             <h3 className="text-xl text-center lg:text-start    text-white   tracking-[-2%] ">
