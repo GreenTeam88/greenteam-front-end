@@ -78,7 +78,10 @@ export const PhoneNumberSection = () => {
           </div>
           <div className="flex items-center gap-3">
             <img src="/icons/phone.svg" />
-            <LinkTypography className="pr-3 border-r border-r-black20 border-opacity-20 text-[13px]">
+            <LinkTypography
+              href={`tel:${appConfig.phoneNumber}`}
+              className="pr-3 border-r border-r-black20 border-opacity-20 text-[13px]"
+            >
               {appConfig.phoneNumber}
             </LinkTypography>
             <LinkTypography
