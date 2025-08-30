@@ -26,7 +26,7 @@ export default async function Products({
       )
     : products;
   return (
-    <div className="flex pt-5 max-w-[1440px] flex-col">
+    <div className="flex px-2 pt-5 max-w-[1440px] flex-col">
       <AllCarpetsHeader />
       <SearchProducts />
       <CollectionsSection collections={allCollections} />

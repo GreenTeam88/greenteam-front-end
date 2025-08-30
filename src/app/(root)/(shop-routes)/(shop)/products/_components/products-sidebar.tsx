@@ -196,7 +196,7 @@ const QuerySection = ({
 
 export const ProductsSidebar = ({ collections }: { collections: Collection[] }) => {
   return (
-    <div className="min-w-[334px] w-fit  px-4   py-8 bg-[#F3F7F5] rounded-[13px] ">
+    <div className="min-w-[334px] w-fit  px-4 hidden lg:block   py-8 bg-[#F3F7F5] rounded-[13px] ">
       <Menu />
       <Collections collections={collections} />
       <ColorsSection />
