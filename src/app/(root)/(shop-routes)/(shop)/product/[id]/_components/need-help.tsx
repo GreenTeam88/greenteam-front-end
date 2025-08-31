@@ -12,7 +12,7 @@ export const NeedHelp = () => {
             <p className="text-[#195B35] underline">085-401 93 45</p>
           </div>
         </div>
-        <p className="text-[#212529]">
+        <p className="text-[#212529] px-2 lg:px-0 text-center lg:text-start">
           Direct iemand spreken <span className="font-bold">maandag t/m vrijdag van 9.00 - 17.00</span>
         </p>
         <p className="text-[#212529]">

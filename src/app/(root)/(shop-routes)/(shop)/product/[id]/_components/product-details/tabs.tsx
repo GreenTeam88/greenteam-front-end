@@ -106,9 +106,8 @@ export const productDetailsTabs = [
     title: 'Plus- en minpunten',
     name: 'pros-and-cons',
     body: ({ product }: { product: Product }) => {
-      const prosAndCons = JSON.parse(
-        product.metafields.find((metafield) => metafield?.key === 'pros_and_cons')?.value as string
-      ) as ProsAndConsData;
+      const stringfiedProsAndCons = product.metafields.find((metafield) => metafield?.key === 'pros_and_cons')?.value;
+      const prosAndCons = stringfiedProsAndCons ? (JSON.parse(stringfiedProsAndCons) as ProsAndConsData) : [];
       return <ProsAndConsBody prosAndConsData={prosAndCons} />;
     },
   },
@@ -181,7 +180,7 @@ export const ProductTabs = ({ product }: { product: Product }) => {
   if (!selectedTabConfig) throw new Error('can not get the data of the selected tab!');
   return (
     <div className="flex flex-col w-full  lg:w-[1400px] pb-3">
-      <div className="flex gap-1 h-[81px] items-center   w-full bg-[#F9FBFA] ">
+      <div className="flex gap-1 h-fit lg:h-[81px] max-w-full justify-center lg:justify-start py-2 lg:py-0 flex-wrap lg:flex-nowrap items-center   w-full bg-[#F9FBFA] ">
         {productDetailsTabs.map((tab) => (
           <div
             key={tab.name}
