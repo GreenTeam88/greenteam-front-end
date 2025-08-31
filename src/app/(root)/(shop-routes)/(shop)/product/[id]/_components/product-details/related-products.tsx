@@ -22,7 +22,7 @@ export const RelatedProducts = ({ relatedProducts }: { relatedProducts: { ['prod
   return (
     <div className="flex flex-col py-5 gap-4">
       <h3 className="text-[32px] text-paragraph font-semi">Gerelateerde producten</h3>
-      <div className="flex gap-2">
+      <div className="flex flex-col lg:flex-row gap-2">
         {isLoadingProducts
           ? Array.from({ length: relatedProducts.length }).map((_, index) => <ProductCardSkeleton key={index} />)
           : productsData?.map((product) => <ProductCard key={product.id} product={product} />)}
