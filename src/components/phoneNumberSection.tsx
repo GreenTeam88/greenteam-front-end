@@ -66,7 +66,10 @@ export const PhoneNumberSection = () => {
         <div className="flex gap-6 lg:gap-12 flex-col lg:flex-row   lg:items-center">
           <div className="flex items-center gap-3">
             <img src="/icons/email.png" />
-            <LinkTypography className="pr-3 border-r border-r-black20 border-opacity-20 text-[13px]">
+            <LinkTypography
+              href={`mailto:${appConfig.email}`}
+              className="pr-3 border-r border-r-black20 border-opacity-20 text-[13px]"
+            >
               {appConfig.email}
             </LinkTypography>
             <LinkTypography
