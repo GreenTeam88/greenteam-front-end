@@ -12,7 +12,7 @@ export const StandardProductCard = ({ product }: { product: Product }) => {
   const { currencySymbol, amount } = useMoney(firstVariant.price);
   const oldPrice = product.metafields.find((metafield) => metafield?.key === 'old_price')?.value;
   return (
-    <div className="flex bg-[#F9FBFA] border-[#020202] border-opacity-[13%] rounded-b-[8px] border flex-col w-[458px] ">
+    <div className="flex bg-[#F9FBFA] border-[#020202] border-opacity-[13%] rounded-b-[8px] border flex-col w-full lg:w-[458px] ">
       <img src={productImage} className="h-[161px] w-full " />
       <div className="flex flex-col gap-1 p-3">
         <h3 className="text-[#333333] font-bold text-xl">{product.title}</h3>
