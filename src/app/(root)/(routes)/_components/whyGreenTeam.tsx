@@ -7,7 +7,7 @@ interface Tab {
   iconSrc: string;
 }
 
-// the foor tabs of the section (reosons why you should choose green team)
+// the foor tabs of the section (reasons why you should choose green team)
 const tabs: Tab[] = [
   {
     title: '20 jaar ervaring',

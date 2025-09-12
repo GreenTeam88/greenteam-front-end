@@ -26,7 +26,7 @@ export default async function ProductPage({ params: { id } }: { params: { id: st
           <ColorsVariants product={product} />
           <SizeVariants product={product} />
           <SizeCalculation product={product} />
-          <AddToCartBtn />
+          <AddToCartBtn productId={id} />
           <NeedHelp />
           <FloorInstalation />
         </div>

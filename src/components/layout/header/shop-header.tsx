@@ -572,7 +572,7 @@ export const HeaderDropdowns = ({ routes }: { routes: HeaderRoute[] }) => {
 
 const DesktopHeader = () => {
   return (
-    <div className=" hidden lg:flex flex-col  z-50 w-full  fixed top-0 items-center left-0">
+    <div className=" hidden lg:flex flex-col  z-40 w-full  fixed top-0 items-center left-0">
       <div className="hidden lg:flex  w-full  flex-col  z-50 gap-[39px]  py-6 items-center bg-white">
         {/* the top section that includes the logo and the social links */}
         <HeaderTopSection />
@@ -738,8 +738,7 @@ export const ShopHeader = () => {
     <>
       {/* header for desktop view */}
       <DesktopHeader />
-      {/* header for mobile */}
-      <MobileHeader />
+      {/* header for mobile */} <MobileHeader />
     </>
   );
 };
