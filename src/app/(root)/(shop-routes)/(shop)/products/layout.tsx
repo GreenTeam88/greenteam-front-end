@@ -7,11 +7,7 @@ export default async function ProductsPageLayout({ children }: { children: React
   return (
     <div className="flex flex-col py-4 max-w-[1440px] ">
       <CategorySection />
-
-      <div className="flex gap-3 ">
-        <ProductsSidebar collections={allCollections} />
-        {children}
-      </div>
+      {children}
     </div>
   );
 }

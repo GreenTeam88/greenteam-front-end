@@ -3,6 +3,7 @@ import { getAllProducts, getShopifyCollections } from '@/utils/shop/query-tools'
 import { CollectionsSection } from './_components/collections';
 import { AllCarpetsHeader } from './_components/header';
 import { ProductsSection } from './_components/products';
+import { ProductsSidebar } from './_components/products-sidebar';
 import { SearchProducts } from './_components/search-products';
 
 export default async function Products({
@@ -26,11 +27,14 @@ export default async function Products({
       )
     : products;
   return (
-    <div className="flex px-2 pt-5 max-w-[1440px] flex-col">
-      <AllCarpetsHeader />
-      <SearchProducts />
-      <CollectionsSection collections={allCollections} />
-      <ProductsSection products={filteredProductsByColor} />
+    <div className="flex gap-3 ">
+      <ProductsSidebar collections={allCollections} />
+      <div className="flex px-2 pt-5 max-w-[1440px] flex-col">
+        <AllCarpetsHeader />
+        <SearchProducts />
+        <CollectionsSection collections={allCollections} />
+        <ProductsSection products={filteredProductsByColor} />
+      </div>
     </div>
   );
 }

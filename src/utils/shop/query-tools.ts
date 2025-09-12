@@ -105,12 +105,14 @@ export async function getAllProducts(): Promise<Product[]> {
         }
         metafields(identifiers: [
           { namespace: "custom", key: "old_price" },          
+          { namespace: "custom", key: "mark" }
         ]) {
           key
           namespace
           value
           type
           description
+
         }
 
         variants(first: 10) {
