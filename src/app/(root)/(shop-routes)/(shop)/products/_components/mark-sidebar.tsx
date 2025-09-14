@@ -46,8 +46,8 @@ const ParamUI: React.FC<ParamData & { category: string }> = ({ params, title, ca
       </div>
       <div className="flex flex-col gap-1">
         {params.map((param) => (
-          <div onClick={() => handleToggleParam({ param })} className="flex gap-1 cursor-pointer">
-            <div className="w-[14px] h-[14px] rounded-full border-[0.4px] border-black p-[2px] ">
+          <div onClick={() => handleToggleParam({ param })} className="flex gap-1 items-center cursor-pointer">
+            <div className="w-[10px] h-[10px] laptop:w-[14px] laptop:h-[14px] rounded-full border-[0.4px] border-black p-[2px] ">
               {selectedParams.includes(param) && <div className="bg-[#195B35]  rounded-full w-full h-full"></div>}
             </div>
 

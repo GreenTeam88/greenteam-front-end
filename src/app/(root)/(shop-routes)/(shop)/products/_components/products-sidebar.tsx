@@ -1,7 +1,9 @@
 'use client';
 
 import { Collection } from '@shopify/hydrogen-react/storefront-api-types';
+import { ArrowBigLeftDash } from 'lucide-react';
 import { usePathname, useRouter, useSearchParams } from 'next/navigation';
+import { useState } from 'react';
 
 import { colorsHexCodesMap } from '@/config/shop-config';
 import { cn } from '@/lib/tailwind';
@@ -195,19 +197,51 @@ const QuerySection = ({
 };
 
 export const ProductsSidebar = ({ collections }: { collections: Collection[] }) => {
+  const [markSidebarOpen, setSidebarOpen] = useState(false);
+
   return (
-    <div className="min-w-[334px] w-fit  px-4 hidden lg:block   py-8 bg-[#F3F7F5] rounded-[13px] ">
-      <Menu />
-      <Collections collections={collections} />
-      <ColorsSection />
-      {params.map((param) => (
-        <QuerySection
-          key={param.paramName}
-          paramName={param.paramName}
-          paramsValues={param.items}
-          title={param.paramTitle}
-        />
-      ))}
-    </div>
+    <>
+      <div className="min-w-[334px]  w-fit  px-4 hidden lg:block   py-8 bg-[#F3F7F5] rounded-[13px] ">
+        <Menu />
+        <Collections collections={collections} />
+        <ColorsSection />
+        {params.map((param) => (
+          <QuerySection
+            key={param.paramName}
+            paramName={param.paramName}
+            paramsValues={param.items}
+            title={param.paramTitle}
+          />
+        ))}
+      </div>
+      <div className="lg:hidden absolute top-[106px] right-0 flex flex-col px-1">
+        {markSidebarOpen ? (
+          <div className="w-full flex justify-end">
+            {' '}
+            <i
+              onClick={() => setSidebarOpen(false)}
+              className="bi absolute top-3  right-3 text-3xl font-semibold text-red-500 bi-x-lg"
+            ></i>
+          </div>
+        ) : (
+          <ArrowBigLeftDash size={50} onClick={() => setSidebarOpen(true)} />
+        )}
+        {markSidebarOpen && (
+          <div className="flex px-2 bg-bgColor flex-col">
+            <Menu />
+            <Collections collections={collections} />
+            <ColorsSection />
+            {params.map((param) => (
+              <QuerySection
+                key={param.paramName}
+                paramName={param.paramName}
+                paramsValues={param.items}
+                title={param.paramTitle}
+              />
+            ))}
+          </div>
+        )}
+      </div>
+    </>
   );
 };
