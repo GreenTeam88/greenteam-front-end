@@ -31,7 +31,7 @@ export const PageHeader = ({ category }: { category: string }) => {
   const selectedCategoryData = headerCategoriesConfig.find((config) => config.name === category);
   if (!selectedCategoryData) return null;
   return (
-    <div className="flex max-w-[1440px] flex-col lg:flex-row items-center gap-2">
+    <div className="flex px-2 max-w-[1440px] flex-col lg:flex-row items-center gap-2">
       <div className="flex flex-col ">
         <div className="flex w-full items-center  gap-3 lg:justify-center">
           <h3 className="text-[#0A0A0A] font-semibold capitalize text-[30px]">{selectedCategoryData.title}</h3>

@@ -15,23 +15,25 @@ export default async function Page({
 
   let filteredProducts = allProducts.filter((product) => product.productType === category);
   const marksData = allProducts.map((product) => product.metafields.find((metafield) => metafield?.key === 'mark'));
-  const marks = marksData.map((mark) => mark?.value).filter((mark) => typeof mark === 'string');
+  const marks = marksData
+    .map((mark) => mark?.value)
+    .filter((mark) => typeof mark === 'string')
+    .map((mark) => mark.toLocaleLowerCase());
   const allParams = getSidebarParams({ marks });
   for (let param of allParams) {
     const selectedParams: string[] = JSON.parse((searchParams[param.title] as string | undefined) || '[]');
     if (selectedParams.length) {
       filteredProducts = filteredProducts.filter((product) =>
-        product.metafields.find((metafield) => selectedParams.includes(metafield?.value || ''))
+        product.metafields.find((metafield) => selectedParams.includes(metafield?.value.toLowerCase() || ''))
       );
     }
   }
-
   return (
     <div className="flex flex-col  gap-3 max-w-[1400px]">
       <PageHeader category={category} />
 
       <div className="flex px-2  max-w-full w-full gap-2">
-        <MarkSidebar category={category} marks={marks} />
+        <MarkSidebar category={category} marks={Array.from(new Set(marks))} />
 
         <div className="flex flex-wrap gap-5 py-5 max-w-full  w-full">
           {filteredProducts ? (
