@@ -1,3 +1,4 @@
+import { Pagination } from '@/components/shop/pagination';
 import { variantsOptionsNames } from '@/config/shop-config';
 import { getAllProducts, getShopifyCollections } from '@/utils/shop/query-tools';
 import { CollectionsSection } from './_components/collections';
@@ -12,7 +13,8 @@ export default async function Products({
   searchParams?: { [key: string]: string | string[] | undefined };
 }) {
   const allCollections = await getShopifyCollections();
-  const products = await getAllProducts();
+  const currentPage = searchParams?.page;
+  const products = await getAllProducts({ page: Number(currentPage) || 1 });
   const colors: string[] = JSON.parse((searchParams?.colors as string) || '[]');
   const filteredProductsByColor = colors?.length
     ? products.filter((product) =>
@@ -34,6 +36,7 @@ export default async function Products({
         <SearchProducts />
         <CollectionsSection collections={allCollections} />
         <ProductsSection products={filteredProductsByColor} />
+        <Pagination pagesCount={10} />
       </div>
     </div>
   );

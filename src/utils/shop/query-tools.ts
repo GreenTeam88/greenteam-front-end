@@ -2,6 +2,7 @@
 
 import { Collection, Product } from '@shopify/hydrogen-react/storefront-api-types';
 
+import { productsPageConfig } from '@/app/(root)/(shop-routes)/(shop)/products/config';
 import { storefrontClient } from './init';
 
 export async function shopifyRequest<T>(query: string, variables: Record<string, any> = {}): Promise<T | null> {
@@ -31,7 +32,7 @@ export async function shopifyRequest<T>(query: string, variables: Record<string,
         query,
         variables,
       }),
-      cache: 'no-cache',
+      cache: 'no-store',
     });
 
     if (!response.ok) {
@@ -76,9 +77,12 @@ export const getShopifyCollections = async (): Promise<Collection[]> => {
   return allCollections?.collections.nodes as Collection[];
 };
 
-export async function getAllProducts(): Promise<Product[]> {
+export async function getAllProducts({ page }: { page: number }): Promise<Product[]> {
+  const currentCursor = productsPageConfig.pagesCursors[page as keyof typeof productsPageConfig.pagesCursors]
+    ? `"${productsPageConfig.pagesCursors[page as keyof typeof productsPageConfig.pagesCursors]}"`
+    : null;
   const GET_ALL_PRODUCTS_QUERY = `{
-  products(first: 3) {
+  products(first: ${productsPageConfig.itemsPerPage} ,  after: ${currentCursor}) {
     edges {
       node {
         id
@@ -150,10 +154,16 @@ export async function getAllProducts(): Promise<Product[]> {
         }
       }
     }
+    pageInfo {
+      hasNextPage   
+      endCursor     
+    }
   }
 }`;
 
   const response = await shopifyRequest<{ products: { edges: { node: Product }[] } }>(GET_ALL_PRODUCTS_QUERY);
+  const { hasNextPage, endCursor } = response?.products.pageInfo;
+  console.log('has next page', hasNextPage, endCursor);
   return response?.products.edges.map((edge) => edge.node) || [];
 }
 
