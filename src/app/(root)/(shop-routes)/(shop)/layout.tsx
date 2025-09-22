@@ -1,13 +1,10 @@
-import { CartProvider } from '@shopify/hydrogen-react';
-
-import { ShopHeader } from '@/components/layout/header/shop-header';
+import { AppHeader } from '@/components/layout/header/main';
 import { ShopProvidersWrapper } from '@/components/providers/shop-providers';
 import { CartOpener, CartUI } from '@/components/shop/cart';
 
 export default function ShopLayout({ children }: { children: JSX.Element }) {
   return (
     <ShopProvidersWrapper>
-      <ShopHeader />
       <CartOpener />
       <CartUI />
       {children}

@@ -16,6 +16,7 @@ export default async function ProductPage({ params: { id } }: { params: { id: st
   const product = await getProductById({ productId: decodeURIComponent(id) });
   if (!product) return notFound();
   const productImages = product?.images.edges.map((edge) => edge.node.url);
+
   return (
     <div className="flex pt-5 px-2 lg:px-0 max-w-[1440px] flex-col">
       <CategorySection />

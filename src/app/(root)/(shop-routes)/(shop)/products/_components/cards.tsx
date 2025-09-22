@@ -6,12 +6,24 @@ import Link from 'next/link';
 
 import { GiftIcon } from '@/components/icons/gift';
 import { TruckIcon } from '@/components/icons/truck';
-import { colorsHexCodesMap } from '@/config/shop-config';
+import { colorsHexCodesMap, variantsOptionsNames } from '@/config/shop-config';
 
 export const ProductCard = ({ product }: { product: Product }) => {
   const productImage = product.images?.nodes && product.images?.nodes[0]?.url;
   const firstVariant = product?.variants?.edges[0] && product.variants.edges[0].node;
+  const colorsVariants = product.variants?.edges?.filter((edge) =>
+    edge.node.selectedOptions.find((selectedOption) => selectedOption.name === variantsOptionsNames.color)
+  );
+
   const { currencySymbol, amount } = useMoney(firstVariant.price);
+  const colors = Array.from(
+    new Set(
+      colorsVariants.map((variant) => {
+        return variant.node.selectedOptions.find((selectedOption) => selectedOption.name === variantsOptionsNames.color)
+          ?.value;
+      })
+    )
+  );
   return (
     <div className="flex flex-col">
       <div className="w-[282px] h-[282px] relative">
@@ -29,11 +41,13 @@ export const ProductCard = ({ product }: { product: Product }) => {
         </button>
       </div>
       <div className="flex gap-2 p-2">
-        {Object.entries(colorsHexCodesMap)
-          .slice(0, 5)
-          .map(([color, hexCode]) => (
-            <div key={color} style={{ backgroundColor: hexCode }} className="w-[40px] h-[40px]"></div>
-          ))}
+        {colors.slice(0, 5).map((color) => (
+          <div
+            key={color}
+            style={{ backgroundColor: colorsHexCodesMap[color as keyof typeof colorsHexCodesMap] }}
+            className="w-[40px] h-[40px]"
+          ></div>
+        ))}
       </div>
       <div className="flex gap-2 items-end ">
         <h4 className="text-[#212529]  text-xl font-bold">

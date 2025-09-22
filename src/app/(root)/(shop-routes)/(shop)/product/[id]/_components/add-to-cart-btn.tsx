@@ -1,6 +1,7 @@
 'use client';
 
 import { useCart } from '@shopify/hydrogen-react';
+import { toast } from 'sonner';
 
 import { CartIcon } from '@/components/icons/cart';
 import { Button } from '@/components/ui/button';
@@ -11,9 +12,8 @@ export const AddToCartBtn = ({ productId }: { productId: string }) => {
   const { selectedVariantId } = useSelectedVariants();
   const addProductToCart = async () => {
     if (!selectedVariantId) return;
-    console.log('adding product to the cart, variant id is : ', selectedVariantId);
-
     await linesAdd([{ merchandiseId: selectedVariantId, quantity: 1 }]);
+    toast.success('Your product has been added to the cart!');
   };
   return (
     <div className="w-full items-center justify-center">

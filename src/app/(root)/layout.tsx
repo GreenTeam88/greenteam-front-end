@@ -1,6 +1,6 @@
 import { Metadata } from 'next';
 
-import { Header } from '@/components/layout/header/header';
+import { AppHeader } from '@/components/layout/header/main';
 
 export const metadata: Metadata = {
   title: 'GreenTeam - Duurzame Vloeren en Trappen',
@@ -14,11 +14,10 @@ export const metadata: Metadata = {
     images: 'https://www.greenteam.nl/og-image.jpg',
   },
 };
-
-export default function RootLayout({ children }: { children: React.ReactNode }) {
+export default function Layout({ children }: { children: React.ReactNode }) {
   return (
     <>
-      <Header />
+      <AppHeader />
       {children}
     </>
   );

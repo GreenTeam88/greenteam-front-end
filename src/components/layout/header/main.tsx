@@ -733,7 +733,7 @@ const MobileHeader = () => {
 };
 
 // the header element
-export const ShopHeader = () => {
+export const AppHeader = () => {
   return (
     <>
       {/* header for desktop view */}

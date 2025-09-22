@@ -8,6 +8,7 @@ import { AlternativeProducts } from './alternative-products';
 import { AtmosphericPhotos, PhotoData } from './atmospheric-photos';
 import { DescriptionTab } from './description';
 import { GoesWellWith } from './goes-well-with';
+import { NoDataProvided } from './no-data-provided';
 import { AllFeatures } from './product-features';
 import { ProsAndConsBody, ProsAndConsData } from './pros-and-cons';
 import { RelatedProducts } from './related-products';
@@ -107,7 +108,9 @@ export const productDetailsTabs = [
     name: 'pros-and-cons',
     body: ({ product }: { product: Product }) => {
       const stringfiedProsAndCons = product.metafields.find((metafield) => metafield?.key === 'pros_and_cons')?.value;
+      if (!stringfiedProsAndCons) return <NoDataProvided />;
       const prosAndCons = stringfiedProsAndCons ? (JSON.parse(stringfiedProsAndCons) as ProsAndConsData) : [];
+      if (!prosAndCons) return <NoDataProvided />;
       return <ProsAndConsBody prosAndConsData={prosAndCons} />;
     },
   },
@@ -116,6 +119,7 @@ export const productDetailsTabs = [
     name: 'productomschrijving',
     body: ({ product }: { product: Product }) => {
       const description = product.metafields.find((metafield) => metafield?.key === 'description')?.value as string;
+      if (!description) return <NoDataProvided />;
       return <DescriptionTab description={description} />;
     },
   },
@@ -123,9 +127,11 @@ export const productDetailsTabs = [
     title: "Sfeerfoto's",
     name: 'atmospheric-photos',
     body: ({ product }: { product: Product }) => {
-      const photos = JSON.parse(
-        product.metafields.find((metafield) => metafield?.key === 'atmospheric_photos')?.value as string
-      ) as PhotoData[];
+      const stringfiedPhotos = product.metafields.find((metafield) => metafield?.key === 'atmospheric_photos')
+        ?.value as string;
+      if (!stringfiedPhotos) return <NoDataProvided />;
+      const photos = JSON.parse(stringfiedPhotos) as PhotoData[];
+
       return <AtmosphericPhotos photos={photos} />;
     },
   },
@@ -133,9 +139,11 @@ export const productDetailsTabs = [
     title: 'Gaat goed samen met',
     name: 'goes-well-with',
     body: ({ product }: { product: Product }) => {
-      const products = JSON.parse(
-        product.metafields.find((metafield) => metafield?.key === 'goes_well_with')?.value as string
-      ) as { 'product-id': string }[];
+      const stringfiedProducts = product.metafields.find((metafield) => metafield?.key === 'goes_well_with')
+        ?.value as string;
+      if (!stringfiedProducts) return <NoDataProvided />;
+      const products = JSON.parse(stringfiedProducts) as { 'product-id': string }[];
+
       return <GoesWellWith products={products} />;
     },
   },
@@ -143,9 +151,10 @@ export const productDetailsTabs = [
     title: 'Alternatieven',
     name: 'alternatives',
     body: ({ product }: { product: Product }) => {
-      const alternatives = JSON.parse(
-        product.metafields.find((metafield) => metafield?.key === 'related_products')?.value as string
-      ) as { 'product-id': string }[];
+      const stringfiedAlternatives = product.metafields.find((metafield) => metafield?.key === 'related_products')
+        ?.value as string;
+      if (!stringfiedAlternatives) return <NoDataProvided />;
+      const alternatives = JSON.parse(stringfiedAlternatives) as { 'product-id': string }[];
       return <AlternativeProducts alternativeProducts={alternatives} />;
     },
   },
@@ -154,9 +163,10 @@ export const productDetailsTabs = [
 
     name: 'related-products',
     body: ({ product }: { product: Product }) => {
-      const relatedProducts = JSON.parse(
-        product.metafields.find((metafield) => metafield?.key === 'related_products')?.value as string
-      ) as { ['product-id']: string }[];
+      const stringfiedRelatedProducts = product.metafields.find((metafield) => metafield?.key === 'related_products')
+        ?.value as string;
+      if (!stringfiedRelatedProducts) return <NoDataProvided />;
+      const relatedProducts = JSON.parse(stringfiedRelatedProducts) as { ['product-id']: string }[];
       return <RelatedProducts relatedProducts={relatedProducts} />;
     },
   },
@@ -164,10 +174,11 @@ export const productDetailsTabs = [
     title: 'Alle productkenmerken',
     name: 'product-features',
     body: ({ product }: { product: Product }) => {
-      const allFeatures = JSON.parse(
-        product.metafields.find((metafield) => metafield?.key === 'all_features')?.value as string
-      );
-      return <AllFeatures allFeatures={allFeatures} />;
+      const stringfiedFeatures = product.metafields.find((metafield) => metafield?.key === 'all_features')
+        ?.value as string;
+      if (!stringfiedFeatures) return <NoDataProvided />;
+      const allFeatures = JSON.parse(stringfiedFeatures);
+      if (!allFeatures) return <AllFeatures allFeatures={allFeatures} />;
     },
   },
 ] as const;
