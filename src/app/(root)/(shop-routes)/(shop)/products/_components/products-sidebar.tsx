@@ -9,7 +9,7 @@ import { colorsHexCodesMap } from '@/config/shop-config';
 import { cn } from '@/lib/tailwind';
 
 // sidebar section config
-const params: { paramName: string; paramTitle: string; items: string[] }[] = [
+export const productsSidebarParams: { paramName: string; paramTitle: string; items: string[] }[] = [
   {
     paramName: 'Woongebruik',
     items: ['Licht woongebruik', 'Normaal woongebruik', 'Normaal tot zwaar woongebruik', 'Zwaar woongebruik'],
@@ -155,17 +155,17 @@ const QueryItemUI = ({ itemName, paramName }: { itemName: string; paramName: str
       updatedItems.length
         ? currSearchParams.set(paramName, JSON.stringify(updatedItems))
         : currSearchParams.delete(paramName);
-      router.push(`/?${currSearchParams.toString()}`);
+      router.push(`?${currSearchParams.toString()}`);
     } else {
-      currSearchParams.set(paramName, JSON.stringify([...allItems, paramName]));
-      router.push(`/?${currSearchParams.toString()}`);
+      currSearchParams.set(paramName, JSON.stringify([...allItems, itemName]));
+      router.push(`?${currSearchParams.toString()}`);
     }
   };
   return (
     <div className="flex items-center gap-2">
       <div
         onClick={toggleSelect}
-        className={cn('bg-white border border-[#DEE2E6] rounded-sm w-[15px] h-[15px]', {
+        className={cn('bg-white border cursor-pointer border-[#DEE2E6] rounded-sm w-[15px] h-[15px]', {
           'border-[#195B35] border-8': isItemSelected,
         })}
       ></div>
@@ -205,7 +205,7 @@ export const ProductsSidebar = ({ collections }: { collections: Collection[] }) 
         <Menu />
         <Collections collections={collections} />
         <ColorsSection />
-        {params.map((param) => (
+        {productsSidebarParams.map((param) => (
           <QuerySection
             key={param.paramName}
             paramName={param.paramName}
@@ -217,7 +217,6 @@ export const ProductsSidebar = ({ collections }: { collections: Collection[] }) 
       <div className="lg:hidden absolute top-[106px] right-0 flex flex-col px-1">
         {markSidebarOpen ? (
           <div className="w-full flex justify-end">
-            {' '}
             <i
               onClick={() => setSidebarOpen(false)}
               className="bi absolute top-3  right-3 text-3xl font-semibold text-red-500 bi-x-lg"
@@ -231,7 +230,7 @@ export const ProductsSidebar = ({ collections }: { collections: Collection[] }) 
             <Menu />
             <Collections collections={collections} />
             <ColorsSection />
-            {params.map((param) => (
+            {productsSidebarParams.map((param) => (
               <QuerySection
                 key={param.paramName}
                 paramName={param.paramName}

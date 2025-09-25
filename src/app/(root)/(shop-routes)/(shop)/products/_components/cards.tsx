@@ -15,7 +15,7 @@ export const ProductCard = ({ product }: { product: Product }) => {
     edge.node.selectedOptions.find((selectedOption) => selectedOption.name === variantsOptionsNames.color)
   );
 
-  const { currencySymbol, amount } = useMoney(firstVariant.price);
+  const { currencySymbol, amount } = useMoney(product.priceRange.minVariantPrice);
   const colors = Array.from(
     new Set(
       colorsVariants.map((variant) => {
@@ -51,7 +51,7 @@ export const ProductCard = ({ product }: { product: Product }) => {
       </div>
       <div className="flex gap-2 items-end ">
         <h4 className="text-[#212529]  text-xl font-bold">
-          {currencySymbol + ' '} {amount}
+          {currencySymbol} {amount}
         </h4>
         <p className="text-[#212529] text-[12px]">per st. meter</p>
       </div>

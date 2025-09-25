@@ -1,5 +1,5 @@
-import { storefrontClient } from './init';
-import { shopifyRequest } from './query-tools';
+import { storefrontAdmin } from './admin-init';
+import { shopifyAdminRequest } from './query-tools';
 
 const CREATE_CHECKOUT = `
   mutation checkoutCreate($lineItems: [CheckoutLineItemInput!]!) {
@@ -17,7 +17,7 @@ const CREATE_CHECKOUT = `
 `;
 
 export async function createCheckout(variantId: string, quantity: number = 1) {
-  const data = await shopifyRequest(CREATE_CHECKOUT, {
+  const data = await shopifyAdminRequest(CREATE_CHECKOUT, {
     lineItems: [{ variantId, quantity }],
   });
   console.log('data', data);

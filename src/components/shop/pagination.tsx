@@ -44,7 +44,7 @@ const PaginationBackButton: React.FC = () => {
     <div
       onClick={handlePreviousPage}
       className={cn('text-[#195B35] border flex items-center justify-center w-[40px] h-[40px] cursor-not-allowed', {
-        'cursor-pointer': currentPage > 2,
+        'cursor-pointer': currentPage > 1,
       })}
     >
       {' '}

@@ -3,11 +3,13 @@
 import { Collection, Product } from '@shopify/hydrogen-react/storefront-api-types';
 
 import { productsPageConfig } from '@/app/(root)/(shop-routes)/(shop)/products/config';
-import { storefrontClient } from './init';
+import { appConfig } from '@/config';
+import { storefrontAdmin } from './admin-init';
+import { buildMetafieldQuery, MetafieldFilter } from './query';
+import { shopifyAdminFetch } from './test';
 
-export async function shopifyRequest<T>(query: string, variables: Record<string, any> = {}): Promise<T | null> {
-  const client = storefrontClient;
-  if (!client) {
+export async function shopifyAdminRequest<T>(query: string, variables: Record<string, any> = {}): Promise<T | null> {
+  if (!storefrontAdmin) {
     console.error('❌ Shopify client not initialized.');
     return null;
   }
@@ -15,14 +17,14 @@ export async function shopifyRequest<T>(query: string, variables: Record<string,
   let headers: Record<string, string>;
 
   try {
-    headers = client.getPrivateTokenHeaders();
+    headers = storefrontAdmin.getPrivateTokenHeaders();
   } catch (err) {
     console.error('❌ Failed to get Shopify headers:', err);
     return null;
   }
 
   try {
-    const response = await fetch(client.getStorefrontApiUrl(), {
+    const response = await fetch(storefrontAdmin.getStorefrontApiUrl(), {
       method: 'POST',
       headers: {
         ...headers,
@@ -32,7 +34,7 @@ export async function shopifyRequest<T>(query: string, variables: Record<string,
         query,
         variables,
       }),
-      cache: 'no-store',
+      cache: 'no-cache',
     });
 
     if (!response.ok) {
@@ -72,17 +74,33 @@ export const getShopifyCollections = async (): Promise<Collection[]> => {
     }
   }
 `;
-  const allCollections = await shopifyRequest<{ collections: { nodes: any[] } }>(GET_COLLECTIONS_QUERY);
+  const allCollections = await shopifyAdminRequest<{ collections: { nodes: any[] } }>(GET_COLLECTIONS_QUERY);
   console.log('all collections', allCollections);
   return allCollections?.collections.nodes as Collection[];
 };
 
-export async function getAllProducts({ page }: { page: number }): Promise<Product[]> {
-  const currentCursor = productsPageConfig.pagesCursors[page as keyof typeof productsPageConfig.pagesCursors]
-    ? `"${productsPageConfig.pagesCursors[page as keyof typeof productsPageConfig.pagesCursors]}"`
-    : null;
+export async function getAllProducts({ metafields }: { metafields?: MetafieldFilter[] }): Promise<Product[]> {
+  // const currentCursor = productsPageConfig.pagesCursors[page as keyof typeof productsPageConfig.pagesCursors]
+  //   ? `"${productsPageConfig.pagesCursors[page as keyof typeof productsPageConfig.pagesCursors]}"`
+  //   : null;
+  console.log('metafields', metafields);
+  const metafieldQuery = metafields?.length ? `"${buildMetafieldQuery(metafields)}"` : null;
+  console.log('metafield query', metafieldQuery);
+  let query = 'query:';
+
+  if (metafieldQuery) {
+    query += metafieldQuery;
+  }
+
+  if (!metafieldQuery) {
+    query = '';
+  }
+  console.log('query', query);
   const GET_ALL_PRODUCTS_QUERY = `{
-  products(first: ${productsPageConfig.itemsPerPage} ,  after: ${currentCursor}) {
+  products(
+    ${query}
+    first: ${productsPageConfig.itemsPerPage}
+  ) {
     edges {
       node {
         id
@@ -96,6 +114,7 @@ export async function getAllProducts({ page }: { page: number }): Promise<Produc
         createdAt
         updatedAt
         onlineStoreUrl
+
         images(first: 10) {
           edges {
             node {
@@ -107,16 +126,20 @@ export async function getAllProducts({ page }: { page: number }): Promise<Produc
             }
           }
         }
-        metafields(identifiers: [
-          { namespace: "custom", key: "old_price" },          
-          { namespace: "custom", key: "mark" }
-        ]) {
+
+        oldPrice: metafield(namespace: "custom", key: "old_price") {
           key
           namespace
           value
           type
           description
-
+        }
+        mark: metafield(namespace: "custom", key: "mark") {
+          key
+          namespace
+          value
+          type
+          description
         }
 
         variants(first: 10) {
@@ -125,46 +148,37 @@ export async function getAllProducts({ page }: { page: number }): Promise<Produc
               id
               title
               sku
-              price {
-                amount
-                currencyCode
-              }
+       
               selectedOptions {
                 name
                 value
               }
-
               availableForSale
-              quantityAvailable
               image {
                 url
               }
             }
           }
         }
-        priceRange {
-          minVariantPrice {
-            amount
-            currencyCode
-          }
-          maxVariantPrice {
-            amount
-            currencyCode
-          }
-        }
+        priceRange { minVariantPrice { amount currencyCode } maxVariantPrice { amount currencyCode } }
       }
     }
     pageInfo {
-      hasNextPage   
-      endCursor     
+      hasNextPage
+      endCursor
     }
   }
-}`;
+}
 
-  const response = await shopifyRequest<{ products: { edges: { node: Product }[] } }>(GET_ALL_PRODUCTS_QUERY);
-  const { hasNextPage, endCursor } = response?.products.pageInfo;
-  console.log('has next page', hasNextPage, endCursor);
-  return response?.products.edges.map((edge) => edge.node) || [];
+`;
+
+  const response = await shopifyAdminFetch<{ data: { products: { edges: { node: Product }[] } } }>(
+    GET_ALL_PRODUCTS_QUERY
+  );
+
+  // const pageInfo = response?.products.pageInfo;
+  console.log('response', response);
+  return response?.data.products.edges.map((edge) => edge.node) || [];
 }
 
 export async function getProductById({ productId }: { productId: string }): Promise<Product | null> {
@@ -254,7 +268,7 @@ export async function getProductById({ productId }: { productId: string }): Prom
     }
   }
 `;
-  const response = await shopifyRequest<{ node: Product | null }>(GET_PRODUCT_BY_ID_QUERY, { id: productId });
+  const response = await shopifyAdminRequest<{ node: Product | null }>(GET_PRODUCT_BY_ID_QUERY, { id: productId });
 
   return response?.node ?? null;
 }
