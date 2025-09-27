@@ -61,44 +61,40 @@ export const productsSidebarParams: { paramName: string; paramTitle: string; ite
   },
 ];
 
-export default async function Products({
-  searchParams,
-}: {
-  searchParams?: { [key: string]: string | string[] | undefined };
-}) {
+export default async function Products({ searchParams }: { searchParams?: { [key: string]: string | undefined } }) {
   const allCollections = await getShopifyCollections();
-  const currentPage = searchParams?.page;
 
   const metafields: MetafieldFilter[] = [];
   const colors: string[] = JSON.parse((searchParams?.colors as string) || '[]');
   for (let param in searchParams) {
-    console.log(
-      'param',
-      param,
-      productsSidebarParams.find((sidebarParam) => sidebarParam.paramTitle === param)
-    );
-    const paramValues: string[] = JSON.parse((searchParams[param] as string) || '[]');
-    console.log('param values', paramValues);
     if (productsSidebarParams.find((sidebarParam) => sidebarParam.paramName === param)) {
+      const paramValues: string[] = JSON.parse((searchParams[param] as string) || '[]');
       metafields.push({ title: param, value: paramValues });
     }
   }
-  const products = await getAllProducts({ metafields });
+  const cursor: string | null = searchParams?.cursor || null;
+  const direction: string | null = searchParams?.direction || null;
+  const data = await getAllProducts({ cursor, metafields, colors, direction });
+  // filtering products based on the colors
 
-  let filteredProducts = products;
-  if (colors.length) {
-    filteredProducts = filteredProducts.filter((product) =>
-      product.variants.edges?.some((edge) => {
-        console.log('edge', edge);
-        return edge.node.selectedOptions?.some(
-          (option) =>
-            option.name === variantsOptionsNames.color &&
-            colors.some((color) => color.toLowerCase() === option.value.toLocaleLowerCase())
+  const filteredProducts = colors.length
+    ? data.products.filter((product) => {
+        const colorsVariants = product.variants?.edges?.filter((edge) =>
+          edge.node.selectedOptions.find((selectedOption) => selectedOption.name === variantsOptionsNames.color)
         );
-      })
-    );
-  }
 
+        const productColors = Array.from(
+          new Set(
+            colorsVariants?.map((variant) => {
+              return variant.node.selectedOptions.find(
+                (selectedOption) => selectedOption.name === variantsOptionsNames.color
+              )?.value;
+            })
+          )
+        );
+        return colors.some((color) => productColors.includes(color));
+      })
+    : data.products;
   return (
     <div className="flex gap-3 ">
       <ProductsSidebar collections={allCollections} />
@@ -107,7 +103,7 @@ export default async function Products({
         <SearchProducts />
         <CollectionsSection collections={allCollections} />
         <ProductsSection products={filteredProducts} />
-        {!colors.length && <Pagination pagesCount={2} />}
+        {!colors.length && <Pagination {...data.pageInfo} />}
       </div>
     </div>
   );

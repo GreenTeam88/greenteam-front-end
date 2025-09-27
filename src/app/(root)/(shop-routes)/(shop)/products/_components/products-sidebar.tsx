@@ -81,7 +81,7 @@ const Collections = ({ collections }: { collections: Collection[] }) => {
         <h3 className="text-lg font-bold ">Collecties</h3>
         <div className="bg-[#575757]"></div>
       </div>
-      {collections.map((collection) => (
+      {collections?.map((collection) => (
         <p key={collection.id} className="text-[#195B35] pl-4">
           {collection.title}
         </p>
@@ -149,12 +149,15 @@ const QueryItemUI = ({ itemName, paramName }: { itemName: string; paramName: str
   const router = useRouter();
   const toggleSelect = () => {
     const currSearchParams = new URLSearchParams(searchParams.toString());
-
+    currSearchParams.delete('cursor');
+    currSearchParams.delete('after');
+    currSearchParams.delete('before');
     if (isItemSelected) {
       const updatedItems = allItems.filter((item) => item !== itemName);
       updatedItems.length
         ? currSearchParams.set(paramName, JSON.stringify(updatedItems))
         : currSearchParams.delete(paramName);
+
       router.push(`?${currSearchParams.toString()}`);
     } else {
       currSearchParams.set(paramName, JSON.stringify([...allItems, itemName]));

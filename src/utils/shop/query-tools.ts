@@ -1,11 +1,11 @@
 'use server';
 
-import { Collection, Product } from '@shopify/hydrogen-react/storefront-api-types';
+import { Collection, PageInfo, Product } from '@shopify/hydrogen-react/storefront-api-types';
 
 import { productsPageConfig } from '@/app/(root)/(shop-routes)/(shop)/products/config';
 import { appConfig } from '@/config';
 import { storefrontAdmin } from './admin-init';
-import { buildMetafieldQuery, MetafieldFilter } from './query';
+import { buildColorQuery, buildMetafieldQuery, MetafieldFilter, queriesCombiner } from './query';
 import { shopifyAdminFetch } from './test';
 
 export async function shopifyAdminRequest<T>(query: string, variables: Record<string, any> = {}): Promise<T | null> {
@@ -79,27 +79,27 @@ export const getShopifyCollections = async (): Promise<Collection[]> => {
   return allCollections?.collections.nodes as Collection[];
 };
 
-export async function getAllProducts({ metafields }: { metafields?: MetafieldFilter[] }): Promise<Product[]> {
-  // const currentCursor = productsPageConfig.pagesCursors[page as keyof typeof productsPageConfig.pagesCursors]
-  //   ? `"${productsPageConfig.pagesCursors[page as keyof typeof productsPageConfig.pagesCursors]}"`
-  //   : null;
-  console.log('metafields', metafields);
-  const metafieldQuery = metafields?.length ? `"${buildMetafieldQuery(metafields)}"` : null;
-  console.log('metafield query', metafieldQuery);
-  let query = 'query:';
+export async function getAllProducts({
+  metafields,
+  colors,
+  cursor,
+  direction,
+}: {
+  metafields?: MetafieldFilter[];
+  colors: string[];
+  cursor: string | null;
+  direction: string | null;
+}): Promise<{ products: Product[]; pageInfo: PageInfo }> {
+  const metafieldQuery = metafields?.length ? `${buildMetafieldQuery(metafields)}` : null;
+  const colorsQuery = colors.length ? buildColorQuery(colors) : null;
+  const pageCursor = cursor ? `${direction}: "${cursor}"` : '';
+  let query: null | string = queriesCombiner([metafieldQuery, colorsQuery]);
 
-  if (metafieldQuery) {
-    query += metafieldQuery;
-  }
-
-  if (!metafieldQuery) {
-    query = '';
-  }
-  console.log('query', query);
-  const GET_ALL_PRODUCTS_QUERY = `{
+  const GET_PRODUCTS_QUERY = `{
   products(
-    ${query}
-    first: ${productsPageConfig.itemsPerPage}
+     ${direction === 'before' ? 'last' : 'first'}: ${productsPageConfig.itemsPerPage} ,
+     ${query}
+     ${pageCursor}
   ) {
     edges {
       node {
@@ -142,7 +142,7 @@ export async function getAllProducts({ metafields }: { metafields?: MetafieldFil
           description
         }
 
-        variants(first: 10) {
+        variants(first: 100) {
           edges {
             node {
               id
@@ -166,19 +166,44 @@ export async function getAllProducts({ metafields }: { metafields?: MetafieldFil
     pageInfo {
       hasNextPage
       endCursor
+      startCursor
+      hasPreviousPage
     }
   }
 }
 
 `;
 
-  const response = await shopifyAdminFetch<{ data: { products: { edges: { node: Product }[] } } }>(
-    GET_ALL_PRODUCTS_QUERY
-  );
+  const response = await shopifyAdminFetch<{
+    data: {
+      products: {
+        edges: { node: Product }[];
+        pageInfo: PageInfo;
+      };
+    };
+  }>(GET_PRODUCTS_QUERY);
 
-  // const pageInfo = response?.products.pageInfo;
-  console.log('response', response);
-  return response?.data.products.edges.map((edge) => edge.node) || [];
+  const products = response.data.products.edges.map((edge) => edge.node);
+
+  products.forEach((product) => {
+    // Extract all variant colors for this product
+    const colors = product.variants.edges
+      .map((variantEdge) => {
+        const option = variantEdge.node.selectedOptions.find(
+          (opt: { name: string; value: string }) => opt.name.toLowerCase() === 'color'
+        );
+        return option?.value;
+      })
+      .filter(Boolean); // removes undefined
+
+    console.log(`Product: ${product.title}`);
+    console.log('Colors:', colors);
+  });
+
+  const pageInfo = response?.data?.products?.pageInfo;
+  console.log('response', response, pageInfo);
+
+  return { products: response?.data.products.edges.map((edge) => edge.node) || [], pageInfo };
 }
 
 export async function getProductById({ productId }: { productId: string }): Promise<Product | null> {
@@ -272,3 +297,5 @@ export async function getProductById({ productId }: { productId: string }): Prom
 
   return response?.node ?? null;
 }
+
+//  query: "variants.option:Color:Paars"

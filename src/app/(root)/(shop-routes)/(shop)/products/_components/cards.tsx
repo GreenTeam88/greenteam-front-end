@@ -18,7 +18,7 @@ export const ProductCard = ({ product }: { product: Product }) => {
   const { currencySymbol, amount } = useMoney(product.priceRange.minVariantPrice);
   const colors = Array.from(
     new Set(
-      colorsVariants.map((variant) => {
+      colorsVariants?.map((variant) => {
         return variant.node.selectedOptions.find((selectedOption) => selectedOption.name === variantsOptionsNames.color)
           ?.value;
       })
@@ -41,13 +41,16 @@ export const ProductCard = ({ product }: { product: Product }) => {
         </button>
       </div>
       <div className="flex gap-2 p-2">
-        {colors.slice(0, 5).map((color) => (
-          <div
-            key={color}
-            style={{ backgroundColor: colorsHexCodesMap[color as keyof typeof colorsHexCodesMap] }}
-            className="w-[40px] h-[40px]"
-          ></div>
-        ))}
+        {colors.slice(0, 5).map((color) => {
+          console.log('color', color);
+          return (
+            <div
+              key={color}
+              style={{ backgroundColor: colorsHexCodesMap[color as keyof typeof colorsHexCodesMap] }}
+              className="w-[40px] h-[40px]"
+            ></div>
+          );
+        })}
       </div>
       <div className="flex gap-2 items-end ">
         <h4 className="text-[#212529]  text-xl font-bold">

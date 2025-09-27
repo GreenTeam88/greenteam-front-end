@@ -14,7 +14,7 @@ export const CollectionsSection = ({ collections }: { collections: ShopifyCollec
 
   return (
     <div className="flex py-4 flex-wrap gap-2">
-      {collections.map((collection) => (
+      {collections?.map((collection) => (
         <div
           key={collection.title}
           className={cn('text-sm font-semibold bg-[#F3F7F5] text-[#195B35] rounded-lg px-4 py-2 capitalize ', {

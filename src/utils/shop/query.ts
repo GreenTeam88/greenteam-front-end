@@ -17,3 +17,24 @@ export function buildMetafieldQuery(filters?: MetafieldFilter[]): string {
     .filter(Boolean)
     .join(' OR ');
 }
+
+export function buildColorQuery(colors?: string[]): string {
+  if (!colors || colors.length === 0) return '';
+
+  if (colors.length === 1) {
+    return `variants.option:Color:${colors[0]}`;
+  }
+
+  const values = colors.map((c) => `variants.option:Color:${c}`).join(' OR ');
+  return `(${values})`;
+}
+
+export function queriesCombiner(queries?: (string | null)[]): string | null {
+  const cleanArrayQueries = queries?.filter((query) => query !== null);
+  if (!cleanArrayQueries?.length) {
+    return '';
+  }
+
+  const jointQueries = cleanArrayQueries.join(' OR ');
+  return `query: "${jointQueries}" ,`;
+}

@@ -1,8 +1,8 @@
 'use client';
 
+import { PageInfo } from '@shopify/hydrogen-react/storefront-api-types';
 import { useRouter, useSearchParams } from 'next/navigation';
 
-import { productsPageConfig } from '@/app/(root)/(shop-routes)/(shop)/products/config';
 import { cn } from '@/lib/tailwind';
 import { TwoArrowsMoveIcon } from '../icons/two-arrows-move';
 
@@ -30,21 +30,24 @@ const PageUI: React.FC<{ pageNumber: number }> = ({ pageNumber }) => {
   );
 };
 
-const PaginationBackButton: React.FC = () => {
+const PaginationBackButton: React.FC<{ startCursor?: string | null; hasPreviousPage: boolean }> = ({
+  hasPreviousPage,
+  startCursor,
+}) => {
   const params = useSearchParams();
-  const currentPage = Number(params.get('page'));
   const router = useRouter();
   const handlePreviousPage = () => {
     const searchParams = new URLSearchParams(params.toString());
-    if (!currentPage || currentPage < 2) return null;
-    searchParams.set('page', String(currentPage - 1));
+    if (!startCursor || !hasPreviousPage) return null;
+    searchParams.set('cursor', startCursor);
+    searchParams.set('direction', 'before');
     router.push('?' + searchParams.toString());
   };
   return (
     <div
       onClick={handlePreviousPage}
       className={cn('text-[#195B35] border flex items-center justify-center w-[40px] h-[40px] cursor-not-allowed', {
-        'cursor-pointer': currentPage > 1,
+        'cursor-pointer': hasPreviousPage,
       })}
     >
       {' '}
@@ -53,15 +56,17 @@ const PaginationBackButton: React.FC = () => {
   );
 };
 
-const PaginationNextButton: React.FC<{ pagesCount: number }> = ({ pagesCount }) => {
-  const params = useSearchParams();
-  const currentPage = Number(params.get('page')) || 1;
+const PaginationNextButton: React.FC<{ afterCursor?: string | null; hasNextPage: boolean }> = ({
+  afterCursor,
+  hasNextPage,
+}) => {
   const router = useRouter();
-  const lastPage = Math.max(...Object.keys(productsPageConfig.pagesCursors).map((key) => Number(key)));
+  const params = useSearchParams();
   const handleNextPage = () => {
+    if (!afterCursor) return null;
     const searchParams = new URLSearchParams(params.toString());
-    if (currentPage >= lastPage) return null;
-    searchParams.set('page', String(currentPage + 1));
+    searchParams.set('cursor', afterCursor);
+    searchParams.set('direction', 'after');
     router.push('?' + searchParams.toString());
   };
   return (
@@ -70,7 +75,7 @@ const PaginationNextButton: React.FC<{ pagesCount: number }> = ({ pagesCount }) 
       className={cn(
         'text-[#195B35]  flex items-center w-[40px] h-[40px] justify-center rotate-180 border cursor-not-allowed',
         {
-          'cursor-pointer': currentPage < lastPage,
+          'cursor-pointer': hasNextPage,
         }
       )}
     >
@@ -80,14 +85,14 @@ const PaginationNextButton: React.FC<{ pagesCount: number }> = ({ pagesCount }) 
   );
 };
 
-export const Pagination: React.FC<{ pagesCount: number }> = ({ pagesCount }) => {
+export const Pagination: React.FC<PageInfo> = ({ endCursor, hasNextPage, hasPreviousPage, startCursor }) => {
   return (
     <div className="flex gap-2 pt-14 pb-7 w-full justify-center">
-      <PaginationBackButton />
-      {Object.keys(productsPageConfig.pagesCursors).map((item) => (
+      <PaginationBackButton startCursor={startCursor} hasPreviousPage={hasPreviousPage} />
+      {/* {Object.keys(productsPageConfig.pagesCursors).map((item) => (
         <PageUI pageNumber={Number(item)} />
-      ))}
-      <PaginationNextButton pagesCount={pagesCount} />
+      ))} */}
+      <PaginationNextButton hasNextPage={hasNextPage} afterCursor={endCursor} />
     </div>
   );
 };
