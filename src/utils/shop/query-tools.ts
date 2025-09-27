@@ -91,7 +91,7 @@ export async function getAllProducts({
   direction: string | null;
 }): Promise<{ products: Product[]; pageInfo: PageInfo }> {
   const metafieldQuery = metafields?.length ? `${buildMetafieldQuery(metafields)}` : null;
-  const colorsQuery = colors.length ? buildColorQuery(colors) : null;
+  const colorsQuery = colors.length ? buildColorQuery(colors.filter((color) => color !== 'Alle kleuren')) : null;
   const pageCursor = cursor ? `${direction}: "${cursor}"` : '';
   let query: null | string = queriesCombiner([metafieldQuery, colorsQuery]);
 

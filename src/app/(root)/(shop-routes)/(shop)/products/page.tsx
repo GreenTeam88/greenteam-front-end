@@ -76,25 +76,26 @@ export default async function Products({ searchParams }: { searchParams?: { [key
   const direction: string | null = searchParams?.direction || null;
   const data = await getAllProducts({ cursor, metafields, colors, direction });
   // filtering products based on the colors
+  console.log('colors', colors);
+  const filteredProducts =
+    colors.length && !colors.includes('Alle kleuren')
+      ? data.products.filter((product) => {
+          const colorsVariants = product.variants?.edges?.filter((edge) =>
+            edge.node.selectedOptions.find((selectedOption) => selectedOption.name === variantsOptionsNames.color)
+          );
 
-  const filteredProducts = colors.length
-    ? data.products.filter((product) => {
-        const colorsVariants = product.variants?.edges?.filter((edge) =>
-          edge.node.selectedOptions.find((selectedOption) => selectedOption.name === variantsOptionsNames.color)
-        );
-
-        const productColors = Array.from(
-          new Set(
-            colorsVariants?.map((variant) => {
-              return variant.node.selectedOptions.find(
-                (selectedOption) => selectedOption.name === variantsOptionsNames.color
-              )?.value;
-            })
-          )
-        );
-        return colors.some((color) => productColors.includes(color));
-      })
-    : data.products;
+          const productColors = Array.from(
+            new Set(
+              colorsVariants?.map((variant) => {
+                return variant.node.selectedOptions.find(
+                  (selectedOption) => selectedOption.name === variantsOptionsNames.color
+                )?.value;
+              })
+            )
+          );
+          return colors.some((color) => productColors.includes(color));
+        })
+      : data.products;
   return (
     <div className="flex gap-3 ">
       <ProductsSidebar collections={allCollections} />
