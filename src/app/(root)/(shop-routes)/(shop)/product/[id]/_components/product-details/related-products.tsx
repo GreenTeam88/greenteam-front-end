@@ -8,7 +8,7 @@ import { ProductCard, ProductCardSkeleton } from '../../../../products/_componen
 
 export const RelatedProducts = ({ relatedProducts }: { relatedProducts: { ['product-id']: string }[] }) => {
   const { data: productsData, isLoading: isLoadingProducts } = useQuery<Product[]>({
-    queryKey: ['alternativeProducts', relatedProducts], // ✅ required
+    queryKey: ['related products', relatedProducts],
     queryFn: async () => {
       const data = await Promise.all(
         relatedProducts.map((product) => getProductById({ productId: product['product-id'] }))

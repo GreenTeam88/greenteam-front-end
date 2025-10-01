@@ -207,6 +207,7 @@ export async function getAllProducts({
 }
 
 export async function getProductById({ productId }: { productId: string }): Promise<Product | null> {
+  console.log('getting product', productId);
   const GET_PRODUCT_BY_ID_QUERY = `
   query GetProductById($id: ID!) {
     node(id: $id) {
@@ -223,26 +224,42 @@ export async function getProductById({ productId }: { productId: string }): Prom
         updatedAt
         onlineStoreUrl
 
-        metafields(identifiers: [
-          { namespace: "custom", key: "old_price" },
-          { namespace: "custom", key: "ratings_number" },
-          { namespace: "custom", key: "ratings_average" },
-         { namespace: "custom", key: "pros_and_cons" },
-           { namespace: "custom", key: "all_features" },
-            { namespace: "custom", key: "product_reviews" },
-             { namespace: "custom", key: "related_products" },
-              { namespace: "custom", key: "goes_well_with" },
-               { namespace: "custom", key: "atmospheric_photos" },
-                { namespace: "custom", key: "description" },
-                 { namespace: "custom", key: "old-price" },
-                
-        ]) {
-          key
-          namespace
-          value
-          type
-          description
+metafields(identifiers: [
+  { namespace: "custom", key: "old_price" },
+  { namespace: "custom", key: "ratings_number" },
+  { namespace: "custom", key: "ratings_average" },
+  { namespace: "custom", key: "pros_cons" },
+  { namespace: "custom", key: "all_features" },
+  { namespace: "custom", key: "product_reviews" },
+  { namespace: "custom", key: "related_products" },
+  { namespace: "custom", key: "goes_well_with" },
+  { namespace: "custom", key: "atmospheric_photos" },
+  { namespace: "custom", key: "description" },
+  { namespace: "custom", key: "old-price" },
+]) {
+  key
+  namespace
+  value
+  type
+  description
+  references(first: 20) {
+    nodes {
+      __typename
+      ... on MediaImage {
+        image {
+          url
+          altText
+          width
+          height
         }
+      }
+      ... on GenericFile {
+        url
+      }
+    }
+  }
+}
+
 
         images(first: 10) {
           edges {
@@ -294,7 +311,7 @@ export async function getProductById({ productId }: { productId: string }): Prom
   }
 `;
   const response = await shopifyAdminRequest<{ node: Product | null }>(GET_PRODUCT_BY_ID_QUERY, { id: productId });
-
+  console.log('response', response);
   return response?.node ?? null;
 }
 

@@ -5,6 +5,7 @@ import { CategorySection } from '../../_components/category';
 import { AddToCartBtn } from './_components/add-to-cart-btn';
 import { ProductBasicInfo } from './_components/basic-info';
 import { ColorsVariants } from './_components/colors-variants';
+import { ProductContactInfo } from './_components/contact-info';
 import { FloorInstalation } from './_components/foor-instalation';
 import { ImagesSection } from './_components/images-section';
 import { NeedHelp } from './_components/need-help';
@@ -13,7 +14,9 @@ import { SizeCalculation } from './_components/size-calculation';
 import { SizeVariants } from './_components/size-variants';
 
 export default async function ProductPage({ params: { id } }: { params: { id: string } }) {
-  const product = await getProductById({ productId: decodeURIComponent(id) });
+  const decodedProductId = decodeURIComponent(id);
+  console.log('decoded product id', decodedProductId);
+  const product = await getProductById({ productId: decodedProductId });
   if (!product) return notFound();
   const productImages = product?.images.edges.map((edge) => edge.node.url);
 
@@ -34,7 +37,7 @@ export default async function ProductPage({ params: { id } }: { params: { id: st
       </div>
       <ProductTabs product={product} />
 
-      {/*      <ProductContactInfo /> */}
+      <ProductContactInfo />
     </div>
   );
 }

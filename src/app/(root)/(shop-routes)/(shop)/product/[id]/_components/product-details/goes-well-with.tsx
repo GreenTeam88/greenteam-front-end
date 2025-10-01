@@ -15,6 +15,7 @@ const ProductCard = ({ productId }: { productId: string }) => {
     queryKey: ['product', productId],
     queryFn: async () => {
       const data = await getProductById({ productId });
+      console.log('product data', data);
       if (!data) throw new Error('can not get the product data in : (goes well with) tab');
       return data;
     },
@@ -23,9 +24,9 @@ const ProductCard = ({ productId }: { productId: string }) => {
     },
     refetchOnWindowFocus: false,
   });
-  const firstVariant = data?.variants?.edges[0] && data.variants.edges[0].node;
+  const firstVariant = data?.variants?.edges[0] && data.variants.edges[0]?.node;
   const { amount, currencySymbol } = useMoney(firstVariant?.price ? firstVariant.price : emptyMoney);
-  const productImage = data?.images.edges[0].node;
+  const productImage = data?.images.edges[0]?.node;
 
   return (
     <>
@@ -67,7 +68,7 @@ export const GoesWellWith = ({ products }: { products: { 'product-id': string }[
       <h3 className="text-[32px] text-paragraph font-semi">Gaat goed samen met</h3>
       <div className="flex  flex-col lg:flex-row  gap-2">
         {products.map((product) => {
-          console.log('product', product);
+          console.log('product fj', product);
           return <ProductCard key={product['product-id']} productId={product['product-id']} />;
         })}
       </div>

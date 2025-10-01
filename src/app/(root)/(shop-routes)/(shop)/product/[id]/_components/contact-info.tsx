@@ -3,8 +3,8 @@ import { PhoneIcon } from '@/components/icons/phone';
 
 export const ProductContactInfo = () => {
   return (
-    <div className="py-6 max-w-[1400px] flex gap-3 ">
-      <div className="flex  flex-col w-[714px] gap-4 ">
+    <div className="py-6 flex-col lg:flex-row max-w-[1400px] flex gap-3 ">
+      <div className="flex  flex-col w-full lg:w-[714px] gap-4 ">
         <div className="flex flex-col gap-6">
           <h3 className="text-[32px] font-medium">Persoonlijk advies?</h3>
           <p className="text-[#212529]">
@@ -13,7 +13,7 @@ export const ProductContactInfo = () => {
             of dat deze eerst vlak moet worden gemaakt.
           </p>
         </div>
-        <div className="bg-[#E4EFE9] w-[509px] rounded-[12px] py-3 px-2 flex flex-col ">
+        <div className="bg-[#E4EFE9] w-full lg:w-[509px] rounded-[12px] py-3 px-2 flex flex-col ">
           <div className="flex gap-2 flex-col">
             <div className="gap-2 flex items-center">
               <PhoneIcon />
@@ -24,7 +24,7 @@ export const ProductContactInfo = () => {
             <p className="text-paragraph">Direct iemand aan de lijn maandag t/m vrijdag van 09:00 - 17:00</p>
           </div>
         </div>
-        <div className="bg-[#E4EFE9] w-[509px] rounded-[12px] py-3 px-2 flex  ">
+        <div className="bg-[#E4EFE9] w-full lg:w-[509px] rounded-[12px] py-3 px-2 flex  ">
           <div className="gap-2 flex items-center">
             <EmailIcon />
             <p className="text-xl font-medium text-paragraph">
@@ -37,7 +37,7 @@ export const ProductContactInfo = () => {
           </div>
         </div>
       </div>
-      <div className="flex flex-col w-[486px] rounded-[15px] gap-2 bg-[#F7F7F7]">
+      <div className="flex flex-col w-full lg:w-[486px] rounded-[15px] gap-2 bg-[#F7F7F7]">
         <img className="w-full h-[279px] rounded-t-[15px]" src="/contact/greenteam-desk.jpg" />
         <div className="flex flex-col w-full  p-4 items-center gap-2">
           <h3 className="font-semibold leading-tight text-[24px] text-paragraph">

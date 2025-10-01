@@ -51,3 +51,24 @@ export const AllFeatures = ({ allFeatures }: { allFeatures: CategoryFeature[] })
     </div>
   );
 };
+
+// example of the product features in a shopify product metafield
+// [
+//   {
+//     category: 'Gebruik',
+//     features: [
+//       { name: 'Woongebruik', value: 'Normaal woongebruik' },
+//       { name: 'Projectgebruik', value: '-' },
+//       { name: 'Industrieel gebruik', value: '-' },
+//       { name: 'Zwenkwielen', value: '-' },
+//     ],
+//   },
+//   {
+//     category: 'Afmetingen',
+//     features: [
+//       { name: 'Dikte in mm', value: '2.00' },
+//       { name: 'Dikte slijtlaag in mm', value: '0.20' },
+//       { name: 'Rolbreedte in cm', value: '400' },
+//     ],
+//   },
+// ];

@@ -1,5 +1,3 @@
-// the html of the pros and cons of the product
-
 export type ProsAndConsItemData = { value: string; category: 'advantage' | 'disadvantage' };
 
 export type ProsAndConsData = ProsAndConsItemData[];
@@ -44,3 +42,41 @@ export const ProsAndConsBody = ({ prosAndConsData }: { prosAndConsData: ProsAndC
     </div>
   );
 };
+
+// example data of the pros and cons
+// [
+//   {
+//     value:
+//       'Omdat deze vinyl vloer verkrijgbaar is in 200 cm, 300 cm en 400 cm, is de kans kleiner dat u restafval overhoudt.',
+//     category: 'advantage',
+//   },
+//   {
+//     value:
+//       'In combinatie met de FloorFixx Fini ondervloer voldoet deze vinyl vloer aan de 10 dB eis van de Vereniging van eigenaren.',
+//     category: 'advantage',
+//   },
+//   {
+//     value:
+//       'Dankzij de Aquagrip toplaag wordt de grip van de vloer niet beduidend minder wanneer er vloeistoffen op worden geknoeid.',
+//     category: 'advantage',
+//   },
+//   {
+//     value: 'De Diamond Seal toplaag zorgt voor een goede bescherming tegen krassen en slijtage.',
+//     category: 'advantage',
+//   },
+//   { value: 'Deze vinyl vloer is ftalaatvrij.', category: 'advantage' },
+
+//   {
+//     value:
+//       'Bij een combinatie van verschillende breedtes dient u rekening te houden met mogelijk kleurverschil (iedere breedte 200 cm / 300 cm / 400 cm',
+//     category: 'disadvantage',
+//   },
+//   { value: 'komt uit een eigen verfbad.', category: 'disadvantage' },
+//   {
+//     value:
+//       'Deze vinyl vloer heeft een slijtlaag van 0,20 mm. Sommige andere vinyl vloeren uit ons assortiment hebben een dikkere slijtlaag.',
+//     category: 'disadvantage',
+//   },
+//   { value: 'Voor het beste resultaat moet uw basisvloer eerst geëgaliseerd worden.', category: 'disadvantage' },
+//   { value: 'Zware meubels kunnen een afdruk achterlaten in het vinyl.', category: 'disadvantage' },
+// ];
