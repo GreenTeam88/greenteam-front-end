@@ -232,6 +232,8 @@ metafields(identifiers: [
   { namespace: "custom", key: "all_features" },
   { namespace: "custom", key: "product_reviews" },
   { namespace: "custom", key: "related_products" },
+  { namespace: "custom", key: "alternatives" },
+  { namespace: "custom", key: "goes_well_width_products" },
   { namespace: "custom", key: "goes_well_with" },
   { namespace: "custom", key: "atmospheric_photos" },
   { namespace: "custom", key: "description" },
@@ -255,6 +257,11 @@ metafields(identifiers: [
       }
       ... on GenericFile {
         url
+      }
+      ... on Product {
+        id
+        title
+        handle
       }
     }
   }

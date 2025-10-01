@@ -59,36 +59,41 @@ export const productDetailsTabs = [
     title: 'Gaat goed samen met',
     name: 'goes-well-with',
     body: ({ product }: { product: Product }) => {
-      const stringfiedProducts = product.metafields.find((metafield) => metafield?.key === 'goes_well_with')
-        ?.value as string;
-      console.log('stringfied products', stringfiedProducts);
-      if (!stringfiedProducts) return <NoDataProvided />;
-      const products = JSON.parse(stringfiedProducts) as { 'product-id': string }[];
-
-      return <GoesWellWith products={products} />;
+      const goes_well_width_products = product.metafields.find(
+        (metafield) => metafield?.key === 'goes_well_width_products'
+      )?.references;
+      const productsList = goes_well_width_products?.nodes.map((node) => ({ 'product-id': node.id })) || [];
+      return <GoesWellWith products={productsList} />;
     },
   },
   {
     title: 'Alternatieven',
     name: 'alternatives',
     body: ({ product }: { product: Product }) => {
-      const stringfiedAlternatives = product.metafields.find((metafield) => metafield?.key === 'related_products')
-        ?.value as string;
-      if (!stringfiedAlternatives) return <NoDataProvided />;
-      const alternatives = JSON.parse(stringfiedAlternatives) as { 'product-id': string }[];
-      return <AlternativeProducts alternativeProducts={alternatives} />;
+      const alternatives_metafield = product.metafields.find(
+        (metafield) => metafield?.key === 'alternatives'
+      )?.references;
+      if (!alternatives_metafield) return <NoDataProvided />;
+
+      const productsList = alternatives_metafield?.nodes.map((node) => ({ 'product-id': node.id })) || [];
+      return <AlternativeProducts alternativeProducts={productsList} />;
     },
   },
   {
     title: 'Gerelateerde producten',
     name: 'related-products',
     body: ({ product }: { product: Product }) => {
-      const stringfiedRelatedProducts = product.metafields.find((metafield) => metafield?.key === 'related_products')
-        ?.value as string;
+      const stringfiedRelatedProducts = product.metafields.find(
+        (metafield) => metafield?.key === 'related_products'
+      )?.references;
+
       if (!stringfiedRelatedProducts) return <NoDataProvided />;
-      const relatedProducts = JSON.parse(stringfiedRelatedProducts) as { ['product-id']: string }[];
-      console.log('related products', relatedProducts);
-      return <RelatedProducts relatedProducts={relatedProducts} />;
+      const goes_well_width_products = product.metafields.find(
+        (metafield) => metafield?.key === 'related_products'
+      )?.references;
+      const productsList = goes_well_width_products?.nodes.map((node) => ({ 'product-id': node.id })) || [];
+
+      return <RelatedProducts relatedProducts={productsList} />;
     },
   },
   {
