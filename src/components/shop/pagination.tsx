@@ -43,6 +43,7 @@ const PaginationBackButton: React.FC<{ startCursor?: string | null; hasPreviousP
     searchParams.set('direction', 'before');
     router.push('?' + searchParams.toString());
   };
+
   return (
     <div
       onClick={handlePreviousPage}
@@ -86,6 +87,7 @@ const PaginationNextButton: React.FC<{ afterCursor?: string | null; hasNextPage:
 };
 
 export const Pagination: React.FC<PageInfo> = ({ endCursor, hasNextPage, hasPreviousPage, startCursor }) => {
+  if (!hasPreviousPage && !hasNextPage) return null;
   return (
     <div className="flex gap-2 pt-14 pb-7 w-full justify-center">
       <PaginationBackButton startCursor={startCursor} hasPreviousPage={hasPreviousPage} />
