@@ -695,7 +695,7 @@ export const MobileMenuBoldLink: React.FC<HeaderRoute> = (headerRoute) => {
 const MobileMenuBoldLinks = () => {
   return (
     <div className="flex flex-col min-w-[300px] w-fit  pl-4 gap-2">
-      {headerRoutes.slice(0, 6).map((header) => (
+      {headerRoutes.map((header) => (
         <MobileMenuBoldLink key={header.name} {...header} />
       ))}
     </div>
