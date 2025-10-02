@@ -5,12 +5,13 @@ import { getAllProducts, getShopifyCollections } from '@/utils/shop/query-tools'
 import { CollectionsSection } from './_components/collections';
 import { AllCarpetsHeader } from './_components/header';
 import { ProductsSection } from './_components/products';
-import { ProductsSidebar, productsSidebarParams } from './_components/products-sidebar';
+import { ProductsSidebar } from './_components/products-sidebar';
 import { SearchProducts } from './_components/search-products';
+import { productsSidebarParams } from './config/main';
 
 export default async function Page({ searchParams }: { searchParams?: { [key: string]: string | undefined } }) {
   const allCollections = await getShopifyCollections();
-
+  console.log('all collections', allCollections.length);
   const metafields: MetafieldFilter[] = [];
   const colors: string[] = JSON.parse((searchParams?.colors as string) || '[]');
   for (const param in searchParams) {
@@ -27,19 +28,21 @@ export default async function Page({ searchParams }: { searchParams?: { [key: st
   const filteredProducts =
     colors.length && !colors.includes('Alle kleuren')
       ? data.products.filter((product) => {
+          console.log('getting colors variants');
           const colorsVariants = product.variants?.edges?.filter((edge) =>
             edge.node?.selectedOptions?.find((selectedOption) => selectedOption.name === variantsOptionsNames.color)
           );
-
+          console.log('colors', colorsVariants.length);
           const productColors = Array.from(
             new Set(
               colorsVariants?.map((variant) => {
-                return variant.node.selectedOptions.find(
+                return variant.node.selectedOptions?.find(
                   (selectedOption) => selectedOption.name === variantsOptionsNames.color
                 )?.value;
               })
             )
           );
+          console.log('product colors', productColors.length);
           return colors.some((color) => productColors.includes(color));
         })
       : data.products;
