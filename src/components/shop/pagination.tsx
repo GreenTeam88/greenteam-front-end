@@ -6,29 +6,29 @@ import { useRouter, useSearchParams } from 'next/navigation';
 import { cn } from '@/lib/tailwind';
 import { TwoArrowsMoveIcon } from '../icons/two-arrows-move';
 
-const PageUI: React.FC<{ pageNumber: number }> = ({ pageNumber }) => {
-  const params = useSearchParams();
-  const currentPage = Number(params.get('page')) || 1;
-  const isPageSelected = currentPage === pageNumber;
-  const router = useRouter();
-  const pageNavigate = () => {
-    const searchParams = new URLSearchParams(params.toString());
-    if (pageNumber === currentPage) return;
-    searchParams.set('page', String(pageNumber));
-    router.push('?' + searchParams.toString());
-  };
-  return (
-    <div
-      onClick={pageNavigate}
-      className={cn('w-[40px] flex items-center justify-center h-[40px] ', {
-        'bg-white text-[#195B35] cursor-pointer border-[#195B35] border': !isPageSelected,
-        'bg-[#195B35] text-white': isPageSelected,
-      })}
-    >
-      {pageNumber}
-    </div>
-  );
-};
+// const PageUI: React.FC<{ pageNumber: number }> = ({ pageNumber }) => {
+//   const params = useSearchParams();
+//   const currentPage = Number(params.get('page')) || 1;
+//   const isPageSelected = currentPage === pageNumber;
+//   const router = useRouter();
+//   const pageNavigate = () => {
+//     const searchParams = new URLSearchParams(params.toString());
+//     if (pageNumber === currentPage) return;
+//     searchParams.set('page', String(pageNumber));
+//     router.push('?' + searchParams.toString());
+//   };
+//   return (
+//     <div
+//       onClick={pageNavigate}
+//       className={cn('w-[40px] flex items-center justify-center h-[40px] ', {
+//         'bg-white text-[#195B35] cursor-pointer border-[#195B35] border': !isPageSelected,
+//         'bg-[#195B35] text-white': isPageSelected,
+//       })}
+//     >
+//       {pageNumber}
+//     </div>
+//   );
+// };
 
 const PaginationBackButton: React.FC<{ startCursor?: string | null; hasPreviousPage: boolean }> = ({
   hasPreviousPage,

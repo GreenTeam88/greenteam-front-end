@@ -2,8 +2,6 @@
 
 import { CartProvider, ShopifyProvider } from '@shopify/hydrogen-react';
 
-import { storefrontAdmin } from '@/utils/shop/admin-init';
-
 export const ShopProvidersWrapper = ({ children }: { children: React.ReactNode }) => {
   return (
     <ShopifyProvider
