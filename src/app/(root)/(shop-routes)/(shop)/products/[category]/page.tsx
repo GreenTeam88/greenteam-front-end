@@ -17,7 +17,7 @@ export default async function Page({
   const marksData = allProducts.products.map((product) =>
     product.metafields?.find((metafield) => metafield?.key === 'mark')
   );
-  const marks = marksData
+  const marks: string[] = marksData
     .map((mark) => mark?.value)
     .filter((mark) => typeof mark === 'string')
     .map((mark) => mark?.toLocaleLowerCase());
