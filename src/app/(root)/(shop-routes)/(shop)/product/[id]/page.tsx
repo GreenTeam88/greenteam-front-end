@@ -15,7 +15,6 @@ import { SizeVariants } from './_components/size-variants';
 
 export default async function ProductPage({ params: { id } }: { params: { id: string } }) {
   const decodedProductId = decodeURIComponent(id);
-  console.log('decoded product id', decodedProductId);
   const product = await getProductById({ productId: decodedProductId });
   if (!product) return notFound();
   const productImages = product?.images.edges.map((edge) => edge.node.url);
@@ -30,7 +29,7 @@ export default async function ProductPage({ params: { id } }: { params: { id: st
           <ColorsVariants product={product} />
           <SizeVariants product={product} />
           <SizeCalculation product={product} />
-          <AddToCartBtn productId={id} />
+          <AddToCartBtn />
           <NeedHelp />
           <FloorInstalation />
         </div>
