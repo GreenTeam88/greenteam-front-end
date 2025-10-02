@@ -13,6 +13,11 @@ export default function ProductsPageSkeleton() {
           </div>
         </div>
       </div>
+      <div className="flex flex-col gap-3 px-2">
+        <div className="skeleton w-full rounded-lg h-[350px]"> </div>
+        <div className="skeleton w-full rounded-lg h-[70px]"> </div>
+        <div className="skeleton w-full rounded-lg h-[400px]"></div>
+      </div>
     </>
   );
 }
