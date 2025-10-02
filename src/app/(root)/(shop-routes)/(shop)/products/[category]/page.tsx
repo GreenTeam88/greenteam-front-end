@@ -21,7 +21,7 @@ export default async function Page({
     .map((mark) => mark?.value)
     .filter((mark) => typeof mark === 'string')
     .map((mark) => mark?.toLocaleLowerCase())
-    .filter(Boolean);
+    .filter(Boolean) as string[];
   const allParams = getSidebarParams({ marks }).filter(Boolean);
   for (let param of allParams) {
     const selectedParams: string[] = JSON.parse((searchParams[param.title] as string | undefined) || '[]');
