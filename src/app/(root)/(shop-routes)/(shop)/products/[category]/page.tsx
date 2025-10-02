@@ -20,7 +20,8 @@ export default async function Page({
   const marks: string[] = marksData
     .map((mark) => mark?.value)
     .filter((mark) => typeof mark === 'string')
-    .map((mark) => mark?.toLocaleLowerCase());
+    .map((mark) => mark?.toLocaleLowerCase())
+    .filter(Boolean);
   const allParams = getSidebarParams({ marks }).filter(Boolean);
   for (let param of allParams) {
     const selectedParams: string[] = JSON.parse((searchParams[param.title] as string | undefined) || '[]');
