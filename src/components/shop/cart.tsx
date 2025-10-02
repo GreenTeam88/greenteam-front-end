@@ -10,7 +10,7 @@ export const CartUI = () => {
   console.log('lines ', lines);
   if (!isOpen) return null;
   return (
-    <div className="fixed z-50  top-96  right-0">
+    <div className="fixed   top-96  z-[60] right-0">
       <button
         onClick={() => set({ isOpen: true })}
         className="p-2 rounded-2xl"
@@ -79,12 +79,12 @@ export const CartOpener = () => {
   const { lines } = useCart();
   return (
     <>
-      {/* Floating Button */}
+      {/* Floating Button for the cart*/}
       <button
         onClick={() => set({ isOpen: true })}
-        className="fixed bottom-6 right-6 flex items-center gap-2 px-5 py-3 rounded-full shadow-lg transition-transform hover:scale-105"
+        className="fixed bottom-6 z-50 right-6 flex items-center gap-2 px-5 py-3 rounded-full shadow-lg transition-transform hover:scale-105"
         style={{
-          background: '#217946', // primaryDefault
+          background: '#217946',
           color: '#fff',
         }}
       >

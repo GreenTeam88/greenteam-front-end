@@ -217,7 +217,7 @@ export const ProductsSidebar = ({ collections }: { collections: Collection[] }) 
           />
         ))}
       </div>
-      <div className="lg:hidden absolute top-[106px] right-0 flex flex-col px-1">
+      <div className="lg:hidden  z-10 fixed top-[106px]  right-0 flex flex-col ">
         {markSidebarOpen ? (
           <div className="w-full flex justify-end">
             <i
@@ -229,7 +229,7 @@ export const ProductsSidebar = ({ collections }: { collections: Collection[] }) 
           <ArrowBigLeftDash size={50} onClick={() => setSidebarOpen(true)} />
         )}
         {markSidebarOpen && (
-          <div className="flex px-2 bg-bgColor flex-col">
+          <div className="flex px-4 max-h-[80vh] shadow-2xl  w-full overflow-y-scroll bg-bgColor  flex-col">
             <Menu />
             <Collections collections={collections} />
             <ColorsSection />

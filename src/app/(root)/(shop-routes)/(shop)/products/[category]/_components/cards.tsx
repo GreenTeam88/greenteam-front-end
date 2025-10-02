@@ -9,8 +9,8 @@ export const StandardProductCard = ({ product }: { product: Product }) => {
   const productImages = product?.images.edges.map((edge) => edge.node.url);
   const productImage = productImages[0];
   const firstVariant = product?.variants?.edges[0] && product.variants.edges[0].node;
-  const { currencySymbol, amount } = useMoney(firstVariant.price);
-  const oldPrice = product.metafields.find((metafield) => metafield?.key === 'old_price')?.value;
+  const { currencySymbol, amount } = useMoney(product.priceRange.minVariantPrice);
+  const oldPrice = product.metafields?.find((metafield) => metafield?.key === 'old_price')?.value;
   return (
     <div className="flex bg-[#F9FBFA] h-fit border-[#020202] border-opacity-[13%] rounded-b-[8px] border flex-col w-full lg:w-[458px] ">
       <img src={productImage} className="h-[161px] w-full " />

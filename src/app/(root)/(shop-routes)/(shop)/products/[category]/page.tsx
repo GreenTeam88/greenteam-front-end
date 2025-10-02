@@ -11,10 +11,12 @@ export default async function Page({
   params: { category: string };
   searchParams: { [key: string]: string | string[] | undefined };
 }) {
-  const allProducts = await getAllProducts();
+  const allProducts = await getAllProducts({ metafields: [], colors: [], cursor: null, direction: null });
 
-  let filteredProducts = allProducts.filter((product) => product.productType === category);
-  const marksData = allProducts.map((product) => product.metafields.find((metafield) => metafield?.key === 'mark'));
+  let filteredProducts = allProducts.products.filter((product) => product.productType === category);
+  const marksData = allProducts.products.map((product) =>
+    product.metafields?.find((metafield) => metafield?.key === 'mark')
+  );
   const marks = marksData
     .map((mark) => mark?.value)
     .filter((mark) => typeof mark === 'string')
@@ -24,7 +26,7 @@ export default async function Page({
     const selectedParams: string[] = JSON.parse((searchParams[param.title] as string | undefined) || '[]');
     if (selectedParams.length) {
       filteredProducts = filteredProducts.filter((product) =>
-        product.metafields.find((metafield) => selectedParams.includes(metafield?.value.toLowerCase() || ''))
+        product.metafields?.find((metafield) => selectedParams.includes(metafield?.value.toLowerCase() || ''))
       );
     }
   }
@@ -36,11 +38,11 @@ export default async function Page({
         <MarkSidebar category={category} marks={Array.from(new Set(marks))} />
 
         <div className="flex flex-wrap gap-5 py-5 max-w-full  w-full">
-          {filteredProducts ? (
+          {filteredProducts.length ? (
             filteredProducts.map((product) => <StandardProductCard product={product} key={product.id} />)
           ) : (
             <div>
-              <h3 className="text-2xl font-semibold">No Item Found </h3>
+              <h3 className="text-2xl font-semibold">Geen artikel gevonden </h3>
             </div>
           )}
         </div>

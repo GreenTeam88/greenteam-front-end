@@ -27,6 +27,7 @@ interface RouteWithPath {
 type HeaderColumnInfo = {
   title: string;
   link: string;
+
   subPages: (RouteWithPath | { name: string; subPages: RouteWithPath[] })[];
 };
 
@@ -46,6 +47,7 @@ const headerRoutes: HeaderRoute[] = [
       {
         link: '/merken',
         title: 'Merken',
+
         subPages: [
           { name: 'Ambiant', path: '/products/tapijten?Merk=%5B"ambiant"%5D' },
           { name: 'Best Wool Carpets', path: '' },
@@ -92,16 +94,16 @@ const headerRoutes: HeaderRoute[] = [
         title: 'Kleur',
         link: 'Kleur',
         subPages: [
-          { name: 'Blauw', path: 'Blauw' },
-          { name: 'Bruin en beige', path: 'Bruin en beige' },
-          { name: 'Geel', path: 'Geel' },
-          { name: 'Grijs', path: 'Grijs' },
-          { name: 'Groen', path: 'Groen' },
-          { name: 'Paars', path: 'Paars' },
-          { name: 'Rood', path: 'Rood' },
-          { name: 'Oranje', path: 'Oranje' },
-          { name: 'Zwart', path: 'Zwart' },
-          { name: 'Wit', path: 'Wit' },
+          { name: 'Blauw', path: '/products?colors=%5B"Blauw"%5D' },
+          { name: 'Bruin en beige', path: '/products?colors=%5B"Bruin en beige"%5D' },
+          { name: 'Geel', path: '/products?colors=%5B"Geel"%5D' },
+          { name: 'Grijs', path: '/products?colors=%5B"Grijs"%5D' },
+          { name: 'Groen', path: '/products?colors=%5B"Groen"%5D' },
+          { name: 'Paars', path: '/products?colors=%5B"Paars"%5D' },
+          { name: 'Rood', path: '/products?colors=%5B"Rood"%5D' },
+          { name: 'Oranje', path: '/products?colors=%5B"Oranje"%5D' },
+          { name: 'Zwart', path: '/products?colors=%5B"Zwart"%5D' },
+          { name: 'Wit', path: '/products?colors=%5B"Wit"%5D' },
         ],
       },
     ],
@@ -572,7 +574,7 @@ export const HeaderDropdowns = ({ routes }: { routes: HeaderRoute[] }) => {
 
 const DesktopHeader = () => {
   return (
-    <div className=" hidden lg:flex flex-col  z-40 w-full  fixed top-0 items-center left-0">
+    <div className=" hidden lg:flex flex-col   z-40 w-full  fixed top-0 items-center left-0">
       <div className="hidden lg:flex  w-full  flex-col  z-50 gap-[39px]  py-6 items-center bg-white">
         {/* the top section that includes the logo and the social links */}
         <HeaderTopSection />

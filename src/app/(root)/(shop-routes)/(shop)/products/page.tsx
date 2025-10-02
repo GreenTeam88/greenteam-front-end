@@ -97,9 +97,9 @@ export default async function Products({ searchParams }: { searchParams?: { [key
         })
       : data.products;
   return (
-    <div className="flex gap-3 ">
+    <div className="flex gap-3  ">
       <ProductsSidebar collections={allCollections} />
-      <div className="flex px-2 pt-5 max-w-[1440px] flex-col">
+      <div className="flex px-2 pt-5 relative z-0 max-w-[1440px] flex-col">
         <AllCarpetsHeader />
         <SearchProducts />
         <CollectionsSection collections={allCollections} />
