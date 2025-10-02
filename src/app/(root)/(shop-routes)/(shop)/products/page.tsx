@@ -13,7 +13,7 @@ export default async function Page({ searchParams }: { searchParams?: { [key: st
 
   const metafields: MetafieldFilter[] = [];
   const colors: string[] = JSON.parse((searchParams?.colors as string) || '[]');
-  for (let param in searchParams) {
+  for (const param in searchParams) {
     if (productsSidebarParams.find((sidebarParam) => sidebarParam.paramName === param)) {
       const paramValues: string[] = JSON.parse((searchParams[param] as string) || '[]');
       metafields.push({ title: param, value: paramValues });
@@ -28,7 +28,7 @@ export default async function Page({ searchParams }: { searchParams?: { [key: st
     colors.length && !colors.includes('Alle kleuren')
       ? data.products.filter((product) => {
           const colorsVariants = product.variants?.edges?.filter((edge) =>
-            edge.node.selectedOptions.find((selectedOption) => selectedOption.name === variantsOptionsNames.color)
+            edge.node?.selectedOptions?.find((selectedOption) => selectedOption.name === variantsOptionsNames.color)
           );
 
           const productColors = Array.from(

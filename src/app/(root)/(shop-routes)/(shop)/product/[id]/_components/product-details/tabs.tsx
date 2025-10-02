@@ -5,12 +5,12 @@ import { useState } from 'react';
 
 import { cn } from '@/lib/tailwind';
 import { AlternativeProducts } from './alternative-products';
-import { AtmosphericPhotos, PhotoData } from './atmospheric-photos';
+import { AtmosphericPhotos } from './atmospheric-photos';
 import { DescriptionTab } from './description';
 import { GoesWellWith } from './goes-well-with';
 import { NoDataProvided } from './no-data-provided';
 import { AllFeatures } from './product-features';
-import { ProsAndConsBody, ProsAndConsData } from './pros-and-cons';
+import { ProsAndConsBody } from './pros-and-cons';
 import { RelatedProducts } from './related-products';
 
 // the config of the tabs

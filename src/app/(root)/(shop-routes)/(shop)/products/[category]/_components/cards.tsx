@@ -8,7 +8,6 @@ import { Button } from '@/components/ui/button';
 export const StandardProductCard = ({ product }: { product: Product }) => {
   const productImages = product?.images.edges.map((edge) => edge.node.url);
   const productImage = productImages[0];
-  const firstVariant = product?.variants?.edges[0] && product.variants.edges[0].node;
   const { currencySymbol, amount } = useMoney(product.priceRange.minVariantPrice);
   const oldPrice = product.metafields?.find((metafield) => metafield?.key === 'old_price')?.value;
   return (

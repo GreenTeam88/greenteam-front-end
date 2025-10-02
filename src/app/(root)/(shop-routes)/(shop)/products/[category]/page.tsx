@@ -23,7 +23,7 @@ export default async function Page({
     .map((mark) => mark?.toLocaleLowerCase())
     .filter(Boolean) as string[];
   const allParams = getSidebarParams({ marks }).filter(Boolean);
-  for (let param of allParams) {
+  for (const param of allParams) {
     const selectedParams: string[] = JSON.parse((searchParams[param.title] as string | undefined) || '[]');
     if (selectedParams.length) {
       filteredProducts = filteredProducts.filter((product) =>

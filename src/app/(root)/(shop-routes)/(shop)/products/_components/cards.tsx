@@ -10,7 +10,6 @@ import { colorsHexCodesMap, variantsOptionsNames } from '@/config/shop-config';
 
 export const ProductCard = ({ product }: { product: Product }) => {
   const productImage = product.images?.nodes && product.images?.nodes[0]?.url;
-  const firstVariant = product?.variants?.edges[0] && product.variants.edges[0].node;
   const colorsVariants = product.variants?.edges?.filter((edge) =>
     edge.node.selectedOptions.find((selectedOption) => selectedOption.name === variantsOptionsNames.color)
   );

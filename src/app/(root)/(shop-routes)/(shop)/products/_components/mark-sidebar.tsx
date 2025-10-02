@@ -1,15 +1,12 @@
 'use client';
 
-import { Button } from '@mui/material';
 import { ArrowBigLeftDash } from 'lucide-react';
 import { useRouter, useSearchParams } from 'next/navigation';
 import { useState } from 'react';
 
-import { CloseIcon } from '@/components/icons/close';
 import { getSidebarParams, ParamData } from '../[category]/config/main';
 
 const ParamUI: React.FC<ParamData & { category: string }> = ({ params, title, category }) => {
-  const [isOpen, setIsOpen] = useState(false);
   const searchParams = useSearchParams();
   const selectedParams: string[] = JSON.parse(searchParams.get(title) || '[]');
   const router = useRouter();
@@ -39,14 +36,18 @@ const ParamUI: React.FC<ParamData & { category: string }> = ({ params, title, ca
   };
   return (
     <div className="flex flex-col gap-2">
-      <div onClick={() => setIsOpen((val) => !val)} className="flex gap-1 items-center">
+      <div className="flex gap-1 items-center">
         <div className="bg-black w-[11px] h-[2px]"></div>
 
         <h3 className="font-semibold ">{title}</h3>
       </div>
       <div className="flex flex-col gap-1">
         {params.map((param) => (
-          <div onClick={() => handleToggleParam({ param })} className="flex gap-1 items-center cursor-pointer">
+          <div
+            key={param}
+            onClick={() => handleToggleParam({ param })}
+            className="flex gap-1 items-center cursor-pointer"
+          >
             <div className="w-[10px] h-[10px] laptop:w-[14px] laptop:h-[14px] rounded-full border-[0.4px] border-black p-[2px] ">
               {selectedParams.includes(param) && <div className="bg-[#195B35]  rounded-full w-full h-full"></div>}
             </div>
@@ -66,7 +67,7 @@ export const MarkSidebar = ({ marks, category }: { marks: string[]; category: st
     <>
       <div className="lg:flex  flex-col gap-3 hidden  bg-[#F3F7F5] py-4 pl-4 h-fit rounded-[13px] pr-10">
         {allParams.map((param) => (
-          <ParamUI title={param.title} params={param.params} category={category} />
+          <ParamUI key={param.title} title={param.title} params={param.params} category={category} />
         ))}
       </div>
       <div className="lg:hidden absolute top-[106px] right-0 flex flex-col px-1">
@@ -85,7 +86,7 @@ export const MarkSidebar = ({ marks, category }: { marks: string[]; category: st
           <div>
             <div className="flex bg-bgColor px-3 py-3 flex-col gap-1">
               {allParams.map((param) => (
-                <ParamUI title={param.title} params={param.params} category={category} />
+                <ParamUI key={param.title} title={param.title} params={param.params} category={category} />
               ))}
             </div>
           </div>
