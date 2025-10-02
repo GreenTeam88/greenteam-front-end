@@ -3,7 +3,6 @@
 import { Collection, PageInfo, Product } from '@shopify/hydrogen-react/storefront-api-types';
 
 import { productsPageConfig } from '@/app/(root)/(shop-routes)/(shop)/products/config';
-import { appConfig } from '@/config';
 import { storefrontAdmin } from './admin-init';
 import { buildColorQuery, buildMetafieldQuery, MetafieldFilter, queriesCombiner } from './query';
 import { shopifyAdminFetch } from './test';
@@ -93,7 +92,7 @@ export async function getAllProducts({
   const metafieldQuery = metafields?.length ? `${buildMetafieldQuery(metafields)}` : null;
   const colorsQuery = colors.length ? buildColorQuery(colors.filter((color) => color !== 'Alle kleuren')) : null;
   const pageCursor = cursor ? `${direction}: "${cursor}"` : '';
-  let query: null | string = queriesCombiner([metafieldQuery, colorsQuery]);
+  const query: null | string = queriesCombiner([metafieldQuery, colorsQuery]);
 
   const GET_PRODUCTS_QUERY = `{
   products(

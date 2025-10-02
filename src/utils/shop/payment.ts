@@ -1,4 +1,3 @@
-import { storefrontAdmin } from './admin-init';
 import { shopifyAdminRequest } from './query-tools';
 
 const CREATE_CHECKOUT = `
