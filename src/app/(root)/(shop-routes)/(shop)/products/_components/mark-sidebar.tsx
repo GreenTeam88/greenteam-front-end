@@ -60,8 +60,8 @@ const ParamUI: React.FC<ParamData & { category: string }> = ({ params, title, ca
   );
 };
 
-export const MarkSidebar = ({ marks, category }: { marks: string[]; category: string }) => {
-  const allParams = getSidebarParams({ marks });
+export const MarkSidebar = ({ category }: { category: string }) => {
+  const allParams = getSidebarParams();
   const [markSidebarOpen, setSidebarOpen] = useState(false);
   return (
     <>

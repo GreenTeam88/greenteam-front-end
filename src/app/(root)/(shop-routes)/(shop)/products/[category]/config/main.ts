@@ -4,7 +4,7 @@ import { colorsHexCodesMap } from '@/config/shop-config';
 
 export type ParamData = { name: string; title: string; params: string[] };
 
-export const getSidebarParams = ({ marks }: { marks: string[] }): ParamData[] => {
+export const getSidebarParams = (): ParamData[] => {
   return [
     {
       name: 'mark',

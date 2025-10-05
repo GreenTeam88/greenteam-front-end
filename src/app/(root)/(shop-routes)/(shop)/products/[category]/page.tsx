@@ -5,7 +5,6 @@ import { getAllProducts } from '@/utils/shop/query-tools';
 import { MarkSidebar } from '../_components/mark-sidebar';
 import { StandardProductCard } from './_components/cards';
 import { PageHeader } from './_components/page-header';
-import { getSidebarParams } from './config/main';
 
 export default async function Page({
   params: { category },
@@ -53,7 +52,7 @@ export default async function Page({
       <PageHeader category={category} />
 
       <div className="flex px-2  max-w-full w-full lg:gap-6">
-        <MarkSidebar category={category} marks={Array.from(new Set(marks))} />
+        <MarkSidebar category={category} />
 
         <div className="flex flex-wrap gap-5 py-5 lg:py-0  max-w-full  w-full">
           {filteredProducts.length ? (
