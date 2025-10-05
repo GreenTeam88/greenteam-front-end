@@ -28,7 +28,7 @@ export default async function Page({
   const direction: string | null = searchParams?.direction || null;
   const allProducts = await getAllProducts({ metafields, colors: [], cursor, direction });
 
-  let filteredProducts = allProducts.products.filter((product) => product.productType === category);
+  const filteredProducts = allProducts.products.filter((product) => product.productType === category);
   const marksData = allProducts.products.map((product) =>
     product.metafields?.find((metafield) => metafield?.key === 'mark')
   );
