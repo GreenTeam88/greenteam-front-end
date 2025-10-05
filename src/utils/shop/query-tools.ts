@@ -182,17 +182,17 @@ export async function getAllProducts({
 
   const products = response.data.products.edges.map((edge) => edge.node);
 
-  products.forEach((product) => {
-    // Extract all variant colors for this product
-    const colors = product.variants.edges
-      .map((variantEdge) => {
-        const option = variantEdge.node.selectedOptions.find(
-          (opt: { name: string; value: string }) => opt.name.toLowerCase() === 'color'
-        );
-        return option?.value;
-      })
-      .filter(Boolean); // removes undefined
-  });
+  // products.forEach((product) => {
+  // Extract all variant colors for this product
+  //   const colors = product.variants.edges
+  //     .map((variantEdge) => {
+  //       const option = variantEdge.node.selectedOptions.find(
+  //         (opt: { name: string; value: string }) => opt.name.toLowerCase() === 'color'
+  //       );
+  //       return option?.value;
+  //     })
+  //     .filter(Boolean); // removes undefined
+  // });
 
   const pageInfo = response?.data?.products?.pageInfo;
   console.log('length', response?.data.products.edges.length);
