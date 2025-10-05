@@ -1,6 +1,7 @@
 'use client';
 
 import { useCart } from '@shopify/hydrogen-react';
+import { ShoppingCart } from 'lucide-react';
 
 import { useCartStore } from '@/store/cart';
 
@@ -88,7 +89,7 @@ export const CartOpener = () => {
           color: '#fff',
         }}
       >
-        <span className="text-lg">🛒</span>
+        <ShoppingCart />
         <span className="font-medium">Cart</span>
         {lines?.length ||
           (0 > 0 && (

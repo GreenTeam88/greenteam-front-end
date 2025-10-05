@@ -11,7 +11,6 @@ import { productsSidebarParams } from './config/main';
 
 export default async function Page({ searchParams }: { searchParams?: { [key: string]: string | undefined } }) {
   const allCollections = await getShopifyCollections();
-  console.log('all collections', allCollections.length);
   const metafields: MetafieldFilter[] = [];
   const colors: string[] = JSON.parse((searchParams?.colors as string) || '[]');
   for (const param in searchParams) {
