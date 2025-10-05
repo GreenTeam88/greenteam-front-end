@@ -180,7 +180,7 @@ export async function getAllProducts({
     };
   }>(GET_PRODUCTS_QUERY);
 
-  const products = response.data.products.edges.map((edge) => edge.node);
+  // const products = response.data.products.edges.map((edge) => edge.node);
 
   // products.forEach((product) => {
   // Extract all variant colors for this product
