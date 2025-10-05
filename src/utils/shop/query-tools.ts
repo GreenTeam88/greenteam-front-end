@@ -93,7 +93,7 @@ export async function getAllProducts({
   const colorsQuery = colors.length ? buildColorQuery(colors.filter((color) => color !== 'Alle kleuren')) : null;
   const pageCursor = cursor ? `${direction}: "${cursor}"` : '';
   const query: null | string = queriesCombiner([metafieldQuery, colorsQuery]);
-
+  console.log('query is', query);
   const GET_PRODUCTS_QUERY = `{
   products(
      ${direction === 'before' ? 'last' : 'first'}: ${productsPageConfig.itemsPerPage} ,
@@ -194,14 +194,10 @@ export async function getAllProducts({
         return option?.value;
       })
       .filter(Boolean); // removes undefined
-
-    console.log(`Product: ${product.title}`);
-    console.log('Colors:', colors);
   });
 
   const pageInfo = response?.data?.products?.pageInfo;
-  console.log('response', response, pageInfo);
-
+  console.log('length', response?.data.products.edges.length);
   return { products: response?.data.products.edges.map((edge) => edge.node) || [], pageInfo };
 }
 

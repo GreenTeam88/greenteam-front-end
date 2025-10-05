@@ -24,7 +24,7 @@ export const ProductCard = ({ product }: { product: Product }) => {
     )
   );
   return (
-    <div className="flex flex-col">
+    <div className="flex flex-col bg-green-400">
       <div className="w-[282px] h-[282px] relative">
         {productImage ? (
           <img src={productImage} className="w-full h-full absolute  rounded-t-lg " />

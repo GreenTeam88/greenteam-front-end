@@ -15,3 +15,26 @@ export const variantsOptionsNames = {
   size: 'size',
   color: 'Color',
 };
+
+export const shopifyProductMetafields = [
+  'related_products',
+  'goes_well_width_products',
+  'atmospheric_photos',
+  'pros_cons',
+  'Verfmethode',
+  'Garenverf',
+  'Polyester',
+  'Gemiddeld',
+  'Wonen en werken',
+  'Wonen',
+  'Licht projectgebruik',
+  'Licht woongebruik',
+  'mark',
+  'all-features',
+  'product-reviews',
+  'description',
+  'old-price',
+  'ratings-number',
+  'ratings-average',
+  'deliverytime',
+];

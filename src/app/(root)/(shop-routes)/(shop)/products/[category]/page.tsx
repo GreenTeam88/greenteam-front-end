@@ -1,3 +1,5 @@
+import { shopifyProductMetafields } from '@/config/shop-config';
+import { MetafieldFilter } from '@/utils/shop/query';
 import { getAllProducts } from '@/utils/shop/query-tools';
 import { MarkSidebar } from '../_components/mark-sidebar';
 import { StandardProductCard } from './_components/cards';
@@ -11,26 +13,35 @@ export default async function Page({
   params: { category: string };
   searchParams: { [key: string]: string | string[] | undefined };
 }) {
-  const allProducts = await getAllProducts({ metafields: [], colors: [], cursor: null, direction: null });
+  const metafieldsKeys = Object.keys(searchParams).filter((searchParam) =>
+    shopifyProductMetafields.includes(searchParam)
+  );
+  const metafields: MetafieldFilter[] = metafieldsKeys.map((metafield) => ({
+    title: metafield,
+    value: JSON.parse((searchParams[metafield] as string) || '[]'),
+  }));
+  const allProducts = await getAllProducts({ metafields, colors: [], cursor: null, direction: null });
 
   let filteredProducts = allProducts.products.filter((product) => product.productType === category);
   const marksData = allProducts.products.map((product) =>
     product.metafields?.find((metafield) => metafield?.key === 'mark')
   );
+
   const marks: string[] = marksData
     .map((mark) => mark?.value)
-    .filter((mark) => typeof mark === 'string')
+
     .map((mark) => mark?.toLocaleLowerCase())
     .filter(Boolean) as string[];
+  console.log('marks', marks, marksData);
   const allParams = getSidebarParams({ marks }).filter(Boolean);
-  for (const param of allParams) {
-    const selectedParams: string[] = JSON.parse((searchParams[param.title] as string | undefined) || '[]');
-    if (selectedParams.length) {
-      filteredProducts = filteredProducts.filter((product) =>
-        product.metafields?.find((metafield) => selectedParams.includes(metafield?.value.toLowerCase() || ''))
-      );
-    }
-  }
+  // for (const param of allParams) {
+  //   const selectedParams: string[] = JSON.parse((searchParams[param.title] as string | undefined) || '[]');
+  //   if (selectedParams.length) {
+  //     filteredProducts = filteredProducts.filter((product) =>
+  //       product.metafields?.find((metafield) => selectedParams.includes(metafield?.value.toLowerCase() || ''))
+  //     );
+  //   }
+  // }
   return (
     <div className="flex flex-col  gap-3 max-w-[1400px]">
       <PageHeader category={category} />
