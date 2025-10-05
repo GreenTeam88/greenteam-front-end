@@ -1,15 +1,13 @@
 'use client';
 
-import { useMoney } from '@shopify/hydrogen-react';
 import { Product } from '@shopify/hydrogen-react/storefront-api-types';
+import Link from 'next/link';
 
 import { Button } from '@/components/ui/button';
 
 export const StandardProductCard = ({ product }: { product: Product }) => {
   const productImages = product?.images.edges.map((edge) => edge.node.url);
   const productImage = productImages[0];
-  const { currencySymbol, amount } = useMoney(product.priceRange.minVariantPrice);
-  const oldPrice = product.metafields?.find((metafield) => metafield?.key === 'old_price')?.value;
   return (
     <div className="flex bg-[#F9FBFA] h-fit border-[#020202] border-opacity-[13%] rounded-b-[8px] border flex-col w-full lg:w-[278px] ">
       <img src={productImage} className="h-[161px] w-full " />
@@ -24,8 +22,8 @@ export const StandardProductCard = ({ product }: { product: Product }) => {
           </p>
         </div>
         <div>
-          <Button className="px-4" variant="tertiary">
-            Toon informatie
+          <Button asChild className="px-4" variant="tertiary">
+            <Link href={`/product/${encodeURIComponent(product.id)}`}>Toon informatie</Link>
           </Button>
         </div>
       </div>

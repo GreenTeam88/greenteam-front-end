@@ -1,3 +1,4 @@
+import { Pagination } from '@/components/shop/pagination';
 import { shopifyProductMetafields } from '@/config/shop-config';
 import { MetafieldFilter } from '@/utils/shop/query';
 import { getAllProducts } from '@/utils/shop/query-tools';
@@ -11,7 +12,11 @@ export default async function Page({
   searchParams,
 }: {
   params: { category: string };
-  searchParams: { [key: string]: string | string[] | undefined };
+  searchParams: {
+    [key: string]: string | string[] | undefined;
+    cursor: string | undefined;
+    direction: string | undefined;
+  };
 }) {
   const metafieldsKeys = Object.keys(searchParams).filter((searchParam) =>
     shopifyProductMetafields.includes(searchParam)
@@ -20,7 +25,9 @@ export default async function Page({
     title: metafield,
     value: JSON.parse((searchParams[metafield] as string) || '[]'),
   }));
-  const allProducts = await getAllProducts({ metafields, colors: [], cursor: null, direction: null });
+  const cursor: string | null = searchParams?.cursor || null;
+  const direction: string | null = searchParams?.direction || null;
+  const allProducts = await getAllProducts({ metafields, colors: [], cursor, direction });
 
   let filteredProducts = allProducts.products.filter((product) => product.productType === category);
   const marksData = allProducts.products.map((product) =>
@@ -56,6 +63,7 @@ export default async function Page({
               <h3 className="text-2xl font-semibold">Geen artikel gevonden </h3>
             </div>
           )}
+          <Pagination {...allProducts.pageInfo} />
         </div>
       </div>
     </div>
