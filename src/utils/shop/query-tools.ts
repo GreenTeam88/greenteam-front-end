@@ -91,14 +91,12 @@ export async function getAllProducts({
 }): Promise<{ products: Product[]; pageInfo: PageInfo }> {
   const metafieldQuery = metafields?.length ? `${buildMetafieldQuery(metafields)}` : null;
   const colorsQuery = colors.length ? buildColorQuery(colors.filter((color) => color !== 'Alle kleuren')) : null;
-  const pageCursor = cursor ? `${direction}: "${cursor}"` : '';
+  const pageCursor = cursor ? `${direction}: "${cursor}"` : ``;
   const query: null | string = queriesCombiner([metafieldQuery, colorsQuery]);
-  console.log('query is', query);
+  console.log('page cursor', pageCursor);
   const GET_PRODUCTS_QUERY = `{
   products(
-     ${direction === 'before' ? 'last' : 'first'}: ${productsPageConfig.itemsPerPage} ,
-     ${query}
-     ${pageCursor}
+     ${direction === 'before' ? 'last' : 'first'}: ${productsPageConfig.itemsPerPage} , ${query}  ${pageCursor}
   ) {
     edges {
       node {

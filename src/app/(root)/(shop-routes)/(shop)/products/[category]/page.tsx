@@ -33,7 +33,6 @@ export default async function Page({
     .map((mark) => mark?.toLocaleLowerCase())
     .filter(Boolean) as string[];
   console.log('marks', marks, marksData);
-  const allParams = getSidebarParams({ marks }).filter(Boolean);
   // for (const param of allParams) {
   //   const selectedParams: string[] = JSON.parse((searchParams[param.title] as string | undefined) || '[]');
   //   if (selectedParams.length) {
@@ -46,10 +45,10 @@ export default async function Page({
     <div className="flex flex-col  gap-3 max-w-[1400px]">
       <PageHeader category={category} />
 
-      <div className="flex px-2  max-w-full w-full gap-2">
+      <div className="flex px-2  max-w-full w-full lg:gap-6">
         <MarkSidebar category={category} marks={Array.from(new Set(marks))} />
 
-        <div className="flex flex-wrap gap-5 py-5 max-w-full  w-full">
+        <div className="flex flex-wrap gap-5 py-5 lg:py-0  max-w-full  w-full">
           {filteredProducts.length ? (
             filteredProducts.map((product) => <StandardProductCard product={product} key={product.id} />)
           ) : (

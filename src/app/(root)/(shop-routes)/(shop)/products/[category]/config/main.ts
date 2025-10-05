@@ -2,29 +2,34 @@
 
 import { colorsHexCodesMap } from '@/config/shop-config';
 
-export type ParamData = { title: string; params: string[] };
+export type ParamData = { name: string; title: string; params: string[] };
 
 export const getSidebarParams = ({ marks }: { marks: string[] }): ParamData[] => {
   return [
     {
+      name: 'mark',
       title: 'Merk',
-      params: marks,
+      params: [
+        'Ambiant',
+        'Best Wool Carpets',
+        'Belakos',
+        'Bonaparte',
+        'Desso',
+        'Forbo',
+        'Gelasta',
+        'Hamat',
+        'Interfloor',
+        'Lano',
+        'Parade',
+        'Sfeervol Wonen',
+        'Smartstrand',
+        'Tretford',
+      ],
     },
     {
+      name: 'colors',
       title: 'Kleur',
       params: Object.keys(colorsHexCodesMap),
-    },
-    {
-      title: 'Groef',
-      params: [],
-    },
-    {
-      title: 'Model',
-      params: [],
-    },
-    {
-      title: 'Slijtlaag dikte',
-      params: [],
     },
   ];
 };
