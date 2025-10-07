@@ -153,7 +153,6 @@ Fixes #123
 ```
 
 ```
-removecommentjustforcommit
 
 git commit -m "fix(code cleaning): fix typecheck and lint errors" -m "This update fixes errors related to types and lint." -m "Related to issue #001"
 ```
