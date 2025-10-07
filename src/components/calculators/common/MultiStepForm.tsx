@@ -579,7 +579,6 @@ const MultiStepForm: React.FC<MultiStepFormProps> = ({ category }) => {
       });
 
       if (response.ok) {
-        const result = await response.json();
         alert('Form submitted successfully!');
         window.location.href = `/bedankt?page=${pathname}`;
       } else {
