@@ -17,20 +17,20 @@ export const CartUI = () => {
         className="p-2 rounded-2xl"
         style={{ background: '#217946', color: '#fff' }}
       >
-        🛒 Cart ({lines?.length})
+        🛒 Winkelwagen ({lines?.length})
       </button>
       {isOpen && (
         <div
           className="fixed top-0 right-0 w-80 h-full shadow-lg p-4"
           style={{ background: '#F9FBFA', color: '#212529' }}
         >
-          <h2 className="text-lg font-bold mb-4">Your Cart</h2>
+          <h2 className="text-lg font-bold mb-4">Jouw winkelwagen</h2>
           <div className="absolute top-5 right-5" onClick={() => set({ isOpen: false })}>
             <i className="bi hover:text-red-500 hover:text-2xl cursor-pointer bi-x-lg"></i>
           </div>
 
           {lines?.length === 0 ? (
-            <p>Your cart is empty.</p>
+            <p>Jouw winkelwagen is leeg</p>
           ) : (
             <ul className="space-y-3">
               {lines?.map((line) => (
@@ -65,7 +65,7 @@ export const CartUI = () => {
                 className="block text-center mt-3 py-2 rounded-2xl"
                 style={{ background: '#217946', color: '#fff' }}
               >
-                Checkout
+                Afrekenen
               </a>
             )}
           </div>
@@ -90,7 +90,7 @@ export const CartOpener = () => {
         }}
       >
         <ShoppingCart />
-        <span className="font-medium">Cart</span>
+        <span className="font-medium">Winkelwagen</span>
         {lines?.length ||
           (0 > 0 && (
             <span className="ml-2 px-2 py-1 text-xs rounded-full" style={{ background: '#F56900', color: '#fff' }}>
