@@ -1,6 +1,6 @@
 export const AllCarpetsHeader = () => {
   return (
-    <div className="flex gap-2  flex-col lg:px-6  ">
+    <div className="flex gap-6 flex-col  ">
       <h2 className="text-[#464646] font-semibold text-2xl lg:text-[36px]">Alle tapijten</h2>
       <div className="flex laptop:items-center flex-col lg:flex-row gap-4">
         <img src="/shop/products/page-header.png" className="w-[266px] h-[114px]" />
