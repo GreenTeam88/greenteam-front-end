@@ -7,7 +7,7 @@ import { CartIcon } from '@/components/icons/cart';
 import { Button } from '@/components/ui/button';
 import { useSelectedVariants } from '@/store/selected-variants';
 
-export const AddToCartBtn = () => {
+export const AddToCartBtn: React.FC = () => {
   const { linesAdd } = useCart();
   const { selectedVariantId } = useSelectedVariants();
   const addProductToCart = async () => {

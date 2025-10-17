@@ -6,8 +6,11 @@ import Link from 'next/link';
 import { usePathname } from 'next/navigation';
 import React, { Dispatch, SetStateAction, useEffect, useRef, useState } from 'react';
 
+import { AccountIcon } from '@/components/icons/account';
+import { HeaderCartIcon } from '@/components/icons/cart';
 import { appConfig } from '@/config';
 import { cn } from '@/lib/tailwind';
+import { useCartStore } from '@/store/cart';
 import { DropDownIcon } from '../../icons/arrows';
 import { InstagramLogo, TikTokIcon } from '../../icons/homePageIcons';
 import { SecondaryBtnLink } from '../../theme/buttons';
@@ -217,12 +220,17 @@ const HeaderColumns: React.FC<{ hoveredLink: string }> = ({ hoveredLink }) => {
 
 // the top section of the header that includes logo and social links
 export const HeaderTopSection = () => {
+  const { set } = useCartStore();
   return (
     <div className="flex w-[1201px] bg-white items-center justify-between ">
-      <Link href="/">
-        {' '}
-        <img src={appConfig.logoSrcImg} />
-      </Link>
+      <div className="flex gap-[22px] items-center ">
+        <div className="cursor-pointer " onClick={() => window.open(appConfig.instagramAccount, '_blank')}>
+          <InstagramLogo />
+        </div>
+        <div className="cursor-pointer " onClick={() => window.open(appConfig.tiktokAccount, '_blank')}>
+          <TikTokIcon />
+        </div>
+      </div>
       <div className="flex items-center lg:min-w-[733px] p-[10px] justify-around">
         <motion.div
           className=" w-[15.32px] h-[16px] rounded-full"
@@ -233,17 +241,16 @@ export const HeaderTopSection = () => {
           }}
         ></motion.div>
         <TitleCarousel />
-        <div className="flex gap-[22px] items-center ">
-          <div className="cursor-pointer " onClick={() => window.open(appConfig.instagramAccount, '_blank')}>
-            <InstagramLogo />
-          </div>
-          <div className="cursor-pointer " onClick={() => window.open(appConfig.tiktokAccount, '_blank')}>
-            <TikTokIcon />
-          </div>
+      </div>
+
+      <div className="flex gap-[22px] items-center ">
+        <div className="cursor-pointer ">
+          <AccountIcon />
+        </div>
+        <div onClick={() => set({ isOpen: true })} className="cursor-pointer ">
+          <HeaderCartIcon />
         </div>
       </div>
-      {/* removing secondary button default hovering */}
-      <SecondaryBtnLink href="/offerte">Offerte aanvragen</SecondaryBtnLink>
     </div>
   );
 };
@@ -450,19 +457,28 @@ export const HeaderLinksSection = ({ routes }: { routes: HeaderRoute[] }) => {
   return (
     <div
       onMouseLeave={() => setHoveredLink('')}
-      className="flex   flex-col items-center    gap-[39px] relative  justify-center "
+      className="flex   flex-col items-center    gap-[39px]  relative  justify-center "
     >
-      <div className="flex z-10   gap-[33px] py-1 w-full items-center ">
-        {routes.slice(0, 6).map((route, index) => (
-          <HeaderBoldLink
-            hoveredLink={hoveredLink}
-            key={route.name}
-            index={index}
-            route={route}
-            setHoveredLink={setHoveredLink}
-          />
-        ))}
+      <div className="w-full flex items-center gap-8 justify-between">
+        <Link href="/">
+          <img src={appConfig.logoSrcImg} />
+        </Link>
+        <div className="flex z-10   gap-[33px] py-1 w-full items-center ">
+          {routes.slice(0, 6).map((route, index) => (
+            <HeaderBoldLink
+              hoveredLink={hoveredLink}
+              key={route.name}
+              index={index}
+              route={route}
+              setHoveredLink={setHoveredLink}
+            />
+          ))}
+        </div>
+        <SecondaryBtnLink className="w-[220px]" href="/offerte">
+          Offerte aanvragen
+        </SecondaryBtnLink>
       </div>
+
       {hoveredLink && hoveredRoute && 'columns' in hoveredRoute && hoveredRoute.columns && (
         // the top is 30px if the hovered link at the first row (bold)
         // the top is 88px if the hovered link at the second row
