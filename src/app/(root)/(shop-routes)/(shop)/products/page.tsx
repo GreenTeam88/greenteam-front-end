@@ -47,7 +47,7 @@ export default async function Page({ searchParams }: { searchParams?: { [key: st
   return (
     <div className="flex gap-3  ">
       <ProductsSidebar collections={allCollections} />
-      <div className="flex px-2 pt-5 relative z-0 max-w-[1440px] flex-col">
+      <div className="flex  px-2 pt-5 lg:pt-0 relative z-0 max-w-[1440px] flex-col">
         <AllCarpetsHeader />
         <SearchProducts />
         <CollectionsSection collections={allCollections} />

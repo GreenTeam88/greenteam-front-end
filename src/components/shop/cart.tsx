@@ -7,7 +7,7 @@ import { Button } from '@/components/ui/button';
 import { useCartStore } from '@/store/cart';
 
 export const CartUI = () => {
-  const { lines, checkoutUrl, linesRemove } = useCart();
+  const { lines, cost, checkoutUrl, linesRemove } = useCart();
   const { isOpen, set } = useCartStore();
   const navigateToCheckout = () => {
     window.open(checkoutUrl, '_blank', 'noopener,noreferrer');
@@ -20,44 +20,54 @@ export const CartUI = () => {
         🛒 Winkelwagen ({lines?.length})
       </Button>
       {isOpen && (
-        <div className="fixed bg-lightGray top-0 right-0 w-80 h-full shadow-lg p-4" style={{ color: '#212529' }}>
-          <h2 className="text-lg font-bold mb-4">Jouw winkelwagen</h2>
-          <div className="absolute top-5 right-5" onClick={() => set({ isOpen: false })}>
-            <i className="bi hover:text-red-500 hover:text-2xl cursor-pointer bi-x-lg"></i>
+        <div className="fixed top-0 right-0 h-full w-80 bg-white border-l border-gray-200 shadow-xl p-6 flex flex-col z-50">
+          {/* Header */}
+          <div className="flex items-center justify-between mb-6">
+            <h2 className="text-xl font-semibold tracking-wide">Jouw winkelwagen</h2>
+            <button onClick={() => set({ isOpen: false })} className="text-gray-500 hover:text-red-500 transition">
+              <i className="bi bi-x-lg text-lg"></i>
+            </button>
           </div>
 
-          {lines?.length === 0 ? (
-            <p>Jouw winkelwagen is leeg</p>
-          ) : (
-            <ul className="space-y-3">
-              {lines?.map((line) => (
-                <li
-                  key={line?.id}
-                  className="flex justify-between items-center p-2 rounded-xl"
-                  style={{ background: '#F3F7F5' }}
-                >
-                  <div>
-                    <p>{line?.merchandise?.product?.title}</p>
-                    <p className="text-sm">
-                      {line?.merchandise?.title} × {line?.quantity}
-                    </p>
-                  </div>
-                  <button onClick={() => line?.id && linesRemove([line.id])} style={{ color: '#F56900' }}>
-                    ✕
-                  </button>
-                </li>
-              ))}
-            </ul>
-          )}
+          {/* Cart Items */}
+          <div className="flex-1 overflow-y-auto pr-1">
+            {lines?.length === 0 ? (
+              <p className="text-gray-500 text-sm">Jouw winkelwagen is leeg</p>
+            ) : (
+              <ul className="space-y-4">
+                {lines?.map((line) => (
+                  <li
+                    key={line?.id}
+                    className="flex justify-between items-center bg-gray-50 p-4 rounded-lg border border-gray-200"
+                  >
+                    <div className="text-sm space-y-1">
+                      <p className="font-medium text-gray-800">{line?.merchandise?.product?.title}</p>
+                      <p className="text-gray-500">
+                        {line?.merchandise?.title} × {line?.quantity}
+                      </p>
+                      <p className="font-semibold text-gray-800">
+                        {line?.cost?.totalAmount?.amount} {line?.cost?.totalAmount?.currencyCode}
+                      </p>
+                    </div>
 
-          {/* Checkout */}
-          <div className="mt-6">
-            {/* <p className="font-semibold">
-              Total: {totalPrice?.amount} {totalPrice?.currencyCode}
-            </p> */}
+                    <button
+                      onClick={() => line?.id && linesRemove([line.id])}
+                      className="text-red-500 hover:text-red-600 text-lg"
+                      aria-label="Remove item"
+                    >
+                      ✕
+                    </button>
+                  </li>
+                ))}
+              </ul>
+            )}
+          </div>
+
+          {/* Checkout Button */}
+          <div className="mt-6 border-t pt-4">
             {checkoutUrl && (
               <Button onClick={navigateToCheckout} className="w-full" variant="tertiary" size="sm">
-                Afrekenen
+                Afrekenen {cost?.totalAmount?.amount} {cost?.totalAmount?.currencyCode}
               </Button>
             )}
           </div>

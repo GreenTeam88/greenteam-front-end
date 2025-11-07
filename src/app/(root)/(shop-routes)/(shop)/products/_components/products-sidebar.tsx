@@ -136,7 +136,7 @@ const QuerySection = ({
   return (
     <div className="flex pt-3 pb-7 gap-4 flex-col w-full border-b-[#DFDFDF] border-b">
       <div className="flex w-full justify-start gap-6">
-        <h3 className="text-lg font-bold ">{title}</h3>
+        <h3 className="text-lg capitalize font-bold ">{title}</h3>
         <p>Uitleg</p>
       </div>
       {paramsValues.map((param) => (
