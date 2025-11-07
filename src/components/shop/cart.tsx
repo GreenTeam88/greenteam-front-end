@@ -3,27 +3,24 @@
 import { useCart } from '@shopify/hydrogen-react';
 import { ShoppingCart } from 'lucide-react';
 
+import { Button } from '@/components/ui/button';
 import { useCartStore } from '@/store/cart';
 
 export const CartUI = () => {
   const { lines, checkoutUrl, linesRemove } = useCart();
   const { isOpen, set } = useCartStore();
-  console.log('lines ', lines);
+  const navigateToCheckout = () => {
+    window.open(checkoutUrl, '_blank', 'noopener,noreferrer');
+  };
   if (!isOpen) return null;
+
   return (
-    <div className="fixed   top-96  z-[60] right-0">
-      <button
-        onClick={() => set({ isOpen: true })}
-        className="p-2 rounded-2xl"
-        style={{ background: '#217946', color: '#fff' }}
-      >
+    <div className="fixed    top-96  z-[60] right-0">
+      <Button variant="tertiary" onClick={() => set({ isOpen: true })}>
         🛒 Winkelwagen ({lines?.length})
-      </button>
+      </Button>
       {isOpen && (
-        <div
-          className="fixed top-0 right-0 w-80 h-full shadow-lg p-4"
-          style={{ background: '#F9FBFA', color: '#212529' }}
-        >
+        <div className="fixed bg-lightGray top-0 right-0 w-80 h-full shadow-lg p-4" style={{ color: '#212529' }}>
           <h2 className="text-lg font-bold mb-4">Jouw winkelwagen</h2>
           <div className="absolute top-5 right-5" onClick={() => set({ isOpen: false })}>
             <i className="bi hover:text-red-500 hover:text-2xl cursor-pointer bi-x-lg"></i>
@@ -59,14 +56,9 @@ export const CartUI = () => {
               Total: {totalPrice?.amount} {totalPrice?.currencyCode}
             </p> */}
             {checkoutUrl && (
-              <a
-                href={checkoutUrl}
-                target="_blank"
-                className="block text-center mt-3 py-2 rounded-2xl"
-                style={{ background: '#217946', color: '#fff' }}
-              >
+              <Button onClick={navigateToCheckout} className="w-full" variant="tertiary" size="sm">
                 Afrekenen
-              </a>
+              </Button>
             )}
           </div>
         </div>

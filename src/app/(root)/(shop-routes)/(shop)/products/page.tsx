@@ -23,7 +23,6 @@ export default async function Page({ searchParams }: { searchParams?: { [key: st
   const direction: string | null = searchParams?.direction || null;
   const data = await getAllProducts({ cursor, metafields, colors, direction });
   // filtering products based on the colors
-  console.log('colors', colors);
   const filteredProducts =
     colors.length && !colors.includes('Alle kleuren')
       ? data.products.filter((product) => {

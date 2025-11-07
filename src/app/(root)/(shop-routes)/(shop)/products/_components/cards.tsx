@@ -6,6 +6,7 @@ import Link from 'next/link';
 
 import { GiftIcon } from '@/components/icons/gift';
 import { TruckIcon } from '@/components/icons/truck';
+import { Button } from '@/components/ui/button';
 import { colorsHexCodesMap, variantsOptionsNames } from '@/config/shop-config';
 
 export const ProductCard = ({ product }: { product: Product }) => {
@@ -64,12 +65,14 @@ export const ProductCard = ({ product }: { product: Product }) => {
           {product?.metafields?.find((item) => item?.key === 'deliverytime')?.value || ' Levertijd 3 - 5 dagen'}
         </p>
       </div>
-      <Link
-        href={`/product/${encodeURIComponent(product.id)}`}
-        className="w-[275px] bg-[#195B35] border-[3px] border-[#195B35] h-[42px] rounded-[10px] text-white flex items-center justify-center font-semibold"
-      >
-        Bekijk {'>'}
-      </Link>
+      <Button asChild variant="tertiary">
+        <Link
+          href={`/product/${encodeURIComponent(product.id)}`}
+          // className="w-[275px] bg-[#195B35] border-[3px] border-[#195B35] h-[42px] rounded-[10px] text-white flex items-center justify-center font-semibold"
+        >
+          Bekijk {'>'}
+        </Link>
+      </Button>
     </div>
   );
 };

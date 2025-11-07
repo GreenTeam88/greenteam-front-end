@@ -187,10 +187,14 @@ const HeaderColumnItem: React.FC<
 
 // a column in the menu (when hovering over a certain link)
 
-const HeaderColumn: React.FC<HeaderColumnInfo & { index: number }> = ({ subPages, title, link }) => {
+const HeaderColumn: React.FC<HeaderColumnInfo & { index: number }> = ({ index, subPages, title, link }) => {
   return (
     <>
-      <div className="flex flex-col  border-l px-11 max-w-[200px] border-l-[#1C1C1C] border-opacity-20   gap-[11px]">
+      <div
+        className={cn('flex flex-col    px-11 max-w-[200px] border-l-[#1C1C1C] border-opacity-20   gap-[11px]', {
+          'border-l': index !== 0,
+        })}
+      >
         <Link href={link} className="text-sm font-semibold hover:text-secondaryDefault text-primaryDefault ">
           {title}
         </Link>

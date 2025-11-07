@@ -13,7 +13,7 @@ export const AddToCartBtn: React.FC = () => {
   const addProductToCart = async () => {
     if (!selectedVariantId) return;
     await linesAdd([{ merchandiseId: selectedVariantId, quantity: 1 }]);
-    toast.success('Your product has been added to the cart!');
+    toast.success('Uw product is toegevoegd aan uw winkelwagen!');
   };
   return (
     <div className="w-full items-center justify-center">
