@@ -5,6 +5,7 @@ import { ShoppingCart } from 'lucide-react';
 
 import { Button } from '@/components/ui/button';
 import { useCartStore } from '@/store/cart';
+import { SecondaryBtn } from '../theme/buttons';
 
 export const CartUI = () => {
   const { lines, cost, checkoutUrl, linesRemove } = useCart();
@@ -83,13 +84,13 @@ export const CartOpener = () => {
   return (
     <>
       {/* Floating Button for the cart*/}
-      <button
+      <SecondaryBtn
         onClick={() => set({ isOpen: true })}
         className="fixed bottom-6 z-50 right-6 flex items-center gap-2 px-5 py-3 rounded-full shadow-lg transition-transform hover:scale-105"
-        style={{
-          background: '#217946',
-          color: '#fff',
-        }}
+        // style={{
+        //   background: '#217946',
+        //   color: '#fff',
+        // }}
       >
         <ShoppingCart />
         <span className="font-medium">Winkelwagen</span>
@@ -99,7 +100,7 @@ export const CartOpener = () => {
               {lines?.length}
             </span>
           ))}
-      </button>
+      </SecondaryBtn>
     </>
   );
 };

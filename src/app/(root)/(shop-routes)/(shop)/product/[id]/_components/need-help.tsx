@@ -9,15 +9,17 @@ export const NeedHelp = () => {
           <div className="text-[#212529] font-bold text-[19px]">Bel nu:</div>
           <div className="flex gap-1">
             <PhoneIcon />
-            <p className="text-[#195B35] underline">085-401 93 45</p>
+            <a className="text-[#195B35] underline" href="tel:085-401 93 45">
+              085-401 93 45
+            </a>
           </div>
         </div>
         <p className="text-[#212529] px-2 lg:px-0 text-center lg:text-start">
           Direct iemand spreken <span className="font-bold">maandag t/m vrijdag van 9.00 - 17.00</span>
         </p>
-        <p className="text-[#212529]">
+        <a href="mailto:info@greenteam.nl" className="text-[#212529]">
           Buiten openingstijden: <span className="text-[#195B35]">info@greenteam.nl</span>
-        </p>
+        </a>
       </div>
     </div>
   );
