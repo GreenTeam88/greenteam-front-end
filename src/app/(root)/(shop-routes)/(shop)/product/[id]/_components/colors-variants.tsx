@@ -102,7 +102,7 @@ export const ColorsVariants = ({ product }: { product: Product }) => {
               </div>
               <div className="w-full flex-col gap-3 rounded-[10px] bg-[#217946] bg-opacity-[12%] h-[100px] flex items-center justify-center">
                 <h3 className="font-bold text-[#212529] leading-[24px]">Nog niet uit over de kleur?</h3>
-                <Link href="/color-samples" className="text-[#195B35] underline leading-[24px]">
+                <Link href="/experience" className="text-[#195B35] underline leading-[24px]">
                   Bestel gratis 3 kleurstalen
                 </Link>
               </div>
