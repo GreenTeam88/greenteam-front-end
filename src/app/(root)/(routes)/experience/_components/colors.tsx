@@ -61,7 +61,7 @@ export const Colors = () => {
       </div>
       <div className="flex gap-8 w-full max-w-[1340px] flex-wrap">
         {colors.map((color) => (
-          <div className="flex flex-col gap-2">
+          <div key={color.name} className="flex flex-col gap-2">
             <img src={color.image} className="w-[168px] h-[168px]" />
             <h3>{color.name}</h3>
           </div>
