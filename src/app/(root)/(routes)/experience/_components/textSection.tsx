@@ -2,7 +2,7 @@ import { SmallDoneIcon } from '@/components/icons/done';
 
 export const TextSection = () => {
   return (
-    <div className="flex flex-col py-14 gap-5">
+    <div className="flex flex-col  px-2  py-14 gap-5">
       <h3 className="text-[#212529] font-semibold text-[36px]">Gratis kleurstalen — Kies, bestel en ervaar thuis.</h3>
       <p className="text-[#212529]">
         Ontdek uw perfecte vloer. Vraag gratis stalen aan en ervaar zelf de kleur, stof en structuur.

@@ -52,7 +52,7 @@ const colors: Color[] = [
 
 export const Colors = () => {
   return (
-    <div className="flex border-t gap-7 border-[#E0E0E0] py-6 flex-wrap w-full flex-col">
+    <div className="flex px-2 border-t gap-7 border-[#E0E0E0] py-6 flex-wrap w-full flex-col">
       <div className="flex w-full gap-1 ">
         <div className="bg-primaryDefault w-[25px] h-[25px] rounded-[4px] text-sm text-white flex items-center justify-center ">
           1
