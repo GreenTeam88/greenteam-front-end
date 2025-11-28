@@ -6,12 +6,14 @@ import { useEffect, useState } from 'react';
 import { TickDropDownIcon } from '@/components/icons/arrows';
 import { CalculationIcon } from '@/components/icons/calculation';
 import { cn } from '@/lib/tailwind';
+import { useModalsStore } from '@/store/modals';
 import { useSelectedVariants } from '@/store/selected-variants';
 
 export const SizeCalculation = ({}: { product: Product }) => {
   const [length, setLength] = useState(0);
   const [width, setWidth] = useState(1);
   const { set, linearLength } = useSelectedVariants();
+  const { set: setModals } = useModalsStore();
   const [boxOpened, setBoxOpened] = useState(true);
   const [calculationBoxOpened, setCalculationBoxOpened] = useState(true);
 
@@ -61,7 +63,12 @@ export const SizeCalculation = ({}: { product: Product }) => {
               <div className="flex gap-3 items-center">
                 <CalculationIcon />
                 <h3 className="font-bold leading-[24px]">Onzeker over de hoeveelheid?</h3>
-                <p className="underline decoration-dotted leading-tight  items-start flex">Uitleg</p>
+                <p
+                  onClick={() => setModals({ sizeDetailsModal: true })}
+                  className="underline cursor-pointer decoration-dotted leading-tight  items-start flex"
+                >
+                  Uitleg
+                </p>
               </div>
               <div
                 className={cn('cursor-pointer  ', { 'rotate-180': !calculationBoxOpened })}

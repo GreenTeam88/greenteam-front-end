@@ -7,6 +7,7 @@ import { useEffect, useState } from 'react';
 import { TickDropDownIcon } from '@/components/icons/arrows';
 import { variantsOptionsNames } from '@/config/shop-config';
 import { cn } from '@/lib/tailwind';
+import { useModalsStore } from '@/store/modals';
 import { useSelectedVariants } from '@/store/selected-variants';
 
 export const SizeVariantBox = ({ option, variant }: { option: string; variant: ProductVariant }) => {
@@ -39,6 +40,7 @@ export const SizeVariantBox = ({ option, variant }: { option: string; variant: P
 export const SizeVariants = ({ product }: { product: Product }) => {
   const [boxOpened, setBoxOpened] = useState(true);
   const { color, set } = useSelectedVariants();
+  const { set: SetModals } = useModalsStore();
   // const variant = product.variants.edges.find((edge) => edge.node.id === selectedVariantId)?.node;
   const sizeVariants = product.variants.edges.filter((edge) =>
     edge.node.selectedOptions.find((selectedOption) => selectedOption.name === variantsOptionsNames.size)

@@ -1,5 +1,6 @@
 import { notFound } from 'next/navigation';
 
+import { SizeDetailsModal } from '@/modals/sizeDetails';
 import { getProductById } from '@/utils/shop/query-tools';
 import { CategorySection } from '../../_components/category';
 import { AddToCartBtn } from './_components/add-to-cart-btn';
@@ -20,23 +21,26 @@ export default async function ProductPage({ params: { id } }: { params: { id: st
   const productImages = product?.images.edges.map((edge) => edge.node.url);
 
   return (
-    <div className="flex pt-5 px-2 lg:px-0 max-w-[1440px] flex-col">
-      <CategorySection />
-      <div className="flex flex-col  lg:flex-row gap-3">
-        <ImagesSection images={productImages || []} />
-        <div className="flex flex-col gap-3">
-          <ProductBasicInfo product={product} />
-          <ColorsVariants product={product} />
-          <SizeVariants product={product} />
-          <SizeCalculation product={product} />
-          <AddToCartBtn />
-          <NeedHelp />
-          <FloorInstalation />
+    <>
+      <SizeDetailsModal />
+      <div className="flex pt-5 px-2 lg:px-0 max-w-[1440px] flex-col">
+        <CategorySection />
+        <div className="flex flex-col  lg:flex-row gap-3">
+          <ImagesSection images={productImages || []} />
+          <div className="flex flex-col gap-3">
+            <ProductBasicInfo product={product} />
+            <ColorsVariants product={product} />
+            <SizeVariants product={product} />
+            <SizeCalculation product={product} />
+            <AddToCartBtn />
+            <NeedHelp />
+            <FloorInstalation />
+          </div>
         </div>
-      </div>
-      <ProductTabs product={product} />
+        <ProductTabs product={product} />
 
-      <ProductContactInfo />
-    </div>
+        <ProductContactInfo />
+      </div>
+    </>
   );
 }
