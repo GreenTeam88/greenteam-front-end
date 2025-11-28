@@ -62,7 +62,7 @@ export default async function Page({
               <h3 className="text-2xl font-semibold">Geen artikel gevonden </h3>
             </div>
           )}
-          <Pagination {...allProducts.pageInfo} />
+          {allProducts.pageInfo && <Pagination {...allProducts.pageInfo} />}
         </div>
       </div>
     </div>
