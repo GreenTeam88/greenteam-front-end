@@ -5,7 +5,6 @@ import { Collection, PageInfo, Product } from '@shopify/hydrogen-react/storefron
 import { productsPageConfig } from '@/app/(root)/(shop-routes)/(shop)/products/config';
 import { storefrontAdmin } from './admin-init';
 import { buildColorQuery, buildMetafieldQuery, MetafieldFilter, queriesCombiner } from './query';
-import { shopifyAdminFetch } from './test';
 
 export async function shopifyAdminRequest<T>(query: string, variables: Record<string, any> = {}): Promise<T | null> {
   if (!storefrontAdmin) {
