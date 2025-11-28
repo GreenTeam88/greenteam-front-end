@@ -14,7 +14,7 @@ export const ProductCard = ({ product }: { product: Product }) => {
   const colorsVariants = product.variants?.edges?.filter((edge) =>
     edge.node.selectedOptions.find((selectedOption) => selectedOption.name === variantsOptionsNames.color)
   );
-
+  console.log('price range', product.priceRange.maxVariantPrice, product.priceRange.minVariantPrice);
   const { currencySymbol, amount } = useMoney(product.priceRange.minVariantPrice);
   const colors = Array.from(
     new Set(
@@ -24,6 +24,7 @@ export const ProductCard = ({ product }: { product: Product }) => {
       })
     )
   );
+  console.log('product price', amount);
   return (
     <div className="flex  flex-col ">
       <div className="w-[282px] h-[282px] relative">

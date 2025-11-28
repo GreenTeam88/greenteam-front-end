@@ -14,6 +14,7 @@ export async function shopifyAdminFetch<T>(query: string, variables: Record<stri
       'Content-Type': 'application/json',
     },
     body: JSON.stringify({ query, variables }),
+    cache: 'no-cache',
   });
 
   if (!response.ok) {

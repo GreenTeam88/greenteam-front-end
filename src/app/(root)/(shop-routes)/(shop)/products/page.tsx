@@ -9,6 +9,7 @@ import { ProductsSidebar } from './_components/products-sidebar';
 import { SearchProducts } from './_components/search-products';
 import { productsSidebarParams } from './config/main';
 
+export const revalidate = 1000;
 export default async function Page({ searchParams }: { searchParams?: { [key: string]: string | undefined } }) {
   const allCollections = await getShopifyCollections();
   const metafields: MetafieldFilter[] = [];
@@ -52,7 +53,7 @@ export default async function Page({ searchParams }: { searchParams?: { [key: st
         <SearchProducts />
         <CollectionsSection collections={allCollections} />
         <ProductsSection products={filteredProducts} />
-        {!colors.length && <Pagination {...data.pageInfo} />}
+        {!colors.length && data.pageInfo && <Pagination {...data.pageInfo} />}
       </div>
     </div>
   );

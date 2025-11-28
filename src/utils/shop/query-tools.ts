@@ -88,7 +88,7 @@ export async function getAllProducts({
   colors: string[];
   cursor: string | null;
   direction: string | null;
-}): Promise<{ products: Product[]; pageInfo: PageInfo }> {
+}): Promise<{ products: Product[]; pageInfo?: PageInfo }> {
   const metafieldQuery = metafields?.length ? `${buildMetafieldQuery(metafields)}` : null;
   const colorsQuery = colors.length ? buildColorQuery(colors.filter((color) => color !== 'Alle kleuren')) : null;
   const pageCursor = cursor ? `${direction}: "${cursor}"` : ``;
@@ -171,12 +171,10 @@ export async function getAllProducts({
 
 `;
 
-  const response = await shopifyAdminFetch<{
-    data: {
-      products: {
-        edges: { node: Product }[];
-        pageInfo: PageInfo;
-      };
+  const response = await shopifyAdminRequest<{
+    products: {
+      edges: { node: Product }[];
+      pageInfo: PageInfo;
     };
   }>(GET_PRODUCTS_QUERY);
 
@@ -194,9 +192,8 @@ export async function getAllProducts({
   //     .filter(Boolean); // removes undefined
   // });
 
-  const pageInfo = response?.data?.products?.pageInfo;
-  console.log('length', response?.data.products.edges.length);
-  return { products: response?.data.products.edges.map((edge) => edge.node) || [], pageInfo };
+  const pageInfo = response?.products?.pageInfo;
+  return { products: response?.products.edges.map((edge) => edge.node) || [], pageInfo };
 }
 
 export async function getProductById({ productId }: { productId: string }): Promise<Product | null> {
