@@ -40,8 +40,6 @@ export const SizeVariantBox = ({ option, variant }: { option: string; variant: P
 export const SizeVariants = ({ product }: { product: Product }) => {
   const [boxOpened, setBoxOpened] = useState(true);
   const { color, set } = useSelectedVariants();
-  const { set: SetModals } = useModalsStore();
-  // const variant = product.variants.edges.find((edge) => edge.node.id === selectedVariantId)?.node;
   const sizeVariants = product.variants.edges.filter((edge) =>
     edge.node.selectedOptions.find((selectedOption) => selectedOption.name === variantsOptionsNames.size)
   );
