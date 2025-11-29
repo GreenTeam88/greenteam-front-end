@@ -7,7 +7,6 @@ import { useEffect, useState } from 'react';
 import { TickDropDownIcon } from '@/components/icons/arrows';
 import { variantsOptionsNames } from '@/config/shop-config';
 import { cn } from '@/lib/tailwind';
-import { useModalsStore } from '@/store/modals';
 import { useSelectedVariants } from '@/store/selected-variants';
 
 export const SizeVariantBox = ({ option, variant }: { option: string; variant: ProductVariant }) => {
