@@ -65,7 +65,7 @@ export const MarkSidebar = ({ category }: { category: string }) => {
   const [markSidebarOpen, setSidebarOpen] = useState(false);
   return (
     <>
-      <div className="lg:flex  flex-col gap-3 hidden  bg-[#F3F7F5] py-4 pl-4 h-fit rounded-[13px] pr-10">
+      <div className="lg:flex  flex-col gap-3 hidden  bg-[#F3F7F5] py-4 pl-7 h-fit rounded-[13px] pr-14">
         {allParams.map((param) => (
           <ParamUI name={param.name} key={param.title} title={param.title} params={param.params} category={category} />
         ))}
