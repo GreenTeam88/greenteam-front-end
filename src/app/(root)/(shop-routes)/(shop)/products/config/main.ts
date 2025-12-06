@@ -1,18 +1,18 @@
 export const productsSidebarParams: { paramName: string; paramTitle: string; items: string[] }[] = [
   {
-    paramName: 'Woongebruik',
+    paramName: 'residential-use',
     items: ['Licht woongebruik', 'Normaal woongebruik', 'Normaal tot zwaar woongebruik', 'Zwaar woongebruik'],
     paramTitle: 'woongebruik',
   },
   {
-    paramName: 'Projectgebruik',
+    paramName: 'project-use',
     paramTitle: 'Projectgebruik',
     items: ['Projectgebruik', 'Licht projectgebruik', 'Normaal projectgebruik', 'Zwaar projectgebruik'],
   },
   {
-    paramName: 'Trapgeschikt',
+    paramName: 'suitable-for-stairs',
     paramTitle: 'Trapgeschikt',
-    items: ['        Wonen', 'Wonen en werken'],
+    items: ['Wonen', 'Wonen en werken'],
   },
   {
     paramName: 'Geschikt voor  vloerverwarming',
@@ -20,12 +20,12 @@ export const productsSidebarParams: { paramName: string; paramTitle: string; ite
     items: [],
   },
   {
-    paramName: 'Zwenkwielen',
+    paramName: 'Casters',
     paramTitle: 'Zwenkwielen',
     items: ['Wonen en werken', 'Wonen'],
   },
   {
-    paramName: 'Poolhoogte groep',
+    paramName: 'pool-height-group',
     paramTitle: 'Poolhoogte groep',
     items: ['Laag', 'Gemiddeld', 'Hoog'],
   },
@@ -35,17 +35,17 @@ export const productsSidebarParams: { paramName: string; paramTitle: string; ite
     items: [],
   },
   {
-    paramName: 'Constructie',
+    paramName: 'construction',
     paramTitle: 'Constructie',
     items: [],
   },
   {
-    paramName: 'Poolmateriaal',
+    paramName: 'pool-materiaal',
     paramTitle: 'Poolmateriaal',
     items: ['Polyamide', 'Polyester', 'Polypropyleen', 'Wol', 'Geitenhaar', 'Triexta'],
   },
   {
-    paramName: 'Verfmethode',
+    paramName: 'dyeing-method',
     paramTitle: 'Verfmethode',
     items: ['Stukverf', 'Garenverf', 'Solution dyed', 'Chromojet'],
   },
