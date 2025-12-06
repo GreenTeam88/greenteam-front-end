@@ -1,7 +1,7 @@
 import { Pagination } from '@/components/shop/pagination';
 import { variantsOptionsNames } from '@/config/shop-config';
-import { MetafieldFilter } from '@/utils/shop/query';
 import { getAllProducts, getShopifyCollections } from '@/utils/shop/query-tools';
+import { MetafieldFilter } from '@/utils/shop/query/main';
 import { CollectionsSection } from './_components/collections';
 import { AllCarpetsHeader } from './_components/header';
 import { ProductsSection } from './_components/products';
@@ -10,7 +10,13 @@ import { SearchProducts } from './_components/search-products';
 import { productsSidebarParams } from './config/main';
 
 export const revalidate = 1000;
-export default async function Page({ searchParams }: { searchParams?: { [key: string]: string | undefined } }) {
+export default async function Page({
+  searchParams,
+  params: { type },
+}: {
+  searchParams?: { [key: string]: string | undefined };
+  params: { type: string };
+}) {
   const allCollections = await getShopifyCollections();
   const metafields: MetafieldFilter[] = [];
   const colors: string[] = JSON.parse((searchParams?.colors as string) || '[]');
@@ -22,7 +28,7 @@ export default async function Page({ searchParams }: { searchParams?: { [key: st
   }
   const cursor: string | null = searchParams?.cursor || null;
   const direction: string | null = searchParams?.direction || null;
-  const data = await getAllProducts({ cursor, metafields, colors, direction });
+  const data = await getAllProducts({ cursor, metafields, colors, direction, productType: type });
   // filtering products based on the colors
   const filteredProducts =
     colors.length && !colors.includes('Alle kleuren')

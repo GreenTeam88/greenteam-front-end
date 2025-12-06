@@ -36,5 +36,10 @@ export function queriesCombiner(queries?: (string | null)[]): string | null {
   }
 
   const jointQueries = cleanArrayQueries.join(' OR ');
-  return `query: "${jointQueries}" ,`;
+  return `query: "${jointQueries}"`;
+}
+
+export function buildProductTypeQuery(type?: string | null) {
+  if (!type) return null;
+  return `product_type:${type.trim()}`;
 }

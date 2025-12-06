@@ -4,7 +4,7 @@ import { Product } from '@shopify/hydrogen-react/storefront-api-types';
 import { useQuery } from 'react-query';
 
 import { getProductById } from '@/utils/shop/query-tools';
-import { ProductCard, ProductCardSkeleton } from '../../../../products/_components/cards';
+import { ProductCard, ProductCardSkeleton } from '../../../../[type]/_components/cards';
 
 export const AlternativeProducts = ({ alternativeProducts }: { alternativeProducts: { ['product-id']: string }[] }) => {
   const { data: productsData, isLoading: isLoadingProducts } = useQuery<Product[]>({

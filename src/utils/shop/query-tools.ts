@@ -2,9 +2,15 @@
 
 import { Collection, PageInfo, Product } from '@shopify/hydrogen-react/storefront-api-types';
 
-import { productsPageConfig } from '@/app/(root)/(shop-routes)/(shop)/products/config';
+import { productsPageConfig } from '@/app/(root)/(shop-routes)/(shop)/[type]/config';
 import { storefrontAdmin } from './admin-init';
-import { buildColorQuery, buildMetafieldQuery, MetafieldFilter, queriesCombiner } from './query';
+import {
+  buildColorQuery,
+  buildMetafieldQuery,
+  buildProductTypeQuery,
+  MetafieldFilter,
+  queriesCombiner,
+} from './query/main';
 
 export async function shopifyAdminRequest<T>(query: string, variables: Record<string, any> = {}): Promise<T | null> {
   if (!storefrontAdmin) {
@@ -79,104 +85,108 @@ export const getShopifyCollections = async (): Promise<Collection[]> => {
 
 export async function getAllProducts({
   metafields,
+  productType,
   colors,
   cursor,
   direction,
 }: {
   metafields?: MetafieldFilter[];
   colors: string[];
+  productType?: string | null;
   cursor: string | null;
   direction: string | null;
 }): Promise<{ products: Product[]; pageInfo?: PageInfo }> {
   const metafieldQuery = metafields?.length ? `${buildMetafieldQuery(metafields)}` : null;
   const colorsQuery = colors.length ? buildColorQuery(colors.filter((color) => color !== 'Alle kleuren')) : null;
+  const productTypeQuery = productType ? buildProductTypeQuery(productType) : null;
   const pageCursor = cursor ? `${direction}: "${cursor}"` : ``;
-  const query: null | string = queriesCombiner([metafieldQuery, colorsQuery]);
-  console.log('page cursor', pageCursor);
+  const query: null | string = queriesCombiner([metafieldQuery, colorsQuery, productTypeQuery]);
+
+  console.log('query is : ', query);
   const GET_PRODUCTS_QUERY = `{
-  products(
-     ${direction === 'before' ? 'last' : 'first'}: ${productsPageConfig.itemsPerPage} , ${query}  ${pageCursor}
-  ) {
-    edges {
-      node {
-        id
-        title
-        handle
-        description
-        descriptionHtml
-        vendor
-        productType
-        tags
-        createdAt
-        updatedAt
-        onlineStoreUrl
+     products(
+        ${direction === 'before' ? 'last' : 'first'}: ${productsPageConfig.itemsPerPage} , ${query}  ${pageCursor}
+     ) {
+       edges {
+         node {
+           id
+           title
+           handle
+           description
+           descriptionHtml
+           vendor
+           productType
+           tags
+           createdAt
+           updatedAt
+           onlineStoreUrl
 
-        images(first: 10) {
-          edges {
-            node {
-              id
-              url
-              altText
-              width
-              height
-            }
-          }
-        }
+           images(first: 10) {
+             edges {
+               node {
+                 id
+                 url
+                 altText
+                 width
+                 height
+               }
+             }
+           }
 
-        oldPrice: metafield(namespace: "custom", key: "old_price") {
-          key
-          namespace
-          value
-          type
-          description
-        }
-        mark: metafield(namespace: "custom", key: "mark") {
-          key
-          namespace
-          value
-          type
-          description
-        }
+           oldPrice: metafield(namespace: "custom", key: "old_price") {
+             key
+             namespace
+             value
+             type
+             description
+           }
+           mark: metafield(namespace: "custom", key: "mark") {
+             key
+             namespace
+             value
+             type
+             description
+           }
 
-        variants(first: 100) {
-          edges {
-            node {
-              id
-              title
-              sku
-       
-              selectedOptions {
-                name
-                value
-              }
-              availableForSale
-              image {
-                url
-              }
-            }
-          }
-        }
-        priceRange { minVariantPrice { amount currencyCode } maxVariantPrice { amount currencyCode } }
-      }
-    }
-    pageInfo {
-      hasNextPage
-      endCursor
-      startCursor
-      hasPreviousPage
-    }
-  }
-}
+           variants(first: 100) {
+             edges {
+               node {
+                 id
+                 title
+                 sku
 
-`;
+                 selectedOptions {
+                   name
+                   value
+                 }
+                 availableForSale
+                 image {
+                   url
+                 }
+               }
+             }
+           }
+           priceRange { minVariantPrice { amount currencyCode } maxVariantPrice { amount currencyCode } }
+         }
+       }
+       pageInfo {
+         hasNextPage
+         endCursor
+         startCursor
+         hasPreviousPage
+       }
+     }
+   }
 
+   `;
+  console.log('get products query', GET_PRODUCTS_QUERY);
   const response = await shopifyAdminRequest<{
     products: {
       edges: { node: Product }[];
       pageInfo: PageInfo;
     };
   }>(GET_PRODUCTS_QUERY);
-
+  console.log('response is', response?.products.edges[0]);
   // const products = response.data.products.edges.map((edge) => edge.node);
 
   // products.forEach((product) => {
