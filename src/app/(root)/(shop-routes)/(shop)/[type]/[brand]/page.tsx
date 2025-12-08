@@ -1,23 +1,25 @@
 import { Pagination } from '@/components/shop/pagination';
 import { shopifyProductMetafields } from '@/config/shop-config';
-import { getAllProducts } from '@/utils/shop/query-tools';
+import { getAllProducts, getShopifyCollections } from '@/utils/shop/query-tools';
 import { MetafieldFilter } from '@/utils/shop/query/main';
 import { MarkSidebar } from '../_components/mark-sidebar';
+import { ProductsSidebar } from '../_components/products-sidebar';
 import { StandardProductCard } from './_components/cards';
 import { PageHeader } from './_components/page-header';
 
 export default async function Page({
-  params: { category },
+  params: { brand, type },
   searchParams,
 }: {
-  params: { category: string };
+  params: { brand: string; type: string };
   searchParams: {
     [key: string]: string | string[] | undefined;
     cursor: string | undefined;
+
     direction: string | undefined;
   };
 }) {
-  const metafieldsKeys = Object.keys(searchParams).filter((searchParam) =>
+  const metafieldsKeys = Object.keys({ searchParams, mark: brand }).filter((searchParam) =>
     shopifyProductMetafields.includes(searchParam)
   );
   const metafields: MetafieldFilter[] = metafieldsKeys.map((metafield) => ({
@@ -26,12 +28,12 @@ export default async function Page({
   }));
   const cursor: string | null = searchParams?.cursor || null;
   const direction: string | null = searchParams?.direction || null;
-  const allProducts = await getAllProducts({ metafields, colors: [], cursor, direction });
+  const allProducts = await getAllProducts({ metafields, colors: [], cursor, direction, productType: type });
 
-  const filteredProducts = allProducts.products.filter((product) => product.productType === category);
   const marksData = allProducts.products.map((product) =>
     product.metafields?.find((metafield) => metafield?.key === 'mark')
   );
+  const allCollections = await getShopifyCollections();
 
   const marks: string[] = marksData
     .map((mark) => mark?.value)
@@ -49,14 +51,14 @@ export default async function Page({
   // }
   return (
     <div className="flex flex-col  gap-3 max-w-[1400px]">
-      <PageHeader category={category} />
+      <PageHeader category={type} />
 
       <div className="flex px-2  max-w-full w-full lg:gap-6">
-        <MarkSidebar category={category} />
+        <ProductsSidebar collections={allCollections} />
 
         <div className="flex flex-wrap gap-5 py-5 lg:py-0  max-w-full  w-full">
-          {filteredProducts.length ? (
-            filteredProducts.map((product) => <StandardProductCard product={product} key={product.id} />)
+          {allProducts.products.length ? (
+            allProducts.products.map((product) => <StandardProductCard product={product} key={product.id} />)
           ) : (
             <div>
               <h3 className="text-2xl font-semibold">Geen artikel gevonden </h3>
