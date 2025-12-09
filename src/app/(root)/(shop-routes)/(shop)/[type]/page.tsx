@@ -28,6 +28,7 @@ export default async function Page({
   }
   const cursor: string | null = searchParams?.cursor || null;
   const direction: string | null = searchParams?.direction || null;
+  console.log('metafields in products page', metafields);
   const data = await getAllProducts({ cursor, metafields, colors, direction, productType: type });
   // filtering products based on the colors
   const filteredProducts =
@@ -64,3 +65,5 @@ export default async function Page({
     </div>
   );
 }
+
+//  [ { title: 'Casters', value: [ 'Wonen en werken' ] } ]

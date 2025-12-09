@@ -19,28 +19,30 @@ export default async function Page({
     direction: string | undefined;
   };
 }) {
-  const metafieldsKeys = Object.keys({ searchParams, mark: brand }).filter((searchParam) =>
+  console.log('search params', searchParams);
+  const metafieldsKeys = Object.keys({ ...searchParams }).filter((searchParam) =>
     shopifyProductMetafields.includes(searchParam)
   );
   const metafields: MetafieldFilter[] = metafieldsKeys.map((metafield) => ({
     title: metafield,
     value: JSON.parse((searchParams[metafield] as string) || '[]'),
   }));
+  console.log('metafields in brand page: ', metafields);
   const cursor: string | null = searchParams?.cursor || null;
   const direction: string | null = searchParams?.direction || null;
-  const allProducts = await getAllProducts({ metafields, colors: [], cursor, direction, productType: type });
+  const colors: string[] = JSON.parse((searchParams?.colors as string) || '[]');
 
-  const marksData = allProducts.products.map((product) =>
-    product.metafields?.find((metafield) => metafield?.key === 'mark')
-  );
+  const allProducts = await getAllProducts({ metafields, colors, cursor, direction, productType: type });
+
   const allCollections = await getShopifyCollections();
 
-  const marks: string[] = marksData
-    .map((mark) => mark?.value)
+  // filtering products based on the brand
+  console.log('all products', allProducts);
+  const filteredProducts = allProducts.products.filter((product) => {
+    return product.mark?.value === brand;
+  });
 
-    .map((mark) => mark?.toLocaleLowerCase())
-    .filter(Boolean) as string[];
-  console.log('marks', marks, marksData);
+  console.log('filtured products', filteredProducts);
   // for (const param of allParams) {
   //   const selectedParams: string[] = JSON.parse((searchParams[param.title] as string | undefined) || '[]');
   //   if (selectedParams.length) {
@@ -57,8 +59,8 @@ export default async function Page({
         <ProductsSidebar collections={allCollections} />
 
         <div className="flex flex-wrap gap-5 py-5 lg:py-0  max-w-full  w-full">
-          {allProducts.products.length ? (
-            allProducts.products.map((product) => <StandardProductCard product={product} key={product.id} />)
+          {filteredProducts.length ? (
+            filteredProducts.map((product) => <StandardProductCard product={product} key={product.id} />)
           ) : (
             <div>
               <h3 className="text-2xl font-semibold">Geen artikel gevonden </h3>
@@ -70,3 +72,4 @@ export default async function Page({
     </div>
   );
 }
+//  [ { title: 'mark', value: [] } ]
