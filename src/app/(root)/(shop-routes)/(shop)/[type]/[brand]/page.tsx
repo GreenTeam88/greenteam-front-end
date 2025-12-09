@@ -2,7 +2,6 @@ import { Pagination } from '@/components/shop/pagination';
 import { shopifyProductMetafields } from '@/config/shop-config';
 import { getAllProducts, getShopifyCollections } from '@/utils/shop/query-tools';
 import { MetafieldFilter } from '@/utils/shop/query/main';
-import { MarkSidebar } from '../_components/mark-sidebar';
 import { ProductsSidebar } from '../_components/products-sidebar';
 import { StandardProductCard } from './_components/cards';
 import { PageHeader } from './_components/page-header';
