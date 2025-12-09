@@ -12,6 +12,19 @@ import {
   queriesCombiner,
 } from './query/main';
 
+export interface ShopifyMetafield<T = string> {
+  namespace: string;
+  key: string;
+  value: T;
+  type: string;
+  description?: string | null;
+}
+
+export interface ProductWithMetafields extends Product {
+  oldPrice: ShopifyMetafield<string> | null;
+  mark: ShopifyMetafield<string> | null;
+}
+
 export async function shopifyAdminRequest<T>(query: string, variables: Record<string, any> = {}): Promise<T | null> {
   if (!storefrontAdmin) {
     console.error('❌ Shopify client not initialized.');
@@ -95,7 +108,7 @@ export async function getAllProducts({
   productType?: string | null;
   cursor: string | null;
   direction: string | null;
-}): Promise<{ products: Product[]; pageInfo?: PageInfo }> {
+}): Promise<{ products: ProductWithMetafields[]; pageInfo?: PageInfo }> {
   const metafieldQuery = metafields?.length ? `${buildMetafieldQuery(metafields)}` : null;
   const colorsQuery = colors.length ? buildColorQuery(colors.filter((color) => color !== 'Alle kleuren')) : null;
   const productTypeQuery = productType ? buildProductTypeQuery(productType) : null;
@@ -182,7 +195,7 @@ export async function getAllProducts({
   console.log('get products query', GET_PRODUCTS_QUERY);
   const response = await shopifyAdminRequest<{
     products: {
-      edges: { node: Product }[];
+      edges: { node: ProductWithMetafields }[];
       pageInfo: PageInfo;
     };
   }>(GET_PRODUCTS_QUERY);
