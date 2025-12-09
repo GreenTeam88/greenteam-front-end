@@ -199,7 +199,6 @@ export async function getAllProducts({
       pageInfo: PageInfo;
     };
   }>(GET_PRODUCTS_QUERY);
-  console.log('response is', response?.products.edges[0]);
   // const products = response.data.products.edges.map((edge) => edge.node);
 
   // products.forEach((product) => {

@@ -18,7 +18,6 @@ export default async function Page({
     direction: string | undefined;
   };
 }) {
-  console.log('search params', searchParams);
   const metafieldsKeys = Object.keys({ ...searchParams }).filter((searchParam) =>
     shopifyProductMetafields.includes(searchParam)
   );
@@ -26,22 +25,19 @@ export default async function Page({
     title: metafield,
     value: JSON.parse((searchParams[metafield] as string) || '[]'),
   }));
-  console.log('metafields in brand page: ', metafields);
   const cursor: string | null = searchParams?.cursor || null;
   const direction: string | null = searchParams?.direction || null;
   const colors: string[] = JSON.parse((searchParams?.colors as string) || '[]');
-
+  console.log('colors', colors);
   const allProducts = await getAllProducts({ metafields, colors, cursor, direction, productType: type });
 
   const allCollections = await getShopifyCollections();
 
   // filtering products based on the brand
-  console.log('all products', allProducts);
   const filteredProducts = allProducts.products.filter((product) => {
     return product.mark?.value === brand;
   });
 
-  console.log('filtured products', filteredProducts);
   // for (const param of allParams) {
   //   const selectedParams: string[] = JSON.parse((searchParams[param.title] as string | undefined) || '[]');
   //   if (selectedParams.length) {

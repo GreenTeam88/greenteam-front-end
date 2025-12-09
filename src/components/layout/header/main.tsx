@@ -45,7 +45,7 @@ const headerRoutes: HeaderRoute[] = [
   ...basicRoutes,
   {
     name: 'Tapijt',
-    path: '/tapijt',
+    path: '/tapijten',
     columns: [
       {
         link: '/merken',
