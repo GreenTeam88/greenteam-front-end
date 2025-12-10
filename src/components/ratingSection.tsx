@@ -162,7 +162,7 @@ const ratings: RatingInfo[] = [
 
 const RatingCard: React.FC<RatingInfo> = ({ stars, date: birthDate, description, images, name }) => {
   return (
-    <div className="flex z-40 flex-col gap-[22px] bg-white p-4 lg:p-[22px] w-full ">
+    <div className="flex z-40 flex-col  lg:min-h-[360px] gap-[22px] bg-white p-4 lg:p-[22px] w-full ">
       <div className="flex w-full  justify-between">
         <div className="flex ">
           {Array.from({ length: stars }).map((item, index) => (
