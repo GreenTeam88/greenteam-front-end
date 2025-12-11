@@ -465,7 +465,7 @@ export const HeaderLinksSection = ({ routes }: { routes: HeaderRoute[] }) => {
     >
       <div className="w-full flex items-center gap-8 justify-between">
         <Link href="/">
-          <img src={appConfig.logoSrcImg} />
+          <img className="w-[200px]" src="/favicon.svg" />
         </Link>
         <div className="flex z-10   gap-[33px] py-1 w-full items-center ">
           {routes.slice(0, 6).map((route, index) => (
