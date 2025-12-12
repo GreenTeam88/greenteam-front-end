@@ -1,6 +1,7 @@
 import { Metadata } from 'next';
 
 import { AppHeader } from '@/components/layout/header/main';
+import { ShopProvidersWrapper } from '@/components/providers/shop-providers';
 
 export const metadata: Metadata = {
   title: 'GreenTeam - Duurzame Vloeren en Trappen',
@@ -16,9 +17,9 @@ export const metadata: Metadata = {
 };
 export default function Layout({ children }: { children: React.ReactNode }) {
   return (
-    <>
+    <ShopProvidersWrapper>
       <AppHeader />
       {children}
-    </>
+    </ShopProvidersWrapper>
   );
 }
