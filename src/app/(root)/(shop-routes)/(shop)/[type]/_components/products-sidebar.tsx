@@ -1,7 +1,7 @@
 'use client';
 
 import { Collection } from '@shopify/hydrogen-react/storefront-api-types';
-import { ArrowBigLeftDash } from 'lucide-react';
+import { ArrowBigLeftDash, SlidersHorizontal } from 'lucide-react';
 import { usePathname, useRouter, useSearchParams } from 'next/navigation';
 import { useState } from 'react';
 
@@ -173,7 +173,7 @@ export const ProductsSidebar = ({ collections }: { collections: Collection[] }) 
             ></i>
           </div>
         ) : (
-          <ArrowBigLeftDash size={50} onClick={() => setSidebarOpen(true)} />
+          <SlidersHorizontal size={25} style={{ margin: '0px 10px' }} onClick={() => setSidebarOpen(true)} />
         )}
         {markSidebarOpen && (
           <div className="flex px-4 max-h-[80vh] shadow-2xl  w-full overflow-y-scroll bg-bgColor  flex-col">
