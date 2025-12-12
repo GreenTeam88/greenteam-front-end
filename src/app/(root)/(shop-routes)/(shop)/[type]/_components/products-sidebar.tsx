@@ -11,7 +11,7 @@ import { productsSidebarParams } from '../config/main';
 
 const Menu = () => {
   return (
-    <div className="flex pt-3 gap-4 flex-col pb-5  w-full border-b-[#DFDFDF] border-b">
+    <div className="flex pt-3 gap-4 flex-col pb-5   w-full border-b-[#DFDFDF] border-b">
       <div className="flex w-full justify-between">
         <h3 className="text-lg font-bold ">Menu</h3>
         <div className="bg-[#575757]"></div>
@@ -151,7 +151,7 @@ export const ProductsSidebar = ({ collections }: { collections: Collection[] }) 
 
   return (
     <>
-      <div className="min-w-[334px]  w-fit  px-4 lg:px-8 hidden lg:block   py-8 bg-[#F3F7F5] rounded-[13px] ">
+      <div className="min-w-[334px]   w-fit  px-4 lg:px-8 hidden lg:block   py-8 bg-[#F3F7F5] rounded-[13px] ">
         <Menu />
         <Collections collections={collections} />
         <ColorsSection />
