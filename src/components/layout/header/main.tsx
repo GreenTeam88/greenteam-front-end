@@ -6,7 +6,6 @@ import Link from 'next/link';
 import { usePathname } from 'next/navigation';
 import React, { Dispatch, SetStateAction, useEffect, useRef, useState } from 'react';
 
-import { AccountIcon } from '@/components/icons/account';
 import { HeaderCartIcon } from '@/components/icons/cart';
 import { appConfig } from '@/config';
 import { cn } from '@/lib/tailwind';
