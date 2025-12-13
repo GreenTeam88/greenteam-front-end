@@ -1,7 +1,7 @@
 'use client';
 
 import { Collection } from '@shopify/hydrogen-react/storefront-api-types';
-import { ArrowBigLeftDash, SlidersHorizontal } from 'lucide-react';
+import { SlidersHorizontal } from 'lucide-react';
 import { usePathname, useRouter, useSearchParams } from 'next/navigation';
 import { useState } from 'react';
 
