@@ -248,9 +248,9 @@ export const HeaderTopSection = () => {
       </div>
 
       <div className="flex gap-[22px] items-center ">
-        <div className="cursor-pointer ">
+        {/* <div className="cursor-pointer ">
           <AccountIcon />
-        </div>
+        </div> */}
         <div onClick={() => set({ isOpen: true })} className="cursor-pointer ">
           <HeaderCartIcon />
         </div>
