@@ -9,7 +9,7 @@ export const ShopProvidersWrapper = ({ children }: { children: React.ReactNode }
       storefrontApiVersion={process.env.NEXT_PUBLIC_API_VERSION!}
       countryIsoCode="NL"
       languageIsoCode="EN"
-      storeDomain="https://greenteamnl.myshopify.com"
+      storeDomain={process.env.NEXT_PUBLIC_SHOPIFY_DOMAIN!}
     >
       <CartProvider
         onLineAdd={() => {
