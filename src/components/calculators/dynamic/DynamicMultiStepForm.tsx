@@ -1,5 +1,6 @@
 'use client';
 
+import { usePathname } from 'next/navigation';
 import React, { lazy, Suspense, useCallback, useEffect, useState } from 'react';
 import { FieldValues } from 'react-hook-form';
 
@@ -59,6 +60,8 @@ export default function DynamicMultiStepForm({ calculatorSlug }: DynamicMultiSte
     goToPreviousStep,
     reset,
   } = useDynamicCalculator();
+
+  const pathname = usePathname();
 
   // Current phase in the flow
   const [currentPhase, setCurrentPhase] = useState<Phase>('dynamic');
@@ -200,10 +203,7 @@ export default function DynamicMultiStepForm({ calculatorSlug }: DynamicMultiSte
           ...updatedFormData,
         };
 
-        // Here you would typically send the data to an API
-        console.log('Submitting calculator data:', submissionData);
-
-        // Create FormData for file upload if needed
+        // Create FormData for file upload
         const formDataObj = new FormData();
         Object.entries(submissionData).forEach(([key, value]) => {
           if (key !== 'files' && value !== undefined && value !== null) {
@@ -220,13 +220,34 @@ export default function DynamicMultiStepForm({ calculatorSlug }: DynamicMultiSte
           formDataObj.append('files', file);
         });
 
-        // TODO: Send formDataObj to your API endpoint
-        // await fetch('/api/submissions', { method: 'POST', body: formDataObj });
+        // Trigger GTM event
+        if (typeof window !== 'undefined') {
+          (window as any).dataLayer = (window as any).dataLayer || [];
+          (window as any).dataLayer.push({
+            event: 'form_submit',
+            formData: formDataObj,
+          });
+        }
+
+        // Send to email API
+        const response = await fetch(`${process.env.NEXT_PUBLIC_BACKEND_URL}/emails/calculator`, {
+          method: 'POST',
+          body: formDataObj,
+        });
+
+        if (response.ok) {
+          alert('Form submitted successfully!');
+          window.location.href = `/bedankt?page=${pathname}`;
+        } else {
+          console.error('Failed to submit form:', response.statusText);
+          alert('Error submitting form. Please try again.');
+        }
       } catch (err) {
         console.error('Submission error:', err);
+        alert('A network error occurred. Please check your connection and try again.');
       }
     },
-    [calculator, answers, priceBreakdown, uploadedFiles]
+    [calculator, answers, priceBreakdown, uploadedFiles, pathname]
   );
 
   // Render loading state
