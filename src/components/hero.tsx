@@ -1,12 +1,19 @@
+'use client';
+
 import React from 'react';
 
 import MultiStepForm from '@/components/calculators/common/MultiStepForm';
+import { DynamicMultiStepForm } from '@/components/calculators/dynamic';
 import { PrimaryBtnLink, SecondaryOutlinedBtnLink } from '@/components/theme/buttons';
 import { cn } from '@/lib/tailwind';
 
 type HeroProps = {
   imgSrc?: string;
   imgClassName?: string;
+  // For dynamic calculator - pass a slug to fetch from API
+  calculatorSlug?: string;
+  // For legacy calculator - pass a category
+  category?: string;
 };
 
 const ParagraphSection = () => {
@@ -31,7 +38,7 @@ const ParagraphSection = () => {
   );
 };
 
-export const Hero: React.FC<HeroProps> = ({ imgSrc, imgClassName }) => {
+export const Hero: React.FC<HeroProps> = ({ imgSrc, imgClassName, calculatorSlug, category = 'Parketrenovatie' }) => {
   return (
     <div className="relative px-2 py-6  w-full h-fit flex items-center justify-center ">
       <img
@@ -42,7 +49,12 @@ export const Hero: React.FC<HeroProps> = ({ imgSrc, imgClassName }) => {
       <div className=" relative flex-col lg:flex-row z-0 max-w-full lg:min-h-[470px] py-16 lg:py-0 gap-[86px] px-2 lg:px-[120px] w-[1440px] flex items-center ">
         <ParagraphSection />
 
-        <MultiStepForm category="Parketrenovatie" />
+        {/* Use dynamic calculator if slug is provided, otherwise use legacy calculator */}
+        {calculatorSlug ? (
+          <DynamicMultiStepForm calculatorSlug={calculatorSlug} />
+        ) : (
+          <MultiStepForm category={category} />
+        )}
       </div>
     </div>
   );

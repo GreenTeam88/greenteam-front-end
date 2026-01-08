@@ -85,7 +85,9 @@ const MultiSelectFormField = React.forwardRef<HTMLButtonElement, MultiSelectForm
     }, [value, defaultValue]);
 
     const toggleOption = (val: string) => {
-      const newSelectedValues = new Set(selectedValuesSet.current);
+      // Use the current prop value (or state) to ensure we have the latest values
+      const currentValues = value || selectedValues;
+      const newSelectedValues = new Set(currentValues);
       if (newSelectedValues.has(val)) {
         newSelectedValues.delete(val);
       } else {
@@ -111,7 +113,9 @@ const MultiSelectFormField = React.forwardRef<HTMLButtonElement, MultiSelectForm
           >
             {selectedValues.length > 0 ? (
               <div className="flex justify-between items-center w-full">
-                <div className="flex flex-wrap items-center overflow-hidden text-sm">{selectedValues.join(', ')}</div>
+                <div className="flex flex-wrap items-center overflow-hidden text-sm">
+                  {selectedValues.map((val) => options.find((opt) => opt.value === val)?.label || val).join(', ')}
+                </div>
                 <div className="flex items-center justify-between">
                   <XIcon
                     className="h-4 ml-2 cursor-pointer text-muted-foreground"
@@ -143,7 +147,9 @@ const MultiSelectFormField = React.forwardRef<HTMLButtonElement, MultiSelectForm
             <CommandList>
               <CommandGroup>
                 {options.map((option) => {
-                  const isSelected = selectedValuesSet.current.has(option.value);
+                  // Use prop value if available for accurate selected state
+                  const currentValues = value || selectedValues;
+                  const isSelected = currentValues.includes(option.value);
                   return (
                     <CommandItem
                       key={option.value}

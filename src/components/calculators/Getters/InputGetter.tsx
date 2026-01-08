@@ -10,6 +10,8 @@ interface InputGetterProps {
   placeholder?: string;
   type?: string;
   inputClassName?: string;
+  min?: number;
+  max?: number;
 }
 
 export default function InputGetter({
@@ -19,6 +21,8 @@ export default function InputGetter({
   placeholder = '',
   type = 'text',
   inputClassName = '',
+  min,
+  max,
 }: InputGetterProps) {
   return (
     <FormField
@@ -46,6 +50,8 @@ export default function InputGetter({
               } ${inputClassName}`}
               type={type}
               placeholder={placeholder}
+              min={min}
+              max={max}
             />
           </FormControl>
         </FormItem>

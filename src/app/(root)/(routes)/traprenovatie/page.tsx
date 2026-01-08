@@ -24,7 +24,7 @@ import { Verlichting } from './_components/verlichting';
 function TraprenovatiesPage() {
   return (
     <div className="flex flex-col  relative z-0 items-center w-full">
-      <Hero imgSrc="/traprenovatie/hero.png" />
+      <Hero calculatorSlug="traprenovatie" imgSrc="/traprenovatie/hero.png" />
       <Traprenovaties />
       <BekledenLaminaat />
       <BekledenHout />
