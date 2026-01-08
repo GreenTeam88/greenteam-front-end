@@ -104,7 +104,9 @@ const SingleSelectFormField = React.forwardRef<HTMLButtonElement, SingleSelectFo
           >
             {selectedValue ? (
               <div className="flex justify-between items-center w-full">
-                <div className="flex items-center overflow-hidden text-sm">{selectedValue}</div>
+                <div className="flex items-center overflow-hidden text-sm">
+                  {options.find((opt) => opt.value === selectedValue)?.label || selectedValue}
+                </div>
                 <ChevronDown className="h-4 ml-2 text-muted-foreground" />
               </div>
             ) : (
