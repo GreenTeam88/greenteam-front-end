@@ -35,6 +35,8 @@ export default function MultiSelectDropdown({
   const selectedValues = form.watch(name) || [];
 
   const handleChange = (value: string[]) => {
+    const setValueOptions = { shouldValidate: true, shouldDirty: true, shouldTouch: true };
+
     if (exclusiveOption) {
       const includesExclusive = value.includes(exclusiveOption);
       const otherSelected = value.filter((v) => v !== exclusiveOption);
@@ -43,24 +45,24 @@ export default function MultiSelectDropdown({
         // Both exclusive and others selected
         if (selectedValues.includes(exclusiveOption)) {
           // Previously had exclusive option only, now adding others -> remove exclusive, keep others
-          form.setValue(name, otherSelected);
+          form.setValue(name, otherSelected, setValueOptions);
         } else {
           // Previously had others only, now adding exclusive -> keep only the exclusive option
-          form.setValue(name, [exclusiveOption]);
+          form.setValue(name, [exclusiveOption], setValueOptions);
         }
       } else if (includesExclusive) {
         // Only exclusive selected
-        form.setValue(name, [exclusiveOption]);
+        form.setValue(name, [exclusiveOption], setValueOptions);
       } else if (selectedValues.includes(exclusiveOption)) {
         // Exclusive was previously selected, now user selected others -> remove exclusive
-        form.setValue(name, otherSelected);
+        form.setValue(name, otherSelected, setValueOptions);
       } else {
         // Normal update
-        form.setValue(name, value);
+        form.setValue(name, value, setValueOptions);
       }
     } else {
       // no exclusive option
-      form.setValue(name, value);
+      form.setValue(name, value, setValueOptions);
     }
   };
 
