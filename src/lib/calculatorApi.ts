@@ -160,10 +160,7 @@ function checkSingleCondition(
  * Check if a question should be visible based on conditional logic
  * Supports both legacy single condition and new multiple conditions with AND/OR
  */
-export function isQuestionVisible(
-  question: Question,
-  answers: Record<string, string | number | string[]>
-): boolean {
+export function isQuestionVisible(question: Question, answers: Record<string, string | number | string[]>): boolean {
   if (!question.conditionalOn) {
     return true;
   }
@@ -195,10 +192,7 @@ export function isQuestionVisible(
 /**
  * Get visible questions for a step based on current answers
  */
-export function getVisibleQuestions(
-  step: FormStep,
-  answers: Record<string, string | number | string[]>
-): Question[] {
+export function getVisibleQuestions(step: FormStep, answers: Record<string, string | number | string[]>): Question[] {
   return step.questions.filter((q) => isQuestionVisible(q, answers));
 }
 
@@ -218,10 +212,7 @@ export function getVisibleSteps(
 /**
  * Check if all required questions in a step are answered
  */
-export function isStepComplete(
-  step: FormStep,
-  answers: Record<string, string | number | string[]>
-): boolean {
+export function isStepComplete(step: FormStep, answers: Record<string, string | number | string[]>): boolean {
   const visibleQuestions = getVisibleQuestions(step, answers);
 
   return visibleQuestions.every((question) => {

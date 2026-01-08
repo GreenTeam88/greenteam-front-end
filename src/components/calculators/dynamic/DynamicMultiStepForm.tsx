@@ -57,7 +57,6 @@ export default function DynamicMultiStepForm({ calculatorSlug }: DynamicMultiSte
     setError,
     goToNextStep,
     goToPreviousStep,
-    setAnswer,
     reset,
   } = useDynamicCalculator();
 

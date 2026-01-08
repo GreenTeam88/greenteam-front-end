@@ -39,7 +39,7 @@ const initialState = {
   stepHistory: [],
 };
 
-export const useDynamicCalculator = create<DynamicCalculatorState>((set, get) => ({
+export const useDynamicCalculator = create<DynamicCalculatorState>((set) => ({
   ...initialState,
 
   setCalculator: (calculator) => set({ calculator, currentStepIndex: 0, answers: {}, stepHistory: [] }),

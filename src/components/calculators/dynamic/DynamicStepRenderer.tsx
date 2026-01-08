@@ -134,7 +134,10 @@ export default function DynamicStepRenderer({
   // Build initial validation schema and default values based on store answers
   const initialVisibleQuestions = useMemo(() => getVisibleQuestions(step, answers), [step, answers]);
   const schema = useMemo(() => buildValidationSchema(initialVisibleQuestions), [initialVisibleQuestions]);
-  const defaultValues = useMemo(() => getDefaultValues(initialVisibleQuestions, answers), [initialVisibleQuestions, answers]);
+  const defaultValues = useMemo(
+    () => getDefaultValues(initialVisibleQuestions, answers),
+    [initialVisibleQuestions, answers]
+  );
 
   const form = useForm({
     resolver: zodResolver(schema),
@@ -260,11 +263,7 @@ export default function DynamicStepRenderer({
           {/* Questions */}
           <div className="flex flex-col gap-[11px]">
             {visibleQuestions.map((question) => (
-              <DynamicRenderQuestion
-                key={question.id}
-                question={question}
-                onFilesChange={onFilesChange}
-              />
+              <DynamicRenderQuestion key={question.id} question={question} onFilesChange={onFilesChange} />
             ))}
           </div>
 

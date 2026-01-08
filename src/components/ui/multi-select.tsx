@@ -114,9 +114,7 @@ const MultiSelectFormField = React.forwardRef<HTMLButtonElement, MultiSelectForm
             {selectedValues.length > 0 ? (
               <div className="flex justify-between items-center w-full">
                 <div className="flex flex-wrap items-center overflow-hidden text-sm">
-                  {selectedValues
-                    .map((val) => options.find((opt) => opt.value === val)?.label || val)
-                    .join(', ')}
+                  {selectedValues.map((val) => options.find((opt) => opt.value === val)?.label || val).join(', ')}
                 </div>
                 <div className="flex items-center justify-between">
                   <XIcon

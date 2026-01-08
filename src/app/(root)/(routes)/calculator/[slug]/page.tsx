@@ -27,7 +27,15 @@ export async function generateMetadata({ params }: CalculatorPageProps): Promise
 }
 
 // Hero section with dynamic calculator
-function DynamicHero({ slug, calculatorName, calculatorImage }: { slug: string; calculatorName: string; calculatorImage: string | null }) {
+function DynamicHero({
+  slug,
+  calculatorName,
+  calculatorImage,
+}: {
+  slug: string;
+  calculatorName: string;
+  calculatorImage: string | null;
+}) {
   return (
     <div className="relative px-2 py-6 w-full h-fit flex items-center justify-center">
       <img
@@ -67,11 +75,7 @@ export default async function CalculatorPage({ params }: CalculatorPageProps) {
 
   return (
     <div className="flex flex-col relative z-0 items-center w-full">
-      <DynamicHero
-        slug={slug}
-        calculatorName={calculator.name}
-        calculatorImage={calculator.baseImage}
-      />
+      <DynamicHero slug={slug} calculatorName={calculator.name} calculatorImage={calculator.baseImage} />
 
       {/* Calculator info section */}
       {calculator.description && (
