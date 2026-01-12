@@ -1,11 +1,16 @@
 'use client';
 
+import { zodResolver } from '@hookform/resolvers/zod';
 import { usePathname } from 'next/navigation';
 import React, { lazy, Suspense, useCallback, useEffect, useState } from 'react';
-import { FieldValues } from 'react-hook-form';
+import { FieldValues, FormProvider, useForm } from 'react-hook-form';
+import { z } from 'zod';
 
+import SingleSelectDropdown from '@/components/calculators/Getters/SingleSelectDropdown';
 import DynamicStepRenderer from '@/components/calculators/dynamic/DynamicStepRenderer';
-import { getCalculatorBySlug } from '@/lib/calculatorApi';
+import CreateButton from '@/components/custom/CreateButton';
+import { HeadlineSemibold } from '@/components/theme/typography';
+import { getAllCalculators, getCalculatorBySlug, Calculator } from '@/lib/calculatorApi';
 import {
   selectCurrentStep,
   selectIsFirstStep,
@@ -38,11 +43,111 @@ const ErrorDisplay = ({ message }: { message: string }) => (
   </div>
 );
 
+// Zod schema for category selection
+const categorySchema = z.object({
+  selectedCategory: z.string().min(1, 'Selecteer een categorie'),
+});
+
+// Category Selection Step Component - Matches old StepOne design
+interface CategorySelectionStepProps {
+  categories: Array<{ name: string; slug: string; description: string | null }>;
+  onSelect: (slug: string) => void;
+  isLoading: boolean;
+}
+
+const CategorySelectionStep: React.FC<CategorySelectionStepProps> = ({ categories, onSelect, isLoading }) => {
+  const form = useForm({
+    resolver: zodResolver(categorySchema),
+    defaultValues: {
+      selectedCategory: '',
+    },
+  });
+
+  const selectedCategory = form.watch('selectedCategory');
+  const isButtonDisabled = !selectedCategory;
+
+  const handleNext = () => {
+    if (selectedCategory) {
+      onSelect(selectedCategory);
+    }
+  };
+
+  if (isLoading) {
+    return <StepLoader />;
+  }
+
+  // Build options for dropdown
+  const categoryOptions = categories.map((cat) => ({
+    value: cat.slug,
+    label: cat.name,
+  }));
+
+  return (
+    <FormProvider {...form}>
+      <form className="w-[386px] flex rounded-[4px] relative lg:px-0 z-10 flex-col">
+        <div className="bg-primaryDefault rounded-t-[8px] flex items-center justify-center text-white py-[22px] w-full">
+          <HeadlineSemibold>Snel uw prijs berekenen!</HeadlineSemibold>
+        </div>
+
+        <div className="bg-white w-full rounded-b-[8px] flex flex-col px-[22px] gap-y-3 py-[22px] shadow-lg">
+          {/* Title row */}
+          <div className="flex flex-row items-center justify-between">
+            <span className="text-gray-400 font-sans text-sm">Waar kunnen we u mee helpen?</span>
+            {selectedCategory && (
+              <div className="w-[25%] h-[6px] bg-gray-300 rounded-full ml-4">
+                <div className="w-[15%] h-full bg-green-700 rounded-full"></div>
+              </div>
+            )}
+          </div>
+
+          {/* Category dropdown */}
+          <div className="flex flex-col gap-[11px]">
+            <SingleSelectDropdown
+              data={categoryOptions}
+              name="selectedCategory"
+              label="Categorie"
+              placeholder="Kies er een"
+              alertLabelText="*"
+            />
+          </div>
+
+          {categories.length === 0 && (
+            <div className="text-center py-4 text-gray-500">
+              <p>Geen categorieën beschikbaar</p>
+            </div>
+          )}
+
+          {/* Price section */}
+          <div className="flex flex-col space-y-2">
+            <div className="flex justify-between items-center">
+              <span className="font-semibold text-lg text-green-700">Totaal incl. btw.</span>
+              <span className="font-semibold text-lg text-green-700">€ 0.00</span>
+            </div>
+
+            <CreateButton
+              className={`w-full ${
+                isButtonDisabled
+                  ? 'bg-gray-500'
+                  : 'bg-primaryDefault border border-transparent hover:bg-white hover:text-green-700 hover:border-green-700 transition-all duration-300'
+              }`}
+              type="button"
+              disabled={isButtonDisabled}
+              onClick={handleNext}
+            >
+              Volgende
+            </CreateButton>
+          </div>
+        </div>
+      </form>
+    </FormProvider>
+  );
+};
+
 // Phases of the calculator flow
-type Phase = 'dynamic' | 'planning' | 'contact' | 'upload' | 'comment' | 'final';
+type Phase = 'category' | 'dynamic' | 'planning' | 'contact' | 'upload' | 'comment' | 'final';
 
 interface DynamicMultiStepFormProps {
-  calculatorSlug: string;
+  calculatorSlug?: string; // Optional - if not provided, shows category selection
 }
 
 export default function DynamicMultiStepForm({ calculatorSlug }: DynamicMultiStepFormProps) {
@@ -63,8 +168,15 @@ export default function DynamicMultiStepForm({ calculatorSlug }: DynamicMultiSte
 
   const pathname = usePathname();
 
-  // Current phase in the flow
-  const [currentPhase, setCurrentPhase] = useState<Phase>('dynamic');
+  // Available calculators for category selection
+  const [availableCalculators, setAvailableCalculators] = useState<
+    Array<{ name: string; slug: string; description: string | null }>
+  >([]);
+  const [categoriesLoading, setCategoriesLoading] = useState(false);
+  const [selectedSlug, setSelectedSlug] = useState<string | null>(calculatorSlug || null);
+
+  // Current phase in the flow - start with 'category' if no slug provided
+  const [currentPhase, setCurrentPhase] = useState<Phase>(calculatorSlug ? 'dynamic' : 'category');
 
   // Form data for hardcoded steps
   const [formData, setFormData] = useState<any>({
@@ -82,14 +194,41 @@ export default function DynamicMultiStepForm({ calculatorSlug }: DynamicMultiSte
   const isFirstStep = selectIsFirstStep(useDynamicCalculator.getState());
   const isLastDynamicStep = selectIsLastStep(useDynamicCalculator.getState());
 
-  // Fetch calculator on mount
+  // Fetch all calculators for category selection (only if no slug provided)
   useEffect(() => {
+    if (!calculatorSlug) {
+      const fetchCategories = async () => {
+        setCategoriesLoading(true);
+        try {
+          const calculators = await getAllCalculators();
+          setAvailableCalculators(
+            calculators.map((c: Calculator) => ({
+              name: c.name,
+              slug: c.slug,
+              description: c.description,
+            }))
+          );
+        } catch (err) {
+          console.error('Failed to fetch calculators:', err);
+        } finally {
+          setCategoriesLoading(false);
+        }
+      };
+      fetchCategories();
+    }
+  }, [calculatorSlug]);
+
+  // Fetch specific calculator when slug is available
+  useEffect(() => {
+    const slugToFetch = calculatorSlug || selectedSlug;
+    if (!slugToFetch) return;
+
     const fetchCalculator = async () => {
       setLoading(true);
       setError(null);
 
       try {
-        const data = await getCalculatorBySlug(calculatorSlug);
+        const data = await getCalculatorBySlug(slugToFetch);
         if (data) {
           setCalculator(data);
         } else {
@@ -108,7 +247,7 @@ export default function DynamicMultiStepForm({ calculatorSlug }: DynamicMultiSte
     return () => {
       reset();
     };
-  }, [calculatorSlug, reset, setCalculator, setError, setLoading]);
+  }, [calculatorSlug, selectedSlug, reset, setCalculator, setError, setLoading]);
 
   // Update formData when price changes
   useEffect(() => {
@@ -121,6 +260,12 @@ export default function DynamicMultiStepForm({ calculatorSlug }: DynamicMultiSte
     }
   }, [priceBreakdown]);
 
+  // Handle category selection
+  const handleCategorySelect = useCallback((slug: string) => {
+    setSelectedSlug(slug);
+    setCurrentPhase('dynamic');
+  }, []);
+
   // Handle navigation for dynamic steps
   const handleDynamicNext = useCallback(() => {
     if (isLastDynamicStep) {
@@ -132,8 +277,15 @@ export default function DynamicMultiStepForm({ calculatorSlug }: DynamicMultiSte
   }, [isLastDynamicStep, goToNextStep]);
 
   const handleDynamicPrevious = useCallback(() => {
-    goToPreviousStep();
-  }, [goToPreviousStep]);
+    if (isFirstStep && !calculatorSlug) {
+      // Go back to category selection if we started there
+      setCurrentPhase('category');
+      setSelectedSlug(null);
+      reset();
+    } else {
+      goToPreviousStep();
+    }
+  }, [isFirstStep, calculatorSlug, goToPreviousStep, reset]);
 
   // Handle navigation for hardcoded steps
   const handlePlanningNext = useCallback(() => {
@@ -562,7 +714,18 @@ export default function DynamicMultiStepForm({ calculatorSlug }: DynamicMultiSte
     [calculator, priceBreakdown, uploadedFiles, pathname, buildStructuredAnswers, buildEmailHtml]
   );
 
-  // Render loading state
+  // Render category selection phase
+  if (currentPhase === 'category') {
+    return (
+      <CategorySelectionStep
+        categories={availableCalculators}
+        onSelect={handleCategorySelect}
+        isLoading={categoriesLoading}
+      />
+    );
+  }
+
+  // Render loading state (for calculator loading)
   if (isLoading) {
     return <StepLoader />;
   }
@@ -587,7 +750,7 @@ export default function DynamicMultiStepForm({ calculatorSlug }: DynamicMultiSte
           totalSteps={totalSteps + 2} // +2 for planning and contact steps
           onNext={handleDynamicNext}
           onPrevious={handleDynamicPrevious}
-          isFirstStep={isFirstStep}
+          isFirstStep={isFirstStep && !!calculatorSlug} // Only truly first if slug was provided
           isLastStep={false} // Never the last step in the full flow
           onFilesChange={handleFilesChange}
         />
