@@ -76,7 +76,20 @@ function buildValidationSchema(questions: Question[]) {
         break;
 
       case 'FILE_UPLOAD':
-        fieldSchema = z.any();
+        if (question.required) {
+          fieldSchema = z.any().refine(
+            (val) => {
+              // Check if files exist and array is not empty
+              if (Array.isArray(val) && val.length > 0) return true;
+              // Also check for File objects
+              if (val instanceof File) return true;
+              return false;
+            },
+            { message: 'Upload minimaal één bestand' }
+          );
+        } else {
+          fieldSchema = z.any();
+        }
         break;
 
       default:

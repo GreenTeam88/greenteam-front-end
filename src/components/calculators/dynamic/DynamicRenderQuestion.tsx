@@ -91,7 +91,15 @@ export default function DynamicRenderQuestion({ question, onFilesChange }: Dynam
       );
 
     case 'FILE_UPLOAD':
-      return <UploadGetter form={form} onFilesChange={onFilesChange || (() => {})} />;
+      return (
+        <UploadGetter
+          form={form}
+          name={question.id}
+          label={question.question}
+          required={question.required}
+          onFilesChange={onFilesChange || (() => {})}
+        />
+      );
 
     default:
       // Fallback for unknown types - render as text input
