@@ -2,6 +2,7 @@
 
 import clsx from 'clsx';
 import { motion } from 'framer-motion';
+import Image from 'next/image';
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
 import React, { Dispatch, SetStateAction, useEffect, useRef, useState } from 'react';
@@ -219,7 +220,7 @@ export const HeaderTopSection = () => {
     <div className="flex w-[1201px] bg-white items-center justify-between ">
       <Link href="/">
         {' '}
-        <img src={appConfig.logoSrcImg} />
+        <Image src={appConfig.logoSrcImg} alt="GreenTeam Logo" width={150} height={50} />
       </Link>
       <div className="flex items-center lg:min-w-[733px] p-[10px] justify-around">
         <motion.div
@@ -287,7 +288,7 @@ export const HeaderBoldLink: React.FC<{
             })}
           >
             {route.name}
-            {columns && <img width={15} src="/icons/dropDown.svg" className="inline mx-2" />}
+            {columns && <Image width={15} height={15} src="/icons/dropDown.svg" alt="" className="inline mx-2" />}
           </h3>
         )}
       </div>
@@ -522,7 +523,7 @@ export const DropDownLink: React.FC<{
             })}
           >
             {route.name}
-            {columns && <img width={15} src="/icons/dropDown.svg" className="inline mx-2" />}
+            {columns && <Image width={15} height={15} src="/icons/dropDown.svg" alt="" className="inline mx-2" />}
           </h3>
         )}
       </div>
@@ -604,7 +605,13 @@ const MobileBoldLinkColumnSubpage: React.FC<
         >
           {subPage.name}
           {subPages && (
-            <img src="/icons/dropDown.svg" className={cn('mx-4 w-[16px]', { 'rotate-180': isSubpagesOpened })} />
+            <Image
+              src="/icons/dropDown.svg"
+              alt=""
+              width={16}
+              height={16}
+              className={cn('mx-4', { 'rotate-180': isSubpagesOpened })}
+            />
           )}
         </Link>
       ) : (
@@ -614,7 +621,13 @@ const MobileBoldLinkColumnSubpage: React.FC<
         >
           {subPage.name}
           {subPages && (
-            <img src="/icons/dropDown.svg" className={cn('mx-4 w-[16px]', { 'rotate-180': isSubpagesOpened })} />
+            <Image
+              src="/icons/dropDown.svg"
+              alt=""
+              width={16}
+              height={16}
+              className={cn('mx-4', { 'rotate-180': isSubpagesOpened })}
+            />
           )}
         </p>
       )}
@@ -640,7 +653,13 @@ const MobileBoldLinkColumn: React.FC<HeaderColumnInfo> = ({ subPages, title }) =
       >
         {title}
         {subPages && (
-          <img src="/icons/dropDown.svg" className={cn('mx-4 w-[20px]', { 'rotate-180': isSubpagesOpened })} />
+          <Image
+            src="/icons/dropDown.svg"
+            alt=""
+            width={20}
+            height={20}
+            className={cn('mx-4', { 'rotate-180': isSubpagesOpened })}
+          />
         )}{' '}
       </h4>
       {subPages && isSubpagesOpened && (
@@ -666,7 +685,13 @@ export const MobileMenuBoldLink: React.FC<HeaderRoute> = (headerRoute) => {
         >
           {headerRoute.name}{' '}
           {columns && (
-            <img src="/icons/dropDown.svg" className={cn('mx-4 w-[20px]', { 'rotate-180': isColumnsOpened })} />
+            <Image
+              src="/icons/dropDown.svg"
+              alt=""
+              width={20}
+              height={20}
+              className={cn('mx-4', { 'rotate-180': isColumnsOpened })}
+            />
           )}
         </h4>
       )}
@@ -724,7 +749,7 @@ const MobileHeader = () => {
   return (
     <div className="flex z-50 bg-white w-full px-3 sticky top-0   lg:hidden  py-3 justify-between">
       <Link href="/">
-        <img src={appConfig.logoSrcImg} width={120} />
+        <Image src={appConfig.logoSrcImg} alt="GreenTeam Logo" width={120} height={40} />
       </Link>
       <i className="bi bi-list text-5xl font-bold" onClick={() => setIsMenuOpened((val) => !val)}></i>
       {isMenuOpened && <MobileMenu setIsMenuOpened={setIsMenuOpened} />}
