@@ -3,6 +3,7 @@ import { BodyText, BodyTextBold } from '@/components/theme/typography';
 import { cn } from '@/lib/tailwind';
 import { ImageCarousel } from './animations/imageCrausel';
 import { InfoCardProps } from './cards';
+import Image from 'next/image';
 
 export const WhatWaitingForCard: React.FC<InfoCardProps & { orangeText: string }> = ({
   imgSrc,
@@ -41,7 +42,15 @@ export const WhatWaitingForCard: React.FC<InfoCardProps & { orangeText: string }
         </div>
       </div>
       {typeof imgSrc === 'string' ? (
-        <img className={cn('w-full lg:w-fit rounded-lg', imgClassName)} src={imgSrc} />
+        <div className={cn('relative w-full lg:w-[400px] h-[300px]', imgClassName)}>
+          <Image
+            className="rounded-lg object-cover"
+            src={imgSrc}
+            alt={title || 'Card image'}
+            fill
+            sizes="(max-width: 1024px) 100vw, 400px"
+          />
+        </div>
       ) : (
         <ImageCarousel images={imgSrc} />
       )}
