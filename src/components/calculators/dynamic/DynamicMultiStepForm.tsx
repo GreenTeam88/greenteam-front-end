@@ -108,7 +108,7 @@ export default function DynamicMultiStepForm({ calculatorSlug }: DynamicMultiSte
     return () => {
       reset();
     };
-  }, [calculatorSlug]);
+  }, [calculatorSlug, reset, setCalculator, setError, setLoading]);
 
   // Update formData when price changes
   useEffect(() => {
@@ -258,19 +258,27 @@ export default function DynamicMultiStepForm({ calculatorSlug }: DynamicMultiSte
 
   // Build HTML email template
   const buildEmailHtml = useCallback(
-    (structuredAnswers: Array<{ question: string; answer: string; step: string }>, formData: any, priceDetails: any): string => {
+    (
+      structuredAnswers: Array<{ question: string; answer: string; step: string }>,
+      formData: any,
+      priceDetails: any
+    ): string => {
       // Group answers by step
-      const groupedByStep = structuredAnswers.reduce((acc: Record<string, Array<{ question: string; answer: string }>>, item) => {
-        if (!acc[item.step]) {
-          acc[item.step] = [];
-        }
-        acc[item.step].push({ question: item.question, answer: item.answer });
-        return acc;
-      }, {});
+      const groupedByStep = structuredAnswers.reduce(
+        (acc: Record<string, Array<{ question: string; answer: string }>>, item) => {
+          if (!acc[item.step]) {
+            acc[item.step] = [];
+          }
+          acc[item.step].push({ question: item.question, answer: item.answer });
+          return acc;
+        },
+        {}
+      );
 
       // Build step sections HTML
       const stepSectionsHtml = Object.entries(groupedByStep)
-        .map(([stepName, questions], index) => `
+        .map(
+          ([stepName, questions], index) => `
           <table width="100%" cellpadding="0" cellspacing="0" style="margin-bottom: 15px; ${index > 0 ? 'border-top: 1px solid #e0e0e0; padding-top: 15px;' : ''}">
             <tr>
               <td style="background: #2D5A27; color: #fff; padding: 10px 15px; border-radius: 6px 6px 0 0; font-weight: bold; font-size: 14px;">
@@ -280,17 +288,23 @@ export default function DynamicMultiStepForm({ calculatorSlug }: DynamicMultiSte
             <tr>
               <td style="background: #fff; border: 1px solid #e0e0e0; border-top: none; border-radius: 0 0 6px 6px; padding: 15px;">
                 <table width="100%" cellpadding="0" cellspacing="0">
-                  ${(questions as Array<{ question: string; answer: string }>).map(q => `
+                  ${(questions as Array<{ question: string; answer: string }>)
+                    .map(
+                      (q) => `
                     <tr>
                       <td style="padding: 8px 0; color: #666; font-size: 13px; width: 45%; vertical-align: top;">${q.question}:</td>
                       <td style="padding: 8px 0; color: #333; font-weight: 600; font-size: 13px;">${q.answer}</td>
                     </tr>
-                  `).join('')}
+                  `
+                    )
+                    .join('')}
                 </table>
               </td>
             </tr>
           </table>
-        `).join('');
+        `
+        )
+        .join('');
 
       // Build price breakdown HTML
       let priceRowsHtml = `
@@ -408,15 +422,20 @@ export default function DynamicMultiStepForm({ calculatorSlug }: DynamicMultiSte
               </table>
 
               <!-- Price -->
-              <table width="100%" cellpadding="0" cellspacing="0" style="padding: 25px;${comment ? ' border-bottom: 1px solid #eee;' : ''}">
+              <table width="100%" cellpadding="0" cellspacing="0" style="padding: 25px;${
+                comment ? ' border-bottom: 1px solid #eee;' : ''
+              }">
                 <tr>
                   <td>
                     <h3 style="margin: 0 0 15px 0; color: #2D5A27; font-size: 16px;">💰 Prijsberekening</h3>
-                    ${isOnRequest ? `
+                    ${
+                      isOnRequest
+                        ? `
                       <div style="background: #fff3cd; border: 1px solid #ffc107; border-radius: 8px; padding: 15px; text-align: center;">
                         <span style="font-size: 16px; color: #856404;">⚠️ Prijs op aanvraag</span>
                       </div>
-                    ` : `
+                    `
+                        : `
                       <div style="background: #f9f9f9; border-radius: 8px; padding: 15px;">
                         <table width="100%" style="font-size: 14px;">
                           ${priceRowsHtml}
@@ -432,12 +451,15 @@ export default function DynamicMultiStepForm({ calculatorSlug }: DynamicMultiSte
                           </tr>
                         </table>
                       </div>
-                    `}
+                    `
+                    }
                   </td>
                 </tr>
               </table>
 
-              ${comment ? `
+              ${
+                comment
+                  ? `
               <!-- Comments -->
               <table width="100%" cellpadding="0" cellspacing="0" style="padding: 25px;">
                 <tr>
@@ -449,7 +471,9 @@ export default function DynamicMultiStepForm({ calculatorSlug }: DynamicMultiSte
                   </td>
                 </tr>
               </table>
-              ` : ''}
+              `
+                  : ''
+              }
 
             </td>
           </tr>
