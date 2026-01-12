@@ -605,7 +605,13 @@ const MobileBoldLinkColumnSubpage: React.FC<
         >
           {subPage.name}
           {subPages && (
-            <Image src="/icons/dropDown.svg" alt="" width={16} height={16} className={cn('mx-4', { 'rotate-180': isSubpagesOpened })} />
+            <Image
+              src="/icons/dropDown.svg"
+              alt=""
+              width={16}
+              height={16}
+              className={cn('mx-4', { 'rotate-180': isSubpagesOpened })}
+            />
           )}
         </Link>
       ) : (
@@ -615,7 +621,13 @@ const MobileBoldLinkColumnSubpage: React.FC<
         >
           {subPage.name}
           {subPages && (
-            <Image src="/icons/dropDown.svg" alt="" width={16} height={16} className={cn('mx-4', { 'rotate-180': isSubpagesOpened })} />
+            <Image
+              src="/icons/dropDown.svg"
+              alt=""
+              width={16}
+              height={16}
+              className={cn('mx-4', { 'rotate-180': isSubpagesOpened })}
+            />
           )}
         </p>
       )}
@@ -641,7 +653,13 @@ const MobileBoldLinkColumn: React.FC<HeaderColumnInfo> = ({ subPages, title }) =
       >
         {title}
         {subPages && (
-          <Image src="/icons/dropDown.svg" alt="" width={20} height={20} className={cn('mx-4', { 'rotate-180': isSubpagesOpened })} />
+          <Image
+            src="/icons/dropDown.svg"
+            alt=""
+            width={20}
+            height={20}
+            className={cn('mx-4', { 'rotate-180': isSubpagesOpened })}
+          />
         )}{' '}
       </h4>
       {subPages && isSubpagesOpened && (
@@ -667,7 +685,13 @@ export const MobileMenuBoldLink: React.FC<HeaderRoute> = (headerRoute) => {
         >
           {headerRoute.name}{' '}
           {columns && (
-            <Image src="/icons/dropDown.svg" alt="" width={20} height={20} className={cn('mx-4', { 'rotate-180': isColumnsOpened })} />
+            <Image
+              src="/icons/dropDown.svg"
+              alt=""
+              width={20}
+              height={20}
+              className={cn('mx-4', { 'rotate-180': isColumnsOpened })}
+            />
           )}
         </h4>
       )}
