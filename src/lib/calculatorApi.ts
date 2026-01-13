@@ -16,6 +16,9 @@ export interface ConditionalLogic {
 
 export type ConditionalOn = ConditionalRule | ConditionalLogic | null;
 
+// Price variants type - maps service/variant name to price
+export type PriceVariants = Record<string, number>;
+
 export interface StepOption {
   id: string;
   label: string;
@@ -24,6 +27,7 @@ export interface StepOption {
   imageUrl: string | null;
   order: number;
   isExclusive?: boolean; // When selected, clears other selections
+  priceVariants?: PriceVariants | null; // Different prices per service type
 }
 
 export interface Question {
@@ -40,6 +44,8 @@ export interface Question {
   defaultValue: number | null;
   placeholder: string | null;
   countThreshold?: number | null; // For COUNT_SELECTED: only count items > this value
+  multiplyByQuestionId?: string | null; // Multiply option price by value from another question
+  variantSourceQuestionId?: string | null; // Which question determines the price variant
   conditionalOn: ConditionalOn;
   options: StepOption[];
 }
@@ -256,6 +262,81 @@ function getSelectedValues(answer: string | number | string[] | undefined): stri
 }
 
 /**
+ * Helper to get numeric value from an answer (for multiplication)
+ * Parses SELECT values like "15" or "30+" to numbers
+ */
+function getNumericValue(answer: string | number | string[] | undefined): number {
+  if (answer === undefined || answer === null || answer === '') {
+    return 0;
+  }
+
+  // If it's already a number, return it
+  if (typeof answer === 'number') {
+    return answer;
+  }
+
+  // If it's a string, try to parse it
+  if (typeof answer === 'string') {
+    // Handle values like "15+", "30+" - extract the number
+    const numericPart = parseInt(answer.replace(/[^0-9]/g, ''), 10);
+    return isNaN(numericPart) ? 0 : numericPart;
+  }
+
+  // If it's an array, return the length (count)
+  if (Array.isArray(answer)) {
+    return answer.length;
+  }
+
+  return 0;
+}
+
+/**
+ * Helper to get option price considering variants
+ * If variant source is set and user selected a variant, use variant price
+ * Otherwise fall back to default price
+ */
+function getOptionPrice(
+  option: StepOption,
+  question: Question,
+  answers: Record<string, string | number | string[]>,
+  calculator: Calculator
+): number {
+  const defaultPrice = option.price || 0;
+
+  // If no variant source is set, use default price
+  if (!question.variantSourceQuestionId) {
+    return defaultPrice;
+  }
+
+  // Get the variant source answer (e.g., "PVC" or "Hout")
+  const variantAnswer = answers[question.variantSourceQuestionId];
+  if (!variantAnswer || typeof variantAnswer !== 'string') {
+    return defaultPrice;
+  }
+
+  // Find the variant source question to get the selected option's label
+  let variantLabel = variantAnswer;
+  for (const step of calculator.steps) {
+    const sourceQuestion = step.questions.find((q) => q.id === question.variantSourceQuestionId);
+    if (sourceQuestion) {
+      const selectedOption = sourceQuestion.options.find((o) => o.value === variantAnswer);
+      if (selectedOption) {
+        variantLabel = selectedOption.label;
+      }
+      break;
+    }
+  }
+
+  // Look up the variant price
+  if (option.priceVariants && option.priceVariants[variantLabel] !== undefined) {
+    return option.priceVariants[variantLabel];
+  }
+
+  // Fall back to default price
+  return defaultPrice;
+}
+
+/**
  * Calculate price based on answers
  */
 export function calculatePrice(
@@ -280,18 +361,53 @@ export function calculatePrice(
 
       switch (question.pricingImpact) {
         case 'BASE': {
+          // Get the multiplier value if multiplyByQuestionId is set
+          let multiplierValue = 1;
+          if (question.multiplyByQuestionId) {
+            const multiplierAnswer = answers[question.multiplyByQuestionId];
+            multiplierValue = getNumericValue(multiplierAnswer);
+            // If multiplier is 0 or invalid, skip this price contribution
+            if (multiplierValue <= 0) {
+              multiplierValue = 0;
+            }
+          }
+
           if (question.type === 'SELECT') {
             const selectedOption = question.options.find((opt) => opt.value === answer);
-            if (selectedOption?.price) {
-              basePrice += selectedOption.price;
+            if (selectedOption) {
+              // Use getOptionPrice to handle variant pricing
+              const optionPrice = getOptionPrice(selectedOption, question, answers, calculator);
+              if (optionPrice > 0) {
+                const priceToAdd = optionPrice * multiplierValue;
+                basePrice += priceToAdd;
+                // Add to additions for breakdown visibility when multiplied
+                if (question.multiplyByQuestionId && multiplierValue > 1) {
+                  additions.push({
+                    label: `${selectedOption.label} (×${multiplierValue})`,
+                    amount: priceToAdd,
+                  });
+                }
+              }
             }
           } else if (question.type === 'CHECKBOX') {
             // Handle checkbox multi-select
             const selectedValues = getSelectedValues(answer);
             for (const val of selectedValues) {
               const option = question.options.find((opt) => opt.value === val);
-              if (option?.price) {
-                basePrice += option.price;
+              if (option) {
+                // Use getOptionPrice to handle variant pricing
+                const optionPrice = getOptionPrice(option, question, answers, calculator);
+                if (optionPrice > 0) {
+                  const priceToAdd = optionPrice * multiplierValue;
+                  basePrice += priceToAdd;
+                  // Add to additions for breakdown visibility when multiplied
+                  if (question.multiplyByQuestionId && multiplierValue > 1) {
+                    additions.push({
+                      label: `${option.label} (×${multiplierValue})`,
+                      amount: priceToAdd,
+                    });
+                  }
+                }
               }
             }
           }
