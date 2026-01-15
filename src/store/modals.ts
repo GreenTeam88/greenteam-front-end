@@ -3,6 +3,7 @@ import { create } from 'zustand';
 type ModalsStore = {
   sizeDetailsModal: boolean;
   set: SetModalsStore;
+  'residential-use': boolean;
 };
 
 type SetModalsStore = {
@@ -16,4 +17,5 @@ type SetModalsStore = {
 export const useModalsStore = create<ModalsStore>((set) => ({
   set,
   sizeDetailsModal: false,
+  'residential-use': false,
 }));

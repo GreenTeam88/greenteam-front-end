@@ -7,6 +7,8 @@ import { useState } from 'react';
 
 import { colorsHexCodesMap } from '@/config/shop-config';
 import { cn } from '@/lib/tailwind';
+import { ResidentialUseModal } from '@/modals/residentialUseDetails';
+import { useModalsStore } from '@/store/modals';
 import { productsSidebarParams } from '../config/main';
 
 const Menu = () => {
@@ -133,16 +135,20 @@ const QuerySection = ({
   title: string;
   paramName: string;
 }) => {
+  const { set } = useModalsStore();
   return (
-    <div className="flex pt-3 pb-7 gap-4 flex-col w-full border-b-[#DFDFDF] border-b">
-      <div className="flex w-full justify-start gap-6">
-        <h3 className="text-lg capitalize font-bold ">{title}</h3>
-        <p>Uitleg</p>
+    <>
+      <ResidentialUseModal />
+      <div className="flex pt-3 pb-7 gap-4 flex-col w-full border-b-[#DFDFDF] border-b">
+        <div className="flex w-full justify-start gap-6">
+          <h3 className="text-lg capitalize font-bold ">{title}</h3>
+          <p onClick={() => set({ [paramName]: true })}>Uitleg</p>
+        </div>
+        {paramsValues.map((param) => (
+          <QueryItemUI key={param} itemName={param} paramName={paramName} />
+        ))}
       </div>
-      {paramsValues.map((param) => (
-        <QueryItemUI key={param} itemName={param} paramName={paramName} />
-      ))}
-    </div>
+    </>
   );
 };
 
