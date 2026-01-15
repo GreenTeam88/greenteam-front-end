@@ -10,7 +10,8 @@ import { Button } from '@/components/ui/button';
 import { colorsHexCodesMap, variantsOptionsNames } from '@/config/shop-config';
 
 export const ProductCard = ({ product }: { product: Product }) => {
-  const productImage = product.images?.nodes && product.images?.nodes[0]?.url;
+  const productImage = product.images?.edges && product.images?.edges[0]?.node.url;
+  console.log('product maage', productImage, product.images.edges);
   const colorsVariants = product.variants?.edges?.filter((edge) =>
     edge.node.selectedOptions.find((selectedOption) => selectedOption.name === variantsOptionsNames.color)
   );
@@ -24,7 +25,6 @@ export const ProductCard = ({ product }: { product: Product }) => {
       })
     )
   );
-  console.log('product price', amount);
   return (
     <div className="flex  flex-col ">
       <div className="w-[282px] h-[282px] relative">

@@ -49,7 +49,6 @@ export default async function Page({
               })
             )
           );
-          console.log('product colors', productColors.length);
           return colors.some((color) => productColors.includes(color));
         })
       : data.products;
