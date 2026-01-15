@@ -12,7 +12,7 @@ export const AddToCartBtn: React.FC = () => {
   const { selectedVariantId } = useSelectedVariants();
   const addProductToCart = async () => {
     if (!selectedVariantId) return;
-    const res = await linesAdd([{ merchandiseId: selectedVariantId, quantity: 1 }]);
+    await linesAdd([{ merchandiseId: selectedVariantId, quantity: 1 }]);
     toast.success('Uw product is toegevoegd aan uw winkelwagen!');
   };
   error && console.log('cart error', error);
