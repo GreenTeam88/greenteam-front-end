@@ -118,8 +118,8 @@ export const ResidentialUseModal = () => {
               Het is mogelijk om een vloer met een hogere classificatie in een kleinere kamer te leggen. Andersom is het
               natuurlijk niet aan te raden.
             </b>{' '}
-            Leg dus geen tapijt met de classificatie ''licht woongebruik'' in een intensief belopen woonkamer of
-            werkkamer.
+            Leg dus geen tapijt met de classificatie &lsquo;&lsquo;licht woongebruik&lsquo;&lsquo; in een intensief
+            belopen woonkamer of werkkamer.
           </p>
         </div>
       </div>
