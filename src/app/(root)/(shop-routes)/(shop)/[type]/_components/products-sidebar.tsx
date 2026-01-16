@@ -142,7 +142,9 @@ const QuerySection = ({
       <div className="flex pt-3 pb-7 gap-4 flex-col w-full border-b-[#DFDFDF] border-b">
         <div className="flex w-full justify-start gap-6">
           <h3 className="text-lg capitalize font-bold ">{title}</h3>
-          <p onClick={() => set({ [paramName]: true })}>Uitleg</p>
+          <p className="cursor-pointer" onClick={() => set({ [paramName]: true })}>
+            Uitleg
+          </p>
         </div>
         {paramsValues.map((param) => (
           <QueryItemUI key={param} itemName={param} paramName={paramName} />
