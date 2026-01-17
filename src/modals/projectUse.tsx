@@ -26,8 +26,8 @@ export const ProjectUseModal = () => {
           <br />
           <br />
           <p>
-            Tapijt met de classificatie ''projectgebruik'' is ook geschikt voor in bedrijfsruimtes. De vloerbedekking
-            kan één van de volgende classificaties hebben:
+            Tapijt met de classificatie &apos;&apos;projectgebruik&apos;&apos; is ook geschikt voor in bedrijfsruimtes.
+            De vloerbedekking kan één van de volgende classificaties hebben:
           </p>
           <br />
           <h3 className="font-semibold text-3xl">Licht projectgebruik</h3>
