@@ -7,7 +7,16 @@ import { useState } from 'react';
 
 import { colorsHexCodesMap } from '@/config/shop-config';
 import { cn } from '@/lib/tailwind';
+import { CastersModal } from '@/modals/casters';
+import { ComfortClassModal } from '@/modals/comfortClass';
+import { ConstructionModal } from '@/modals/construction';
+import { DyeingMethod } from '@/modals/DyeingMethod';
+import { PoolHeightModal } from '@/modals/poolHeight';
+import { PoolMaterial } from '@/modals/poolMaterial';
+import { ProjectUseModal } from '@/modals/projectUse';
 import { ResidentialUseModal } from '@/modals/residentialUseDetails';
+import { StairsModal } from '@/modals/stairs';
+import { UnderFloorHeatingModal } from '@/modals/underFloorHeating';
 import { useModalsStore } from '@/store/modals';
 import { productsSidebarParams } from '../config/main';
 
@@ -139,6 +148,15 @@ const QuerySection = ({
   return (
     <>
       <ResidentialUseModal />
+      <CastersModal />
+      <ComfortClassModal />
+      <ConstructionModal />
+      <DyeingMethod />
+      <PoolHeightModal />
+      <PoolMaterial />
+      <ProjectUseModal />
+      <StairsModal />
+      <UnderFloorHeatingModal />
       <div className="flex pt-3 pb-7 gap-4 flex-col w-full border-b-[#DFDFDF] border-b">
         <div className="flex w-full justify-start gap-6">
           <h3 className="text-lg capitalize font-bold ">{title}</h3>
