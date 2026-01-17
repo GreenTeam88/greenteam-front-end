@@ -10,27 +10,27 @@ export const productsSidebarParams: { paramName: string; paramTitle: string; ite
     items: ['Projectgebruik', 'Licht projectgebruik', 'Normaal projectgebruik', 'Zwaar projectgebruik'],
   },
   {
-    paramName: 'suitable-for-stairs',
+    paramName: 'stairs',
     paramTitle: 'Trapgeschikt',
     items: ['Wonen', 'Wonen en werken'],
   },
   {
-    paramName: 'Geschikt voor  vloerverwarming',
+    paramName: 'under-floor-heating',
     paramTitle: 'Geschikt voor vloerverwarming',
     items: [],
   },
   {
-    paramName: 'Casters',
+    paramName: 'casters',
     paramTitle: 'Zwenkwielen',
     items: ['Wonen en werken', 'Wonen'],
   },
   {
-    paramName: 'pool-height-group',
+    paramName: 'pool-height',
     paramTitle: 'Poolhoogte groep',
     items: ['Laag', 'Gemiddeld', 'Hoog'],
   },
   {
-    paramName: 'Comfortklasse',
+    paramName: 'comfort-class',
     paramTitle: 'Comfortklasse',
     items: [],
   },
@@ -40,7 +40,7 @@ export const productsSidebarParams: { paramName: string; paramTitle: string; ite
     items: [],
   },
   {
-    paramName: 'pool-materiaal',
+    paramName: 'pool-material',
     paramTitle: 'Poolmateriaal',
     items: ['Polyamide', 'Polyester', 'Polypropyleen', 'Wol', 'Geitenhaar', 'Triexta'],
   },
