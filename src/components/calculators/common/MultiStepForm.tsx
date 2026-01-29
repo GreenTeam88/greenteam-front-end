@@ -112,7 +112,6 @@ const MultiStepForm: React.FC<MultiStepFormProps> = ({ category }) => {
       setHistory((prev) => [...prev, currentStepIndex]);
       setCurrentStepIndex((prev) => {
         const nextIndex = Math.min(prev + 1, steps.length - 1);
-        // console.log('Updated currentStepIndex:', nextIndex); // Log the updated index
         return nextIndex;
       });
       setOptionalStep(null);
@@ -124,7 +123,6 @@ const MultiStepForm: React.FC<MultiStepFormProps> = ({ category }) => {
     if (stepFiveIndex !== -1) {
       setCurrentStepIndex(stepFiveIndex); // Set to StepFive index
       setHistory((prev) => [...prev, stepFiveIndex]); // Save StepFive in history
-      // console.log('Navigating to StepFive, index:', stepFiveIndex);
     } else {
       console.error('StepFive not found in steps array');
     }
@@ -134,22 +132,18 @@ const MultiStepForm: React.FC<MultiStepFormProps> = ({ category }) => {
       // Exit optional step and return to the last visited step
       setOptionalStep(null);
       setCurrentStepIndex(lastVisitedStep);
-      // console.log('Returning to last visited step:', lastVisitedStep);
     } else if (steps[currentStepIndex] === 'StepFive') {
       // If on StepFive, check for skip mode
       if (formData.selectedService && skipServices.includes(formData.selectedService)) {
         // In skip mode, go back to StepOne
         setCurrentStepIndex(0); // StepOne is always index 0
-        // console.log('Returning to StepOne (skip mode)');
       } else {
         // In regular mode, go to the previous step in history
         if (history.length > 0) {
           const prevIndex = history[history.length - 1];
           setHistory((old) => old.slice(0, -1));
           setCurrentStepIndex(prevIndex);
-          // console.log('Navigating back to:', steps[prevIndex], 'at index:', prevIndex);
         } else {
-          // console.log('No history available, staying on StepFive');
         }
       }
     } else if (history.length > 0) {
@@ -157,11 +151,9 @@ const MultiStepForm: React.FC<MultiStepFormProps> = ({ category }) => {
       const prevIndex = history[history.length - 1];
       setHistory((old) => old.slice(0, -1));
       setCurrentStepIndex(prevIndex);
-      // console.log('Navigating back to:', steps[prevIndex], 'at index:', prevIndex);
     } else {
       // Default fallback: go to StepOne
       setCurrentStepIndex(0);
-      // console.log('Navigating back to StepOne (default)');
     }
   };
 
@@ -174,8 +166,6 @@ const MultiStepForm: React.FC<MultiStepFormProps> = ({ category }) => {
   };
 
   const handleFinalSubmit = async (finalData: any) => {
-    console.log('Final Form Data:', finalData);
-
     if (!finalData.isFinalSubmission) {
       console.error('Submission blocked: isFinalSubmission flag is missing or false.');
       return;
@@ -581,30 +571,25 @@ const MultiStepForm: React.FC<MultiStepFormProps> = ({ category }) => {
       event: 'form_submit',
       formData: customFormData, // Send the final form data to GTM
     });
-    // console.log('GTM event triggered with form data:', window.dataLayer);
 
-    // try {
-    //   const response = await fetch(`${process.env.NEXT_PUBLIC_BACKEND_URL}/emails/calculator`, {
-    //     method: 'POST',
-    //     body: customFormData,
-    //   });
-    //   console.log('response', response);
-    //   if (response.ok) {
-    //     const result = await response.json();
-    //     console.log('Form submitted successfully:', result);
-    //     alert('Form submitted successfully!');
-    //     // // Redirect to /bedankt
-    //     window.location.href = `/bedankt?page=${pathname}`;
-    //   } else {
-    //     console.error('Failed to submit form:', response.statusText);
-    //     alert('Error submitting form. Please try again.');
-    //   }
-    // } catch (error) {
-    //   console.error('Network error:', error);
-    //   alert('A network error occurred. Please check your connection and try again.');
-    // }
+    try {
+      const response = await fetch(`${process.env.NEXT_PUBLIC_BACKEND_URL}/emails/calculator`, {
+        method: 'POST',
+        body: customFormData,
+      });
+
+      if (response.ok) {
+        alert('Form submitted successfully!');
+        window.location.href = `/bedankt?page=${pathname}`;
+      } else {
+        console.error('Failed to submit form:', response.statusText);
+        alert('Error submitting form. Please try again.');
+      }
+    } catch (error) {
+      console.error('Network error:', error);
+      alert('A network error occurred. Please check your connection and try again.');
+    }
   };
-
   const stepName = optionalStep || steps[currentStepIndex];
   const StepComponent = stepComponents[stepName];
 
@@ -668,7 +653,7 @@ const MultiStepForm: React.FC<MultiStepFormProps> = ({ category }) => {
           updateFormData={updateFormData}
           onSubmit={stepName === 'ContactInfoStep' ? handleFinalSubmit : undefined}
           onComment={(data: { details: string }) => {
-            updateFormData({ comment: data.details }); // Save only the raw comment text
+            updateFormData({ comment: data.details });
             goToPreviousStep();
           }}
         />

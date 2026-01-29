@@ -1,5 +1,6 @@
 'use client';
 
+import Image from 'next/image';
 import { forwardRef, InputHTMLAttributes, TextareaHTMLAttributes, useEffect, useState } from 'react';
 
 import { BodyText } from './typography';
@@ -57,7 +58,7 @@ export const SelectInput: React.FC<{
           className="px-[20px] w-full flex justify-between cursor-pointer  border-black20 border rounded-lg  py-[12px] "
         >
           <BodyText> {value || placeHolder} </BodyText>
-          <img src="/icons/dropDown.svg" />
+          <Image src="/icons/dropDown.svg" alt="" width={15} height={15} />
         </div>
         {isOpen && (
           <div className="absolute w-[90%]  rounded-lg shadow-xl left-1/2 -translate-x-1/2 h-fit bg-white px-2 border z-30 top-14">

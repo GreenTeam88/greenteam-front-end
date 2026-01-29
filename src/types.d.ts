@@ -4,6 +4,7 @@ export type Option = {
   imageUrl?: string;
   icon?: React.ComponentType<{ className?: string }>;
   disabled?: boolean;
+  isExclusive?: boolean;
 };
 
 export interface FormData {

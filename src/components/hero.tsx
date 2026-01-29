@@ -1,12 +1,18 @@
+'use client';
+
 import React from 'react';
 
-import MultiStepForm from '@/components/calculators/common/MultiStepForm';
+import { DynamicMultiStepForm } from '@/components/calculators/dynamic';
 import { PrimaryBtnLink, SecondaryOutlinedBtnLink } from '@/components/theme/buttons';
 import { cn } from '@/lib/tailwind';
 
 type HeroProps = {
   imgSrc?: string;
   imgClassName?: string;
+  // These props are kept for backwards compatibility but no longer used
+  // Category selection is now handled dynamically by DynamicMultiStepForm
+  calculatorSlug?: string;
+  category?: string;
 };
 
 const ParagraphSection = () => {
@@ -42,7 +48,8 @@ export const Hero: React.FC<HeroProps> = ({ imgSrc, imgClassName }) => {
       <div className=" relative flex-col lg:flex-row z-0 max-w-full lg:min-h-[470px] py-16 lg:py-0 gap-[86px] px-2 lg:px-[120px] w-[1440px] flex items-center ">
         <ParagraphSection />
 
-        <MultiStepForm category="Parketrenovatie" />
+        {/* Dynamic calculator with category selection as first step */}
+        <DynamicMultiStepForm />
       </div>
     </div>
   );
