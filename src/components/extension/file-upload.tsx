@@ -1,6 +1,6 @@
 'use client';
 
-import { Trash2 as RemoveIcon } from 'lucide-react';
+// import { Trash2 as RemoveIcon } from 'lucide-react';
 import {
   createContext,
   Dispatch,
@@ -256,10 +256,6 @@ export const FileUploaderItem = forwardRef<HTMLDivElement, { index: number } & R
         <div className="font-medium leading-none tracking-tight flex items-center gap-1.5 h-full w-full">
           {children}
         </div>
-        <button type="button" onClick={() => removeFileFromSet(index)}>
-          <span className="sr-only">remove item {index}</span>
-          <RemoveIcon className="w-4 h-4 hover:stroke-destructive duration-200 ease-in-out cursor-pointer hover:text-green-700 transition-all" />
-        </button>
       </div>
     );
   }
