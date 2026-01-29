@@ -2,7 +2,7 @@ export const ArrowIcon = () => {
   return (
     <svg width="35" className="group " height="35" viewBox="0 0 35 35" fill="none" xmlns="http://www.w3.org/2000/svg">
       <circle
-        className="stroke-secondaryDefault bg-red-200  group-hover:fill-secondaryDefault"
+        className="stroke-secondaryDefault   group-hover:fill-secondaryDefault"
         cx="17.6648"
         cy="17.4995"
         r="16.2417"
