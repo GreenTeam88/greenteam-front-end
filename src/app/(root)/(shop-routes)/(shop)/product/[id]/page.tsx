@@ -19,7 +19,7 @@ export default async function ProductPage({ params: { id } }: { params: { id: st
   const product = await getProductById({ productId: decodedProductId });
   if (!product) return notFound();
   const productImages = product?.images.edges.map((edge) => edge.node.url);
-
+  console.log('product', product.metafields);
   return (
     <>
       <SizeDetailsModal />

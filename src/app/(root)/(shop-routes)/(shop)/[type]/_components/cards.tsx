@@ -18,6 +18,8 @@ export const ProductCard = ({ product }: { product: Product }) => {
       (selectedOption) => selectedOption.name === variantsOptionsNames.color && selectedOption.value !== 'Default Title'
     )
   );
+  const metafields = product.metafields;
+  console.log('metafields', product);
   const { currencySymbol, amount } = useMoney(product.priceRange.minVariantPrice);
   const colors = Array.from(
     new Set(

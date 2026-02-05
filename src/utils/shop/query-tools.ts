@@ -153,6 +153,13 @@ export async function getAllProducts({
              type
              description
            }
+            main_image: metafield(namespace: "custom", key: "main_image") {
+             key
+             namespace
+             value
+             type
+             description
+           }
            mark: metafield(namespace: "custom", key: "mark") {
              key
              namespace
@@ -240,6 +247,7 @@ metafields(identifiers: [
   { namespace: "custom", key: "ratings_number" },
   { namespace: "custom", key: "ratings_average" },
   { namespace: "custom", key: "pros_cons" },
+   { namespace: "custom", key: "main_image" },
   { namespace: "custom", key: "all_features" },
   { namespace: "custom", key: "product_reviews" },
   { namespace: "custom", key: "related_products" },
