@@ -9,7 +9,9 @@ import { TruckIcon } from '@/components/icons/truck';
 import { colorsHexCodesMap } from '@/config/shop-config';
 
 export const ProductCard = ({ product }: { product: Product }) => {
-  const productImage = product.images?.nodes && product.images?.nodes[0]?.url;
+  console.log('product', product);
+  const productImage = product.images?.edges && product.images?.edges[0]?.node.url;
+  console.log('product image', productImage);
   const firstVariant = product?.variants?.edges[0] && product.variants.edges[0].node;
   const { currencySymbol, amount } = useMoney(firstVariant.price);
   return (

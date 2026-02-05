@@ -72,13 +72,12 @@ export const getShopifyCollections = async (): Promise<Collection[]> => {
   }
 `;
   const allCollections = await shopifyRequest<{ collections: { nodes: any[] } }>(GET_COLLECTIONS_QUERY);
-  console.log('all collections', allCollections);
   return allCollections?.collections.nodes as Collection[];
 };
 
 export async function getAllProducts(): Promise<Product[]> {
   const GET_ALL_PRODUCTS_QUERY = `{
-  products(first: 3) {
+  products(first: 50 ) {
     edges {
       node {
         id
@@ -152,6 +151,7 @@ export async function getAllProducts(): Promise<Product[]> {
 }`;
 
   const response = await shopifyRequest<{ products: { edges: { node: Product }[] } }>(GET_ALL_PRODUCTS_QUERY);
+  console.log('response', response?.products.edges);
   return response?.products.edges.map((edge) => edge.node) || [];
 }
 

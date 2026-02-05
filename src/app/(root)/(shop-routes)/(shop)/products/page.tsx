@@ -30,7 +30,7 @@ export default async function Products({
       <AllCarpetsHeader />
       <SearchProducts />
       <CollectionsSection collections={allCollections} />
-      <ProductsSection products={filteredProductsByColor} />
+      <ProductsSection products={products} />
     </div>
   );
 }
