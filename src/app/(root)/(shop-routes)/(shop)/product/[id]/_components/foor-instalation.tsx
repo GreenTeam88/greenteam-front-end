@@ -22,7 +22,8 @@ import { DoneIcon } from '@/components/icons/done';
 //     </div>
 //   );
 // };
-export const FloorInstalation = () => {
+
+export const ProductProperties = () => {
   return (
     <div className="flex pb-10 flex-col items-center gap-6 ">
       <p>Vloer laten leggen door onze specialist?</p>

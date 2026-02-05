@@ -2,20 +2,22 @@
 
 import { useMoney } from '@shopify/hydrogen-react';
 import { Product } from '@shopify/hydrogen-react/storefront-api-types';
+import { color } from 'framer-motion';
 import Link from 'next/link';
 
 import { GiftIcon } from '@/components/icons/gift';
 import { TruckIcon } from '@/components/icons/truck';
 import { Button } from '@/components/ui/button';
 import { colorsHexCodesMap, variantsOptionsNames } from '@/config/shop-config';
+import { cn } from '@/lib/tailwind';
 
 export const ProductCard = ({ product }: { product: Product }) => {
   const productImage = product.images?.edges && product.images?.edges[0]?.node.url;
-  console.log('product maage', productImage, product.images.edges);
   const colorsVariants = product.variants?.edges?.filter((edge) =>
-    edge.node.selectedOptions.find((selectedOption) => selectedOption.name === variantsOptionsNames.color)
+    edge.node.selectedOptions.find(
+      (selectedOption) => selectedOption.name === variantsOptionsNames.color && selectedOption.value !== 'Default Title'
+    )
   );
-  console.log('price range', product.priceRange.maxVariantPrice, product.priceRange.minVariantPrice);
   const { currencySymbol, amount } = useMoney(product.priceRange.minVariantPrice);
   const colors = Array.from(
     new Set(
@@ -25,6 +27,7 @@ export const ProductCard = ({ product }: { product: Product }) => {
       })
     )
   );
+  console.log('colors', colors);
   return (
     <div className="flex  flex-col ">
       <div className="w-[282px] h-[282px] relative">
@@ -41,13 +44,13 @@ export const ProductCard = ({ product }: { product: Product }) => {
           400 en 500 cm breed
         </button>
       </div>
-      <div className="flex h-[50px] gap-2 p-2">
+      <div className={cn('flex  h-[50px] gap-2 p-2', { hidden: !colors.length })}>
         {colors.slice(0, 5).map((color) => {
           return (
             <div
               key={color}
               style={{ backgroundColor: colorsHexCodesMap[color as keyof typeof colorsHexCodesMap] }}
-              className="w-[40px] h-[40px]"
+              className="w-[40px] border  rounded-sm  h-[40px]"
             ></div>
           );
         })}

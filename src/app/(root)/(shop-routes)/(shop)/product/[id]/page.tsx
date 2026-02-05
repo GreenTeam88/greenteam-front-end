@@ -7,7 +7,7 @@ import { AddToCartBtn } from './_components/add-to-cart-btn';
 import { ProductBasicInfo } from './_components/basic-info';
 import { ColorsVariants } from './_components/colors-variants';
 import { ProductContactInfo } from './_components/contact-info';
-import { FloorInstalation } from './_components/foor-instalation';
+import { ProductProperties } from './_components/foor-instalation';
 import { ImagesSection } from './_components/images-section';
 import { NeedHelp } from './_components/need-help';
 import { ProductTabs } from './_components/product-details/tabs';
@@ -34,7 +34,7 @@ export default async function ProductPage({ params: { id } }: { params: { id: st
             <SizeCalculation product={product} />
             <AddToCartBtn />
             <NeedHelp />
-            <FloorInstalation />
+            <ProductProperties />
           </div>
         </div>
         <ProductTabs product={product} />

@@ -118,7 +118,7 @@ export async function getAllProducts({
   console.log('query is : ', query);
   const GET_PRODUCTS_QUERY = `{
      products(
-        ${direction === 'before' ? 'last' : 'first'}: ${productsPageConfig.itemsPerPage} , ${query}  ${pageCursor}
+        ${direction === 'before' ? 'last' : 'first'}: ${productsPageConfig.itemsPerPage} ,   ${pageCursor}
      ) {
        edges {
          node {
