@@ -4,6 +4,7 @@ import { useMoney } from '@shopify/hydrogen-react';
 import { Product } from '@shopify/hydrogen-react/storefront-api-types';
 import { color } from 'framer-motion';
 import Link from 'next/link';
+import { useState } from 'react';
 
 import { GiftIcon } from '@/components/icons/gift';
 import { TruckIcon } from '@/components/icons/truck';
@@ -12,14 +13,14 @@ import { colorsHexCodesMap, variantsOptionsNames } from '@/config/shop-config';
 import { cn } from '@/lib/tailwind';
 
 export const ProductCard = ({ product }: { product: Product }) => {
-  const productImage = product.images?.edges && product.images?.edges[0]?.node.url;
+  const [productImage, setProductImage] = useState(product.images?.edges && product.images?.edges[0]?.node.url);
+
   const colorsVariants = product.variants?.edges?.filter((edge) =>
     edge.node.selectedOptions.find(
       (selectedOption) => selectedOption.name === variantsOptionsNames.color && selectedOption.value !== 'Default Title'
     )
   );
   const metafields = product.metafields;
-  console.log('metafields', product);
   const { currencySymbol, amount } = useMoney(product.priceRange.minVariantPrice);
   const colors = Array.from(
     new Set(
@@ -29,15 +30,20 @@ export const ProductCard = ({ product }: { product: Product }) => {
       })
     )
   );
-  console.log('colors', colors);
+
+  const main_img_src = product.main_image?.value;
+  console.log('main img src', main_img_src, product, product.main_image);
   return (
     <div className="flex  flex-col ">
       <div className="w-[282px] h-[282px] relative">
-        {productImage ? (
-          <img src={productImage} className="w-full h-full absolute  rounded-t-lg " />
-        ) : (
+        <img
+          onError={() => setProductImage(main_img_src)}
+          src={productImage}
+          className="w-full h-full absolute  rounded-t-lg "
+        />
+        {/* ) : (
           <img src="/shop/products/product-default-image.png" className="w-full h-full z-0 absolute  rounded-t-lg " />
-        )}
+        )} */}
         <div className="bg-[#D3E0D9] w-fit flex rounded-lg gap-1 z-10 relative top-2 left-[6px] h-[28px] items-center px-1 pr-3">
           <GiftIcon />
           <p className="text-black font-bold text-[9px] leading-[24px] ">Bestseller</p>

@@ -115,7 +115,6 @@ export async function getAllProducts({
   const pageCursor = cursor ? `${direction}: "${cursor}"` : ``;
   const query: null | string = queriesCombiner([metafieldQuery, colorsQuery, productTypeQuery]);
 
-  console.log('query is : ', query);
   const GET_PRODUCTS_QUERY = `{
      products(
         ${direction === 'before' ? 'last' : 'first'}: ${productsPageConfig.itemsPerPage} ,   ${pageCursor}
@@ -245,7 +244,7 @@ export async function getProductById({ productId }: { productId: string }): Prom
 metafields(identifiers: [
   { namespace: "custom", key: "old_price" },
   { namespace: "custom", key: "ratings_number" },
-  { namespace: "custom", key: "ratings_average" },
+  { namespace: "custom", key: "average_ratings" },
   { namespace: "custom", key: "pros_cons" },
    { namespace: "custom", key: "main_image" },
   { namespace: "custom", key: "all_features" },
