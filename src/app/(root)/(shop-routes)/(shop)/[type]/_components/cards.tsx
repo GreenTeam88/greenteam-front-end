@@ -2,7 +2,6 @@
 
 import { useMoney } from '@shopify/hydrogen-react';
 import { Product } from '@shopify/hydrogen-react/storefront-api-types';
-import { color } from 'framer-motion';
 import Link from 'next/link';
 import { useState } from 'react';
 
@@ -20,7 +19,6 @@ export const ProductCard = ({ product }: { product: Product }) => {
       (selectedOption) => selectedOption.name === variantsOptionsNames.color && selectedOption.value !== 'Default Title'
     )
   );
-  const metafields = product.metafields;
   const { currencySymbol, amount } = useMoney(product.priceRange.minVariantPrice);
   const colors = Array.from(
     new Set(
@@ -31,8 +29,7 @@ export const ProductCard = ({ product }: { product: Product }) => {
     )
   );
 
-  const main_img_src = product.main_image?.value;
-  console.log('main img src', main_img_src, product, product.main_image);
+  const main_img_src = (product as any).main_image?.value;
   return (
     <div className="flex  flex-col ">
       <div className="w-[282px] h-[282px] relative">
