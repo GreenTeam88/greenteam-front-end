@@ -19,12 +19,12 @@ export default async function ProductPage({ params: { id } }: { params: { id: st
   const product = await getProductById({ productId: decodedProductId });
   if (!product) return notFound();
   const productImages = product?.images.edges.map((edge) => edge.node.url);
-  console.log('product', product.metafields);
+  const category = product.productType;
   return (
     <>
       <SizeDetailsModal />
       <div className="flex pt-5 px-2 lg:px-0 max-w-[1440px] flex-col">
-        <CategorySection />
+        <CategorySection category={category} />
         <div className="flex flex-col  lg:flex-row gap-3">
           <ImagesSection images={productImages || []} />
           <div className="flex flex-col gap-3">

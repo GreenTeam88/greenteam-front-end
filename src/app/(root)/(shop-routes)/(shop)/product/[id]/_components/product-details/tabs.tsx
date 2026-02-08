@@ -103,8 +103,12 @@ export const productDetailsTabs = [
       const stringfiedFeatures = product.metafields.find((metafield) => metafield?.key === 'all_features')
         ?.value as string;
       console.log('metafields', product.metafields);
-      const productProperties = product.metafields.find((metafield) => metafield?.key === 'properties');
-      console.log('product props', productProperties);
+      const stringfiedProductProperties = product.metafields.find(
+        (metafield) => metafield?.key === 'properties'
+      )?.value;
+      console.log('stringfied', stringfiedProductProperties);
+      const productProps = JSON.parse(stringfiedProductProperties || '[]');
+      console.log('product props', productProps);
       if (!stringfiedFeatures) return <NoDataProvided />;
 
       const allFeatures = [...JSON.parse(stringfiedFeatures || '[]')];
@@ -121,7 +125,7 @@ export const ProductTabs = ({ product }: { product: Product }) => {
   if (!selectedTabConfig) throw new Error('can not get the data of the selected tab!');
   return (
     <div className="flex flex-col w-full  lg:w-[1400px] pb-3">
-      <div className="flex gap-1 h-fit lg:h-[81px] max-w-full justify-center lg:justify-start py-2 lg:py-0 flex-wrap lg:flex-nowrap items-center   w-full bg-[#F9FBFA] ">
+      <div className="flex gap-1 px-6 h-fit lg:h-[81px] max-w-full justify-center lg:justify-start py-2 lg:py-0 flex-wrap lg:flex-nowrap items-center   w-full bg-[#F9FBFA] ">
         {productDetailsTabs.map((tab) => (
           <div
             key={tab.name}

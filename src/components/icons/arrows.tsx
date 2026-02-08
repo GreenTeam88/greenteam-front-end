@@ -58,3 +58,16 @@ export const TickDropDownIcon = () => {
     </svg>
   );
 };
+
+export const SmallRightArrow = () => {
+  return (
+    <svg width="5" height="7" viewBox="0 0 5 7" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <path
+        d="M0.5 0.499883L3.66947 3.18988L0.5 5.87988"
+        stroke="#696969"
+        stroke-linecap="round"
+        stroke-linejoin="round"
+      />
+    </svg>
+  );
+};

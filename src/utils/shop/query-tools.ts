@@ -248,6 +248,7 @@ metafields(identifiers: [
   { namespace: "custom", key: "pros_cons" },
    { namespace: "custom", key: "main_image" },
   { namespace: "custom", key: "all_features" },
+  { namespace: "custom", key: "properties" },
   { namespace: "custom", key: "product_reviews" },
   { namespace: "custom", key: "related_products" },
   { namespace: "custom", key: "alternatives" },
