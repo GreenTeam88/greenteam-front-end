@@ -4,13 +4,7 @@ import { Collection, PageInfo, Product } from '@shopify/hydrogen-react/storefron
 
 import { productsPageConfig } from '@/app/(root)/(shop-routes)/(shop)/[type]/config';
 import { storefrontAdmin } from './admin-init';
-import {
-  buildColorQuery,
-  buildMetafieldQuery,
-  buildProductTypeQuery,
-  MetafieldFilter,
-  queriesCombiner,
-} from './query/main';
+import { MetafieldFilter } from './query/main';
 
 export interface ShopifyMetafield<T = string> {
   namespace: string;
@@ -97,9 +91,6 @@ export const getShopifyCollections = async (): Promise<Collection[]> => {
 };
 
 export async function getAllProducts({
-  metafields,
-  productType,
-  colors,
   cursor,
   direction,
 }: {
@@ -109,11 +100,7 @@ export async function getAllProducts({
   cursor: string | null;
   direction: string | null;
 }): Promise<{ products: ProductWithMetafields[]; pageInfo?: PageInfo }> {
-  const metafieldQuery = metafields?.length ? `${buildMetafieldQuery(metafields)}` : null;
-  const colorsQuery = colors.length ? buildColorQuery(colors.filter((color) => color !== 'Alle kleuren')) : null;
-  const productTypeQuery = productType ? buildProductTypeQuery(productType) : null;
   const pageCursor = cursor ? `${direction}: "${cursor}"` : ``;
-  const query: null | string = queriesCombiner([metafieldQuery, colorsQuery, productTypeQuery]);
 
   const GET_PRODUCTS_QUERY = `{
      products(
