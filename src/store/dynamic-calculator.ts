@@ -1,6 +1,6 @@
 import { create } from 'zustand';
 
-import { Calculator, FormStep, PriceBreakdown } from '@/lib/calculatorApi';
+import { Calculator, FormStep, getVisibleQuestions, PriceBreakdown } from '@/lib/calculatorApi';
 
 export interface DynamicCalculatorState {
   // Calculator data from API
@@ -57,13 +57,22 @@ export const useDynamicCalculator = create<DynamicCalculatorState>((set) => ({
 
   goToNextStep: () =>
     set((state) => {
-      const { calculator, currentStepIndex, stepHistory } = state;
+      const { calculator, currentStepIndex, stepHistory, answers } = state;
       if (!calculator) return state;
 
       const totalSteps = calculator.steps.length;
-      if (currentStepIndex < totalSteps - 1) {
+      // Find next step that has visible questions (skip empty steps)
+      let nextIndex = currentStepIndex + 1;
+      while (nextIndex < totalSteps) {
+        if (getVisibleQuestions(calculator.steps[nextIndex], answers).length > 0) {
+          break;
+        }
+        nextIndex++;
+      }
+
+      if (nextIndex < totalSteps) {
         return {
-          currentStepIndex: currentStepIndex + 1,
+          currentStepIndex: nextIndex,
           stepHistory: [...stepHistory, currentStepIndex],
         };
       }
@@ -105,10 +114,16 @@ export const selectTotalSteps = (state: DynamicCalculatorState): number => {
 };
 
 export const selectIsFirstStep = (state: DynamicCalculatorState): boolean => {
-  return state.currentStepIndex === 0;
+  return state.stepHistory.length === 0;
 };
 
 export const selectIsLastStep = (state: DynamicCalculatorState): boolean => {
   if (!state.calculator) return false;
-  return state.currentStepIndex === state.calculator.steps.length - 1;
+  const { calculator, currentStepIndex, answers } = state;
+  for (let i = currentStepIndex + 1; i < calculator.steps.length; i++) {
+    if (getVisibleQuestions(calculator.steps[i], answers).length > 0) {
+      return false;
+    }
+  }
+  return true;
 };
