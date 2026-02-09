@@ -75,6 +75,16 @@ function buildValidationSchema(questions: Question[]) {
         }
         break;
 
+      case 'TEXT_ONLY':
+        fieldSchema = z.string();
+        if (question.required) {
+          fieldSchema = z.string().min(1, 'Dit veld is verplicht');
+        }
+        fieldSchema = fieldSchema.refine((val) => !val || /^[a-zA-ZÀ-ÿ\s'-]+$/.test(val), {
+          message: 'Alleen letters zijn toegestaan (geen cijfers)',
+        });
+        break;
+
       case 'FILE_UPLOAD':
         if (question.required) {
           fieldSchema = z.any().refine(
@@ -120,6 +130,7 @@ function getDefaultValues(questions: Question[], existingAnswers: Record<string,
           break;
         case 'NUMBER':
         case 'TEXT':
+        case 'TEXT_ONLY':
         case 'SELECT':
           defaults[question.id] = '';
           break;

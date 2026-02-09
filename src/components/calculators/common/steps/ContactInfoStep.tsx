@@ -1,6 +1,6 @@
 import { zodResolver } from '@hookform/resolvers/zod';
-import { ChevronLeft } from 'lucide-react';
-import React, { useEffect, useState } from 'react';
+import { ChevronLeft, X } from 'lucide-react';
+import React, { useEffect, useMemo, useState } from 'react';
 import { FormProvider, useForm } from 'react-hook-form';
 import { z } from 'zod';
 
@@ -43,6 +43,28 @@ const ContactInfoStep: React.FC<ContactInfoStepProps> = ({
     defaultValues: formData, // Initialize form with existing data
     mode: 'onChange', // Watch input fields on change
   });
+
+  // Create preview URLs for uploaded files
+  const uploadedFiles: File[] = formData.files || [];
+  const filePreviewUrls = useMemo(() => {
+    return uploadedFiles.map((file: File) => ({
+      url: URL.createObjectURL(file),
+      name: file.name,
+    }));
+  }, [uploadedFiles]);
+
+  // Cleanup object URLs on unmount
+  useEffect(() => {
+    return () => {
+      filePreviewUrls.forEach((preview) => URL.revokeObjectURL(preview.url));
+    };
+  }, [filePreviewUrls]);
+
+  // Handle removing an uploaded file
+  const handleRemoveFile = (index: number) => {
+    const updatedFiles = uploadedFiles.filter((_, i) => i !== index);
+    updateFormData({ ...formData, files: updatedFiles });
+  };
 
   // Watch only the required fields individually
   const watchEmail = form.watch('Email');
@@ -102,6 +124,33 @@ const ContactInfoStep: React.FC<ContactInfoStepProps> = ({
               <div className="w-[100%] h-full bg-green-700 rounded-full"></div>
             </div>
           </div>
+
+          {/* Uploaded Images Preview */}
+          {uploadedFiles.length > 0 && (
+            <div className="flex flex-col gap-2">
+              <span className="text-sm text-gray-600 font-medium">Geüploade foto&apos;s ({uploadedFiles.length})</span>
+              <div className="flex flex-wrap gap-2">
+                {filePreviewUrls.map((preview, index) => (
+                  <div key={index} className="relative group">
+                    <div className="w-16 h-16 rounded-md overflow-hidden border border-gray-200">
+                      <img
+                        src={preview.url}
+                        alt={preview.name}
+                        className="w-full h-full object-cover"
+                      />
+                    </div>
+                    <button
+                      type="button"
+                      onClick={() => handleRemoveFile(index)}
+                      className="absolute -top-2 -right-2 bg-red-500 text-white rounded-full p-0.5 opacity-0 group-hover:opacity-100 transition-opacity"
+                    >
+                      <X className="w-3 h-3" />
+                    </button>
+                  </div>
+                ))}
+              </div>
+            </div>
+          )}
 
           <InputGetter form={form} name="Email" label="E-mailadres" placeholder="Vul hier in" type="email" />
           <InputGetter form={form} name="PhoneNumber" label="Telefoonnummer" placeholder="Vul hier in" type="text" />

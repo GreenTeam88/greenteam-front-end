@@ -13,9 +13,9 @@ const FileSvgDraw = () => {
     <div className={'flex flex-col  gap-y-2 items-center w-[85%] mx-auto'}>
       <div className={'flex flex-col gap-y-2 items-center w-full'}>
         <h4 className={'text-textBlack text-sm font-semibold truncate text-center'}>
-          Drag and drop files here or upload
+          Sleep bestand hierheen of upload
         </h4>
-        <p className={'text-xs text-textBlack40 truncate text-center'}>Accepted file types: JPEG, PNG</p>
+        <p className={'text-xs text-textBlack40 truncate text-center'}>Geaccepteerde bestandstypen: JPEG, PNG</p>
       </div>
       <CreateButton
         type={'button'}
