@@ -80,10 +80,9 @@ function buildValidationSchema(questions: Question[]) {
         if (question.required) {
           fieldSchema = z.string().min(1, 'Dit veld is verplicht');
         }
-        fieldSchema = fieldSchema.refine(
-          (val) => !val || /^[a-zA-ZÀ-ÿ\s'-]+$/.test(val),
-          { message: 'Alleen letters zijn toegestaan (geen cijfers)' }
-        );
+        fieldSchema = fieldSchema.refine((val) => !val || /^[a-zA-ZÀ-ÿ\s'-]+$/.test(val), {
+          message: 'Alleen letters zijn toegestaan (geen cijfers)',
+        });
         break;
 
       case 'FILE_UPLOAD':
