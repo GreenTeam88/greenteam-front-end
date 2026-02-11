@@ -20,14 +20,14 @@ export const productDetailsTabs = [
     title: 'Plus- en minpunten',
     name: 'pros-and-cons',
     body: ({ product }: { product: Product }) => {
-      const prosAndConsMetafield = product.metafields.find(
+      const stringfiedProsAndCons = product.metafields.find(
         (metafield) => metafield?.key === 'product_metafields_custom_pros'
       )?.value;
-      const stringfiedProsAndCons = prosAndConsMetafield;
-      console.log('stringfied pros and cons', product.metafields);
       if (!stringfiedProsAndCons) return <NoDataProvided />;
 
-      const prosAndCons = stringfiedProsAndCons ? JSON.parse(stringfiedProsAndCons) : [];
+      const prosAndCons = stringfiedProsAndCons
+        ? JSON.parse(stringfiedProsAndCons)?.filter((item: any) => !item.value.includes('<'))
+        : [];
 
       if (!prosAndCons) return <NoDataProvided />;
       return <ProsAndConsBody prosAndConsData={prosAndCons} />;
