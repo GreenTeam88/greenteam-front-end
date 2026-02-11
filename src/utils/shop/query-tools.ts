@@ -232,8 +232,8 @@ metafields(identifiers: [
   { namespace: "custom", key: "old_price" },
   { namespace: "custom", key: "ratings_number" },
   { namespace: "custom", key: "average_ratings" },
-  { namespace: "custom", key: "pros_cons" },
-   { namespace: "custom", key: "main_image" },
+  { namespace: "custom", key: "product_metafields_custom_pros" },
+  { namespace: "custom", key: "main_image" },
   { namespace: "custom", key: "all_features" },
   { namespace: "custom", key: "properties" },
   { namespace: "custom", key: "product_reviews" },
@@ -243,6 +243,7 @@ metafields(identifiers: [
   { namespace: "custom", key: "goes_well_with" },
   { namespace: "custom", key: "atmospheric_photos" },
   { namespace: "custom", key: "description" },
+  { namespace: "custom", key: "product_features" },
   { namespace: "custom", key: "old-price" },
 ]) {
   key

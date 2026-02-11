@@ -20,9 +20,11 @@ export const productDetailsTabs = [
     title: 'Plus- en minpunten',
     name: 'pros-and-cons',
     body: ({ product }: { product: Product }) => {
-      const prosAndConsMetafield = product.metafields.find((metafield) => metafield?.key === 'pros_cons')?.value;
+      const prosAndConsMetafield = product.metafields.find(
+        (metafield) => metafield?.key === 'product_metafields_custom_pros'
+      )?.value;
       const stringfiedProsAndCons = prosAndConsMetafield;
-      console.log('stringfied pros and cons', stringfiedProsAndCons);
+      console.log('stringfied pros and cons', product.metafields);
       if (!stringfiedProsAndCons) return <NoDataProvided />;
 
       const prosAndCons = stringfiedProsAndCons ? JSON.parse(stringfiedProsAndCons) : [];
@@ -100,15 +102,10 @@ export const productDetailsTabs = [
     title: 'Alle productkenmerken',
     name: 'product-features',
     body: ({ product }: { product: Product }) => {
-      const stringfiedFeatures = product.metafields.find((metafield) => metafield?.key === 'all_features')
+      const stringfiedFeatures = product.metafields.find((metafield) => metafield?.key === 'product_features')
         ?.value as string;
       console.log('metafields', product.metafields);
-      const stringfiedProductProperties = product.metafields.find(
-        (metafield) => metafield?.key === 'properties'
-      )?.value;
-      console.log('stringfied', stringfiedProductProperties);
-      const productProps = JSON.parse(stringfiedProductProperties || '[]');
-      console.log('product props', productProps);
+
       if (!stringfiedFeatures) return <NoDataProvided />;
 
       const allFeatures = [...JSON.parse(stringfiedFeatures || '[]')];
@@ -121,7 +118,6 @@ type TabName = (typeof productDetailsTabs)[number]['name'];
 export const ProductTabs = ({ product }: { product: Product }) => {
   const [selectedTab, setSelectedTab] = useState<TabName>(productDetailsTabs[0].name);
   const selectedTabConfig = productDetailsTabs.find((tab) => tab.name === selectedTab);
-  console.log('product', product);
   if (!selectedTabConfig) throw new Error('can not get the data of the selected tab!');
   return (
     <div className="flex flex-col w-full  lg:w-[1400px] pb-3">
