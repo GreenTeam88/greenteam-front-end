@@ -14,7 +14,7 @@ export const ProjectUseModal = () => {
       open={projectUseModal}
       onClose={() => set({ 'project-use': false })}
     >
-      <div className="w-full lg:w-[1200px] p-10 max-h-[90vh] overflow-auto rounded-lg bg-white absolute right-1/2 translate-x-1/2 top-1/2 -translate-y-1/2 max-w-[90vw] ">
+      <div className="w-full lg:w-[1200px] p-2 lg:p-10 max-h-[90vh] overflow-auto rounded-lg bg-white absolute right-1/2 translate-x-1/2 top-1/2 -translate-y-1/2 max-w-[90vw] ">
         <div className="w-full px-4  py-4 flex border-b border-b-gray-200 items-center justify-end">
           <div onClick={() => set({ 'project-use': false })} className="max-w-[100px] relative  max-h-[100px]">
             <X />
@@ -30,7 +30,7 @@ export const ProjectUseModal = () => {
             De vloerbedekking kan één van de volgende classificaties hebben:
           </p>
           <br />
-          <h3 className="font-semibold text-3xl">Licht projectgebruik</h3>
+          <h3 className="font-semibold text-xl lg:text-3xl">Licht projectgebruik</h3>
           <br />
           <Image width={211.99} height={100} alt="house image" src="/modals/licht-project-gebruik-31_1.jpg" />
           <br />
