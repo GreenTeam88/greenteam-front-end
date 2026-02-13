@@ -20,9 +20,8 @@ export const ProjectUseModal = () => {
             <X />
           </div>
         </div>
-        <div className="flex px-5  flex-col py-8">
-          <h3 className="text-5xl "> Projectgebruik</h3>
-          <br />
+        <div className="flex px-2 lg:px-5  flex-col py-8">
+          <h3 className="text-2xl lg:text-5xl "> Projectgebruik</h3>
           <br />
           <br />
           <p>
