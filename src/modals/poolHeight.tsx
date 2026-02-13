@@ -13,14 +13,14 @@ export const PoolHeightModal = () => {
       open={poolHeightModal}
       onClose={() => set({ 'pool-height': false })}
     >
-      <div className="w-full lg:w-[1200px] p-10 max-h-[90vh] overflow-auto rounded-lg bg-white absolute right-1/2 translate-x-1/2 top-1/2 -translate-y-1/2 max-w-[90vw] ">
+      <div className="w-full lg:w-[1200px] p-2 lg:p-10 max-h-[90vh] overflow-auto rounded-lg bg-white absolute right-1/2 translate-x-1/2 top-1/2 -translate-y-1/2 max-w-[90vw] ">
         <div className="w-full px-4  py-4 flex border-b border-b-gray-200 items-center justify-end">
           <div onClick={() => set({ 'pool-height': false })} className="max-w-[100px] relative  max-h-[100px]">
             <X />
           </div>
         </div>
-        <div className="flex px-5  flex-col py-8">
-          <h3 className="text-5xl "> Poolhoogte groep</h3>
+        <div className="flex lg:px-5  flex-col py-8">
+          <h3 className=" text-3xl lg:text-5xl "> Poolhoogte groep</h3>
           <br />
           <br />
           <p>Geeft aan wat de poolhoogte van het tapijt is in mm.</p>

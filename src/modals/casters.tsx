@@ -10,15 +10,15 @@ export const CastersModal = () => {
   const { set, casters: castersModal } = useModalsStore();
   return (
     <Modal style={{ backgroundColor: 'transparent' }} open={castersModal} onClose={() => set({ casters: false })}>
-      <div className=" w-full lg:w-[1200px] p-10 max-h-[90vh] overflow-auto rounded-lg bg-white absolute right-1/2 translate-x-1/2 top-1/2 -translate-y-1/2 max-w-[90vw] ">
+      <div className=" w-full lg:w-[1200px] p-3 lg:p-10 max-h-[90vh] overflow-auto rounded-lg bg-white absolute right-1/2 translate-x-1/2 top-1/2 -translate-y-1/2 max-w-[90vw] ">
         <div className="w-full px-4  py-4 flex border-b border-b-gray-200 items-center justify-end">
           <div onClick={() => set({ casters: false })} className="max-w-[100px] relative  max-h-[100px]">
             <X />
           </div>
         </div>
         <div className="flex px-5  flex-col py-8">
-          <h3 className="text-5xl "> Zwenkwielen</h3>
-          <br />
+          <h3 className="text-3xl lg:text-5xl "> Zwenkwielen</h3>
+
           <br />
           <br />
           <p>
