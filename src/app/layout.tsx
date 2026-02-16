@@ -51,7 +51,6 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
           {children}
           <Footer />
         </AppProviders>
-        {/* the script for roomvo */}
         {/* the script is delayed for 5 seconds in order to increase the load speed of the website  */}
         <DelayedRoomvoScriptLoader />
       </body>

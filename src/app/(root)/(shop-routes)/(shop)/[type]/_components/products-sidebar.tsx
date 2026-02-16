@@ -86,16 +86,33 @@ export const ColorOption = ({ name, hexCode }: { name: string; hexCode?: string 
 };
 
 export const ColorsSection = () => {
+  const [showAll, setShowAll] = useState(false);
+
+  const colorsEntries = Object.entries(colorsHexCodesMap);
+  const visibleColors = showAll ? colorsEntries : colorsEntries.slice(0, 10);
+
   return (
-    <div className="flex pt-3 gap-4 flex-col pb-5  w-full border-b-[#DFDFDF] border-b">
+    <div className="flex pt-3 gap-4 flex-col pb-5 w-full border-b-[#DFDFDF] border-b">
       <div className="flex w-full justify-between">
-        <h3 className="text-lg font-bold ">Kleuren</h3>
+        <h3 className="text-lg font-bold">Kleuren</h3>
         <div className="bg-[#575757]"></div>
       </div>
+
       <ColorOption name="Alle kleuren" />
-      {Object.entries(colorsHexCodesMap).map(([name, hexCode]) => (
+
+      {visibleColors.map(([name, hexCode]) => (
         <ColorOption key={hexCode} hexCode={hexCode} name={name} />
       ))}
+
+      {colorsEntries.length > 10 && (
+        <button
+          type="button"
+          onClick={() => setShowAll((prev) => !prev)}
+          className="text-sm font-medium text-black hover:underline w-fit"
+        >
+          {showAll ? 'Minder bekijken' : 'Meer bekijken'}
+        </button>
+      )}
     </div>
   );
 };
