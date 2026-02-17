@@ -112,13 +112,12 @@ const headerRoutes: HeaderRoute[] = [
   },
   { name: 'Vinyl', path: 'Vinyl' },
 
-  { name: 'Vloerkleed op maat', path: '' },
   { name: 'Tapijttegel', path: 'Tapijttegel' },
   { name: 'Pvc Click', path: 'pvc-rigid_click' },
   { name: 'Pvc dryback', path: 'pvc-dryback' },
   { name: 'Trap', path: 'trap' },
   { name: 'laminaat', path: 'laminaat' },
-  { name: 'Deurmat', path: 'Deurmat' },
+  { name: 'Project', path: 'project' },
 ];
 
 // a single item in a colmun in the menu (the menu that apears when we hover over a certain link)
