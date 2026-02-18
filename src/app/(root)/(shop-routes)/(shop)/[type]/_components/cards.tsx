@@ -2,7 +2,6 @@
 
 import { useMoney } from '@shopify/hydrogen-react';
 import { Product } from '@shopify/hydrogen-react/storefront-api-types';
-import Link from 'next/link';
 import { useRouter } from 'next/navigation';
 import { useState } from 'react';
 
