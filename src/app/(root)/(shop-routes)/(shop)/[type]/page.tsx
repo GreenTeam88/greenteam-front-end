@@ -34,11 +34,9 @@ export default async function Page({
   const filteredProducts =
     colors.length && !colors.includes('Alle kleuren')
       ? data.products.filter((product) => {
-          console.log('getting colors variants');
           const colorsVariants = product.variants?.edges?.filter((edge) =>
             edge.node?.selectedOptions?.find((selectedOption) => selectedOption.name === variantsOptionsNames.color)
           );
-          console.log('colors', colorsVariants.length);
           const productColors = Array.from(
             new Set(
               colorsVariants?.map((variant) => {

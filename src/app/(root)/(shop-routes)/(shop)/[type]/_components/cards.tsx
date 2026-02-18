@@ -3,6 +3,7 @@
 import { useMoney } from '@shopify/hydrogen-react';
 import { Product } from '@shopify/hydrogen-react/storefront-api-types';
 import Link from 'next/link';
+import { useRouter } from 'next/navigation';
 import { useState } from 'react';
 
 import { GiftIcon } from '@/components/icons/gift';
@@ -13,6 +14,7 @@ import { cn } from '@/lib/tailwind';
 
 export const ProductCard = ({ product }: { product: Product }) => {
   const [productImage, setProductImage] = useState(product.images?.edges && product.images?.edges[0]?.node.url);
+  const router = useRouter();
 
   const colorsVariants = product.variants?.edges?.filter((edge) =>
     edge.node.selectedOptions.find(
@@ -31,7 +33,10 @@ export const ProductCard = ({ product }: { product: Product }) => {
 
   const main_img_src = (product as any).main_image?.value;
   return (
-    <div className="flex  flex-col ">
+    <div
+      onClick={() => router.push(`/product/${encodeURIComponent(product.id)}`)}
+      className="flex cursor-pointer  flex-col "
+    >
       <div className="w-[282px] h-[282px] relative">
         <img
           onError={() => setProductImage(main_img_src)}
@@ -74,12 +79,12 @@ export const ProductCard = ({ product }: { product: Product }) => {
         </p>
       </div>
       <Button asChild variant="tertiary">
-        <Link
-          href={`/product/${encodeURIComponent(product.id)}`}
-          // className="w-[275px] bg-[#195B35] border-[3px] border-[#195B35] h-[42px] rounded-[10px] text-white flex items-center justify-center font-semibold"
+        <h3
+
+        // className="w-[275px] bg-[#195B35] border-[3px] border-[#195B35] h-[42px] rounded-[10px] text-white flex items-center justify-center font-semibold"
         >
           Bekijk {'>'}
-        </Link>
+        </h3>
       </Button>
     </div>
   );
