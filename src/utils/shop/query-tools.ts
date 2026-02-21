@@ -100,25 +100,36 @@ export async function getAllProducts({
   metafields,
   productType,
   colors,
+  title,
   cursor,
   direction,
 }: {
   metafields?: MetafieldFilter[];
   colors: string[];
   productType?: string | null;
+  title?: string | null;
   cursor: string | null;
   direction: string | null;
 }): Promise<{ products: ProductWithMetafields[]; pageInfo?: PageInfo }> {
-  const metafieldQuery = metafields?.length ? `${buildMetafieldQuery(metafields)}` : null;
+  const metafieldQuery = metafields?.length ? buildMetafieldQuery(metafields) : null;
+
   const colorsQuery = colors.length ? buildColorQuery(colors.filter((color) => color !== 'Alle kleuren')) : null;
+
   const productTypeQuery = productType ? buildProductTypeQuery(productType) : null;
+
+  const titleQuery = title ? `title:*${title.replace(/"/g, '\\"')}*` : null;
+
   const pageCursor = cursor ? `${direction}: "${cursor}"` : ``;
-  const query: null | string = queriesCombiner([metafieldQuery, colorsQuery, productTypeQuery]);
+
+  const query: null | string = queriesCombiner([metafieldQuery, colorsQuery, productTypeQuery, titleQuery]);
 
   console.log('query is : ', query);
+
   const GET_PRODUCTS_QUERY = `{
      products(
-        ${direction === 'before' ? 'last' : 'first'}: ${productsPageConfig.itemsPerPage} , ${query}  ${pageCursor}
+        ${direction === 'before' ? 'last' : 'first'}: ${productsPageConfig.itemsPerPage}
+        ${query ? `, query: "${query}"` : ''}
+        ${pageCursor}
      ) {
        edges {
          node {
@@ -153,7 +164,8 @@ export async function getAllProducts({
              type
              description
            }
-            main_image: metafield(namespace: "custom", key: "main_image") {
+
+           main_image: metafield(namespace: "custom", key: "main_image") {
              key
              namespace
              value
@@ -175,7 +187,6 @@ export async function getAllProducts({
                  id
                  title
                  sku
-
                  selectedOptions {
                    name
                    value
@@ -187,9 +198,14 @@ export async function getAllProducts({
                }
              }
            }
-           priceRange { minVariantPrice { amount currencyCode } maxVariantPrice { amount currencyCode } }
+
+           priceRange {
+             minVariantPrice { amount currencyCode }
+             maxVariantPrice { amount currencyCode }
+           }
          }
        }
+
        pageInfo {
          hasNextPage
          endCursor
@@ -197,34 +213,20 @@ export async function getAllProducts({
          hasPreviousPage
        }
      }
-   }
+   }`;
 
-   `;
-  console.log('get products query', GET_PRODUCTS_QUERY);
   const response = await shopifyAdminRequest<{
     products: {
       edges: { node: ProductWithMetafields }[];
       pageInfo: PageInfo;
     };
   }>(GET_PRODUCTS_QUERY);
-  // const products = response.data.products.edges.map((edge) => edge.node);
 
-  // products.forEach((product) => {
-  // Extract all variant colors for this product
-  //   const colors = product.variants.edges
-  //     .map((variantEdge) => {
-  //       const option = variantEdge.node.selectedOptions.find(
-  //         (opt: { name: string; value: string }) => opt.name.toLowerCase() === 'color'
-  //       );
-  //       return option?.value;
-  //     })
-  //     .filter(Boolean); // removes undefined
-  // });
-
-  const pageInfo = response?.products?.pageInfo;
-  return { products: response?.products.edges.map((edge) => edge.node) || [], pageInfo };
+  return {
+    products: response?.products.edges.map((edge) => edge.node) || [],
+    pageInfo: response?.products.pageInfo,
+  };
 }
-
 export async function getProductById({ productId }: { productId: string }): Promise<Product | null> {
   console.log('getting product', productId);
   const GET_PRODUCT_BY_ID_QUERY = `

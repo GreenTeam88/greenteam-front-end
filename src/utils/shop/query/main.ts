@@ -30,15 +30,14 @@ export function buildColorQuery(colors?: string[]): string {
 }
 
 export function queriesCombiner(queries?: (string | null)[]): string | null {
-  const cleanArrayQueries = queries?.filter((query) => query !== null);
+  const cleanArrayQueries = queries?.filter(Boolean);
+
   if (!cleanArrayQueries?.length) {
-    return '';
+    return null;
   }
 
-  const jointQueries = cleanArrayQueries.join(' OR ');
-  return `query: "${jointQueries}"`;
+  return cleanArrayQueries.join(' OR ');
 }
-
 export function buildProductTypeQuery(type?: string | null) {
   if (!type) return null;
   return `product_type:${type.trim()}`;

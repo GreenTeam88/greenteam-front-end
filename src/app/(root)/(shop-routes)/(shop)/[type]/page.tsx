@@ -28,8 +28,8 @@ export default async function Page({
   }
   const cursor: string | null = searchParams?.cursor || null;
   const direction: string | null = searchParams?.direction || null;
-
-  const data = await getAllProducts({ cursor, metafields, colors, direction, productType: type });
+  const title: string | null = searchParams?.title || null;
+  const data = await getAllProducts({ cursor, title, metafields, colors, direction, productType: type });
   // filtering products based on the colors
   const filteredProducts =
     colors.length && !colors.includes('Alle kleuren')
