@@ -652,7 +652,6 @@ const MobileBoldLinkColumnSubpage: React.FC<
 };
 const MobileBoldLinkColumn: React.FC<HeaderColumnInfo> = ({ subPages, title }) => {
   const [isSubpagesOpened, setIsSubpagesOpened] = useState(false);
-  const router = useRouter();
   return (
     <div className="flex   flex-col gap-1">
       <h4
