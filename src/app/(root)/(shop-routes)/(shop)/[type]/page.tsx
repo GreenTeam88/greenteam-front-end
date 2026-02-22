@@ -62,5 +62,3 @@ export default async function Page({
     </div>
   );
 }
-
-//  [ { title: 'Casters', value: [ 'Wonen en werken' ] } ]

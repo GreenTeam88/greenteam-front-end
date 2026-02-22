@@ -3,7 +3,7 @@
 import clsx from 'clsx';
 import { motion } from 'framer-motion';
 import Link from 'next/link';
-import { usePathname } from 'next/navigation';
+import { usePathname, useRouter } from 'next/navigation';
 import React, { Dispatch, SetStateAction, useEffect, useRef, useState } from 'react';
 
 import { HeaderCartIcon } from '@/components/icons/cart';
@@ -615,7 +615,7 @@ const MobileBoldLinkColumnSubpage: React.FC<
   const [isSubpagesOpened, setIsSubpagesOpened] = useState(false);
   const subPages = 'subPages' in subPage && subPage.subPages;
   return (
-    <div className="flex flex-col ">
+    <div className="flex  flex-col ">
       {'path' in subPage && !subPages ? (
         <Link
           href={subPage.path}
@@ -652,13 +652,14 @@ const MobileBoldLinkColumnSubpage: React.FC<
 };
 const MobileBoldLinkColumn: React.FC<HeaderColumnInfo> = ({ subPages, title }) => {
   const [isSubpagesOpened, setIsSubpagesOpened] = useState(false);
+  const router = useRouter();
   return (
-    <div className="flex flex-col gap-1">
+    <div className="flex   flex-col gap-1">
       <h4
         onClick={() => setIsSubpagesOpened((val) => !val)}
         className="text-[19px]  cursor-pointer  flex items-center "
       >
-        {title}
+        <span>{title}</span>
         {subPages && (
           <img src="/icons/dropDown.svg" className={cn('mx-4 w-[20px]', { 'rotate-180': isSubpagesOpened })} />
         )}{' '}
@@ -677,16 +678,18 @@ export const MobileMenuBoldLink: React.FC<HeaderRoute> = (headerRoute) => {
   const [isColumnsOpened, setIsColumnsOpened] = useState<boolean>(false);
   const columns = 'columns' in headerRoute && headerRoute.columns;
   const path = 'path' in headerRoute && headerRoute.path;
+  const router = useRouter();
   return (
     <div className="flex   flex-col">
       {columns && (
-        <h4
-          onClick={() => setIsColumnsOpened((val) => !val)}
-          className="text-xl  font-semibold cursor-pointer  flex items-center tracking-[-2%]"
-        >
-          {headerRoute.name}{' '}
+        <h4 className="text-xl  font-semibold cursor-pointer  flex items-center tracking-[-2%]">
+          <span onClick={() => path && router.push(path)}>{headerRoute.name}</span>
           {columns && (
-            <img src="/icons/dropDown.svg" className={cn('mx-4 w-[20px]', { 'rotate-180': isColumnsOpened })} />
+            <img
+              onClick={() => setIsColumnsOpened((val) => !val)}
+              src="/icons/dropDown.svg"
+              className={cn('mx-4 w-[20px]', { 'rotate-180': isColumnsOpened })}
+            />
           )}
         </h4>
       )}
@@ -712,7 +715,7 @@ export const MobileMenuBoldLink: React.FC<HeaderRoute> = (headerRoute) => {
 
 const MobileMenuBoldLinks = () => {
   return (
-    <div className="flex flex-col min-w-[300px] w-fit  pl-4 gap-2">
+    <div className="flex max-w-full overflow-y-scroll  flex-col min-w-[300px] w-fit  pl-4 gap-2">
       {headerRoutes.map((header) => (
         <MobileMenuBoldLink key={header.name} {...header} />
       ))}
