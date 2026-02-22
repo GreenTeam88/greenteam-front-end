@@ -4,22 +4,22 @@ import { usePathname, useRouter, useSearchParams } from 'next/navigation';
 import { useEffect, useState } from 'react';
 
 import { SearchIcon } from '@/components/icons/search';
+import { useProductsPageStatus } from '@/store/products';
 
 export const SearchProducts = () => {
   const [value, setValue] = useState('');
-
+  const { set } = useProductsPageStatus();
   const router = useRouter();
   const searchParams = useSearchParams();
   const pathname = usePathname();
 
   useEffect(() => {
-    if (!value) return;
-
+    set({ searchProducts: true });
     const timer = setTimeout(() => {
       const params = new URLSearchParams(searchParams.toString());
-
+      if (!value) params.delete('title');
       // add/update title param
-      params.set('title', value);
+      else params.set('title', value);
 
       router.push(`${pathname}?${params.toString()}`);
     }, 3000); // 3 seconds debounce

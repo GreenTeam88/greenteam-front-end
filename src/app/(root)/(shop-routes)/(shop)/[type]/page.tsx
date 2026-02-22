@@ -56,7 +56,7 @@ export default async function Page({
         <AllCarpetsHeader />
         <SearchProducts />
         <CollectionsSection collections={allCollections} />
-        <ProductsSection products={filteredProducts} />
+        <ProductsSection searchedInput={title || ''} products={filteredProducts} />
         {!colors.length && data.pageInfo && <Pagination {...data.pageInfo} />}
       </div>
     </div>

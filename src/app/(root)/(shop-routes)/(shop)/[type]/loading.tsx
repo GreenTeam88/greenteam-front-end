@@ -1,3 +1,5 @@
+import { ProductsSkeleton } from '@/components/skeleton/products';
+
 export default function ProductsPageSkeleton() {
   return (
     <>
@@ -6,11 +8,7 @@ export default function ProductsPageSkeleton() {
         <div className="w-[1040px] flex flex-col gap-3 ">
           <div className="skeleton w-full h-[200px] "></div>
           <div className="skeleton w-full h-[110px] "></div>
-          <div className="flex  flex-col lg:flex-row px-2 gap-4 w-full ">
-            {Array.from({ length: 3 }).map((_, index) => (
-              <div key={index} className="skeleton w-full h-[380px]"></div>
-            ))}
-          </div>
+          <ProductsSkeleton />
         </div>
       </div>
       <div className="flex flex-col gap-3 px-2">
