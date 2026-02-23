@@ -501,13 +501,6 @@ export function calculatePrice(
               if (optionPrice > 0) {
                 const priceToAdd = optionPrice * multiplierValue;
                 basePrice += priceToAdd;
-                // Add to additions for breakdown visibility when multiplied
-                if (question.multiplyByQuestionId && multiplierValue > 1) {
-                  additions.push({
-                    label: `${selectedOption.label} (×${multiplierValue})`,
-                    amount: priceToAdd,
-                  });
-                }
               }
             }
           } else if (question.type === 'CHECKBOX') {
@@ -521,13 +514,6 @@ export function calculatePrice(
                 if (optionPrice > 0) {
                   const priceToAdd = optionPrice * multiplierValue;
                   basePrice += priceToAdd;
-                  // Add to additions for breakdown visibility when multiplied
-                  if (question.multiplyByQuestionId && multiplierValue > 1) {
-                    additions.push({
-                      label: `${option.label} (×${multiplierValue})`,
-                      amount: priceToAdd,
-                    });
-                  }
                 }
               }
             }
