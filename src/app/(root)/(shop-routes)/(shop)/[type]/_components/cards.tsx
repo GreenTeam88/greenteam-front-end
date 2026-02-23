@@ -70,6 +70,8 @@ export const ProductCard = ({ product }: { product: Product }) => {
         </h4>
         <p className="text-[#212529] text-[12px]">per st. meter</p>
       </div>
+      <h4 className="text-[#212529]  text-xl font-bold">{product.title}</h4>
+
       <div className="flex py-4 pt-2 px-2 items-center gap-2">
         <TruckIcon />
         <p className="text-[#56A54E] font-semibold text-xs">
