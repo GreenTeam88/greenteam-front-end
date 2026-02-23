@@ -33,7 +33,7 @@ export interface StepOption {
 export interface Question {
   id: string;
   order: number;
-  type: 'SELECT' | 'NUMBER' | 'TEXT' | 'CHECKBOX' | 'FILE_UPLOAD';
+  type: 'SELECT' | 'NUMBER' | 'TEXT' | 'TEXT_ONLY' | 'CHECKBOX' | 'FILE_UPLOAD';
   question: string;
   required: boolean;
   pricingImpact: 'BASE' | 'MULTIPLIER' | 'ADDITIVE' | 'COUNT_SELECTED' | 'NONE';
@@ -46,6 +46,7 @@ export interface Question {
   countThreshold?: number | null; // For COUNT_SELECTED: only count items > this value
   multiplyByQuestionId?: string | null; // Multiply option price by value from another question
   variantSourceQuestionId?: string | null; // Which question determines the price variant
+  multipliesPriceOfQuestionId?: string | null; // This question's value multiplies the price from referenced question
   conditionalOn: ConditionalOn;
   options: StepOption[];
 }
@@ -343,24 +344,144 @@ export function calculatePrice(
   calculator: Calculator,
   answers: Record<string, string | number | string[]>
 ): PriceBreakdown {
+  console.log('=== CALCULATE PRICE START ===');
+  console.log('Calculator:', calculator.name, calculator.id);
+  console.log('All answers:', JSON.stringify(answers, null, 2));
+
+  // Log all questions with their pricing-related fields
+  console.log('\n=== ALL QUESTIONS PRICING CONFIG ===');
+  for (const step of calculator.steps) {
+    for (const q of step.questions) {
+      console.log(`Q: "${q.question}" | Type: ${q.type} | PricingImpact: ${q.pricingImpact} | multipliesPriceOfQuestionId: ${q.multipliesPriceOfQuestionId || 'null'} | multiplyByQuestionId: ${q.multiplyByQuestionId || 'null'}`);
+      if (q.options && q.options.length > 0) {
+        q.options.forEach(opt => {
+          console.log(`   - Option: "${opt.label}" | price: ${opt.price} | priceVariants: ${JSON.stringify(opt.priceVariants)}`);
+        });
+      }
+    }
+  }
+  console.log('=== END QUESTIONS CONFIG ===\n');
+
   let basePrice = 0;
   const multipliers: Array<{ label: string; factor: number }> = [];
   const additions: Array<{ label: string; amount: number }> = [];
 
   const visibleSteps = getVisibleSteps(calculator, answers);
+  console.log('Visible steps count:', visibleSteps.length);
+
+  // Collect all question IDs that are referenced by multipliesPriceOfQuestionId
+  // These questions should not add their BASE pricing directly (handled by the referencing question)
+  const questionsWithExternalMultiplier = new Set<string>();
+  for (const step of visibleSteps) {
+    for (const question of step.questions) {
+      if (question.multipliesPriceOfQuestionId) {
+        questionsWithExternalMultiplier.add(question.multipliesPriceOfQuestionId);
+        console.log(`Question "${question.question}" has multipliesPriceOfQuestionId:`, question.multipliesPriceOfQuestionId);
+      }
+    }
+  }
+  console.log('Questions with external multiplier (will skip BASE pricing):', Array.from(questionsWithExternalMultiplier));
 
   for (const step of visibleSteps) {
+    console.log(`\n--- Processing Step ${step.order + 1}: ${step.description || 'No description'} ---`);
     const visibleQuestions = getVisibleQuestions(step, answers);
+    console.log('Visible questions in this step:', visibleQuestions.length);
 
     for (const question of visibleQuestions) {
       const answer = answers[question.id];
+      console.log(`\n  Question: "${question.question}"`);
+      console.log(`    ID: ${question.id}`);
+      console.log(`    Type: ${question.type}`);
+      console.log(`    PricingImpact: ${question.pricingImpact}`);
+      console.log(`    Answer: ${JSON.stringify(answer)}`);
+      console.log(`    multipliesPriceOfQuestionId: ${question.multipliesPriceOfQuestionId || 'null'}`);
+      console.log(`    multiplyByQuestionId: ${question.multiplyByQuestionId || 'null'}`);
+
+      // Handle multipliesPriceOfQuestionId - this question's value multiplies another question's price
+      if (question.multipliesPriceOfQuestionId) {
+        console.log('    >> Has multipliesPriceOfQuestionId - processing...');
+        const numericValue = getNumericValue(answer);
+        console.log(`    >> Numeric value from answer: ${numericValue}`);
+
+        if (numericValue > 0) {
+          // Find the referenced question and get its selected option's price
+          const referencedQuestion = calculator.steps
+            .flatMap((s) => s.questions)
+            .find((q) => q.id === question.multipliesPriceOfQuestionId);
+
+          console.log(`    >> Referenced question found: ${referencedQuestion ? 'YES' : 'NO'}`);
+
+          if (referencedQuestion) {
+            console.log(`    >> Referenced question: "${referencedQuestion.question}"`);
+            console.log(`    >> Referenced question type: ${referencedQuestion.type}`);
+            console.log(`    >> Referenced question pricingImpact: ${referencedQuestion.pricingImpact}`);
+
+            const referencedAnswer = answers[referencedQuestion.id];
+            console.log(`    >> Referenced answer: ${JSON.stringify(referencedAnswer)}`);
+
+            if (referencedAnswer !== undefined && referencedAnswer !== null && referencedAnswer !== '') {
+              let priceFromReference = 0;
+
+              if (referencedQuestion.type === 'SELECT') {
+                const selectedOption = referencedQuestion.options.find((opt) => opt.value === referencedAnswer);
+                console.log(`    >> Selected option found: ${selectedOption ? 'YES - ' + selectedOption.label : 'NO'}`);
+                if (selectedOption) {
+                  console.log(`    >> Option price: ${selectedOption.price}`);
+                  console.log(`    >> Option priceVariants: ${JSON.stringify(selectedOption.priceVariants)}`);
+                  priceFromReference = getOptionPrice(selectedOption, referencedQuestion, answers, calculator);
+                  console.log(`    >> Price from getOptionPrice: ${priceFromReference}`);
+                }
+              } else if (referencedQuestion.type === 'CHECKBOX') {
+                const selectedValues = getSelectedValues(referencedAnswer);
+                console.log(`    >> CHECKBOX selected values: ${JSON.stringify(selectedValues)}`);
+                for (const val of selectedValues) {
+                  const option = referencedQuestion.options.find((opt) => opt.value === val);
+                  if (option) {
+                    const optPrice = getOptionPrice(option, referencedQuestion, answers, calculator);
+                    priceFromReference += optPrice;
+                    console.log(`    >> Option "${option.label}" price: ${optPrice}`);
+                  }
+                }
+              }
+
+              console.log(`    >> Total price from reference: ${priceFromReference}`);
+
+              if (priceFromReference > 0) {
+                const calculatedAmount = numericValue * priceFromReference;
+                console.log(`    >> ADDING TO ADDITIONS: ${numericValue} × ${priceFromReference} = ${calculatedAmount}`);
+                additions.push({
+                  label: `${question.question} (${numericValue} × €${priceFromReference})`,
+                  amount: calculatedAmount,
+                });
+              } else {
+                console.log('    >> Price from reference is 0, not adding anything');
+              }
+            } else {
+              console.log('    >> Referenced answer is empty/null/undefined');
+            }
+          } else {
+            console.log('    >> Could not find referenced question!');
+          }
+        } else {
+          console.log('    >> Numeric value is 0 or less, skipping');
+        }
+        // Skip further processing for this question since we handled it
+        console.log('    >> Continuing to next question (multipliesPriceOfQuestionId handled)');
+        continue;
+      }
 
       if (answer === undefined || answer === null || answer === '') {
+        console.log('    >> Answer is empty, skipping');
         continue;
       }
 
       switch (question.pricingImpact) {
         case 'BASE': {
+          // Skip if this question's price is being handled by another question via multipliesPriceOfQuestionId
+          if (questionsWithExternalMultiplier.has(question.id)) {
+            console.log('    >> SKIPPING BASE pricing - handled by external multiplier');
+            break;
+          }
           // Get the multiplier value if multiplyByQuestionId is set
           let multiplierValue = 1;
           if (question.multiplyByQuestionId) {
@@ -380,13 +501,6 @@ export function calculatePrice(
               if (optionPrice > 0) {
                 const priceToAdd = optionPrice * multiplierValue;
                 basePrice += priceToAdd;
-                // Add to additions for breakdown visibility when multiplied
-                if (question.multiplyByQuestionId && multiplierValue > 1) {
-                  additions.push({
-                    label: `${selectedOption.label} (×${multiplierValue})`,
-                    amount: priceToAdd,
-                  });
-                }
               }
             }
           } else if (question.type === 'CHECKBOX') {
@@ -400,13 +514,6 @@ export function calculatePrice(
                 if (optionPrice > 0) {
                   const priceToAdd = optionPrice * multiplierValue;
                   basePrice += priceToAdd;
-                  // Add to additions for breakdown visibility when multiplied
-                  if (question.multiplyByQuestionId && multiplierValue > 1) {
-                    additions.push({
-                      label: `${option.label} (×${multiplierValue})`,
-                      amount: priceToAdd,
-                    });
-                  }
                 }
               }
             }
@@ -466,16 +573,23 @@ export function calculatePrice(
 
   // Calculate total
   let total = basePrice;
+  console.log('\n=== FINAL CALCULATION ===');
+  console.log('Base price:', basePrice);
 
   // Apply multipliers
   for (const mult of multipliers) {
+    console.log(`Applying multiplier: ${mult.label} × ${mult.factor}`);
     total *= mult.factor;
   }
+  console.log('After multipliers:', total);
 
   // Add additions
   for (const add of additions) {
+    console.log(`Adding: ${add.label} = €${add.amount}`);
     total += add.amount;
   }
+  console.log('Final total:', total);
+  console.log('=== CALCULATE PRICE END ===\n');
 
   return {
     basePrice,

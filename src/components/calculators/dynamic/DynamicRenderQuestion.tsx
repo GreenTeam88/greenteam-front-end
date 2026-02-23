@@ -90,6 +90,17 @@ export default function DynamicRenderQuestion({ question, onFilesChange }: Dynam
         />
       );
 
+    case 'TEXT_ONLY':
+      return (
+        <InputGetter
+          form={form}
+          name={question.id}
+          label={question.question}
+          placeholder={question.placeholder || 'Voer tekst in (alleen letters)'}
+          type="text"
+        />
+      );
+
     case 'FILE_UPLOAD':
       return (
         <UploadGetter
