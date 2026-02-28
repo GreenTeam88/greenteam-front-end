@@ -240,7 +240,7 @@ FileUploaderContent.displayName = 'FileUploaderContent';
 
 export const FileUploaderItem = forwardRef<HTMLDivElement, { index: number } & React.HTMLAttributes<HTMLDivElement>>(
   ({ className, index, children, ...props }, ref) => {
-    const { removeFileFromSet, activeIndex } = useFileUpload(); // direction
+    const { activeIndex } = useFileUpload(); // direction
     const isSelected = index === activeIndex;
     return (
       <div
