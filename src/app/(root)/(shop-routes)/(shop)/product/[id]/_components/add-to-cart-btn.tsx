@@ -9,10 +9,10 @@ import { useSelectedVariants } from '@/store/selected-variants';
 
 export const AddToCartBtn: React.FC = () => {
   const { linesAdd, error } = useCart();
-  const { selectedVariantId } = useSelectedVariants();
+  const { selectedVariantId, size, linearLength } = useSelectedVariants();
   const addProductToCart = async () => {
     if (!selectedVariantId) return;
-    await linesAdd([{ merchandiseId: selectedVariantId, quantity: 1 }]);
+    await linesAdd([{ merchandiseId: selectedVariantId, quantity: Number(size || 1) }]);
     toast.success('Uw product is toegevoegd aan uw winkelwagen!');
   };
   error && console.log('cart error', error);

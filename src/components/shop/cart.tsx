@@ -10,16 +10,22 @@ import { SecondaryBtn } from '../theme/buttons';
 export const CartUI = () => {
   const { lines, cost, checkoutUrl, linesRemove } = useCart();
   const { isOpen, set } = useCartStore();
+
   const navigateToCheckout = () => {
     window.open(checkoutUrl, '_blank', 'noopener,noreferrer');
   };
+
+  // ✅ Correct total quantity (not lines.length)
+  const totalQuantity = lines?.reduce((total, line) => total + (line?.quantity || 0), 0) || 0;
+
   if (!isOpen) return null;
 
   return (
-    <div className="fixed    top-96  z-[60] right-0">
+    <div className="fixed top-96 z-[60] right-0">
       <Button variant="tertiary" onClick={() => set({ isOpen: true })}>
-        🛒 Winkelwagen ({lines?.length})
+        🛒 Winkelwagen ({totalQuantity})
       </Button>
+
       {isOpen && (
         <div className="fixed top-0 right-0 h-full w-80 bg-white border-l border-gray-200 shadow-xl p-6 flex flex-col z-50">
           {/* Header */}
@@ -42,15 +48,26 @@ export const CartUI = () => {
                     className="flex justify-between items-center bg-gray-50 p-4 rounded-lg border border-gray-200"
                   >
                     <div className="text-sm space-y-1">
+                      {/* Product Title */}
                       <p className="font-medium text-gray-800">{line?.merchandise?.product?.title}</p>
+
+                      {/* Variant + Quantity */}
                       <p className="text-gray-500">
                         {line?.merchandise?.title} × {line?.quantity}
                       </p>
+
+                      {/* Unit Price */}
+                      <p className="text-gray-500 text-xs">
+                        {line?.cost?.amountPerQuantity?.amount} {line?.cost?.amountPerQuantity?.currencyCode} per stuk
+                      </p>
+
+                      {/* Total Line Price (quantity included) */}
                       <p className="font-semibold text-gray-800">
                         {line?.cost?.totalAmount?.amount} {line?.cost?.totalAmount?.currencyCode}
                       </p>
                     </div>
 
+                    {/* Remove Button */}
                     <button
                       onClick={() => line?.id && linesRemove([line.id])}
                       className="text-red-500 hover:text-red-600 text-lg"
@@ -64,7 +81,7 @@ export const CartUI = () => {
             )}
           </div>
 
-          {/* Checkout Button */}
+          {/* Checkout */}
           <div className="mt-6 border-t pt-4">
             {checkoutUrl && (
               <Button onClick={navigateToCheckout} className="w-full" variant="tertiary" size="sm">
@@ -77,7 +94,6 @@ export const CartUI = () => {
     </div>
   );
 };
-
 export const CartOpener = () => {
   const { set } = useCartStore();
   const { lines } = useCart();
