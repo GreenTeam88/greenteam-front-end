@@ -223,7 +223,7 @@ export default function DynamicStepRenderer({
       const priceBreakdown = calculatePrice(calculator, updatedAnswers);
       setPriceBreakdown(priceBreakdown);
     }
-  }, [watchedValues, calculator]);
+  }, [watchedValues, calculator, answers]);
 
   const handleSubmit = (event: React.FormEvent) => {
     event.preventDefault();

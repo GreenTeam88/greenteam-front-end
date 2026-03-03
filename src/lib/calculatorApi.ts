@@ -278,8 +278,9 @@ function getNumericValue(answer: string | number | string[] | undefined): number
 
   // If it's a string, try to parse it
   if (typeof answer === 'string') {
-    // Handle values like "15+", "30+" - extract the number
-    const numericPart = parseInt(answer.replace(/[^0-9]/g, ''), 10);
+    // Handle values like "15+", "30+" - strip non-numeric chars but keep decimal point
+    const cleaned = answer.replace(/[^0-9.]/g, '');
+    const numericPart = parseFloat(cleaned);
     return isNaN(numericPart) ? 0 : numericPart;
   }
 
@@ -551,8 +552,16 @@ export function calculatePrice(
           const selectedValues = getSelectedValues(answer);
           const pricePerItem = question.pricePerUnit || 0;
 
-          // Simply count all selected items
-          const count = selectedValues.length;
+          // Filter by countThreshold if set (e.g., only count floors above ground level)
+          let filteredValues = selectedValues;
+          if (question.countThreshold !== undefined && question.countThreshold !== null) {
+            filteredValues = selectedValues.filter((val) => {
+              const numVal = parseFloat(val);
+              return !isNaN(numVal) && numVal > question.countThreshold!;
+            });
+          }
+
+          const count = filteredValues.length;
 
           if (count > 0) {
             const amount = count * pricePerItem;
