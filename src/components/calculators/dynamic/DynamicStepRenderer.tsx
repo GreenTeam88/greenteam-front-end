@@ -198,17 +198,20 @@ export default function DynamicStepRenderer({
     if (!watchedValues) return;
 
     Object.entries(watchedValues).forEach(([key, value]) => {
-      if (value !== undefined && value !== answers[key]) {
+      if (value !== undefined) {
         // For checkbox/multi-select, store as JSON string
         if (Array.isArray(value)) {
-          setAnswer(key, JSON.stringify(value));
-        } else {
+          const jsonValue = JSON.stringify(value);
+          if (jsonValue !== answers[key]) {
+            setAnswer(key, jsonValue);
+          }
+        } else if (value !== answers[key]) {
           setAnswer(key, value as string | number);
         }
       }
     });
 
-    // Recalculate price
+    // Recalculate price using all answers (store + current form values)
     if (calculator) {
       const updatedAnswers = { ...answers };
       Object.entries(watchedValues).forEach(([key, value]) => {
