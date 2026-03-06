@@ -116,11 +116,10 @@ export async function getAllProducts({
   const colorsQuery = colors.length ? buildColorQuery(colors.filter((color) => color !== 'Alle kleuren')) : null;
 
   const productTypeQuery = productType ? buildProductTypeQuery(productType) : null;
-
-  const titleQuery = title ? `title:*${title.replace(/"/g, '\\"')}*` : null;
+  const titleQuery = title ? `title:${title.trim().replace(/"/g, '\\"')}` : null;
 
   const pageCursor = cursor ? `${direction}: "${cursor}"` : ``;
-
+  console.log('title query', titleQuery);
   const query: null | string = queriesCombiner([metafieldQuery, colorsQuery, productTypeQuery, titleQuery]);
 
   console.log('query is : ', query);

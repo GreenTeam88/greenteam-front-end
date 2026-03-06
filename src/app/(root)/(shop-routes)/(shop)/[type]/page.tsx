@@ -31,7 +31,7 @@ export default async function Page({
   const title: string | null = searchParams?.title || null;
   const data = await getAllProducts({ cursor, title, metafields, colors, direction, productType: type });
   // filtering products based on the colors
-  const filteredProducts =
+  let filteredProducts =
     colors.length && !colors.includes('Alle kleuren')
       ? data.products.filter((product) => {
           const colorsVariants = product.variants?.edges?.filter((edge) =>
@@ -49,6 +49,7 @@ export default async function Page({
           return colors.some((color) => productColors.includes(color));
         })
       : data.products;
+  if (title) filteredProducts = filteredProducts.filter((prod) => prod.title.includes(title));
   return (
     <div className="flex gap-3  ">
       <ProductsSidebar collections={allCollections} />
