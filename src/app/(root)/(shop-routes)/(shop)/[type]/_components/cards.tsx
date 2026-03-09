@@ -48,9 +48,9 @@ export const ProductCard = ({ product }: { product: Product }) => {
           <GiftIcon />
           <p className="text-black font-bold text-[9px] leading-[24px] ">Bestseller</p>
         </div> */}
-        <button className="w-[253px] h-[30px] text-[12px] flex items-center z-10 left-1/2 -translate-x-1/2 rounded-lg text-[#195B35]   font-bold absolute top-[237px] justify-center bg-[#D3E0D9]">
+        {/* <button className="w-[253px] h-[30px] text-[12px] flex items-center z-10 left-1/2 -translate-x-1/2 rounded-lg text-[#195B35]   font-bold absolute top-[237px] justify-center bg-[#D3E0D9]">
           400 en 500 cm breed
-        </button>
+        </button> */}
       </div>
       <div className={cn('flex  h-[50px] gap-2 p-2', { hidden: !colors.length })}>
         {colors.slice(0, 5).map((color) => {
