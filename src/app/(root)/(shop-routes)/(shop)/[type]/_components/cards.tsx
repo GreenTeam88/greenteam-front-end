@@ -5,7 +5,6 @@ import { Product } from '@shopify/hydrogen-react/storefront-api-types';
 import { useRouter } from 'next/navigation';
 import { useState } from 'react';
 
-import { GiftIcon } from '@/components/icons/gift';
 import { TruckIcon } from '@/components/icons/truck';
 import { Button } from '@/components/ui/button';
 import { colorsHexCodesMap, variantsOptionsNames } from '@/config/shop-config';

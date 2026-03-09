@@ -12,7 +12,6 @@ import { ProductProperties } from './_components/foor-instalation';
 import { ImagesSection } from './_components/images-section';
 import { NeedHelp } from './_components/need-help';
 import { ProductTabs } from './_components/product-details/tabs';
-import { SizeCalculation } from './_components/size-calculation';
 import { ProductSizeInput } from './_components/size-in-meter';
 import { SizeVariants } from './_components/size-variants';
 
