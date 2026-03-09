@@ -58,10 +58,16 @@ export const SizeVariants = ({ product }: { product: Product }) => {
       (option) => option.name === variantsOptionsNames.color
     );
     const defaultSize = defaultVariant.node.selectedOptions.find((option) => option.name === variantsOptionsNames.size);
-    set({ color: defaultColor?.value, size: defaultSize?.value, selectedVariantId: defaultVariant.node.id });
+    set({
+      color: defaultColor?.value,
+      sizeInMeterSquare: 1,
+      size: defaultSize?.value,
+      selectedVariantId: defaultVariant.node.id,
+    });
   }, []);
 
   // if (!variant) throw new Error('can not get the current variant');
+  return <></>;
   return (
     <>
       {Boolean(sizeOptions.size) && (

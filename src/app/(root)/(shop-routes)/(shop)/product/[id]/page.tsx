@@ -1,5 +1,6 @@
 import { notFound } from 'next/navigation';
 
+import { ProductPageVariantInit } from '@/components/providers/shop-providers';
 import { SizeDetailsModal } from '@/modals/sizeDetails';
 import { getProductById } from '@/utils/shop/query-tools';
 import { CategorySection } from '../../_components/category';
@@ -12,6 +13,7 @@ import { ImagesSection } from './_components/images-section';
 import { NeedHelp } from './_components/need-help';
 import { ProductTabs } from './_components/product-details/tabs';
 import { SizeCalculation } from './_components/size-calculation';
+import { ProductSizeInput } from './_components/size-in-meter';
 import { SizeVariants } from './_components/size-variants';
 
 export default async function ProductPage({ params: { id } }: { params: { id: string } }) {
@@ -21,7 +23,7 @@ export default async function ProductPage({ params: { id } }: { params: { id: st
   const productImages = product?.images.edges.map((edge) => edge.node.url);
   const category = product.productType;
   return (
-    <>
+    <ProductPageVariantInit>
       <SizeDetailsModal />
       <div className="flex pt-5 px-2 lg:px-0 max-w-[1440px] flex-col">
         <CategorySection category={category} />
@@ -31,7 +33,8 @@ export default async function ProductPage({ params: { id } }: { params: { id: st
             <ProductBasicInfo product={product} />
             <ColorsVariants product={product} />
             <SizeVariants product={product} />
-            <SizeCalculation product={product} />
+            {/* <SizeCalculation product={product} /> */}
+            <ProductSizeInput />
             <AddToCartBtn />
             <NeedHelp />
             <ProductProperties />
@@ -41,6 +44,6 @@ export default async function ProductPage({ params: { id } }: { params: { id: st
 
         <ProductContactInfo />
       </div>
-    </>
+    </ProductPageVariantInit>
   );
 }

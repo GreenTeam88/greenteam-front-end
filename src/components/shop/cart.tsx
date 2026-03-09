@@ -43,9 +43,7 @@ export const CartUI = () => {
                   >
                     <div className="text-sm space-y-1">
                       <p className="font-medium text-gray-800">{line?.merchandise?.product?.title}</p>
-                      <p className="text-gray-500">
-                        {line?.merchandise?.title} × {line?.quantity}
-                      </p>
+
                       <p className="font-semibold text-gray-800">
                         {line?.cost?.totalAmount?.amount} {line?.cost?.totalAmount?.currencyCode}
                       </p>

@@ -45,10 +45,10 @@ export const ProductCard = ({ product }: { product: Product }) => {
         {/* ) : (
           <img src="/shop/products/product-default-image.png" className="w-full h-full z-0 absolute  rounded-t-lg " />
         )} */}
-        <div className="bg-[#D3E0D9] w-fit flex rounded-lg gap-1 z-10 relative top-2 left-[6px] h-[28px] items-center px-1 pr-3">
+        {/* <div className="bg-[#D3E0D9] w-fit flex rounded-lg gap-1 z-10 relative top-2 left-[6px] h-[28px] items-center px-1 pr-3">
           <GiftIcon />
           <p className="text-black font-bold text-[9px] leading-[24px] ">Bestseller</p>
-        </div>
+        </div> */}
         <button className="w-[253px] h-[30px] text-[12px] flex items-center z-10 left-1/2 -translate-x-1/2 rounded-lg text-[#195B35]   font-bold absolute top-[237px] justify-center bg-[#D3E0D9]">
           400 en 500 cm breed
         </button>
@@ -64,14 +64,16 @@ export const ProductCard = ({ product }: { product: Product }) => {
           );
         })}
       </div>
-      <div className="flex gap-2 items-end ">
-        <h4 className="text-[#212529]  text-xl font-bold">
-          {currencySymbol} {amount}
-        </h4>
-        <p className="text-[#212529] text-[12px]">per st. meter</p>
-      </div>
-      <h4 className="text-[#212529]  text-xl font-bold">{product.title}</h4>
+      <div className="flex flex-col gap-4">
+        <h4 className="text-[#212529]  text-xl font-bold">{product.title}</h4>
 
+        <div className="flex gap-2 items-end ">
+          <h4 className="text-[#212529]  text-xl font-bold">
+            {currencySymbol} {amount}
+          </h4>
+          <p className="text-[#212529] text-[12px]">per m²</p>
+        </div>
+      </div>
       <div className="flex py-4 pt-2 px-2 items-center gap-2">
         <TruckIcon />
         <p className="text-[#56A54E] font-semibold text-xs">

@@ -26,7 +26,7 @@ export const productDetailsTabs = [
       if (!stringfiedProsAndCons) return <NoDataProvided />;
 
       const prosAndCons = stringfiedProsAndCons
-        ? JSON.parse(stringfiedProsAndCons)?.filter((item: any) => !item.value.includes('<'))
+        ? JSON.parse(stringfiedProsAndCons)?.filter((item: any) => !item?.value?.includes('<'))
         : [];
 
       if (!prosAndCons) return <NoDataProvided />;

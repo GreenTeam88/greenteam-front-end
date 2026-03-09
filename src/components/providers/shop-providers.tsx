@@ -1,6 +1,10 @@
 'use client';
 
 import { CartProvider, ShopifyProvider } from '@shopify/hydrogen-react';
+import { useSelectedLayoutSegment } from 'next/navigation';
+import { useEffect } from 'react';
+
+import { defaultVariantConfig, useSelectedVariants } from '@/store/selected-variants';
 
 export const ShopProvidersWrapper = ({ children }: { children: React.ReactNode }) => {
   return (
@@ -23,4 +27,10 @@ export const ShopProvidersWrapper = ({ children }: { children: React.ReactNode }
       </CartProvider>
     </ShopifyProvider>
   );
+};
+
+export const ProductPageVariantInit = ({ children }: { children: React.ReactNode }) => {
+  // later, there will be some logic here to orgnize variants
+
+  return <>{children}</>;
 };

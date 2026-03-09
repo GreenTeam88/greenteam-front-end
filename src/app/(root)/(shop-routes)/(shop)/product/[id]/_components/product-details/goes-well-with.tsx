@@ -49,7 +49,7 @@ const ProductCard = ({ productId }: { productId: string }) => {
                 <h4 className="text-[#212529]  text-xl font-bold">
                   {currencySymbol + ' '} {amount}
                 </h4>
-                <p className="text-[#212529] text-[12px]">per st. meter</p>
+                <p className="text-[#212529] text-[12px]">per m²</p>
               </div>
               <Button variant="tertiary" asChild>
                 <Link href={`/product/${data?.id}`}>Bekijk {'>'}</Link>
