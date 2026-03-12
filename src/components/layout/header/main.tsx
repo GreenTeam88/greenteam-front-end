@@ -50,22 +50,7 @@ const headerRoutes: HeaderRoute[] = [
         link: '/merken',
         title: 'Merken',
 
-        subPages: [
-          { name: 'Ambiant', path: '/tapijten/ambiant' },
-          { name: 'Best Wool Carpets', path: '' },
-          { name: 'Belakos', path: '/tapijten/Belakos' },
-          { name: 'Bonaparte', path: '/tapijten/Bonaparte' },
-          { name: 'Desso', path: '/tapijten/Desso' },
-          { name: 'Forbo', path: '/tapijten/Forbo' },
-          { name: 'Gelasta', path: '/tapijten/Gelasta' },
-          { name: 'Hamat', path: '/tapijten/Hamat' },
-          { name: 'Interfloor', path: '/tapijten/Interfloor' },
-          { name: 'Lano', path: '/tapijten/Lano' },
-          { name: 'Parade', path: '/tapijten/Parade' },
-          { name: 'Sfeervol Wonen', path: '' },
-          { name: 'Smartstrand', path: '/tapijten/Smartstrand' },
-          { name: 'Tretford', path: '/tapijten/Tretford' },
-        ],
+        subPages: [{ name: 'Gelasta', path: '/tapijten/gelasta' }],
       },
       {
         title: 'Materiaal',
@@ -113,10 +98,10 @@ const headerRoutes: HeaderRoute[] = [
   { name: 'Vinyl', path: 'Vinyl' },
 
   { name: 'Tapijttegel', path: 'Tapijttegel' },
-  { name: 'Pvc Click', path: 'pvc-rigid_click' },
-  { name: 'Pvc dryback', path: 'pvc-dryback' },
+  { name: 'PVC Click', path: 'pvc-rigid_click' },
+  { name: 'PVC dryback', path: 'pvc-dryback' },
   { name: 'Trap', path: 'trap' },
-  { name: 'laminaat', path: 'laminaat' },
+  { name: 'Laminaat', path: 'laminaat' },
   { name: 'Project', path: 'project' },
 ];
 
@@ -558,7 +543,7 @@ export const HeaderDropdowns = ({ routes }: { routes: HeaderRoute[] }) => {
   return (
     <div
       onMouseLeave={() => setHoveredLink('')}
-      className="flex   flex-col items-center  bg-white w-full   gap-[39px] relative  justify-center "
+      className="flex   flex-col items-center bg-white w-full   gap-[39px] sticky top-0  justify-center "
     >
       <div className="flex z-10   gap-[33px] py-1 w-full justify-center items-center ">
         {routes.map((route, index) => (
@@ -590,21 +575,49 @@ export const HeaderDropdowns = ({ routes }: { routes: HeaderRoute[] }) => {
   );
 };
 
-const DesktopHeader = () => {
+export default function DesktopHeader() {
+  const [showTopSection, setShowTopSection] = useState(true);
+  const [lastScrollY, setLastScrollY] = useState(0);
+
+  const handleScroll = () => {
+    const currentScrollY = window.scrollY;
+    const scrollThreshold = window.innerHeight * 0.8; // 80vh in pixels
+
+    if (currentScrollY > lastScrollY && currentScrollY > scrollThreshold) {
+      // Scrolling down past 80vh
+      setShowTopSection(false);
+    } else {
+      // Scrolling up
+      setShowTopSection(true);
+    }
+
+    setLastScrollY(currentScrollY);
+  };
+  useEffect(() => {
+    window.addEventListener('scroll', handleScroll);
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, [lastScrollY]);
+
   return (
-    <div className=" hidden lg:flex flex-col   z-40 w-full  fixed top-0 items-center left-0">
-      <div className="hidden lg:flex  w-full  flex-col  z-50 gap-[39px]  py-6 items-center bg-white">
-        {/* the top section that includes the logo and the social links */}
+    <header
+      className={cn('w-full z-50 hidden lg:block  sticky top-0', {
+        'translate-y-0': showTopSection,
+        '-translate-y-[80%]': !showTopSection,
+      })}
+    >
+      {/* Top section: hide on scroll down */}
+      <div
+        className={`hidden lg:flex w-full flex-col gap-[39px] py-6 items-center bg-white transition-transform duration-300 `}
+      >
         <HeaderTopSection />
-        {/* the section that includes the bold links */}
         <HeaderLinksSection routes={headerRoutes.slice(0, 6)} />
       </div>
-      {/* a section for the dropdowns (last row) */}
-      <HeaderDropdowns routes={headerRoutes.slice(6)} />
-    </div>
-  );
-};
 
+      {/* Dropdowns always visible */}
+      <HeaderDropdowns routes={headerRoutes.slice(6)} />
+    </header>
+  );
+}
 const MobileBoldLinkColumnSubpage: React.FC<
   | RouteWithPath
   | {

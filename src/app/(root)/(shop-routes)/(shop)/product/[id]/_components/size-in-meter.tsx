@@ -38,7 +38,7 @@ export const ProductSizeInput = () => {
             <input
               type="number"
               value={sizeInMeterSquar}
-              onChange={(e) => set({ sizeInMeterSquare: Number(e.target.value || 1) })}
+              onChange={(e) => set({ sizeInMeterSquare: e.target.value })}
               placeholder="Bijv. 6"
               className="border-[#E0E0E0] px-3 border rounded-[10px] w-[157px] h-[42px]"
             />

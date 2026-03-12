@@ -17,7 +17,7 @@ export const AddToCartBtn: React.FC = () => {
     await linesAdd([
       {
         merchandiseId: selectedVariantId,
-        quantity: sizeInMeterSquare,
+        quantity: Number(sizeInMeterSquare || 1),
         attributes: [
           {
             key: 'line_id',

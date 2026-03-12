@@ -2,20 +2,20 @@ import { Pagination } from '@/components/shop/pagination';
 import { variantsOptionsNames } from '@/config/shop-config';
 import { getAllProducts, getShopifyCollections } from '@/utils/shop/query-tools';
 import { MetafieldFilter } from '@/utils/shop/query/main';
-import { CollectionsSection } from './_components/collections';
-import { AllCarpetsHeader } from './_components/header';
-import { ProductsSection } from './_components/products';
-import { ProductsSidebar } from './_components/products-sidebar';
-import { SearchProducts } from './_components/search-products';
-import { productsSidebarParams } from './config/main';
+import { CollectionsSection } from '../_components/collections';
+import { AllCarpetsHeader } from '../_components/header';
+import { ProductsSection } from '../_components/products';
+import { ProductsSidebar } from '../_components/products-sidebar';
+import { SearchProducts } from '../_components/search-products';
+import { productsSidebarParams } from '../config/main';
 
 export const revalidate = 1000;
 export default async function Page({
   searchParams,
-  params: { type },
+  params: { type, vendor },
 }: {
   searchParams?: { [key: string]: string | undefined };
-  params: { type: string };
+  params: { type: string; vendor: string };
 }) {
   const allCollections = await getShopifyCollections();
   const metafields: MetafieldFilter[] = [];
@@ -29,7 +29,15 @@ export default async function Page({
   const cursor: string | null = searchParams?.cursor || null;
   const direction: string | null = searchParams?.direction || null;
   const title: string | null = searchParams?.title || null;
-  const data = await getAllProducts({ cursor, title, metafields, colors, direction, productType: type });
+  const data = await getAllProducts({
+    cursor,
+    title,
+    metafields,
+    colors,
+    direction,
+    productType: 'tapijten',
+    vendor: 'gelasta',
+  });
   // filtering products based on the colors
   let filteredProducts =
     colors.length && !colors.includes('Alle kleuren')
@@ -50,10 +58,6 @@ export default async function Page({
         })
       : data.products;
   if (title) filteredProducts = filteredProducts.filter((prod) => prod.title.includes(title));
-  // filtering products without price
-  filteredProducts = filteredProducts.filter(
-    (prod) => Number(prod.priceRange.minVariantPrice.amount) > 0 && Number(prod.priceRange.minVariantPrice.amount) < 500
-  );
   return (
     <div className="flex gap-3  ">
       <ProductsSidebar collections={allCollections} />

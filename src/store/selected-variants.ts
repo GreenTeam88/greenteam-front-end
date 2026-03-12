@@ -3,7 +3,7 @@ import { create } from 'zustand';
 type SelectedVariants = {
   size: string | null;
   color: string | null;
-  sizeInMeterSquare: number;
+  sizeInMeterSquare: string;
   selectedVariantId: string | null;
   set: SetSelectedVariants;
   linearLength: number;
@@ -23,7 +23,7 @@ type SetSelectedVariants = {
 export const defaultVariantConfig = {
   color: null,
   size: null,
-  sizeInMeterSquare: 1,
+  sizeInMeterSquare: '1',
   selectedVariantId: '',
   linearLength: 0,
   calculatedPrice: null,

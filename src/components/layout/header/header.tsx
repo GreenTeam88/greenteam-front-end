@@ -683,9 +683,9 @@ export const HeaderDropDowns = () => {
   return (
     <motion.div
       animate={subHeaderHidingAnimation}
-      className="flex  bg-white  w-full z-0 pb-5  gap-[50px] justify-center items-center"
+      className="flex  bg-red-500  w-full z-0 pb-5  gap-[50px] justify-center items-center"
     >
-      {headerRoutes.slice(6).map((route, index) => (
+      {headerRoutes.slice(6, 12).map((route, index) => (
         <HeaderLink route={route} key={route.name} index={index} />
       ))}
     </motion.div>
@@ -699,10 +699,10 @@ const DesktopHeader = () => {
         {/* the top section that includes the logo and the social links */}
         <HeaderTopSection />
         {/* the section that includes the bold links */}
-        <HeaderLinksSection />
+        {/* <HeaderLinksSection /> */}
       </div>
       {/* a section for the dropdowns (last row) */}
-      <HeaderDropDowns />
+      {/* <HeaderDropDowns /> */}
     </div>
   );
 };

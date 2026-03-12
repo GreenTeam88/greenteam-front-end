@@ -29,7 +29,7 @@ export const ProductBasicInfo = ({ product }: { product: Product }) => {
       )}
       <h2 className="font-semibold text-[36px] leading-[43px] text-black">{product.title}</h2>
       <p className="leading-[24px]">
-        Merk <span className="font-bold">{product.vendor}</span>
+        Merk <span className="font-bold capitalize">{product.vendor}</span>
       </p>
       <div className="flex  gap-2 pt-4 items-end">
         <h3 className="text-[#195B35] text-[32px]  font-medium">
@@ -38,14 +38,14 @@ export const ProductBasicInfo = ({ product }: { product: Product }) => {
         </h3>
         <p className="leading-[40px]">per m²</p>
       </div>
-      <div className="flex gap-4">
+      {/* <div className="flex gap-4">
         {' '}
         <div className="line-through">Adviesprijs €{oldPrice?.value}</div>
         <div className="flex gap-1">
-          {/* <p className="text-[#195B35]">{currencySymbol}</p> */}
+          <p className="text-[#195B35]">{currencySymbol}</p>
           {liniarMeterPrice?.amount}per strekkende meter
         </div>
-      </div>
+      </div> */}
       <div className="flex flex-col gap-5 mt-7">
         <p>{product.description}</p>
         <div className="bg-[#E0E0E0] w-full h-[1px]"></div>

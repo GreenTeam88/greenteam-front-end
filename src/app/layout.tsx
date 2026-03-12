@@ -35,7 +35,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         {/* google tags manager code  */}
         <GoogleTagManager gtmId="GTM-TXKVLDJ" />
       </head>
-      <body className={cn(inter.className, 'flex lg:pt-[220px] px-0 flex-col relative  items-center')}>
+      <body className={cn(inter.className, 'flex   px-0 flex-col relative  items-center')}>
         {/* google manager code      */}
         <noscript>
           <iframe

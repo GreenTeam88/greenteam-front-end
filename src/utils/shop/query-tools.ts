@@ -103,6 +103,7 @@ export async function getAllProducts({
   title,
   cursor,
   direction,
+  vendor,
 }: {
   metafields?: MetafieldFilter[];
   colors: string[];
@@ -110,109 +111,123 @@ export async function getAllProducts({
   title?: string | null;
   cursor: string | null;
   direction: string | null;
+  vendor?: string | null;
 }): Promise<{ products: ProductWithMetafields[]; pageInfo?: PageInfo }> {
   const metafieldQuery = metafields?.length ? buildMetafieldQuery(metafields) : null;
 
   const colorsQuery = colors.length ? buildColorQuery(colors.filter((color) => color !== 'Alle kleuren')) : null;
 
   const productTypeQuery = productType ? buildProductTypeQuery(productType) : null;
+
   const titleQuery = title ? `title:${title.trim().replace(/"/g, '\\"')}` : null;
 
-  const pageCursor = cursor ? `${direction}: "${cursor}"` : ``;
-  console.log('title query', titleQuery);
-  const query: null | string = queriesCombiner([metafieldQuery, colorsQuery, productTypeQuery, titleQuery]);
+  const vendorQuery = vendor ? `vendor:"${vendor.trim().replace(/"/g, '\\"')}"` : null;
 
-  console.log('query is : ', query);
+  const pageCursor = cursor ? `${direction}: "${cursor}"` : '';
+
+  const query: string | null = queriesCombiner([
+    metafieldQuery,
+    colorsQuery,
+    productTypeQuery,
+    titleQuery,
+    vendorQuery,
+  ]);
 
   const GET_PRODUCTS_QUERY = `{
-     products(
-        ${direction === 'before' ? 'last' : 'first'}: ${productsPageConfig.itemsPerPage}
-        ${query ? `, query: "${query}"` : ''}
-        ${pageCursor}
-     ) {
-       edges {
-         node {
-           id
-           title
-           handle
-           description
-           descriptionHtml
-           vendor
-           productType
-           tags
-           createdAt
-           updatedAt
-           onlineStoreUrl
+    products(
+      ${direction === 'before' ? 'last' : 'first'}: ${productsPageConfig.itemsPerPage}
+      ${query ? `, query: ${JSON.stringify(query)}` : ''}
+      ${pageCursor}
+    ) {
+      edges {
+        node {
+          id
+          title
+          handle
+          description
+          descriptionHtml
+          vendor
+          productType
+          tags
+          createdAt
+          updatedAt
+          onlineStoreUrl
 
-           images(first: 10) {
-             edges {
-               node {
-                 id
-                 url
-                 altText
-                 width
-                 height
-               }
-             }
-           }
+          images(first: 10) {
+            edges {
+              node {
+                id
+                url
+                altText
+                width
+                height
+              }
+            }
+          }
 
-           oldPrice: metafield(namespace: "custom", key: "old_price") {
-             key
-             namespace
-             value
-             type
-             description
-           }
+          oldPrice: metafield(namespace: "custom", key: "old_price") {
+            key
+            namespace
+            value
+            type
+            description
+          }
 
-           main_image: metafield(namespace: "custom", key: "main_image") {
-             key
-             namespace
-             value
-             type
-             description
-           }
+          main_image: metafield(namespace: "custom", key: "main_image") {
+            key
+            namespace
+            value
+            type
+            description
+          }
 
-           mark: metafield(namespace: "custom", key: "mark") {
-             key
-             namespace
-             value
-             type
-             description
-           }
+          mark: metafield(namespace: "custom", key: "mark") {
+            key
+            namespace
+            value
+            type
+            description
+          }
 
-           variants(first: 100) {
-             edges {
-               node {
-                 id
-                 title
-                 sku
-                 selectedOptions {
-                   name
-                   value
-                 }
-                 availableForSale
-                 image {
-                   url
-                 }
-               }
-             }
-           }
+          variants(first: 100) {
+            edges {
+              node {
+                id
+                title
+                sku
+                selectedOptions {
+                  name
+                  value
+                }
+                availableForSale
+                image {
+                  url
+                }
+              }
+            }
+          }
 
-           priceRange {
-             minVariantPrice { amount currencyCode }
-             maxVariantPrice { amount currencyCode }
-           }
-         }
-       }
+          priceRange {
+            minVariantPrice {
+              amount
+              currencyCode
+            }
+            maxVariantPrice {
+              amount
+              currencyCode
+            }
+          }
+        }
+      }
 
-       pageInfo {
-         hasNextPage
-         endCursor
-         startCursor
-         hasPreviousPage
-       }
-     }
-   }`;
+      pageInfo {
+        hasNextPage
+        endCursor
+        startCursor
+        hasPreviousPage
+      }
+    }
+  }`;
 
   const response = await shopifyAdminRequest<{
     products: {

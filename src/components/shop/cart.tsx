@@ -66,8 +66,8 @@ export const CartUI = () => {
               <li>
                 Subtotal : {cost?.totalAmount?.amount} {cost?.totalAmount?.currencyCode}
               </li>
-              <li>Verzending</li>
-              <li>BTW (TAX)</li>
+              <li>Verzending : Gratis</li>
+
               <li>
                 TOTAL : {cost?.totalAmount?.amount} {cost?.totalAmount?.currencyCode}
               </li>
