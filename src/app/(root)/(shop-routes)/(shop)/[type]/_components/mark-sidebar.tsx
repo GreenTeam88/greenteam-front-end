@@ -4,7 +4,7 @@ import { ArrowBigLeftDash } from 'lucide-react';
 import { useRouter, useSearchParams } from 'next/navigation';
 import { useState } from 'react';
 
-import { getSidebarParams, ParamData } from '../[brand]/config/main';
+import { getSidebarParams, ParamData } from '@/config/shop-config';
 
 const ParamUI: React.FC<ParamData & { category: string }> = ({ params, title, category, name }) => {
   const searchParams = useSearchParams();

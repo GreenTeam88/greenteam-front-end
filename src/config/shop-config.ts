@@ -181,3 +181,35 @@ export const shopifyProductMetafields = [
   'ratings-average',
   'deliverytime',
 ];
+
+export type ParamData = { name: string; title: string; params: string[] };
+
+export const getSidebarParams = (): ParamData[] => {
+  return [
+    {
+      name: 'mark',
+      title: 'Merk',
+      params: [
+        'Ambiant',
+        'Best Wool Carpets',
+        'Belakos',
+        'Bonaparte',
+        'Desso',
+        'Forbo',
+        'Gelasta',
+        'Hamat',
+        'Interfloor',
+        'Lano',
+        'Parade',
+        'Sfeervol Wonen',
+        'Smartstrand',
+        'Tretford',
+      ],
+    },
+    {
+      name: 'colors',
+      title: 'Kleur',
+      params: Object.keys(colorsHexCodesMap),
+    },
+  ];
+};

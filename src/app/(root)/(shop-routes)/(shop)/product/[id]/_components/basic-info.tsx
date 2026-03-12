@@ -6,13 +6,8 @@ import { Product } from '@shopify/hydrogen-react/storefront-api-types';
 export const ProductBasicInfo = ({ product }: { product: Product }) => {
   const ratingsAverage = product.metafields?.find((metafield) => metafield?.key === 'average_ratings')?.value;
   const ratingsNumber = product.metafields?.find((metafield) => metafield?.key === 'ratings_number')?.value;
-  const oldPrice = product.metafields?.find((metafield) => metafield?.key === 'old_price');
   const defaultPrice = product.priceRange.minVariantPrice;
-  const liniarMeterPrice = product.variants?.nodes?.find((node) =>
-    node.selectedOptions?.find(
-      (selectedOption) => selectedOption.name === 'size' && selectedOption.value === 'liniar-meter'
-    )
-  )?.price;
+
   const { amount, currencySymbol } = useMoney(defaultPrice);
   return (
     <div className="flex flex-col max-w-[612px]">

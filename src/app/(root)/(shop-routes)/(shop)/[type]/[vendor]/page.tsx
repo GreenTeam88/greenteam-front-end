@@ -35,8 +35,8 @@ export default async function Page({
     metafields,
     colors,
     direction,
-    productType: 'tapijten',
-    vendor: 'gelasta',
+    productType: type,
+    vendor: vendor,
   });
   // filtering products based on the colors
   let filteredProducts =

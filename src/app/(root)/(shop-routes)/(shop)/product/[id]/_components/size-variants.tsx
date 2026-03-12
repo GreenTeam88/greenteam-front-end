@@ -60,7 +60,7 @@ export const SizeVariants = ({ product }: { product: Product }) => {
     const defaultSize = defaultVariant.node.selectedOptions.find((option) => option.name === variantsOptionsNames.size);
     set({
       color: defaultColor?.value,
-      sizeInMeterSquare: 1,
+      sizeInMeterSquare: '1',
       size: defaultSize?.value,
       selectedVariantId: defaultVariant.node.id,
     });
