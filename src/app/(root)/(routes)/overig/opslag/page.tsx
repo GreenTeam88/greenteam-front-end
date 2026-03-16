@@ -100,7 +100,7 @@ const whatWaitingForConfig: InfoCardProps = {
 export default function OverigOpslagPage() {
   return (
     <div className="flex flex-col   relative z-0 items-center w-full">
-      <Hero imgSrc="/overig/hero.png" />
+      <Hero calculatorSlug="overig" imgSrc="/overig/hero.png" />
       <ListCard
         sectionName="Overig"
         pageName="Opslag"
@@ -147,7 +147,7 @@ export default function OverigOpslagPage() {
         className="lg:py-28"
       />
       <FAQSection FAQs={FAQs} />
-      <QuestionSection />
+      <QuestionSection calculatorSlug="overig" />
 
       <RatingSection />
     </div>

@@ -117,7 +117,7 @@ const whatWaitingForConfig: InfoCardProps = {
 export default function TraprenovatieBetonCireGlamourStucPage() {
   return (
     <div className="flex flex-col   relative z-0 items-center w-full">
-      <Hero imgSrc="/traprenovatie/glamour-stuc/hero.png" />
+      <Hero calculatorSlug="traprenovatie" imgSrc="/traprenovatie/glamour-stuc/hero.png" />
       <ListCard
         sectionName="Traprenovaties"
         pageName="Glamour stuc"
@@ -167,7 +167,7 @@ export default function TraprenovatieBetonCireGlamourStucPage() {
         className="lg:py-28"
       />
       <FAQSection FAQs={FAQs} />
-      <QuestionSection />
+      <QuestionSection calculatorSlug="traprenovatie" />
       <RatingSection />
     </div>
   );

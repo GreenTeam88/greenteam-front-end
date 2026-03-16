@@ -38,7 +38,7 @@ function Page() {
       <Tapis />
       <Bourgogne />
       <RatingSection />
-      <QuestionSection category="Parketrenovatie" />
+      <QuestionSection calculatorSlug="vloeren-leggen" />
     </div>
   );
 }

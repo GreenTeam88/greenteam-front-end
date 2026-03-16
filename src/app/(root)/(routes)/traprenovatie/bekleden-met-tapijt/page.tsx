@@ -112,7 +112,7 @@ const whatWaitingForConfig: InfoCardProps = {
 export default function TraprenovatieBekledenMetTapijt() {
   return (
     <div className="flex flex-col   relative z-0 items-center w-full">
-      <Hero imgSrc="/traprenovatie/bekleden-met-tapijt/hero.png" />
+      <Hero calculatorSlug="traprenovatie" imgSrc="/traprenovatie/bekleden-met-tapijt/hero.png" />
       <ListCard
         sectionName="Traprenovaties"
         pageName="Bekleden met tapijt"
@@ -164,7 +164,7 @@ export default function TraprenovatieBekledenMetTapijt() {
         className="lg:py-28"
       />
       <FAQSection FAQs={FAQs} />
-      <QuestionSection />
+      <QuestionSection calculatorSlug="traprenovatie" />
       <RatingSection />
     </div>
   );

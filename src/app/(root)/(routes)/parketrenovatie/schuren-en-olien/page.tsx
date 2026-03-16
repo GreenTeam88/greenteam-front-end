@@ -102,7 +102,7 @@ const whatWaitingForConfig: InfoCardProps = {
 export default function ParketrenovatieSchurenEnOlienPage() {
   return (
     <div className="flex flex-col  relative z-0 items-center w-full bg-bgColor">
-      <Hero imgSrc="/Parketrenovatie/schuren-en-olien-hero.png" />{' '}
+      <Hero calculatorSlug="parketrenovatie" imgSrc="/Parketrenovatie/schuren-en-olien-hero.png" />{' '}
       <SecondSection
         sectionName="Parket Renovatie"
         image="/Parketrenovatie/schuren-en-oliën-1.png"
@@ -135,7 +135,7 @@ export default function ParketrenovatieSchurenEnOlienPage() {
       />
       <WhatWaitingForCard {...whatWaitingForConfig} className="lg:py-28" />
       <FAQSection FAQs={FAQs} />
-      <QuestionSection category="Parketrenovatie" />
+      <QuestionSection calculatorSlug="parketrenovatie" />
       <RatingSection />
     </div>
   );

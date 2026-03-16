@@ -9,9 +9,9 @@ import { cn } from '@/lib/tailwind';
 type HeroProps = {
   imgSrc?: string;
   imgClassName?: string;
-  // These props are kept for backwards compatibility but no longer used
-  // Category selection is now handled dynamically by DynamicMultiStepForm
+  // When provided, skips category selection and loads this calculator directly
   calculatorSlug?: string;
+  /** @deprecated Use calculatorSlug instead */
   category?: string;
 };
 
@@ -37,7 +37,7 @@ const ParagraphSection = () => {
   );
 };
 
-export const Hero: React.FC<HeroProps> = ({ imgSrc, imgClassName }) => {
+export const Hero: React.FC<HeroProps> = ({ imgSrc, imgClassName, calculatorSlug }) => {
   return (
     <div className="relative px-2 py-6  w-full h-fit flex items-center justify-center ">
       <img
@@ -49,7 +49,7 @@ export const Hero: React.FC<HeroProps> = ({ imgSrc, imgClassName }) => {
         <ParagraphSection />
 
         {/* Dynamic calculator with category selection as first step */}
-        <DynamicMultiStepForm />
+        <DynamicMultiStepForm calculatorSlug={calculatorSlug} />
       </div>
     </div>
   );
