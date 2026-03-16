@@ -25,7 +25,7 @@ export default function ParketrenovatieVGroefFrezenPage() {
       <VgroefFrezen />
       <PlintenDeklijsten />
       <RatingSection />
-      <QuestionSection category="Parketrenovatie" />
+      <QuestionSection calculatorSlug="parketrenovatie" />
     </div>
   );
 }

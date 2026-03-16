@@ -102,7 +102,7 @@ const FAQs: FAQType[] = [
 export default function ParketrenovatieSchurenEnPolijstenPage() {
   return (
     <div className="flex flex-col  relative z-0 items-center w-full">
-      <Hero imgSrc="/Parketrenovatie/schuren-en-polijsten-hero.png" />{' '}
+      <Hero calculatorSlug="parketrenovatie" imgSrc="/Parketrenovatie/schuren-en-polijsten-hero.png" />{' '}
       <SecondSection
         sectionName="Parket Renovatie"
         image="/Parketrenovatie/image11.png"
@@ -136,7 +136,7 @@ export default function ParketrenovatieSchurenEnPolijstenPage() {
       />
       <WhatWaitingForCard {...whatWaitingForConfig} />
       <FAQSection FAQs={FAQs} />
-      <QuestionSection category="Parketrenovatie" />
+      <QuestionSection calculatorSlug="parketrenovatie" />
       <RatingSection />
     </div>
   );

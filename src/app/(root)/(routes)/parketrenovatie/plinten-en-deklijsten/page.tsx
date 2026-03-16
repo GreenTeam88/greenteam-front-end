@@ -104,7 +104,7 @@ const whatWaitingForConfig: InfoCardProps = {
 export default function ParketrenovatiePlintenEnDeklijstenPage() {
   return (
     <div className="flex flex-col  relative z-0 items-center w-full">
-      <Hero imgSrc="/Parketrenovatie/plinten-en-deklijsten-hero.png" />{' '}
+      <Hero calculatorSlug="parketrenovatie" imgSrc="/Parketrenovatie/plinten-en-deklijsten-hero.png" />{' '}
       <SecondSection
         sectionName="Parket Renovatie"
         image="/Parketrenovatie/plinten-en-deklijsten-1.png"
@@ -138,7 +138,7 @@ export default function ParketrenovatiePlintenEnDeklijstenPage() {
       />
       <WhatWaitingForCard {...whatWaitingForConfig} className="lg:py-28" />
       <FAQSection FAQs={FAQs} />
-      <QuestionSection category="Parketrenovatie" />
+      <QuestionSection calculatorSlug="parketrenovatie" />
       <RatingSection />
     </div>
   );

@@ -99,7 +99,7 @@ const whatWaitingForConfig: InfoCardProps = {
 export default function Home() {
   return (
     <div className="flex flex-col  relative z-0 items-center w-full">
-      <Hero imgSrc="/Parketrenovatie/v-groef-frezen-hero.png" />{' '}
+      <Hero calculatorSlug="parketrenovatie" imgSrc="/Parketrenovatie/v-groef-frezen-hero.png" />{' '}
       <SecondSection
         sectionName="Parket Renovatie"
         image="/Parketrenovatie/v-groef-frezen-1.png"
@@ -133,7 +133,7 @@ export default function Home() {
       />
       <WhatWaitingForCard {...whatWaitingForConfig} className="lg:py-28" />
       <FAQSection FAQs={FAQs} />
-      <QuestionSection category="Parketrenovatie" />
+      <QuestionSection calculatorSlug="parketrenovatie" />
       <RatingSection />
     </div>
   );

@@ -115,7 +115,7 @@ const whatWaitingForConfig: InfoCardProps = {
 export default function VloerenLeggenHexagonEn3DPage() {
   return (
     <div className="flex flex-col   relative z-0 items-center w-full">
-      <Hero imgSrc="/vloeren-leggen/hero.png" />
+      <Hero calculatorSlug="vloeren-leggen" imgSrc="/vloeren-leggen/hero.png" />
       <ListCard
         sectionName="Vloeren leggen"
         pageName="Hexagon & 3D"
@@ -162,7 +162,7 @@ export default function VloerenLeggenHexagonEn3DPage() {
         className="lg:py-28"
       />
       <FAQSection FAQs={FAQs} />
-      <QuestionSection category="Parketrenovatie" />
+      <QuestionSection calculatorSlug="vloeren-leggen" />
       <RatingSection />
     </div>
   );

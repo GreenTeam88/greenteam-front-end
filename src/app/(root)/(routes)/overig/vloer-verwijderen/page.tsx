@@ -104,7 +104,7 @@ const whatWaitingForConfig: InfoCardProps = {
 export default function OverigVloerverwijderenPage() {
   return (
     <div className="flex flex-col   relative z-0 items-center w-full">
-      <Hero imgSrc="/overig/hero.png" />
+      <Hero calculatorSlug="overig" imgSrc="/overig/hero.png" />
       <ListCard
         sectionName="Overig"
         pageName="Vloer verwijderen"
@@ -158,7 +158,7 @@ export default function OverigVloerverwijderenPage() {
         className="lg:py-28"
       />
       <FAQSection FAQs={FAQs} />
-      <QuestionSection />
+      <QuestionSection calculatorSlug="overig" />
 
       <RatingSection />
     </div>

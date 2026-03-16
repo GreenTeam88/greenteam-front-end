@@ -4,7 +4,7 @@ import React from 'react';
 
 import { PrimaryBtnLink, SecondaryOutlinedBtnLink } from '@/components/theme/buttons';
 import { BodyText, H2 } from '@/components/theme/typography';
-import MultiStepForm from './calculators/common/MultiStepForm';
+import { DynamicMultiStepForm } from './calculators/dynamic';
 
 const QuestionsParagraph = () => {
   return (
@@ -25,10 +25,10 @@ const QuestionsParagraph = () => {
   );
 };
 
-export const QuestionSection: React.FC<{ category?: string }> = ({ category }) => {
+export const QuestionSection: React.FC<{ category?: string; calculatorSlug?: string }> = ({ calculatorSlug }) => {
   return (
     <div className="flex w-full flex-col lg:flex-row items-center px-2 justify-center py-5  lg:py-20 gap-[92px]">
-      <MultiStepForm category={category || 'Parketrenovatie'} />
+      <DynamicMultiStepForm calculatorSlug={calculatorSlug} />
       <QuestionsParagraph />
     </div>
   );

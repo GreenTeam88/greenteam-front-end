@@ -88,7 +88,7 @@ const whatWaitingForConfig: InfoCardProps = {
 export default function TraprenovatieSchurenEnSchilderen() {
   return (
     <div className="flex flex-col   relative z-0 items-center w-full">
-      <Hero imgSrc="/traprenovatie/schuren-en-schilderen/hero.png" />
+      <Hero calculatorSlug="traprenovatie" imgSrc="/traprenovatie/schuren-en-schilderen/hero.png" />
       <ListCard
         sectionName="Traprenovaties"
         pageName="Schuren en schilderen"
@@ -140,7 +140,7 @@ export default function TraprenovatieSchurenEnSchilderen() {
         className="lg:py-28"
       />
       <FAQSection FAQs={FAQs} />
-      <QuestionSection />
+      <QuestionSection calculatorSlug="traprenovatie" />
       <RatingSection />
     </div>
   );
