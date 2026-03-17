@@ -194,29 +194,39 @@ export default function DynamicMultiStepForm({ calculatorSlug }: DynamicMultiSte
   const isFirstStep = selectIsFirstStep(useDynamicCalculator.getState());
   const isLastDynamicStep = selectIsLastStep(useDynamicCalculator.getState());
 
+  // Fetch categories from API
+  const fetchCategories = useCallback(async () => {
+    setCategoriesLoading(true);
+    try {
+      const calculators = await getAllCalculators();
+      setAvailableCalculators(
+        calculators.map((c: Calculator) => ({
+          name: c.name,
+          slug: c.slug,
+          description: c.description,
+        }))
+      );
+    } catch (err) {
+      console.error('Failed to fetch calculators:', err);
+    } finally {
+      setCategoriesLoading(false);
+    }
+  }, []);
+
+  // Fall back to category selection when slug is not found or fails to load
+  const fallbackToCategorySelection = useCallback(() => {
+    setSelectedSlug(null);
+    setCurrentPhase('category');
+    setError(null);
+    fetchCategories();
+  }, [fetchCategories, setError]);
+
   // Fetch all calculators for category selection (only if no slug provided)
   useEffect(() => {
     if (!calculatorSlug) {
-      const fetchCategories = async () => {
-        setCategoriesLoading(true);
-        try {
-          const calculators = await getAllCalculators();
-          setAvailableCalculators(
-            calculators.map((c: Calculator) => ({
-              name: c.name,
-              slug: c.slug,
-              description: c.description,
-            }))
-          );
-        } catch (err) {
-          console.error('Failed to fetch calculators:', err);
-        } finally {
-          setCategoriesLoading(false);
-        }
-      };
       fetchCategories();
     }
-  }, [calculatorSlug]);
+  }, [calculatorSlug, fetchCategories]);
 
   // Fetch specific calculator when slug is available
   useEffect(() => {
@@ -232,10 +242,12 @@ export default function DynamicMultiStepForm({ calculatorSlug }: DynamicMultiSte
         if (data) {
           setCalculator(data);
         } else {
-          setError('Calculator niet gevonden');
+          // Calculator not found for this slug — fall back to category selection
+          fallbackToCategorySelection();
         }
       } catch (err) {
-        setError('Kon calculator niet laden');
+        // Failed to load — fall back to category selection
+        fallbackToCategorySelection();
       } finally {
         setLoading(false);
       }
@@ -247,7 +259,7 @@ export default function DynamicMultiStepForm({ calculatorSlug }: DynamicMultiSte
     return () => {
       reset();
     };
-  }, [calculatorSlug, selectedSlug, reset, setCalculator, setError, setLoading]);
+  }, [calculatorSlug, selectedSlug, reset, setCalculator, setError, setLoading, fallbackToCategorySelection]);
 
   // Update formData when price changes
   useEffect(() => {
