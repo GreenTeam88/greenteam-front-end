@@ -112,33 +112,12 @@ function buildValidationSchema(questions: Question[]) {
   return z.object(schemaShape);
 }
 
-// Get default values for form fields
-function getDefaultValues(questions: Question[], existingAnswers: Record<string, string | number>) {
+// Get empty default values for form fields (no preselection)
+function getEmptyDefaults(questions: Question[]) {
   const defaults: Record<string, string | number | string[]> = {};
-
   questions.forEach((question) => {
-    const existingValue = existingAnswers[question.id];
-
-    if (existingValue !== undefined) {
-      defaults[question.id] = existingValue;
-    } else {
-      // Don't use API defaultValue - always start with empty defaults to avoid preselection
-      switch (question.type) {
-        case 'CHECKBOX':
-          defaults[question.id] = [];
-          break;
-        case 'NUMBER':
-        case 'TEXT':
-        case 'TEXT_ONLY':
-        case 'SELECT':
-          defaults[question.id] = '';
-          break;
-        default:
-          defaults[question.id] = '';
-      }
-    }
+    defaults[question.id] = question.type === 'CHECKBOX' ? [] : '';
   });
-
   return defaults;
 }
 
@@ -154,25 +133,12 @@ export default function DynamicStepRenderer({
 }: DynamicStepRendererProps) {
   const { calculator, answers, setAnswer, setPriceBreakdown } = useDynamicCalculator();
 
-  // Use store answers for visibility (conditional questions depend on previous step answers)
-  // but DON'T use them for default values (to prevent preselection on current step)
-  const initialVisibleQuestions = useMemo(() => getVisibleQuestions(step, answers), [step, answers]);
-  const schema = useMemo(() => buildValidationSchema(initialVisibleQuestions), [initialVisibleQuestions]);
+  // Build schema from ALL step questions (not just currently visible) to avoid schema mismatch
+  const allStepQuestions = step.questions;
+  const schema = useMemo(() => buildValidationSchema(allStepQuestions), [allStepQuestions]);
 
-  // Empty defaults for current step - only use store answers for questions already answered on THIS step
-  const defaultValues = useMemo(() => {
-    const defaults: Record<string, string | number | string[]> = {};
-    initialVisibleQuestions.forEach((question) => {
-      switch (question.type) {
-        case 'CHECKBOX':
-          defaults[question.id] = [];
-          break;
-        default:
-          defaults[question.id] = '';
-      }
-    });
-    return defaults;
-  }, [initialVisibleQuestions]);
+  // Empty defaults - no preselection
+  const defaultValues = useMemo(() => getEmptyDefaults(allStepQuestions), [allStepQuestions]);
 
   const form = useForm({
     resolver: zodResolver(schema),
@@ -180,30 +146,13 @@ export default function DynamicStepRenderer({
     mode: 'onChange',
   });
 
-  const { control, reset: resetForm } = form;
+  const { control } = form;
 
   // Watch all form values - must be after useForm
   const watchedValues = useWatch({ control });
 
-  // Reset form when step changes to prevent glitches
-  useEffect(() => {
-    const defaults: Record<string, string | number | string[]> = {};
-    initialVisibleQuestions.forEach((question) => {
-      switch (question.type) {
-        case 'CHECKBOX':
-          defaults[question.id] = [];
-          break;
-        default:
-          defaults[question.id] = '';
-      }
-    });
-    resetForm(defaults);
-  }, [step.id, resetForm, initialVisibleQuestions]);
-
-  // Get visible questions for this step based on current answers
-  // Use both store answers and watched form values for immediate reactivity
+  // Get visible questions using both store answers and current form values for reactivity
   const visibleQuestions = useMemo(() => {
-    // Merge store answers with current form values for immediate visibility updates
     const currentAnswers = { ...answers };
     if (watchedValues) {
       Object.entries(watchedValues).forEach(([key, value]) => {
