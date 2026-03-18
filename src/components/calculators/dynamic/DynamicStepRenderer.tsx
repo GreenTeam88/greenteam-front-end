@@ -121,9 +121,8 @@ function getDefaultValues(questions: Question[], existingAnswers: Record<string,
 
     if (existingValue !== undefined) {
       defaults[question.id] = existingValue;
-    } else if (question.defaultValue !== null) {
-      defaults[question.id] = question.defaultValue;
     } else {
+      // Don't use API defaultValue - always start with empty defaults to avoid preselection
       switch (question.type) {
         case 'CHECKBOX':
           defaults[question.id] = [];
