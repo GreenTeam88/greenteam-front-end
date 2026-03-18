@@ -6,11 +6,11 @@ import React, { lazy, Suspense, useCallback, useEffect, useState } from 'react';
 import { FieldValues, FormProvider, useForm } from 'react-hook-form';
 import { z } from 'zod';
 
-import SingleSelectDropdown from '@/components/calculators/Getters/SingleSelectDropdown';
 import DynamicStepRenderer from '@/components/calculators/dynamic/DynamicStepRenderer';
+import SingleSelectDropdown from '@/components/calculators/Getters/SingleSelectDropdown';
 import CreateButton from '@/components/custom/CreateButton';
 import { HeadlineSemibold } from '@/components/theme/typography';
-import { getAllCalculators, getCalculatorBySlug, Calculator } from '@/lib/calculatorApi';
+import { Calculator, getAllCalculators, getCalculatorBySlug } from '@/lib/calculatorApi';
 import {
   selectCurrentStep,
   selectIsFirstStep,
@@ -188,11 +188,11 @@ export default function DynamicMultiStepForm({ calculatorSlug }: DynamicMultiSte
   // Track uploaded files
   const [uploadedFiles, setUploadedFiles] = useState<File[]>([]);
 
-  // Get derived state
-  const currentStep = selectCurrentStep(useDynamicCalculator.getState());
-  const totalSteps = selectTotalSteps(useDynamicCalculator.getState());
-  const isFirstStep = selectIsFirstStep(useDynamicCalculator.getState());
-  const isLastDynamicStep = selectIsLastStep(useDynamicCalculator.getState());
+  // Get derived state reactively (must use hook, NOT getState() which is a stale snapshot)
+  const currentStep = useDynamicCalculator(selectCurrentStep);
+  const totalSteps = useDynamicCalculator(selectTotalSteps);
+  const isFirstStep = useDynamicCalculator(selectIsFirstStep);
+  const isLastDynamicStep = useDynamicCalculator(selectIsLastStep);
 
   // Fetch categories from API
   const fetchCategories = useCallback(async () => {
@@ -229,12 +229,18 @@ export default function DynamicMultiStepForm({ calculatorSlug }: DynamicMultiSte
   }, [calculatorSlug, fetchCategories]);
 
   // Fetch specific calculator when slug is available
+  // Track the previous slug to only reset when it actually changes
+  const slugToFetch = calculatorSlug || selectedSlug;
+  const prevSlugRef = React.useRef<string | null>(null);
+
   useEffect(() => {
-    const slugToFetch = calculatorSlug || selectedSlug;
     if (!slugToFetch) return;
 
-    // Reset state BEFORE fetching to clear any previous data
-    reset();
+    // Only reset when the slug actually changes, not on every effect run
+    if (prevSlugRef.current !== slugToFetch) {
+      prevSlugRef.current = slugToFetch;
+      reset();
+    }
 
     const fetchCalculator = async () => {
       setLoading(true);
@@ -245,11 +251,9 @@ export default function DynamicMultiStepForm({ calculatorSlug }: DynamicMultiSte
         if (data) {
           setCalculator(data);
         } else {
-          // Calculator not found for this slug — fall back to category selection
           fallbackToCategorySelection();
         }
       } catch (err) {
-        // Failed to load — fall back to category selection
         fallbackToCategorySelection();
       } finally {
         setLoading(false);
@@ -257,7 +261,8 @@ export default function DynamicMultiStepForm({ calculatorSlug }: DynamicMultiSte
     };
 
     fetchCalculator();
-  }, [calculatorSlug, selectedSlug, reset, setCalculator, setError, setLoading, fallbackToCategorySelection]);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [slugToFetch]);
 
   // Update formData when price changes
   useEffect(() => {
