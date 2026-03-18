@@ -115,7 +115,7 @@ const whatWaitingForConfig: InfoCardProps = {
 export default function VloerenLeggenMozaiekEnPatroonPage() {
   return (
     <div className="flex flex-col   relative z-0 items-center w-full">
-      <Hero calculatorSlug="vloeren-leggen" imgSrc="/vloeren-leggen/hero.png" />
+      <Hero imgSrc="/vloeren-leggen/hero.png" />
       <ListCard
         sectionName="Vloeren leggen"
         pageName="Mozaïek en patroon"

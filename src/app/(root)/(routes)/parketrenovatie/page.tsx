@@ -14,7 +14,7 @@ import { VgroefFrezen } from './_components/vgroefFrezen';
 export default function ParketrenovatieVGroefFrezenPage() {
   return (
     <div className="flex flex-col  relative z-0 items-center w-full">
-      <Hero calculatorSlug="parketrenovatie" imgSrc="/Parketrenovatie/hero.png" />
+      <Hero imgSrc="/Parketrenovatie/hero.png" />
       <ParqueteRenovation />
       <ThirdSection />
       <FourthSection />
