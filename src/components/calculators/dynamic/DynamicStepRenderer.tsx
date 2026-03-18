@@ -167,11 +167,6 @@ export default function DynamicStepRenderer({
   // hidden conditional required fields from blocking form submission
   const schema = useMemo(() => buildValidationSchema(visibleQuestions), [visibleQuestions]);
 
-  // Update the resolver dynamically when visible questions change
-  useEffect(() => {
-    form.clearErrors();
-  }, [schema, form]);
-
   // Update store when form values change
   useEffect(() => {
     if (!watchedValues) return;
