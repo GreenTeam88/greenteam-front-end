@@ -160,7 +160,9 @@ const SingleSelectFormField = React.forwardRef<HTMLButtonElement, SingleSelectFo
                             </div>
                             <span>{option.label}</span>
                           </div>
-                          {option.imageUrl && (
+                          {option.imageUrl &&
+                           // Only render image if imageUrl is a valid image file (not a route path)
+                           /\.(jpg|jpeg|png|gif|webp|svg)$/i.test(option.imageUrl) && (
                             <Image
                               src={option.imageUrl}
                               alt={option.label}
