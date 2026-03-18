@@ -95,7 +95,7 @@ const whatWaitingForConfig: InfoCardProps = {
 export default function OverigNatuursteenbehandelenPage() {
   return (
     <div className="flex flex-col   relative z-0 items-center w-full">
-      <Hero calculatorSlug="overig" imgSrc="/overig/hero.png" />
+      <Hero imgSrc="/overig/hero.png" />
       <ListCard
         sectionName="Overig"
         pageName="Natuursteen behandelen"

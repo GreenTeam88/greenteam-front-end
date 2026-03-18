@@ -154,15 +154,25 @@ export default function DynamicStepRenderer({
 }: DynamicStepRendererProps) {
   const { calculator, answers, setAnswer, setPriceBreakdown } = useDynamicCalculator();
 
-  // Build initial validation schema with empty answers to show all unconditional questions
-  const initialVisibleQuestions = useMemo(() => getVisibleQuestions(step, {}), [step]);
+  // Use store answers for visibility (conditional questions depend on previous step answers)
+  // but DON'T use them for default values (to prevent preselection on current step)
+  const initialVisibleQuestions = useMemo(() => getVisibleQuestions(step, answers), [step, answers]);
   const schema = useMemo(() => buildValidationSchema(initialVisibleQuestions), [initialVisibleQuestions]);
 
-  // Always start with empty defaults - never pre-populate from store
-  const defaultValues = useMemo(
-    () => getDefaultValues(initialVisibleQuestions, {}),
-    [initialVisibleQuestions]
-  );
+  // Empty defaults for current step - only use store answers for questions already answered on THIS step
+  const defaultValues = useMemo(() => {
+    const defaults: Record<string, string | number | string[]> = {};
+    initialVisibleQuestions.forEach((question) => {
+      switch (question.type) {
+        case 'CHECKBOX':
+          defaults[question.id] = [];
+          break;
+        default:
+          defaults[question.id] = '';
+      }
+    });
+    return defaults;
+  }, [initialVisibleQuestions]);
 
   const form = useForm({
     resolver: zodResolver(schema),
@@ -177,8 +187,17 @@ export default function DynamicStepRenderer({
 
   // Reset form when step changes to prevent glitches
   useEffect(() => {
-    const freshDefaults = getDefaultValues(initialVisibleQuestions, {});
-    resetForm(freshDefaults);
+    const defaults: Record<string, string | number | string[]> = {};
+    initialVisibleQuestions.forEach((question) => {
+      switch (question.type) {
+        case 'CHECKBOX':
+          defaults[question.id] = [];
+          break;
+        default:
+          defaults[question.id] = '';
+      }
+    });
+    resetForm(defaults);
   }, [step.id, resetForm, initialVisibleQuestions]);
 
   // Get visible questions for this step based on current answers
