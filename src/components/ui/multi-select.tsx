@@ -180,7 +180,7 @@ const MultiSelectFormField = React.forwardRef<HTMLButtonElement, MultiSelectForm
                         <span>{option.label}</span>
                       </div>
 
-                      {option.imageUrl && (
+                      {option.imageUrl && /\.(jpg|jpeg|png|gif|webp|svg)$/i.test(option.imageUrl) && (
                         <Image
                           src={option.imageUrl}
                           alt={option.label}
