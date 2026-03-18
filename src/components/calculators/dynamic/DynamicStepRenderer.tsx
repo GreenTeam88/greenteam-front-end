@@ -154,12 +154,14 @@ export default function DynamicStepRenderer({
 }: DynamicStepRendererProps) {
   const { calculator, answers, setAnswer, setPriceBreakdown } = useDynamicCalculator();
 
-  // Build initial validation schema and default values based on store answers
-  const initialVisibleQuestions = useMemo(() => getVisibleQuestions(step, answers), [step, answers]);
+  // Build initial validation schema with empty answers to show all unconditional questions
+  const initialVisibleQuestions = useMemo(() => getVisibleQuestions(step, {}), [step]);
   const schema = useMemo(() => buildValidationSchema(initialVisibleQuestions), [initialVisibleQuestions]);
+
+  // Always start with empty defaults - never pre-populate from store
   const defaultValues = useMemo(
-    () => getDefaultValues(initialVisibleQuestions, answers),
-    [initialVisibleQuestions, answers]
+    () => getDefaultValues(initialVisibleQuestions, {}),
+    [initialVisibleQuestions]
   );
 
   const form = useForm({
@@ -168,10 +170,16 @@ export default function DynamicStepRenderer({
     mode: 'onChange',
   });
 
-  const { control } = form;
+  const { control, reset: resetForm } = form;
 
   // Watch all form values - must be after useForm
   const watchedValues = useWatch({ control });
+
+  // Reset form when step changes to prevent glitches
+  useEffect(() => {
+    const freshDefaults = getDefaultValues(initialVisibleQuestions, {});
+    resetForm(freshDefaults);
+  }, [step.id, resetForm, initialVisibleQuestions]);
 
   // Get visible questions for this step based on current answers
   // Use both store answers and watched form values for immediate reactivity

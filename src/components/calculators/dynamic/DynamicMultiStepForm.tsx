@@ -233,6 +233,9 @@ export default function DynamicMultiStepForm({ calculatorSlug }: DynamicMultiSte
     const slugToFetch = calculatorSlug || selectedSlug;
     if (!slugToFetch) return;
 
+    // Reset state BEFORE fetching to clear any previous data
+    reset();
+
     const fetchCalculator = async () => {
       setLoading(true);
       setError(null);
@@ -254,11 +257,6 @@ export default function DynamicMultiStepForm({ calculatorSlug }: DynamicMultiSte
     };
 
     fetchCalculator();
-
-    // Cleanup on unmount
-    return () => {
-      reset();
-    };
   }, [calculatorSlug, selectedSlug, reset, setCalculator, setError, setLoading, fallbackToCategorySelection]);
 
   // Update formData when price changes
