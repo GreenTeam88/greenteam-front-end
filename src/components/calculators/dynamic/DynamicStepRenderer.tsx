@@ -1,6 +1,5 @@
 'use client';
 
-import { zodResolver } from '@hookform/resolvers/zod';
 import { ChevronLeft } from 'lucide-react';
 import React, { useEffect, useMemo } from 'react';
 import { FormProvider, useForm, useWatch } from 'react-hook-form';
@@ -133,15 +132,11 @@ export default function DynamicStepRenderer({
 }: DynamicStepRendererProps) {
   const { calculator, answers, setAnswer, setPriceBreakdown } = useDynamicCalculator();
 
-  // Build schema from ALL step questions (not just currently visible) to avoid schema mismatch
+  // Register ALL questions in the form with empty defaults (so React Hook Form tracks them)
   const allStepQuestions = step.questions;
-  const schema = useMemo(() => buildValidationSchema(allStepQuestions), [allStepQuestions]);
-
-  // Empty defaults - no preselection
   const defaultValues = useMemo(() => getEmptyDefaults(allStepQuestions), [allStepQuestions]);
 
   const form = useForm({
-    resolver: zodResolver(schema),
     defaultValues,
     mode: 'onChange',
   });
@@ -167,6 +162,15 @@ export default function DynamicStepRenderer({
     }
     return getVisibleQuestions(step, currentAnswers);
   }, [step, answers, watchedValues]);
+
+  // Build validation schema from VISIBLE questions only (not all) to prevent
+  // hidden conditional required fields from blocking form submission
+  const schema = useMemo(() => buildValidationSchema(visibleQuestions), [visibleQuestions]);
+
+  // Update the resolver dynamically when visible questions change
+  useEffect(() => {
+    form.clearErrors();
+  }, [schema, form]);
 
   // Update store when form values change
   useEffect(() => {
@@ -205,17 +209,27 @@ export default function DynamicStepRenderer({
 
   const handleSubmit = (event: React.FormEvent) => {
     event.preventDefault();
-    form.handleSubmit(() => {
+    // Validate only visible questions' fields against the current schema
+    const formValues = form.getValues();
+    const result = schema.safeParse(formValues);
+    if (result.success) {
       onNext();
-    })();
+    } else {
+      // Set errors on the form for visible fields that failed
+      result.error.errors.forEach((err) => {
+        const fieldName = err.path[0] as string;
+        if (fieldName) {
+          form.setError(fieldName, { type: 'manual', message: err.message });
+        }
+      });
+    }
   };
 
-  // Check if all required fields are filled
+  // Check if all required visible fields are filled
   const isButtonDisabled = useMemo(() => {
-    const formValues = form.getValues();
     return visibleQuestions.some((q) => {
       if (!q.required) return false;
-      const value = formValues[q.id];
+      const value = watchedValues?.[q.id];
       if (value === undefined || value === null || value === '') return true;
       if (Array.isArray(value) && value.length === 0) return true;
       return false;
