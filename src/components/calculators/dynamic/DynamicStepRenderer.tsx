@@ -1,7 +1,7 @@
 'use client';
 
 import { ChevronLeft } from 'lucide-react';
-import React, { useEffect, useMemo } from 'react';
+import React, { useEffect, useMemo, useRef } from 'react';
 import { FormProvider, useForm, useWatch } from 'react-hook-form';
 import { z } from 'zod';
 
@@ -167,40 +167,44 @@ export default function DynamicStepRenderer({
   // hidden conditional required fields from blocking form submission
   const schema = useMemo(() => buildValidationSchema(visibleQuestions), [visibleQuestions]);
 
-  // Update store when form values change
+  // Use ref to track answers for comparison (avoids infinite loop from answers dependency)
+  const answersRef = useRef(answers);
+  answersRef.current = answers;
+
+  // Update store when form values change (NO answers in deps to prevent loop)
   useEffect(() => {
     if (!watchedValues) return;
 
+    const currentAnswers = answersRef.current;
+
+    // Batch: collect all changes first, then apply
+    const updates: Record<string, string | number> = {};
     Object.entries(watchedValues).forEach(([key, value]) => {
       if (value !== undefined) {
-        // For checkbox/multi-select, store as JSON string
         if (Array.isArray(value)) {
           const jsonValue = JSON.stringify(value);
-          if (jsonValue !== answers[key]) {
-            setAnswer(key, jsonValue);
+          if (jsonValue !== currentAnswers[key]) {
+            updates[key] = jsonValue;
           }
-        } else if (value !== answers[key]) {
-          setAnswer(key, value as string | number);
+        } else if (value !== currentAnswers[key]) {
+          updates[key] = value as string | number;
         }
       }
     });
 
-    // Recalculate price using all answers (store + current form values)
+    // Apply updates
+    Object.entries(updates).forEach(([key, value]) => {
+      setAnswer(key, value);
+    });
+
+    // Recalculate price
     if (calculator) {
-      const updatedAnswers = { ...answers };
-      Object.entries(watchedValues).forEach(([key, value]) => {
-        if (value !== undefined) {
-          if (Array.isArray(value)) {
-            updatedAnswers[key] = JSON.stringify(value);
-          } else {
-            updatedAnswers[key] = value as string | number;
-          }
-        }
-      });
-      const priceBreakdown = calculatePrice(calculator, updatedAnswers);
+      const mergedAnswers = { ...currentAnswers, ...updates };
+      const priceBreakdown = calculatePrice(calculator, mergedAnswers);
       setPriceBreakdown(priceBreakdown);
     }
-  }, [watchedValues, calculator, answers]);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [watchedValues, calculator]);
 
   const handleSubmit = (event: React.FormEvent) => {
     event.preventDefault();
