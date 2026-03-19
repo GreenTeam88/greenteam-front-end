@@ -163,7 +163,7 @@ export default function TraprenovatieBetonCireBrut() {
         className="lg:py-28"
       />
       <FAQSection FAQs={FAQs} />
-      <QuestionSection calculatorSlug="traprenovatie" />
+      <QuestionSection />
       <RatingSection />
     </div>
   );

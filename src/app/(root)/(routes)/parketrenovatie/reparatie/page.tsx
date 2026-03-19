@@ -114,7 +114,7 @@ export default function ParketrenovatieReparatiePage() {
       />
       <WhatWaitingForCard {...whatWaitingForConfig} className="lg:py-28" />
       <FAQSection FAQs={FAQs} />
-      <QuestionSection calculatorSlug="parketrenovatie" />
+      <QuestionSection />
       <RatingSection />
     </div>
   );

@@ -43,7 +43,7 @@ function TraprenovatiesPage() {
       <DichteTrap />
       <Verlichting />
       <RatingSection />
-      <QuestionSection calculatorSlug="traprenovatie" />
+      <QuestionSection />
     </div>
   );
 }

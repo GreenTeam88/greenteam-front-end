@@ -143,7 +143,7 @@ export default function OverigNatuursteenbehandelenPage() {
         className="lg:py-28"
       />
       <FAQSection FAQs={FAQs} />
-      <QuestionSection calculatorSlug="overig" />
+      <QuestionSection />
 
       <RatingSection />
     </div>

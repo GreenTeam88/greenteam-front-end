@@ -23,7 +23,7 @@ function OverigPage() {
       <NatuursteenBehandelen />
       <Opslag />
       <RatingSection />
-      <QuestionSection calculatorSlug="overig" />
+      <QuestionSection />
     </div>
   );
 }

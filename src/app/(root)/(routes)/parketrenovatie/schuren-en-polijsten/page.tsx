@@ -136,7 +136,7 @@ export default function ParketrenovatieSchurenEnPolijstenPage() {
       />
       <WhatWaitingForCard {...whatWaitingForConfig} />
       <FAQSection FAQs={FAQs} />
-      <QuestionSection calculatorSlug="parketrenovatie" />
+      <QuestionSection />
       <RatingSection />
     </div>
   );
