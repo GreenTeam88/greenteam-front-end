@@ -141,7 +141,7 @@ export default function StofferenTapijtVerwijderenPage() {
         className="lg:py-28"
       />
       <FAQSection FAQs={FAQs} />
-      <QuestionSection calculatorSlug="stofferen" />
+      <QuestionSection />
       <RatingSection />
     </div>
   );

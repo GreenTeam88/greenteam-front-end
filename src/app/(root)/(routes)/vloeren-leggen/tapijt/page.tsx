@@ -142,7 +142,7 @@ export default function VloerenLeggenTapijtPage() {
         className="lg:py-28"
       />
       <FAQSection FAQs={FAQs} />
-      <QuestionSection calculatorSlug="vloeren-leggen" />
+      <QuestionSection />
       <RatingSection />
     </div>
   );

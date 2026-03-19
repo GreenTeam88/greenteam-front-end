@@ -38,7 +38,7 @@ function Page() {
       <Tapis />
       <Bourgogne />
       <RatingSection />
-      <QuestionSection calculatorSlug="vloeren-leggen" />
+      <QuestionSection />
     </div>
   );
 }

@@ -139,7 +139,7 @@ export default function TraprenovatieBekledenMetLinoleum() {
         className="lg:py-28"
       />
       <FAQSection FAQs={FAQs} />
-      <QuestionSection calculatorSlug="traprenovatie" />
+      <QuestionSection />
       <RatingSection />
     </div>
   );

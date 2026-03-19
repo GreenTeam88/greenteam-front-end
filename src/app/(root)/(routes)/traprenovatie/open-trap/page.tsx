@@ -197,7 +197,7 @@ export default function TraprenovatieOpenTrap() {
         className="lg:py-28"
       />
       <FAQSection FAQs={FAQs} />
-      <QuestionSection calculatorSlug="traprenovatie" />
+      <QuestionSection />
       <RatingSection />
     </div>
   );
