@@ -690,6 +690,9 @@ export default function DynamicMultiStepForm({ calculatorSlug }: DynamicMultiSte
         // Create FormData
         const formDataObj = new FormData();
 
+        // Append Data fields
+        formDataObj.append('email', mergedFormData.Email || '');
+
         // Send HTML email body
         formDataObj.append('emailHtml', emailHtml);
 
