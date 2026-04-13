@@ -242,27 +242,27 @@ const headerRoutes: HeaderRoute[] = [
       },
     ],
   },
-  {
-    name: 'Stofferen',
-    path: '/stofferen',
-    // columns: [
-    //   {
-    //     link: '',
-    //     title: '',
-    //     subPages: [
-    //       { name: 'Trap', path: '/stofferen/trap' },
-    //       { name: 'Vloer', path: '/stofferen/vloer' },
-    //       { name: 'Tapijttegels', path: '/stofferen/tapijttegels' },
-    //       { name: 'Meubels', path: '/stofferen/meubels' },
-    //       { name: 'Deurmat', path: '/stofferen/deurmat' },
-    //       { name: 'Droogloopmat', path: '/stofferen/droogloopmat' },
-    //       { name: 'Rode loper', path: '/stofferen/rode-loper' },
-    //       { name: 'Reinigingsservice', path: '/stofferen/reinigingsservice' },
-    //       { name: 'Tapijt verwijderen', path: '/stofferen/tapijt-verwijderen' },
-    //     ],
-    //   },
-    // ],
-  },
+  // {
+  //   name: 'Stofferen',
+  //   path: '/stofferen',
+  //   columns: [
+  //     {
+  //       link: '',
+  //       title: '',
+  //       subPages: [
+  //         { name: 'Trap', path: '/stofferen/trap' },
+  //         { name: 'Vloer', path: '/stofferen/vloer' },
+  //         { name: 'Tapijttegels', path: '/stofferen/tapijttegels' },
+  //         { name: 'Meubels', path: '/stofferen/meubels' },
+  //         { name: 'Deurmat', path: '/stofferen/deurmat' },
+  //         { name: 'Droogloopmat', path: '/stofferen/droogloopmat' },
+  //         { name: 'Rode loper', path: '/stofferen/rode-loper' },
+  //         { name: 'Reinigingsservice', path: '/stofferen/reinigingsservice' },
+  //         { name: 'Tapijt verwijderen', path: '/stofferen/tapijt-verwijderen' },
+  //       ],
+  //     },
+  //   ],
+  // },
   {
     path: '/overig',
     name: 'Overig',
@@ -695,7 +695,7 @@ export const HeaderDropDowns = () => {
 
 const DesktopHeader = () => {
   return (
-    <div className="fixed top-0 left-0 z-50 flex-col items-center hidden w-full  lg:flex">
+    <div className="fixed top-0 left-0 z-50 flex-col items-center hidden w-full lg:flex">
       <div className="hidden lg:flex  w-full  flex-col  z-50 gap-[39px]  py-6 items-center bg-white">
         {/* the top section that includes the logo and the social links */}
         <HeaderTopSection />
