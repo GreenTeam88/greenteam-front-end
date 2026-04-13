@@ -27,7 +27,7 @@ interface RouteWithPath {
 type HeaderColumnInfo = {
   title: string;
   link: string;
-  subPages: (RouteWithPath | { name: string; subPages: RouteWithPath[] })[];
+  subPages?: (RouteWithPath | { name: string; subPages: RouteWithPath[] })[];
 };
 
 // a link can either display subPages in the menu or it can have a direct path to a certain page
@@ -116,19 +116,22 @@ export const basicRoutes: HeaderRoute[] = [
         ],
       },
       {
-        link: '/stofferen',
-        title: 'Stofferen',
-        subPages: [
-          { name: 'Trap', path: '/stofferen/trap' },
-          { name: 'Vloer', path: '/stofferen/vloer' },
-          { name: 'Tapijttegels', path: '/stofferen/tapijttegels' },
-          { name: 'Meubels', path: '/stofferen/meubels' },
-          { name: 'Deurmat', path: '/stofferen/deurmat' },
-          { name: 'Droogloopmat', path: '/stofferen/droogloopmat' },
-          { name: 'Rode loper', path: '/stofferen/rode-loper' },
-          { name: 'Reinigingsservice', path: '/stofferen/reinigingsservice' },
-          { name: 'Tapijt verwijderen', path: '/stofferen/tapijt-verwijderen' },
-        ],
+        link: '/overig/vloerverwarming',
+        title: 'Vloerverwarming',
+        //TODO uncomment this if you want your links back
+        // link: '/stofferen',
+        // title: 'Stofferen',
+        // subPages: [
+        //   { name: 'Trap', path: '/stofferen/trap' },
+        //   { name: 'Vloer', path: '/stofferen/vloer' },
+        //   { name: 'Tapijttegels', path: '/stofferen/tapijttegels' },
+        //   { name: 'Meubels', path: '/stofferen/meubels' },
+        //   { name: 'Deurmat', path: '/stofferen/deurmat' },
+        //   { name: 'Droogloopmat', path: '/stofferen/droogloopmat' },
+        //   { name: 'Rode loper', path: '/stofferen/rode-loper' },
+        //   { name: 'Reinigingsservice', path: '/stofferen/reinigingsservice' },
+        //   { name: 'Tapijt verwijderen', path: '/stofferen/tapijt-verwijderen' },
+        // ],
       },
       {
         link: '/overig',
@@ -242,6 +245,7 @@ const headerRoutes: HeaderRoute[] = [
       },
     ],
   },
+  //TODO uncomment this if you want your links back
   // {
   //   name: 'Stofferen',
   //   path: '/stofferen',
@@ -357,9 +361,7 @@ const HeaderColumn: React.FC<HeaderColumnInfo & { index: number }> = ({ subPages
           {title}
         </Link>
         <div className="flex w-[180px] flex-col gap-1">
-          {subPages.map((subPage) => (
-            <HeaderColumnItem key={subPage.name} {...subPage} />
-          ))}
+          {subPages?.map((subPage) => <HeaderColumnItem key={subPage.name} {...subPage} />)}
         </div>
       </div>
     </>
@@ -539,9 +541,7 @@ const DropDownColumn: React.FC<{ routeName: string }> = ({ routeName }) => {
   if (!hoveredRouteColumn) return null;
   return (
     <div className="flex absolute bg-white   top-[29px] w-fit flex-col left-1/2 -translate-x-1/2 gap-1 py-[22px] px-[44px]  border rounded-[10px] border-blackDark  border-opacity-20 ">
-      {hoveredRouteColumn.subPages.map((page) => (
-        <DropDownColumnLink key={page.name} {...page} />
-      ))}
+      {hoveredRouteColumn.subPages?.map((page) => <DropDownColumnLink key={page.name} {...page} />)}
     </div>
   );
 };
