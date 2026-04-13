@@ -11,8 +11,8 @@ import { WhyGreenTeam } from './_components/whyGreenTeam';
 
 export default function Home() {
   return (
-    <div className="flex flex-col  relative z-0 items-center w-full">
-      <Hero />
+    <div className="relative z-0 flex flex-col items-center w-full">
+      <Hero imgSrc="/home.png" />
       <WhyGreenTeam />
       <RatingSection />
       <ServicesSection />
