@@ -268,8 +268,11 @@ const headerRoutes: HeaderRoute[] = [
   //   ],
   // },
   {
-    path: '/overig',
-    name: 'Overig',
+    path: '/overig/tegelen',
+    name: 'Tegelen',
+    //TODO uncomment this if you want your links back
+    // path: '/overig',
+    // name: 'Overig',
     columns: [
       {
         link: '',
