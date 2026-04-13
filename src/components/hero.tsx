@@ -39,10 +39,10 @@ const ParagraphSection = () => {
 
 export const Hero: React.FC<HeroProps> = ({ imgSrc, imgClassName, calculatorSlug }) => {
   return (
-    <div className="relative px-2 py-6  w-full h-fit flex items-center justify-center ">
+    <div className="relative flex items-center justify-center w-full px-2 py-6 h-fit ">
       <img
         src={imgSrc || '/hero.webp'}
-        className={cn('absolute  hidden lg:block w-full h-full top-0 left-0 z-0', imgClassName)}
+        className={cn('absolute  hidden lg:block w-full h-full object-cover top-0 left-0 z-0', imgClassName)}
       />
 
       <div className=" relative flex-col lg:flex-row z-0 max-w-full lg:min-h-[470px] py-16 lg:py-0 gap-[86px] px-2 lg:px-[120px] w-[1440px] flex items-center ">

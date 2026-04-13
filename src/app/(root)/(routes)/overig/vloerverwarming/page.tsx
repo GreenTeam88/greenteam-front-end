@@ -19,7 +19,7 @@ const thirdSectionCards: InfoCardProps[] = [
         Met onze professionele vloerverwarmingssystemen transformeren wij uw woning in een comfortabele, moderne
         leefruimte. Hoe wij te werk gaan:{' '}
       </div>,
-      <ul key="3" className="flex flex-col py-3 list-disc gap-4 list-inside">
+      <ul key="3" className="flex flex-col gap-4 py-3 list-disc list-inside">
         <li>Advies op maat: We bekijken uw ruimte en adviseren welk systeem het beste bij uw woning en wensen past.</li>
         <li>
           Geschikt voor elke ruimte: Of het nu gaat om de woonkamer, badkamer of keuken, vloerverwarming past overal en
@@ -35,7 +35,7 @@ const thirdSectionCards: InfoCardProps[] = [
         en uitstraling van uw woning.{' '}
       </p>,
       <div key="5">
-        <BodyText className="text-secondaryDefault font-bold">
+        <BodyText className="font-bold text-secondaryDefault">
           Wilt u ook warme warme voeten in huis? Wij maken het mogelijk.
         </BodyText>
       </div>,
@@ -93,7 +93,7 @@ const whatWaitingForConfig: InfoCardProps = {
 
 export default function OverigVloerverwarmingPage() {
   return (
-    <div className="flex flex-col   relative z-0 items-center w-full">
+    <div className="relative z-0 flex flex-col items-center w-full">
       <Hero imgSrc="/overig/hero.png" />
       <ListCard
         sectionName="Overig"
