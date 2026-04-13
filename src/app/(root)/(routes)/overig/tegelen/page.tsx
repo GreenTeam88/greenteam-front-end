@@ -19,7 +19,7 @@ const thirdSectionCards: InfoCardProps[] = [
         Onze tegelservice biedt een perfecte combinatie van stijl en functionaliteit, voor elke ruimte in uw woning. Dit
         is hoe wij te werk gaan: {' '}
       </div>,
-      <ul key="3" className="flex flex-col py-3 list-disc gap-4 list-inside">
+      <ul key="3" className="flex flex-col gap-4 py-3 list-disc list-inside">
         <li>Voorbereiding van de ondergrond: We reinigen en egaliseren de vloer om een stabiele basis te creëren.  </li>
         <li>
           Selectie van tegels: Kies uit een breed assortiment tegels, van robuuste vloertegels tot elegante wandtegels,
@@ -40,7 +40,7 @@ const thirdSectionCards: InfoCardProps[] = [
         onderhouden.{' '}
       </p>,
       <div key="5">
-        <BodyText className="text-secondaryDefault font-bold">
+        <BodyText className="font-bold text-secondaryDefault">
           Ligt uw vloer er al 10 tot 20 jaar dan is het de hoogste tijd om daar wat aan te doen!{' '}
         </BodyText>
       </div>,
@@ -97,8 +97,8 @@ const whatWaitingForConfig: InfoCardProps = {
 
 export default function OverigTegelenPage() {
   return (
-    <div className="flex flex-col   relative z-0 items-center w-full">
-      <Hero imgSrc="/overig/hero.png" />
+    <div className="relative z-0 flex flex-col items-center w-full">
+      <Hero imgSrc="/overig/tegelen.jpg" imgClassName="object-bottom" />
       <ListCard
         sectionName="Overig"
         pageName="Tegelen"
