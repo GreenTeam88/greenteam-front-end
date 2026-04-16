@@ -21,7 +21,7 @@ const thirdSectionCards: InfoCardProps[] = [
         perfect past in elke ruimte.{' '}
       </div>,
       <div key="2">Denk aan:</div>,
-      <ul key="3" className="flex flex-col py-3 list-disc gap-4 list-inside">
+      <ul key="3" className="flex flex-col gap-4 py-3 list-disc list-inside">
         <li>Authentieke charme: een vloer die vakmanschap ademt </li>
         <li>Duurzame kwaliteit: geolied hout dat jaren meegaat</li>
         <li>Stijlvol veelzijdig: geschikt voor zowel moderne als klassieke interieurs </li>
@@ -31,7 +31,7 @@ const thirdSectionCards: InfoCardProps[] = [
         dag van geniet.{' '}
       </p>,
       <div key="5">
-        <BodyText className="text-secondaryDefault font-bold">
+        <BodyText className="font-bold text-secondaryDefault">
           Ligt uw vloer er al 10 tot 20 jaar dan is het de hoogste tijd om daar wat aan te doen!
         </BodyText>
       </div>,
@@ -92,8 +92,8 @@ const whatWaitingForConfig: InfoCardProps = {
 
 export default function VloerenLeggenBourgognePage() {
   return (
-    <div className="flex flex-col   relative z-0 items-center w-full">
-      <Hero imgSrc="/vloeren-leggen/hero.png" />
+    <div className="relative z-0 flex flex-col items-center w-full">
+      <Hero imgSrc="/vloeren-leggen/hero.webp" enableOverly overlayOpacity={15} />
       <ListCard
         sectionName="Vloeren leggen"
         pageName="Bourgogne"
