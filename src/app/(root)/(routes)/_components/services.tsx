@@ -15,7 +15,7 @@ export const services: ServiceInfo[] = [
   {
     title: 'Parketrenovatie',
     description:
-      'Bij Green Team hebben we een passie voor vloeren en duurzaamheid. Oorspronkelijk houtbewerkers, hebben wij ons ges',
+      'Geef uw parketvloer een frisse uitstraling met een professionele renovatie. Herstel slijtage en beschadigingen voor een vloer die weer als nieuw oogt. Laat uw parket vakkundig opknappen en geniet van een duurzame, stijlvolle afwerking.',
     thumbnailSrc: '/home/parketrenovatie.webp',
     link: '/parketrenovatie',
   },
@@ -23,29 +23,29 @@ export const services: ServiceInfo[] = [
     title: 'Traprenovatie',
     thumbnailSrc: '/home/traprenovatie.webp',
     description:
-      'Bij Green Team hebben we een passie voor vloeren en duurzaamheid. Oorspronkelijk houtbewerkers, hebben wij ons ges',
+      'Ga stapsgewijs te werk voor een perfect resultaat en een trap die weer als nieuw is. Elke trede wordt zorgvuldig gerenoveerd voor een duurzame en stijlvolle afwerking. Zo krijgt uw trap de aandacht die het verdient en gaat hij jarenlang mee.',
     link: '/traprenovatie',
   },
   {
-    title: 'Vloerenleggen',
+    title: 'Vloeren leggen',
     thumbnailSrc: '/home/vloerenleggen.webp',
     description:
-      'Bij Green Team hebben we een passie voor vloeren en duurzaamheid. Oorspronkelijk houtbewerkers, hebben wij ons ges',
+      'Ga stapsgewijs te werk voor een perfect resultaat en een trap die weer als nieuw is. Elke trede wordt zorgvuldig gerenoveerd voor een duurzame en stijlvolle afwerking. Zo krijgt uw trap de aandacht die het verdient en gaat hij jarenlang mee.',
     link: '/vloeren-leggen',
   },
   {
-    title: 'Stofferen',
-    thumbnailSrc: '/home/grayStair.webp',
-    description:
-      'Bij Green Team hebben we een passie voor vloeren en duurzaamheid. Oorspronkelijk houtbewerkers, hebben wij ons ges',
-    link: '/stofferen',
-  },
-  {
-    title: 'Overige diensten',
+    title: 'Vloerverwarming',
     thumbnailSrc: '/home/overigeDiensten.webp',
     description:
-      'Bij Green Team hebben we een passie voor vloeren en duurzaamheid. Oorspronkelijk houtbewerkers, hebben wij ons ges',
-    link: '/overig',
+      'Breng uw woning naar een hoger comfortniveau met professionele vloerverwarming. Ongelijkmatige warmte en koude plekken worden verholpen voor een aangename en constante temperatuur in huis. Geniet van een energiezuinige en stijlvolle oplossing die zorgt voor optimaal wooncomfort, jarenlang.',
+    link: '/overig/vloerverwarming',
+  },
+  {
+    title: 'Tegelen',
+    thumbnailSrc: '/home/telegen.webp',
+    description:
+      'Voor tegelwerk bieden wij maatwerkoplossingen van hoge kwaliteit. Van het betegelen van badkamers en keukens tot het leggen van hoogwaardige vloertegels, alles wordt vakkundig uitgevoerd. Kies voor een strakke en stijlvolle afwerking die perfect aansluit bij uw interieur.',
+    link: '/overig/tegelen',
   },
 ];
 
@@ -54,7 +54,7 @@ export const ServiceCard: React.FC<ServiceInfo> = ({ description, thumbnailSrc, 
     <div className="flex max-w-[400px] flex-col pb-[22px] border-opacity-10 bg-white border-black10 border-2  lg:min-w-[387px] gap-[33px] ">
       <img src={thumbnailSrc} className="w-full h-[176px] " />
       <div className="flex flex-col gap-[11px] px-7 ">
-        <h5 className="font-bold text-xl ">{title}</h5>
+        <h5 className="text-xl font-bold ">{title}</h5>
         <p>{description}</p>
       </div>
       <Link
@@ -80,7 +80,7 @@ const AllServices = () => {
 
 export const ServicesSection = () => {
   return (
-    <div className="flex flex-col px-5 lg:px-0 items-center justify-center py-10 lg:py-28">
+    <div className="flex flex-col items-center justify-center px-5 py-10 lg:px-0 lg:py-28">
       <div className="flex flex-col items-center gap-[20px] lg:gap-[55px]">
         <H2 className="text-primaryDefault">Onze diensten</H2>
         <AllServices />
