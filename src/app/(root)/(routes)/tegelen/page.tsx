@@ -98,7 +98,7 @@ const whatWaitingForConfig: InfoCardProps = {
 export default function OverigTegelenPage() {
   return (
     <div className="relative z-0 flex flex-col items-center w-full">
-      <Hero imgSrc="/overig/tegelen.jpg" imgClassName="object-bottom" />
+      <Hero imgSrc="/overig/tegelen-hero.webp" imgClassName="object-bottom" />
       <ListCard
         sectionName="Overig"
         pageName="Tegelen"
