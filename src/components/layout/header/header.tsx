@@ -135,7 +135,7 @@ export const basicRoutes: HeaderRoute[] = [
       //   ],
       // },
       {
-        link: '/tegelen',
+        link: '/overig/tegelen',
         title: 'Tegelen',
       },
       //TODO uncomment this if you want your links back
@@ -252,8 +252,8 @@ const headerRoutes: HeaderRoute[] = [
     ],
   },
   {
+    path: '/overig/vloerverwarming',
     name: 'Vloerverwarming',
-    path: '/vloerverwarming',
   },
   //TODO uncomment this if you want your links back
   // {
@@ -278,8 +278,8 @@ const headerRoutes: HeaderRoute[] = [
   //   ],
   // },
   {
-    path: '/tegelen',
     name: 'Tegelen',
+    path: '/overig/tegelen',
   },
   //TODO uncomment this if you want your links back
   // {
