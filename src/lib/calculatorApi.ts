@@ -351,15 +351,59 @@ export function calculatePrice(
 
   const visibleSteps = getVisibleSteps(calculator, answers);
 
-  // Collect all question IDs that are referenced by multipliesPriceOfQuestionId
-  // These questions should not add their BASE pricing directly (handled by the referencing question)
-  const questionsWithExternalMultiplier = new Set<string>();
+  // Group scoped multipliers by target question ID.
+  // Multiple MULTIPLIER questions can scope to the same target (e.g. "number of stairs" AND
+  // "treads per stair" both multiplying "stair cladding price"). Their numeric answers must
+  // compose multiplicatively: target_price × factor1 × factor2 × ... — not add.
+  const scopedFactorsByTargetId = new Map<string, Array<{ question: Question; factor: number }>>();
   for (const step of visibleSteps) {
-    for (const question of step.questions) {
+    const visibleQs = getVisibleQuestions(step, answers);
+    for (const question of visibleQs) {
       if (question.multipliesPriceOfQuestionId) {
-        questionsWithExternalMultiplier.add(question.multipliesPriceOfQuestionId);
+        const factor = getNumericValue(answers[question.id]);
+        const list = scopedFactorsByTargetId.get(question.multipliesPriceOfQuestionId) ?? [];
+        list.push({ question, factor });
+        scopedFactorsByTargetId.set(question.multipliesPriceOfQuestionId, list);
       }
     }
+  }
+
+  // Targets whose BASE price is handled via scoped multipliers — skip their direct BASE contribution
+  const questionsWithExternalMultiplier = new Set<string>(scopedFactorsByTargetId.keys());
+
+  // Compute one composed addition per target question
+  for (const [targetId, factors] of scopedFactorsByTargetId) {
+    const target = calculator.steps.flatMap((s) => s.questions).find((q) => q.id === targetId);
+    if (!target) continue;
+
+    const targetAnswer = answers[target.id];
+    if (targetAnswer === undefined || targetAnswer === null || targetAnswer === '') continue;
+
+    let priceFromTarget = 0;
+    if (target.type === 'SELECT') {
+      const selectedOption = target.options.find((opt) => opt.value === targetAnswer);
+      if (selectedOption) {
+        priceFromTarget = getOptionPrice(selectedOption, target, answers, calculator);
+      }
+    } else if (target.type === 'CHECKBOX') {
+      for (const val of getSelectedValues(targetAnswer)) {
+        const option = target.options.find((opt) => opt.value === val);
+        if (option) {
+          priceFromTarget += getOptionPrice(option, target, answers, calculator);
+        }
+      }
+    }
+
+    if (priceFromTarget <= 0) continue;
+
+    const composedFactor = factors.reduce((acc, f) => acc * f.factor, 1);
+    if (composedFactor <= 0) continue;
+
+    const factorsLabel = factors.map((f) => String(f.factor)).join(' × ');
+    additions.push({
+      label: `${target.question} (€${priceFromTarget} × ${factorsLabel})`,
+      amount: priceFromTarget * composedFactor,
+    });
   }
 
   for (const step of visibleSteps) {
@@ -368,48 +412,8 @@ export function calculatePrice(
     for (const question of visibleQuestions) {
       const answer = answers[question.id];
 
-      // Handle multipliesPriceOfQuestionId - this question's value multiplies another question's price
+      // Scoped multipliers are already handled by the pre-pass above
       if (question.multipliesPriceOfQuestionId) {
-        const numericValue = getNumericValue(answer);
-
-        if (numericValue > 0) {
-          // Find the referenced question and get its selected option's price
-          const referencedQuestion = calculator.steps
-            .flatMap((s) => s.questions)
-            .find((q) => q.id === question.multipliesPriceOfQuestionId);
-
-          if (referencedQuestion) {
-            const referencedAnswer = answers[referencedQuestion.id];
-
-            if (referencedAnswer !== undefined && referencedAnswer !== null && referencedAnswer !== '') {
-              let priceFromReference = 0;
-
-              if (referencedQuestion.type === 'SELECT') {
-                const selectedOption = referencedQuestion.options.find((opt) => opt.value === referencedAnswer);
-                if (selectedOption) {
-                  priceFromReference = getOptionPrice(selectedOption, referencedQuestion, answers, calculator);
-                }
-              } else if (referencedQuestion.type === 'CHECKBOX') {
-                const selectedValues = getSelectedValues(referencedAnswer);
-                for (const val of selectedValues) {
-                  const option = referencedQuestion.options.find((opt) => opt.value === val);
-                  if (option) {
-                    priceFromReference += getOptionPrice(option, referencedQuestion, answers, calculator);
-                  }
-                }
-              }
-
-              if (priceFromReference > 0) {
-                const calculatedAmount = numericValue * priceFromReference;
-                additions.push({
-                  label: `${question.question} (${numericValue} × €${priceFromReference})`,
-                  amount: calculatedAmount,
-                });
-              }
-            }
-          }
-        }
-        // Skip further processing for this question since we handled it
         continue;
       }
 
