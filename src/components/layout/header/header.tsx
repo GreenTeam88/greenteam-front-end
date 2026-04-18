@@ -115,7 +115,7 @@ export const basicRoutes: HeaderRoute[] = [
         ],
       },
       {
-        link: '/overig/vloerverwarming',
+        link: '/vloerverwarming',
         title: 'Vloerverwarming',
       },
       //TODO uncomment this if you want your links back
@@ -135,7 +135,7 @@ export const basicRoutes: HeaderRoute[] = [
       //   ],
       // },
       {
-        link: '/overig/tegelen',
+        link: '/tegelen',
         title: 'Tegelen',
       },
       //TODO uncomment this if you want your links back
@@ -252,7 +252,7 @@ const headerRoutes: HeaderRoute[] = [
     ],
   },
   {
-    path: '/overig/vloerverwarming',
+    path: '/vloerverwarming',
     name: 'Vloerverwarming',
   },
   //TODO uncomment this if you want your links back
@@ -279,7 +279,7 @@ const headerRoutes: HeaderRoute[] = [
   // },
   {
     name: 'Tegelen',
-    path: '/overig/tegelen',
+    path: '/tegelen',
   },
   //TODO uncomment this if you want your links back
   // {
