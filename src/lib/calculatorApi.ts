@@ -266,6 +266,19 @@ function getSelectedValues(answer: string | number | string[] | undefined): stri
  * Helper to get numeric value from an answer (for multiplication)
  * Parses SELECT values like "15" or "30+" to numbers
  */
+/**
+ * Whether an answer is a genuinely numeric value (as opposed to an arbitrary string
+ * whose stripped form happens to parse as a number, or a missing value).
+ * Used to decide whether a `multipliesPriceOfQuestionId` reference is semantically
+ * a numeric factor, so misconfigured fields on non-numeric questions don't silently
+ * zero out composed factors.
+ */
+function isNumericAnswer(answer: string | number | string[] | undefined): boolean {
+  if (typeof answer === 'number') return !isNaN(answer);
+  if (typeof answer === 'string') return /^-?\d+(\.\d+)?$/.test(answer.trim());
+  return false;
+}
+
 function getNumericValue(answer: string | number | string[] | undefined): number {
   if (answer === undefined || answer === null || answer === '') {
     return 0;
@@ -359,12 +372,16 @@ export function calculatePrice(
   for (const step of visibleSteps) {
     const visibleQs = getVisibleQuestions(step, answers);
     for (const question of visibleQs) {
-      if (question.multipliesPriceOfQuestionId) {
-        const factor = getNumericValue(answers[question.id]);
-        const list = scopedFactorsByTargetId.get(question.multipliesPriceOfQuestionId) ?? [];
-        list.push({ question, factor });
-        scopedFactorsByTargetId.set(question.multipliesPriceOfQuestionId, list);
-      }
+      if (!question.multipliesPriceOfQuestionId) continue;
+      const answer = answers[question.id];
+      // Only include if the answer is a genuinely numeric string/number.
+      // Non-numeric answers (e.g. a BASE question with a string label whose `multipliesPriceOfQuestionId`
+      // was set by mistake) would otherwise parse to factor=0 and silently zero the composed product.
+      if (!isNumericAnswer(answer)) continue;
+      const factor = getNumericValue(answer);
+      const list = scopedFactorsByTargetId.get(question.multipliesPriceOfQuestionId) ?? [];
+      list.push({ question, factor });
+      scopedFactorsByTargetId.set(question.multipliesPriceOfQuestionId, list);
     }
   }
 
