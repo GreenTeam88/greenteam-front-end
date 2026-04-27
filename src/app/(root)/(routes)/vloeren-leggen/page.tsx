@@ -21,7 +21,7 @@ import { WeensePunt } from './_components/mainPage/Weense-punt';
 function Page() {
   return (
     <div className="relative z-0 flex flex-col items-center w-full">
-      <Hero imgSrc="/vloeren-leggen/hero.webp" enableOverly overlayOpacity={15} />
+      <Hero imgSrc="/vloeren-leggen/hero.webp" />
       <Vloerenleggen />
       <Laminaatleggen />
       <PVCleggen />
