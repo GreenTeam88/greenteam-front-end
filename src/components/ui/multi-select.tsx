@@ -1,10 +1,10 @@
 import { cva } from 'class-variance-authority';
 import { CheckIcon, ChevronDown, WandSparkles, XIcon } from 'lucide-react';
-import Image from 'next/image';
 import * as React from 'react';
 
 import { Button } from '@/components/ui/button';
 import { Command, CommandGroup, CommandItem, CommandList, CommandSeparator } from '@/components/ui/command';
+import HoverZoomImage from '@/components/ui/hover-zoom-image';
 import { Popover, PopoverContent, PopoverTrigger } from '@/components/ui/popover';
 import { Separator } from '@/components/ui/separator';
 import { cn } from '@/lib/utils';
@@ -170,8 +170,8 @@ const MultiSelectFormField = React.forwardRef<HTMLButtonElement, MultiSelectForm
                       <div className="flex items-center">
                         <div
                           className={cn(
-                            'mr-2 rounded-[2px] !outline-transparent !ring-transparent flex h-4 w-4 items-center justify-center border border-green-100',
-                            isSelected ? 'bg-green-600 text-white rounded-s-sm' : 'opacity-50 [&_svg]:invisible'
+                            'mr-2 rounded-[2px] !outline-transparent !ring-transparent flex h-4 w-4 items-center justify-center border-[1.5px] border-primaryDefault',
+                            isSelected ? 'bg-primaryDefault text-white rounded-s-sm' : 'bg-white [&_svg]:invisible'
                           )}
                         >
                           <CheckIcon className={`h-4 w-4 ${isSelected ? 'text-white' : ''}`} />
@@ -181,13 +181,14 @@ const MultiSelectFormField = React.forwardRef<HTMLButtonElement, MultiSelectForm
                       </div>
 
                       {option.imageUrl && /\.(jpg|jpeg|png|gif|webp|svg)$/i.test(option.imageUrl) && (
-                        <Image
-                          src={option.imageUrl}
-                          alt={option.label}
-                          width={55}
-                          height={55}
-                          className="ml-2 rounded-sm transition-transform duration-200 ease-in-out hover:scale-130"
-                        />
+                        <span className="ml-2">
+                          <HoverZoomImage
+                            src={option.imageUrl}
+                            alt={option.label}
+                            width={55}
+                            height={55}
+                          />
+                        </span>
                       )}
                     </CommandItem>
                   );

@@ -2,11 +2,11 @@
 
 import { cva } from 'class-variance-authority';
 import { CheckIcon, ChevronDown } from 'lucide-react';
-import Image from 'next/image';
 import * as React from 'react';
 
 import { Button } from '@/components/ui/button';
 import { Command, CommandGroup, CommandItem, CommandList, CommandSeparator } from '@/components/ui/command';
+import HoverZoomImage from '@/components/ui/hover-zoom-image';
 import { Popover, PopoverContent, PopoverTrigger } from '@/components/ui/popover';
 import { cn } from '@/lib/utils';
 
@@ -152,8 +152,8 @@ const SingleSelectFormField = React.forwardRef<HTMLButtonElement, SingleSelectFo
                           <div className="flex items-center">
                             <div
                               className={cn(
-                                'mr-2 rounded-[2px] !outline-transparent !ring-transparent flex h-4 w-4 items-center justify-center border border-green-100',
-                                isSelected ? 'bg-green-600 text-white' : 'opacity-50 [&_svg]:invisible'
+                                'mr-2 rounded-[2px] !outline-transparent !ring-transparent flex h-4 w-4 items-center justify-center border-[1.5px] border-primaryDefault',
+                                isSelected ? 'bg-primaryDefault text-white' : 'bg-white [&_svg]:invisible'
                               )}
                             >
                               <CheckIcon className={`h-4 w-4 ${isSelected ? 'text-white' : ''}`} />
@@ -161,15 +161,15 @@ const SingleSelectFormField = React.forwardRef<HTMLButtonElement, SingleSelectFo
                             <span>{option.label}</span>
                           </div>
                           {option.imageUrl &&
-                           // Only render image if imageUrl is a valid image file (not a route path)
                            /\.(jpg|jpeg|png|gif|webp|svg)$/i.test(option.imageUrl) && (
-                            <Image
-                              src={option.imageUrl}
-                              alt={option.label}
-                              width={55}
-                              height={55}
-                              className="ml-2 rounded-sm transition-transform duration-200 ease-in-out hover:scale-130"
-                            />
+                            <span className="ml-2">
+                              <HoverZoomImage
+                                src={option.imageUrl}
+                                alt={option.label}
+                                width={55}
+                                height={55}
+                              />
+                            </span>
                           )}
                         </div>
                       </CommandItem>
