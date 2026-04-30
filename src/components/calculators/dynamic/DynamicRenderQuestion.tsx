@@ -8,6 +8,7 @@ import SingleSelectDropdown from '@/components/calculators/Getters/SingleSelectD
 import UploadGetter from '@/components/calculators/Getters/UploadGetter';
 import { CustomTextarea } from '@/components/custom/CustomTextarea';
 import { FormControl, FormField, FormItem, FormLabel } from '@/components/ui/form';
+import InfoTooltip from '@/components/ui/info-tooltip';
 import { Question, StepOption } from '@/lib/calculatorApi';
 import { Option } from '@/types';
 
@@ -23,7 +24,13 @@ function mapOptionsToFrontend(options: StepOption[]): Option[] {
     label: opt.label,
     imageUrl: opt.imageUrl || undefined,
     isExclusive: opt.isExclusive,
+    tooltip: opt.hasTooltip && opt.tooltip ? opt.tooltip : undefined,
   }));
+}
+
+// Pull a question-level tooltip only when the admin has explicitly enabled it
+function questionTooltip(question: Question): string | undefined {
+  return question.hasTooltip && question.tooltip ? question.tooltip : undefined;
 }
 
 // Find exclusive option value from options list
@@ -41,12 +48,15 @@ export default function DynamicRenderQuestion({ question, onFilesChange }: Dynam
 
   const options = mapOptionsToFrontend(question.options);
 
+  const tooltip = questionTooltip(question);
+
   switch (question.type) {
     case 'SELECT':
       return (
         <SingleSelectDropdown
           name={question.id}
           label={question.question}
+          tooltip={tooltip}
           placeholder={question.placeholder || 'Selecteer een optie'}
           data={options}
           alertLabelText={question.required ? '*' : ''}
@@ -59,6 +69,7 @@ export default function DynamicRenderQuestion({ question, onFilesChange }: Dynam
         <MultiSelectDropdown
           name={question.id}
           label={question.question}
+          tooltip={tooltip}
           placeholder={question.placeholder || 'Selecteer opties'}
           data={options}
           exclusiveOption={exclusiveOption}
@@ -72,6 +83,7 @@ export default function DynamicRenderQuestion({ question, onFilesChange }: Dynam
           form={form}
           name={question.id}
           label={`${question.question}${question.unit ? ` (${question.unit})` : ''}`}
+          tooltip={tooltip}
           placeholder={question.placeholder || (question.unit ? `Voer ${question.unit} in` : 'Voer een getal in')}
           type="number"
           min={question.minValue ?? 0}
@@ -85,6 +97,7 @@ export default function DynamicRenderQuestion({ question, onFilesChange }: Dynam
           form={form}
           name={question.id}
           label={question.question}
+          tooltip={tooltip}
           placeholder={question.placeholder || 'Voer tekst in'}
           type="text"
         />
@@ -96,6 +109,7 @@ export default function DynamicRenderQuestion({ question, onFilesChange }: Dynam
           form={form}
           name={question.id}
           label={question.question}
+          tooltip={tooltip}
           placeholder={question.placeholder || 'Voer tekst in (alleen letters)'}
           type="text"
         />
@@ -107,6 +121,7 @@ export default function DynamicRenderQuestion({ question, onFilesChange }: Dynam
           form={form}
           name={question.id}
           label={question.question}
+          tooltip={tooltip}
           required={question.required}
           onFilesChange={onFilesChange || (() => {})}
         />
@@ -120,8 +135,9 @@ export default function DynamicRenderQuestion({ question, onFilesChange }: Dynam
           name={question.id}
           render={({ field, fieldState }) => (
             <FormItem className="flex flex-col gap-y-2">
-              <FormLabel className="font-normal text-textBlack80 text-sm">
-                {question.question}
+              <FormLabel className="font-normal text-textBlack80 text-sm inline-flex items-center gap-1">
+                <span>{question.question}</span>
+                {tooltip && <InfoTooltip text={tooltip} />}
                 {question.required && <span className="text-red-500">*</span>}
               </FormLabel>
               <FormControl>
