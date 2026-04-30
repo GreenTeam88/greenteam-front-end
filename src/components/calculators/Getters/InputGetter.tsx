@@ -2,11 +2,13 @@
 
 import CustomInput from '@/components/custom/CustomInput';
 import { FormControl, FormField, FormItem, FormLabel } from '@/components/ui/form';
+import InfoTooltip from '@/components/ui/info-tooltip';
 
 interface InputGetterProps {
   form: any;
   name: string;
   label: string;
+  tooltip?: string;
   placeholder?: string;
   type?: string;
   inputClassName?: string;
@@ -18,6 +20,7 @@ export default function InputGetter({
   form,
   name,
   label,
+  tooltip,
   placeholder = '',
   type = 'text',
   inputClassName = '',
@@ -31,8 +34,9 @@ export default function InputGetter({
       render={({ field, fieldState }) => (
         <FormItem className="flex flex-col gap-y-2">
           {/* Label */}
-          <FormLabel className="font-normal text-textBlack80 text-sm">
-            {label}
+          <FormLabel className="font-normal text-textBlack80 text-sm inline-flex items-center gap-1">
+            <span>{label}</span>
+            {tooltip && <InfoTooltip text={tooltip} />}
             <span className="text-red-500">*</span>
           </FormLabel>
 

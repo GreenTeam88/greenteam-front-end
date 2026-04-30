@@ -4,12 +4,14 @@ import { useFormContext } from 'react-hook-form';
 
 import CustomSingleSelect from '@/components/custom/CustomSingleSelect';
 import { FormControl, FormField, FormItem, FormLabel } from '@/components/ui/form';
+import InfoTooltip from '@/components/ui/info-tooltip';
 import { Option } from '@/types';
 
 interface SingleSelectDropdownProps {
   data: Option[];
   name: string;
   label: string;
+  tooltip?: string;
   placeholder?: string;
   buttonClassName?: string;
   placeholderTextClassName?: string;
@@ -24,6 +26,7 @@ export default function SingleSelectDropdown({
   data,
   name,
   label,
+  tooltip,
   placeholder = 'Choose an option',
   buttonClassName,
   placeholderTextClassName,
@@ -44,8 +47,9 @@ export default function SingleSelectDropdown({
       name={name}
       render={({ field, fieldState }) => (
         <FormItem className="flex flex-col gap-y-1">
-          <FormLabel className="font-normal text-textBlack80 text-sm">
-            {label}
+          <FormLabel className="font-normal text-textBlack80 text-sm inline-flex items-center gap-1">
+            <span>{label}</span>
+            {tooltip && <InfoTooltip text={tooltip} />}
             <span className="text-red-500">{alertLabelText}</span>
           </FormLabel>
 

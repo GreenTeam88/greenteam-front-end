@@ -28,6 +28,8 @@ export interface StepOption {
   order: number;
   isExclusive?: boolean; // When selected, clears other selections
   priceVariants?: PriceVariants | null; // Different prices per service type
+  hasTooltip?: boolean;
+  tooltip?: string | null;
 }
 
 export interface Question {
@@ -48,6 +50,8 @@ export interface Question {
   variantSourceQuestionId?: string | null; // Which question determines the price variant
   multipliesPriceOfQuestionId?: string | null; // This question's value multiplies the price from referenced question
   conditionalOn: ConditionalOn;
+  hasTooltip?: boolean;
+  tooltip?: string | null;
   options: StepOption[];
 }
 

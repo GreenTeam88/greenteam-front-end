@@ -5,6 +5,7 @@ import * as React from 'react';
 import { Button } from '@/components/ui/button';
 import { Command, CommandGroup, CommandItem, CommandList, CommandSeparator } from '@/components/ui/command';
 import HoverZoomImage from '@/components/ui/hover-zoom-image';
+import InfoTooltip from '@/components/ui/info-tooltip';
 import { Popover, PopoverContent, PopoverTrigger } from '@/components/ui/popover';
 import { Separator } from '@/components/ui/separator';
 import { cn } from '@/lib/utils';
@@ -38,6 +39,7 @@ interface MultiSelectFormFieldProps
     disabled?: boolean;
     icon?: React.ComponentType<{ className?: string }>;
     imageUrl?: string;
+    tooltip?: string;
   }[];
   defaultValue?: string[];
   disabled?: boolean;
@@ -178,6 +180,11 @@ const MultiSelectFormField = React.forwardRef<HTMLButtonElement, MultiSelectForm
                         </div>
                         {option.icon && <option.icon className="mr-2 h-4 w-4 text-muted-foreground" />}
                         <span>{option.label}</span>
+                        {option.tooltip && (
+                          <span className="ml-1.5">
+                            <InfoTooltip text={option.tooltip} />
+                          </span>
+                        )}
                       </div>
 
                       {option.imageUrl && /\.(jpg|jpeg|png|gif|webp|svg)$/i.test(option.imageUrl) && (

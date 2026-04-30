@@ -5,6 +5,7 @@ export type Option = {
   icon?: React.ComponentType<{ className?: string }>;
   disabled?: boolean;
   isExclusive?: boolean;
+  tooltip?: string;
 };
 
 export interface FormData {

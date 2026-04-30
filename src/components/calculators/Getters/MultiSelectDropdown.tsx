@@ -2,12 +2,14 @@ import { useFormContext } from 'react-hook-form';
 
 import ShadcnCustomMultiSelect from '@/components/custom/ShadcnCustomMultiSelect';
 import { FormControl, FormField, FormItem, FormLabel } from '@/components/ui/form';
+import InfoTooltip from '@/components/ui/info-tooltip';
 import { Option } from '@/types';
 
 interface MultiSelectDropdownProps {
   data: Option[];
   name: string;
   label: string;
+  tooltip?: string;
   placeholder?: string;
   exclusiveOption?: string; // Exclusive option like "Nee"
   buttonClassName?: string;
@@ -20,6 +22,7 @@ export default function MultiSelectDropdown({
   data,
   name,
   label,
+  tooltip,
   placeholder = 'Choose an option(s)',
   exclusiveOption,
   buttonClassName,
@@ -77,8 +80,9 @@ export default function MultiSelectDropdown({
       name={name}
       render={({ field, fieldState }) => (
         <FormItem className="flex flex-col gap-y-1">
-          <FormLabel className="font-normal text-textBlack80 text-sm">
-            {label}
+          <FormLabel className="font-normal text-textBlack80 text-sm inline-flex items-center gap-1">
+            <span>{label}</span>
+            {tooltip && <InfoTooltip text={tooltip} />}
             <span className="text-red-500">*</span>
           </FormLabel>
 
