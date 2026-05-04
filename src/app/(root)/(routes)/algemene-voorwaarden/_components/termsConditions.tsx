@@ -15,7 +15,7 @@ export const TermsConditions = () => {
           <div className="listContainer">
             <p className="listItem">
               1.1. GreenTeam: de gebruiker van deze algemene voorwaarden, gevestigd te Rivium Boulevard 2, 2909 LK,
-              Capelle aan den Ijssel onder KvK-nummer 76815889, hierna te noemen.
+              Capelle aan den Ijssel onder KvK-nummer 99271761, hierna te noemen.
             </p>
             <p className="listItem">1.2. Opdrachtnemer: GreenTeam </p>
             <p className="listItem">

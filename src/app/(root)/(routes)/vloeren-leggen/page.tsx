@@ -20,8 +20,8 @@ import { WeensePunt } from './_components/mainPage/Weense-punt';
 
 function Page() {
   return (
-    <div className="flex flex-col  relative z-0 items-center w-full">
-      <Hero imgSrc="/vloeren-leggen/hero.png" />
+    <div className="relative z-0 flex flex-col items-center w-full">
+      <Hero imgSrc="/vloeren-leggen/hero.webp" />
       <Vloerenleggen />
       <Laminaatleggen />
       <PVCleggen />

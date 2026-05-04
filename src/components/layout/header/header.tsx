@@ -27,7 +27,7 @@ interface RouteWithPath {
 type HeaderColumnInfo = {
   title: string;
   link: string;
-  subPages: (RouteWithPath | { name: string; subPages: RouteWithPath[] })[];
+  subPages?: (RouteWithPath | { name: string; subPages: RouteWithPath[] })[];
 };
 
 // a link can either display subPages in the menu or it can have a direct path to a certain page
@@ -66,7 +66,6 @@ export const basicRoutes: HeaderRoute[] = [
           { name: ' Plinten & Deklijsten', path: '/parketrenovatie/plinten-en-deklijsten' },
         ],
       },
-
       {
         link: '/vloeren-leggen',
         title: 'Vloeren leggen',
@@ -116,33 +115,43 @@ export const basicRoutes: HeaderRoute[] = [
         ],
       },
       {
-        link: '/stofferen',
-        title: 'Stofferen',
-        subPages: [
-          { name: 'Trap', path: '/stofferen/trap' },
-          { name: 'Vloer', path: '/stofferen/vloer' },
-          { name: 'Tapijttegels', path: '/stofferen/tapijttegels' },
-          { name: 'Meubels', path: '/stofferen/meubels' },
-          { name: 'Deurmat', path: '/stofferen/deurmat' },
-          { name: 'Droogloopmat', path: '/stofferen/droogloopmat' },
-          { name: 'Rode loper', path: '/stofferen/rode-loper' },
-          { name: 'Reinigingsservice', path: '/stofferen/reinigingsservice' },
-          { name: 'Tapijt verwijderen', path: '/stofferen/tapijt-verwijderen' },
-        ],
+        link: '/vloerverwarming',
+        title: 'Vloerverwarming',
       },
+      //TODO uncomment this if you want your links back
+      // {
+      //   link: '/stofferen',
+      //   title: 'Stofferen',
+      //   subPages: [
+      //     { name: 'Trap', path: '/stofferen/trap' },
+      //     { name: 'Vloer', path: '/stofferen/vloer' },
+      //     { name: 'Tapijttegels', path: '/stofferen/tapijttegels' },
+      //     { name: 'Meubels', path: '/stofferen/meubels' },
+      //     { name: 'Deurmat', path: '/stofferen/deurmat' },
+      //     { name: 'Droogloopmat', path: '/stofferen/droogloopmat' },
+      //     { name: 'Rode loper', path: '/stofferen/rode-loper' },
+      //     { name: 'Reinigingsservice', path: '/stofferen/reinigingsservice' },
+      //     { name: 'Tapijt verwijderen', path: '/stofferen/tapijt-verwijderen' },
+      //   ],
+      // },
       {
-        link: '/overig',
-        title: 'Overig',
-        subPages: [
-          { name: 'Vloerverwarming', path: '/overig/vloerverwarming' },
-          { name: 'Egaliseren', path: '/overig/egaliseren' },
-          { name: 'Gietvloeren', path: '/overig/gietvloeren' },
-          { name: 'Tegelen', path: '/overig/tegelen' },
-          { name: 'Vloer verwijderen', path: '/overig/vloer-verwijderen' },
-          { name: 'Natuursteen behandelen', path: '/overig/natuursteen-behandelen' },
-          { name: 'Opslag', path: '/overig/opslag' },
-        ],
+        link: '/tegelen',
+        title: 'Tegelen',
       },
+      //TODO uncomment this if you want your links back
+      // {
+      //   link: '/overig',
+      //   title: 'Overig',
+      //   subPages: [
+      //     { name: 'Vloerverwarming', path: '/overig/vloerverwarming' },
+      //     { name: 'Egaliseren', path: '/overig/egaliseren' },
+      //     { name: 'Gietvloeren', path: '/overig/gietvloeren' },
+      //     { name: 'Tegelen', path: '/overig/tegelen' },
+      //     { name: 'Vloer verwijderen', path: '/overig/vloer-verwijderen' },
+      //     { name: 'Natuursteen behandelen', path: '/overig/natuursteen-behandelen' },
+      //     { name: 'Opslag', path: '/overig/opslag' },
+      //   ],
+      // },
     ],
   },
   {
@@ -243,59 +252,78 @@ const headerRoutes: HeaderRoute[] = [
     ],
   },
   {
-    name: 'Stofferen',
-    path: '/stofferen',
-    columns: [
-      {
-        link: '',
-        title: '',
-        subPages: [
-          { name: 'Trap', path: '/stofferen/trap' },
-          { name: 'Vloer', path: '/stofferen/vloer' },
-          { name: 'Tapijttegels', path: '/stofferen/tapijttegels' },
-          { name: 'Meubels', path: '/stofferen/meubels' },
-          { name: 'Deurmat', path: '/stofferen/deurmat' },
-          { name: 'Droogloopmat', path: '/stofferen/droogloopmat' },
-          { name: 'Rode loper', path: '/stofferen/rode-loper' },
-          { name: 'Reinigingsservice', path: '/stofferen/reinigingsservice' },
-          { name: 'Tapijt verwijderen', path: '/stofferen/tapijt-verwijderen' },
-        ],
-      },
-    ],
+    path: '/vloerverwarming',
+    name: 'Vloerverwarming',
   },
+  //TODO uncomment this if you want your links back
+  // {
+  //   name: 'Stofferen',
+  //   path: '/stofferen',
+  //   columns: [
+  //     {
+  //       link: '',
+  //       title: '',
+  //       subPages: [
+  //         { name: 'Trap', path: '/stofferen/trap' },
+  //         { name: 'Vloer', path: '/stofferen/vloer' },
+  //         { name: 'Tapijttegels', path: '/stofferen/tapijttegels' },
+  //         { name: 'Meubels', path: '/stofferen/meubels' },
+  //         { name: 'Deurmat', path: '/stofferen/deurmat' },
+  //         { name: 'Droogloopmat', path: '/stofferen/droogloopmat' },
+  //         { name: 'Rode loper', path: '/stofferen/rode-loper' },
+  //         { name: 'Reinigingsservice', path: '/stofferen/reinigingsservice' },
+  //         { name: 'Tapijt verwijderen', path: '/stofferen/tapijt-verwijderen' },
+  //       ],
+  //     },
+  //   ],
+  // },
   {
-    path: '/overig',
-    name: 'Overig',
-    columns: [
-      {
-        link: '',
-        title: '',
-        subPages: [
-          { name: 'Vloerverwarming', path: '/overig/vloerverwarming' },
-          { name: 'Egaliseren', path: '/overig/egaliseren' },
-          { name: 'Gietvloeren', path: '/overig/gietvloeren' },
-          { name: 'Tegelen', path: '/overig/tegelen' },
-          { name: 'Vloer verwijderen', path: '/overig/vloer-verwijderen' },
-          { name: 'Natuursteen behandelen', path: '/overig/natuursteen-behandelen' },
-          { name: 'Opslag', path: '/overig/opslag' },
-        ],
-      },
-    ],
+    name: 'Tegelen',
+    path: '/tegelen',
   },
+  //TODO uncomment this if you want your links back
+  // {
+  //   path: '/overig',
+  //   name: 'Overig',
+  //   columns: [
+  //     {
+  //       link: '',
+  //       title: '',
+  //       subPages: [
+  //         { name: 'Vloerverwarming', path: '/overig/vloerverwarming' },
+  //         { name: 'Egaliseren', path: '/overig/egaliseren' },
+  //         { name: 'Gietvloeren', path: '/overig/gietvloeren' },
+  //         { name: 'Tegelen', path: '/overig/tegelen' },
+  //         { name: 'Vloer verwijderen', path: '/overig/vloer-verwijderen' },
+  //         { name: 'Natuursteen behandelen', path: '/overig/natuursteen-behandelen' },
+  //         { name: 'Opslag', path: '/overig/opslag' },
+  //       ],
+  //     },
+  //   ],
+  // },
 ];
 
 // a single item in a colmun in the menu (the menu that apears when we hover over a certain link)
 const HeaderColumnItem: React.FC<
-  | RouteWithPath
-  | {
-      name: string;
-      subPages: RouteWithPath[];
-    }
-> = (routeInfo) => {
+  (
+    | RouteWithPath
+    | {
+        name: string;
+        subPages: RouteWithPath[];
+      }
+  ) & { setHoveredLink: Dispatch<SetStateAction<string>> }
+> = (props) => {
   const [isOpened, setIsOpened] = useState(false);
+  const { setHoveredLink, ...routeInfo } = props;
+  const pathname = usePathname();
+
+  useEffect(() => {
+    setIsOpened(false);
+  }, [pathname]);
+
   const hasSubPages = 'subPages' in routeInfo && routeInfo.subPages.length;
   return (
-    <div className="flex  flex-col">
+    <div className="flex flex-col">
       {hasSubPages ? (
         <h5
           key={routeInfo.name}
@@ -318,6 +346,7 @@ const HeaderColumnItem: React.FC<
         <Link
           href={'path' in routeInfo ? routeInfo.path : '/'}
           key={routeInfo.name}
+          onClick={() => setHoveredLink('')}
           className={clsx(
             'text-sm flex items-center hover:text-primaryDefault group whitespace-nowrap cursor-pointer',
             {
@@ -336,7 +365,8 @@ const HeaderColumnItem: React.FC<
               <Link
                 href={item.path}
                 key={routeInfo.name}
-                className="text-sm w-full  hover:text-primaryDefault cursor-pointer"
+                onClick={() => setHoveredLink('')}
+                className="w-full text-sm cursor-pointer hover:text-primaryDefault"
               >
                 {item.name}
               </Link>
@@ -349,16 +379,22 @@ const HeaderColumnItem: React.FC<
 
 // a column in the menu (when hovering over a certain link)
 
-const HeaderColumn: React.FC<HeaderColumnInfo & { index: number }> = ({ subPages, title, link }) => {
+const HeaderColumn: React.FC<
+  HeaderColumnInfo & { index: number; setHoveredLink: Dispatch<SetStateAction<string>> }
+> = ({ subPages, title, link, setHoveredLink }) => {
   return (
     <>
       <div className="flex flex-col   gap-[11px]">
-        <Link href={link} className="text-sm font-semibold hover:text-secondaryDefault text-primaryDefault ">
+        <Link
+          href={link}
+          onClick={() => setHoveredLink('')}
+          className="text-sm font-semibold hover:text-secondaryDefault text-primaryDefault "
+        >
           {title}
         </Link>
         <div className="flex w-[180px] flex-col gap-1">
-          {subPages.map((subPage) => (
-            <HeaderColumnItem key={subPage.name} {...subPage} />
+          {subPages?.map((subPage) => (
+            <HeaderColumnItem key={subPage.name} {...subPage} setHoveredLink={setHoveredLink} />
           ))}
         </div>
       </div>
@@ -367,14 +403,17 @@ const HeaderColumn: React.FC<HeaderColumnInfo & { index: number }> = ({ subPages
 };
 
 // the menu that apears when hovering over a certain link
-const HeaderColumns: React.FC<{ hoveredLink: string }> = ({ hoveredLink }) => {
+const HeaderColumns: React.FC<{ hoveredLink: string; setHoveredLink: Dispatch<SetStateAction<string>> }> = ({
+  hoveredLink,
+  setHoveredLink,
+}) => {
   const hoveredRoute = headerRoutes.find((route) => route.name === hoveredLink);
   const hoveredRouteColumns = hoveredRoute && 'columns' in hoveredRoute && hoveredRoute.columns;
   if (!hoveredRouteColumns) return null;
   return (
     <div className="flex  gap-[33px] py-[22px]  px-[44px]">
       {hoveredRouteColumns.map((column, index) => (
-        <HeaderColumn key={column.title} {...column} index={index} />
+        <HeaderColumn key={column.title} {...column} index={index} setHoveredLink={setHoveredLink} />
       ))}
     </div>
   );
@@ -473,13 +512,20 @@ const DropDownColumnLink: React.FC<
     }
 > = (page) => {
   const [openSubPages, setOpenSubPages] = useState(false);
+  const pathname = usePathname();
+
+  useEffect(() => {
+    setOpenSubPages(false);
+  }, [pathname]);
+
   const pageSubpages = 'subPages' in page && page.subPages;
+
   return (
-    <div className="flex flex-col relative  gap-1">
+    <div className="relative flex flex-col gap-1">
       {page.path ? (
         <Link
           href={(page.path as string) || '/'}
-          onClick={() => setOpenSubPages((val) => !val)}
+          // onClick={() => setOpenSubPages((val) => !val)}
           className="text-sm flex items-center   hover:text-primaryDefault relative group w-full min-w-[160px] text-black text-opacity-80"
         >
           {page.name}
@@ -515,7 +561,7 @@ const DropDownColumnLink: React.FC<
         </BodyText>
       )}
       {pageSubpages && openSubPages && (
-        <div className="flex flex-col px-2 gap-1">
+        <div className="flex flex-col gap-1 px-2">
           {pageSubpages.map((subPage) => (
             <Link
               href={subPage.path}
@@ -539,9 +585,7 @@ const DropDownColumn: React.FC<{ routeName: string }> = ({ routeName }) => {
   if (!hoveredRouteColumn) return null;
   return (
     <div className="flex absolute bg-white   top-[29px] w-fit flex-col left-1/2 -translate-x-1/2 gap-1 py-[22px] px-[44px]  border rounded-[10px] border-blackDark  border-opacity-20 ">
-      {hoveredRouteColumn.subPages.map((page) => (
-        <DropDownColumnLink key={page.name} {...page} />
-      ))}
+      {hoveredRouteColumn.subPages?.map((page) => <DropDownColumnLink key={page.name} {...page} />)}
     </div>
   );
 };
@@ -554,6 +598,11 @@ export const HeaderLink: React.FC<{
   const [showDropDown, setShowDropDown] = useState(false);
   const [clientSide, setClientSide] = useState(false);
   const lastScrollTop = useRef<number>(clientSide ? window.pageYOffset || document.documentElement.scrollTop : 0);
+  const pathname = usePathname();
+
+  useEffect(() => {
+    setShowDropDown(false);
+  }, [pathname]);
 
   // writing the logic of the dropdowns hiding and displaying
   useEffect(() => {
@@ -589,7 +638,7 @@ export const HeaderLink: React.FC<{
         >
           {route.name}
           {'columns' in route && route.columns && (
-            <div className=" ">
+            <div className="">
               <DropDownIcon
                 className={cn('group-hover:stroke-secondaryDefault mx-3  ', {
                   'stroke-secondaryDefault': showDropDown,
@@ -611,6 +660,12 @@ export const HeaderLinksSection = () => {
   const [hoveredLink, setHoveredLink] = useState('');
   const hoveredLinkRouteIndex = headerRoutes.findIndex((route) => route.name === hoveredLink);
   const hoveredRoute = headerRoutes[hoveredLinkRouteIndex];
+
+  const pathname = usePathname();
+
+  useEffect(() => {
+    setHoveredLink('');
+  }, [pathname]);
 
   return (
     <div
@@ -637,7 +692,7 @@ export const HeaderLinksSection = () => {
             'top-[30px]': hoveredLinkRouteIndex <= 5,
           })}
         >
-          <HeaderColumns hoveredLink={hoveredLink}></HeaderColumns>
+          <HeaderColumns hoveredLink={hoveredLink} setHoveredLink={setHoveredLink}></HeaderColumns>
         </div>
       )}
     </div>
@@ -695,7 +750,7 @@ export const HeaderDropDowns = () => {
 
 const DesktopHeader = () => {
   return (
-    <div className=" hidden lg:flex flex-col  z-50 w-full  fixed top-0 items-center left-0">
+    <div className="fixed top-0 left-0 z-50 flex-col items-center hidden w-full lg:flex">
       <div className="hidden lg:flex  w-full  flex-col  z-50 gap-[39px]  py-6 items-center bg-white">
         {/* the top section that includes the logo and the social links */}
         <HeaderTopSection />
@@ -727,7 +782,13 @@ const MobileBoldLinkColumnSubpage: React.FC<
         >
           {subPage.name}
           {subPages && (
-            <Image src="/icons/dropDown.svg" alt="" width={16} height={16} className={cn('mx-4', { 'rotate-180': isSubpagesOpened })} />
+            <Image
+              src="/icons/dropDown.svg"
+              alt=""
+              width={16}
+              height={16}
+              className={cn('mx-4', { 'rotate-180': isSubpagesOpened })}
+            />
           )}
         </Link>
       ) : (
@@ -737,12 +798,18 @@ const MobileBoldLinkColumnSubpage: React.FC<
         >
           {subPage.name}
           {subPages && (
-            <Image src="/icons/dropDown.svg" alt="" width={16} height={16} className={cn('mx-4', { 'rotate-180': isSubpagesOpened })} />
+            <Image
+              src="/icons/dropDown.svg"
+              alt=""
+              width={16}
+              height={16}
+              className={cn('mx-4', { 'rotate-180': isSubpagesOpened })}
+            />
           )}
         </p>
       )}
       {subPages && isSubpagesOpened && (
-        <div className="flex px-2 flex-col ">
+        <div className="flex flex-col px-2 ">
           {subPages.map((subPage) => (
             <p key={subPage.name} className="text-base ">
               {subPage.name}
@@ -763,11 +830,17 @@ const MobileBoldLinkColumn: React.FC<HeaderColumnInfo> = ({ subPages, title }) =
       >
         {title}
         {subPages && (
-          <Image src="/icons/dropDown.svg" alt="" width={20} height={20} className={cn('mx-4', { 'rotate-180': isSubpagesOpened })} />
+          <Image
+            src="/icons/dropDown.svg"
+            alt=""
+            width={20}
+            height={20}
+            className={cn('mx-4', { 'rotate-180': isSubpagesOpened })}
+          />
         )}{' '}
       </h4>
       {subPages && isSubpagesOpened && (
-        <div className="flex flex-col px-2  gap-1">
+        <div className="flex flex-col gap-1 px-2">
           {subPages.map((subPage) => (
             <MobileBoldLinkColumnSubpage key={subPage.name} {...subPage} />
           ))}
@@ -781,7 +854,7 @@ export const MobileMenuBoldLink: React.FC<HeaderRoute> = (headerRoute) => {
   const columns = 'columns' in headerRoute && headerRoute.columns;
   const path = 'path' in headerRoute && headerRoute.path;
   return (
-    <div className="flex   flex-col">
+    <div className="flex flex-col">
       {columns && (
         <h4
           onClick={() => setIsColumnsOpened((val) => !val)}
@@ -789,7 +862,13 @@ export const MobileMenuBoldLink: React.FC<HeaderRoute> = (headerRoute) => {
         >
           {headerRoute.name}{' '}
           {columns && (
-            <Image src="/icons/dropDown.svg" alt="" width={20} height={20} className={cn('mx-4', { 'rotate-180': isColumnsOpened })} />
+            <Image
+              src="/icons/dropDown.svg"
+              alt=""
+              width={20}
+              height={20}
+              className={cn('mx-4', { 'rotate-180': isColumnsOpened })}
+            />
           )}
         </h4>
       )}
@@ -803,7 +882,7 @@ export const MobileMenuBoldLink: React.FC<HeaderRoute> = (headerRoute) => {
         </Link>
       )}
       {columns && isColumnsOpened && (
-        <div className="flex px-2  flex-col">
+        <div className="flex flex-col px-2">
           {columns.map((column) => (
             <MobileBoldLinkColumn key={column.title} {...column} />
           ))}
@@ -831,7 +910,7 @@ const MobileMenu: React.FC<{ setIsMenuOpened: React.Dispatch<React.SetStateActio
       <MobileMenuBoldLinks />
       <i
         onClick={() => setIsMenuOpened(false)}
-        className="bi absolute top-3  right-3 text-3xl font-semibold text-red-500 bi-x-lg"
+        className="absolute text-3xl font-semibold text-red-500 bi top-3 right-3 bi-x-lg"
       ></i>
     </div>
   );
@@ -845,11 +924,11 @@ const MobileHeader = () => {
     setIsMenuOpened(false);
   }, [currPathname]);
   return (
-    <div className="flex z-50 bg-white w-full px-3 sticky top-0   lg:hidden  py-3 justify-between">
+    <div className="sticky top-0 z-50 flex justify-between w-full px-3 py-3 bg-white lg:hidden">
       <Link href="/">
         <Image src={appConfig.logoSrcImg} alt="GreenTeam Logo" width={120} height={40} />
       </Link>
-      <i className="bi bi-list text-5xl font-bold" onClick={() => setIsMenuOpened((val) => !val)}></i>
+      <i className="text-5xl font-bold bi bi-list" onClick={() => setIsMenuOpened((val) => !val)}></i>
       {isMenuOpened && <MobileMenu setIsMenuOpened={setIsMenuOpened} />}
     </div>
   );

@@ -28,11 +28,11 @@ export const SizeCalculation = ({}: { product: Product }) => {
     <div className="flex flex-col  py-3 gap-5 pb-5">
       <div className="flex w-full justify-between items-center">
         <div className="flex gap-3 w-full items-center">
-          <div className="flex items-center gap-3 ">
-            <div className="flex gap-2  items-center justify-center bg-[#195B35] text-white   w-[22px]  h-[24px] rounded-[6px]">
+          <div className="flex items-center gap-2 laptop:gap-3 ">
+            <div className="flex gap-2  items-center justify-center bg-[#195B35] text-white min-w-[22px]   w-[22px]  h-[24px] rounded-[6px]">
               3
             </div>
-            <p className="text-[#212529] text-lg font-bold">Hoeveel meter heeft u nodig? </p>
+            <p className="text-[#212529] leading-tight text-lg font-bold">Hoeveel meter heeft u nodig? </p>
           </div>
           <p>Help me kiezen</p>
         </div>
@@ -42,7 +42,7 @@ export const SizeCalculation = ({}: { product: Product }) => {
       </div>
       {boxOpened && (
         <div className="flex flex-col gap-5">
-          <div className="flex flex-col  gap-5">
+          <div className="flex flex-col gap-3 lg:gap-5">
             <p>
               Vul het aantal <span className="underline decoration-dotted">strekkende meters</span> in:
             </p>
@@ -56,15 +56,15 @@ export const SizeCalculation = ({}: { product: Product }) => {
               <p className="text-[#212529] leading-[18px]">(wordt naar boven afgerond op 5cm)</p>
             </div>
           </div>
-          <div className="bg-[#F7F7F7] h-fit w-full px-6 gap-5 flex flex-col rounded-[15px] py-8">
-            <div className="w-full flex justify-between items-center">
+          <div className="bg-[#F7F7F7] h-fit w-full px-6 gap-5 flex flex-col rounded-[15px] py-4 lg:py-8">
+            <div className="w-full flex justify-between gap-1 items-center">
               <div className="flex gap-3 items-center">
                 <CalculationIcon />
                 <h3 className="font-bold leading-[24px]">Onzeker over de hoeveelheid?</h3>
-                <p className="underline decoration-dotted">Uitleg</p>
+                <p className="underline decoration-dotted leading-tight  items-start flex">Uitleg</p>
               </div>
               <div
-                className={cn('cursor-pointer', { 'rotate-180': !calculationBoxOpened })}
+                className={cn('cursor-pointer  ', { 'rotate-180': !calculationBoxOpened })}
                 onClick={() => setCalculationBoxOpened((val) => !val)}
               >
                 <TickDropDownIcon />

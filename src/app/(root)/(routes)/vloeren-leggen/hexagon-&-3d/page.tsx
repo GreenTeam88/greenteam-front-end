@@ -20,7 +20,7 @@ const thirdSectionCards: InfoCardProps[] = [
         opvallend honingraatpatroon dat elke ruimte direct een moderne uitstraling geeft. Of het nu gaat om een
         stijlvolle keuken, een trendy badkamer, of een andere leefruimte, met hexagonale tegels kiest u voor:{' '}
       </div>,
-      <ul key="3" className="flex flex-col py-3 list-disc gap-4 list-inside">
+      <ul key="3" className="flex flex-col gap-4 py-3 list-disc list-inside">
         <li>Creativiteit in vorm: een artistieke en speelse look</li>
         <li>Onbegrensde mogelijkheden: kies uit talloze kleuren en texturen</li>
         <li>Duurzaamheid: een vloer die lang meegaat én indruk maakt</li>
@@ -29,7 +29,7 @@ const thirdSectionCards: InfoCardProps[] = [
         Breng een eigentijdse twist aan in uw woning met hexagonale tegels! {' '}
       </p>,
       <div key="5">
-        <BodyText className="text-secondaryDefault font-bold">
+        <BodyText className="font-bold text-secondaryDefault">
           Ligt uw vloer er al 10 tot 20 jaar dan is het de hoogste tijd om daar wat aan te doen!{' '}
         </BodyText>
       </div>,
@@ -44,7 +44,7 @@ const thirdSectionCards: InfoCardProps[] = [
         en illusie, waardoor uw interieur een unieke uitstraling krijgt.{' '}
       </div>,
       <div key="2">Denk aan:</div>,
-      <ul key="3" className="flex flex-col py-3 list-disc gap-4 list-inside">
+      <ul key="3" className="flex flex-col gap-4 py-3 list-disc list-inside">
         <li>Meeslepende effecten: transformeer uw woning met visuele diepte</li>
         <li>Innovatieve stijl: perfect voor wie durft op te vallen</li>
         <li>Een persoonlijke touch: creëer een vloer die écht uniek is</li>
@@ -53,7 +53,7 @@ const thirdSectionCards: InfoCardProps[] = [
         Maak uw interieur tot een ware eyecatcher met een 3D-vloer!{' '}
       </p>,
       <div key="5">
-        <BodyText className="text-secondaryDefault font-bold">
+        <BodyText className="font-bold text-secondaryDefault">
           Ligt uw vloer er al 10 tot 20 jaar dan is het de hoogste tijd om daar wat aan te doen!{' '}
         </BodyText>
       </div>,
@@ -114,8 +114,8 @@ const whatWaitingForConfig: InfoCardProps = {
 
 export default function VloerenLeggenHexagonEn3DPage() {
   return (
-    <div className="flex flex-col   relative z-0 items-center w-full">
-      <Hero imgSrc="/vloeren-leggen/hero.png" />
+    <div className="relative z-0 flex flex-col items-center w-full">
+      <Hero imgSrc="/vloeren-leggen/hero.webp" enableOverly overlayOpacity={15} />
       <ListCard
         sectionName="Vloeren leggen"
         pageName="Hexagon & 3D"

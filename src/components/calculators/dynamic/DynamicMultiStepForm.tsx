@@ -866,6 +866,11 @@ export default function DynamicMultiStepForm({ calculatorSlug }: DynamicMultiSte
         const emailHtml = buildEmailHtml(allServices, mergedFormData);
 
         const formDataObj = new FormData();
+
+        // Plain email field — kept separately from the HTML body so the backend can
+        // address the recipient without parsing the email HTML.
+        formDataObj.append('email', mergedFormData.Email || '');
+
         formDataObj.append('emailHtml', emailHtml);
 
         uploadedFiles.forEach((file) => {

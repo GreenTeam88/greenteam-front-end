@@ -20,7 +20,7 @@ export const SizeVariantBox = ({ option, variant }: { option: string; variant: P
     <div
       onClick={changeSize}
       className={cn(
-        'flex flex-col gap-3 cursor-pointer items-center justify-center  h-[100px] w-[185px] rounded-[10px]',
+        'flex flex-col gap-3 cursor-pointer items-center justify-center  h-[100px] w-[150px] max-w-full lg:w-[185px] rounded-[10px]',
         {
           'border-[#9A7DB9] border-[3px]  ': size === option,
           'border border-[#E0E0E0] ': size !== option,
@@ -65,8 +65,8 @@ export const SizeVariants = ({ product }: { product: Product }) => {
   // if (!variant) throw new Error('can not get the current variant');
   return (
     <>
-      {sizeOptions.size && (
-        <div className="flex flex-col  py-3 gap-5  border-[#E0E0E0] border-b pb-5">
+      {Boolean(sizeOptions.size) && (
+        <div className="flex flex-col px-2 lg:px-0 py-3 gap-5 max-w-full border-[#E0E0E0] border-b pb-5">
           <div className="flex w-full items-center justify-between">
             <div className="flex gap-3 w-full items-center">
               <div className="flex gap-3 items-center justify-center ">

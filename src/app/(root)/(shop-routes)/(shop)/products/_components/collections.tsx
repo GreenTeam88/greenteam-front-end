@@ -13,7 +13,7 @@ export const CollectionsSection = ({ collections }: { collections: ShopifyCollec
   const selectedCollection = searchParams.get('collection');
 
   return (
-    <div className="flex py-4 gap-2">
+    <div className="flex py-4 flex-wrap gap-2">
       {collections.map((collection) => (
         <div
           key={collection.title}

@@ -65,7 +65,7 @@ export const GoesWellWith = ({ products }: { products: { 'product-id': string }[
   return (
     <div className="flex flex-col  py-7 gap-4">
       <h3 className="text-[32px] text-paragraph font-semi">Gaat goed samen met</h3>
-      <div className="flex gap-2">
+      <div className="flex  flex-col lg:flex-row  gap-2">
         {products.map((product) => {
           console.log('product', product);
           return <ProductCard key={product['product-id']} productId={product['product-id']} />;

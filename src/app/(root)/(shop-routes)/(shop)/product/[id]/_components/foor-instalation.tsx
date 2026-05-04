@@ -24,7 +24,7 @@ import { DoneIcon } from '@/components/icons/done';
 // };
 export const FloorInstalation = () => {
   return (
-    <div className="flex pb-10 flex-col items-center gap-6 ">
+    <div className="flex pb-10  flex-col items-center gap-6 ">
       <p>Vloer laten leggen door onze specialist?</p>
       <div className="flex flex-col w-full gap-4">
         <div className="flex gap-1 items-center">

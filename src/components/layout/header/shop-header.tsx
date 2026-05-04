@@ -28,7 +28,7 @@ interface RouteWithPath {
 type HeaderColumnInfo = {
   title: string;
   link: string;
-  subPages: (RouteWithPath | { name: string; subPages: RouteWithPath[] })[];
+  subPages?: (RouteWithPath | { name: string; subPages: RouteWithPath[] })[];
 };
 
 // a link can either display subPages in the menu or it can have a direct path to a certain page
@@ -129,7 +129,7 @@ const HeaderColumnItem: React.FC<
   const [isOpened, setIsOpened] = useState(false);
   const hasSubPages = 'subPages' in routeInfo && routeInfo.subPages.length;
   return (
-    <div className="flex  flex-col">
+    <div className="flex flex-col">
       {hasSubPages ? (
         <h5
           key={routeInfo.name}
@@ -170,7 +170,7 @@ const HeaderColumnItem: React.FC<
               <Link
                 href={item.path}
                 key={routeInfo.name}
-                className="text-sm w-full  hover:text-primaryDefault cursor-pointer"
+                className="w-full text-sm cursor-pointer hover:text-primaryDefault"
               >
                 {item.name}
               </Link>
@@ -191,9 +191,7 @@ const HeaderColumn: React.FC<HeaderColumnInfo & { index: number }> = ({ subPages
           {title}
         </Link>
         <div className="flex w-[180px] flex-col gap-1">
-          {subPages.map((subPage) => (
-            <HeaderColumnItem key={subPage.name} {...subPage} />
-          ))}
+          {subPages?.map((subPage) => <HeaderColumnItem key={subPage.name} {...subPage} />)}
         </div>
       </div>
     </>
@@ -309,7 +307,7 @@ const DropDownColumnLink: React.FC<
   const [openSubPages, setOpenSubPages] = useState(false);
   const pageSubpages = 'subPages' in page && page.subPages;
   return (
-    <div className="flex flex-col relative  gap-1">
+    <div className="relative flex flex-col gap-1">
       {page.path ? (
         <Link
           href={(page.path as string) || '/'}
@@ -349,7 +347,7 @@ const DropDownColumnLink: React.FC<
         </BodyText>
       )}
       {pageSubpages && openSubPages && (
-        <div className="flex flex-col px-2 gap-1">
+        <div className="flex flex-col gap-1 px-2">
           {pageSubpages.map((subPage) => (
             <Link
               href={subPage.path}
@@ -373,9 +371,7 @@ const DropDownColumn: React.FC<{ routeName: string }> = ({ routeName }) => {
   if (!hoveredRouteColumn) return null;
   return (
     <div className="flex absolute bg-white   top-[29px] w-fit flex-col left-1/2 -translate-x-1/2 gap-1 py-[22px] px-[44px]  border rounded-[10px] border-blackDark  border-opacity-20 ">
-      {hoveredRouteColumn.subPages.map((page) => (
-        <DropDownColumnLink key={page.name} {...page} />
-      ))}
+      {hoveredRouteColumn.subPages?.map((page) => <DropDownColumnLink key={page.name} {...page} />)}
     </div>
   );
 };
@@ -423,7 +419,7 @@ export const HeaderLink: React.FC<{
         >
           {route.name}
           {'columns' in route && route.columns && (
-            <div className=" ">
+            <div className="">
               <DropDownIcon
                 className={cn('group-hover:stroke-secondaryDefault mx-3  ', {
                   'stroke-secondaryDefault': showDropDown,
@@ -573,7 +569,7 @@ export const HeaderDropdowns = ({ routes }: { routes: HeaderRoute[] }) => {
 
 const DesktopHeader = () => {
   return (
-    <div className=" hidden lg:flex flex-col  z-50 w-full  fixed top-0 items-center left-0">
+    <div className="fixed top-0 left-0 z-50 flex-col items-center hidden w-full lg:flex">
       <div className="hidden lg:flex  w-full  flex-col  z-50 gap-[39px]  py-6 items-center bg-white">
         {/* the top section that includes the logo and the social links */}
         <HeaderTopSection />
@@ -632,7 +628,7 @@ const MobileBoldLinkColumnSubpage: React.FC<
         </p>
       )}
       {subPages && isSubpagesOpened && (
-        <div className="flex px-2 flex-col ">
+        <div className="flex flex-col px-2 ">
           {subPages.map((subPage) => (
             <p key={subPage.name} className="text-base ">
               {subPage.name}
@@ -663,7 +659,7 @@ const MobileBoldLinkColumn: React.FC<HeaderColumnInfo> = ({ subPages, title }) =
         )}{' '}
       </h4>
       {subPages && isSubpagesOpened && (
-        <div className="flex flex-col px-2  gap-1">
+        <div className="flex flex-col gap-1 px-2">
           {subPages.map((subPage) => (
             <MobileBoldLinkColumnSubpage key={subPage.name} {...subPage} />
           ))}
@@ -677,7 +673,7 @@ export const MobileMenuBoldLink: React.FC<HeaderRoute> = (headerRoute) => {
   const columns = 'columns' in headerRoute && headerRoute.columns;
   const path = 'path' in headerRoute && headerRoute.path;
   return (
-    <div className="flex   flex-col">
+    <div className="flex flex-col">
       {columns && (
         <h4
           onClick={() => setIsColumnsOpened((val) => !val)}
@@ -705,7 +701,7 @@ export const MobileMenuBoldLink: React.FC<HeaderRoute> = (headerRoute) => {
         </Link>
       )}
       {columns && isColumnsOpened && (
-        <div className="flex px-2  flex-col">
+        <div className="flex flex-col px-2">
           {columns.map((column) => (
             <MobileBoldLinkColumn key={column.title} {...column} />
           ))}
@@ -733,7 +729,7 @@ const MobileMenu: React.FC<{ setIsMenuOpened: React.Dispatch<React.SetStateActio
       <MobileMenuBoldLinks />
       <i
         onClick={() => setIsMenuOpened(false)}
-        className="bi absolute top-3  right-3 text-3xl font-semibold text-red-500 bi-x-lg"
+        className="absolute text-3xl font-semibold text-red-500 bi top-3 right-3 bi-x-lg"
       ></i>
     </div>
   );
@@ -747,11 +743,11 @@ const MobileHeader = () => {
     setIsMenuOpened(false);
   }, [currPathname]);
   return (
-    <div className="flex z-50 bg-white w-full px-3 sticky top-0   lg:hidden  py-3 justify-between">
+    <div className="sticky top-0 z-50 flex justify-between w-full px-3 py-3 bg-white lg:hidden">
       <Link href="/">
         <Image src={appConfig.logoSrcImg} alt="GreenTeam Logo" width={120} height={40} />
       </Link>
-      <i className="bi bi-list text-5xl font-bold" onClick={() => setIsMenuOpened((val) => !val)}></i>
+      <i className="text-5xl font-bold bi bi-list" onClick={() => setIsMenuOpened((val) => !val)}></i>
       {isMenuOpened && <MobileMenu setIsMenuOpened={setIsMenuOpened} />}
     </div>
   );

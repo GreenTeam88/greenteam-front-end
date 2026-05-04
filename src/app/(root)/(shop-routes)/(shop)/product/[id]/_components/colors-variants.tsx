@@ -59,7 +59,7 @@ export const ColorsVariants = ({ product }: { product: Product }) => {
 
   return (
     <>
-      {colorOptions.size && (
+      {Boolean(colorOptions.size) && (
         <div className="flex flex-col  py-3 gap-5 border-[#E0E0E0] border-b pb-5">
           <div className="flex w-full items-center justify-between">
             <div className="flex gap-3 w-full ">

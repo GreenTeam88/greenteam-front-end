@@ -21,7 +21,7 @@ const thirdSectionCards: InfoCardProps[] = [
       </div>,
       <div key="2">
         <div> Waarom kiezen voor een Weense punt?  </div>
-        <ul key="3" className="flex flex-col pb-3  list-disc gap-4 list-inside">
+        <ul key="3" className="flex flex-col gap-4 pb-3 list-disc list-inside">
           <li>
             Harmonieuze uitstraling: De hoeken van 135 graden creëren een subtiele, rustige illusie van visgraat. 
           </li>
@@ -36,7 +36,7 @@ const thirdSectionCards: InfoCardProps[] = [
         Met de Weense punt voegt u niet alleen stijl toe, maar ook een gevoel van rust en ruimte aan uw woning. {' '}
       </p>,
       <div key="5">
-        <BodyText className="text-secondaryDefault font-bold">
+        <BodyText className="font-bold text-secondaryDefault">
           Ligt uw vloer er al 10 tot 20 jaar dan is het de hoogste tijd om daar wat aan te doen!{' '}
         </BodyText>
       </div>,
@@ -96,8 +96,8 @@ const whatWaitingForConfig: InfoCardProps = {
 
 export default function VloerenLeggenWeensePuntPage() {
   return (
-    <div className="flex flex-col   relative z-0 items-center w-full">
-      <Hero imgSrc="/vloeren-leggen/hero.png" />
+    <div className="relative z-0 flex flex-col items-center w-full">
+      <Hero imgSrc="/vloeren-leggen/hero.webp" enableOverly overlayOpacity={15} />
       <ListCard
         sectionName="Vloeren leggen"
         pageName="Weense punt"

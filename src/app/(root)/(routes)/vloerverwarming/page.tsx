@@ -8,7 +8,7 @@ import { RatingSection } from '@/components/ratingSection';
 import { StoreSection } from '@/components/storeSection';
 import { BodyText } from '@/components/theme/typography';
 import { WhatWaitingForCard } from '@/components/whatWaitingForCard';
-import { OverigWhyGreenTeam } from '../_components/whyGreenTeam';
+import { OverigWhyGreenTeam } from '../overig/_components/whyGreenTeam';
 
 const thirdSectionCards: InfoCardProps[] = [
   {
