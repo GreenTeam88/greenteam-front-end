@@ -10,6 +10,7 @@ import CreateButton from '@/components/custom/CreateButton';
 import { HeadlineSemibold } from '@/components/theme/typography';
 import { calculatePrice, FormStep, getVisibleQuestions, Question } from '@/lib/calculatorApi';
 import { useDynamicCalculator } from '@/store/dynamic-calculator';
+import { selectCartTotal, useServiceCart } from '@/store/service-cart';
 
 interface DynamicStepRendererProps {
   step: FormStep;
@@ -238,9 +239,10 @@ export default function DynamicStepRenderer({
   // Calculate progress percentage
   const progressPercent = Math.round(((stepIndex + 1) / totalSteps) * 100);
 
-  // Get current price from store
+  // Running total = current active service price + previously committed services in the cart
   const { priceBreakdown } = useDynamicCalculator();
-  const currentTotal = priceBreakdown?.total || 0;
+  const cartTotal = useServiceCart(selectCartTotal);
+  const currentTotal = (priceBreakdown?.total || 0) + cartTotal;
 
   return (
     <FormProvider {...form}>

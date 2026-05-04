@@ -1,11 +1,13 @@
 'use client';
 
 import { zodResolver } from '@hookform/resolvers/zod';
+import { ChevronLeft } from 'lucide-react';
 import { usePathname } from 'next/navigation';
-import React, { lazy, Suspense, useCallback, useEffect, useState } from 'react';
+import React, { lazy, Suspense, useCallback, useEffect, useMemo, useState } from 'react';
 import { FieldValues, FormProvider, useForm } from 'react-hook-form';
 import { z } from 'zod';
 
+import AnotherServiceStep from '@/components/calculators/dynamic/AnotherServiceStep';
 import DynamicStepRenderer from '@/components/calculators/dynamic/DynamicStepRenderer';
 import SingleSelectDropdown from '@/components/calculators/Getters/SingleSelectDropdown';
 import CreateButton from '@/components/custom/CreateButton';
@@ -18,6 +20,7 @@ import {
   selectTotalSteps,
   useDynamicCalculator,
 } from '@/store/dynamic-calculator';
+import { CompletedService, selectCartTotal, useServiceCart } from '@/store/service-cart';
 
 // Lazy load the hardcoded final steps
 const StepFive = lazy(() => import('@/components/calculators/common/steps/StepFive'));
@@ -53,9 +56,17 @@ interface CategorySelectionStepProps {
   categories: Array<{ name: string; slug: string; description: string | null }>;
   onSelect: (slug: string) => void;
   isLoading: boolean;
+  // Optional back handler for the mid-flow inline picker. Initial entry omits it
+  // so no chevron renders on the very first screen.
+  onPrevious?: () => void;
 }
 
-const CategorySelectionStep: React.FC<CategorySelectionStepProps> = ({ categories, onSelect, isLoading }) => {
+const CategorySelectionStep: React.FC<CategorySelectionStepProps> = ({
+  categories,
+  onSelect,
+  isLoading,
+  onPrevious,
+}) => {
   const form = useForm({
     resolver: zodResolver(categorySchema),
     defaultValues: {
@@ -92,7 +103,15 @@ const CategorySelectionStep: React.FC<CategorySelectionStepProps> = ({ categorie
         <div className="bg-white w-full rounded-b-[8px] flex flex-col px-[22px] gap-y-3 py-[22px] shadow-lg">
           {/* Title row */}
           <div className="flex flex-row items-center justify-between">
-            <span className="text-gray-400 font-sans text-sm">Waar kunnen we u mee helpen?</span>
+            {onPrevious && (
+              <div
+                className="flex items-center gap-[5px] cursor-pointer hover:text-green-700 transition-all"
+                onClick={onPrevious}
+              >
+                <ChevronLeft />
+              </div>
+            )}
+            <span className="flex-1 text-gray-400 font-sans text-sm">Waar kunnen we u mee helpen?</span>
             {selectedCategory && (
               <div className="w-[25%] h-[6px] bg-gray-300 rounded-full ml-4">
                 <div className="w-[15%] h-full bg-green-700 rounded-full"></div>
@@ -144,7 +163,16 @@ const CategorySelectionStep: React.FC<CategorySelectionStepProps> = ({ categorie
 };
 
 // Phases of the calculator flow
-type Phase = 'category' | 'dynamic' | 'planning' | 'contact' | 'upload' | 'comment' | 'final';
+type Phase =
+  | 'category'
+  | 'dynamic'
+  | 'another-service'
+  | 'category-picker'
+  | 'planning'
+  | 'contact'
+  | 'upload'
+  | 'comment'
+  | 'final';
 
 interface DynamicMultiStepFormProps {
   calculatorSlug?: string; // Optional - if not provided, shows category selection
@@ -167,6 +195,15 @@ export default function DynamicMultiStepForm({ calculatorSlug }: DynamicMultiSte
   } = useDynamicCalculator();
 
   const pathname = usePathname();
+
+  // Service-cart store: holds previously committed services. The currently active
+  // calculator (in useDynamicCalculator) is NOT in the cart until the user clicks
+  // "yes" on the another-service question; on "no" it stays active and shows up
+  // alongside the cart on the planning step / email.
+  const cartServices = useServiceCart((state) => state.services);
+  const addService = useServiceCart((state) => state.addService);
+  const clearCart = useServiceCart((state) => state.clearCart);
+  const cartTotal = useServiceCart(selectCartTotal);
 
   // Available calculators for category selection
   const [availableCalculators, setAvailableCalculators] = useState<
@@ -264,51 +301,113 @@ export default function DynamicMultiStepForm({ calculatorSlug }: DynamicMultiSte
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [slugToFetch]);
 
-  // Update formData when price changes
+  // Clear the cart whenever the embed mounts fresh. The cart should only persist
+  // within a single user session of the calculator widget; navigating to a new
+  // calculator URL is a new session.
   useEffect(() => {
-    if (priceBreakdown) {
-      setFormData((prev: any) => ({
-        ...prev,
-        totalCost: priceBreakdown.total,
-        isOnRequest: priceBreakdown.total === 0,
-      }));
-    }
-  }, [priceBreakdown]);
+    clearCart();
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []);
 
-  // Handle category selection
+  // Update formData when price changes. Total = active service total + cart total
+  // so the planning step / running totals reflect the whole quote.
+  useEffect(() => {
+    const activeTotal = priceBreakdown?.total ?? 0;
+    const grandTotal = activeTotal + cartTotal;
+    setFormData((prev: any) => ({
+      ...prev,
+      totalCost: grandTotal,
+      isOnRequest: grandTotal === 0,
+    }));
+  }, [priceBreakdown, cartTotal]);
+
+  // Handle category selection (initial entry, no slug provided)
   const handleCategorySelect = useCallback((slug: string) => {
     setSelectedSlug(slug);
     setCurrentPhase('dynamic');
   }, []);
 
-  // Handle navigation for dynamic steps
+  // Handle inline category-picker selection (mid-flow, when adding a second+ service)
+  const handleCategoryPickerSelect = useCallback((slug: string) => {
+    setSelectedSlug(slug);
+    setCurrentPhase('dynamic');
+  }, []);
+
+  // Back from the inline category-picker returns to the another-service question.
+  // The cart entry that was just pushed on "yes" stays in the cart — if the user
+  // changes their mind they can switch to "no" and proceed to planning.
+  const handleCategoryPickerPrevious = useCallback(() => {
+    setCurrentPhase('another-service');
+  }, []);
+
+  // Handle navigation for dynamic steps. End-of-dynamic now leads to the "another service?"
+  // question instead of jumping straight to planning.
   const handleDynamicNext = useCallback(() => {
     if (isLastDynamicStep) {
-      // Move to planning phase
-      setCurrentPhase('planning');
+      setCurrentPhase('another-service');
     } else {
       goToNextStep();
     }
   }, [isLastDynamicStep, goToNextStep]);
 
   const handleDynamicPrevious = useCallback(() => {
-    if (isFirstStep && !calculatorSlug) {
-      // Go back to category selection if we started there
+    // First service via category-selector (no slug, empty cart): back returns to the
+    // initial category screen so the user can re-pick. For all other "first step"
+    // cases — slug-entry, or any subsequent service after the cart has entries —
+    // back is hidden by the renderer (we pass isFirstStep=true to it below).
+    if (isFirstStep && !calculatorSlug && cartServices.length === 0) {
       setCurrentPhase('category');
       setSelectedSlug(null);
       reset();
     } else {
       goToPreviousStep();
     }
-  }, [isFirstStep, calculatorSlug, goToPreviousStep, reset]);
+  }, [isFirstStep, calculatorSlug, cartServices.length, goToPreviousStep, reset]);
+
+  // Another-service question handlers
+  const handleAnotherServiceYes = useCallback(() => {
+    // Commit the active service to the cart only if there is one currently loaded
+    // (re-visiting the question from category-picker has active=null, no double-push).
+    if (calculator) {
+      const completed: CompletedService = {
+        calculator,
+        answers: { ...answers },
+        priceBreakdown,
+      };
+      addService(completed);
+      reset();
+    }
+    // Clear the slug-watch ref so re-picking the SAME slug as the previous service
+    // still triggers a refetch (otherwise the prevSlug equality check would skip it).
+    prevSlugRef.current = null;
+    setSelectedSlug(null);
+    if (availableCalculators.length === 0) {
+      fetchCategories();
+    }
+    setCurrentPhase('category-picker');
+  }, [calculator, answers, priceBreakdown, addService, reset, availableCalculators.length, fetchCategories]);
+
+  const handleAnotherServiceNo = useCallback(() => {
+    // Active service stays loaded and is treated as the last (uncommitted) service
+    // alongside cartServices for total / planning / email.
+    setCurrentPhase('planning');
+  }, []);
+
+  const handleAnotherServicePrevious = useCallback(() => {
+    // Only meaningful when an active service is loaded — go back to its last dynamic step.
+    setCurrentPhase('dynamic');
+  }, []);
 
   // Handle navigation for hardcoded steps
   const handlePlanningNext = useCallback(() => {
     setCurrentPhase('contact');
   }, []);
 
+  // Back from planning goes to the another-service question (NOT directly to a dynamic
+  // step), which preserves the "completed services are locked" rule from option B —
+  // only the active service's last step is reachable from the another-service screen.
   const handlePlanningPrevious = useCallback(() => {
-    setCurrentPhase('dynamic');
+    setCurrentPhase('another-service');
   }, []);
 
   const handleContactNext = useCallback(() => {
@@ -357,18 +456,16 @@ export default function DynamicMultiStepForm({ calculatorSlug }: DynamicMultiSte
     }));
   }, []);
 
-  // Helper function to get readable answer for a question
+  // Helper to convert a stored answer into a human-readable string. Parameterized
+  // on the calculator so it works for any service (cart entries + active service).
   const getReadableAnswer = useCallback(
-    (questionId: string, answer: string | number): string => {
-      if (!calculator) return String(answer);
+    (calc: Calculator | null, questionId: string, answer: string | number): string => {
+      if (!calc) return String(answer);
 
-      // Find the question in all steps
-      for (const step of calculator.steps) {
+      for (const step of calc.steps) {
         const question = step.questions.find((q) => q.id === questionId);
         if (question) {
-          // For SELECT/CHECKBOX, find the option label
           if (question.type === 'SELECT' || question.type === 'CHECKBOX') {
-            // Handle JSON array for checkbox
             if (typeof answer === 'string' && answer.startsWith('[')) {
               try {
                 const selectedValues = JSON.parse(answer);
@@ -383,11 +480,9 @@ export default function DynamicMultiStepForm({ calculatorSlug }: DynamicMultiSte
                 return String(answer);
               }
             }
-            // Single select
             const option = question.options.find((o) => o.value === answer);
             return option?.label || String(answer);
           }
-          // For NUMBER with unit
           if (question.type === 'NUMBER' && question.unit) {
             return `${answer} ${question.unit}`;
           }
@@ -396,76 +491,165 @@ export default function DynamicMultiStepForm({ calculatorSlug }: DynamicMultiSte
       }
       return String(answer);
     },
-    [calculator]
+    []
   );
 
-  // Build structured answers with question labels
-  const buildStructuredAnswers = useCallback((): Array<{ question: string; answer: string; step: string }> => {
-    if (!calculator) return [];
+  // Build structured answers with question labels for a given calculator + answers pair.
+  const buildStructuredAnswers = useCallback(
+    (
+      calc: Calculator | null,
+      calcAnswers: Record<string, string | number>
+    ): Array<{ question: string; answer: string; step: string }> => {
+      if (!calc) return [];
 
-    const structuredAnswers: Array<{ question: string; answer: string; step: string }> = [];
+      const structuredAnswers: Array<{ question: string; answer: string; step: string }> = [];
 
-    for (const step of calculator.steps) {
-      const stepDescription = step.description || `Stap ${step.order + 1}`;
+      for (const step of calc.steps) {
+        const stepDescription = step.description || `Stap ${step.order + 1}`;
 
-      for (const question of step.questions) {
-        const answer = answers[question.id];
-        if (answer !== undefined && answer !== null && answer !== '') {
-          structuredAnswers.push({
-            step: stepDescription,
-            question: question.question,
-            answer: getReadableAnswer(question.id, answer),
-          });
+        for (const question of step.questions) {
+          const answer = calcAnswers[question.id];
+          if (answer !== undefined && answer !== null && answer !== '') {
+            structuredAnswers.push({
+              step: stepDescription,
+              question: question.question,
+              answer: getReadableAnswer(calc, question.id, answer),
+            });
+          }
         }
       }
-    }
 
-    return structuredAnswers;
-  }, [calculator, answers, getReadableAnswer]);
+      return structuredAnswers;
+    },
+    [getReadableAnswer]
+  );
 
-  // Build HTML email template
+  // Build HTML email template. Renders one block per service (cart entries +
+  // optionally the active service), each with its own per-step Q&A and price
+  // breakdown, followed by a grand total at the bottom.
   const buildEmailHtml = useCallback(
     (
-      structuredAnswers: Array<{ question: string; answer: string; step: string }>,
-      formData: any,
-      priceDetails: any
+      services: Array<{
+        calculatorName: string;
+        structured: Array<{ question: string; answer: string; step: string }>;
+        priceBreakdown: {
+          basePrice: number;
+          multipliers: Array<{ label: string; factor: number }>;
+          additions: Array<{ label: string; amount: number }>;
+          total: number;
+        } | null;
+      }>,
+      formData: any
     ): string => {
-      // Group answers by step
-      const groupedByStep = structuredAnswers.reduce(
-        (acc: Record<string, Array<{ question: string; answer: string }>>, item) => {
-          if (!acc[item.step]) {
-            acc[item.step] = [];
-          }
-          acc[item.step].push({ question: item.question, answer: item.answer });
-          return acc;
-        },
-        {}
-      );
+      // Helper: render the per-step Q&A grid for a single service
+      const renderStepSections = (structured: Array<{ question: string; answer: string; step: string }>) => {
+        const groupedByStep = structured.reduce(
+          (acc: Record<string, Array<{ question: string; answer: string }>>, item) => {
+            if (!acc[item.step]) acc[item.step] = [];
+            acc[item.step].push({ question: item.question, answer: item.answer });
+            return acc;
+          },
+          {}
+        );
 
-      // Build step sections HTML
-      const stepSectionsHtml = Object.entries(groupedByStep)
-        .map(
-          ([stepName, questions], index) => `
-          <table width="100%" cellpadding="0" cellspacing="0" style="margin-bottom: 15px; ${index > 0 ? 'border-top: 1px solid #e0e0e0; padding-top: 15px;' : ''}">
+        return Object.entries(groupedByStep)
+          .map(
+            ([stepName, questions], index) => `
+            <table width="100%" cellpadding="0" cellspacing="0" style="margin-bottom: 12px; ${index > 0 ? 'border-top: 1px solid #e0e0e0; padding-top: 12px;' : ''}">
+              <tr>
+                <td style="background: #2D5A27; color: #fff; padding: 8px 12px; border-radius: 6px 6px 0 0; font-weight: bold; font-size: 13px;">
+                  📌 ${stepName}
+                </td>
+              </tr>
+              <tr>
+                <td style="background: #fff; border: 1px solid #e0e0e0; border-top: none; border-radius: 0 0 6px 6px; padding: 12px;">
+                  <table width="100%" cellpadding="0" cellspacing="0">
+                    ${(questions as Array<{ question: string; answer: string }>)
+                      .map(
+                        (q) => `
+                      <tr>
+                        <td style="padding: 6px 0; color: #666; font-size: 13px; width: 45%; vertical-align: top;">${q.question}:</td>
+                        <td style="padding: 6px 0; color: #333; font-weight: 600; font-size: 13px;">${q.answer}</td>
+                      </tr>
+                    `
+                      )
+                      .join('')}
+                  </table>
+                </td>
+              </tr>
+            </table>
+          `
+          )
+          .join('');
+      };
+
+      // Helper: render the price breakdown block for a single service
+      const renderPriceBlock = (
+        breakdown: {
+          basePrice: number;
+          multipliers: Array<{ label: string; factor: number }>;
+          additions: Array<{ label: string; amount: number }>;
+          total: number;
+        } | null,
+        labelTotal: string = 'Subtotaal'
+      ) => {
+        if (!breakdown) {
+          return `
+            <div style="background: #fff3cd; border: 1px solid #ffc107; border-radius: 8px; padding: 12px; text-align: center; margin-top: 8px;">
+              <span style="font-size: 14px; color: #856404;">⚠️ Prijs op aanvraag</span>
+            </div>`;
+        }
+        let rowsHtml = `
+          <tr>
+            <td style="padding: 6px 0; color: #666;">Basisprijs:</td>
+            <td style="padding: 6px 0; text-align: right;">€${breakdown.basePrice.toFixed(2)}</td>
+          </tr>`;
+        breakdown.multipliers.forEach((m) => {
+          rowsHtml += `
             <tr>
-              <td style="background: #2D5A27; color: #fff; padding: 10px 15px; border-radius: 6px 6px 0 0; font-weight: bold; font-size: 14px;">
-                📌 ${stepName}
+              <td style="padding: 6px 0; color: #666;">${m.label}:</td>
+              <td style="padding: 6px 0; text-align: right;">×${m.factor}</td>
+            </tr>`;
+        });
+        breakdown.additions.forEach((a) => {
+          rowsHtml += `
+            <tr>
+              <td style="padding: 6px 0; color: #666;">${a.label}:</td>
+              <td style="padding: 6px 0; text-align: right;">+€${a.amount.toFixed(2)}</td>
+            </tr>`;
+        });
+        return `
+          <div style="background: #f9f9f9; border-radius: 8px; padding: 12px; margin-top: 8px;">
+            <table width="100%" style="font-size: 13px;">
+              ${rowsHtml}
+              <tr>
+                <td colspan="2" style="padding-top: 6px; border-top: 1px solid #ccc;">
+                  <table width="100%">
+                    <tr>
+                      <td style="font-size: 14px; font-weight: bold; color: #2D5A27; padding-top: 6px;">${labelTotal}:</td>
+                      <td style="font-size: 14px; font-weight: bold; color: #2D5A27; text-align: right; padding-top: 6px;">€${breakdown.total.toFixed(2)}</td>
+                    </tr>
+                  </table>
+                </td>
+              </tr>
+            </table>
+          </div>`;
+      };
+
+      // Build per-service blocks
+      const serviceBlocksHtml = services
+        .map(
+          (svc, idx) => `
+          <table width="100%" cellpadding="0" cellspacing="0" style="margin-bottom: 16px;">
+            <tr>
+              <td style="background: linear-gradient(135deg, #2D5A27 0%, #4a7c44 100%); color: #fff; padding: 12px 15px; border-radius: 8px 8px 0 0; font-weight: bold; font-size: 15px;">
+                Dienst ${idx + 1}: ${svc.calculatorName}
               </td>
             </tr>
             <tr>
-              <td style="background: #fff; border: 1px solid #e0e0e0; border-top: none; border-radius: 0 0 6px 6px; padding: 15px;">
-                <table width="100%" cellpadding="0" cellspacing="0">
-                  ${(questions as Array<{ question: string; answer: string }>)
-                    .map(
-                      (q) => `
-                    <tr>
-                      <td style="padding: 8px 0; color: #666; font-size: 13px; width: 45%; vertical-align: top;">${q.question}:</td>
-                      <td style="padding: 8px 0; color: #333; font-weight: 600; font-size: 13px;">${q.answer}</td>
-                    </tr>
-                  `
-                    )
-                    .join('')}
-                </table>
+              <td style="background: #fff; border: 1px solid #e0e0e0; border-top: none; border-radius: 0 0 8px 8px; padding: 15px;">
+                ${renderStepSections(svc.structured)}
+                ${renderPriceBlock(svc.priceBreakdown, 'Subtotaal')}
               </td>
             </tr>
           </table>
@@ -473,35 +657,17 @@ export default function DynamicMultiStepForm({ calculatorSlug }: DynamicMultiSte
         )
         .join('');
 
-      // Build price breakdown HTML
-      let priceRowsHtml = `
-        <tr>
-          <td style="padding: 8px 0; color: #666;">Basisprijs:</td>
-          <td style="padding: 8px 0; text-align: right;">€${priceDetails.basePrice.toFixed(2)}</td>
-        </tr>`;
+      const grandTotal = services.reduce((sum, s) => sum + (s.priceBreakdown?.total ?? 0), 0);
+      const isOnRequest = grandTotal === 0;
 
-      if (priceDetails.multipliers.length > 0) {
-        priceDetails.multipliers.forEach((m: { label: string; factor: number }) => {
-          priceRowsHtml += `
-            <tr>
-              <td style="padding: 8px 0; color: #666;">${m.label}:</td>
-              <td style="padding: 8px 0; text-align: right;">×${m.factor}</td>
-            </tr>`;
-        });
-      }
-
-      if (priceDetails.additions.length > 0) {
-        priceDetails.additions.forEach((a: { label: string; amount: number }) => {
-          priceRowsHtml += `
-            <tr>
-              <td style="padding: 8px 0; color: #666;">${a.label}:</td>
-              <td style="padding: 8px 0; text-align: right;">+€${a.amount.toFixed(2)}</td>
-            </tr>`;
-        });
-      }
-
-      const isOnRequest = priceDetails.total === 0;
-      const calculatorName = calculator?.name || 'Calculator';
+      // Title shows first service name (or "Meerdere diensten" for 2+).
+      const title =
+        services.length === 0
+          ? 'Calculator'
+          : services.length === 1
+            ? services[0].calculatorName
+            : `Meerdere diensten (${services.length})`;
+      const calculatorName = title;
       const comment = formData.comment || '';
 
       return `
@@ -576,25 +742,23 @@ export default function DynamicMultiStepForm({ calculatorSlug }: DynamicMultiSte
                 </tr>
               </table>
 
-              <!-- Calculator Answers -->
+              <!-- Per-service blocks: each contains its own answers + price breakdown -->
               <table width="100%" cellpadding="0" cellspacing="0" style="padding: 25px; border-bottom: 1px solid #eee;">
                 <tr>
                   <td>
-                    <h3 style="margin: 0 0 15px 0; color: #2D5A27; font-size: 16px;">📝 Calculator Antwoorden</h3>
-                    <div style="background: #f9f9f9; border-radius: 8px; padding: 10px;">
-                      ${stepSectionsHtml}
-                    </div>
+                    <h3 style="margin: 0 0 15px 0; color: #2D5A27; font-size: 16px;">📝 Diensten &amp; Antwoorden</h3>
+                    ${serviceBlocksHtml}
                   </td>
                 </tr>
               </table>
 
-              <!-- Price -->
+              <!-- Grand Total -->
               <table width="100%" cellpadding="0" cellspacing="0" style="padding: 25px;${
                 comment ? ' border-bottom: 1px solid #eee;' : ''
               }">
                 <tr>
                   <td>
-                    <h3 style="margin: 0 0 15px 0; color: #2D5A27; font-size: 16px;">💰 Prijsberekening</h3>
+                    <h3 style="margin: 0 0 15px 0; color: #2D5A27; font-size: 16px;">💰 Totaalprijs</h3>
                     ${
                       isOnRequest
                         ? `
@@ -604,17 +768,10 @@ export default function DynamicMultiStepForm({ calculatorSlug }: DynamicMultiSte
                     `
                         : `
                       <div style="background: #f9f9f9; border-radius: 8px; padding: 15px;">
-                        <table width="100%" style="font-size: 14px;">
-                          ${priceRowsHtml}
+                        <table width="100%">
                           <tr>
-                            <td colspan="2" style="padding-top: 10px; border-top: 2px solid #2D5A27;">
-                              <table width="100%">
-                                <tr>
-                                  <td style="font-size: 18px; font-weight: bold; color: #2D5A27; padding-top: 10px;">Totaal incl. BTW:</td>
-                                  <td style="font-size: 18px; font-weight: bold; color: #2D5A27; text-align: right; padding-top: 10px;">€${priceDetails.total.toFixed(2)}</td>
-                                </tr>
-                              </table>
-                            </td>
+                            <td style="font-size: 18px; font-weight: bold; color: #2D5A27;">Totaal incl. BTW (${services.length} dienst${services.length === 1 ? '' : 'en'}):</td>
+                            <td style="font-size: 18px; font-weight: bold; color: #2D5A27; text-align: right;">€${grandTotal.toFixed(2)}</td>
                           </tr>
                         </table>
                       </div>
@@ -667,54 +824,71 @@ export default function DynamicMultiStepForm({ calculatorSlug }: DynamicMultiSte
   const handleFinalSubmit = useCallback(
     async (updatedFormData: any) => {
       try {
-        // Build structured answers with readable labels
-        const structuredAnswers = buildStructuredAnswers();
+        // Gather all services: previously committed (cart) + active service if loaded
+        const allServices = [
+          ...cartServices.map((s) => ({
+            calculatorName: s.calculator.name,
+            structured: buildStructuredAnswers(s.calculator, s.answers),
+            priceBreakdown: s.priceBreakdown
+              ? {
+                  basePrice: s.priceBreakdown.basePrice,
+                  multipliers: s.priceBreakdown.multipliers,
+                  additions: s.priceBreakdown.additions,
+                  total: s.priceBreakdown.total,
+                }
+              : null,
+          })),
+          ...(calculator
+            ? [
+                {
+                  calculatorName: calculator.name,
+                  structured: buildStructuredAnswers(calculator, answers),
+                  priceBreakdown: priceBreakdown
+                    ? {
+                        basePrice: priceBreakdown.basePrice,
+                        multipliers: priceBreakdown.multipliers,
+                        additions: priceBreakdown.additions,
+                        total: priceBreakdown.total,
+                      }
+                    : null,
+                },
+              ]
+            : []),
+        ];
 
-        // Format price breakdown
-        const priceDetails = {
-          basePrice: priceBreakdown?.basePrice || 0,
-          multipliers: priceBreakdown?.multipliers || [],
-          additions: priceBreakdown?.additions || [],
-          total: priceBreakdown?.total || 0,
-        };
+        const grandTotal = allServices.reduce((sum, s) => sum + (s.priceBreakdown?.total ?? 0), 0);
 
-        // Merge form data
         const mergedFormData = {
           ...updatedFormData,
           comment: updatedFormData.details || updatedFormData.comment || '',
         };
 
-        // Build HTML email
-        const emailHtml = buildEmailHtml(structuredAnswers, mergedFormData, priceDetails);
+        const emailHtml = buildEmailHtml(allServices, mergedFormData);
 
-        // Create FormData
         const formDataObj = new FormData();
-
-        // Send HTML email body
         formDataObj.append('emailHtml', emailHtml);
 
-        // Append files
         uploadedFiles.forEach((file) => {
           formDataObj.append('files', file);
         });
 
-        // Trigger GTM event
         if (typeof window !== 'undefined') {
           (window as any).dataLayer = (window as any).dataLayer || [];
           (window as any).dataLayer.push({
             event: 'form_submit',
-            calculatorName: calculator?.name,
-            totalPrice: priceDetails.total,
+            calculatorName: allServices.map((s) => s.calculatorName).join(' + '),
+            servicesCount: allServices.length,
+            totalPrice: grandTotal,
           });
         }
 
-        // Send to email API
         const response = await fetch('https://api.greenteam.nl/api/v1/emails/calculator', {
           method: 'POST',
           body: formDataObj,
         });
 
         if (response.ok) {
+          clearCart();
           alert('Form submitted successfully!');
           window.location.href = `/bedankt?page=${pathname}`;
         } else {
@@ -726,10 +900,35 @@ export default function DynamicMultiStepForm({ calculatorSlug }: DynamicMultiSte
         alert('A network error occurred. Please check your connection and try again.');
       }
     },
-    [calculator, priceBreakdown, uploadedFiles, pathname, buildStructuredAnswers, buildEmailHtml]
+    [
+      calculator,
+      answers,
+      priceBreakdown,
+      cartServices,
+      uploadedFiles,
+      pathname,
+      buildStructuredAnswers,
+      buildEmailHtml,
+      clearCart,
+    ]
   );
 
-  // Render category selection phase
+  // Build the combined services list for display on the planning step:
+  // committed cart services + the active service if one is loaded.
+  const planningServices = useMemo(
+    () => [
+      ...cartServices.map((s) => ({ name: s.calculator.name, total: s.priceBreakdown?.total ?? 0 })),
+      ...(calculator ? [{ name: calculator.name, total: priceBreakdown?.total ?? 0 }] : []),
+    ],
+    [cartServices, calculator, priceBreakdown]
+  );
+
+  // Hide the back chevron on the dynamic step's first step when going back has no
+  // meaningful target: slug-entry (no category screen behind us) OR there are
+  // already-committed services in the cart (option B locks them).
+  const dynamicIsFirstStep = isFirstStep && (!!calculatorSlug || cartServices.length > 0);
+
+  // Initial category screen (entry without slug)
   if (currentPhase === 'category') {
     return (
       <CategorySelectionStep
@@ -740,18 +939,49 @@ export default function DynamicMultiStepForm({ calculatorSlug }: DynamicMultiSte
     );
   }
 
-  // Render loading state (for calculator loading)
+  // Inline category picker (mid-flow, after the user said "yes" to another service)
+  if (currentPhase === 'category-picker') {
+    return (
+      <CategorySelectionStep
+        categories={availableCalculators}
+        onSelect={handleCategoryPickerSelect}
+        isLoading={categoriesLoading}
+        onPrevious={handleCategoryPickerPrevious}
+      />
+    );
+  }
+
+  // Loading state (for calculator fetch)
   if (isLoading) {
     return <StepLoader />;
   }
 
-  // Render error state
+  // Error state
   if (error) {
     return <ErrorDisplay message={error} />;
   }
 
-  // No calculator found
-  if (!calculator) {
+  // The "another service?" question can render with calculator=null (when the user
+  // backtracks here from the category-picker), so it must come before the
+  // calculator-not-found check.
+  if (currentPhase === 'another-service') {
+    return (
+      <AnotherServiceStep
+        activeServiceTotal={priceBreakdown?.total ?? 0}
+        hasActiveService={!!calculator}
+        onYes={handleAnotherServiceYes}
+        onNo={handleAnotherServiceNo}
+        onPrevious={handleAnotherServicePrevious}
+        canGoBack={!!calculator}
+      />
+    );
+  }
+
+  // 'dynamic' is the only phase that strictly requires an active calculator
+  // (you can't ask questions without one). Planning / contact / upload / comment /
+  // final all work fine in cart-only mode (active=null after a back-and-forth) —
+  // the cart still has data from previously committed services.
+  if (currentPhase === 'dynamic' && !calculator) {
     return <ErrorDisplay message="Calculator niet gevonden" />;
   }
 
@@ -765,7 +995,7 @@ export default function DynamicMultiStepForm({ calculatorSlug }: DynamicMultiSte
           totalSteps={totalSteps + 2} // +2 for planning and contact steps
           onNext={handleDynamicNext}
           onPrevious={handleDynamicPrevious}
-          isFirstStep={isFirstStep && !!calculatorSlug} // Only truly first if slug was provided
+          isFirstStep={dynamicIsFirstStep}
           isLastStep={false} // Never the last step in the full flow
           onFilesChange={handleFilesChange}
         />
@@ -779,6 +1009,7 @@ export default function DynamicMultiStepForm({ calculatorSlug }: DynamicMultiSte
           onCommentClick={handleCommentClick}
           formData={formData}
           updateFormData={updateFormData}
+          services={planningServices}
         />
       )}
 
