@@ -72,7 +72,9 @@ export const getShopifyCollections = async (): Promise<Collection[]> => {
   }
 `;
   const allCollections = await shopifyRequest<{ collections: { nodes: any[] } }>(GET_COLLECTIONS_QUERY);
-  return allCollections?.collections.nodes as Collection[];
+  // shopifyRequest returns null on failure; fall back to [] so consumers can safely .map()
+  // and the static prerender doesn't crash when Shopify hiccups during build.
+  return (allCollections?.collections?.nodes ?? []) as Collection[];
 };
 
 export async function getAllProducts(): Promise<Product[]> {
@@ -151,8 +153,9 @@ export async function getAllProducts(): Promise<Product[]> {
 }`;
 
   const response = await shopifyRequest<{ products: { edges: { node: Product }[] } }>(GET_ALL_PRODUCTS_QUERY);
-  console.log('response', response?.products.edges);
-  return response?.products.edges.map((edge) => edge.node) || [];
+  // Belt-and-braces: chain the optional access all the way through so a partial response
+  // shape doesn't crash the static prerender.
+  return response?.products?.edges?.map((edge) => edge.node) ?? [];
 }
 
 export async function getProductById({ productId }: { productId: string }): Promise<Product | null> {
