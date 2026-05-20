@@ -16,6 +16,10 @@ interface StepFiveProps {
   onCommentClick: () => void;
   formData: any; // Centralized form data passed down
   updateFormData: (data: any) => void; // Function to update the centralized state
+  // Optional per-service breakdown (dynamic calculator only). When provided AND there
+  // is more than one service, a small list of services + their subtotals is shown
+  // above the grand total. Single-service case keeps the existing simple layout.
+  services?: Array<{ name: string; total: number }>;
 }
 
 const schema = z.object({
@@ -30,6 +34,7 @@ const StepFive: React.FC<StepFiveProps> = ({
   onCommentClick,
   formData,
   updateFormData,
+  services,
 }) => {
   const [isButtonDisabled, setIsButtonDisabled] = useState<boolean>(true);
 
@@ -134,17 +139,28 @@ const StepFive: React.FC<StepFiveProps> = ({
 
           <div className="flex flex-col">
             <div className="flex flex-col space-y-2">
+              {services && services.length > 1 && !formData.isOnRequest && (
+                <div className="rounded-md border border-borderGray bg-bgColor p-2">
+                  {services.map((s, idx) => (
+                    <div
+                      key={`${s.name}-${idx}`}
+                      className="flex justify-between items-center text-xs text-textBlack80 py-0.5"
+                    >
+                      <span className="truncate pr-2">{s.name}</span>
+                      <span className="font-semibold whitespace-nowrap">€{s.total.toFixed(2)}</span>
+                    </div>
+                  ))}
+                </div>
+              )}
               {formData.isOnRequest ? (
                 <div className="flex justify-center items-center h-full">
                   <span className="font-semibold text-lg text-green-700">Berekening volgt na aanvraag</span>
                 </div>
               ) : (
-                <>
-                  <div className="flex justify-between items-center text-center">
-                    <span className="font-semibold text-lg text-green-700">Totaal incl. btw.</span>
-                    <span className="font-semibold text-lg text-green-700">€{totalCost.toFixed(2)}</span>
-                  </div>
-                </>
+                <div className="flex justify-between items-center text-center">
+                  <span className="font-semibold text-lg text-green-700">Totaal incl. btw.</span>
+                  <span className="font-semibold text-lg text-green-700">€{totalCost.toFixed(2)}</span>
+                </div>
               )}
             </div>
 
