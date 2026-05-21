@@ -5,13 +5,15 @@ import React from 'react';
 
 import CreateButton from '@/components/custom/CreateButton';
 import { HeadlineSemibold } from '@/components/theme/typography';
-import { selectCartCount, selectCartTotal, useServiceCart } from '@/store/service-cart';
+import { selectCartTotal, useServiceCart } from '@/store/service-cart';
 
 interface AnotherServiceStepProps {
   // Live total of the in-progress active service (already excluded from the cart).
   activeServiceTotal: number;
   // Whether the active service has any data we'd commit on yes.
   hasActiveService: boolean;
+  // Display name of the active service (shown in the offer-summary badge).
+  activeServiceName?: string;
   onYes: () => void;
   onNo: () => void;
   onPrevious: () => void;
@@ -23,16 +25,21 @@ interface AnotherServiceStepProps {
 export default function AnotherServiceStep({
   activeServiceTotal,
   hasActiveService,
+  activeServiceName,
   onYes,
   onNo,
   onPrevious,
   canGoBack,
 }: AnotherServiceStepProps) {
   const cartTotal = useServiceCart(selectCartTotal);
-  const cartCount = useServiceCart(selectCartCount);
+  const cartServices = useServiceCart((state) => state.services);
 
   const grandTotal = cartTotal + (hasActiveService ? activeServiceTotal : 0);
-  const totalServices = cartCount + (hasActiveService ? 1 : 0);
+  // Combined list of all service names in this quote: committed (cart) + active (if any).
+  const serviceNames = [
+    ...cartServices.map((s) => s.calculator.name),
+    ...(hasActiveService && activeServiceName ? [activeServiceName] : []),
+  ];
 
   return (
     <form className="w-[386px] flex rounded-[4px] relative lg:px-0 z-10 flex-col shadow-lg">
@@ -63,17 +70,16 @@ export default function AnotherServiceStep({
             Wilt u nog een andere dienst toevoegen?
           </p>
           <p className="font-sans text-xs text-gray-500">
-            U kunt meerdere diensten in één offerte combineren. Klik op &quot;Ja&quot; om nog een dienst toe te voegen,
-            of op &quot;Nee&quot; om door te gaan naar de planning.
+            U kunt meerdere diensten in één offerte combineren.
           </p>
         </div>
 
-        {totalServices > 0 && (
+        {serviceNames.length > 0 && (
           <div className="rounded-md bg-bgColor border border-borderGray p-3 text-xs text-textBlack80">
             <span className="font-semibold text-primaryDefault">
-              {totalServices} dienst{totalServices === 1 ? '' : 'en'}
+              {serviceNames.length === 1 ? 'Dienst' : 'Diensten'}:
             </span>{' '}
-            in deze offerte
+            {serviceNames.join(', ')}
           </div>
         )}
 

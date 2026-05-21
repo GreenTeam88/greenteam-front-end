@@ -1,6 +1,6 @@
 'use client';
 
-import { Info, X } from 'lucide-react';
+import { X } from 'lucide-react';
 import * as React from 'react';
 import { createPortal } from 'react-dom';
 
@@ -169,7 +169,19 @@ export default function InfoTooltip({
         )}
         style={{ width: iconSize + 4, height: iconSize + 4 }}
       >
-        <Info style={{ width: iconSize, height: iconSize }} strokeWidth={2.25} />
+        {/* Solid green disc with a white "i" — the SVG's circle uses currentColor so the
+            hover utility above can darken the whole disc together with the focus ring. */}
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          viewBox="0 0 24 24"
+          style={{ width: iconSize + 4, height: iconSize + 4 }}
+          aria-hidden="true"
+          focusable="false"
+        >
+          <circle cx="12" cy="12" r="12" fill="currentColor" />
+          <circle cx="12" cy="7.5" r="1.6" fill="#ffffff" />
+          <rect x="10.4" y="10.5" width="3.2" height="8.5" rx="1.6" fill="#ffffff" />
+        </svg>
       </button>
 
       {mounted && hovering && !isCoarsePointer && createPortal(
