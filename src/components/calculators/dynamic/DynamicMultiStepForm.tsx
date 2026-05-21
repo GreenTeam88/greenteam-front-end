@@ -974,6 +974,7 @@ export default function DynamicMultiStepForm({ calculatorSlug }: DynamicMultiSte
       <AnotherServiceStep
         activeServiceTotal={priceBreakdown?.total ?? 0}
         hasActiveService={!!calculator}
+        activeServiceName={calculator?.name}
         onYes={handleAnotherServiceYes}
         onNo={handleAnotherServiceNo}
         onPrevious={handleAnotherServicePrevious}
