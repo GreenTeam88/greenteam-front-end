@@ -12,16 +12,16 @@ export const FooterColumn: React.FC<FooterColumnInfo> = ({ title, links, path })
   return (
     <div className="flex flex-col w-[220px]  gap-[10px] ">
       {path ? (
-        <Link href={path} className="text-primaryDefault hover:text-secondaryDefault font-bold">
+        <Link href={path} className="font-bold text-primaryDefault hover:text-secondaryDefault">
           {title}
         </Link>
       ) : (
-        <p className="text-primaryDefault  font-bold ">{title}</p>
+        <p className="font-bold text-primaryDefault ">{title}</p>
       )}
       <div className="flex flex-col gap-2">
         {links.map((link) =>
           link.path ? (
-            <Link href={link.path} className="hover:text-primaryDefault cursor-pointer" key={link.name}>
+            <Link href={link.path} className="cursor-pointer hover:text-primaryDefault" key={link.name}>
               {link.name}
             </Link>
           ) : (
@@ -66,7 +66,7 @@ export const FooterLightBorder = () => <div className="bg-black20 h-[1px] bg-opa
 
 const FooterColumns = () => {
   return (
-    <div className="flex flex-col gap-[44px] w-full">
+    <div className="flex flex-col gap-[44px] w-full text-sm">
       <div className="flex gap-[71px] ">
         {footerColumnsInfo.slice(0, 5).map((columnInfo) => (
           <FooterColumn key={columnInfo.title} {...columnInfo} />
@@ -118,7 +118,7 @@ const FooterBottomSection = () => {
 
 export const DesktopFooter = () => {
   return (
-    <div className="hidden lg:flex items-center justify-center w-full bg-lightGray ">
+    <div className="items-center justify-center hidden w-full lg:flex bg-lightGray ">
       <div className="flex max-w-[1540px] py-[55px]  px-[120px] w-full flex-col   gap-[44px]">
         <FooterTopSection />
         <FooterLightBorder />
