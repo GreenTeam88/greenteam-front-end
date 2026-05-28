@@ -7,6 +7,7 @@ import Link from 'next/link';
 import { usePathname } from 'next/navigation';
 import React, { Dispatch, SetStateAction, useEffect, useRef, useState } from 'react';
 
+import AnnouncementTicker from '@/components/AnnouncementTicker';
 import { appConfig } from '@/config';
 import { cn } from '@/lib/tailwind';
 import { DropDownIcon } from '../../icons/arrows';
@@ -751,6 +752,9 @@ export const HeaderDropDowns = () => {
 const DesktopHeader = () => {
   return (
     <div className="fixed top-0 left-0 z-50 flex-col items-center hidden w-full lg:flex">
+      <div className="z-50 hidden w-full lg:block">
+        <AnnouncementTicker />
+      </div>
       <div className="hidden lg:flex  w-full  flex-col  z-50 gap-[39px]  py-6 items-center bg-white">
         {/* the top section that includes the logo and the social links */}
         <HeaderTopSection />
