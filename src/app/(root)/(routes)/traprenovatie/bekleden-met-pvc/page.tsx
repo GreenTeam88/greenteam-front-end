@@ -19,7 +19,7 @@ const thirdSectionCards: InfoCardProps[] = [
         PVC trapbekleding is de ideale oplossing voor een trap die zowel mooi als functioneel moet zijn. Wat kunt u
         verwachten: {' '}
       </div>,
-      <ul key="3" className="flex flex-col py-3 list-disc gap-4 list-inside">
+      <ul key="3" className="flex flex-col gap-4 py-3 list-disc list-inside">
         <li>
           Ruime keuze aan designs: Kies uit diverse kleuren en texturen voor een moderne, persoonlijke uitstraling. 
         </li>
@@ -31,7 +31,7 @@ const thirdSectionCards: InfoCardProps[] = [
         </li>
       </ul>,
       <div key="5">
-        <BodyText className="text-secondaryDefault font-bold">
+        <BodyText className="font-bold text-secondaryDefault">
           Ligt uw trap er al 10 tot 20 jaar, dan is het tijd om deze een nieuwe uitstraling te geven!{' '}
         </BodyText>
       </div>,
@@ -45,7 +45,7 @@ const thirdSectionCards: InfoCardProps[] = [
         Onze trapverlichting combineert functionaliteit en stijl, waardoor uw trap niet alleen veiliger wordt, maar ook
         een echte blikvanger in uw woning. Wat kunt u van ons verwachten?{' '}
       </div>,
-      <ul key="3" className="flex flex-col py-3 list-disc gap-4 list-inside">
+      <ul key="3" className="flex flex-col gap-4 py-3 list-disc list-inside">
         <li>
           Perfect geplaatste verlichting: We bepalen nauwkeurig de beste locaties voor LED-verlichting om elke trede
           optimaal te verlichting. {' '}
@@ -57,7 +57,7 @@ const thirdSectionCards: InfoCardProps[] = [
         <li>Energiezuinig en duurzaam: LED-verlichting is milieuvriendelijk en gaat lang mee. </li>
       </ul>,
       <div key="5">
-        <BodyText className="text-secondaryDefault font-bold">
+        <BodyText className="font-bold text-secondaryDefault">
           Heeft u nog geen trapverlichting? Dan is het tijd om de sfeer en veiligheid te verbeteren met nieuwe
           verlichting!{' '}
         </BodyText>
@@ -72,7 +72,7 @@ const thirdSectionCards: InfoCardProps[] = [
         Onze houten look trapbekleding combineert de natuurlijke schoonheid van hout met het gemak van moderne
         materialen. Wat maakt deze optie uniek? {' '}
       </div>,
-      <ul key="3" className="flex flex-col py-3 list-disc gap-4 list-inside">
+      <ul key="3" className="flex flex-col gap-4 py-3 list-disc list-inside">
         <li>
           Tijdloze uitstraling: Creëer een trap die warmte en elegantie uitstraalt met realistische houtnerfstructuren. {' '}
         </li>
@@ -86,7 +86,7 @@ const thirdSectionCards: InfoCardProps[] = [
         <li>Professionele afwerking: Ons team zorgt voor een naadloze plaatsing en een hoogwaardige afwerking. </li>
       </ul>,
       <div key="5">
-        <BodyText className="text-secondaryDefault font-bold">
+        <BodyText className="font-bold text-secondaryDefault">
           Heeft u nog geen houten look voor uw trap? Dan is het tijd om de uitstraling en sfeer te verbeteren met een
           warme, natuurlijke houtafwerking!
         </BodyText>
@@ -101,7 +101,7 @@ const thirdSectionCards: InfoCardProps[] = [
         Breng de moderne charme van een industriële betonlook in uw woning met onze trapbekleding. Wat maakt deze optie
         uniek? {' '}
       </div>,
-      <ul key="3" className="flex flex-col py-3 list-disc gap-4 list-inside">
+      <ul key="3" className="flex flex-col gap-4 py-3 list-disc list-inside">
         <li>
           Ruwe elegantie: De betonlook creëert een industriële, eigentijdse sfeer die past bij moderne interieurs. {' '}
         </li>
@@ -113,7 +113,7 @@ const thirdSectionCards: InfoCardProps[] = [
         <li>Professioneel aangebracht: Ons team zorg voor een strakke, naadloze afwerking die indruk maakt. </li>
       </ul>,
       <div key="5">
-        <BodyText className="text-secondaryDefault font-bold">
+        <BodyText className="font-bold text-secondaryDefault">
           Heeft u nog geen betonlook voor uw trap? Dan is het tijd om een stoere, industriële uitstraling te creëren met
           een stijlvolle betonafwerking!
         </BodyText>
@@ -128,7 +128,7 @@ const thirdSectionCards: InfoCardProps[] = [
         Onze trapbekleding met marmer look combineert de luxe uitstraling van echt marmer met de praktische voordelen
         van moderne materialen. Waarom kiezen voor deze optie? {' '}
       </div>,
-      <ul key="3" className="flex flex-col py-3 list-disc gap-4 list-inside">
+      <ul key="3" className="flex flex-col gap-4 py-3 list-disc list-inside">
         <li>Luxe uitstraling: Realistische marmer afwerkingen die een vleugje luxe toevoegen aan uw interieur.  </li>
         <li>Veelzijdige ontwerpen: Kies uit een breed scala aan kleuren en patronen die passen bij uw stijl. </li>
         <li>
@@ -138,7 +138,7 @@ const thirdSectionCards: InfoCardProps[] = [
         <li>Professioneel afgewerkt: Ons team zorgt voor een naadloze installatie en strakke afwerking. </li>
       </ul>,
       <div key="5">
-        <BodyText className="text-secondaryDefault font-bold">
+        <BodyText className="font-bold text-secondaryDefault">
           Heeft u nog geen marmerlook voor uw trap? Dan is het tijd om een luxe en elegante uitstraling te geven met een
           verfijnde marmerafwerking!
         </BodyText>
@@ -198,7 +198,7 @@ const whatWaitingForConfig: InfoCardProps = {
 
 export default function TraprenovatieBekledenMetPVC() {
   return (
-    <div className="flex flex-col   relative z-0 items-center w-full">
+    <div className="relative z-0 flex flex-col items-center w-full">
       <Hero imgSrc="/traprenovatie/bekleden-pvc/hero.png" />
       <ListCard
         sectionName="Traprenovaties"
@@ -229,19 +229,19 @@ export default function TraprenovatieBekledenMetPVC() {
         description="Zoals al eerder vermeld hebben wij al 20 jaar aan ervaring en hebben wij parketteurs die super veel kennis en ervaring met zich meebrengen om zo uw trap weer de gewenste uitstraling te geven!"
         btnText="Bereken uw trap"
         btnLink="/offerte"
-        firstImg={'/traprenovatie/bekleden-pvc/bekleden-pvc-7.png'}
+        firstImg="/traprenovatie/bekleden-pvc/gallery/bekleden-pvc-7.jpg"
         firstImgTopText="PVC"
         firstImgBottomText="Lunterseweg, Ede"
-        secondImg="/traprenovatie/bekleden-pvc/bekleden-pvc-8.png"
+        secondImg="/traprenovatie/bekleden-pvc/gallery/bekleden-pvc-8.jpg"
         secondImgTopText="PVC"
         secondImgBottomText="Sloterbeekstraat,Venlo"
-        thirdImg="/traprenovatie/bekleden-pvc/bekleden-pvc-9.png"
+        thirdImg="/traprenovatie/bekleden-pvc/gallery/bekleden-pvc-9.jpg"
         thirdImgBottomText="Capucijnenstraat, Maastricht"
         thirdImgTopText="PVC"
-        fourthImg="/traprenovatie/bekleden-pvc/bekleden-pvc-10.png"
+        fourthImg="/traprenovatie/bekleden-pvc/gallery/bekleden-pvc-10.jpg"
         fourthImgTopText="PVC"
         fourthImgBottomText="Griftstraat, Apeldoorn"
-        fifthImg="/traprenovatie/bekleden-pvc/bekleden-pvc-11.png"
+        fifthImg="/traprenovatie/bekleden-pvc/gallery/bekleden-pvc-11.jpg"
         fifthImgTopText="PVC"
         fifthImgBottomText="Noordeinde, Leiden"
       />

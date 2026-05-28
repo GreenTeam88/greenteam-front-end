@@ -65,7 +65,7 @@ const ImagesGallery: React.FC<StoreImagesInfo> = ({
       </div>
       <div className="flex w-full lg:w-fit flex-col gap-[24px]  ">
         {/* first image  */}
-        <div className="relative w-full lg:w-fit h-fit">
+        <div className="relative w-full lg:w-full h-fit">
           <div className="storeImageShadow"></div>
           <img src={firstImg} className="w-full  rounded-[10px]    lg:min-h-[213px] lg:max-h-[213px]" />
           <p className=" text-center w-full font-bold leading-[20px] text-white absolute top-5 right-1/2 translate-x-1/2">
@@ -76,7 +76,7 @@ const ImagesGallery: React.FC<StoreImagesInfo> = ({
           </p>
         </div>
         {/* second image  */}
-        <div className="relative w-full lg:w-fit h-fit">
+        <div className="relative w-full lg:w-full h-fit">
           <div className="storeImageShadow"></div>
           <img src={secondImg} className="w-full  rounded-[10px]    lg:min-h-[326px] lg:max-h-[326px] " />
           <p className="  text-center w-full font-bold leading-[20px] text-white absolute top-5 right-1/2 translate-x-1/2">
@@ -102,7 +102,7 @@ const ImagesGallery: React.FC<StoreImagesInfo> = ({
       </div>
       <div className="flex gap-[24px] flex-col">
         {/* fourth image  */}
-        <div className="relative w-fit h-fit">
+        <div className="relative w-full h-fit">
           <div className="storeImageShadow"></div>
           <img src={fourthImg} className="w-full  rounded-[10px]  lg:h-[333px] " />
           <p className=" text-center w-full font-bold leading-[20px] text-white absolute top-5 right-1/2 translate-x-1/2">
@@ -114,7 +114,7 @@ const ImagesGallery: React.FC<StoreImagesInfo> = ({
         </div>
 
         {/* fourth image  */}
-        <div className="relative w-fit h-fit">
+        <div className="relative w-full h-fit">
           <div className="storeImageShadow"></div>
           <img src={fifthImg} className="w-full rounded-[10px]  lg:h-[208px]" />
           <p className=" text-center w-full font-bold leading-[20px] text-white absolute top-5 right-1/2 translate-x-1/2">
@@ -136,7 +136,7 @@ export const StoreSection: React.FC<StoreImagesInfo> = (imagesInfo) => {
   return (
     <div className="flex  py-20 items-center flex-col gap-[55px] max-w-[1440px]  w-full px-2 lg:px-[120px] lg:items-center relative">
       <div className="flex flex-col gap-[11px] items-center ">
-        <H2 className="text-primaryDefault text-center">{imagesInfo.title}</H2>
+        <H2 className="text-center text-primaryDefault">{imagesInfo.title}</H2>
         <BodyText className="max-w-[794px] text-center">{imagesInfo.description}</BodyText>
       </div>
       <ImagesGallery {...imagesInfo} />
@@ -149,7 +149,7 @@ export const MultiStoreSection: React.FC<MultiStoreImagesInfo> = ({ images, titl
   return (
     <div className="flex  py-20 items-center flex-col gap-[55px] max-w-[1440px]  w-full px-2 lg:px-[120px] lg:items-center relative">
       <div className="flex flex-col gap-[11px] items-center ">
-        <H2 className="text-primaryDefault text-center">{title}</H2>
+        <H2 className="text-center text-primaryDefault">{title}</H2>
         <BodyText className="max-w-[794px] text-center">{description}</BodyText>
       </div>
       <MultiImagesGallery images={images} />
@@ -187,7 +187,7 @@ export const MultiImagesGallery: React.FC<{ images: StoreImageInfo[] }> = ({ ima
   }, [index, images]);
   return (
     <div className="flex preventZoom w-[90vw] lg:w-fit items-center gap-[20px] flex-col relative lg:px-0 lg:flex-row">
-      <div className="hidden rotate-180 lg:block group cursor-pointer" onClick={prevImage}>
+      <div className="hidden rotate-180 cursor-pointer lg:block group" onClick={prevImage}>
         <CarouselIcon />
       </div>
 
@@ -198,7 +198,7 @@ export const MultiImagesGallery: React.FC<{ images: StoreImageInfo[] }> = ({ ima
           animate={{ opacity: 1, x: 0 }}
           exit={{ opacity: 0, x: -50 }}
           transition={{ duration: 0.5 }}
-          className="flex gap-4 flex-col lg:flex-row"
+          className="flex flex-col gap-4 lg:flex-row"
         >
           {/* First Image */}
           <div className="flex w-full lg:w-fit   flex-col gap-[24px]">
@@ -274,7 +274,7 @@ export const MultiImagesGallery: React.FC<{ images: StoreImageInfo[] }> = ({ ima
         </motion.div>
       </AnimatePresence>
 
-      <div className="hidden lg:block group cursor-pointer" onClick={nextImage}>
+      <div className="hidden cursor-pointer lg:block group" onClick={nextImage}>
         <CarouselIcon />
       </div>
     </div>
