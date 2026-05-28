@@ -7,7 +7,7 @@ import { PrimaryBtnLink, SecondaryOutlinedBtnLink } from '@/components/theme/but
 import { cn } from '@/lib/tailwind';
 import SolidOverlay from './ui/SolidOverlay';
 
-type HeroProps = {
+export type HeroProps = {
   imgSrc?: string;
   imgClassName?: string;
   // When provided, skips category selection and loads this calculator directly
@@ -18,7 +18,7 @@ type HeroProps = {
   overlayOpacity?: number;
 };
 
-const ParagraphSection = () => {
+export const ParagraphSection = () => {
   return (
     <div className="flex  relative items-start z-10 gap-[86px]">
       <div className="flex flex-col items-start gap-[44px] max-w-[627px] ">

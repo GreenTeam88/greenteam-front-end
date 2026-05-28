@@ -1,4 +1,4 @@
-import { Hero } from '@/components/hero';
+import CarouselHero from '@/components/CarouselHero';
 import { PhoneNumberSection } from '@/components/phoneNumberSection';
 import { RatingSection } from '@/components/ratingSection';
 // import { Hero } from '../(routes)/_components/hero';
@@ -12,7 +12,7 @@ import { WhyGreenTeam } from './_components/whyGreenTeam';
 export default function Home() {
   return (
     <div className="relative z-0 flex flex-col items-center w-full">
-      <Hero imgSrc="/home-page.webp" enableOverly />
+      <CarouselHero enableOverly />
       <WhyGreenTeam />
       <RatingSection />
       <ServicesSection />
