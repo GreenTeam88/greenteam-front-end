@@ -1,4 +1,3 @@
-/* eslint-disable @typescript-eslint/no-use-before-define */
 import * as React from 'react';
 
 const ANNOUNCEMENTS = [
@@ -25,27 +24,27 @@ const ANNOUNCEMENTS = [
  */
 export default function AnnouncementTicker() {
   return (
-    <div className="w-full py-6 overflow-hidden text-white pointer-events-none select-none bg-primaryDefault">
+    <div className="w-full overflow-hidden text-white select-none bg-primaryDefault">
       <div className="flex flex-nowrap">
         <TickerItem list={ANNOUNCEMENTS} />
 
         {/* we add a copy to make the loop illusion and hidding its area from screen readers */}
-        <TickerItem list={ANNOUNCEMENTS} ariaHidden={false} />
+        <TickerItem list={ANNOUNCEMENTS} ariaHidden={true} />
       </div>
     </div>
   );
 }
 
-function TickerItem({ list, ariaHidden = true }: { list: string[]; ariaHidden?: boolean }) {
+function TickerItem({ list, ariaHidden = false }: { list: string[]; ariaHidden?: boolean }) {
   return (
     <div
-      className="flex items-center justify-around gap-8 pr-8 w-max shrink-0 animate-marquee whitespace-nowrap"
+      className="flex items-center justify-around gap-16 pr-16 py-6 w-max shrink-0 animate-marquee hover:[animation-play-state:paused] focus-within:[animation-play-state:paused] whitespace-nowrap"
       aria-hidden={ariaHidden}
     >
       {list.map((message, index) => (
         <div
           key={`message-${index}`}
-          className="flex items-center gap-8 text-base leading-5 font-medium -tracking-[2%] shrink-0 md:text-base"
+          className="flex items-center gap-16 text-base leading-5 font-medium -tracking-[2%] shrink-0 md:text-base"
         >
           <span>{message}</span>
           <span className="w-2 h-2 bg-white rounded-full opacity-80" />

@@ -1,7 +1,7 @@
 'use client';
 
 import clsx from 'clsx';
-import { motion, useAnimation } from 'framer-motion';
+import { AnimatePresence, motion, useAnimation, useMotionValueEvent, useScroll } from 'framer-motion';
 import Image from 'next/image';
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
@@ -750,11 +750,30 @@ export const HeaderDropDowns = () => {
 };
 
 const DesktopHeader = () => {
+  const { scrollY } = useScroll();
+  const [isVisible, setIsVisible] = useState(true);
+
+  const SCROLL_THRESHOLD = 50;
+
+  useMotionValueEvent(scrollY, 'change', (latest: number) => {
+    setIsVisible(latest < SCROLL_THRESHOLD);
+  });
+
   return (
     <div className="fixed top-0 left-0 z-50 flex-col items-center hidden w-full lg:flex">
-      <div className="z-50 hidden w-full lg:block">
-        <AnnouncementTicker />
-      </div>
+      <AnimatePresence>
+        {isVisible && (
+          <motion.div
+            initial={{ height: 0, opacity: 0 }}
+            animate={{ height: 'auto', opacity: 1 }}
+            exit={{ height: 0, opacity: 0 }}
+            transition={{ duration: 0.3, ease: 'easeInOut' }}
+            className="z-50 hidden w-full overflow-hidden lg:block"
+          >
+            <AnnouncementTicker />
+          </motion.div>
+        )}
+      </AnimatePresence>
       <div className="hidden lg:flex  w-full  flex-col  z-50 gap-[39px]  py-6 items-center bg-white">
         {/* the top section that includes the logo and the social links */}
         <HeaderTopSection />
