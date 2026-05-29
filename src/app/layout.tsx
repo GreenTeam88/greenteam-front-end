@@ -12,6 +12,7 @@ import { GoogleTagManager } from '@next/third-parties/google';
 
 import { Footer } from '@/components/layout/footer/foooter';
 import DelayedRoomvoScriptLoader from '@/components/roomvoAssistantLoader';
+import { WhatsAppButton } from '@/components/ui/WhatsAppButton';
 import { AppProviders } from '@/providers';
 
 const inter = Inter({ subsets: ['latin'] });
@@ -49,6 +50,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         <AppProviders>
           {/* header is fixed so we need to have a padding top  */}
           {children}
+          <WhatsAppButton />
           <Footer />
         </AppProviders>
         {/* the script for roomvo */}
