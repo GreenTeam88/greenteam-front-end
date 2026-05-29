@@ -423,21 +423,15 @@ const HeaderColumns: React.FC<{ hoveredLink: string; setHoveredLink: Dispatch<Se
 // the top section of the header that includes logo and social links
 export const HeaderTopSection = () => {
   return (
-    <div className="flex w-[1201px] bg-white items-center justify-between ">
-      <Link href="/">
-        {' '}
-        <Image src={appConfig.logoSrcImg} alt="GreenTeam Logo" width={150} height={50} />
+    <div className="flex items-center justify-between w-full px-8 bg-white">
+      <Link href="/" className="shrink-0 w-[150px] h-[50px] relative">
+        <Image src={appConfig.logoSrcImg} alt="GreenTeam Logo" className="object-contain" fill />
       </Link>
-      <div className="flex items-center lg:min-w-[733px] p-[10px] justify-around">
-        <motion.div
-          className=" w-[15.32px] h-[16px] rounded-full"
-          initial={{ backgroundColor: '#fff' }}
-          animate={{
-            backgroundColor: ['#37CD76', '#fff', '#37CD76'],
-            transition: { duration: 2, ease: 'easeIn', repeat: Infinity },
-          }}
-        ></motion.div>
-        <TitleCarousel />
+      <div className="flex items-center justify-center shrink-0">
+        {/* the section that includes the bold links */}
+        <HeaderLinksSection />
+      </div>
+      <div className="flex items-center gap-8">
         <div className="flex gap-[22px] items-center ">
           <div className="cursor-pointer " onClick={() => window.open(appConfig.instagramAccount, '_blank')}>
             <InstagramLogo />
@@ -446,9 +440,9 @@ export const HeaderTopSection = () => {
             <TikTokIcon />
           </div>
         </div>
+        {/* removing secondary button default hovering */}
+        <SecondaryBtnLink href="/offerte">Offerte aanvragen</SecondaryBtnLink>
       </div>
-      {/* removing secondary button default hovering */}
-      <SecondaryBtnLink href="/offerte">Offerte aanvragen</SecondaryBtnLink>
     </div>
   );
 };
@@ -469,7 +463,7 @@ export const HeaderBoldLink: React.FC<{
           <Link
             onMouseOver={() => setHoveredLink(route.name)}
             href={route.path as string}
-            className={cn('font-bold flex w-fit group items-center text-[16px] ', {
+            className={cn('font-bold flex w-fit group items-center text-[16px]', {
               'text-secondaryDefault ': hoveredLink === route.name,
             })}
           >
@@ -774,11 +768,9 @@ const DesktopHeader = () => {
           </motion.div>
         )}
       </AnimatePresence>
-      <div className="hidden lg:flex  w-full  flex-col  z-50 gap-[39px]  py-6 items-center bg-white">
+      <div className="z-50 items-center hidden w-full py-6 bg-white lg:flex">
         {/* the top section that includes the logo and the social links */}
         <HeaderTopSection />
-        {/* the section that includes the bold links */}
-        <HeaderLinksSection />
       </div>
       {/* a section for the dropdowns (last row) */}
       <HeaderDropDowns />
