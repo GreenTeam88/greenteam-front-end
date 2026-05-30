@@ -23,9 +23,9 @@ export const PrimaryBtn: React.FC<ButtonHTMLAttributes<HTMLButtonElement> & { is
       {...props}
     >
       {isLoading ? (
-        <span className="flex w-full justify-center text-white group  hover:text-black items-center">
+        <span className="flex items-center justify-center w-full text-white group hover:text-black">
           <svg
-            className="animate-spin h-5 w-5 mr-3 text-white group-hover:text-black" // Loading spinner
+            className="w-5 h-5 mr-3 text-white animate-spin group-hover:text-black" // Loading spinner
             xmlns="http://www.w3.org/2000/svg"
             fill="none"
             viewBox="0 0 24 24"
@@ -104,7 +104,7 @@ export const PrimaryBtnLink: React.FC<{ className?: string; href: string; childr
     <Link
       href={href}
       className={cn(
-        ' bg-primaryDefault text-center  hover:bg-transparent hover:text-primaryDefault border hover:border-primaryDefault rounded-sm text-[#fff] font-bold  py-[10.69px] px-[17.81px] text-[13px] w-fit h-fit',
+        'bg-primaryDefault text-center hover:bg-primaryDefault/90 rounded-lg text-[#fff] font-medium py-[10.69px] px-[16px] text-[13px] w-fit h-fit transition-colors duration-300',
         className
       )}
     >
@@ -119,7 +119,13 @@ export const SecondaryBtnLink: React.FC<{ className?: string; href: string; chil
   className,
 }) => {
   return (
-    <Link href={href} className={cn('secondaryBtn  w-fit h-fit', className)}>
+    <Link
+      href={href}
+      className={cn(
+        'bg-secondaryDefault text-white hover:bg-secondaryDefault/90 transition-colors duration-300 rounded-lg text-center py-[10.69px] px-[16px] text-[13px] font-medium w-fit h-fit',
+        className
+      )}
+    >
       {children}{' '}
     </Link>
   );

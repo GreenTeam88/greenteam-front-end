@@ -3,7 +3,7 @@
 import React from 'react';
 
 import { DynamicMultiStepForm } from '@/components/calculators/dynamic';
-import { PrimaryBtnLink, SecondaryOutlinedBtnLink } from '@/components/theme/buttons';
+import { PrimaryBtnLink, SecondaryBtnLink, SecondaryOutlinedBtnLink } from '@/components/theme/buttons';
 import { cn } from '@/lib/tailwind';
 import SolidOverlay from './ui/SolidOverlay';
 
@@ -31,9 +31,10 @@ export const ParagraphSection = () => {
             Gedreven door vakmanschap gaan we samen op zoek naar een passende en duurzame oplossing voor uw project.{' '}
           </p>
         </div>
-        <div className="flex gap-[22px]    items-center">
-          <PrimaryBtnLink href="/offerte">Offerte aanvragen</PrimaryBtnLink>
-          <SecondaryOutlinedBtnLink href="tel:+085 401 93 45">Direct bellen</SecondaryOutlinedBtnLink>
+        <div className="flex gap-[22px] items-center flex-col lg:flex-row lg:flex-wrap w-full lg:w-fit *:w-full lg:*:w-fit">
+          <SecondaryBtnLink href="/offerte">Offerte aanvragen</SecondaryBtnLink>
+          <PrimaryBtnLink href="tel:+085 401 93 45">Bel 085 401 93 45</PrimaryBtnLink>
+          <PrimaryBtnLink href="/contact">Gratis thuisadvies</PrimaryBtnLink>
         </div>
       </div>
     </div>
