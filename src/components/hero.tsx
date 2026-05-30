@@ -28,14 +28,14 @@ export const ParagraphSection = () => {
             </span>
           </h5>
           <p className="max-w-[590px] break-words">
-            <span className="px-4 py-2 text-[#0B0B0B] bg-[#F3F7F5] rounded-lg box-decoration-clone">
+            <span className="px-4 py-1 lg:py-2 text-[#0B0B0B] bg-[#F3F7F5] rounded-lg box-decoration-clone">
               Gedreven door vakmanschap gaan we samen op zoek naar een passende en duurzame oplossing voor uw project.
             </span>
           </p>
         </div>
         <div className="flex gap-[22px] items-center flex-col lg:flex-row lg:flex-wrap w-full lg:w-fit *:w-full lg:*:w-fit">
           <SecondaryBtnLink href="/offerte">Offerte aanvragen</SecondaryBtnLink>
-          <PrimaryBtnLink href="tel:+085 401 93 45">Bel 085 401 93 45</PrimaryBtnLink>
+          <PrimaryBtnLink href="tel:085 401 93 45">Bel 085 401 93 45</PrimaryBtnLink>
           <PrimaryBtnLink href="/contact">Gratis thuisadvies</PrimaryBtnLink>
         </div>
       </div>
