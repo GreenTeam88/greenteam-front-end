@@ -29,7 +29,7 @@ export const ParagraphSection = () => {
           </h5>
           <p className="max-w-[590px] break-words">
             <span className="px-4 py-2 text-[#0B0B0B] bg-[#F3F7F5] rounded-lg box-decoration-clone">
-              Gedreven door vakmanschap gaan we samen op zoek naar een passendeen duurzame oplossing voor uw project.
+              Gedreven door vakmanschap gaan we samen op zoek naar een passende en duurzame oplossing voor uw project.
             </span>
           </p>
         </div>
