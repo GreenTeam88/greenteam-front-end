@@ -12,7 +12,7 @@ import { WhyGreenTeam } from './_components/whyGreenTeam';
 export default function Home() {
   return (
     <div className="relative z-0 flex flex-col items-center w-full">
-      <CarouselHero enableOverly />
+      <CarouselHero />
       <WhyGreenTeam />
       <RatingSection />
       <ServicesSection />
