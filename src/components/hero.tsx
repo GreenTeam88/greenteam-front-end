@@ -3,9 +3,9 @@
 import React from 'react';
 
 import { DynamicMultiStepForm } from '@/components/calculators/dynamic';
-import { PrimaryBtnLink, SecondaryBtnLink, SecondaryOutlinedBtnLink } from '@/components/theme/buttons';
+import { PrimaryBtnLink, SecondaryBtnLink } from '@/components/theme/buttons';
 import { cn } from '@/lib/tailwind';
-import SolidOverlay from './ui/SolidOverlay';
+import { PenUnderline } from './ui/PenUnderline';
 
 export type HeroProps = {
   imgSrc?: string;
@@ -14,21 +14,23 @@ export type HeroProps = {
   calculatorSlug?: string;
   /** @deprecated Use calculatorSlug instead */
   category?: string;
-  enableOverly?: boolean;
-  overlayOpacity?: number;
 };
 
 export const ParagraphSection = () => {
   return (
     <div className="flex  relative items-start z-10 gap-[86px]">
-      <div className="flex flex-col items-start gap-[44px] max-w-[627px] ">
-        <div className="flex flex-col w-full gap-[22px] ">
-          <h5 className="font-bold text-primaryDefault text-[32px] lg:text-[40px]">
-            <span className="underline"> Zorgeloos </span> een klus uitbesteden tegen een{' '}
-            <span className="underline"> scherpe prijs</span>
+      <div className="flex flex-col items-start gap-[44px] max-w-[627px]">
+        <div className="flex flex-col w-full gap-[22px]">
+          <h5 className="font-bold text-[32px] lg:text-[40px] mb-4">
+            <span className="px-4 py-3 pb-4 bg-primaryDefault text-[#F3F7F5] rounded-lg box-decoration-clone">
+              <PenUnderline>Zorgeloos</PenUnderline> een klus uitbesteden tegen{' '}
+              <PenUnderline underlineClassName="-bottom-0">een scherpe</PenUnderline> prijs.
+            </span>
           </h5>
-          <p className="max-w-[590px]">
-            Gedreven door vakmanschap gaan we samen op zoek naar een passende en duurzame oplossing voor uw project.{' '}
+          <p className="max-w-[590px] break-words">
+            <span className="px-4 py-2 text-[#0B0B0B] bg-[#F3F7F5] rounded-lg box-decoration-clone">
+              Gedreven door vakmanschap gaan we samen op zoek naar een passendeen duurzame oplossing voor uw project.
+            </span>
           </p>
         </div>
         <div className="flex gap-[22px] items-center flex-col lg:flex-row lg:flex-wrap w-full lg:w-fit *:w-full lg:*:w-fit">
@@ -41,21 +43,13 @@ export const ParagraphSection = () => {
   );
 };
 
-export const Hero: React.FC<HeroProps> = ({
-  imgSrc,
-  imgClassName,
-  calculatorSlug,
-  enableOverly = false,
-  overlayOpacity = 50,
-}) => {
+export const Hero: React.FC<HeroProps> = ({ imgSrc, imgClassName, calculatorSlug }) => {
   return (
     <div className="relative flex items-center justify-center w-full px-2 py-6 h-fit ">
       <img
         src={imgSrc || '/hero.webp'}
         className={cn('absolute  hidden lg:block w-full h-full object-cover top-0 left-0 z-0', imgClassName)}
       />
-
-      <SolidOverlay show={enableOverly} opacity={overlayOpacity} />
 
       <div className=" relative flex-col lg:flex-row z-2 max-w-full lg:min-h-[470px] py-16 lg:py-0 gap-[86px] px-2 lg:px-[120px] w-[1440px] flex items-center ">
         <ParagraphSection />
