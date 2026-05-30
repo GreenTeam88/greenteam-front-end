@@ -25,7 +25,7 @@ const ANNOUNCEMENTS = [
 export default function AnnouncementTicker() {
   return (
     <div className="w-full overflow-hidden text-white select-none bg-primaryDefault">
-      <div className="flex flex-nowrap">
+      <div className="flex flex-nowrap group">
         <TickerItem list={ANNOUNCEMENTS} />
 
         {/* we add a copy to make the loop illusion and hidding its area from screen readers */}
@@ -38,7 +38,7 @@ export default function AnnouncementTicker() {
 function TickerItem({ list, ariaHidden = false }: { list: string[]; ariaHidden?: boolean }) {
   return (
     <div
-      className="flex items-center justify-around gap-16 pr-16 py-6 w-max shrink-0 animate-marquee hover:[animation-play-state:paused] focus-within:[animation-play-state:paused] whitespace-nowrap"
+      className="flex items-center justify-around gap-16 pr-16 py-3 w-max shrink-0 animate-marquee group-hover:[animation-play-state:paused] focus-within:[animation-play-state:paused] whitespace-nowrap"
       aria-hidden={ariaHidden}
     >
       {list.map((message, index) => (
