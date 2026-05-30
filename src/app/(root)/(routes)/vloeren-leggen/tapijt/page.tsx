@@ -90,7 +90,7 @@ const whatWaitingForConfig: InfoCardProps = {
 export default function VloerenLeggenTapijtPage() {
   return (
     <div className="flex flex-col   relative z-0 items-center w-full">
-      <Hero imgSrc="/vloeren-leggen/hero.webp" enableOverly overlayOpacity={15} />
+      <Hero imgSrc="/vloeren-leggen/hero.webp" />
       <ListCard
         sectionName="Vloeren leggen"
         pageName="Tapijt"

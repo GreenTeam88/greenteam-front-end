@@ -12,28 +12,33 @@ import { InfoCardProps } from '../../diensten/_components/cards';
 
 const thirdSectionCards: InfoCardProps[] = [
   {
-    title: 'Laminaat leggen',
-    imgSrc: '/vloeren-leggen/laminaat-leggen/laminaat-leggen-2.png',
+    title: 'Linoleum - duurzaam, hygiënisch en stijlvol',
+    imgSrc: '/vloeren-leggen/linoleum-leggen/linoleum-leggen-2.png',
     paragraphs: [
       <div key="1">
-         Laminaat is dé ideale keuze voor wie een stijlvolle vloer wil zonder in te leveren op gebruiksgemak. Het
-        combineert een natuurlijke houtlook met een scherpe prijs en minimaal onderhoud.{' '}
+        Linoleum is veel meer dan alleen een voer; het is een slimme investering in duurzaamheid, comfort en gezondheid.
+        Dit natuurproduct bestaat voor 97% uit natuurlijke grondstoffen zoals kalksteen, lijnzaadolie, hars en jute,
+        waarvan maar liefst 72% recyclebaar is.{' '}
       </div>,
-      <div key="2">Waarom laminaat de juiste keuze is:</div>,
-      <ul key="3" className="flex flex-col py-3 list-disc gap-4 list-inside">
-        <li>Betaalbaar en stijlvol: Laminaat biedt de luxe uitstraling van hout, zonder het hoge prijskaartje.  </li>
-        <li>Veelzijdigheid: Geschikt voor rechte planken, visgraat- of tegelpatronen, afgestemd op uw smaak. </li>
-        <li>Onderhoudsvriendelijk: Weinig tijd kwijt aan schoonmaken, maar altijd een stralend resultaat.  </li>
+      <div key="2">Wat linoleum zo bijzonder maakt: </div>,
+      <ul key="3" className="flex flex-col gap-4 py-3 list-disc list-inside">
         <li>
-          Professioneel gelegd: Onze ervaren parketteurs zorgen voor een perfecte afwerking, zodat uw vloer en altijd
-          strak uitziet.
+          Duurzaam en milieuvriendelijk: Een groen alternatief dat lang meegaat en de impact op het milieu vermindert. 
+        </li>
+        <li>
+          Hygiënisch en allergievriendelijk: Perfect voor mensen met allergieën of ademhalingsproblemen, dankzij het
+          stofafstotende en gemakkelijk schoon te maken oppervlak.  
+        </li>
+        <li>Comfortabel: Zacht veerkrachtig en prettig om op te lopen, terwijl het toch slijtvast is.  </li>
+        <li>
+          Esthetisch veelzijdig: Beschikbaar in verschillende kleuren en designs om perefect in uw interieur te passen. {' '}
         </li>
       </ul>,
       <p key="4" className="mb-9">
-        Met laminaat haalt u een vloer in huis die functioneel én prachtig is - ideaal voor elk type interieur. {' '}
+        Met linoleum haalt u een vloer in huis die praktisch, stijlvol en toekomstbestendig is.
       </p>,
       <div key="5">
-        <BodyText className="text-secondaryDefault font-bold">
+        <BodyText className="font-bold text-secondaryDefault">
           Ligt uw vloer er al 10 tot 20 jaar dan is het de hoogste tijd om daar wat aan te doen!{' '}
         </BodyText>
       </div>,
@@ -44,16 +49,18 @@ const thirdSectionCards: InfoCardProps[] = [
 const FAQs: FAQType[] = [
   {
     answer:
-      'De tijd hangt af van de grootte van de ruimte, maar een gemiddelde kamer kan in 1 tot 2 dagen worden gelegd.',
-    question: 'Hoelang duurt het om laminaat te leggen?',
+      'Ja, de ondervloer moet vlak, schoon en droog zijn om een goede hechting en een strak resultaat te garanderen. We raden aan om de ondervloer te laten egaliseren voor het beste resultaat.',
+    question: 'Is de ondervloer belangrijk bij het leggen van linoleum?',
   },
   {
-    question: 'Is ondervloer nodig bij het leggen van laminaat?',
-    answer: 'Ja, een ondervloer is meestal vereist voor geluidsdemping, isolatie en bescherming tegen vocht.',
+    question: 'Hoe onderhoudsvriendelijk is linoleum?',
+    answer:
+      'Linoleum is duurzaam en eenvoudig te onderhouden, het kan regelmatig worden schoongemaakt met een vochtige dweil.',
   },
   {
-    question: 'Kan laminaat over de bestaande vloer worden gelegd?é',
-    answer: 'Laminaat kan vaak over bestaande vloeren worden gelegd, behalve op tapijt.',
+    question: 'Kan linoleum op vloerverwarming gelegd worden?',
+    answer:
+      'Ja, linoleum is geschikt voor gebruik met vloerverwarming, mits deze gelijkmatig verdeeld wordt en niet te warm wordt.',
   },
   {
     question: 'Kunnen jullie eerst langskomen?',
@@ -68,7 +75,7 @@ const FAQs: FAQType[] = [
   {
     question: 'Welke voorbereidingen moet ik treffen?',
     answer:
-      'Voor aanvang van de werkzaamheden vragen wij u altijd de te behandelen oppervlakken leeg en schoon te maken, zodat onze specialisten direct aan de slag kunnen. Bij een parketrenovatie betekent dit dat de gehele vloer vrij moet zijn. Het is ook belangrijk dat de ruimte goed toegankelijk is, omdat we vaak werken met zware professionele machines die naar de werkplek gebracht moeten worden. ',
+      'Voor aanvang van de werkzaamheden vragen wij u altijd de te behandelen oppervlakken leeg en schoon te maken, zodat onze specialisten direct aan de slag kunnen. Bij een parketrenovatie betekent dit dat de gehele vloer vrij moet zijn. Het is ook belangrijk dat de ruimte goed toegankelijk is, omdat we vaak werken met zware professionele machines die naar de werkplek gebracht moeten worden.',
   },
 ];
 
@@ -85,28 +92,28 @@ const whatWaitingForConfig: InfoCardProps = {
       heel veel gevallen is deze afspraak niet nodig, en is advies via mailcontact met foto’s voldoende.{' '}
     </BodyText>,
   ],
-  imgSrc: '/vloeren-leggen/laminaat-leggen/laminaat-leggen-8.png',
+  imgSrc: '/vloeren-leggen/linoleum-leggen/linoleum-leggen-8.png',
   buttonText: 'Offerte aanvragen',
   buttonLink: '/offerte',
 };
 
-export default function VloerenLeggenLaminaatPage() {
+export default function VloerenLeggenVinylPage() {
   return (
-    <div className="flex flex-col   relative z-0 items-center w-full">
-      <Hero imgSrc="/vloeren-leggen/hero.webp" />
+    <div className="relative z-0 flex flex-col items-center w-full">
+      <Hero imgSrc="/vloeren-leggen/vinyl/vinyl-hero.webp" />
       <ListCard
         sectionName="Vloeren leggen"
-        pageName="Laminaat"
-        listTitle="Bent u op zoek naar…"
+        pageName="Vinyl"
+        listTitle="Herkenbaar?"
         listItems={[
-          'Een vloer met weinig onderhoud?',
-          'Een vloer die betaalbaar én stijlvol is?',
-          'Een vloer die strak en professioneel gelegd wordt?',
-          'Een vloer met de warme uitstraling van hout?',
+          'Uw vinylvloer slijt snel of raakt snel beschadigd',
+          'U zoekt een sterke en onderhoudsvriendelijke vloer',
+          'Uw vinylvloer voelt niet meer fris of hygiënisch',
+          'Uw vloer is lastig schoon te houden',
         ]}
         btnLink="/offerte"
-        btnText="Offerte berekenen"
-        imgSrc="/vloeren-leggen/laminaat-leggen/laminaat-leggen-1.png"
+        btnText="Offerte aanvragen"
+        imgSrc="/vloeren-leggen/vinyl/vinyl.webp"
         orangeText="Herkenbaar? Geen zorgen, wij lossen het op!"
       />
       <CardsSection
@@ -123,24 +130,24 @@ export default function VloerenLeggenLaminaatPage() {
         description="Bekijk de resultaten van onze vloerenlegservice en ontdek hoe we verouderde of beschadigde vloeren omtoveren tot prachtige, moderne ruimtes. Vele tevreden klanten gingen u voor, dus uw vloer kan de volgende zijn!"
         btnText="Bereken uw vloer"
         btnLink="/offerte"
-        firstImg={'/vloeren-leggen/laminaat-leggen/laminaat-leggen-3.png'}
-        secondImg="/vloeren-leggen/laminaat-leggen/laminaat-leggen-4.png"
-        thirdImg="/vloeren-leggen/laminaat-leggen/laminaat-leggen-5.png"
-        fourthImg="/vloeren-leggen/laminaat-leggen/laminaat-leggen-6.png"
-        fifthImg="/vloeren-leggen/laminaat-leggen/laminaat-leggen-7.png"
-        firstImgTopText="Laminaat"
-        firstImgBottomText="Sluisweg, Deventer"
-        secondImgTopText="Laminaat"
-        secondImgBottomText="Van Oldenbarneveltstraat, Rotterdam"
-        thirdImgTopText="Laminaat"
-        thirdImgBottomText="Kilweg, Barendrecht"
-        fourthImgTopText="Laminaat"
-        fourthImgBottomText="Koestraat, Middelburg"
-        fifthImgTopText="Laminaat"
-        fifthImgBottomText="‘t Loo, Hilversum"
+        firstImg={'/vloeren-leggen/linoleum-leggen/linoleum-leggen-3.png'}
+        secondImg="/vloeren-leggen/linoleum-leggen/linoleum-leggen-4.png"
+        thirdImg="/vloeren-leggen/linoleum-leggen/linoleum-leggen-5.png"
+        fourthImg="/vloeren-leggen/linoleum-leggen/linoleum-leggen-6.png"
+        fifthImg="/vloeren-leggen/linoleum-leggen/linoleum-leggen-7.png"
+        firstImgTopText="Linoleum"
+        firstImgBottomText="Afrikaweg, Zoetermeer"
+        secondImgTopText="Linoleum"
+        secondImgBottomText="Zoeterwoudsesingel, Leiden"
+        thirdImgTopText="Linoleum"
+        thirdImgBottomText="Schenkelweg, Spijkenisse"
+        fourthImgTopText="Linoleum"
+        fourthImgBottomText="Lindenlaan, Zeist"
+        fifthImgTopText="Linoleum"
+        fifthImgBottomText="Driehuizerkerkweg, Velsen"
       />
       <WhatWaitingForCard
-        orangeText="Ik wil dat de parketteur langskomt!"
+        orangeText=" Ik wil dat de parketteur langskomt!"
         {...whatWaitingForConfig}
         className="lg:py-28"
       />

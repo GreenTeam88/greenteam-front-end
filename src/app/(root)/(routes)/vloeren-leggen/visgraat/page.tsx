@@ -20,7 +20,7 @@ const thirdSectionCards: InfoCardProps[] = [
         houten, laminaat- of PVC-planken in een schuin patroon te leggen, waardoor ze lijken op de graten van een vis.{' '}
       </div>,
       <div key="2">Wat maakt dit patroon zo speciaal? </div>,
-      <ul key="3" className="flex flex-col py-3 list-disc gap-4 list-inside">
+      <ul key="3" className="flex flex-col gap-4 py-3 list-disc list-inside">
         <li>Tijdloze uitstraling: Een visgraatvloer past zowel in moderne als klassieke interieurs. </li>
         <li>Unieke variaties: Kies voor kleine of grote graten om het patroon aan te passen aan uw ruimte. </li>
         <li>Karakteristiek design: Het opvallende patroon geeft uw vloer direct meer persoonlijkheid.  </li>
@@ -30,7 +30,7 @@ const thirdSectionCards: InfoCardProps[] = [
         interieur naar een hoger niveau. 
       </p>,
       <div key="5">
-        <BodyText className="text-secondaryDefault font-bold">
+        <BodyText className="font-bold text-secondaryDefault">
           Ligt uw vloer er al 10 tot 20 jaar dan is het de hoogste tijd om daar wat aan te doen!{' '}
         </BodyText>
       </div>,
@@ -91,8 +91,8 @@ const whatWaitingForConfig: InfoCardProps = {
 
 export default function VloerenLeggenVisgraatPage() {
   return (
-    <div className="flex flex-col   relative z-0 items-center w-full">
-      <Hero imgSrc="/vloeren-leggen/hero.webp" enableOverly overlayOpacity={15} />
+    <div className="relative z-0 flex flex-col items-center w-full">
+      <Hero imgSrc="/vloeren-leggen/hero.webp" />
       <ListCard
         sectionName="Vloeren leggen"
         pageName="Visgraat"

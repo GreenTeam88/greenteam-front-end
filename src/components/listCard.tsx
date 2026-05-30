@@ -28,10 +28,10 @@ export const ListCard: React.FC<ListCardProps> = ({
 }) => {
   return (
     <div className="flex pb-10 px-3 flex-col w-full   lg:items-center py-1 lg:py-6 lg:pb-[100px] gap-[30px] lg:gap-[100px] ">
-      <p className="text-primaryDefault font-normal ">
+      <p className="font-normal text-primaryDefault ">
         {sectionName + '  '} <span className="font-bold">- {pageName}</span>{' '}
       </p>
-      <div className="flex flex-col lg:flex-row  max-w-[1100px] gap-6  justify-between  w-full lg:items-center">
+      <div className="flex flex-col lg:flex-row lg:items-stretch max-w-[1100px] gap-6  justify-between  w-full lg:items-center">
         <div className="flex flex-col gap-[33px] ">
           <div className="flex flex-col gap-[15px] lg:gap-[33px]">
             <H2 className="text-primaryDefault">{listTitle}</H2>
@@ -44,11 +44,11 @@ export const ListCard: React.FC<ListCardProps> = ({
             </div>
           </div>
           <div className="flex flex-col gap-[11px]">
-            <BodyText className="text-secondaryDefault font-bold">{orangeText}</BodyText>
+            <BodyText className="font-bold text-secondaryDefault">{orangeText}</BodyText>
             <PrimaryBtnLink href={btnLink}>{btnText}</PrimaryBtnLink>
           </div>
         </div>
-        <img src={imgSrc} className={cn('rounded-lg', imgClassName)} />
+        <img src={imgSrc} className={cn('rounded-lg h-auto lg:w-2/5 w-full', imgClassName)} />
       </div>
     </div>
   );
