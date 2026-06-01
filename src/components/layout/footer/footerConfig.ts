@@ -158,19 +158,19 @@ export const footerColumnsInfo: FooterColumnInfo[] = [
       { name: 'Tapijt verwijderen', path: '/stofferen/tapijt-verwijderen' },
     ],
   },
-  // {
-  //   title: 'Overig',
-  //   path: '/overig',
-  //   links: [
-  //     { name: 'Vloerverwarming', path: '/overig/vloerverwarming' },
-  //     { name: 'Egaliseren', path: '/overig/egaliseren' },
-  //     { name: 'Gietvloeren', path: '/overig/gietvloeren' },
-  //     { name: 'Tegelen', path: '/overig/tegelen' },
-  //     { name: 'Vloer verwijderen', path: '/overig/vloer-verwijderen' },
-  //     { name: 'Natuursteen behandelen', path: '/overig/natuursteen-behandelen' },
-  //     { name: 'Opslag', path: '/overig/opslag' },
-  //   ],
-  // },
+  {
+    title: 'Overig',
+    path: '/overig',
+    links: [
+      { name: 'Vloerverwarming', path: '/overig/vloerverwarming' },
+      { name: 'Egaliseren', path: '/overig/egaliseren' },
+      { name: 'Gietvloeren', path: '/overig/gietvloeren' },
+      { name: 'Tegelen', path: '/overig/tegelen' },
+      { name: 'Vloer verwijderen', path: '/overig/vloer-verwijderen' },
+      { name: 'Natuursteen behandelen', path: '/overig/natuursteen-behandelen' },
+      { name: 'Opslag', path: '/overig/opslag' },
+    ],
+  },
   {
     title: 'Mogelijke locaties',
     links: [

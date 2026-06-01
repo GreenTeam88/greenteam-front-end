@@ -39,7 +39,7 @@ type HeaderRoute = {
 };
 // all the routes for the header with all the menu and columns info
 const headerRoutes: HeaderRoute[] = [
-  ...basicRoutes,
+  ...(basicRoutes as HeaderRoute[]),
   {
     name: 'Tapijt',
     path: '/tapijt',

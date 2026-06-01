@@ -107,10 +107,10 @@ export const basicRoutes: HeaderRoute[] = [
             { name: 'Sisal & bouclé', path: '/traprenovatie/sisal-&-boucle' },
             { name: 'Tapijt met patroon', path: '/traprenovatie/tapijt-met-patroon' },
             { name: 'Visgraat tapijt', path: '/traprenovatie/visgraat-tapijt' },
-          ],
-        },
-        {
-          subPages: [
+
+            // section separator
+            { name: '', path: '' },
+
             { name: 'PVC', path: '/traprenovatie/pvc' },
             { name: 'Laminaat', path: '/traprenovatie/laminaat' },
             { name: 'Hout', path: '/traprenovatie/hout' },
@@ -119,6 +119,7 @@ export const basicRoutes: HeaderRoute[] = [
             { name: 'Schuren en schilderen', path: '/traprenovatie/schuren-en-schilderen' },
           ],
         },
+
         {
           link: '/type-trappen',
           title: 'Type trappen',
@@ -148,22 +149,6 @@ export const basicRoutes: HeaderRoute[] = [
           ],
         },
       ],
-      //TODO uncomment this if you want your links back
-      // {
-      //   link: '/stofferen',
-      //   title: 'Stofferen',
-      //   subPages: [
-      //     { name: 'Trap', path: '/stofferen/trap' },
-      //     { name: 'Vloer', path: '/stofferen/vloer' },
-      //     { name: 'Tapijttegels', path: '/stofferen/tapijttegels' },
-      //     { name: 'Meubels', path: '/stofferen/meubels' },
-      //     { name: 'Deurmat', path: '/stofferen/deurmat' },
-      //     { name: 'Droogloopmat', path: '/stofferen/droogloopmat' },
-      //     { name: 'Rode loper', path: '/stofferen/rode-loper' },
-      //     { name: 'Reinigingsservice', path: '/stofferen/reinigingsservice' },
-      //     { name: 'Tapijt verwijderen', path: '/stofferen/tapijt-verwijderen' },
-      //   ],
-      // },
       [
         {
           link: '/tegelen',
@@ -179,20 +164,6 @@ export const basicRoutes: HeaderRoute[] = [
           ],
         },
       ],
-      //TODO uncomment this if you want your links back
-      // {
-      //   link: '/overig',
-      //   title: 'Overig',
-      //   subPages: [
-      //     { name: 'Vloerverwarming', path: '/overig/vloerverwarming' },
-      //     { name: 'Egaliseren', path: '/overig/egaliseren' },
-      //     { name: 'Gietvloeren', path: '/overig/gietvloeren' },
-      //     { name: 'Tegelen', path: '/overig/tegelen' },
-      //     { name: 'Vloer verwijderen', path: '/overig/vloer-verwijderen' },
-      //     { name: 'Natuursteen behandelen', path: '/overig/natuursteen-behandelen' },
-      //     { name: 'Opslag', path: '/overig/opslag' },
-      //   ],
-      // },
     ],
   },
   {
@@ -298,28 +269,6 @@ const headerRoutes: HeaderRoute[] = [
       ],
     ],
   },
-  //TODO uncomment this if you want your links back
-  // {
-  //   name: 'Stofferen',
-  //   path: '/stofferen',
-  //   columns: [
-  //     {
-  //       link: '',
-  //       title: '',
-  //       subPages: [
-  //         { name: 'Trap', path: '/stofferen/trap' },
-  //         { name: 'Vloer', path: '/stofferen/vloer' },
-  //         { name: 'Tapijttegels', path: '/stofferen/tapijttegels' },
-  //         { name: 'Meubels', path: '/stofferen/meubels' },
-  //         { name: 'Deurmat', path: '/stofferen/deurmat' },
-  //         { name: 'Droogloopmat', path: '/stofferen/droogloopmat' },
-  //         { name: 'Rode loper', path: '/stofferen/rode-loper' },
-  //         { name: 'Reinigingsservice', path: '/stofferen/reinigingsservice' },
-  //         { name: 'Tapijt verwijderen', path: '/stofferen/tapijt-verwijderen' },
-  //       ],
-  //     },
-  //   ],
-  // },
   {
     name: 'Tegelen',
     path: '/tegelen',
@@ -341,26 +290,6 @@ const headerRoutes: HeaderRoute[] = [
       ],
     ],
   },
-  //TODO uncomment this if you want your links back
-  // {
-  //   path: '/overig',
-  //   name: 'Overig',
-  //   columns: [
-  //     {
-  //       link: '',
-  //       title: '',
-  //       subPages: [
-  //         { name: 'Vloerverwarming', path: '/overig/vloerverwarming' },
-  //         { name: 'Egaliseren', path: '/overig/egaliseren' },
-  //         { name: 'Gietvloeren', path: '/overig/gietvloeren' },
-  //         { name: 'Tegelen', path: '/overig/tegelen' },
-  //         { name: 'Vloer verwijderen', path: '/overig/vloer-verwijderen' },
-  //         { name: 'Natuursteen behandelen', path: '/overig/natuursteen-behandelen' },
-  //         { name: 'Opslag', path: '/overig/opslag' },
-  //       ],
-  //     },
-  //   ],
-  // },
 ];
 
 // a single item in a colmun in the menu (the menu that apears when we hover over a certain link)
@@ -382,6 +311,9 @@ const HeaderColumnItem: React.FC<
   }, [pathname]);
 
   const hasSubPages = 'subPages' in routeInfo && routeInfo.subPages.length;
+
+  if (routeInfo.name === '') return <div className="mb-3" />;
+
   return (
     <div className="flex flex-col">
       {hasSubPages ? (
@@ -424,7 +356,7 @@ const HeaderColumnItem: React.FC<
             routeInfo.subPages.map((item) => (
               <Link
                 href={item.path}
-                key={routeInfo.name}
+                key={`${routeInfo.name}-${item.name}`}
                 onClick={() => setHoveredLink('')}
                 className="w-full text-sm cursor-pointer hover:text-primaryDefault"
               >
@@ -872,8 +804,11 @@ const MobileBoldLinkColumnSubpage: React.FC<
 > = (subPage) => {
   const [isSubpagesOpened, setIsSubpagesOpened] = useState(false);
   const subPages = 'subPages' in subPage && subPage.subPages;
+
+  if (subPage.name === '') return <div className="mb-3" />;
+
   return (
-    <div className="flex flex-col ">
+    <div className="flex flex-col py-2 pl-6 border-l border-primaryDefault first:mt-2 last:mb-2">
       {'path' in subPage && !subPages ? (
         <Link
           href={subPage.path}
@@ -923,7 +858,7 @@ const MobileBoldLinkColumnSubpage: React.FC<
 const MobileBoldLinkColumn: React.FC<HeaderColumnInfo> = ({ subPages, title }) => {
   const [isSubpagesOpened, setIsSubpagesOpened] = useState(false);
   return (
-    <div className="flex flex-col gap-1">
+    <div className="flex flex-col gap-1 py-2 pl-6 border-l border-primaryDefault first:mt-2 last:mb-2">
       <h4
         onClick={() => setIsSubpagesOpened((val) => !val)}
         className="text-[19px]  cursor-pointer  flex items-center "
@@ -937,10 +872,10 @@ const MobileBoldLinkColumn: React.FC<HeaderColumnInfo> = ({ subPages, title }) =
             height={20}
             className={cn('mx-4', { 'rotate-180': isSubpagesOpened })}
           />
-        )}{' '}
+        )}
       </h4>
       {subPages && isSubpagesOpened && (
-        <div className="flex flex-col gap-1 px-2">
+        <div className="flex flex-col">
           {subPages.map((subPage) => (
             <MobileBoldLinkColumnSubpage key={subPage.name} {...subPage} />
           ))}
@@ -954,7 +889,7 @@ export const MobileMenuBoldLink: React.FC<HeaderRoute> = (headerRoute) => {
   const columns = 'columns' in headerRoute && headerRoute.columns;
   const path = 'path' in headerRoute && headerRoute.path;
   return (
-    <div className="flex flex-col">
+    <div className="flex flex-col py-4">
       {columns && (
         <h4
           onClick={() => setIsColumnsOpened((val) => !val)}
@@ -982,10 +917,12 @@ export const MobileMenuBoldLink: React.FC<HeaderRoute> = (headerRoute) => {
         </Link>
       )}
       {columns && isColumnsOpened && (
-        <div className="flex flex-col px-2">
-          {columns.map(([column]) => (
-            <MobileBoldLinkColumn key={column.title} {...column} />
-          ))}
+        <div className="flex flex-col">
+          {columns.map((columnArray, colIndex) =>
+            columnArray.map((column, itemIndex) => (
+              <MobileBoldLinkColumn key={`${colIndex}-${itemIndex}-${column.title || 'no-title'}`} {...column} />
+            ))
+          )}
         </div>
       )}
     </div>
@@ -994,7 +931,7 @@ export const MobileMenuBoldLink: React.FC<HeaderRoute> = (headerRoute) => {
 
 const MobileMenuBoldLinks = () => {
   return (
-    <div className="flex flex-col min-w-[300px] w-fit  pl-4 gap-2">
+    <div className="flex flex-col min-w-[300px] w-fit pl-5 gap-2 py-4">
       {headerRoutes.slice(0, 6).map((header) => (
         <MobileMenuBoldLink key={header.name} {...header} />
       ))}
