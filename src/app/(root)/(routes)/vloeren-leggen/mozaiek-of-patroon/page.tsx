@@ -20,7 +20,7 @@ const thirdSectionCards: InfoCardProps[] = [
         stukjes vormen ze unieke, artistieke patronen die elke ruimte verrijken.{' '}
       </div>,
       <div key="2">Denk aan:</div>,
-      <ul key="3" className="flex flex-col py-3 list-disc gap-4 list-inside">
+      <ul key="3" className="flex flex-col gap-4 py-3 list-disc list-inside">
         <li>Elegantie en karakter: Voeg een verfijnde uitstraling toe aan uw keuken, badkamer of entree.  </li>
         <li>Praktisch en duurzaam: Mozaïek is stevig en bestand tegen dagelijks gebruik.  </li>
         <li>Veelzijdige toepassing: Geschikt voor muren én vloeren, voor een complete look. </li>
@@ -29,7 +29,7 @@ const thirdSectionCards: InfoCardProps[] = [
         Met mozaïektegels straalt uw interieur stijl en exclusiviteit uit!{' '}
       </p>,
       <div key="5">
-        <BodyText className="text-secondaryDefault font-bold">
+        <BodyText className="font-bold text-secondaryDefault">
           Ligt uw vloer er al 10 tot 20 jaar dan is het de hoogste tijd om daar wat aan te doen!{' '}
         </BodyText>
       </div>,
@@ -44,7 +44,7 @@ const thirdSectionCards: InfoCardProps[] = [
         hexagonaal, die uw vloer diepte en persoonlijkheid geven.{' '}
       </div>,
       <div key="2">Kies patronen voor: </div>,
-      <ul key="3" className="flex flex-col py-3 list-disc gap-4 list-inside">
+      <ul key="3" className="flex flex-col gap-4 py-3 list-disc list-inside">
         <li>Unieke uitstraling: Een vloer die uw ruimte echt laat opvallen. </li>
         <li>Veelzijdigheid: Passend bij moderne én klassieke interieurs. </li>
         <li>Diepte en karakter: Voeg warmte en structuur toe aan uw vloer. </li>
@@ -53,7 +53,7 @@ const thirdSectionCards: InfoCardProps[] = [
         Met een patroonvloer creëert u een sfeervolle en unieke woonomgeving. {' '}
       </p>,
       <div key="5">
-        <BodyText className="text-secondaryDefault font-bold">
+        <BodyText className="font-bold text-secondaryDefault">
           Ligt uw vloer er al 10 tot 20 jaar dan is het de hoogste tijd om daar wat aan te doen!
         </BodyText>
       </div>,
@@ -114,7 +114,7 @@ const whatWaitingForConfig: InfoCardProps = {
 
 export default function VloerenLeggenMozaiekEnPatroonPage() {
   return (
-    <div className="flex flex-col   relative z-0 items-center w-full">
+    <div className="relative z-0 flex flex-col items-center w-full">
       <Hero imgSrc="/vloeren-leggen/hero.webp" />
       <ListCard
         sectionName="Vloeren leggen"
