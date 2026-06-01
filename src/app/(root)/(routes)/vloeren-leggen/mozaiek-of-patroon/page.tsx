@@ -112,7 +112,7 @@ const whatWaitingForConfig: InfoCardProps = {
   buttonLink: '/offerte',
 };
 
-export default function VloerenLeggenMozaiekEnPatroonPage() {
+export default function VloerenLeggenMozaiekOfPatroonPage() {
   return (
     <div className="relative z-0 flex flex-col items-center w-full">
       <Hero imgSrc="/vloeren-leggen/hero.webp" />
