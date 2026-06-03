@@ -220,6 +220,20 @@ const headerRoutes: HeaderRoute[] = [
             { name: 'Tapijt', path: '/vloeren-leggen/tapijt' },
             { name: 'Linoleum', path: '/vloeren-leggen/linoleum' },
             { name: 'Vinyl', path: '/vloeren-leggen/vinyl' },
+
+            // section separator
+            { name: '', path: '' },
+
+            // Type vloeren section
+            { name: 'Visgraat', path: '/vloeren-leggen/visgraat' },
+            { name: 'Walvisgraat', path: '/vloeren-leggen/walvisgraat' },
+            { name: 'Hongaarse punt', path: '/vloeren-leggen/hongaarse-punt' },
+            { name: 'Weense punt', path: '/vloeren-leggen/weense-punt' },
+            { name: 'PVC Tegels', path: '/vloeren-leggen/pvc-tegels' },
+            { name: 'Mozaïek of patroon', path: '/vloeren-leggen/mozaiek-of-patroon' },
+            { name: 'Hexagon & 3D', path: '/vloeren-leggen/hexagon-&-3d' },
+            { name: 'Tapis', path: '/vloeren-leggen/tapis' },
+            { name: 'Bourgogne', path: '/vloeren-leggen/bourgogne' },
           ],
         },
       ],
@@ -239,6 +253,24 @@ const headerRoutes: HeaderRoute[] = [
             { name: 'Sisal & bouclé', path: '/traprenovatie/sisal-&-boucle' },
             { name: 'Tapijt met patroon', path: '/traprenovatie/tapijt-met-patroon' },
             { name: 'Visgraat tapijt', path: '/traprenovatie/visgraat-tapijt' },
+
+            // section separator
+            { name: '', path: '' },
+
+            { name: 'PVC', path: '/traprenovatie/pvc' },
+            { name: 'Laminaat', path: '/traprenovatie/laminaat' },
+            { name: 'Hout', path: '/traprenovatie/hout' },
+            { name: 'Linoleum', path: '/traprenovatie/linoleum' },
+            { name: 'Schuren en behandelen', path: '/traprenovatie/schuren-en-behandelen' },
+            { name: 'Schuren en schilderen', path: '/traprenovatie/schuren-en-schilderen' },
+
+            // section separator
+            { name: '', path: '' },
+
+            // Type trappen
+            { name: 'Open trap', path: '/traprenovatie/open-trap' },
+            { name: 'Dichte trap', path: '/traprenovatie/dichte-trap' },
+            { name: 'Verlichting', path: '/traprenovatie/verlichting' },
           ],
         },
       ],
@@ -509,6 +541,8 @@ const DropDownColumnLink: React.FC<
   }, [pathname]);
 
   const pageSubpages = 'subPages' in page && page.subPages;
+
+  if (page.name === '') return <div className="mb-2" />;
 
   return (
     <div className="relative flex flex-col gap-1">
