@@ -6,6 +6,7 @@ import { useEffect, useState } from 'react';
 import { PrimaryBtnLink } from '@/components/theme/buttons';
 import { BodyText, H2 } from '@/components/theme/typography';
 import { cn } from '@/lib/tailwind';
+import CTAButtons from './CTAButtons';
 import { CarouselIcon } from './icons/arrows';
 
 export type StoreImageInfo = {
@@ -29,8 +30,9 @@ export type StoreImageInfo = {
 export type StoreImagesInfo = {
   title: string;
   description: string;
-  btnText: string;
+  btnText?: string;
   btnLink?: string;
+  className?: string;
 } & StoreImageInfo;
 
 export type MultiStoreImagesInfo = {
@@ -60,29 +62,26 @@ const ImagesGallery: React.FC<StoreImagesInfo> = ({
 }) => {
   return (
     <div className="flex preventZoom w-[90vw] lg:w-fit items-center gap-[20px] flex-col relative  lg:px-0 lg:flex-row ">
-      <div className={cn('hidden rotate-180 lg:block group cursor-pointer')}>
-        <CarouselIcon />
-      </div>
       <div className="flex w-full lg:w-fit flex-col gap-[24px]  ">
         {/* first image  */}
         <div className="relative w-full lg:w-full h-fit">
           <div className="storeImageShadow"></div>
-          <img src={firstImg} className="w-full  rounded-[10px]    lg:min-h-[213px] lg:max-h-[213px]" />
-          <p className=" text-center w-full font-bold leading-[20px] text-white absolute top-5 right-1/2 translate-x-1/2">
+          <img src={firstImg} className="w-full rounded-[10px] object-cover lg:min-h-[213px] lg:max-h-[213px]" />
+          <p className=" text-center w-full font-medium leading-[20px] text-white absolute top-5 right-1/2 translate-x-1/2">
             {firstImgTopText}
           </p>
-          <p className=" text-center w-full font-bold leading-[20px] text-white absolute bottom-5 right-1/2 translate-x-1/2">
+          <p className=" text-center w-full font-medium leading-[20px] text-white absolute bottom-5 right-1/2 translate-x-1/2">
             {firstImgBottomText}
           </p>
         </div>
         {/* second image  */}
         <div className="relative w-full lg:w-full h-fit">
           <div className="storeImageShadow"></div>
-          <img src={secondImg} className="w-full  rounded-[10px]    lg:min-h-[326px] lg:max-h-[326px] " />
-          <p className="  text-center w-full font-bold leading-[20px] text-white absolute top-5 right-1/2 translate-x-1/2">
+          <img src={secondImg} className="w-full rounded-[10px] object-cover lg:min-h-[326px] lg:max-h-[326px]" />
+          <p className="  text-center w-full font-medium leading-[20px] text-white absolute top-5 right-1/2 translate-x-1/2">
             {secondImgTopText}
           </p>
-          <p className=" text-center w-full font-bold leading-[20px] text-white absolute bottom-5 right-1/2 translate-x-1/2">
+          <p className=" text-center w-full font-medium leading-[20px] text-white absolute bottom-5 right-1/2 translate-x-1/2">
             {secondImgBottomText}
           </p>
         </div>
@@ -90,13 +89,13 @@ const ImagesGallery: React.FC<StoreImagesInfo> = ({
       {/* third image  */}
       <div className="relative w-fit h-fit">
         <div className="storeImageShadow"></div>
-        <img src={thirdImg} className=" rounded-[10px]  lg:min-h-[564px] lg:max-h-[564px]" />
+        <img src={thirdImg} className="rounded-[10px] object-cover lg:min-h-[564px] lg:max-h-[564px]" />
         {thirdImgTopText && (
-          <p className=" text-center w-full font-bold leading-[20px] text-white absolute top-5 right-1/2 translate-x-1/2">
+          <p className=" text-center w-full font-medium leading-[20px] text-white absolute top-5 right-1/2 translate-x-1/2">
             {thirdImgTopText}
           </p>
         )}
-        <p className=" text-center w-full font-bold leading-[20px] text-white absolute bottom-5 right-1/2 translate-x-1/2">
+        <p className=" text-center w-full font-medium leading-[20px] text-white absolute bottom-5 right-1/2 translate-x-1/2">
           {thirdImgBottomText}
         </p>
       </div>
@@ -104,43 +103,67 @@ const ImagesGallery: React.FC<StoreImagesInfo> = ({
         {/* fourth image  */}
         <div className="relative w-full h-fit">
           <div className="storeImageShadow"></div>
-          <img src={fourthImg} className="w-full  rounded-[10px]  lg:h-[333px] " />
-          <p className=" text-center w-full font-bold leading-[20px] text-white absolute top-5 right-1/2 translate-x-1/2">
+          <img src={fourthImg} className="w-full object-cover rounded-[10px] lg:h-[333px] " />
+          <p className=" text-center w-full font-medium leading-[20px] text-white absolute top-5 right-1/2 translate-x-1/2">
             {fourthImgTopText}
           </p>
-          <p className=" text-center w-full font-bold leading-[20px] text-white absolute bottom-5 right-1/2 translate-x-1/2">
+          <p className=" text-center w-full font-medium leading-[20px] text-white absolute bottom-5 right-1/2 translate-x-1/2">
             {fourthImgBottomText}
           </p>
         </div>
 
-        {/* fourth image  */}
+        {/* fifth image  */}
         <div className="relative w-full h-fit">
           <div className="storeImageShadow"></div>
-          <img src={fifthImg} className="w-full rounded-[10px]  lg:h-[208px]" />
-          <p className=" text-center w-full font-bold leading-[20px] text-white absolute top-5 right-1/2 translate-x-1/2">
+          <img src={fifthImg} className="w-full rounded-[10px] object-cover lg:h-[208px]" />
+          <p className=" text-center w-full font-medium leading-[20px] text-white absolute top-5 right-1/2 translate-x-1/2">
             {fifthImgTopText}
           </p>
-          <p className=" text-center w-full font-bold leading-[20px] text-white absolute bottom-5 right-1/2 translate-x-1/2">
+          <p className=" text-center w-full font-medium leading-[20px] text-white absolute bottom-5 right-1/2 translate-x-1/2">
             {fifthImgBottomText}
           </p>
         </div>
-      </div>
-      <div className={cn('hidden lg:block group cursor-pointer')}>
-        <CarouselIcon />
       </div>
     </div>
   );
 };
 
 export const StoreSection: React.FC<StoreImagesInfo> = (imagesInfo) => {
+  const className = imagesInfo?.className ?? '';
+
   return (
-    <div className="flex  py-20 items-center flex-col gap-[55px] max-w-[1440px]  w-full px-2 lg:px-[120px] lg:items-center relative">
-      <div className="flex flex-col gap-[11px] items-center ">
+    <div
+      className={cn(
+        'flex py-20 items-center flex-col gap-[55px] max-w-[1440px] w-full px-2 lg:px-[120px] lg:items-center relative',
+        className
+      )}
+    >
+      <div className="flex flex-col gap-[11px] items-center">
         <H2 className="text-center text-primaryDefault">{imagesInfo.title}</H2>
         <BodyText className="max-w-[794px] text-center">{imagesInfo.description}</BodyText>
       </div>
       <ImagesGallery {...imagesInfo} />
       <PrimaryBtnLink href={imagesInfo.btnLink || '/'}>{imagesInfo.btnText}</PrimaryBtnLink>
+    </div>
+  );
+};
+
+type StoreShowcaseProps = Omit<StoreImagesInfo, 'btnText' | 'btnLink'>;
+
+export const StoreShowcase: React.FC<StoreShowcaseProps> = (imagesInfo) => {
+  return (
+    <div
+      className={cn(
+        'flex  py-20 items-center flex-col gap-[55px] max-w-[1440px]  w-full px-2 lg:px-[120px] lg:items-center relative',
+        imagesInfo?.className
+      )}
+    >
+      <div className="flex flex-col gap-[11px] items-center ">
+        <H2 className="text-center text-primaryDefault">{imagesInfo.title}</H2>
+        <BodyText className="max-w-[794px] text-center">{imagesInfo.description}</BodyText>
+      </div>
+      <ImagesGallery {...imagesInfo} />
+      <CTAButtons />
     </div>
   );
 };

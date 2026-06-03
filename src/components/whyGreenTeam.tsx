@@ -27,9 +27,9 @@ export const WhyGreenTeam: React.FC<WhyGreenTeamSectionProps> = ({
   title,
 }) => {
   return (
-    <div className="flex px-2 flex-col py-12 lg:py-14 gap-4 items-center">
+    <div className="flex flex-col items-center gap-4 px-2 py-12 lg:py-14">
       <H2 className="text-primaryDefault">{title}</H2>
-      <div className="flex relative flex-col lg:flex-row items-center lg:items-start gap-[21px]">
+      <div className="flex relative flex-col lg:flex-row items-center lg:items-stretch gap-[21px]">
         {cards.map((cardInfo) => (
           <WhyGreenTeamCard key={cardInfo.title} {...cardInfo} />
         ))}

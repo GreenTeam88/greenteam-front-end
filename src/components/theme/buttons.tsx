@@ -86,7 +86,7 @@ export const SecondaryOutlinedBtnLink: React.FC<{ className?: string; href: stri
     <Link
       href={href}
       className={cn(
-        'text-secondaryDefault text-center  border hover:bg-secondaryDefault hover:text-white border-secondaryDefault rounded-sm font-bold text-[13px] px-[17.81px] py-[10.69px]',
+        'text-secondaryDefault text-center border-2 hover:bg-secondaryDefault hover:text-white border-secondaryDefault rounded-lg font-bold transition-colors duration-300 text-[13px] px-[17.81px] py-[10.69px]',
         className
       )}
     >

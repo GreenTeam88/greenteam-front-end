@@ -14,14 +14,15 @@ const whyGreenTeamCardsInfo: WhyGreenTeamCardProps[] = [
     title: 'Specialisten',
     icon: <StarIcon />,
     paragraphs: [
-      'Een houten vloer laten schuren is een specialistische klus. GreenTeam is al ruim 20 jaar specialist in parketrenovatie. Onze parketteurs hebben alle kennis en ervaring van verschillende houtsoorten.   ',
-      'Wij schuren de houten vloer volledig egaal met hoogwaardige en professionele machines en zorgen ervoor dat er geen rand of hoek wordt overgeslagen. Zo bent u verzekerd van het beste eindresultaat. ',
+      'Een trap of vloer laten renoveren is een specialistische klus. GreenTeam is al ruim 20 jaar specialist in trap en vloerrenovatie. Onze vakmensen beschikken over de juiste kennis en ervaring voor verschillende soorten trappen en vloeren.',
+      'Wij renoveren iedere trap en vloer nauwkeurig met hoogwaardige materialen en professionele technieken, waarbij geen detail wordt overgeslagen. Zo ben je verzekerd van een strak, duurzaam en hoogwaardig eindresultaat.',
     ],
   },
   {
     title: 'Persoonlijk advies op maat',
     paragraphs: [
-      'We begrijpen dat het een grote ingreep is en samen willen we naar het gewenste eindresultaat, wat u met trots laat zien wanneer er bekende over de vloer komen. Daarom komen wij graag langs met kleurstalen om u een accuraat beeld te geven over het eindresultaat. ',
+      'We begrijpen dat een trap of vloerrenovatie een grote verandering is in uw woning. Samen werken we toe naar een eindresultaat waar u iedere dag van geniet en met trots laat zien aan familie, vrienden en bekenden.',
+      'Daarom komen wij gratis bij u langs met kleurstalen, materiaalvoorbeelden en persoonlijk advies. Zo kunt u in uw eigen woning precies zien hoe de trap of vloer er in werkelijkheid uit komt te zien en met vertrouwen de juiste keuze maken.',
     ],
     icon: <GameIcon />,
   },
@@ -29,7 +30,8 @@ const whyGreenTeamCardsInfo: WhyGreenTeamCardProps[] = [
     title: 'Duurzaamheid',
     icon: <HeartIcon />,
     paragraphs: [
-      'GreenTeam staat voor duurzaam en groen. Het is daarom ook een passie van ons om een houten vloer een tweede leven te kunnen geven. Dat draagt niet alleen bij aan een beter leefklimaat, maar is ook nog eens een stuk goedkoper dan de aanschaf van een volledig nieuwe vloer. ',
+      'GreenTeam staat voor duurzaam en groen. Daarom is het voor ons een passie om zowel houten vloeren als trappen een tweede leven te geven. Dat draagt niet alleen bij aan een beter leefklimaat, maar is vaak ook een stuk voordeliger dan het volledig vervangen van een vloer of trap.',
+      'Met een professionele renovatie zorgen wij ervoor dat uw trap of vloer er weer als nieuw uitziet, zonder onnodig sloopwerk of hoge vervangingskosten.',
     ],
   },
 ];

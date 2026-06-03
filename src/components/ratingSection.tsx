@@ -7,6 +7,7 @@ import { CarouselIcon } from '@/components/icons/arrows';
 import { H2 } from '@/components/theme/typography';
 import { plusJakartaSansFond } from '@/fonts';
 import { cn } from '@/lib/tailwind';
+import CTAButtons from './CTAButtons';
 
 interface RatingInfo {
   stars: number;
@@ -162,8 +163,8 @@ const ratings: RatingInfo[] = [
 
 const RatingCard: React.FC<RatingInfo> = ({ stars, date: birthDate, description, images, name }) => {
   return (
-    <div className="flex z-40 flex-col gap-[22px] bg-white p-4 lg:p-[22px] w-full ">
-      <div className="flex w-full  justify-between">
+    <div className="flex z-40 flex-col gap-[22px] bg-white p-4 lg:p-[22px] w-full h-full">
+      <div className="flex justify-between w-full">
         <div className="flex ">
           {Array.from({ length: stars }).map((item, index) => (
             <img src="/icons/star.svg" key={index} />
@@ -171,10 +172,14 @@ const RatingCard: React.FC<RatingInfo> = ({ stars, date: birthDate, description,
         </div>
         <img src="/icons/google.svg" />
       </div>
-      {React.isValidElement(description) ? description : <p>{description}</p>}
+      <div className="mb-auto">{React.isValidElement(description) ? description : <p>{description}</p>}</div>
       <div className="flex gap-[11px]">
         {images.map((imgSrc) => (
-          <img src={imgSrc} key={imgSrc} className="w-[43px] hover:scale-[4] h-[43px] rounded-[4px]" />
+          <img
+            src={imgSrc}
+            key={imgSrc}
+            className="w-[43px] hover:scale-[4] transition-transform duration-300 origin-left h-[43px] rounded-[4px] ease-in-out"
+          />
         ))}
       </div>
       <div className="flex flex-col">
@@ -188,8 +193,8 @@ const RatingCard: React.FC<RatingInfo> = ({ stars, date: birthDate, description,
 const RatingTopSection = () => {
   return (
     <div className="flex flex-col gap-7 items-center relative justify-center  w-[90%] ">
-      <H2 className="text-primaryDefault text-center lg:text-start">1.000+ mensen gingen u voor!</H2>
-      <img src="/home/googleRating.png" className="lg:absolute  lg:top-1/2 lg:-translate-y-1/2 lg:right-0" />
+      <H2 className="text-center text-primaryDefault lg:text-start">1.000+ mensen gingen u voor!</H2>
+      <img src="/home/googleRating.png" className="lg:absolute lg:top-1/2 lg:-translate-y-1/2 lg:right-0" />
     </div>
   );
 };
@@ -243,7 +248,7 @@ const DesktopRating: React.FC = () => {
   }, [direction, currentIndex]);
 
   return (
-    <div className=" gap-3 hidden lg:flex items-center">
+    <div className="items-center hidden gap-3 lg:flex">
       {/* left arrow  */}
       <div
         onClick={() => {
@@ -257,9 +262,9 @@ const DesktopRating: React.FC = () => {
         <CarouselIcon />
       </div>
       <div className="relative w-full laptop:mr-[41px]  max-w-[1220px] mx-auto">
-        <div className="relative z-10  overflow-hidden">
+        <div className="relative z-10 overflow-hidden">
           <motion.div
-            className="flex z-40 overflow-visible   relative"
+            className="relative z-40 flex items-stretch overflow-visible"
             animate={{
               x: `-${currentIndex * (100 / 3)}%`,
             }}
@@ -274,7 +279,7 @@ const DesktopRating: React.FC = () => {
             {ratings.map((item, index) => (
               <div
                 key={index}
-                className={cn('min-w-[33.333%]  p-2', {
+                className={cn('min-w-[33.333%] h-auto p-2', {
                   '': currentIndex === index,
                 })}
               >
@@ -318,6 +323,26 @@ export const RatingSection = () => {
         {/* ratings section includes the cards and the arrows for mobile */}
 
         <MobileRating />
+      </div>
+    </div>
+  );
+};
+
+export const TestimonialCarousel = () => {
+  return (
+    <div className="w-full relative px-3 lg:px-0 bg-lightOrange gap-[60px] max-w-full flex items-center py-[60px] lg:py-[122px] justify-center">
+      <div className="flex flex-col z-10 relative max-w-[1440px] gap-[44px] items-center justify-center">
+        {/* top section includes title and ratings on google */}
+        <RatingTopSection />
+        {/* ratings section includes the cards and the arrows for desktop */}
+        <DesktopRating />
+        {/* ratings section includes the cards and the arrows for mobile */}
+
+        <MobileRating />
+
+        <div className="flex justify-center w-full pt-8">
+          <CTAButtons />
+        </div>
       </div>
     </div>
   );

@@ -1,9 +1,9 @@
-import { CardsSection } from '@/components/cardsSection';
 import { FAQSection, FAQType } from '@/components/FAQSection';
+import { FeatureListSection } from '@/components/FeatureListSection';
 import { Hero } from '@/components/hero';
-import { ListCard } from '@/components/listCard';
-import { RatingSection } from '@/components/ratingSection';
-import { StoreSection } from '@/components/storeSection';
+import { InfoHighlightSection } from '@/components/InfoHighlightSection';
+import { TestimonialCarousel } from '@/components/ratingSection';
+import { StoreShowcase } from '@/components/storeSection';
 import { BodyText } from '@/components/theme/typography';
 import { WhatWaitingForCard } from '@/components/whatWaitingForCard';
 import { VloerenleggenWhyGreenTeam } from '../_components/whyGreenTeam';
@@ -12,34 +12,29 @@ import { InfoCardProps } from '../../diensten/_components/cards';
 
 const thirdSectionCards: InfoCardProps[] = [
   {
-    title: 'Linoleum - duurzaam, hygiënisch en stijlvol',
-    imgSrc: '/vloeren-leggen/linoleum-leggen/linoleum-leggen-2.png',
+    title: 'Vinyl vloer - sterk, stijlvol en onderhoudsvriendelijk',
+    imgSrc: '/vloeren-leggen/vinyl/vinyl-info.webp',
     paragraphs: [
       <div key="1">
-        Linoleum is veel meer dan alleen een voer; het is een slimme investering in duurzaamheid, comfort en gezondheid.
-        Dit natuurproduct bestaat voor 97% uit natuurlijke grondstoffen zoals kalksteen, lijnzaadolie, hars en jute,
-        waarvan maar liefst 72% recyclebaar is.{' '}
+        Vinyl is veel meer dan alleen een vloer; het is een praktische en stijlvolle oplossing voor iedere ruimte in
+        huis. Dankzij de sterke toplaag is vinyl bestand tegen intensief dagelijks gebruik en blijft uw vloer of trap
+        jarenlang mooi. Bovendien is vinyl comfortabel, geluiddempend en eenvoudig te onderhouden.
       </div>,
-      <div key="2">Wat linoleum zo bijzonder maakt: </div>,
+      <div key="2">Wat vinyl zo populair maakt :</div>,
       <ul key="3" className="flex flex-col gap-4 py-3 list-disc list-inside">
+        <li>Sterk en slijtvast: Ideaal voor drukke huishoudens en ruimtes die intensief gebruikt worden.</li>
+        <li>Onderhoudsvriendelijk: Vinyl is eenvoudig schoon te maken en goed bestand tegen vocht en vuil.</li>
+        <li>Comfortabel en stil: Voelt prettig aan onder de voeten en werkt geluiddempend in huis.</li>
         <li>
-          Duurzaam en milieuvriendelijk: Een groen alternatief dat lang meegaat en de impact op het milieu vermindert. 
-        </li>
-        <li>
-          Hygiënisch en allergievriendelijk: Perfect voor mensen met allergieën of ademhalingsproblemen, dankzij het
-          stofafstotende en gemakkelijk schoon te maken oppervlak.  
-        </li>
-        <li>Comfortabel: Zacht veerkrachtig en prettig om op te lopen, terwijl het toch slijtvast is.  </li>
-        <li>
-          Esthetisch veelzijdig: Beschikbaar in verschillende kleuren en designs om perefect in uw interieur te passen. {' '}
+          Verkrijgbaar in vele stijlen: Van houtlook tot moderne designs, vinyl past perfect bij iedere woonstijl.
         </li>
       </ul>,
       <p key="4" className="mb-9">
-        Met linoleum haalt u een vloer in huis die praktisch, stijlvol en toekomstbestendig is.
+        Met vinyl kiest u voor een vloer die praktisch, duurzaam en stijlvol is.
       </p>,
       <div key="5">
         <BodyText className="font-bold text-secondaryDefault">
-          Ligt uw vloer er al 10 tot 20 jaar dan is het de hoogste tijd om daar wat aan te doen!{' '}
+          Ligt uw vloer er al 10 tot 20 jaar dan is het de hoogste tijd om daar wat aan te doen!
         </BodyText>
       </div>,
     ],
@@ -49,33 +44,33 @@ const thirdSectionCards: InfoCardProps[] = [
 const FAQs: FAQType[] = [
   {
     answer:
-      'Ja, de ondervloer moet vlak, schoon en droog zijn om een goede hechting en een strak resultaat te garanderen. We raden aan om de ondervloer te laten egaliseren voor het beste resultaat.',
-    question: 'Is de ondervloer belangrijk bij het leggen van linoleum?',
+      'Ja, vinyl is een sterke en slijtvaste vloer die perfect geschikt is voor drukke huishoudens, kinderen en huisdieren.',
+    question: 'Is vinyl geschikt voor intensief gebruik?',
   },
   {
-    question: 'Hoe onderhoudsvriendelijk is linoleum?',
+    question: 'Kan vinyl op vloerverwarming gelegd worden?',
     answer:
-      'Linoleum is duurzaam en eenvoudig te onderhouden, het kan regelmatig worden schoongemaakt met een vochtige dweil.',
+      'Ja, vinyl is uitstekend te combineren met vloerverwarming. Het materiaal geleidt warmte goed en voelt comfortabel aan.',
   },
   {
-    question: 'Kan linoleum op vloerverwarming gelegd worden?',
+    question: 'Hoe onderhoudsvriendelijk is vinyl?',
     answer:
-      'Ja, linoleum is geschikt voor gebruik met vloerverwarming, mits deze gelijkmatig verdeeld wordt en niet te warm wordt.',
+      'Vinyl is eenvoudig schoon te houden met een stofzuiger of licht vochtige dweil. Hardnekkig onderhoud is meestal niet nodig.',
   },
   {
-    question: 'Kunnen jullie eerst langskomen?',
+    question: 'Is vinyl waterbestendig?',
     answer:
-      'In bepaalde gevallen komen we graag eerst bij u langs. Bijvoorbeeld wanneer u een tapijt voor uw trap wilt uitkiezen, of wanneer we stalen moeten laten zien en de ruimte moeten opmeten, is een bezoek ter plaatse noodzakelijk.',
+      'Ja, vinyl is goed bestand tegen vocht en daardoor geschikt voor ruimtes zoals de keuken, hal of bijkeuken.',
   },
   {
-    question: 'Hoe kan ik bij jullie betalen?',
+    question: 'Moet de ondervloer geëgaliseerd worden voor vinyl?',
     answer:
-      'Er zijn verschillende betaalmogelijkheden beschikbaar. Na afronding van de werkzaamheden ontvangt u altijd een factuur met de gebruikelijke online betaalopties. Daarnaast kunt u ook eenvoudig een bankoverschrijving doen of, indien gewenst, contant betalen. Op dit moment is het helaas nog niet mogelijk om op locatie te pinnen, maar we streven ernaar dit in de nabije toekomst aan te bieden.',
+      'Voor het mooiste en strakste resultaat adviseren wij meestal een egale en vlakke ondervloer voordat het vinyl gelegd wordt.',
   },
   {
-    question: 'Welke voorbereidingen moet ik treffen?',
+    question: 'Kunnen jullie eerst langskomen voor advies?',
     answer:
-      'Voor aanvang van de werkzaamheden vragen wij u altijd de te behandelen oppervlakken leeg en schoon te maken, zodat onze specialisten direct aan de slag kunnen. Bij een parketrenovatie betekent dit dat de gehele vloer vrij moet zijn. Het is ook belangrijk dat de ruimte goed toegankelijk is, omdat we vaak werken met zware professionele machines die naar de werkplek gebracht moeten worden.',
+      'Ja, in sommige gevallen komen wij eerst langs om de ruimte op te meten, de situatie te bekijken en passend advies te geven.',
   },
 ];
 
@@ -83,25 +78,26 @@ const whatWaitingForConfig: InfoCardProps = {
   title: 'Waar wacht u nog op!',
   paragraphs: [
     <BodyText key="1">
-      Als dit is wat u wilt, waar wacht u dan op. Bereken via de knop hieronder wat het kost en neem contact met ons op
-      voor een afspraak. Als u de specialist langs laat komen gaan we bespreken wat voor soort hout u heeft, wat de
-      mogelijkheden zijn, ons advies en we komen met de kleurstalen zodat u zeker weten de juiste beslissing maakt.{' '}
+      Als dit is wat u zoekt, waar wacht u dan nog op? Bereken via de knop hieronder eenvoudig de kosten en neem contact
+      met ons op voor een afspraak.
     </BodyText>,
     <BodyText key="2">
-      Deze afspraak kost eenmalig 50,- euro en deze wordt in mindering gebracht wanneer u de klus aan ons uitbesteed. In
-      heel veel gevallen is deze afspraak niet nodig, en is advies via mailcontact met foto’s voldoende.{' '}
+      Onze interieuradviseur komt graag vrijblijvend en kosteloos bij u langs met kleurstalen en materiaalvoorbeelden.
+      Tijdens deze afspraak bespreken we uw trap of vloer, de verschillende mogelijkheden en geven we persoonlijk advies
+      dat past bij uw woning en interieur.
+    </BodyText>,
+    <BodyText key="3">
+      Zo kunt u het resultaat direct in uw eigen woning bekijken en met vertrouwen de juiste keuze maken.
     </BodyText>,
   ],
-  imgSrc: '/vloeren-leggen/linoleum-leggen/linoleum-leggen-8.png',
-  buttonText: 'Offerte aanvragen',
-  buttonLink: '/offerte',
+  imgSrc: '/vloeren-leggen/vinyl/vinyl-action.webp',
 };
 
 export default function VloerenLeggenVinylPage() {
   return (
     <div className="relative z-0 flex flex-col items-center w-full">
       <Hero imgSrc="/vloeren-leggen/vinyl/vinyl-hero.webp" />
-      <ListCard
+      <FeatureListSection
         sectionName="Vloeren leggen"
         pageName="Vinyl"
         listTitle="Herkenbaar?"
@@ -111,49 +107,44 @@ export default function VloerenLeggenVinylPage() {
           'Uw vinylvloer voelt niet meer fris of hygiënisch',
           'Uw vloer is lastig schoon te houden',
         ]}
-        btnLink="/offerte"
-        btnText="Offerte aanvragen"
-        imgSrc="/vloeren-leggen/vinyl/vinyl.webp"
+        imgSrc="/vloeren-leggen/vinyl/vinyl-feature.webp"
         orangeText="Herkenbaar? Geen zorgen, wij lossen het op!"
       />
-      <CardsSection
-        bottomText="Help, mijn oude vloer is aan vervanging toe!"
+      <InfoHighlightSection
         title="Hoe gaan we te werk?"
         description="Stapsgewijs naar een perfect resultaat"
         cards={thirdSectionCards}
-        btnText="Bereken uw vloer"
-        btnLink="/offerte"
+        bottomText="Help, mijn oude vloer is aan vervanging toe!"
       />
       <VloerenleggenWhyGreenTeam />
-      <StoreSection
+      <StoreShowcase
+        className="bg-secondaryLight"
         title="Wat hebben wij in petto? Uw vloer weer laten stralen!"
         description="Bekijk de resultaten van onze vloerenlegservice en ontdek hoe we verouderde of beschadigde vloeren omtoveren tot prachtige, moderne ruimtes. Vele tevreden klanten gingen u voor, dus uw vloer kan de volgende zijn!"
-        btnText="Bereken uw vloer"
-        btnLink="/offerte"
-        firstImg={'/vloeren-leggen/linoleum-leggen/linoleum-leggen-3.png'}
-        secondImg="/vloeren-leggen/linoleum-leggen/linoleum-leggen-4.png"
-        thirdImg="/vloeren-leggen/linoleum-leggen/linoleum-leggen-5.png"
-        fourthImg="/vloeren-leggen/linoleum-leggen/linoleum-leggen-6.png"
-        fifthImg="/vloeren-leggen/linoleum-leggen/linoleum-leggen-7.png"
-        firstImgTopText="Linoleum"
-        firstImgBottomText="Afrikaweg, Zoetermeer"
-        secondImgTopText="Linoleum"
-        secondImgBottomText="Zoeterwoudsesingel, Leiden"
-        thirdImgTopText="Linoleum"
-        thirdImgBottomText="Schenkelweg, Spijkenisse"
-        fourthImgTopText="Linoleum"
-        fourthImgBottomText="Lindenlaan, Zeist"
-        fifthImgTopText="Linoleum"
-        fifthImgBottomText="Driehuizerkerkweg, Velsen"
+        firstImg={'/vloeren-leggen/vinyl/vinyl-gallery-1.webp'}
+        secondImg="/vloeren-leggen/vinyl/vinyl-gallery-2.webp"
+        thirdImg="/vloeren-leggen/vinyl/vinyl-gallery-3.webp"
+        fourthImg="/vloeren-leggen/vinyl/vinyl-gallery-4.webp"
+        fifthImg="/vloeren-leggen/vinyl/vinyl-gallery-5.webp"
+        firstImgTopText="Vinyl"
+        firstImgBottomText="Kerkstraat, Utrecht"
+        secondImgTopText="Vinyl"
+        secondImgBottomText="Dorpsstraat, Amersfoort"
+        thirdImgTopText="Vinyl"
+        thirdImgBottomText="Stationsweg, Eindhoven"
+        fourthImgTopText="Vinyl"
+        fourthImgBottomText="Lindelaan, Zwolle"
+        fifthImgTopText="Vinyl"
+        fifthImgBottomText="Coolsingel, Rotterdam"
       />
       <WhatWaitingForCard
-        orangeText=" Ik wil dat de parketteur langskomt!"
+        orangeText="Ik wil dat de parketteur langskomt!"
         {...whatWaitingForConfig}
         className="lg:py-28"
       />
       <FAQSection FAQs={FAQs} />
       <QuestionSection />
-      <RatingSection />
+      <TestimonialCarousel />
     </div>
   );
 }
