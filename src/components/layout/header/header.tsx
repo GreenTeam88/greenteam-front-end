@@ -119,7 +119,6 @@ export const basicRoutes: HeaderRoute[] = [
             { name: 'Schuren en schilderen', path: '/traprenovatie/schuren-en-schilderen' },
           ],
         },
-
         {
           link: '/type-trappen',
           title: 'Type trappen',
@@ -220,11 +219,12 @@ const headerRoutes: HeaderRoute[] = [
             { name: 'Tapijt', path: '/vloeren-leggen/tapijt' },
             { name: 'Linoleum', path: '/vloeren-leggen/linoleum' },
             { name: 'Vinyl', path: '/vloeren-leggen/vinyl' },
-
-            // section separator
-            { name: '', path: '' },
-
-            // Type vloeren section
+          ],
+        },
+        {
+          link: '/type-vloeren',
+          title: 'Type vloeren',
+          subPages: [
             { name: 'Visgraat', path: '/vloeren-leggen/visgraat' },
             { name: 'Walvisgraat', path: '/vloeren-leggen/walvisgraat' },
             { name: 'Hongaarse punt', path: '/vloeren-leggen/hongaarse-punt' },
@@ -263,11 +263,12 @@ const headerRoutes: HeaderRoute[] = [
             { name: 'Linoleum', path: '/traprenovatie/linoleum' },
             { name: 'Schuren en behandelen', path: '/traprenovatie/schuren-en-behandelen' },
             { name: 'Schuren en schilderen', path: '/traprenovatie/schuren-en-schilderen' },
-
-            // section separator
-            { name: '', path: '' },
-
-            // Type trappen
+          ],
+        },
+        {
+          link: '/type-trappen',
+          title: 'Type trappen',
+          subPages: [
             { name: 'Open trap', path: '/traprenovatie/open-trap' },
             { name: 'Dichte trap', path: '/traprenovatie/dichte-trap' },
             { name: 'Verlichting', path: '/traprenovatie/verlichting' },
@@ -542,7 +543,7 @@ const DropDownColumnLink: React.FC<
 
   const pageSubpages = 'subPages' in page && page.subPages;
 
-  if (page.name === '') return <div className="mb-2" />;
+  if (page.name === '') return <div className="py-2" />;
 
   return (
     <div className="relative flex flex-col gap-1">
@@ -614,9 +615,21 @@ const DropDownColumn: React.FC<{ routeName: string }> = ({ routeName }) => {
         animate={{ opacity: 1, x: '-50%', y: 0, rotateX: 0 }}
         exit={{ opacity: 0, x: '-50%', y: 10, rotateX: -10 }}
         transition={{ duration: 0.3, ease: [0.22, 1, 0.36, 1] }}
-        className="flex absolute bg-white top-[29px] w-fit flex-col left-1/2 -translate-x-1/2 gap-1 py-[22px] px-[44px]  border rounded-[10px] border-blackDark  border-opacity-20 origin-top will-change-transform"
+        className="flex absolute bg-white top-[29px] w-fit flex-col left-1/2 -translate-x-1/2 gap-1 py-[22px] px-[44px]  border rounded-[10px] border-blackDark  border-opacity-20 origin-top will-change-transform space-y-2"
       >
-        {hoveredRouteColumn?.[0].subPages?.map((page) => <DropDownColumnLink key={page.name} {...page} />)}
+        {hoveredRouteColumn.map((column, index) => (
+          <div key={index}>
+            {column.title && (
+              <Link
+                href={column.link!}
+                className="text-sm font-semibold hover:text-secondaryDefault text-primaryDefault"
+              >
+                {column.title}
+              </Link>
+            )}
+            {column.subPages?.map((page) => <DropDownColumnLink key={page.name} {...page} />)}
+          </div>
+        ))}
       </motion.div>
     </AnimatePresence>
   );
