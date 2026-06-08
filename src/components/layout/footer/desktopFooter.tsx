@@ -66,7 +66,7 @@ export const FooterLightBorder = () => <div className="bg-black20 h-[1px] bg-opa
 
 const FooterColumns = () => {
   return (
-    <div className="flex flex-col gap-[44px] w-full text-sm">
+    <div className="flex flex-col gap-[44px] w-full text-[12px]">
       <div className="flex gap-[71px] ">
         {footerColumnsInfo.slice(0, 5).map((columnInfo) => (
           <FooterColumn key={columnInfo.title} {...columnInfo} />

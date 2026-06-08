@@ -14,9 +14,8 @@ import { DropDownIcon } from '../../icons/arrows';
 import { InstagramLogo, TikTokIcon } from '../../icons/homePageIcons';
 import { SecondaryBtnLink } from '../../theme/buttons';
 import { BodyText } from '../../theme/typography';
-import { TitleCarousel } from './titleCrausel';
 
-// types needed for the header
+// NOTE: types needed for the header
 
 // a simple route with a path
 interface RouteWithPath {
@@ -26,8 +25,8 @@ interface RouteWithPath {
 
 // information about  a column in the header menu when hovering for a link
 type HeaderColumnInfo = {
-  title: string;
-  link: string;
+  title?: string;
+  link?: string;
   subPages?: (RouteWithPath | { name: string; subPages: RouteWithPath[] })[];
 };
 
@@ -35,7 +34,7 @@ type HeaderColumnInfo = {
 type HeaderRoute = {
   name: string;
   path?: string;
-  columns?: HeaderColumnInfo[];
+  columns?: HeaderColumnInfo[][];
 };
 
 // basic routes (on the top section of the header)
@@ -52,107 +51,118 @@ export const basicRoutes: HeaderRoute[] = [
     name: 'Diensten',
     path: '/diensten',
     columns: [
-      {
-        link: '/parketrenovatie',
-        title: 'Parketrenovatie',
-        subPages: [
-          { name: ' Schuren en polijsten', path: '/parketrenovatie/schuren-en-polijsten' },
-          { name: ' Schuren en lakken', path: '/parketrenovatie/schuren-en-lakken' },
-          { name: ' Schuren en oliën', path: '/parketrenovatie/schuren-en-olien' },
-          { name: ' Schuren en hardwaxen', path: '/parketrenovatie/schuren-en-hardwaxen' },
-          { name: ' Aanhelen / Uitbreiden', path: '/parketrenovatie/aanhelen-uitbreiden' },
-          { name: ' Reparatie', path: '/parketrenovatie/reparatie' },
-          { name: ' Drevelen', path: '/parketrenovatie/drevelen' },
-          { name: ' V-groef frezen', path: '/parketrenovatie/v-groef-frezen' },
-          { name: ' Plinten & Deklijsten', path: '/parketrenovatie/plinten-en-deklijsten' },
-        ],
-      },
-      {
-        link: '/vloeren-leggen',
-        title: 'Vloeren leggen',
-        subPages: [
-          { name: 'Parket', path: '/vloeren-leggen/parket' },
-          { name: 'Laminaat', path: '/vloeren-leggen/laminaat' },
-          { name: 'PVC', path: '/vloeren-leggen/pvc' },
-          { name: 'Tapijt', path: '/vloeren-leggen/tapijt' },
-          { name: 'Linoleum', path: '/vloeren-leggen/linoleum' },
-          { name: 'Visgraat', path: '/vloeren-leggen/visgraat' },
-          { name: 'Walvisgraat', path: '/vloeren-leggen/walvisgraat' },
-          { name: 'Hongaarse punt', path: '/vloeren-leggen/hongaarse-punt' },
-          { name: 'Weense punt', path: '/vloeren-leggen/weense-punt' },
-          { name: 'PVC Tegels', path: '/vloeren-leggen/pvc-tegels' },
-          { name: 'Mozaïek en patroon', path: '/vloeren-leggen/mozaiek-en-patroon' },
-          { name: 'Hexagon & 3D', path: '/vloeren-leggen/hexagon-&-3d' },
-          { name: 'Tapis', path: '/vloeren-leggen/tapis' },
-          { name: 'Bourgogne', path: '/vloeren-leggen/bourgogne' },
-        ],
-      },
-      {
-        link: '/traprenovatie',
-        title: 'Traprenovatie',
-        subPages: [
-          { name: 'Bekleden met PVC', path: '/traprenovatie/bekleden-met-pvc' },
-          { name: 'Bekleden met laminaat', path: '/traprenovatie/bekleden-met-laminaat' },
-          { name: 'Bekleden met hout', path: '/traprenovatie/bekleden-met-hout' },
-          { name: 'Bekleden met tapijt', path: '/traprenovatie/bekleden-met-tapijt' },
-          { name: 'Bekleden met linoleum', path: '/traprenovatie/bekleden-met-linoleum' },
-          { name: 'Schuren en behandelen', path: '/traprenovatie/schuren-en-behandelen' },
-          { name: 'Schuren en schilderen', path: '/traprenovatie/schuren-en-schilderen' },
-          {
-            name: 'Beton Ciré',
-            subPages: [
-              { name: 'Beton Ciré Metal stuc', path: '/traprenovatie/beton-cire/metal-stuc' },
-              { name: 'Beton Ciré Glamour stuc', path: '/traprenovatie/beton-cire/glamour-stuc' },
-              { name: 'Beton Ciré Brut', path: '/traprenovatie/beton-cire/brut' },
-              { name: 'Beton Ciré Parel', path: '/traprenovatie/beton-cire/parel' },
-              { name: 'Beton Ciré Croco', path: '/traprenovatie/beton-cire/croco' },
-              { name: 'Beton Ciré Venetiaans', path: '/traprenovatie/beton-cire/venetiaans' },
-              { name: 'Beton Ciré Acoustic', path: '/traprenovatie/beton-cire/acoustic' },
-            ],
-          },
-          { name: 'Open trap', path: '/traprenovatie/open-trap' },
-          { name: 'Dichte trap', path: '/traprenovatie/dichte-trap' },
-          { name: 'Verlichting', path: '/traprenovatie/verlichting' },
-        ],
-      },
-      {
-        link: '/vloerverwarming',
-        title: 'Vloerverwarming',
-      },
-      //TODO uncomment this if you want your links back
-      // {
-      //   link: '/stofferen',
-      //   title: 'Stofferen',
-      //   subPages: [
-      //     { name: 'Trap', path: '/stofferen/trap' },
-      //     { name: 'Vloer', path: '/stofferen/vloer' },
-      //     { name: 'Tapijttegels', path: '/stofferen/tapijttegels' },
-      //     { name: 'Meubels', path: '/stofferen/meubels' },
-      //     { name: 'Deurmat', path: '/stofferen/deurmat' },
-      //     { name: 'Droogloopmat', path: '/stofferen/droogloopmat' },
-      //     { name: 'Rode loper', path: '/stofferen/rode-loper' },
-      //     { name: 'Reinigingsservice', path: '/stofferen/reinigingsservice' },
-      //     { name: 'Tapijt verwijderen', path: '/stofferen/tapijt-verwijderen' },
-      //   ],
-      // },
-      {
-        link: '/tegelen',
-        title: 'Tegelen',
-      },
-      //TODO uncomment this if you want your links back
-      // {
-      //   link: '/overig',
-      //   title: 'Overig',
-      //   subPages: [
-      //     { name: 'Vloerverwarming', path: '/overig/vloerverwarming' },
-      //     { name: 'Egaliseren', path: '/overig/egaliseren' },
-      //     { name: 'Gietvloeren', path: '/overig/gietvloeren' },
-      //     { name: 'Tegelen', path: '/overig/tegelen' },
-      //     { name: 'Vloer verwijderen', path: '/overig/vloer-verwijderen' },
-      //     { name: 'Natuursteen behandelen', path: '/overig/natuursteen-behandelen' },
-      //     { name: 'Opslag', path: '/overig/opslag' },
-      //   ],
-      // },
+      [
+        {
+          link: '/parketrenovatie',
+          title: 'Parketrenovatie',
+          subPages: [
+            { name: ' Schuren en polijsten', path: '/parketrenovatie/schuren-en-polijsten' },
+            { name: ' Schuren en lakken', path: '/parketrenovatie/schuren-en-lakken' },
+            { name: ' Schuren en oliën', path: '/parketrenovatie/schuren-en-olien' },
+            { name: ' Schuren en hardwaxen', path: '/parketrenovatie/schuren-en-hardwaxen' },
+            { name: ' Aanhelen / Uitbreiden', path: '/parketrenovatie/aanhelen-uitbreiden' },
+            { name: ' Reparatie', path: '/parketrenovatie/reparatie' },
+            { name: ' Drevelen', path: '/parketrenovatie/drevelen' },
+            { name: ' V-groef frezen', path: '/parketrenovatie/v-groef-frezen' },
+            { name: ' Plinten & Deklijsten', path: '/parketrenovatie/plinten-en-deklijsten' },
+          ],
+        },
+      ],
+      [
+        {
+          link: '/vloeren-leggen',
+          title: 'Vloeren leggen',
+          subPages: [
+            { name: 'Parket', path: '/vloeren-leggen/parket' },
+            { name: 'Laminaat', path: '/vloeren-leggen/laminaat' },
+            { name: 'PVC (plak en click)', path: '/vloeren-leggen/pvc' },
+            { name: 'Tapijt', path: '/vloeren-leggen/tapijt' },
+            { name: 'Linoleum', path: '/vloeren-leggen/linoleum' },
+            { name: 'Vinyl', path: '/vloeren-leggen/vinyl' },
+          ],
+        },
+        {
+          link: '/type-vloeren',
+          title: 'Type vloeren',
+          subPages: [
+            { name: 'Visgraat', path: '/vloeren-leggen/visgraat' },
+            { name: 'Walvisgraat', path: '/vloeren-leggen/walvisgraat' },
+            { name: 'Hongaarse punt', path: '/vloeren-leggen/hongaarse-punt' },
+            { name: 'Weense punt', path: '/vloeren-leggen/weense-punt' },
+            { name: 'PVC Tegels', path: '/vloeren-leggen/pvc-tegels' },
+            { name: 'Mozaïek of patroon', path: '/vloeren-leggen/mozaiek-of-patroon' },
+            { name: 'Hexagon & 3D', path: '/vloeren-leggen/hexagon-&-3d' },
+            { name: 'Tapis', path: '/vloeren-leggen/tapis' },
+            { name: 'Bourgogne', path: '/vloeren-leggen/bourgogne' },
+          ],
+        },
+      ],
+      [
+        {
+          link: '/traprenovatie',
+          title: 'Traprenovatie',
+          subPages: [
+            { name: 'Standaard tapijt', path: '/traprenovatie/bekleden-met-tapijt' },
+            { name: 'Traploper', path: '/traprenovatie/bekleden-met-tapijt' },
+            { name: 'Sisal & bouclé', path: '/traprenovatie/bekleden-met-tapijt' },
+            { name: 'Tapijt met patroon', path: '/traprenovatie/bekleden-met-tapijt' },
+            { name: 'Visgraat tapijt', path: '/traprenovatie/bekleden-met-tapijt' },
+
+            // section separator
+            { name: '', path: '' },
+
+            { name: 'PVC', path: '/traprenovatie/bekleden-met-pvc' },
+            { name: 'Laminaat', path: '/traprenovatie/bekleden-met-laminaat' },
+            { name: 'Hout', path: '/traprenovatie/bekleden-met-hout' },
+            { name: 'Linoleum', path: '/traprenovatie/bekleden-met-linoleum' },
+            { name: 'Schuren en behandelen', path: '/traprenovatie/schuren-en-behandelen' },
+            { name: 'Schuren en schilderen', path: '/traprenovatie/schuren-en-schilderen' },
+          ],
+        },
+        {
+          link: '/type-trappen',
+          title: 'Type trappen',
+          subPages: [
+            { name: 'Open trap', path: '/traprenovatie/open-trap' },
+            { name: 'Dichte trap', path: '/traprenovatie/dichte-trap' },
+            { name: 'Verlichting', path: '/traprenovatie/verlichting' },
+          ],
+        },
+      ],
+      [
+        {
+          link: '/vloerverwarming',
+          title: 'Vloerverwarming',
+          subPages: [
+            { name: 'Infrezen in zandcement', path: '/vloerverwarming' },
+            { name: 'Infrezen in anhydriet', path: '/vloerverwarming' },
+            { name: 'Infrezen in beton', path: '/vloerverwarming' },
+            { name: 'Infrezen in Fermacell', path: '/vloerverwarming' },
+            { name: 'Infrezen in Knauf Brio', path: '/vloerverwarming' },
+            { name: 'Infrezen in tegels', path: '/vloerverwarming' },
+            { name: 'Infrezen in plavuizen', path: '/vloerverwarming' },
+            { name: 'Infrezen in grind', path: '/vloerverwarming' },
+            { name: 'Noppenplaten', path: '/vloerverwarming' },
+            { name: 'Krimpnetten', path: '/vloerverwarming' },
+            { name: 'Tackerplaten', path: '/vloerverwarming' },
+          ],
+        },
+      ],
+      [
+        {
+          link: '/tegelen',
+          title: 'Tegelen',
+          subPages: [
+            { name: 'Vloeren en wanden', path: '/tegelen' },
+            { name: 'Badkamers', path: '/tegelen' },
+            { name: 'Toiletten', path: '/tegelen' },
+            { name: 'Keukens', path: '/tegelen' },
+            { name: 'Terrassen en balkons', path: '/tegelen' },
+            { name: 'Wasruimtes en bijkeukens', path: '/tegelen' },
+            { name: 'Entrees en hallen', path: '/tegelen' },
+          ],
+        },
+      ],
     ],
   },
   {
@@ -175,133 +185,144 @@ const headerRoutes: HeaderRoute[] = [
     name: 'Parketrenovatie',
     path: '/parketrenovatie/',
     columns: [
-      {
-        link: '',
-        title: '',
-        subPages: [
-          { name: ' Schuren en polijsten', path: '/parketrenovatie/schuren-en-polijsten' },
-          { name: ' Schuren en lakken', path: '/parketrenovatie/schuren-en-lakken' },
-          { name: ' Schuren en oliën', path: '/parketrenovatie/schuren-en-olien' },
-          { name: ' Schuren en hardwaxen', path: '/parketrenovatie/schuren-en-hardwaxen' },
-          { name: ' Aanhelen / Uitbreiden', path: '/parketrenovatie/aanhelen-uitbreiden' },
-          { name: ' Reparatie', path: '/parketrenovatie/reparatie' },
-          { name: ' Drevelen', path: '/parketrenovatie/drevelen' },
-          { name: ' V-groef frezen', path: '/parketrenovatie/v-groef-frezen' },
-          { name: ' Plinten & Deklijsten', path: '/parketrenovatie/plinten-en-deklijsten' },
-        ],
-      },
+      [
+        {
+          link: '',
+          title: '',
+          subPages: [
+            { name: ' Schuren en polijsten', path: '/parketrenovatie/schuren-en-polijsten' },
+            { name: ' Schuren en lakken', path: '/parketrenovatie/schuren-en-lakken' },
+            { name: ' Schuren en oliën', path: '/parketrenovatie/schuren-en-olien' },
+            { name: ' Schuren en hardwaxen', path: '/parketrenovatie/schuren-en-hardwaxen' },
+            { name: ' Aanhelen / Uitbreiden', path: '/parketrenovatie/aanhelen-uitbreiden' },
+            { name: ' Reparatie', path: '/parketrenovatie/reparatie' },
+            { name: ' Drevelen', path: '/parketrenovatie/drevelen' },
+            { name: ' V-groef frezen', path: '/parketrenovatie/v-groef-frezen' },
+            { name: ' Plinten & Deklijsten', path: '/parketrenovatie/plinten-en-deklijsten' },
+          ],
+        },
+      ],
     ],
   },
   {
     name: 'Vloeren leggen',
     path: '/vloeren-leggen',
     columns: [
-      {
-        link: '',
-        title: '',
-        subPages: [
-          { name: 'Parket', path: '/vloeren-leggen/parket' },
-          { name: 'Laminaat', path: '/vloeren-leggen/laminaat' },
-          { name: 'PVC', path: '/vloeren-leggen/pvc' },
-          { name: 'Tapijt', path: '/vloeren-leggen/tapijt' },
-          { name: 'Linoleum', path: '/vloeren-leggen/linoleum' },
-          { name: 'Visgraat', path: '/vloeren-leggen/visgraat' },
-          { name: 'Walvisgraat', path: '/vloeren-leggen/walvisgraat' },
-          { name: 'Hongaarse punt', path: '/vloeren-leggen/hongaarse-punt' },
-          { name: 'Weense punt', path: '/vloeren-leggen/weense-punt' },
-          { name: 'PVC Tegels', path: '/vloeren-leggen/pvc-tegels' },
-          { name: 'Mozaïek en patroon', path: '/vloeren-leggen/mozaiek-en-patroon' },
-          { name: 'Hexagon & 3D', path: '/vloeren-leggen/hexagon-&-3d' },
-          { name: 'Tapis', path: '/vloeren-leggen/tapis' },
-          { name: 'Bourgogne', path: '/vloeren-leggen/bourgogne' },
-        ],
-      },
+      [
+        {
+          link: '',
+          title: '',
+          subPages: [
+            { name: 'Parket', path: '/vloeren-leggen/parket' },
+            { name: 'Laminaat', path: '/vloeren-leggen/laminaat' },
+            { name: 'PVC (plak en click)', path: '/vloeren-leggen/pvc' },
+            { name: 'Tapijt', path: '/vloeren-leggen/tapijt' },
+            { name: 'Linoleum', path: '/vloeren-leggen/linoleum' },
+            { name: 'Vinyl', path: '/vloeren-leggen/vinyl' },
+          ],
+        },
+        {
+          link: '/type-vloeren',
+          title: 'Type vloeren',
+          subPages: [
+            { name: 'Visgraat', path: '/vloeren-leggen/visgraat' },
+            { name: 'Walvisgraat', path: '/vloeren-leggen/walvisgraat' },
+            { name: 'Hongaarse punt', path: '/vloeren-leggen/hongaarse-punt' },
+            { name: 'Weense punt', path: '/vloeren-leggen/weense-punt' },
+            { name: 'PVC Tegels', path: '/vloeren-leggen/pvc-tegels' },
+            { name: 'Mozaïek of patroon', path: '/vloeren-leggen/mozaiek-of-patroon' },
+            { name: 'Hexagon & 3D', path: '/vloeren-leggen/hexagon-&-3d' },
+            { name: 'Tapis', path: '/vloeren-leggen/tapis' },
+            { name: 'Bourgogne', path: '/vloeren-leggen/bourgogne' },
+          ],
+        },
+      ],
     ],
   },
   {
     path: '/traprenovatie',
     name: 'Traprenovatie',
     columns: [
-      {
-        link: '',
-        title: '',
-        subPages: [
-          { name: 'Bekleden met PVC', path: '/traprenovatie/bekleden-met-pvc' },
-          { name: 'Bekleden met laminaat', path: '/traprenovatie/bekleden-met-laminaat' },
-          { name: 'Bekleden met hout', path: '/traprenovatie/bekleden-met-hout' },
-          { name: 'Bekleden met tapijt', path: '/traprenovatie/bekleden-met-tapijt' },
-          { name: 'Bekleden met linoleum', path: '/traprenovatie/bekleden-met-linoleum' },
-          { name: 'Schuren en behandelen', path: '/traprenovatie/schuren-en-behandelen' },
-          { name: 'Schuren en schilderen', path: '/traprenovatie/schuren-en-schilderen' },
-          {
-            name: 'Beton Ciré',
-            subPages: [
-              { name: 'Beton Ciré Metal stuc', path: '/traprenovatie/beton-cire/metal-stuc' },
-              { name: 'Beton Ciré Glamour stuc', path: '/traprenovatie/beton-cire/glamour-stuc' },
-              { name: 'Beton Ciré Brut', path: '/traprenovatie/beton-cire/brut' },
-              { name: 'Beton Ciré Parel', path: '/traprenovatie/beton-cire/parel' },
-              { name: 'Beton Ciré Croco', path: '/traprenovatie/beton-cire/croco' },
-              { name: 'Beton Ciré Venetiaans', path: '/traprenovatie/beton-cire/venetiaans' },
-              { name: 'Beton Ciré Acoustic', path: '/traprenovatie/beton-cire/acoustic' },
-            ],
-          },
-          { name: 'Open trap', path: '/traprenovatie/open-trap' },
-          { name: 'Dichte trap', path: '/traprenovatie/dichte-trap' },
-          { name: 'Verlichting', path: '/traprenovatie/verlichting' },
-        ],
-      },
+      [
+        {
+          link: '',
+          title: '',
+          subPages: [
+            { name: 'Standaard tapijt', path: '/traprenovatie/bekleden-met-tapijt' },
+            { name: 'Traploper', path: '/traprenovatie/bekleden-met-tapijt' },
+            { name: 'Sisal & bouclé', path: '/traprenovatie/bekleden-met-tapijt' },
+            { name: 'Tapijt met patroon', path: '/traprenovatie/bekleden-met-tapijt' },
+            { name: 'Visgraat tapijt', path: '/traprenovatie/bekleden-met-tapijt' },
+
+            // section separator
+            { name: '', path: '' },
+
+            { name: 'PVC', path: '/traprenovatie/bekleden-met-pvc' },
+            { name: 'Laminaat', path: '/traprenovatie/bekleden-met-laminaat' },
+            { name: 'Hout', path: '/traprenovatie/bekleden-met-hout' },
+            { name: 'Linoleum', path: '/traprenovatie/bekleden-met-linoleum' },
+            { name: 'Schuren en behandelen', path: '/traprenovatie/schuren-en-behandelen' },
+            { name: 'Schuren en schilderen', path: '/traprenovatie/schuren-en-schilderen' },
+          ],
+        },
+        {
+          link: '/type-trappen',
+          title: 'Type trappen',
+          subPages: [
+            { name: 'Open trap', path: '/traprenovatie/open-trap' },
+            { name: 'Dichte trap', path: '/traprenovatie/dichte-trap' },
+            { name: 'Verlichting', path: '/traprenovatie/verlichting' },
+          ],
+        },
+      ],
     ],
   },
   {
     path: '/vloerverwarming',
     name: 'Vloerverwarming',
+    columns: [
+      [
+        {
+          link: '',
+          title: '',
+          subPages: [
+            { name: 'Infrezen in zandcement', path: '/vloerverwarming' },
+            { name: 'Infrezen in anhydriet', path: '/vloerverwarming' },
+            { name: 'Infrezen in beton', path: '/vloerverwarming' },
+            { name: 'Infrezen in Fermacell', path: '/vloerverwarming' },
+            { name: 'Infrezen in Knauf Brio', path: '/vloerverwarming' },
+            { name: 'Infrezen in tegels', path: '/vloerverwarming' },
+            { name: 'Infrezen in plavuizen', path: '/vloerverwarming' },
+            { name: 'Infrezen in grind', path: '/vloerverwarming' },
+            { name: 'Noppenplaten', path: '/vloerverwarming' },
+            { name: 'Krimpnetten', path: '/vloerverwarming' },
+            { name: 'Tackerplaten', path: '/vloerverwarming' },
+          ],
+        },
+      ],
+    ],
   },
-  //TODO uncomment this if you want your links back
-  // {
-  //   name: 'Stofferen',
-  //   path: '/stofferen',
-  //   columns: [
-  //     {
-  //       link: '',
-  //       title: '',
-  //       subPages: [
-  //         { name: 'Trap', path: '/stofferen/trap' },
-  //         { name: 'Vloer', path: '/stofferen/vloer' },
-  //         { name: 'Tapijttegels', path: '/stofferen/tapijttegels' },
-  //         { name: 'Meubels', path: '/stofferen/meubels' },
-  //         { name: 'Deurmat', path: '/stofferen/deurmat' },
-  //         { name: 'Droogloopmat', path: '/stofferen/droogloopmat' },
-  //         { name: 'Rode loper', path: '/stofferen/rode-loper' },
-  //         { name: 'Reinigingsservice', path: '/stofferen/reinigingsservice' },
-  //         { name: 'Tapijt verwijderen', path: '/stofferen/tapijt-verwijderen' },
-  //       ],
-  //     },
-  //   ],
-  // },
   {
     name: 'Tegelen',
     path: '/tegelen',
+    columns: [
+      [
+        {
+          link: '',
+          title: '',
+          subPages: [
+            { name: 'Vloeren en wanden', path: '/tegelen' },
+            { name: 'Badkamers', path: '/tegelen' },
+            { name: 'Toiletten', path: '/tegelen' },
+            { name: 'Keukens', path: '/tegelen' },
+            { name: 'Terrassen en balkons', path: '/tegelen' },
+            { name: 'Wasruimtes en bijkeukens', path: '/tegelen' },
+            { name: 'Entrees en hallen', path: '/tegelen' },
+          ],
+        },
+      ],
+    ],
   },
-  //TODO uncomment this if you want your links back
-  // {
-  //   path: '/overig',
-  //   name: 'Overig',
-  //   columns: [
-  //     {
-  //       link: '',
-  //       title: '',
-  //       subPages: [
-  //         { name: 'Vloerverwarming', path: '/overig/vloerverwarming' },
-  //         { name: 'Egaliseren', path: '/overig/egaliseren' },
-  //         { name: 'Gietvloeren', path: '/overig/gietvloeren' },
-  //         { name: 'Tegelen', path: '/overig/tegelen' },
-  //         { name: 'Vloer verwijderen', path: '/overig/vloer-verwijderen' },
-  //         { name: 'Natuursteen behandelen', path: '/overig/natuursteen-behandelen' },
-  //         { name: 'Opslag', path: '/overig/opslag' },
-  //       ],
-  //     },
-  //   ],
-  // },
 ];
 
 // a single item in a colmun in the menu (the menu that apears when we hover over a certain link)
@@ -323,6 +344,9 @@ const HeaderColumnItem: React.FC<
   }, [pathname]);
 
   const hasSubPages = 'subPages' in routeInfo && routeInfo.subPages.length;
+
+  if (routeInfo.name === '') return <div className="mb-3" />;
+
   return (
     <div className="flex flex-col">
       {hasSubPages ? (
@@ -365,7 +389,7 @@ const HeaderColumnItem: React.FC<
             routeInfo.subPages.map((item) => (
               <Link
                 href={item.path}
-                key={routeInfo.name}
+                key={`${routeInfo.name}-${item.name}`}
                 onClick={() => setHoveredLink('')}
                 className="w-full text-sm cursor-pointer hover:text-primaryDefault"
               >
@@ -381,25 +405,29 @@ const HeaderColumnItem: React.FC<
 // a column in the menu (when hovering over a certain link)
 
 const HeaderColumn: React.FC<
-  HeaderColumnInfo & { index: number; setHoveredLink: Dispatch<SetStateAction<string>> }
-> = ({ subPages, title, link, setHoveredLink }) => {
+  { columnItem: HeaderColumnInfo[] } & { index: number; setHoveredLink: Dispatch<SetStateAction<string>> }
+> = ({ columnItem, setHoveredLink }) => {
   return (
-    <>
-      <div className="flex flex-col   gap-[11px]">
-        <Link
-          href={link}
-          onClick={() => setHoveredLink('')}
-          className="text-sm font-semibold hover:text-secondaryDefault text-primaryDefault "
-        >
-          {title}
-        </Link>
-        <div className="flex w-[180px] flex-col gap-1">
-          {subPages?.map((subPage) => (
-            <HeaderColumnItem key={subPage.name} {...subPage} setHoveredLink={setHoveredLink} />
-          ))}
+    <div className="flex flex-col gap-8">
+      {columnItem.map(({ link, subPages, title }, index) => (
+        <div key={index} className="flex flex-col gap-[11px]">
+          {title && (
+            <Link
+              href={link!}
+              onClick={() => setHoveredLink('')}
+              className="text-sm font-semibold hover:text-secondaryDefault text-primaryDefault "
+            >
+              {title}
+            </Link>
+          )}
+          <div className="flex w-[180px] flex-col gap-1">
+            {subPages?.map((subPage) => (
+              <HeaderColumnItem key={subPage.name} {...subPage} setHoveredLink={setHoveredLink} />
+            ))}
+          </div>
         </div>
-      </div>
-    </>
+      ))}
+    </div>
   );
 };
 
@@ -413,8 +441,8 @@ const HeaderColumns: React.FC<{ hoveredLink: string; setHoveredLink: Dispatch<Se
   if (!hoveredRouteColumns) return null;
   return (
     <div className="flex  gap-[33px] py-[22px]  px-[44px]">
-      {hoveredRouteColumns.map((column, index) => (
-        <HeaderColumn key={column.title} {...column} index={index} setHoveredLink={setHoveredLink} />
+      {hoveredRouteColumns.map((columnItem, index) => (
+        <HeaderColumn key={index} columnItem={columnItem} index={index} setHoveredLink={setHoveredLink} />
       ))}
     </div>
   );
@@ -463,8 +491,8 @@ export const HeaderBoldLink: React.FC<{
           <Link
             onMouseOver={() => setHoveredLink(route.name)}
             href={route.path as string}
-            className={cn('font-bold flex w-fit group items-center text-[16px]', {
-              'text-secondaryDefault ': hoveredLink === route.name,
+            className={cn('font-bold flex w-fit group items-center text-[16px] duration-300 transition-colors', {
+              'text-secondaryDefault': hoveredLink === route.name,
             })}
           >
             {route.name}
@@ -473,8 +501,8 @@ export const HeaderBoldLink: React.FC<{
             {columns && (
               <div className={cn('mx-2')}>
                 <DropDownIcon
-                  className={cn(' block mx-2', {
-                    'stroke-secondaryDefault  ': hoveredLink === route.name,
+                  className={cn('block mx-2 duration-300 transition-transform origin-center stroke-[2.25]', {
+                    'stroke-secondaryDefault rotate-180': hoveredLink === route.name,
                   })}
                 />
               </div>
@@ -514,6 +542,8 @@ const DropDownColumnLink: React.FC<
   }, [pathname]);
 
   const pageSubpages = 'subPages' in page && page.subPages;
+
+  if (page.name === '') return <div className="py-2" />;
 
   return (
     <div className="relative flex flex-col gap-1">
@@ -579,9 +609,29 @@ const DropDownColumn: React.FC<{ routeName: string }> = ({ routeName }) => {
     hoveredRoute && 'columns' in hoveredRoute && hoveredRoute.columns && hoveredRoute.columns[0];
   if (!hoveredRouteColumn) return null;
   return (
-    <div className="flex absolute bg-white   top-[29px] w-fit flex-col left-1/2 -translate-x-1/2 gap-1 py-[22px] px-[44px]  border rounded-[10px] border-blackDark  border-opacity-20 ">
-      {hoveredRouteColumn.subPages?.map((page) => <DropDownColumnLink key={page.name} {...page} />)}
-    </div>
+    <AnimatePresence>
+      <motion.div
+        initial={{ opacity: 0, x: '-50%', y: 20, rotateX: -15 }}
+        animate={{ opacity: 1, x: '-50%', y: 0, rotateX: 0 }}
+        exit={{ opacity: 0, x: '-50%', y: 10, rotateX: -10 }}
+        transition={{ duration: 0.3, ease: [0.22, 1, 0.36, 1] }}
+        className="flex absolute bg-white top-[29px] w-fit flex-col left-1/2 -translate-x-1/2 gap-1 py-[22px] px-[44px]  border rounded-[10px] border-blackDark  border-opacity-20 origin-top will-change-transform space-y-2"
+      >
+        {hoveredRouteColumn.map((column, index) => (
+          <div key={index}>
+            {column.title && (
+              <Link
+                href={column.link!}
+                className="text-sm font-semibold hover:text-secondaryDefault text-primaryDefault"
+              >
+                {column.title}
+              </Link>
+            )}
+            {column.subPages?.map((page) => <DropDownColumnLink key={page.name} {...page} />)}
+          </div>
+        ))}
+      </motion.div>
+    </AnimatePresence>
   );
 };
 
@@ -623,11 +673,11 @@ export const HeaderLink: React.FC<{
       <div
         onMouseLeave={() => setShowDropDown(false)}
         onMouseOver={() => setShowDropDown(true)}
-        className="flex relative min-h-[30px] items-center cursor-pointer "
+        className="flex relative min-h-[30px] items-center cursor-pointer [perspective:1000px]"
       >
         <Link
           href={route.path || '/'}
-          className={cn('text-[16px] flex h-fit items-end leading-tight  gap-1', {
+          className={cn('text-[16px] flex h-fit items-center leading-tight duration-300 transition-colors gap-1', {
             'text-secondaryDefault': showDropDown,
           })}
         >
@@ -635,9 +685,12 @@ export const HeaderLink: React.FC<{
           {'columns' in route && route.columns && (
             <div className="">
               <DropDownIcon
-                className={cn('group-hover:stroke-secondaryDefault mx-3  ', {
-                  'stroke-secondaryDefault': showDropDown,
-                })}
+                className={cn(
+                  'group-hover:stroke-secondaryDefault mx-3 duration-300 transition-transform origin-center',
+                  {
+                    'stroke-secondaryDefault rotate-180': showDropDown,
+                  }
+                )}
               />
             </div>
           )}
@@ -665,9 +718,9 @@ export const HeaderLinksSection = () => {
   return (
     <div
       onMouseLeave={() => setHoveredLink('')}
-      className="flex   flex-col items-center    gap-[39px] relative  justify-center "
+      className="flex flex-col items-center [perspective:1000px] gap-[39px] relative  justify-center "
     >
-      <div className="flex z-10   gap-[33px] py-1 w-full items-center ">
+      <div className="flex z-10   gap-[33px] py-1 w-full items-center">
         {headerRoutes.slice(0, 6).map((route, index) => (
           <HeaderBoldLink
             hoveredLink={hoveredLink}
@@ -678,18 +731,29 @@ export const HeaderLinksSection = () => {
           />
         ))}
       </div>
-      {hoveredLink && hoveredRoute && 'columns' in hoveredRoute && hoveredRoute.columns && (
-        // the top is 30px if the hovered link at the first row (bold)
-        // the top is 88px if the hovered link at the second row
-        <div
-          className={cn('absolute   z-10 border rounded-[10px] border-black20 border-opacity-20  w-fit bg-white ', {
-            'top-[88px]': hoveredLinkRouteIndex > 5,
-            'top-[30px]': hoveredLinkRouteIndex <= 5,
-          })}
-        >
-          <HeaderColumns hoveredLink={hoveredLink} setHoveredLink={setHoveredLink}></HeaderColumns>
-        </div>
-      )}
+
+      <AnimatePresence>
+        {hoveredLink && hoveredRoute && 'columns' in hoveredRoute && hoveredRoute.columns && (
+          // the top is 30px if the hovered link at the first row (bold)
+          // the top is 88px if the hovered link at the second row
+          <motion.div
+            key={hoveredLink}
+            initial={{ opacity: 0, y: 20, rotateX: -15 }}
+            animate={{ opacity: 1, y: 0, rotateX: 0 }}
+            exit={{ opacity: 0, y: 10, rotateX: -10 }}
+            transition={{ duration: 0.3, ease: [0.22, 1, 0.36, 1] }}
+            className={cn(
+              'absolute z-10 border rounded-[10px] border-black20 border-opacity-20  w-fit bg-white origin-top will-change-transform',
+              {
+                'top-[88px]': hoveredLinkRouteIndex > 5,
+                'top-[30px]': hoveredLinkRouteIndex <= 5,
+              }
+            )}
+          >
+            <HeaderColumns hoveredLink={hoveredLink} setHoveredLink={setHoveredLink}></HeaderColumns>
+          </motion.div>
+        )}
+      </AnimatePresence>
     </div>
   );
 };
@@ -787,8 +851,11 @@ const MobileBoldLinkColumnSubpage: React.FC<
 > = (subPage) => {
   const [isSubpagesOpened, setIsSubpagesOpened] = useState(false);
   const subPages = 'subPages' in subPage && subPage.subPages;
+
+  if (subPage.name === '') return <div className="mb-3" />;
+
   return (
-    <div className="flex flex-col ">
+    <div className="flex flex-col py-2 pl-6 border-l border-primaryDefault first:mt-2 last:mb-2">
       {'path' in subPage && !subPages ? (
         <Link
           href={subPage.path}
@@ -838,7 +905,7 @@ const MobileBoldLinkColumnSubpage: React.FC<
 const MobileBoldLinkColumn: React.FC<HeaderColumnInfo> = ({ subPages, title }) => {
   const [isSubpagesOpened, setIsSubpagesOpened] = useState(false);
   return (
-    <div className="flex flex-col gap-1">
+    <div className="flex flex-col gap-1 py-2 pl-6 border-l border-primaryDefault first:mt-2 last:mb-2">
       <h4
         onClick={() => setIsSubpagesOpened((val) => !val)}
         className="text-[19px]  cursor-pointer  flex items-center "
@@ -852,10 +919,10 @@ const MobileBoldLinkColumn: React.FC<HeaderColumnInfo> = ({ subPages, title }) =
             height={20}
             className={cn('mx-4', { 'rotate-180': isSubpagesOpened })}
           />
-        )}{' '}
+        )}
       </h4>
       {subPages && isSubpagesOpened && (
-        <div className="flex flex-col gap-1 px-2">
+        <div className="flex flex-col">
           {subPages.map((subPage) => (
             <MobileBoldLinkColumnSubpage key={subPage.name} {...subPage} />
           ))}
@@ -869,7 +936,7 @@ export const MobileMenuBoldLink: React.FC<HeaderRoute> = (headerRoute) => {
   const columns = 'columns' in headerRoute && headerRoute.columns;
   const path = 'path' in headerRoute && headerRoute.path;
   return (
-    <div className="flex flex-col">
+    <div className="flex flex-col py-4">
       {columns && (
         <h4
           onClick={() => setIsColumnsOpened((val) => !val)}
@@ -897,10 +964,12 @@ export const MobileMenuBoldLink: React.FC<HeaderRoute> = (headerRoute) => {
         </Link>
       )}
       {columns && isColumnsOpened && (
-        <div className="flex flex-col px-2">
-          {columns.map((column) => (
-            <MobileBoldLinkColumn key={column.title} {...column} />
-          ))}
+        <div className="flex flex-col">
+          {columns.map((columnArray, colIndex) =>
+            columnArray.map((column, itemIndex) => (
+              <MobileBoldLinkColumn key={`${colIndex}-${itemIndex}-${column.title || 'no-title'}`} {...column} />
+            ))
+          )}
         </div>
       )}
     </div>
@@ -909,7 +978,7 @@ export const MobileMenuBoldLink: React.FC<HeaderRoute> = (headerRoute) => {
 
 const MobileMenuBoldLinks = () => {
   return (
-    <div className="flex flex-col min-w-[300px] w-fit  pl-4 gap-2">
+    <div className="flex flex-col min-w-[300px] w-fit pl-5 gap-2 py-4">
       {headerRoutes.slice(0, 6).map((header) => (
         <MobileMenuBoldLink key={header.name} {...header} />
       ))}

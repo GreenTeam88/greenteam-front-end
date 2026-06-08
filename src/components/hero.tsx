@@ -3,8 +3,8 @@
 import React from 'react';
 
 import { DynamicMultiStepForm } from '@/components/calculators/dynamic';
-import { PrimaryBtnLink, SecondaryBtnLink } from '@/components/theme/buttons';
 import { cn } from '@/lib/tailwind';
+import CTAButtons from './CTAButtons';
 import { PenUnderline } from './ui/PenUnderline';
 
 export type HeroProps = {
@@ -33,11 +33,7 @@ export const ParagraphSection = () => {
             </span>
           </p>
         </div>
-        <div className="flex gap-[22px] items-center flex-col lg:flex-row lg:flex-wrap w-full lg:w-fit *:w-full lg:*:w-fit">
-          <SecondaryBtnLink href="/offerte">Offerte aanvragen</SecondaryBtnLink>
-          <PrimaryBtnLink href="tel:085 401 93 45">Bel 085 401 93 45</PrimaryBtnLink>
-          <PrimaryBtnLink href="/contact">Gratis thuisadvies</PrimaryBtnLink>
-        </div>
+        <CTAButtons />
       </div>
     </div>
   );

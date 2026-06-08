@@ -46,7 +46,7 @@ export const OrangeInfoCard: React.FC<InfoCardProps> = ({
       )}
       {...props}
     >
-      <div className="flex w-fit flex-col ">
+      <div className="flex flex-col w-fit ">
         {typeof imgSrc === 'string' ? (
           <img className={clsx('w-full lg:w-fit  rounded-lg ', imgClassName)} src={imgSrc} />
         ) : (
@@ -73,7 +73,7 @@ export const OrangeInfoCard: React.FC<InfoCardProps> = ({
             {mainTitle && <H2 className="text-primaryDefault">{mainTitle}</H2>}
             <h3 className="text-[24px] text-primaryDefault font-semibold leading-[37px] ">{title}</h3>
           </div>
-          <div className="flex flex-col  gap-1 lg:gap-3">
+          <div className="flex flex-col gap-1 lg:gap-3">
             {paragraphs.map((paragraph, index) => (
               <BodyText key={String(index)}>{paragraph}</BodyText>
             ))}
@@ -156,8 +156,8 @@ export type WhyGreenTeamCardProps = {
 };
 export const WhyGreenTeamCard: React.FC<WhyGreenTeamCardProps> = ({ icon, paragraphs, title }) => {
   return (
-    <div className="flex lg:min-h-[350px] flex-col py-[33px] h-full gap-[11px] px-[22px] rounded-[10px]  border-2 border-black10 border-opacity-10 max-w-[387px] ">
-      <div className="flex gap-3 items-center">
+    <div className="flex lg:min-h-[350px] flex-col py-[33px] h-auto gap-[11px] px-[22px] rounded-[10px]  border-2 border-black10 border-opacity-10 max-w-[387px] ">
+      <div className="flex items-center gap-3 mb-4">
         {icon}
         <HeadlineSemibold className="text-primaryDefault">{title}</HeadlineSemibold>
       </div>

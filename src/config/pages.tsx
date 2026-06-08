@@ -52,11 +52,12 @@ import VloerenLeggenHexagonEn3DPage from '@/app/(root)/(routes)/vloeren-leggen/h
 import VloerenLeggenHongaarsePuntPage from '@/app/(root)/(routes)/vloeren-leggen/hongaarse-punt/page';
 import VloerenLeggenLaminaatPage from '@/app/(root)/(routes)/vloeren-leggen/laminaat/page';
 import VloerenLeggenLinoleumPage from '@/app/(root)/(routes)/vloeren-leggen/linoleum/page';
-import VloerenLeggenMozaiekEnPatroonPage from '@/app/(root)/(routes)/vloeren-leggen/mozaiek-en-patroon/page';
+import VloerenLeggenMozaiekOfPatroonPage from '@/app/(root)/(routes)/vloeren-leggen/mozaiek-of-patroon/page';
 import VloerenLeggenParketPage from '@/app/(root)/(routes)/vloeren-leggen/parket/page';
 import VloerenLeggenPVCPage from '@/app/(root)/(routes)/vloeren-leggen/pvc/page';
 import VloerenLeggenTapijtPage from '@/app/(root)/(routes)/vloeren-leggen/tapijt/page';
 import VloerenLeggenTapisPage from '@/app/(root)/(routes)/vloeren-leggen/tapis/page';
+import VloerenLeggenVinylPage from '@/app/(root)/(routes)/vloeren-leggen/vinyl/page';
 import VloerenLeggenVisgraatPage from '@/app/(root)/(routes)/vloeren-leggen/visgraat/page';
 import VloerenLeggenWalvisgraatPage from '@/app/(root)/(routes)/vloeren-leggen/walvisgraat/page';
 import VloerenLeggenWeensePuntPage from '@/app/(root)/(routes)/vloeren-leggen/weense-punt/page';
@@ -103,12 +104,13 @@ export const pagesMap: PagesMapType = {
   '/vloeren-leggen/pvc': <VloerenLeggenPVCPage />,
   '/vloeren-leggen/tapijt': <VloerenLeggenTapijtPage />,
   '/vloeren-leggen/linoleum': <VloerenLeggenLinoleumPage />,
+  '/vloeren-leggen/vinyl': <VloerenLeggenVinylPage />,
   '/vloeren-leggen/visgraat': <VloerenLeggenVisgraatPage />,
   '/vloeren-leggen/walvisgraat': <VloerenLeggenWalvisgraatPage />,
   '/vloeren-leggen/hongaarse-punt': <VloerenLeggenHongaarsePuntPage />,
   '/vloeren-leggen/weense-punt': <VloerenLeggenWeensePuntPage />,
-  '/vloeren-leggen/pvc-tegels': <VloerenLeggenMozaiekEnPatroonPage />,
-  '/vloeren-leggen/mozaiek-en-patroon': <VloerenLeggenMozaiekEnPatroonPage />,
+  '/vloeren-leggen/pvc-tegels': <VloerenLeggenMozaiekOfPatroonPage />,
+  '/vloeren-leggen/mozaiek-of-patroon': <VloerenLeggenMozaiekOfPatroonPage />,
   '/vloeren-leggen/hexagon-&-3d': <VloerenLeggenHexagonEn3DPage />,
   '/vloeren-leggen/tapis': <VloerenLeggenTapisPage />,
   '/vloeren-leggen/bourgogne': <VloerenLeggenBourgognePage />,

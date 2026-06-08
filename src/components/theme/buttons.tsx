@@ -86,7 +86,7 @@ export const SecondaryOutlinedBtnLink: React.FC<{ className?: string; href: stri
     <Link
       href={href}
       className={cn(
-        'text-secondaryDefault text-center  border hover:bg-secondaryDefault hover:text-white border-secondaryDefault rounded-sm font-bold text-[13px] px-[17.81px] py-[10.69px]',
+        'text-secondaryDefault text-center border-2 hover:bg-secondaryDefault hover:text-white border-secondaryDefault rounded-lg font-bold transition-colors duration-300 text-[13px] px-[17.81px] py-[10.69px]',
         className
       )}
     >
@@ -104,7 +104,7 @@ export const PrimaryBtnLink: React.FC<{ className?: string; href: string; childr
     <Link
       href={href}
       className={cn(
-        'bg-primaryDefault text-center hover:bg-primaryDefault/90 rounded-lg text-[#fff] font-medium py-[10.69px] px-[16px] text-[13px] w-fit h-fit transition-colors duration-300',
+        'bg-primaryDefault text-center hover:bg-secondaryDefault rounded-lg text-[#fff] font-medium py-[10.69px] px-[16px] text-[13px] w-fit h-fit transition-colors duration-300',
         className
       )}
     >
@@ -122,7 +122,7 @@ export const SecondaryBtnLink: React.FC<{ className?: string; href: string; chil
     <Link
       href={href}
       className={cn(
-        'bg-secondaryDefault text-white hover:bg-secondaryDefault/90 transition-colors duration-300 rounded-lg text-center py-[10.69px] px-[16px] text-[13px] font-medium w-fit h-fit',
+        'bg-secondaryDefault text-white hover:bg-primaryDefault transition-colors duration-300 rounded-lg text-center py-[10.69px] px-[16px] text-[13px] font-medium w-fit h-fit',
         className
       )}
     >

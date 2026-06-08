@@ -74,6 +74,7 @@ export const footerColumnsInfo: FooterColumnInfo[] = [
       { name: 'PVC ', path: '/vloeren-leggen/pvc' },
       { name: 'Tapijt ', path: '/vloeren-leggen/tapijt' },
       { name: 'Linoleum ', path: '/vloeren-leggen/linoleum' },
+      { name: 'Vinyl ', path: '/vloeren-leggen/vinyl' },
       { name: 'Visgraat', path: '/vloeren-leggen/visgraat' },
       { name: 'Walvisgraat', path: '/vloeren-leggen/walvisgraat' },
       { name: 'Hongaarse punt', path: '/vloeren-leggen/hongaarse-punt' },
@@ -158,19 +159,19 @@ export const footerColumnsInfo: FooterColumnInfo[] = [
       { name: 'Tapijt verwijderen', path: '/stofferen/tapijt-verwijderen' },
     ],
   },
-  // {
-  //   title: 'Overig',
-  //   path: '/overig',
-  //   links: [
-  //     { name: 'Vloerverwarming', path: '/overig/vloerverwarming' },
-  //     { name: 'Egaliseren', path: '/overig/egaliseren' },
-  //     { name: 'Gietvloeren', path: '/overig/gietvloeren' },
-  //     { name: 'Tegelen', path: '/overig/tegelen' },
-  //     { name: 'Vloer verwijderen', path: '/overig/vloer-verwijderen' },
-  //     { name: 'Natuursteen behandelen', path: '/overig/natuursteen-behandelen' },
-  //     { name: 'Opslag', path: '/overig/opslag' },
-  //   ],
-  // },
+  {
+    title: 'Overig',
+    path: '/overig',
+    links: [
+      { name: 'Vloerverwarming', path: '/overig/vloerverwarming' },
+      { name: 'Egaliseren', path: '/overig/egaliseren' },
+      { name: 'Gietvloeren', path: '/overig/gietvloeren' },
+      { name: 'Tegelen', path: '/overig/tegelen' },
+      { name: 'Vloer verwijderen', path: '/overig/vloer-verwijderen' },
+      { name: 'Natuursteen behandelen', path: '/overig/natuursteen-behandelen' },
+      { name: 'Opslag', path: '/overig/opslag' },
+    ],
+  },
   {
     title: 'Mogelijke locaties',
     links: [

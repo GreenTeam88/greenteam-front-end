@@ -1,27 +1,27 @@
 import Image from 'next/image';
 
-import { PrimaryBtnLink } from '@/components/theme/buttons';
 import { BodyText, BodyTextBold } from '@/components/theme/typography';
 import { cn } from '@/lib/tailwind';
 import { ImageCarousel } from './animations/imageCrausel';
 import { InfoCardProps } from './cards';
+import CTAButtons from './CTAButtons';
 
-export const WhatWaitingForCard: React.FC<InfoCardProps & { orangeText: string }> = ({
+type WhatWaitingForCardProps = Omit<InfoCardProps, 'buttonText' | 'secondBtnText' | 'secondBtnLink' | 'buttonLink'> & {
+  orangeText: string;
+};
+
+export const WhatWaitingForCard: React.FC<WhatWaitingForCardProps> = ({
   imgSrc,
   paragraphs,
   title,
   imgClassName,
-  buttonText,
-  secondBtnText,
-  secondBtnLink,
-  buttonLink,
   className,
   orangeText,
 }) => {
   return (
     <div
       className={cn(
-        'flex w-full  py-[49px] px-3 lg:py-[120px] flex-col lg:flex-row  items-center justify-center gap-[27px] lg:gap-[57px]',
+        'flex w-full py-[49px] px-3 lg:py-[120px] flex-col lg:flex-row  items-center justify-center gap-[27px] lg:gap-[57px]',
         className
       )}
     >
@@ -36,16 +36,13 @@ export const WhatWaitingForCard: React.FC<InfoCardProps & { orangeText: string }
         </div>
         <div className="flex flex-col gap-[11px]">
           <BodyTextBold className="text-secondaryDefault"> {orangeText}</BodyTextBold>
-          <div className="flex gap-3">
-            {buttonText && <PrimaryBtnLink href={buttonLink || '/'}>{buttonText}</PrimaryBtnLink>}
-            {secondBtnText && <PrimaryBtnLink href={secondBtnLink || '/'}>{secondBtnText}</PrimaryBtnLink>}
-          </div>
+          <CTAButtons />
         </div>
       </div>
       {typeof imgSrc === 'string' ? (
         <div className={cn('relative w-full lg:w-[400px] h-[300px]', imgClassName)}>
           <Image
-            className="rounded-lg object-cover"
+            className="object-cover rounded-lg"
             src={imgSrc}
             alt={title || 'Card image'}
             fill
