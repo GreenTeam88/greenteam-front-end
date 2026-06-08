@@ -1,6 +1,5 @@
 import Image from 'next/image';
 
-import { PrimaryBtnLink } from '@/components/theme/buttons';
 import { BodyText, BodyTextBold } from '@/components/theme/typography';
 import { cn } from '@/lib/tailwind';
 import { ImageCarousel } from './animations/imageCrausel';
