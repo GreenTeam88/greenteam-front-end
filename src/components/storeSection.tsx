@@ -152,18 +152,15 @@ type StoreShowcaseProps = Omit<StoreImagesInfo, 'btnText' | 'btnLink'>;
 
 export const StoreShowcase: React.FC<StoreShowcaseProps> = (imagesInfo) => {
   return (
-    <div
-      className={cn(
-        'flex  py-20 items-center flex-col gap-[55px] max-w-[1440px]  w-full px-2 lg:px-[120px] lg:items-center relative',
-        imagesInfo?.className
-      )}
-    >
-      <div className="flex flex-col gap-[11px] items-center ">
-        <H2 className="text-center text-primaryDefault">{imagesInfo.title}</H2>
-        <BodyText className="max-w-[794px] text-center">{imagesInfo.description}</BodyText>
+    <div className={cn('flex items-center flex-col w-full lg:items-center', imagesInfo?.className)}>
+      <div className="flex py-20 items-center flex-col gap-[55px] max-w-[1440px] w-full px-2 lg:px-[120px] lg:items-center relative">
+        <div className="flex flex-col gap-[11px] items-center ">
+          <H2 className="text-center text-primaryDefault">{imagesInfo.title}</H2>
+          <BodyText className="max-w-[794px] text-center">{imagesInfo.description}</BodyText>
+        </div>
+        <ImagesGallery {...imagesInfo} />
+        <CTAButtons />
       </div>
-      <ImagesGallery {...imagesInfo} />
-      <CTAButtons />
     </div>
   );
 };

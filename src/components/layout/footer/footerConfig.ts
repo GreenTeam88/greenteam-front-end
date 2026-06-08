@@ -74,6 +74,7 @@ export const footerColumnsInfo: FooterColumnInfo[] = [
       { name: 'PVC ', path: '/vloeren-leggen/pvc' },
       { name: 'Tapijt ', path: '/vloeren-leggen/tapijt' },
       { name: 'Linoleum ', path: '/vloeren-leggen/linoleum' },
+      { name: 'Vinyl ', path: '/vloeren-leggen/vinyl' },
       { name: 'Visgraat', path: '/vloeren-leggen/visgraat' },
       { name: 'Walvisgraat', path: '/vloeren-leggen/walvisgraat' },
       { name: 'Hongaarse punt', path: '/vloeren-leggen/hongaarse-punt' },
