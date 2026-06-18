@@ -112,7 +112,7 @@ const ContactForm = () => {
   });
   const { mutate, isLoading, isError, isSuccess } = useMutation({
     mutationFn: async (data: ContactFormData) => {
-      const response = await axios.post(`${process.env.NEXT_PUBLIC_BACKEND_URL}/emails/phone`, data);
+      const response = await axios.post(`${process.env.NEXT_PUBLIC_BACKEND_URL}/emails/contact`, data);
       console.log('response', response);
     },
     onSuccess() {
